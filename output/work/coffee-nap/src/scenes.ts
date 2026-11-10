@@ -1,6 +1,6 @@
 import { W, H, RGB, hex, mix, sat, lerp, easeOut, easeIn, easeInOut, backOut, makeFB, target, quantize, textBlock, glyphRun, put, light, darken, Line, textWidth } from "./gfx";
 import { Label, sparkle } from "./art";
-import { room, desk, sitterBody, sitterArms, mug, alarm, battery, inside, along, caffeine, synapse, blob, RX, RECV, Sit, DESK } from "./art9";
+import { room, desk, deskProps, sitterBody, sitterArms, mug, alarm, battery, anatomy, along, caffeineDot, synapse, molecule, RX, RECV, Sit, DESK, S } from "./art10";
 import timing from "./timing.json";
 
 export { W, H };
@@ -10,9 +10,10 @@ type Txt = [string, string][][];
 export const BEATS: Line[][] = (timing.texts as unknown as Txt).map(lines => lines.map(segs => ({ segs: segs.map(([t, c]) => (c ? { t, c } : { t })) })));
 type Out = { ui: number; zoom?: number; zx?: number; zy?: number };
 
-const CX = 135, MUGX = 196, MUGY = DESK - 11;
-const REST_L: [number, number] = [-30, -66], REST_R: [number, number] = [30, -66];
-const SIP_R: [number, number] = [16, -112], GRAB_R: [number, number] = [MUGX - CX + 2, -79];
+const CX = 135, MUGX = 196, MUGY = DESK - 13;
+const REST_L: [number, number] = [-26, -4], REST_R: [number, number] = [26, -4];
+const SIP_R: [number, number] = [11, -64], GRAB_R: [number, number] = [(MUGX - CX) / S + 1, -13 / S + 3];
+const ER: [number, number] = [36, -34];
 const lerp2 = (a: [number, number], b: [number, number], t: number): [number, number] => [lerp(a[0], b[0], t), lerp(a[1], b[1], t)];
 const zzz = (f: number, x: number, y: number, L: Label[], a = 1) => {
   if (a <= 0) return;
@@ -22,9 +23,10 @@ const deskScene = (f: number, P: Sit, sun: number, L: Label[], mugOnDesk: boolea
   light.tint = mix([0.96, 0.98, 1.06] as RGB, [1.06, 1.02, 0.94] as RGB, sun) as RGB;
   room(f, sun);
   sitterBody(CX, P);
-  desk();
+  desk(f, sun);
+  deskProps(f, sun);
   if (mugOnDesk) mug(MUGX, MUGY, 0, 0.8, f);
-  alarm(236, f, ring, L);
+  alarm(238, f, ring, L);
   sitterArms(CX, P, f);
 };
 
@@ -35,30 +37,30 @@ const s1 = (f: number, L: Label[]): Out => {
   const hr = held ? lerp2(SIP_R, GRAB_R, down) : lerp2(GRAB_R, REST_R, rest);
   const sleepy = sat((f - T.cupDown) / (T.asleep - T.cupDown));
   const face = f < T.sipEnd ? { eye: "closed" as const, mouth: "smile" as const } : sleepy > 0.95 ? { eye: "closed" as const, mouth: "sleep" as const } : sleepy > 0.3 ? { eye: "half" as const, mouth: "flat" as const } : { eye: "open" as const, mouth: "smile" as const, blink: f > 36 && f < 39 };
-  const P: Sit = { face, tilt: 0.2 * easeInOut((f - 50) / 14), lift: 0, hl: REST_L, hr, mug: held ? "r" : null, mugTilt: lerp(-0.55, 0, down), steam: 1 };
+  const P: Sit = { face, tilt: 0.2 * easeInOut((f - 50) / 14), lift: 0, hl: REST_L, hr, er: ER, erw: held ? 1 - down : 0, mug: held ? "r" : null, mugTilt: lerp(-0.55, 0, down), steam: 1 };
   deskScene(f, P, 0, L, !held);
   const ui = L.length;
-  zzz(f, 160, 236, L, f > T.asleep ? 1 : 0);
+  zzz(f, 162, 200, L, f > T.asleep ? 1 : 0);
   return { ui, zoom: lerp(1.3, 1, backOut(f / 16)), zx: CX, zy: 300 };
 };
 
 // 2) inside view: caffeine travels for 20 minutes while you sleep
 const s2 = (f: number, L: Label[]): Out => {
   const l = f - B[1], D = T.kick - B[1] - 4, kick = easeOut((f - T.kick) / 10);
-  inside(f, kick);
+  anatomy(f, kick);
   for (let i = 0; i < 9; i++) {
     const u = (l - 4 - i * 9) / D;
     if (u <= 0 || u >= 1) continue;
-    const [x, y] = along(u); caffeine(x + Math.sin(l * 0.3 + i) * 1.5, y, 3.2);
+    const [x, y] = along(u); caffeineDot(x + Math.sin(l * 0.3 + i) * 1.2, y);
   }
-  if (kick > 0) for (let i = 0; i < 8; i++) { const a = i * 0.785 + f * 0.05, r = 30 + kick * 18; sparkle(137 + Math.cos(a) * r, 290 + Math.sin(a) * r * 0.7, 2, hex("#ffe14e"), 1 - sat((f - T.kick - 14) / 12)); }
+  if (kick > 0) for (let i = 0; i < 8; i++) { const a = i * 0.785 + f * 0.05, r = 30 + kick * 18; sparkle(135 + Math.cos(a) * r, 222 + Math.sin(a) * r * 0.8, 2, hex("#ffe14e"), 1 - sat((f - T.kick - 14) / 12)); }
   const m = sat((l - 6) / (T.kick - B[1] - 6)) * 20, mm = Math.floor(m), ss = Math.floor((m % 1) * 60);
   const clock = `${String(mm).padStart(2, "0")}:${String(f >= T.kick ? 0 : ss).padStart(2, "0")}`;
   const ui = L.length;
-  L.push({ s: clock, x: Math.round(135 - textWidth(clock, 32) / 2), y: 176, c: f >= T.kick ? "#ffd84a" : "#ffffff", size: 32 });
-  zzz(f, 178, 262, L, 1 - kick);
-  if (kick > 0.3) L.push({ s: "BRAIN", x: 115, y: 318, c: "#ffd84a", size: 16 });
-  else L.push({ s: "STOMACH", x: 172, y: 386, c: "#ffd0c0", size: 16 });
+  L.push({ s: clock, x: Math.round(135 - textWidth(clock, 32) / 2), y: 168, c: f >= T.kick ? "#ffd84a" : "#ffffff", size: 32 });
+  zzz(f, 160, 212, L, 1 - kick);
+  if (kick > 0.3) L.push({ s: "BRAIN", x: 162, y: 226, c: "#ffd84a", size: 16 });
+  else L.push({ s: "STOMACH", x: 172, y: 378, c: "#ffd0c0", size: 16 });
   return { ui, zoom: lerp(1.08, 1, easeOut(l / 30)), zx: 135, zy: 300 };
 };
 
@@ -67,21 +69,20 @@ const s3 = (f: number, L: Label[]): Out => {
   const l = f - B[2], lit = easeOut((l - 92) / 14);
   synapse(f, lit);
   RX.forEach((x, i) => {
-    const la = 12 + i * 10, u = easeIn((l - la) / 34), y0 = RECV(x, f) - 6;
+    const la = 12 + i * 10, u = easeIn((l - la) / 34), y0 = RECV(x, f) + 2;
     if (u < 1) {
-      blob(x + Math.sin(u * 5 + i) * 12 * u, y0 - u * 140, "aden", f, 1 - u * u);
-      if (u === 0) L.push({ s: "z", x: x + 8, y: y0 - 22 - Math.round(((f * 0.3 + i * 5) % 8)), c: "#c8a0ff", size: 16 });
+      molecule("aden", x + Math.sin(u * 5 + i) * 12 * u, y0 - u * 110 + Math.sin(f * 0.15 + i) * 0.8 * (1 - u), (i % 2 ? 0.3 : -0.3) + u * 2.5 * (i % 2 ? 1 : -1), 1 - u * u, 1.25);
     }
     const lc = 66 + i * 7, v = (l - lc) / 14;
     if (v > 0) {
-      const yy = v < 1 ? lerp(150, y0, easeIn(v)) : y0 - Math.abs(Math.sin((l - lc - 14) * 0.45)) * 5 * Math.exp(-(l - lc - 14) * 0.12);
-      blob(x, yy, "caf", f);
+      const yy = v < 1 ? lerp(250, y0, easeIn(v)) : y0 - Math.abs(Math.sin((l - lc - 14) * 0.45)) * 4 * Math.exp(-(l - lc - 14) * 0.12);
+      molecule("caf", x, yy, (1 - sat(v)) * 3 * (i % 2 ? 1 : -1), sat(v * 3), 1.25);
     }
   });
-  if (lit > 0) for (let i = 0; i < 10; i++) { const x = (i * 29 + f * 3) % 270, y = 350 + ((i * 17 + f * 2) % 40); sparkle(x, y, 1, hex("#ffe14e"), lit * 0.8); }
+  if (lit > 0) for (let i = 0; i < 10; i++) { const x = (i * 29 + f * 3) % 270, y = 250 + ((i * 17 + f * 2) % 50); sparkle(x, y, 1, hex("#ffe14e"), lit * 0.8); }
   const ui = L.length;
-  if (l > 6 && l < 50) L.push({ s: "ADENOSINE", x: 8, y: 236, c: "#c8a0ff", size: 16 });
-  if (l > 84) L.push({ s: "CAFFEINE", x: 8, y: 236, c: "#ffd84a", size: 16 });
+  if (l > 6 && l < 50) L.push({ s: "ADENOSINE", x: 8, y: 262, c: "#c8a0ff", size: 16 });
+  if (l > 84) L.push({ s: "CAFFEINE", x: 8, y: 262, c: "#ffd84a", size: 16 });
   return { ui };
 };
 
@@ -92,13 +93,13 @@ const s4 = (f: number, L: Label[]): Out => {
   const sun = easeInOut((w - 4) / 30), lift = woke ? Math.max(0, Math.sin(Math.min(Math.PI, w * 0.25))) * 16 : 0;
   const cheer = woke ? easeOut(w / 6) * (1 - easeInOut((w - 44) / 14)) : 0;
   const wave = Math.sin(f * 0.5) * 6 * cheer;
-  const hl = lerp2(REST_L, [-44 + wave, -152 - lift], cheer), hr = lerp2(REST_R, [44 - wave, -152 - lift], cheer);
+  const hl = lerp2(REST_L, [-44 + wave, -112 - lift], cheer), hr = lerp2(REST_R, [44 - wave, -112 - lift], cheer);
   const P: Sit = woke ? { face: { eye: w < 30 ? "wide" : "open", mouth: "grin" }, tilt: 0, lift, hl, hr }
     : { face: { eye: f >= T.ring ? "half" : "closed", mouth: f >= T.ring ? "o" : "sleep" }, tilt: f >= T.ring ? 0.1 : 0.2, lift: 0, hl: REST_L, hr: REST_R };
   deskScene(f, P, sun, L, true, ring);
-  if (woke) for (let i = 0; i < 6; i++) { const a = i * 1.05 + f * 0.08, r = 58 + Math.sin(f * 0.2 + i) * 6; sparkle(CX + Math.cos(a) * r, 262 + Math.sin(a) * r * 0.8, 2, hex(i % 2 ? "#ffe14e" : "#ffffff"), 0.9); }
+  if (woke) for (let i = 0; i < 6; i++) { const a = i * 1.05 + f * 0.08, r = 72 + Math.sin(f * 0.2 + i) * 6; sparkle(CX + Math.cos(a) * r, 232 + Math.sin(a) * r * 0.8, 2, hex(i % 2 ? "#ffe14e" : "#ffffff"), 0.9); }
   const ui = L.length;
-  if (!woke) zzz(f, 160, 236, L, f < T.ring ? 1 : 0);
+  if (!woke) zzz(f, 162, 200, L, f < T.ring ? 1 : 0);
   battery(238, 184, lerp(0.1, 1, easeOut((w - 4) / 36)), woke ? sat(w / 6) : 0, L);
   return { ui };
 };
@@ -108,9 +109,9 @@ const s5 = (f: number, L: Label[]): Out => {
   const l = f - B[4], back = easeInOut((f - (B[5] - 26)) / 24), grab = easeInOut((f - (B[5] - 40)) / 12), sip = easeInOut((f - (B[5] - 26)) / 22);
   const bob = Math.abs(Math.sin(l * 0.21)) * 3 * (1 - back);
   const hr = sip > 0 ? lerp2(GRAB_R, SIP_R, sip) : lerp2(REST_R, GRAB_R, grab), held = grab >= 1;
-  const P: Sit = { face: back > 0.6 ? { eye: "closed", mouth: "smile" } : { eye: "open", mouth: "grin", blink: l % 50 > 46 }, tilt: Math.sin(l * 0.1) * 0.05 * (1 - back), lift: bob, hl: lerp2(REST_L, [-34, -68], 0), hr, mug: held ? "r" : null, mugTilt: lerp(0, -0.55, sip), steam: 1 };
+  const P: Sit = { face: back > 0.6 ? { eye: "closed", mouth: "smile" } : { eye: "open", mouth: "grin", blink: l % 50 > 46 }, tilt: Math.sin(l * 0.1) * 0.05 * (1 - back), lift: bob, hl: REST_L, hr, er: ER, erw: sip, mug: held ? "r" : null, mugTilt: lerp(0, -0.55, sip), steam: 1 };
   deskScene(f, P, 1 - back, L, !held);
-  for (let i = 0; i < 4; i++) { const a = i * 1.57 + f * 0.06; sparkle(CX + Math.cos(a) * 62, 262 + Math.sin(a) * 50, 2, hex("#ffe14e"), 0.8 * (1 - back)); }
+  for (let i = 0; i < 4; i++) { const a = i * 1.57 + f * 0.06; sparkle(CX + Math.cos(a) * 70, 232 + Math.sin(a) * 50, 2, hex("#ffe14e"), 0.8 * (1 - back)); }
   const ui = L.length;
   battery(238, 184, 1, 1 - sat((f - (B[5] - 40)) / 10), L);
   return { ui, zoom: lerp(1, 1.3, back), zx: CX, zy: 300 };
@@ -162,10 +163,10 @@ export const renderFrame = (f: number, out: Uint8ClampedArray) => {
       if (p > 0 && p < 1 && Math.abs(d - r) < 3) c = Math.abs(d - r) < 1.6 ? ring : mix(c, rim, 0.7);
       mixed[i] = c[0]; mixed[i + 1] = c[1]; mixed[i + 2] = c[2];
     }
-    quantize(mixed, out);
+    quantize(mixed, out, 16, 0.7);
     const lp = f < cut ? lc : lo, ln = f < cut ? lo : lc, inside = (l: Label) => Math.hypot(l.x - IX, l.y - IY) < r;
     flush(out, lp.filter(l => !inside(l))); flush(out, ln.filter(inside));
-  } else { quantize(fbA, out); flush(out, L); }
+  } else { quantize(fbA, out, 16, 0.7); flush(out, L); }
   const bi = beatIndex(f), lf = f - B[bi], lines = BEATS[bi].map((l, i) => (bi === 0 && i === 1 ? { ...l, big: true } : l));
   if (bi === 0) textBlock(out, lines, 80, 999);
   else if (lf >= 3 && (bi === BEATS.length - 1 || B[bi + 1] - f > 3)) textBlock(out, lines, 88, (lf - 3) * CHARS_PER_FRAME);
