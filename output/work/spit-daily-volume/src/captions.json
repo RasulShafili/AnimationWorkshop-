@@ -1,0 +1,716 @@
+[
+  {
+    "start": 0.1,
+    "end": 1.48,
+    "startFrame": 3,
+    "endFrame": 44,
+    "text": "Did you know your",
+    "words": [
+      {
+        "word": "Did",
+        "start": 0.1,
+        "end": 0.45,
+        "frame": 3
+      },
+      {
+        "word": "you",
+        "start": 0.45,
+        "end": 0.79,
+        "frame": 13
+      },
+      {
+        "word": "know",
+        "start": 0.79,
+        "end": 1.14,
+        "frame": 23
+      },
+      {
+        "word": "your",
+        "start": 1.14,
+        "end": 1.48,
+        "frame": 34
+      }
+    ]
+  },
+  {
+    "start": 1.48,
+    "end": 2.86,
+    "startFrame": 44,
+    "endFrame": 85,
+    "text": "mouth produces one full",
+    "words": [
+      {
+        "word": "mouth",
+        "start": 1.48,
+        "end": 1.83,
+        "frame": 44
+      },
+      {
+        "word": "produces",
+        "start": 1.83,
+        "end": 2.17,
+        "frame": 54
+      },
+      {
+        "word": "one",
+        "start": 2.17,
+        "end": 2.52,
+        "frame": 65
+      },
+      {
+        "word": "full",
+        "start": 2.52,
+        "end": 2.86,
+        "frame": 75
+      }
+    ]
+  },
+  {
+    "start": 2.86,
+    "end": 4.25,
+    "startFrame": 85,
+    "endFrame": 127,
+    "text": "litre of saliva every",
+    "words": [
+      {
+        "word": "litre",
+        "start": 2.86,
+        "end": 3.21,
+        "frame": 85
+      },
+      {
+        "word": "of",
+        "start": 3.21,
+        "end": 3.56,
+        "frame": 96
+      },
+      {
+        "word": "saliva",
+        "start": 3.56,
+        "end": 3.9,
+        "frame": 106
+      },
+      {
+        "word": "every",
+        "start": 3.9,
+        "end": 4.25,
+        "frame": 117
+      }
+    ]
+  },
+  {
+    "start": 4.25,
+    "end": 4.94,
+    "startFrame": 127,
+    "endFrame": 148,
+    "text": "single day?",
+    "words": [
+      {
+        "word": "single",
+        "start": 4.25,
+        "end": 4.59,
+        "frame": 127
+      },
+      {
+        "word": "day?",
+        "start": 4.59,
+        "end": 4.94,
+        "frame": 137
+      }
+    ]
+  },
+  {
+    "start": 4.89,
+    "end": 6.38,
+    "startFrame": 146,
+    "endFrame": 191,
+    "text": "That is enough to",
+    "words": [
+      {
+        "word": "That",
+        "start": 4.89,
+        "end": 5.26,
+        "frame": 146
+      },
+      {
+        "word": "is",
+        "start": 5.26,
+        "end": 5.63,
+        "frame": 157
+      },
+      {
+        "word": "enough",
+        "start": 5.63,
+        "end": 6.0,
+        "frame": 168
+      },
+      {
+        "word": "to",
+        "start": 6.0,
+        "end": 6.38,
+        "frame": 180
+      }
+    ]
+  },
+  {
+    "start": 6.38,
+    "end": 7.86,
+    "startFrame": 191,
+    "endFrame": 235,
+    "text": "fill an entire water",
+    "words": [
+      {
+        "word": "fill",
+        "start": 6.38,
+        "end": 6.75,
+        "frame": 191
+      },
+      {
+        "word": "an",
+        "start": 6.75,
+        "end": 7.12,
+        "frame": 202
+      },
+      {
+        "word": "entire",
+        "start": 7.12,
+        "end": 7.49,
+        "frame": 213
+      },
+      {
+        "word": "water",
+        "start": 7.49,
+        "end": 7.86,
+        "frame": 224
+      }
+    ]
+  },
+  {
+    "start": 7.86,
+    "end": 8.24,
+    "startFrame": 235,
+    "endFrame": 247,
+    "text": "bottle!",
+    "words": [
+      {
+        "word": "bottle!",
+        "start": 7.86,
+        "end": 8.24,
+        "frame": 235
+      }
+    ]
+  },
+  {
+    "start": 8.24,
+    "end": 9.98,
+    "startFrame": 247,
+    "endFrame": 299,
+    "text": "Over an average lifetime,",
+    "words": [
+      {
+        "word": "Over",
+        "start": 8.24,
+        "end": 8.67,
+        "frame": 247
+      },
+      {
+        "word": "an",
+        "start": 8.67,
+        "end": 9.11,
+        "frame": 260
+      },
+      {
+        "word": "average",
+        "start": 9.11,
+        "end": 9.55,
+        "frame": 273
+      },
+      {
+        "word": "lifetime,",
+        "start": 9.55,
+        "end": 9.98,
+        "frame": 286
+      }
+    ]
+  },
+  {
+    "start": 9.98,
+    "end": 11.73,
+    "startFrame": 299,
+    "endFrame": 351,
+    "text": "your salivary glands pump",
+    "words": [
+      {
+        "word": "your",
+        "start": 9.98,
+        "end": 10.42,
+        "frame": 299
+      },
+      {
+        "word": "salivary",
+        "start": 10.42,
+        "end": 10.86,
+        "frame": 312
+      },
+      {
+        "word": "glands",
+        "start": 10.86,
+        "end": 11.29,
+        "frame": 325
+      },
+      {
+        "word": "pump",
+        "start": 11.29,
+        "end": 11.73,
+        "frame": 338
+      }
+    ]
+  },
+  {
+    "start": 11.73,
+    "end": 13.48,
+    "startFrame": 351,
+    "endFrame": 404,
+    "text": "out twenty-five thousand litres",
+    "words": [
+      {
+        "word": "out",
+        "start": 11.73,
+        "end": 12.17,
+        "frame": 351
+      },
+      {
+        "word": "twenty-five",
+        "start": 12.17,
+        "end": 12.6,
+        "frame": 365
+      },
+      {
+        "word": "thousand",
+        "start": 12.6,
+        "end": 13.04,
+        "frame": 378
+      },
+      {
+        "word": "litres",
+        "start": 13.04,
+        "end": 13.48,
+        "frame": 391
+      }
+    ]
+  },
+  {
+    "start": 13.48,
+    "end": 14.35,
+    "startFrame": 404,
+    "endFrame": 430,
+    "text": "of spit.",
+    "words": [
+      {
+        "word": "of",
+        "start": 13.48,
+        "end": 13.91,
+        "frame": 404
+      },
+      {
+        "word": "spit.",
+        "start": 13.91,
+        "end": 14.35,
+        "frame": 417
+      }
+    ]
+  },
+  {
+    "start": 14.35,
+    "end": 16.0,
+    "startFrame": 430,
+    "endFrame": 479,
+    "text": "That is enough to",
+    "words": [
+      {
+        "word": "That",
+        "start": 14.35,
+        "end": 14.76,
+        "frame": 430
+      },
+      {
+        "word": "is",
+        "start": 14.76,
+        "end": 15.17,
+        "frame": 442
+      },
+      {
+        "word": "enough",
+        "start": 15.17,
+        "end": 15.58,
+        "frame": 455
+      },
+      {
+        "word": "to",
+        "start": 15.58,
+        "end": 16.0,
+        "frame": 467
+      }
+    ]
+  },
+  {
+    "start": 16.0,
+    "end": 17.64,
+    "startFrame": 479,
+    "endFrame": 529,
+    "text": "completely fill two full",
+    "words": [
+      {
+        "word": "completely",
+        "start": 16.0,
+        "end": 16.41,
+        "frame": 479
+      },
+      {
+        "word": "fill",
+        "start": 16.41,
+        "end": 16.82,
+        "frame": 492
+      },
+      {
+        "word": "two",
+        "start": 16.82,
+        "end": 17.23,
+        "frame": 504
+      },
+      {
+        "word": "full",
+        "start": 17.23,
+        "end": 17.64,
+        "frame": 516
+      }
+    ]
+  },
+  {
+    "start": 17.64,
+    "end": 18.88,
+    "startFrame": 529,
+    "endFrame": 566,
+    "text": "Olympic swimming pools!",
+    "words": [
+      {
+        "word": "Olympic",
+        "start": 17.64,
+        "end": 18.05,
+        "frame": 529
+      },
+      {
+        "word": "swimming",
+        "start": 18.05,
+        "end": 18.46,
+        "frame": 541
+      },
+      {
+        "word": "pools!",
+        "start": 18.46,
+        "end": 18.88,
+        "frame": 553
+      }
+    ]
+  },
+  {
+    "start": 18.88,
+    "end": 20.54,
+    "startFrame": 566,
+    "endFrame": 616,
+    "text": "Saliva contains enzymes that",
+    "words": [
+      {
+        "word": "Saliva",
+        "start": 18.88,
+        "end": 19.29,
+        "frame": 566
+      },
+      {
+        "word": "contains",
+        "start": 19.29,
+        "end": 19.71,
+        "frame": 578
+      },
+      {
+        "word": "enzymes",
+        "start": 19.71,
+        "end": 20.12,
+        "frame": 591
+      },
+      {
+        "word": "that",
+        "start": 20.12,
+        "end": 20.54,
+        "frame": 603
+      }
+    ]
+  },
+  {
+    "start": 20.54,
+    "end": 22.2,
+    "startFrame": 616,
+    "endFrame": 666,
+    "text": "break down food before",
+    "words": [
+      {
+        "word": "break",
+        "start": 20.54,
+        "end": 20.96,
+        "frame": 616
+      },
+      {
+        "word": "down",
+        "start": 20.96,
+        "end": 21.37,
+        "frame": 628
+      },
+      {
+        "word": "food",
+        "start": 21.37,
+        "end": 21.79,
+        "frame": 641
+      },
+      {
+        "word": "before",
+        "start": 21.79,
+        "end": 22.2,
+        "frame": 653
+      }
+    ]
+  },
+  {
+    "start": 22.2,
+    "end": 23.87,
+    "startFrame": 666,
+    "endFrame": 716,
+    "text": "you even swallow, protecting",
+    "words": [
+      {
+        "word": "you",
+        "start": 22.2,
+        "end": 22.62,
+        "frame": 666
+      },
+      {
+        "word": "even",
+        "start": 22.62,
+        "end": 23.04,
+        "frame": 678
+      },
+      {
+        "word": "swallow,",
+        "start": 23.04,
+        "end": 23.45,
+        "frame": 691
+      },
+      {
+        "word": "protecting",
+        "start": 23.45,
+        "end": 23.87,
+        "frame": 703
+      }
+    ]
+  },
+  {
+    "start": 23.87,
+    "end": 25.53,
+    "startFrame": 716,
+    "endFrame": 766,
+    "text": "your teeth from acidic",
+    "words": [
+      {
+        "word": "your",
+        "start": 23.87,
+        "end": 24.29,
+        "frame": 716
+      },
+      {
+        "word": "teeth",
+        "start": 24.29,
+        "end": 24.7,
+        "frame": 728
+      },
+      {
+        "word": "from",
+        "start": 24.7,
+        "end": 25.12,
+        "frame": 741
+      },
+      {
+        "word": "acidic",
+        "start": 25.12,
+        "end": 25.53,
+        "frame": 753
+      }
+    ]
+  },
+  {
+    "start": 25.53,
+    "end": 25.95,
+    "startFrame": 766,
+    "endFrame": 778,
+    "text": "decay.",
+    "words": [
+      {
+        "word": "decay.",
+        "start": 25.53,
+        "end": 25.95,
+        "frame": 766
+      }
+    ]
+  },
+  {
+    "start": 25.95,
+    "end": 27.45,
+    "startFrame": 778,
+    "endFrame": 823,
+    "text": "Without spit, your tongue",
+    "words": [
+      {
+        "word": "Without",
+        "start": 25.95,
+        "end": 26.32,
+        "frame": 778
+      },
+      {
+        "word": "spit,",
+        "start": 26.32,
+        "end": 26.7,
+        "frame": 789
+      },
+      {
+        "word": "your",
+        "start": 26.7,
+        "end": 27.07,
+        "frame": 801
+      },
+      {
+        "word": "tongue",
+        "start": 27.07,
+        "end": 27.45,
+        "frame": 812
+      }
+    ]
+  },
+  {
+    "start": 27.45,
+    "end": 28.95,
+    "startFrame": 823,
+    "endFrame": 868,
+    "text": "could not even taste",
+    "words": [
+      {
+        "word": "could",
+        "start": 27.45,
+        "end": 27.82,
+        "frame": 823
+      },
+      {
+        "word": "not",
+        "start": 27.82,
+        "end": 28.2,
+        "frame": 834
+      },
+      {
+        "word": "even",
+        "start": 28.2,
+        "end": 28.57,
+        "frame": 846
+      },
+      {
+        "word": "taste",
+        "start": 28.57,
+        "end": 28.95,
+        "frame": 857
+      }
+    ]
+  },
+  {
+    "start": 28.95,
+    "end": 30.45,
+    "startFrame": 868,
+    "endFrame": 913,
+    "text": "a slice of pizza.",
+    "words": [
+      {
+        "word": "a",
+        "start": 28.95,
+        "end": 29.32,
+        "frame": 868
+      },
+      {
+        "word": "slice",
+        "start": 29.32,
+        "end": 29.7,
+        "frame": 879
+      },
+      {
+        "word": "of",
+        "start": 29.7,
+        "end": 30.07,
+        "frame": 891
+      },
+      {
+        "word": "pizza.",
+        "start": 30.07,
+        "end": 30.45,
+        "frame": 902
+      }
+    ]
+  },
+  {
+    "start": 30.45,
+    "end": 31.64,
+    "startFrame": 913,
+    "endFrame": 949,
+    "text": "How many bottles",
+    "words": [
+      {
+        "word": "How",
+        "start": 30.45,
+        "end": 30.85,
+        "frame": 913
+      },
+      {
+        "word": "many",
+        "start": 30.85,
+        "end": 31.25,
+        "frame": 925
+      },
+      {
+        "word": "bottles",
+        "start": 31.25,
+        "end": 31.64,
+        "frame": 937
+      }
+    ]
+  },
+  {
+    "start": 31.64,
+    "end": 32.84,
+    "startFrame": 949,
+    "endFrame": 985,
+    "text": "have you filled?",
+    "words": [
+      {
+        "word": "have",
+        "start": 31.64,
+        "end": 32.04,
+        "frame": 949
+      },
+      {
+        "word": "you",
+        "start": 32.04,
+        "end": 32.44,
+        "frame": 961
+      },
+      {
+        "word": "filled?",
+        "start": 32.44,
+        "end": 32.84,
+        "frame": 973
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "fps": 30,
+  "total": 900,
+  "beats": [0, 90, 210, 345, 465, 705, 900],
+  "every": 60,
+  "drop": 118,
+  "muscle": [100, 200],
+  "rip": 188,
+  "beard": [218, 300],
+  "acne": [250, 320],
+  "hair": [275, 345],
+  "heart": 420,
+  "molecules": [465, 600],
+  "chest": [610, 690],
+  "texts": [
+    ["TESTOSTERONE", "×2 EVERY 2 SECONDS"],
+    ["YOU'RE A", "BEAST"],
+    ["THEN IT", "BACKFIRES"],
+    ["YOUR BLOOD", "TURNS TO SLUDGE"],
+    ["THE TWIST:", "IT BECOMES ESTROGEN"],
+    ["WOULD YOU", "TRY IT?"]
+  ],
+  "vo": [3, 96, 216, 350, 472, 716]
+}

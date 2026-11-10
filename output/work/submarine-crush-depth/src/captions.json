@@ -1,0 +1,587 @@
+[
+  {
+    "id": 1,
+    "words": [
+      "What",
+      "actually",
+      "happens"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 0.05,
+    "endTime": 1.219,
+    "startFrame": 2,
+    "endFrame": 37
+  },
+  {
+    "id": 2,
+    "words": [
+      "when",
+      "a",
+      "submarine"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 1.219,
+    "endTime": 2.08,
+    "startFrame": 37,
+    "endFrame": 62
+  },
+  {
+    "id": 3,
+    "words": [
+      "dives",
+      "past",
+      "its"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 2.08,
+    "endTime": 2.818,
+    "startFrame": 62,
+    "endFrame": 85
+  },
+  {
+    "id": 4,
+    "words": [
+      "crush",
+      "depth"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 2.818,
+    "endTime": 3.495,
+    "startFrame": 85,
+    "endFrame": 105
+  },
+  {
+    "id": 5,
+    "words": [
+      "At",
+      "300",
+      "meters"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 3.495,
+    "endTime": 4.4,
+    "startFrame": 105,
+    "endFrame": 132
+  },
+  {
+    "id": 6,
+    "words": [
+      "modern",
+      "attack",
+      "submarines"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 4.4,
+    "endTime": 6.06,
+    "startFrame": 132,
+    "endFrame": 182
+  },
+  {
+    "id": 7,
+    "words": [
+      "cruise",
+      "comfortably"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 6.06,
+    "endTime": 7.418,
+    "startFrame": 182,
+    "endFrame": 223
+  },
+  {
+    "id": 8,
+    "words": [
+      "But",
+      "if",
+      "control"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 7.418,
+    "endTime": 8.258,
+    "startFrame": 223,
+    "endFrame": 248
+  },
+  {
+    "id": 9,
+    "words": [
+      "is",
+      "lost",
+      "and"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 8.258,
+    "endTime": 8.889,
+    "startFrame": 248,
+    "endFrame": 267
+  },
+  {
+    "id": 10,
+    "words": [
+      "it",
+      "sinks",
+      "into"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 8.889,
+    "endTime": 9.659,
+    "startFrame": 267,
+    "endFrame": 290
+  },
+  {
+    "id": 11,
+    "words": [
+      "the",
+      "dark",
+      "abyss"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 9.659,
+    "endTime": 10.569,
+    "startFrame": 290,
+    "endFrame": 317
+  },
+  {
+    "id": 12,
+    "words": [
+      "hydrostatic",
+      "pressure",
+      "surges"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 10.569,
+    "endTime": 12.32,
+    "startFrame": 317,
+    "endFrame": 370
+  },
+  {
+    "id": 13,
+    "words": [
+      "violently"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 12.32,
+    "endTime": 13.02,
+    "startFrame": 370,
+    "endFrame": 391
+  },
+  {
+    "id": 14,
+    "words": [
+      "Every",
+      "10",
+      "meters"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 13.02,
+    "endTime": 13.931,
+    "startFrame": 391,
+    "endFrame": 418
+  },
+  {
+    "id": 15,
+    "words": [
+      "of",
+      "depth",
+      "adds"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 13.931,
+    "endTime": 14.703,
+    "startFrame": 418,
+    "endFrame": 441
+  },
+  {
+    "id": 16,
+    "words": [
+      "an",
+      "entire",
+      "atmosphere"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 14.703,
+    "endTime": 15.965,
+    "startFrame": 441,
+    "endFrame": 479
+  },
+  {
+    "id": 17,
+    "words": [
+      "of",
+      "pressure"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 15.965,
+    "endTime": 16.736,
+    "startFrame": 479,
+    "endFrame": 502
+  },
+  {
+    "id": 18,
+    "words": [
+      "At",
+      "1,000",
+      "meters"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 16.736,
+    "endTime": 17.839,
+    "startFrame": 502,
+    "endFrame": 535
+  },
+  {
+    "id": 19,
+    "words": [
+      "over",
+      "100",
+      "kilograms"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 17.839,
+    "endTime": 19.099,
+    "startFrame": 535,
+    "endFrame": 573
+  },
+  {
+    "id": 20,
+    "words": [
+      "push",
+      "on",
+      "every"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 19.099,
+    "endTime": 19.966,
+    "startFrame": 573,
+    "endFrame": 599
+  },
+  {
+    "id": 21,
+    "words": [
+      "single",
+      "square",
+      "centimeter"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 19.966,
+    "endTime": 21.699,
+    "startFrame": 599,
+    "endFrame": 651
+  },
+  {
+    "id": 22,
+    "words": [
+      "of",
+      "the",
+      "steel"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 21.699,
+    "endTime": 22.487,
+    "startFrame": 651,
+    "endFrame": 675
+  },
+  {
+    "id": 23,
+    "words": [
+      "hull"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 22.487,
+    "endTime": 22.881,
+    "startFrame": 675,
+    "endFrame": 686
+  },
+  {
+    "id": 24,
+    "words": [
+      "The",
+      "submarine",
+      "begins"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 22.881,
+    "endTime": 24.107,
+    "startFrame": 686,
+    "endFrame": 723
+  },
+  {
+    "id": 25,
+    "words": [
+      "to",
+      "groan"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 24.107,
+    "endTime": 24.652,
+    "startFrame": 723,
+    "endFrame": 740
+  },
+  {
+    "id": 26,
+    "words": [
+      "Rivets",
+      "shoot",
+      "like"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 24.652,
+    "endTime": 25.752,
+    "startFrame": 740,
+    "endFrame": 773
+  },
+  {
+    "id": 27,
+    "words": [
+      "bullets",
+      "as",
+      "metal"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 25.752,
+    "endTime": 26.778,
+    "startFrame": 773,
+    "endFrame": 803
+  },
+  {
+    "id": 28,
+    "words": [
+      "flexes",
+      "inward"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 26.778,
+    "endTime": 27.731,
+    "startFrame": 803,
+    "endFrame": 832
+  },
+  {
+    "id": 29,
+    "words": [
+      "The",
+      "moment",
+      "crush"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 27.731,
+    "endTime": 28.686,
+    "startFrame": 832,
+    "endFrame": 861
+  },
+  {
+    "id": 30,
+    "words": [
+      "depth",
+      "is",
+      "breached"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 28.686,
+    "endTime": 29.778,
+    "startFrame": 861,
+    "endFrame": 893
+  },
+  {
+    "id": 31,
+    "words": [
+      "catastrophic",
+      "implosion",
+      "happens"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 29.778,
+    "endTime": 31.688,
+    "startFrame": 893,
+    "endFrame": 951
+  },
+  {
+    "id": 32,
+    "words": [
+      "in",
+      "less",
+      "than"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 31.688,
+    "endTime": 32.371,
+    "startFrame": 951,
+    "endFrame": 971
+  },
+  {
+    "id": 33,
+    "words": [
+      "forty",
+      "milliseconds"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 32.371,
+    "endTime": 33.599,
+    "startFrame": 971,
+    "endFrame": 1008
+  },
+  {
+    "id": 34,
+    "words": [
+      "Air",
+      "inside",
+      "is"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 33.599,
+    "endTime": 34.381,
+    "startFrame": 1008,
+    "endFrame": 1031
+  },
+  {
+    "id": 35,
+    "words": [
+      "superheated",
+      "by",
+      "adiabatic"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 34.381,
+    "endTime": 35.944,
+    "startFrame": 1031,
+    "endFrame": 1078
+  },
+  {
+    "id": 36,
+    "words": [
+      "compression",
+      "vaporizing",
+      "the"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 35.944,
+    "endTime": 37.721,
+    "startFrame": 1078,
+    "endFrame": 1132
+  },
+  {
+    "id": 37,
+    "words": [
+      "interior",
+      "before",
+      "the"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 37.721,
+    "endTime": 38.929,
+    "startFrame": 1132,
+    "endFrame": 1168
+  },
+  {
+    "id": 38,
+    "words": [
+      "brain",
+      "can",
+      "even"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 38.929,
+    "endTime": 39.782,
+    "startFrame": 1168,
+    "endFrame": 1193
+  },
+  {
+    "id": 39,
+    "words": [
+      "register",
+      "pain"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 39.782,
+    "endTime": 40.706,
+    "startFrame": 1193,
+    "endFrame": 1221
+  },
+  {
+    "id": 40,
+    "words": [
+      "Deep",
+      "sea",
+      "pressure"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 40.706,
+    "endTime": 41.766,
+    "startFrame": 1221,
+    "endFrame": 1253
+  },
+  {
+    "id": 41,
+    "words": [
+      "is",
+      "relentless"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 41.766,
+    "endTime": 42.685,
+    "startFrame": 1253,
+    "endFrame": 1281
+  },
+  {
+    "id": 42,
+    "words": [
+      "Would",
+      "you",
+      "ever"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 42.685,
+    "endTime": 43.466,
+    "startFrame": 1281,
+    "endFrame": 1304
+  },
+  {
+    "id": 43,
+    "words": [
+      "travel",
+      "in",
+      "a"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 43.466,
+    "endTime": 44.051,
+    "startFrame": 1304,
+    "endFrame": 1322
+  },
+  {
+    "id": 44,
+    "words": [
+      "deep",
+      "submersible"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 44.051,
+    "endTime": 45.092,
+    "startFrame": 1322,
+    "endFrame": 1353
+  },
+  {
+    "id": 45,
+    "words": [
+      "Let",
+      "us",
+      "know"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 45.092,
+    "endTime": 45.672,
+    "startFrame": 1353,
+    "endFrame": 1370
+  },
+  {
+    "id": 46,
+    "words": [
+      "in",
+      "the",
+      "comments"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 45.672,
+    "endTime": 46.574,
+    "startFrame": 1370,
+    "endFrame": 1397
+  }
+]

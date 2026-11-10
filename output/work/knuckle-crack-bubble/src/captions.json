@@ -1,0 +1,839 @@
+[
+  {
+    "start": 0.1,
+    "end": 1.62,
+    "startFrame": 3,
+    "endFrame": 48,
+    "text": "When you crack your",
+    "words": [
+      {
+        "word": "When",
+        "start": 0.1,
+        "end": 0.48,
+        "frame": 3
+      },
+      {
+        "word": "you",
+        "start": 0.48,
+        "end": 0.86,
+        "frame": 14
+      },
+      {
+        "word": "crack",
+        "start": 0.86,
+        "end": 1.24,
+        "frame": 25
+      },
+      {
+        "word": "your",
+        "start": 1.24,
+        "end": 1.62,
+        "frame": 37
+      }
+    ]
+  },
+  {
+    "start": 1.62,
+    "end": 3.15,
+    "startFrame": 48,
+    "endFrame": 94,
+    "text": "knuckles, that loud pop",
+    "words": [
+      {
+        "word": "knuckles,",
+        "start": 1.62,
+        "end": 2.0,
+        "frame": 48
+      },
+      {
+        "word": "that",
+        "start": 2.0,
+        "end": 2.38,
+        "frame": 60
+      },
+      {
+        "word": "loud",
+        "start": 2.38,
+        "end": 2.77,
+        "frame": 71
+      },
+      {
+        "word": "pop",
+        "start": 2.77,
+        "end": 3.15,
+        "frame": 82
+      }
+    ]
+  },
+  {
+    "start": 3.15,
+    "end": 4.67,
+    "startFrame": 94,
+    "endFrame": 140,
+    "text": "is NOT bones grinding",
+    "words": [
+      {
+        "word": "is",
+        "start": 3.15,
+        "end": 3.53,
+        "frame": 94
+      },
+      {
+        "word": "NOT",
+        "start": 3.53,
+        "end": 3.91,
+        "frame": 105
+      },
+      {
+        "word": "bones",
+        "start": 3.91,
+        "end": 4.29,
+        "frame": 117
+      },
+      {
+        "word": "grinding",
+        "start": 4.29,
+        "end": 4.67,
+        "frame": 128
+      }
+    ]
+  },
+  {
+    "start": 4.67,
+    "end": 5.05,
+    "startFrame": 140,
+    "endFrame": 151,
+    "text": "together!",
+    "words": [
+      {
+        "word": "together!",
+        "start": 4.67,
+        "end": 5.05,
+        "frame": 140
+      }
+    ]
+  },
+  {
+    "start": 5.0,
+    "end": 6.72,
+    "startFrame": 150,
+    "endFrame": 201,
+    "text": "Inside your finger joints",
+    "words": [
+      {
+        "word": "Inside",
+        "start": 5.0,
+        "end": 5.43,
+        "frame": 150
+      },
+      {
+        "word": "your",
+        "start": 5.43,
+        "end": 5.86,
+        "frame": 162
+      },
+      {
+        "word": "finger",
+        "start": 5.86,
+        "end": 6.29,
+        "frame": 175
+      },
+      {
+        "word": "joints",
+        "start": 6.29,
+        "end": 6.72,
+        "frame": 188
+      }
+    ]
+  },
+  {
+    "start": 6.72,
+    "end": 8.44,
+    "startFrame": 201,
+    "endFrame": 253,
+    "text": "is a slippery liquid",
+    "words": [
+      {
+        "word": "is",
+        "start": 6.72,
+        "end": 7.15,
+        "frame": 201
+      },
+      {
+        "word": "a",
+        "start": 7.15,
+        "end": 7.58,
+        "frame": 214
+      },
+      {
+        "word": "slippery",
+        "start": 7.58,
+        "end": 8.01,
+        "frame": 227
+      },
+      {
+        "word": "liquid",
+        "start": 8.01,
+        "end": 8.44,
+        "frame": 240
+      }
+    ]
+  },
+  {
+    "start": 8.44,
+    "end": 9.72,
+    "startFrame": 253,
+    "endFrame": 291,
+    "text": "called synovial fluid.",
+    "words": [
+      {
+        "word": "called",
+        "start": 8.44,
+        "end": 8.87,
+        "frame": 253
+      },
+      {
+        "word": "synovial",
+        "start": 8.87,
+        "end": 9.3,
+        "frame": 265
+      },
+      {
+        "word": "fluid.",
+        "start": 9.3,
+        "end": 9.72,
+        "frame": 278
+      }
+    ]
+  },
+  {
+    "start": 9.72,
+    "end": 11.54,
+    "startFrame": 291,
+    "endFrame": 346,
+    "text": "When you stretch your",
+    "words": [
+      {
+        "word": "When",
+        "start": 9.72,
+        "end": 10.18,
+        "frame": 291
+      },
+      {
+        "word": "you",
+        "start": 10.18,
+        "end": 10.63,
+        "frame": 305
+      },
+      {
+        "word": "stretch",
+        "start": 10.63,
+        "end": 11.08,
+        "frame": 318
+      },
+      {
+        "word": "your",
+        "start": 11.08,
+        "end": 11.54,
+        "frame": 332
+      }
+    ]
+  },
+  {
+    "start": 11.54,
+    "end": 13.35,
+    "startFrame": 346,
+    "endFrame": 400,
+    "text": "finger, pressure drops rapidly,",
+    "words": [
+      {
+        "word": "finger,",
+        "start": 11.54,
+        "end": 11.99,
+        "frame": 346
+      },
+      {
+        "word": "pressure",
+        "start": 11.99,
+        "end": 12.44,
+        "frame": 359
+      },
+      {
+        "word": "drops",
+        "start": 12.44,
+        "end": 12.9,
+        "frame": 373
+      },
+      {
+        "word": "rapidly,",
+        "start": 12.9,
+        "end": 13.35,
+        "frame": 386
+      }
+    ]
+  },
+  {
+    "start": 13.35,
+    "end": 15.16,
+    "startFrame": 400,
+    "endFrame": 454,
+    "text": "creating an intense vacuum.",
+    "words": [
+      {
+        "word": "creating",
+        "start": 13.35,
+        "end": 13.8,
+        "frame": 400
+      },
+      {
+        "word": "an",
+        "start": 13.8,
+        "end": 14.26,
+        "frame": 414
+      },
+      {
+        "word": "intense",
+        "start": 14.26,
+        "end": 14.71,
+        "frame": 427
+      },
+      {
+        "word": "vacuum.",
+        "start": 14.71,
+        "end": 15.16,
+        "frame": 441
+      }
+    ]
+  },
+  {
+    "start": 15.16,
+    "end": 17.0,
+    "startFrame": 454,
+    "endFrame": 510,
+    "text": "In just three hundred",
+    "words": [
+      {
+        "word": "In",
+        "start": 15.16,
+        "end": 15.62,
+        "frame": 454
+      },
+      {
+        "word": "just",
+        "start": 15.62,
+        "end": 16.08,
+        "frame": 468
+      },
+      {
+        "word": "three",
+        "start": 16.08,
+        "end": 16.54,
+        "frame": 482
+      },
+      {
+        "word": "hundred",
+        "start": 16.54,
+        "end": 17.0,
+        "frame": 496
+      }
+    ]
+  },
+  {
+    "start": 17.0,
+    "end": 18.85,
+    "startFrame": 510,
+    "endFrame": 565,
+    "text": "milliseconds, a microscopic nitrogen",
+    "words": [
+      {
+        "word": "milliseconds,",
+        "start": 17.0,
+        "end": 17.46,
+        "frame": 510
+      },
+      {
+        "word": "a",
+        "start": 17.46,
+        "end": 17.92,
+        "frame": 523
+      },
+      {
+        "word": "microscopic",
+        "start": 17.92,
+        "end": 18.38,
+        "frame": 537
+      },
+      {
+        "word": "nitrogen",
+        "start": 18.38,
+        "end": 18.85,
+        "frame": 551
+      }
+    ]
+  },
+  {
+    "start": 18.85,
+    "end": 20.69,
+    "startFrame": 565,
+    "endFrame": 620,
+    "text": "gas bubble is born!",
+    "words": [
+      {
+        "word": "gas",
+        "start": 18.85,
+        "end": 19.31,
+        "frame": 565
+      },
+      {
+        "word": "bubble",
+        "start": 19.31,
+        "end": 19.77,
+        "frame": 579
+      },
+      {
+        "word": "is",
+        "start": 19.77,
+        "end": 20.23,
+        "frame": 592
+      },
+      {
+        "word": "born!",
+        "start": 20.23,
+        "end": 20.69,
+        "frame": 606
+      }
+    ]
+  },
+  {
+    "start": 20.69,
+    "end": 22.14,
+    "startFrame": 620,
+    "endFrame": 664,
+    "text": "The birth and collapse",
+    "words": [
+      {
+        "word": "The",
+        "start": 20.69,
+        "end": 21.05,
+        "frame": 620
+      },
+      {
+        "word": "birth",
+        "start": 21.05,
+        "end": 21.42,
+        "frame": 631
+      },
+      {
+        "word": "and",
+        "start": 21.42,
+        "end": 21.78,
+        "frame": 642
+      },
+      {
+        "word": "collapse",
+        "start": 21.78,
+        "end": 22.14,
+        "frame": 653
+      }
+    ]
+  },
+  {
+    "start": 22.14,
+    "end": 23.6,
+    "startFrame": 664,
+    "endFrame": 707,
+    "text": "of that bubble unleashes",
+    "words": [
+      {
+        "word": "of",
+        "start": 22.14,
+        "end": 22.51,
+        "frame": 664
+      },
+      {
+        "word": "that",
+        "start": 22.51,
+        "end": 22.87,
+        "frame": 675
+      },
+      {
+        "word": "bubble",
+        "start": 22.87,
+        "end": 23.24,
+        "frame": 686
+      },
+      {
+        "word": "unleashes",
+        "start": 23.24,
+        "end": 23.6,
+        "frame": 697
+      }
+    ]
+  },
+  {
+    "start": 23.6,
+    "end": 25.06,
+    "startFrame": 707,
+    "endFrame": 751,
+    "text": "a tiny shockwave: the",
+    "words": [
+      {
+        "word": "a",
+        "start": 23.6,
+        "end": 23.96,
+        "frame": 707
+      },
+      {
+        "word": "tiny",
+        "start": 23.96,
+        "end": 24.33,
+        "frame": 718
+      },
+      {
+        "word": "shockwave:",
+        "start": 24.33,
+        "end": 24.69,
+        "frame": 729
+      },
+      {
+        "word": "the",
+        "start": 24.69,
+        "end": 25.06,
+        "frame": 740
+      }
+    ]
+  },
+  {
+    "start": 25.06,
+    "end": 26.51,
+    "startFrame": 751,
+    "endFrame": 795,
+    "text": "loud crack you hear.",
+    "words": [
+      {
+        "word": "loud",
+        "start": 25.06,
+        "end": 25.42,
+        "frame": 751
+      },
+      {
+        "word": "crack",
+        "start": 25.42,
+        "end": 25.78,
+        "frame": 762
+      },
+      {
+        "word": "you",
+        "start": 25.78,
+        "end": 26.15,
+        "frame": 773
+      },
+      {
+        "word": "hear.",
+        "start": 26.15,
+        "end": 26.51,
+        "frame": 784
+      }
+    ]
+  },
+  {
+    "start": 26.51,
+    "end": 27.7,
+    "startFrame": 795,
+    "endFrame": 830,
+    "text": "It takes twenty full",
+    "words": [
+      {
+        "word": "It",
+        "start": 26.51,
+        "end": 26.81,
+        "frame": 795
+      },
+      {
+        "word": "takes",
+        "start": 26.81,
+        "end": 27.1,
+        "frame": 804
+      },
+      {
+        "word": "twenty",
+        "start": 27.1,
+        "end": 27.4,
+        "frame": 813
+      },
+      {
+        "word": "full",
+        "start": 27.4,
+        "end": 27.7,
+        "frame": 822
+      }
+    ]
+  },
+  {
+    "start": 27.7,
+    "end": 28.88,
+    "startFrame": 830,
+    "endFrame": 866,
+    "text": "minutes for the gas",
+    "words": [
+      {
+        "word": "minutes",
+        "start": 27.7,
+        "end": 27.99,
+        "frame": 830
+      },
+      {
+        "word": "for",
+        "start": 27.99,
+        "end": 28.29,
+        "frame": 839
+      },
+      {
+        "word": "the",
+        "start": 28.29,
+        "end": 28.59,
+        "frame": 848
+      },
+      {
+        "word": "gas",
+        "start": 28.59,
+        "end": 28.88,
+        "frame": 857
+      }
+    ]
+  },
+  {
+    "start": 28.88,
+    "end": 30.07,
+    "startFrame": 866,
+    "endFrame": 902,
+    "text": "to dissolve back before",
+    "words": [
+      {
+        "word": "to",
+        "start": 28.88,
+        "end": 29.18,
+        "frame": 866
+      },
+      {
+        "word": "dissolve",
+        "start": 29.18,
+        "end": 29.48,
+        "frame": 875
+      },
+      {
+        "word": "back",
+        "start": 29.48,
+        "end": 29.77,
+        "frame": 884
+      },
+      {
+        "word": "before",
+        "start": 29.77,
+        "end": 30.07,
+        "frame": 893
+      }
+    ]
+  },
+  {
+    "start": 30.07,
+    "end": 31.25,
+    "startFrame": 902,
+    "endFrame": 937,
+    "text": "you can pop it",
+    "words": [
+      {
+        "word": "you",
+        "start": 30.07,
+        "end": 30.36,
+        "frame": 902
+      },
+      {
+        "word": "can",
+        "start": 30.36,
+        "end": 30.66,
+        "frame": 910
+      },
+      {
+        "word": "pop",
+        "start": 30.66,
+        "end": 30.96,
+        "frame": 919
+      },
+      {
+        "word": "it",
+        "start": 30.96,
+        "end": 31.25,
+        "frame": 928
+      }
+    ]
+  },
+  {
+    "start": 31.25,
+    "end": 31.55,
+    "startFrame": 937,
+    "endFrame": 946,
+    "text": "again.",
+    "words": [
+      {
+        "word": "again.",
+        "start": 31.25,
+        "end": 31.55,
+        "frame": 937
+      }
+    ]
+  },
+  {
+    "start": 31.55,
+    "end": 33.22,
+    "startFrame": 946,
+    "endFrame": 996,
+    "text": "And don't worry: science",
+    "words": [
+      {
+        "word": "And",
+        "start": 31.55,
+        "end": 31.97,
+        "frame": 946
+      },
+      {
+        "word": "don't",
+        "start": 31.97,
+        "end": 32.38,
+        "frame": 959
+      },
+      {
+        "word": "worry:",
+        "start": 32.38,
+        "end": 32.8,
+        "frame": 971
+      },
+      {
+        "word": "science",
+        "start": 32.8,
+        "end": 33.22,
+        "frame": 984
+      }
+    ]
+  },
+  {
+    "start": 33.22,
+    "end": 34.89,
+    "startFrame": 996,
+    "endFrame": 1046,
+    "text": "has proven it does",
+    "words": [
+      {
+        "word": "has",
+        "start": 33.22,
+        "end": 33.64,
+        "frame": 996
+      },
+      {
+        "word": "proven",
+        "start": 33.64,
+        "end": 34.05,
+        "frame": 1009
+      },
+      {
+        "word": "it",
+        "start": 34.05,
+        "end": 34.47,
+        "frame": 1021
+      },
+      {
+        "word": "does",
+        "start": 34.47,
+        "end": 34.89,
+        "frame": 1034
+      }
+    ]
+  },
+  {
+    "start": 34.89,
+    "end": 36.14,
+    "startFrame": 1046,
+    "endFrame": 1084,
+    "text": "not cause arthritis!",
+    "words": [
+      {
+        "word": "not",
+        "start": 34.89,
+        "end": 35.3,
+        "frame": 1046
+      },
+      {
+        "word": "cause",
+        "start": 35.3,
+        "end": 35.72,
+        "frame": 1059
+      },
+      {
+        "word": "arthritis!",
+        "start": 35.72,
+        "end": 36.14,
+        "frame": 1071
+      }
+    ]
+  },
+  {
+    "start": 36.14,
+    "end": 37.67,
+    "startFrame": 1084,
+    "endFrame": 1130,
+    "text": "How often do you",
+    "words": [
+      {
+        "word": "How",
+        "start": 36.14,
+        "end": 36.52,
+        "frame": 1084
+      },
+      {
+        "word": "often",
+        "start": 36.52,
+        "end": 36.91,
+        "frame": 1095
+      },
+      {
+        "word": "do",
+        "start": 36.91,
+        "end": 37.29,
+        "frame": 1107
+      },
+      {
+        "word": "you",
+        "start": 37.29,
+        "end": 37.67,
+        "frame": 1118
+      }
+    ]
+  },
+  {
+    "start": 37.67,
+    "end": 38.83,
+    "startFrame": 1130,
+    "endFrame": 1164,
+    "text": "crack your knuckles?",
+    "words": [
+      {
+        "word": "crack",
+        "start": 37.67,
+        "end": 38.06,
+        "frame": 1130
+      },
+      {
+        "word": "your",
+        "start": 38.06,
+        "end": 38.44,
+        "frame": 1141
+      },
+      {
+        "word": "knuckles?",
+        "start": 38.44,
+        "end": 38.83,
+        "frame": 1153
+      }
+    ]
+  }
+]

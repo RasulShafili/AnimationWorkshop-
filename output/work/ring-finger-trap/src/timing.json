@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "totalFrames": 540,
+  "beats": [0, 90, 210, 330, 435, 540],
+  "slam": 10,
+  "fold": 30,
+  "lifts": [118, 140, 162, 184],
+  "unfold": 345,
+  "freeLift": 372,
+  "texts": [
+    [[["YOUR RING FINGER", ""]], [["IS TRAPPED", "#ff5a5a"]]],
+    [[["HAND FLAT. FOLD YOUR", ""]], [["MIDDLE FINGER", "#ffd84e"], [" UNDER", ""]]],
+    [[["ITS TENDON IS ", ""], ["TIED", "#ff5a5a"]], [["TO THE MIDDLE ONE", ""]]],
+    [[["UNFOLD THE MIDDLE", ""]], [["AND IT'S ", ""], ["FREE", "#55efc4"]]],
+    [[["DID ", ""], ["YOU", "#ffd84e"], [" LIFT IT?", ""]], [["TAG A FRIEND", "#55efc4"]]]
+  ]
+}

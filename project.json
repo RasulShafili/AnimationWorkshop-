@@ -1,0 +1,28 @@
+{
+  "name": "pixel_fact.8bit-autonomous-studio",
+  "version": "3.0.0",
+  "channel": "pixel_fact.8bit",
+  "default_language": "en",
+  "engines": {
+    "remotion_pixel": true,
+    "melodic_chiptune_synth": true,
+    "rpg_dialog_blip_sfx": true,
+    "edge_tts": false,
+    "buffer_instagram_graph_api": true
+  },
+  "rules": {
+    "language": "en-US",
+    "voiceover": "DISABLED (No human/TTS speech)",
+    "text_style": "Paced spatial text, speech bubbles, prop labels with typewriter SFX (No bottom streaming subtitles)",
+    "music_style": "Multi-section melodic 8-bit chiptune (Lead melody + harmony + triangle bass + noise percussion)",
+    "max_hashtags": 5,
+    "format": "1080x1920 (9:16, 270x480 4x integer pixel scale)",
+    "fps": 30
+  },
+  "schedule": {
+    "frequency": "2 times per day",
+    "times_baku": ["14:00", "20:00"],
+    "times_utc": ["10:00", "16:00"],
+    "status": "active"
+  }
+}

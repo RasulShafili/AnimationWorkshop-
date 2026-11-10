@@ -1,0 +1,605 @@
+[
+  {
+    "id": 1,
+    "words": [
+      "What",
+      "happens",
+      "inside"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 0.104,
+    "endTime": 0.961,
+    "startFrame": 3,
+    "endFrame": 29
+  },
+  {
+    "id": 2,
+    "words": [
+      "your",
+      "body",
+      "if"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 0.961,
+    "endTime": 1.505,
+    "startFrame": 29,
+    "endFrame": 45
+  },
+  {
+    "id": 3,
+    "words": [
+      "you",
+      "take",
+      "cold"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 1.516,
+    "endTime": 2.118,
+    "startFrame": 45,
+    "endFrame": 64
+  },
+  {
+    "id": 4,
+    "words": [
+      "showers",
+      "for",
+      "thirty"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 2.118,
+    "endTime": 2.917,
+    "startFrame": 64,
+    "endFrame": 88
+  },
+  {
+    "id": 5,
+    "words": [
+      "days"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 2.928,
+    "endTime": 3.368,
+    "startFrame": 88,
+    "endFrame": 101
+  },
+  {
+    "id": 6,
+    "words": [
+      "Day",
+      "one"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 3.75,
+    "endTime": 4.132,
+    "startFrame": 112,
+    "endFrame": 124
+  },
+  {
+    "id": 7,
+    "words": [
+      "Freezing",
+      "water",
+      "hits"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 4.572,
+    "endTime": 5.417,
+    "startFrame": 137,
+    "endFrame": 163
+  },
+  {
+    "id": 8,
+    "words": [
+      "your",
+      "skin"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 5.428,
+    "endTime": 5.856,
+    "startFrame": 163,
+    "endFrame": 176
+  },
+  {
+    "id": 9,
+    "words": [
+      "Your",
+      "heart",
+      "rate"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 6.238,
+    "endTime": 6.759,
+    "startFrame": 187,
+    "endFrame": 203
+  },
+  {
+    "id": 10,
+    "words": [
+      "spikes",
+      "and",
+      "blood"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 6.771,
+    "endTime": 7.951,
+    "startFrame": 203,
+    "endFrame": 239
+  },
+  {
+    "id": 11,
+    "words": [
+      "vessels",
+      "rapidly",
+      "constrict"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 7.951,
+    "endTime": 9.352,
+    "startFrame": 239,
+    "endFrame": 281
+  },
+  {
+    "id": 12,
+    "words": [
+      "sending",
+      "warm",
+      "blood"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 9.63,
+    "endTime": 10.59,
+    "startFrame": 289,
+    "endFrame": 318
+  },
+  {
+    "id": 13,
+    "words": [
+      "to",
+      "protect",
+      "your"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 10.602,
+    "endTime": 11.192,
+    "startFrame": 318,
+    "endFrame": 336
+  },
+  {
+    "id": 14,
+    "words": [
+      "vital",
+      "organs"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 11.204,
+    "endTime": 12.049,
+    "startFrame": 336,
+    "endFrame": 361
+  },
+  {
+    "id": 15,
+    "words": [
+      "Day",
+      "three"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 12.431,
+    "endTime": 12.882,
+    "startFrame": 373,
+    "endFrame": 386
+  },
+  {
+    "id": 16,
+    "words": [
+      "Your",
+      "brown",
+      "fat"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 13.264,
+    "endTime": 14.086,
+    "startFrame": 398,
+    "endFrame": 423
+  },
+  {
+    "id": 17,
+    "words": [
+      "tissue",
+      "wakes",
+      "up"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 14.097,
+    "endTime": 15.046,
+    "startFrame": 423,
+    "endFrame": 451
+  },
+  {
+    "id": 18,
+    "words": [
+      "burning",
+      "calories",
+      "to"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 15.417,
+    "endTime": 16.354,
+    "startFrame": 463,
+    "endFrame": 491
+  },
+  {
+    "id": 19,
+    "words": [
+      "generate",
+      "internal",
+      "heat"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 16.366,
+    "endTime": 17.731,
+    "startFrame": 491,
+    "endFrame": 532
+  },
+  {
+    "id": 20,
+    "words": [
+      "like",
+      "a",
+      "furnace"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 17.928,
+    "endTime": 18.692,
+    "startFrame": 538,
+    "endFrame": 561
+  },
+  {
+    "id": 21,
+    "words": [
+      "Day",
+      "seven"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 19.074,
+    "endTime": 19.549,
+    "startFrame": 572,
+    "endFrame": 586
+  },
+  {
+    "id": 22,
+    "words": [
+      "Your",
+      "brain",
+      "explodes"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 19.931,
+    "endTime": 20.961,
+    "startFrame": 598,
+    "endFrame": 629
+  },
+  {
+    "id": 23,
+    "words": [
+      "with",
+      "energy"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 20.961,
+    "endTime": 21.643,
+    "startFrame": 629,
+    "endFrame": 649
+  },
+  {
+    "id": 24,
+    "words": [
+      "Dopamine",
+      "levels",
+      "surge"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 22.037,
+    "endTime": 23.125,
+    "startFrame": 661,
+    "endFrame": 694
+  },
+  {
+    "id": 25,
+    "words": [
+      "up",
+      "to",
+      "two"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 23.125,
+    "endTime": 23.623,
+    "startFrame": 694,
+    "endFrame": 709
+  },
+  {
+    "id": 26,
+    "words": [
+      "hundred",
+      "and",
+      "fifty"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 23.623,
+    "endTime": 24.271,
+    "startFrame": 709,
+    "endFrame": 728
+  },
+  {
+    "id": 27,
+    "words": [
+      "percent",
+      "boosting",
+      "mood"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 24.282,
+    "endTime": 25.637,
+    "startFrame": 728,
+    "endFrame": 769
+  },
+  {
+    "id": 28,
+    "words": [
+      "for",
+      "hours"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 25.648,
+    "endTime": 26.25,
+    "startFrame": 769,
+    "endFrame": 788
+  },
+  {
+    "id": 29,
+    "words": [
+      "Day",
+      "fourteen"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 26.632,
+    "endTime": 27.326,
+    "startFrame": 799,
+    "endFrame": 820
+  },
+  {
+    "id": 30,
+    "words": [
+      "Cold",
+      "shock",
+      "proteins"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 27.708,
+    "endTime": 28.727,
+    "startFrame": 831,
+    "endFrame": 862
+  },
+  {
+    "id": 31,
+    "words": [
+      "flood",
+      "your",
+      "bloodstream"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 28.727,
+    "endTime": 29.618,
+    "startFrame": 862,
+    "endFrame": 889
+  },
+  {
+    "id": 32,
+    "words": [
+      "strengthening",
+      "immune",
+      "cells"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 29.965,
+    "endTime": 31.377,
+    "startFrame": 899,
+    "endFrame": 941
+  },
+  {
+    "id": 33,
+    "words": [
+      "and",
+      "reducing",
+      "muscle"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 31.377,
+    "endTime": 32.257,
+    "startFrame": 941,
+    "endFrame": 968
+  },
+  {
+    "id": 34,
+    "words": [
+      "soreness"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 32.269,
+    "endTime": 32.789,
+    "startFrame": 968,
+    "endFrame": 984
+  },
+  {
+    "id": 35,
+    "words": [
+      "Day",
+      "thirty"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 33.171,
+    "endTime": 33.704,
+    "startFrame": 995,
+    "endFrame": 1011
+  },
+  {
+    "id": 36,
+    "words": [
+      "The",
+      "shock",
+      "is"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 34.086,
+    "endTime": 34.525,
+    "startFrame": 1023,
+    "endFrame": 1036
+  },
+  {
+    "id": 37,
+    "words": [
+      "gone"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 34.537,
+    "endTime": 34.826,
+    "startFrame": 1036,
+    "endFrame": 1045
+  },
+  {
+    "id": 38,
+    "words": [
+      "Your",
+      "nervous",
+      "system"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 35.22,
+    "endTime": 36.285,
+    "startFrame": 1057,
+    "endFrame": 1089
+  },
+  {
+    "id": 39,
+    "words": [
+      "is",
+      "fully",
+      "adapted"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 36.285,
+    "endTime": 37.338,
+    "startFrame": 1089,
+    "endFrame": 1120
+  },
+  {
+    "id": 40,
+    "words": [
+      "building",
+      "unbreakable",
+      "mental"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 37.616,
+    "endTime": 39.062,
+    "startFrame": 1128,
+    "endFrame": 1172
+  },
+  {
+    "id": 41,
+    "words": [
+      "discipline"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 39.074,
+    "endTime": 39.549,
+    "startFrame": 1172,
+    "endFrame": 1186
+  },
+  {
+    "id": 42,
+    "words": [
+      "This",
+      "is",
+      "general"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 39.931,
+    "endTime": 40.625,
+    "startFrame": 1198,
+    "endFrame": 1219
+  },
+  {
+    "id": 43,
+    "words": [
+      "information",
+      "not",
+      "medical"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 40.637,
+    "endTime": 41.968,
+    "startFrame": 1219,
+    "endFrame": 1259
+  },
+  {
+    "id": 44,
+    "words": [
+      "advice"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 41.979,
+    "endTime": 42.512,
+    "startFrame": 1259,
+    "endFrame": 1275
+  },
+  {
+    "id": 45,
+    "words": [
+      "Could",
+      "you",
+      "survive"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 42.894,
+    "endTime": 43.565,
+    "startFrame": 1287,
+    "endFrame": 1307
+  },
+  {
+    "id": 46,
+    "words": [
+      "thirty",
+      "days"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 43.576,
+    "endTime": 44.259,
+    "startFrame": 1307,
+    "endFrame": 1328
+  },
+  {
+    "id": 47,
+    "words": [
+      "Tell",
+      "me",
+      "in"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 44.641,
+    "endTime": 44.919,
+    "startFrame": 1339,
+    "endFrame": 1348
+  },
+  {
+    "id": 48,
+    "words": [
+      "the",
+      "comments"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 44.931,
+    "endTime": 45.567,
+    "startFrame": 1348,
+    "endFrame": 1367
+  }
+]

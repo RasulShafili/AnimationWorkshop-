@@ -1,0 +1,14 @@
+{
+  "fps": 30,
+  "totalFrames": 2700,
+  "sections": [0, 180, 420, 780, 1320, 1740, 2100, 2400, 2700],
+  "travel": 40,
+  "handshake": { "syn": 30, "synack": 95, "ack": 160, "established": 210 },
+  "delivery": {
+    "send": [20, 50, 80, 110], "lost": 2, "lostAt": 0.5,
+    "acks": [[66, 2], [96, 3], [156, 3]], "timerStart": 80, "timeout": 240, "resend": 250, "finalAck": [296, 5],
+    "bullets": 340
+  },
+  "udp": { "start": 20, "every": 8, "count": 40, "lost": 5 },
+  "hol": { "every": 14, "count": 22, "lost": 5, "retransmitAt": 170 }
+}

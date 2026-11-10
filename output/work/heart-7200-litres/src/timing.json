@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "totalFrames": 960,
+  "beatPeriod": 25,
+  "beats": [0, 107, 213, 320, 427, 533, 640, 747, 853, 960],
+  "texts": [
+    [[["YOUR HEART PUMPS", ""]], [["7,200 LITRES", "#ff5a7a"]], [["EVERY SINGLE DAY", ""]]],
+    [[["THAT'S ", ""], ["5 LITRES", "#ffe600"]], [["EVERY MINUTE", ""]]],
+    [[["AROUND ", ""], ["100,000", "#ffe600"], [" BEATS", ""]], [["IN ONE DAY", ""]]],
+    [[["ENOUGH TO FILL", ""]], [["36 BIG BARRELS", "#5ce1e6"]]],
+    [[["IT NEVER RESTS,", ""]], [["NOT EVEN AT ", ""], ["NIGHT", "#5ce1e6"]]],
+    [[["IN A LIFETIME:", ""]], [["200 MILLION LITRES", "#ff5a7a"]]],
+    [[["THAT'S ", ""], ["80", "#ffe600"], [" OLYMPIC", ""]], [["SWIMMING POOLS", ""]]],
+    [[["ALL FROM A PUMP", ""]], [["THE SIZE OF YOUR ", ""], ["FIST", "#ffe600"]]],
+    [[["PUT A HAND ON YOUR", ""]], [["CHEST. ", ""], ["FEEL IT?", "#ff5a7a"]]]
+  ]
+}

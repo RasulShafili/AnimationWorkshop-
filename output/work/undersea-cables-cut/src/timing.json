@@ -1,0 +1,97 @@
+{
+  "durationInSeconds": 62.76,
+  "totalFrames": 1883,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": 1,
+      "name": "Scene1",
+      "startTime": 0.0,
+      "endTime": 9.518,
+      "duration": 9.518,
+      "startFrame": 0,
+      "endFrame": 286,
+      "durationInFrames": 286
+    },
+    {
+      "id": 2,
+      "name": "Scene2",
+      "startTime": 9.518,
+      "endTime": 14.795,
+      "duration": 5.277,
+      "startFrame": 286,
+      "endFrame": 444,
+      "durationInFrames": 158
+    },
+    {
+      "id": 3,
+      "name": "Scene3",
+      "startTime": 14.795,
+      "endTime": 24.772,
+      "duration": 9.977,
+      "startFrame": 444,
+      "endFrame": 743,
+      "durationInFrames": 299
+    },
+    {
+      "id": 4,
+      "name": "Scene4",
+      "startTime": 24.772,
+      "endTime": 31.937,
+      "duration": 7.165,
+      "startFrame": 743,
+      "endFrame": 958,
+      "durationInFrames": 215
+    },
+    {
+      "id": 5,
+      "name": "Scene5",
+      "startTime": 31.937,
+      "endTime": 37.943,
+      "duration": 6.006,
+      "startFrame": 958,
+      "endFrame": 1138,
+      "durationInFrames": 180
+    },
+    {
+      "id": 6,
+      "name": "Scene6",
+      "startTime": 37.943,
+      "endTime": 43.129,
+      "duration": 5.186,
+      "startFrame": 1138,
+      "endFrame": 1294,
+      "durationInFrames": 156
+    },
+    {
+      "id": 7,
+      "name": "Scene7",
+      "startTime": 43.129,
+      "endTime": 50.933,
+      "duration": 7.804,
+      "startFrame": 1294,
+      "endFrame": 1528,
+      "durationInFrames": 234
+    },
+    {
+      "id": 8,
+      "name": "Scene8",
+      "startTime": 50.933,
+      "endTime": 56.196,
+      "duration": 5.263,
+      "startFrame": 1528,
+      "endFrame": 1686,
+      "durationInFrames": 158
+    },
+    {
+      "id": 9,
+      "name": "Scene9",
+      "startTime": 56.196,
+      "endTime": 62.76,
+      "duration": 6.564,
+      "startFrame": 1686,
+      "endFrame": 1883,
+      "durationInFrames": 197
+    }
+  ]
+}

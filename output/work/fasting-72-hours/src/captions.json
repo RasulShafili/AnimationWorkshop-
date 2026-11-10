@@ -1,0 +1,553 @@
+[
+  {
+    "id": 1,
+    "words": [
+      "What",
+      "happens",
+      "inside"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 0.093,
+    "endTime": 0.984,
+    "startFrame": 3,
+    "endFrame": 30
+  },
+  {
+    "id": 2,
+    "words": [
+      "your",
+      "body",
+      "if"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 0.984,
+    "endTime": 1.701,
+    "startFrame": 30,
+    "endFrame": 51
+  },
+  {
+    "id": 3,
+    "words": [
+      "you",
+      "stop",
+      "eating"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 1.713,
+    "endTime": 2.454,
+    "startFrame": 51,
+    "endFrame": 74
+  },
+  {
+    "id": 4,
+    "words": [
+      "for",
+      "seventy-two",
+      "hours"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 2.454,
+    "endTime": 3.588,
+    "startFrame": 74,
+    "endFrame": 108
+  },
+  {
+    "id": 5,
+    "words": [
+      "Hour",
+      "twelve"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 3.97,
+    "endTime": 4.549,
+    "startFrame": 119,
+    "endFrame": 136
+  },
+  {
+    "id": 6,
+    "words": [
+      "Your",
+      "stomach",
+      "is"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 4.931,
+    "endTime": 5.521,
+    "startFrame": 148,
+    "endFrame": 166
+  },
+  {
+    "id": 7,
+    "words": [
+      "completely",
+      "empty"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 5.532,
+    "endTime": 6.366,
+    "startFrame": 166,
+    "endFrame": 191
+  },
+  {
+    "id": 8,
+    "words": [
+      "Blood",
+      "sugar",
+      "drops"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 6.759,
+    "endTime": 7.812,
+    "startFrame": 203,
+    "endFrame": 234
+  },
+  {
+    "id": 9,
+    "words": [
+      "and",
+      "your",
+      "liver"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 8.067,
+    "endTime": 8.553,
+    "startFrame": 242,
+    "endFrame": 257
+  },
+  {
+    "id": 10,
+    "words": [
+      "burns",
+      "through",
+      "its"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 8.553,
+    "endTime": 9.19,
+    "startFrame": 257,
+    "endFrame": 276
+  },
+  {
+    "id": 11,
+    "words": [
+      "glycogen",
+      "reserves"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 9.201,
+    "endTime": 10.266,
+    "startFrame": 276,
+    "endFrame": 308
+  },
+  {
+    "id": 12,
+    "words": [
+      "Hour",
+      "twenty-four"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 10.648,
+    "endTime": 11.435,
+    "startFrame": 319,
+    "endFrame": 343
+  },
+  {
+    "id": 13,
+    "words": [
+      "Hunger",
+      "hormones",
+      "peak"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 11.829,
+    "endTime": 12.893,
+    "startFrame": 355,
+    "endFrame": 387
+  },
+  {
+    "id": 14,
+    "words": [
+      "but",
+      "then",
+      "something"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 13.16,
+    "endTime": 13.796,
+    "startFrame": 395,
+    "endFrame": 414
+  },
+  {
+    "id": 15,
+    "words": [
+      "wild",
+      "happens"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 13.808,
+    "endTime": 14.606,
+    "startFrame": 414,
+    "endFrame": 438
+  },
+  {
+    "id": 16,
+    "words": [
+      "Your",
+      "body",
+      "enters"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 14.988,
+    "endTime": 15.891,
+    "startFrame": 450,
+    "endFrame": 477
+  },
+  {
+    "id": 17,
+    "words": [
+      "ketosis",
+      "burning",
+      "fat"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 15.891,
+    "endTime": 17.419,
+    "startFrame": 477,
+    "endFrame": 523
+  },
+  {
+    "id": 18,
+    "words": [
+      "for",
+      "fuel"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 17.431,
+    "endTime": 17.928,
+    "startFrame": 523,
+    "endFrame": 538
+  },
+  {
+    "id": 19,
+    "words": [
+      "Hour",
+      "forty-eight"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 18.31,
+    "endTime": 19.062,
+    "startFrame": 549,
+    "endFrame": 572
+  },
+  {
+    "id": 20,
+    "words": [
+      "Autophagy",
+      "activates"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 19.444,
+    "endTime": 20.66,
+    "startFrame": 583,
+    "endFrame": 620
+  },
+  {
+    "id": 21,
+    "words": [
+      "Inside",
+      "your",
+      "cells"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 21.042,
+    "endTime": 22.234,
+    "startFrame": 631,
+    "endFrame": 667
+  },
+  {
+    "id": 22,
+    "words": [
+      "a",
+      "deep",
+      "cleanup"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 22.234,
+    "endTime": 23.09,
+    "startFrame": 667,
+    "endFrame": 693
+  },
+  {
+    "id": 23,
+    "words": [
+      "begins",
+      "recycling",
+      "old"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 23.102,
+    "endTime": 24.954,
+    "startFrame": 693,
+    "endFrame": 749
+  },
+  {
+    "id": 24,
+    "words": [
+      "damaged",
+      "proteins",
+      "into"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 24.954,
+    "endTime": 26.227,
+    "startFrame": 749,
+    "endFrame": 787
+  },
+  {
+    "id": 25,
+    "words": [
+      "fresh",
+      "energy"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 26.238,
+    "endTime": 26.968,
+    "startFrame": 787,
+    "endFrame": 809
+  },
+  {
+    "id": 26,
+    "words": [
+      "Hour",
+      "sixty"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 27.35,
+    "endTime": 27.951,
+    "startFrame": 820,
+    "endFrame": 839
+  },
+  {
+    "id": 27,
+    "words": [
+      "Inflammation",
+      "drops",
+      "sharply"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 28.333,
+    "endTime": 29.769,
+    "startFrame": 850,
+    "endFrame": 893
+  },
+  {
+    "id": 28,
+    "words": [
+      "and",
+      "stem",
+      "cells"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 30.0,
+    "endTime": 30.787,
+    "startFrame": 900,
+    "endFrame": 924
+  },
+  {
+    "id": 29,
+    "words": [
+      "start",
+      "regenerating",
+      "your"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 30.799,
+    "endTime": 31.921,
+    "startFrame": 924,
+    "endFrame": 958
+  },
+  {
+    "id": 30,
+    "words": [
+      "immune",
+      "system"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 31.933,
+    "endTime": 32.604,
+    "startFrame": 958,
+    "endFrame": 978
+  },
+  {
+    "id": 31,
+    "words": [
+      "Hour",
+      "seventy-two"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 32.986,
+    "endTime": 33.808,
+    "startFrame": 990,
+    "endFrame": 1014
+  },
+  {
+    "id": 32,
+    "words": [
+      "Your",
+      "cells",
+      "have"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 34.19,
+    "endTime": 34.699,
+    "startFrame": 1026,
+    "endFrame": 1041
+  },
+  {
+    "id": 33,
+    "words": [
+      "hit",
+      "a",
+      "full"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 34.711,
+    "endTime": 35.197,
+    "startFrame": 1041,
+    "endFrame": 1056
+  },
+  {
+    "id": 34,
+    "words": [
+      "reset"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 35.208,
+    "endTime": 35.706,
+    "startFrame": 1056,
+    "endFrame": 1071
+  },
+  {
+    "id": 35,
+    "words": [
+      "But",
+      "remember"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 36.1,
+    "endTime": 36.667,
+    "startFrame": 1083,
+    "endFrame": 1100
+  },
+  {
+    "id": 36,
+    "words": [
+      "prolonged",
+      "fasting",
+      "is"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 36.852,
+    "endTime": 37.928,
+    "startFrame": 1106,
+    "endFrame": 1138
+  },
+  {
+    "id": 37,
+    "words": [
+      "extreme"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 37.94,
+    "endTime": 38.403,
+    "startFrame": 1138,
+    "endFrame": 1152
+  },
+  {
+    "id": 38,
+    "words": [
+      "This",
+      "is",
+      "general"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 38.785,
+    "endTime": 39.491,
+    "startFrame": 1164,
+    "endFrame": 1185
+  },
+  {
+    "id": 39,
+    "words": [
+      "information",
+      "not",
+      "medical"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 39.491,
+    "endTime": 40.822,
+    "startFrame": 1185,
+    "endFrame": 1225
+  },
+  {
+    "id": 40,
+    "words": [
+      "advice"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 40.833,
+    "endTime": 41.366,
+    "startFrame": 1225,
+    "endFrame": 1241
+  },
+  {
+    "id": 41,
+    "words": [
+      "Could",
+      "you",
+      "survive"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 41.748,
+    "endTime": 42.419,
+    "startFrame": 1252,
+    "endFrame": 1273
+  },
+  {
+    "id": 42,
+    "words": [
+      "seventy-two",
+      "hours"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 42.419,
+    "endTime": 43.368,
+    "startFrame": 1273,
+    "endFrame": 1301
+  },
+  {
+    "id": 43,
+    "words": [
+      "Tell",
+      "me",
+      "in"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 43.75,
+    "endTime": 44.028,
+    "startFrame": 1312,
+    "endFrame": 1321
+  },
+  {
+    "id": 44,
+    "words": [
+      "the",
+      "comments"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 44.039,
+    "endTime": 44.676,
+    "startFrame": 1321,
+    "endFrame": 1340
+  }
+]

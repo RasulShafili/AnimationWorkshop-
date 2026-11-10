@@ -1,0 +1,47 @@
+{
+  "fps": 30,
+  "totalFrames": 996,
+  "durationSec": 33.19,
+  "scenes": [
+    {
+      "id": "scene1",
+      "name": "The Challenge Begins",
+      "startFrame": 0,
+      "endFrame": 165,
+      "hookTitle": "HOLD YOUR BREATH",
+      "highlightWord": "BREATH"
+    },
+    {
+      "id": "scene2",
+      "name": "The Oxygen Myth",
+      "startFrame": 165,
+      "endFrame": 375,
+      "hookTitle": "IT'S NOT OXYGEN",
+      "highlightWord": "NOT OXYGEN"
+    },
+    {
+      "id": "scene3",
+      "name": "CO2 Acid Spike",
+      "startFrame": 375,
+      "endFrame": 600,
+      "hookTitle": "CO2 IS BUILDING UP",
+      "highlightWord": "CO2"
+    },
+    {
+      "id": "scene4",
+      "name": "Emergency Alarm",
+      "startFrame": 600,
+      "endFrame": 795,
+      "hookTitle": "EMERGENCY ALARM!",
+      "highlightWord": "ALARM"
+    },
+    {
+      "id": "scene5",
+      "name": "Breathe Out & Challenge",
+      "startFrame": 795,
+      "endFrame": 996,
+      "hookTitle": "BREATHE NOW!",
+      "highlightWord": "BREATHE"
+    }
+  ]
+}

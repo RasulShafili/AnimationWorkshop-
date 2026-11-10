@@ -1,0 +1,8 @@
+- [Pixel video engine](pixel-video-engine.md) — reuse the SDF + dither engine in you-shrink-every-day for new Reels; RULES.md beats the skill
+- [Sound rule](sfx-only-no-music.md) — never silent SFX bed; since 2026-11-10 a calm, quiet ORIGINAL music-box melody is OK (loud/busy chiptune is not); no voice in pixel videos
+- [Reels retention rules](reels-retention-rules.md) — future Reels: 15–20 s, shock hook in sec 1, viewer test/question, original topics; judge by avg watch + shares
+- [Vary each video](vary-each-video.md) — every Reel needs a new setting/palette/outfit/transition; don't reuse bedroom+PJ hero+dither dissolve
+- [What-if 3D format](whatif-3d-format.md) — 3D low-poly what-if sims (smooth, not pixel): 30–35 s, show ground-level changes, Kokoro am_fenrir narration, realistic SFX
+- [Low-poly premium style](lowpoly-premium-style.md) — 3D low-poly = smooth premium (golden light, soft shadows, detailed props, bloom+fog, floating diorama); NO pixel filter (pixel only for 2D)
+- [ish websites workspace](ish-websites-workspace.md) — ~/Desktop/ish = creative animated sites; web-design + GSAP skills installed there
+- [Pixel calm-music format](pixel-calm-music-format.md) — approved main format: detailed 2D pixel, shareable random fact, ~18 s, calm melody + SFX, 'send this to X'

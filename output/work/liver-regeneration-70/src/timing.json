@@ -1,0 +1,111 @@
+{
+  "durationInSeconds": 32.0,
+  "totalFrames": 960,
+  "fps": 30,
+  "bubbles": [
+    {
+      "id": "beat_1",
+      "type": "center_text",
+      "startFrame": 4,
+      "endFrame": 120,
+      "typeFrames": 20,
+      "line1": "YOUR LIVER CAN LOSE",
+      "line2": "70%",
+      "bigLine2": true,
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 720.0
+    },
+    {
+      "id": "beat_2",
+      "type": "center_text",
+      "startFrame": 120,
+      "endFrame": 240,
+      "typeFrames": 22,
+      "line1": "AND GROW BACK TO",
+      "line2": "100% FULL SIZE!",
+      "bigLine2": false,
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 780.0
+    },
+    {
+      "id": "beat_3",
+      "type": "center_text",
+      "startFrame": 240,
+      "endFrame": 360,
+      "typeFrames": 22,
+      "line1": "EVEN WITH ONLY",
+      "line2": "30% REMAINING...",
+      "bigLine2": false,
+      "highlightColor": "#5CE1E6",
+      "highlightLine": 2,
+      "blipPitch": 680.0
+    },
+    {
+      "id": "beat_4",
+      "type": "center_text",
+      "startFrame": 360,
+      "endFrame": 480,
+      "typeFrames": 22,
+      "line1": "HEPATOCYTE CELLS",
+      "line2": "START CLONING!",
+      "bigLine2": false,
+      "highlightColor": "#55EFC4",
+      "highlightLine": 2,
+      "blipPitch": 820.0
+    },
+    {
+      "id": "beat_5",
+      "type": "center_text",
+      "startFrame": 480,
+      "endFrame": 600,
+      "typeFrames": 22,
+      "line1": "MILLIONS OF CELLS",
+      "line2": "DIVIDE & REBUILD",
+      "bigLine2": false,
+      "highlightColor": "#5CE1E6",
+      "highlightLine": 2,
+      "blipPitch": 760.0
+    },
+    {
+      "id": "beat_6",
+      "type": "center_text",
+      "startFrame": 600,
+      "endFrame": 720,
+      "typeFrames": 22,
+      "line1": "100% REBUILT IN",
+      "line2": "JUST 4 WEEKS!",
+      "bigLine2": false,
+      "highlightColor": "#55EFC4",
+      "highlightLine": 2,
+      "blipPitch": 860.0
+    },
+    {
+      "id": "beat_7",
+      "type": "center_text",
+      "startFrame": 720,
+      "endFrame": 840,
+      "typeFrames": 22,
+      "line1": "1 LIVER DONATION",
+      "line2": "MAKES 2 LIVERS!",
+      "bigLine2": false,
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 740.0
+    },
+    {
+      "id": "beat_8",
+      "type": "center_text",
+      "startFrame": 840,
+      "endFrame": 960,
+      "typeFrames": 24,
+      "line1": "THE ONLY ORGAN",
+      "line2": "THAT REGENERATES!",
+      "bigLine2": false,
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 800.0
+    }
+  ]
+}

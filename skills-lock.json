@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "skills": {
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "computedHash": "b146008599c31057cef1c145774cea5d5afb30e8f43fa802e47a4b461419aaaf"
+    },
+    "openspec-apply-change": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/openspec-apply-change/SKILL.md",
+      "computedHash": "314506a8db2aaf04e595eaf8c4f5c81613d6dfbf060f54d8eabbe94f3f567a22"
+    },
+    "openspec-archive-change": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/openspec-archive-change/SKILL.md",
+      "computedHash": "ffbd7f9c110d8c1e1f744db2e904854ce1cde02ca46c03849f6fac98bf14018f"
+    },
+    "openspec-explore": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/openspec-explore/SKILL.md",
+      "computedHash": "eea19567aeeec092628b3972b2b8c0fc433e0b9332fa4c3e935008784b6fb900"
+    },
+    "openspec-propose": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/openspec-propose/SKILL.md",
+      "computedHash": "406a71796ac111be0fddc8bc2a4137c91c967eaf43439bbcc3f2509aec7440db"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "e3cc169fcb69c59efd9c3f1feaf0bdbf124488aec9dd2809266733f4d615b90a"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "e997ec4674833ff2605d2db6ae6fe023799267c25a9015e886114ea27e906b34"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "computedHash": "873757be9573e0c5b4b61604d44b9fa0e0b3d536720949ef8ea4759b3294a7d1"
+    },
+    "remotion-docs": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-docs/SKILL.md",
+      "computedHash": "a928023f6ff0c0147d92ef4c961229526cca5aacadaa8deb69b082f981a456a9"
+    },
+    "remotion-interactivity": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-interactivity/SKILL.md",
+      "computedHash": "44a8bd48b0ac01d9018161ae13cf3341505f5ce7aade551c75cf7a6a9d462922"
+    },
+    "remotion-maps": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-maps/SKILL.md",
+      "computedHash": "67aabe63d1ffe28060099f9b3f4d008bd63c95f77cb9b944710e21920ff175ca"
+    },
+    "remotion-markup": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-markup/SKILL.md",
+      "computedHash": "c4a3ebb4ef11bd881fd5712f47f61e0c7cb2ebc3b4fe779e32a5eac8d891dff5"
+    },
+    "remotion-multimedia": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-multimedia/SKILL.md",
+      "computedHash": "fa62009668e36465a7196e53c1c78d2579095d63e405e453a31ccb8ddd6eef19"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "computedHash": "f681e71be3f6853552c57fccc5224be62edf58182cbd266100e7153f196d6731"
+    },
+    "remotion-saas": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-saas/SKILL.md",
+      "computedHash": "80881f6e9849011345324d6dd371a6b739d2adfb259d7871ffa803f1c38b2958"
+    },
+    "remotion-studio": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-studio/SKILL.md",
+      "computedHash": "b4af8d2cb77e7ad1d529ee670f5d0c9b6a3cdf26956a0a4bc9c88bc570022c99"
+    },
+    "remotion-upgrade": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-upgrade/SKILL.md",
+      "computedHash": "50cc38a4bb07ed417a2783d5d40daac83e45062959db3820a852fd23c2661158"
+    },
+    "threejs-animation": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-animation/SKILL.md",
+      "computedHash": "ad942ae72343b37e6b47694378695b30e610b72238046c899299d1614c423d5f"
+    },
+    "threejs-asset-pipeline": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-asset-pipeline/SKILL.md",
+      "computedHash": "be5c2bbda841382229d99182f88e94eba8974474bd065b994e881bb9cc2058d8"
+    },
+    "threejs-audio": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-audio/SKILL.md",
+      "computedHash": "429ac81cb6abf18ee77434140ca90a3090c036b147150b0f22f131f9d61343ac"
+    },
+    "threejs-camera": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-camera/SKILL.md",
+      "computedHash": "d7e708a69f5b679f8bee48d2a290146ff465be2e7790b49a12a19311ff00b246"
+    },
+    "threejs-controls": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-controls/SKILL.md",
+      "computedHash": "ecc746a0210089f690d713621f87d5f3b4bb1d2f94029e36f8c8e7af325fc5f8"
+    },
+    "threejs-dev-setup": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-dev-setup/SKILL.md",
+      "computedHash": "c8f8d306b5553c877d2a59aa430c2822f435ae815d00063a0b1561e31a0a33e2"
+    },
+    "threejs-fundamentals": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-fundamentals/SKILL.md",
+      "computedHash": "c0293a5eaf5168cdbeb1e9bfc5d5b7aa24396f604a8695b26a72d833c2352108"
+    },
+    "threejs-geometries": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-geometries/SKILL.md",
+      "computedHash": "77b008a0212368a93f87dac0c6c1d3436ad82c62ef3618f380eb6b6ff236b90e"
+    },
+    "threejs-geometry": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-geometry/SKILL.md",
+      "computedHash": "cae4d8f02ffe449edbc33a2a9ba79020dcb415e7c187d48ed8ffc166207d2e77"
+    },
+    "threejs-helpers": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-helpers/SKILL.md",
+      "computedHash": "c03fb7dcc9936465562af2e545fa32d72a9e06e9a7abce26e476ddeca5783683"
+    },
+    "threejs-interaction": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-interaction/SKILL.md",
+      "computedHash": "3a9d60c473947217f2bd9fbdfb12084e55ae2f240aa6fc718f61c55a73d6fb34"
+    },
+    "threejs-lighting": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-lighting/SKILL.md",
+      "computedHash": "231a7aec3b2d6aa061026397b5453b22518ac9391eb0f31164bfd06dd4bcacd6"
+    },
+    "threejs-lights": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-lights/SKILL.md",
+      "computedHash": "1b54bf5bd685a669330f4a4355cf57168b6701a4e1b6f61aa6d4a0ea5b6846bb"
+    },
+    "threejs-loaders": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-loaders/SKILL.md",
+      "computedHash": "b72d7db33cb2befb290ed3fc7a9013f607f7134d1a89e3906c93802d16151b17"
+    },
+    "threejs-materials": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-materials/SKILL.md",
+      "computedHash": "d38b90def8d9d450f13d18ca0b57e34197768cbb061dcad52ea6e7eef47dfda9"
+    },
+    "threejs-math": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-math/SKILL.md",
+      "computedHash": "3db1dd42096869a9531ba15e8ea5aee619f2cf51f87b7afb7b2b0621a5c90d14"
+    },
+    "threejs-node-tsl": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-node-tsl/SKILL.md",
+      "computedHash": "a8d1ef59fdf5023538a21cfca16b720ed8ccf1ac6d75e6a00131fa5f20a2b758"
+    },
+    "threejs-objects": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-objects/SKILL.md",
+      "computedHash": "f47f6c025931e332d0e10c8a6f9f4b4583243d4d43bb929b35507b41937bd1ec"
+    },
+    "threejs-performance": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-performance/SKILL.md",
+      "computedHash": "5aa6eb8103c8f882f86a48c65245f1e8f1c48e83abc888e0d7a37833e7d9188b"
+    },
+    "threejs-postprocessing": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-postprocessing/SKILL.md",
+      "computedHash": "134c8e03418b3b75d74b475581d1774cb1b9adf15adaa5b743a128205dbdc4bf"
+    },
+    "threejs-react-three-fiber": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-react-three-fiber/SKILL.md",
+      "computedHash": "c584eb40814c9dba186a555adb9fa4acba84f4c40d47fd5b30fc90415f8ca53a"
+    },
+    "threejs-renderers": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-renderers/SKILL.md",
+      "computedHash": "fabae81cf1df41a6b25b2dacd611223cae28d903a32767af09f93e66ae342c81"
+    },
+    "threejs-scenes": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-scenes/SKILL.md",
+      "computedHash": "e1c21ba0a9c7f31fef4503fde9575acf12edba5e180407fb6b12464cd5c198eb"
+    },
+    "threejs-shaders": {
+      "source": "cloudai-x/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-shaders/SKILL.md",
+      "computedHash": "af0a4cdfc80390b30a898bb5a3fe30e4f61b304776a9aebbdb7451b0fc1c2c0f"
+    },
+    "threejs-textures": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-textures/SKILL.md",
+      "computedHash": "589df96393fdecad742105dcc939ca9fdc6aa46cc4a26184e0415b34e6756954"
+    },
+    "threejs-webxr": {
+      "source": "full-stack-skills/threejs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/threejs-webxr/SKILL.md",
+      "computedHash": "eb6fed4cbea22e4532339cfe3e4c3c8162878991f07d239cf97ce551a4c02dca"
+    }
+  }
+}

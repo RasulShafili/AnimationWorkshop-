@@ -1,0 +1,516 @@
+[
+  {
+    "id": 1,
+    "words": [
+      "Every",
+      "commercial",
+      "airplane"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 0.05,
+    "endTime": 1.571,
+    "startFrame": 2,
+    "endFrame": 47
+  },
+  {
+    "id": 2,
+    "words": [
+      "gets",
+      "struck",
+      "by"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 1.571,
+    "endTime": 2.364,
+    "startFrame": 47,
+    "endFrame": 71
+  },
+  {
+    "id": 3,
+    "words": [
+      "lightning",
+      "once",
+      "or"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 2.364,
+    "endTime": 3.356,
+    "startFrame": 71,
+    "endFrame": 101
+  },
+  {
+    "id": 4,
+    "words": [
+      "twice",
+      "every",
+      "single"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 3.356,
+    "endTime": 4.414,
+    "startFrame": 101,
+    "endFrame": 132
+  },
+  {
+    "id": 5,
+    "words": [
+      "year",
+      "So",
+      "why"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 4.414,
+    "endTime": 5.081,
+    "startFrame": 132,
+    "endFrame": 152
+  },
+  {
+    "id": 6,
+    "words": [
+      "don't",
+      "they",
+      "crash"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 5.081,
+    "endTime": 6.023,
+    "startFrame": 152,
+    "endFrame": 181
+  },
+  {
+    "id": 7,
+    "words": [
+      "or",
+      "blow",
+      "up"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 6.023,
+    "endTime": 6.561,
+    "startFrame": 181,
+    "endFrame": 197
+  },
+  {
+    "id": 8,
+    "words": [
+      "in",
+      "mid-air"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 6.561,
+    "endTime": 7.233,
+    "startFrame": 197,
+    "endFrame": 217
+  },
+  {
+    "id": 9,
+    "words": [
+      "When",
+      "a",
+      "bolt"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 7.233,
+    "endTime": 7.867,
+    "startFrame": 217,
+    "endFrame": 236
+  },
+  {
+    "id": 10,
+    "words": [
+      "strikes",
+      "cruising",
+      "at"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 7.867,
+    "endTime": 9.065,
+    "startFrame": 236,
+    "endFrame": 272
+  },
+  {
+    "id": 11,
+    "words": [
+      "thirty",
+      "thousand",
+      "feet"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 9.065,
+    "endTime": 10.404,
+    "startFrame": 272,
+    "endFrame": 312
+  },
+  {
+    "id": 12,
+    "words": [
+      "a",
+      "blinding",
+      "flash"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 10.404,
+    "endTime": 11.391,
+    "startFrame": 312,
+    "endFrame": 342
+  },
+  {
+    "id": 13,
+    "words": [
+      "illuminates",
+      "the",
+      "plane"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 11.391,
+    "endTime": 12.8,
+    "startFrame": 342,
+    "endFrame": 384
+  },
+  {
+    "id": 14,
+    "words": [
+      "Instantly",
+      "the",
+      "aluminum"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 12.8,
+    "endTime": 14.247,
+    "startFrame": 384,
+    "endFrame": 427
+  },
+  {
+    "id": 15,
+    "words": [
+      "and",
+      "copper-mesh",
+      "skin"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 14.247,
+    "endTime": 15.488,
+    "startFrame": 427,
+    "endFrame": 465
+  },
+  {
+    "id": 16,
+    "words": [
+      "forms",
+      "a",
+      "protective"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 15.488,
+    "endTime": 16.591,
+    "startFrame": 465,
+    "endFrame": 498
+  },
+  {
+    "id": 17,
+    "words": [
+      "Faraday",
+      "cage"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 16.591,
+    "endTime": 17.418,
+    "startFrame": 498,
+    "endFrame": 523
+  },
+  {
+    "id": 18,
+    "words": [
+      "The",
+      "three",
+      "hundred"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 17.418,
+    "endTime": 18.325,
+    "startFrame": 523,
+    "endFrame": 550
+  },
+  {
+    "id": 19,
+    "words": [
+      "thousand",
+      "volts",
+      "of"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 18.325,
+    "endTime": 19.231,
+    "startFrame": 550,
+    "endFrame": 577
+  },
+  {
+    "id": 20,
+    "words": [
+      "electricity",
+      "cannot",
+      "penetrate"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 19.231,
+    "endTime": 20.803,
+    "startFrame": 577,
+    "endFrame": 624
+  },
+  {
+    "id": 21,
+    "words": [
+      "inside",
+      "Instead"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 20.803,
+    "endTime": 21.776,
+    "startFrame": 624,
+    "endFrame": 653
+  },
+  {
+    "id": 22,
+    "words": [
+      "the",
+      "massive",
+      "electrical"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 21.776,
+    "endTime": 23.15,
+    "startFrame": 653,
+    "endFrame": 694
+  },
+  {
+    "id": 23,
+    "words": [
+      "current",
+      "flows",
+      "entirely"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 23.15,
+    "endTime": 24.524,
+    "startFrame": 694,
+    "endFrame": 736
+  },
+  {
+    "id": 24,
+    "words": [
+      "along",
+      "the",
+      "conductive"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 24.524,
+    "endTime": 25.76,
+    "startFrame": 736,
+    "endFrame": 773
+  },
+  {
+    "id": 25,
+    "words": [
+      "exterior",
+      "shell",
+      "of"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 25.76,
+    "endTime": 26.791,
+    "startFrame": 773,
+    "endFrame": 804
+  },
+  {
+    "id": 26,
+    "words": [
+      "the",
+      "fuselage"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 26.791,
+    "endTime": 27.615,
+    "startFrame": 804,
+    "endFrame": 828
+  },
+  {
+    "id": 27,
+    "words": [
+      "Special",
+      "metal",
+      "needles"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 27.615,
+    "endTime": 28.814,
+    "startFrame": 828,
+    "endFrame": 864
+  },
+  {
+    "id": 28,
+    "words": [
+      "on",
+      "the",
+      "wingtips"
+    ],
+    "yellowWordIndex": 2,
+    "startTime": 28.814,
+    "endTime": 29.634,
+    "startFrame": 864,
+    "endFrame": 889
+  },
+  {
+    "id": 29,
+    "words": [
+      "called",
+      "static",
+      "wicks"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 29.634,
+    "endTime": 30.706,
+    "startFrame": 889,
+    "endFrame": 921
+  },
+  {
+    "id": 30,
+    "words": [
+      "discharge",
+      "the",
+      "high"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 30.706,
+    "endTime": 31.716,
+    "startFrame": 921,
+    "endFrame": 951
+  },
+  {
+    "id": 31,
+    "words": [
+      "voltage",
+      "harmlessly",
+      "into"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 31.716,
+    "endTime": 33.041,
+    "startFrame": 951,
+    "endFrame": 991
+  },
+  {
+    "id": 32,
+    "words": [
+      "the",
+      "trailing",
+      "wind"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 33.041,
+    "endTime": 34.05,
+    "startFrame": 991,
+    "endFrame": 1021
+  },
+  {
+    "id": 33,
+    "words": [
+      "Passengers",
+      "inside",
+      "barely"
+    ],
+    "yellowWordIndex": 0,
+    "startTime": 34.05,
+    "endTime": 35.713,
+    "startFrame": 1021,
+    "endFrame": 1071
+  },
+  {
+    "id": 34,
+    "words": [
+      "notice",
+      "feeling",
+      "only"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 35.713,
+    "endTime": 37.074,
+    "startFrame": 1071,
+    "endFrame": 1112
+  },
+  {
+    "id": 35,
+    "words": [
+      "a",
+      "dull",
+      "thump"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 37.074,
+    "endTime": 37.905,
+    "startFrame": 1112,
+    "endFrame": 1137
+  },
+  {
+    "id": 36,
+    "words": [
+      "Have",
+      "you",
+      "ever"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 37.905,
+    "endTime": 38.511,
+    "startFrame": 1137,
+    "endFrame": 1155
+  },
+  {
+    "id": 37,
+    "words": [
+      "experienced",
+      "lightning",
+      "on"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 38.511,
+    "endTime": 39.722,
+    "startFrame": 1155,
+    "endFrame": 1192
+  },
+  {
+    "id": 38,
+    "words": [
+      "a",
+      "flight"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 39.722,
+    "endTime": 40.162,
+    "startFrame": 1192,
+    "endFrame": 1205
+  },
+  {
+    "id": 39,
+    "words": [
+      "Tell",
+      "us",
+      "in"
+    ],
+    "yellowWordIndex": -1,
+    "startTime": 40.162,
+    "endTime": 40.685,
+    "startFrame": 1205,
+    "endFrame": 1221
+  },
+  {
+    "id": 40,
+    "words": [
+      "the",
+      "comments"
+    ],
+    "yellowWordIndex": 1,
+    "startTime": 40.685,
+    "endTime": 41.469,
+    "startFrame": 1221,
+    "endFrame": 1244
+  }
+]

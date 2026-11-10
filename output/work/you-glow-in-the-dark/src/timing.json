@@ -1,0 +1,18 @@
+{
+  "fps": 30,
+  "totalFrames": 960,
+  "bpm": 135,
+  "beats": [0, 107, 213, 320, 427, 533, 640, 747, 853, 960],
+  "hits": [454, 480, 507],
+  "texts": [
+    [[["YOU LITERALLY", ""]], [["GLOW IN THE DARK", "#55efc4"]]],
+    [[["BUT IT'S ", ""], ["1000X", "#ffe600"], [" TOO", ""]], [["FAINT FOR YOUR EYES", ""]]],
+    [[["IN 2009, A ", ""], ["PHOTON", "#5ce1e6"]], [["CAMERA CAUGHT IT", ""]]],
+    [[["THE LIGHT IS MADE", ""]], [["INSIDE YOUR ", ""], ["CELLS", "#55efc4"]]],
+    [[["TINY CHEMICAL ", ""], ["SPARKS", "#ffe600"]], [["SHOOT OUT LIGHT", ""]]],
+    [[["YOUR ", ""], ["FACE", "#ffe600"], [" GLOWS", ""]], [["THE BRIGHTEST", ""]]],
+    [[["DIMMEST AT 10 AM,", ""]], [["BRIGHTEST AT ", ""], ["4 PM", "#ffe600"]]],
+    [[["ALMOST ALL ", ""], ["LIFE", "#55efc4"]], [["GLOWS A LITTLE", ""]]],
+    [[["LIGHTS OFF TONIGHT?", ""]], [["YOU'RE STILL ", ""], ["SHINING", "#55efc4"]]]
+  ]
+}

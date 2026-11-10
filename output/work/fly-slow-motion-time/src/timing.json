@@ -1,0 +1,103 @@
+{
+  "durationInSeconds": 32.0,
+  "totalFrames": 960,
+  "fps": 30,
+  "bubbles": [
+    {
+      "id": "beat_1",
+      "type": "center_text",
+      "startFrame": 4,
+      "endFrame": 120,
+      "typeFrames": 22,
+      "line1": "TO A FLY, YOU MOVE",
+      "line2": "IN SLOW MOTION!",
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 740.0
+    },
+    {
+      "id": "beat_2",
+      "type": "center_text",
+      "startFrame": 120,
+      "endFrame": 240,
+      "typeFrames": 22,
+      "line1": "HUMAN EYES SEE",
+      "line2": "AT 60 FPS",
+      "highlightColor": "#5CE1E6",
+      "highlightLine": 2,
+      "blipPitch": 800.0
+    },
+    {
+      "id": "beat_3",
+      "type": "center_text",
+      "startFrame": 240,
+      "endFrame": 360,
+      "typeFrames": 22,
+      "line1": "FLY EYES SEE AT",
+      "line2": "250 FPS (4X)!",
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 860.0
+    },
+    {
+      "id": "beat_4",
+      "type": "center_text",
+      "startFrame": 360,
+      "endFrame": 480,
+      "typeFrames": 22,
+      "line1": "YOUR FASTEST SWAT",
+      "line2": "LOOKS LIKE A SNAIL",
+      "highlightColor": "#55EFC4",
+      "highlightLine": 2,
+      "blipPitch": 680.0
+    },
+    {
+      "id": "beat_5",
+      "type": "center_text",
+      "startFrame": 480,
+      "endFrame": 600,
+      "typeFrames": 22,
+      "line1": "TINY FLY NERVES",
+      "line2": "PROCESS LIGHT 4X!",
+      "highlightColor": "#5CE1E6",
+      "highlightLine": 2,
+      "blipPitch": 780.0
+    },
+    {
+      "id": "beat_6",
+      "type": "center_text",
+      "startFrame": 600,
+      "endFrame": 720,
+      "typeFrames": 22,
+      "line1": "PLENTY OF TIME",
+      "line2": "TO DODGE YOU!",
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 880.0
+    },
+    {
+      "id": "beat_7",
+      "type": "center_text",
+      "startFrame": 720,
+      "endFrame": 840,
+      "typeFrames": 22,
+      "line1": "SMALLER BRAIN =",
+      "line2": "SLOWER TIME!",
+      "highlightColor": "#55EFC4",
+      "highlightLine": 2,
+      "blipPitch": 760.0
+    },
+    {
+      "id": "beat_8",
+      "type": "center_text",
+      "startFrame": 840,
+      "endFrame": 960,
+      "typeFrames": 24,
+      "line1": "FLIES LIVE IN",
+      "line2": "BULLET TIME!",
+      "highlightColor": "#FFD54F",
+      "highlightLine": 2,
+      "blipPitch": 820.0
+    }
+  ]
+}

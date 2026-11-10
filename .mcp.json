@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "remotion": {
+      "command": "node",
+      "args": [
+        "/home/rasul/Desktop/Animations/mcp-servers/remotion-mcp-server/dist/index.js"
+      ]
+    },
+    "manim": {
+      "command": "python3",
+      "args": [
+        "/home/rasul/Desktop/Animations/mcp-servers/manim-mcp-server/src/manim_server.py"
+      ]
+    },
+    "threejs-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "threejs-devtools-mcp"
+      ]
+    },
+    "ffmpeg": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ash_j1997/ffmpeg-mcp-server"
+      ]
+    },
+    "pixel-art-studio": {
+      "command": "python3",
+      "args": [
+        "/home/rasul/Desktop/Animations/mcp-servers/pixel-art-studio/mcp-server/server.py"
+      ]
+    }
+  }
+}

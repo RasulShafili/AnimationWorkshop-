@@ -1,0 +1,9 @@
+{
+  "fps": 30,
+  "totalFrames": 2700,
+  "sections": [0, 180, 420, 780, 1320, 1740, 2100, 2400, 2700],
+  "handshake": { "walkIn": 0, "knock": 52, "syn": 60, "doorOpen": 118, "synack": 130, "ack": 200, "shake": 260 },
+  "delivery": { "boxes": [40, 130, 220, 380], "lostBox": 2, "timeout": 300, "resend": 310, "stack": 460 },
+  "udp": { "every": 6, "lost": 200, "glitch": [214, 232], "goal": 280 },
+  "tableRow0": 20, "tableStep": 24
+}

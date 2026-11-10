@@ -1,0 +1,800 @@
+[
+  {
+    "word": "Every",
+    "text_token": "Every",
+    "start": 0.05,
+    "end": 0.381,
+    "sentence_idx": 0
+  },
+  {
+    "word": "commercial",
+    "text_token": "commercial",
+    "start": 0.381,
+    "end": 1.042,
+    "sentence_idx": 0
+  },
+  {
+    "word": "airplane",
+    "text_token": "airplane",
+    "start": 1.042,
+    "end": 1.571,
+    "sentence_idx": 0
+  },
+  {
+    "word": "gets",
+    "text_token": "gets",
+    "start": 1.571,
+    "end": 1.835,
+    "sentence_idx": 0
+  },
+  {
+    "word": "struck",
+    "text_token": "struck",
+    "start": 1.835,
+    "end": 2.232,
+    "sentence_idx": 0
+  },
+  {
+    "word": "by",
+    "text_token": "by",
+    "start": 2.232,
+    "end": 2.364,
+    "sentence_idx": 0
+  },
+  {
+    "word": "lightning",
+    "text_token": "lightning",
+    "start": 2.364,
+    "end": 2.96,
+    "sentence_idx": 0
+  },
+  {
+    "word": "once",
+    "text_token": "once",
+    "start": 2.96,
+    "end": 3.224,
+    "sentence_idx": 0
+  },
+  {
+    "word": "or",
+    "text_token": "or",
+    "start": 3.224,
+    "end": 3.356,
+    "sentence_idx": 0
+  },
+  {
+    "word": "twice",
+    "text_token": "twice",
+    "start": 3.356,
+    "end": 3.687,
+    "sentence_idx": 0
+  },
+  {
+    "word": "every",
+    "text_token": "every",
+    "start": 3.687,
+    "end": 4.018,
+    "sentence_idx": 0
+  },
+  {
+    "word": "single",
+    "text_token": "single",
+    "start": 4.018,
+    "end": 4.414,
+    "sentence_idx": 0
+  },
+  {
+    "word": "year",
+    "text_token": "year.",
+    "start": 4.414,
+    "end": 4.745,
+    "sentence_idx": 0
+  },
+  {
+    "word": "So",
+    "text_token": "So",
+    "start": 4.745,
+    "end": 4.879,
+    "sentence_idx": 1
+  },
+  {
+    "word": "why",
+    "text_token": "why",
+    "start": 4.879,
+    "end": 5.081,
+    "sentence_idx": 1
+  },
+  {
+    "word": "don't",
+    "text_token": "don't",
+    "start": 5.081,
+    "end": 5.417,
+    "sentence_idx": 1
+  },
+  {
+    "word": "they",
+    "text_token": "they",
+    "start": 5.417,
+    "end": 5.686,
+    "sentence_idx": 1
+  },
+  {
+    "word": "crash",
+    "text_token": "crash",
+    "start": 5.686,
+    "end": 6.023,
+    "sentence_idx": 1
+  },
+  {
+    "word": "or",
+    "text_token": "or",
+    "start": 6.023,
+    "end": 6.157,
+    "sentence_idx": 1
+  },
+  {
+    "word": "blow",
+    "text_token": "blow",
+    "start": 6.157,
+    "end": 6.426,
+    "sentence_idx": 1
+  },
+  {
+    "word": "up",
+    "text_token": "up",
+    "start": 6.426,
+    "end": 6.561,
+    "sentence_idx": 1
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 6.561,
+    "end": 6.695,
+    "sentence_idx": 1
+  },
+  {
+    "word": "mid-air",
+    "text_token": "mid-air?",
+    "start": 6.695,
+    "end": 7.233,
+    "sentence_idx": 1
+  },
+  {
+    "word": "When",
+    "text_token": "When",
+    "start": 7.233,
+    "end": 7.515,
+    "sentence_idx": 2
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 7.515,
+    "end": 7.585,
+    "sentence_idx": 2
+  },
+  {
+    "word": "bolt",
+    "text_token": "bolt",
+    "start": 7.585,
+    "end": 7.867,
+    "sentence_idx": 2
+  },
+  {
+    "word": "strikes",
+    "text_token": "strikes",
+    "start": 7.867,
+    "end": 8.36,
+    "sentence_idx": 2
+  },
+  {
+    "word": "cruising",
+    "text_token": "cruising",
+    "start": 8.36,
+    "end": 8.924,
+    "sentence_idx": 2
+  },
+  {
+    "word": "at",
+    "text_token": "at",
+    "start": 8.924,
+    "end": 9.065,
+    "sentence_idx": 2
+  },
+  {
+    "word": "thirty",
+    "text_token": "thirty",
+    "start": 9.065,
+    "end": 9.488,
+    "sentence_idx": 2
+  },
+  {
+    "word": "thousand",
+    "text_token": "thousand",
+    "start": 9.488,
+    "end": 10.052,
+    "sentence_idx": 2
+  },
+  {
+    "word": "feet",
+    "text_token": "feet,",
+    "start": 10.052,
+    "end": 10.404,
+    "sentence_idx": 2
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 10.404,
+    "end": 10.475,
+    "sentence_idx": 2
+  },
+  {
+    "word": "blinding",
+    "text_token": "blinding",
+    "start": 10.475,
+    "end": 11.038,
+    "sentence_idx": 2
+  },
+  {
+    "word": "flash",
+    "text_token": "flash",
+    "start": 11.038,
+    "end": 11.391,
+    "sentence_idx": 2
+  },
+  {
+    "word": "illuminates",
+    "text_token": "illuminates",
+    "start": 11.391,
+    "end": 12.166,
+    "sentence_idx": 2
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 12.166,
+    "end": 12.377,
+    "sentence_idx": 2
+  },
+  {
+    "word": "plane",
+    "text_token": "plane.",
+    "start": 12.377,
+    "end": 12.8,
+    "sentence_idx": 2
+  },
+  {
+    "word": "Instantly",
+    "text_token": "Instantly,",
+    "start": 12.8,
+    "end": 13.489,
+    "sentence_idx": 3
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 13.489,
+    "end": 13.696,
+    "sentence_idx": 3
+  },
+  {
+    "word": "aluminum",
+    "text_token": "aluminum",
+    "start": 13.696,
+    "end": 14.247,
+    "sentence_idx": 3
+  },
+  {
+    "word": "and",
+    "text_token": "and",
+    "start": 14.247,
+    "end": 14.454,
+    "sentence_idx": 3
+  },
+  {
+    "word": "copper-mesh",
+    "text_token": "copper-mesh",
+    "start": 14.454,
+    "end": 15.212,
+    "sentence_idx": 3
+  },
+  {
+    "word": "skin",
+    "text_token": "skin",
+    "start": 15.212,
+    "end": 15.488,
+    "sentence_idx": 3
+  },
+  {
+    "word": "forms",
+    "text_token": "forms",
+    "start": 15.488,
+    "end": 15.833,
+    "sentence_idx": 3
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 15.833,
+    "end": 15.902,
+    "sentence_idx": 3
+  },
+  {
+    "word": "protective",
+    "text_token": "protective",
+    "start": 15.902,
+    "end": 16.591,
+    "sentence_idx": 3
+  },
+  {
+    "word": "Faraday",
+    "text_token": "Faraday",
+    "start": 16.591,
+    "end": 17.073,
+    "sentence_idx": 3
+  },
+  {
+    "word": "cage",
+    "text_token": "cage.",
+    "start": 17.073,
+    "end": 17.418,
+    "sentence_idx": 3
+  },
+  {
+    "word": "The",
+    "text_token": "The",
+    "start": 17.418,
+    "end": 17.599,
+    "sentence_idx": 4
+  },
+  {
+    "word": "three",
+    "text_token": "three",
+    "start": 17.599,
+    "end": 17.902,
+    "sentence_idx": 4
+  },
+  {
+    "word": "hundred",
+    "text_token": "hundred",
+    "start": 17.902,
+    "end": 18.325,
+    "sentence_idx": 4
+  },
+  {
+    "word": "thousand",
+    "text_token": "thousand",
+    "start": 18.325,
+    "end": 18.808,
+    "sentence_idx": 4
+  },
+  {
+    "word": "volts",
+    "text_token": "volts",
+    "start": 18.808,
+    "end": 19.11,
+    "sentence_idx": 4
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 19.11,
+    "end": 19.231,
+    "sentence_idx": 4
+  },
+  {
+    "word": "electricity",
+    "text_token": "electricity",
+    "start": 19.231,
+    "end": 19.896,
+    "sentence_idx": 4
+  },
+  {
+    "word": "cannot",
+    "text_token": "cannot",
+    "start": 19.896,
+    "end": 20.259,
+    "sentence_idx": 4
+  },
+  {
+    "word": "penetrate",
+    "text_token": "penetrate",
+    "start": 20.259,
+    "end": 20.803,
+    "sentence_idx": 4
+  },
+  {
+    "word": "inside",
+    "text_token": "inside.",
+    "start": 20.803,
+    "end": 21.226,
+    "sentence_idx": 4
+  },
+  {
+    "word": "Instead",
+    "text_token": "Instead,",
+    "start": 21.226,
+    "end": 21.776,
+    "sentence_idx": 5
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 21.776,
+    "end": 21.982,
+    "sentence_idx": 5
+  },
+  {
+    "word": "massive",
+    "text_token": "massive",
+    "start": 21.982,
+    "end": 22.463,
+    "sentence_idx": 5
+  },
+  {
+    "word": "electrical",
+    "text_token": "electrical",
+    "start": 22.463,
+    "end": 23.15,
+    "sentence_idx": 5
+  },
+  {
+    "word": "current",
+    "text_token": "current",
+    "start": 23.15,
+    "end": 23.63,
+    "sentence_idx": 5
+  },
+  {
+    "word": "flows",
+    "text_token": "flows",
+    "start": 23.63,
+    "end": 23.974,
+    "sentence_idx": 5
+  },
+  {
+    "word": "entirely",
+    "text_token": "entirely",
+    "start": 23.974,
+    "end": 24.524,
+    "sentence_idx": 5
+  },
+  {
+    "word": "along",
+    "text_token": "along",
+    "start": 24.524,
+    "end": 24.867,
+    "sentence_idx": 5
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 24.867,
+    "end": 25.073,
+    "sentence_idx": 5
+  },
+  {
+    "word": "conductive",
+    "text_token": "conductive",
+    "start": 25.073,
+    "end": 25.76,
+    "sentence_idx": 5
+  },
+  {
+    "word": "exterior",
+    "text_token": "exterior",
+    "start": 25.76,
+    "end": 26.31,
+    "sentence_idx": 5
+  },
+  {
+    "word": "shell",
+    "text_token": "shell",
+    "start": 26.31,
+    "end": 26.653,
+    "sentence_idx": 5
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 26.653,
+    "end": 26.791,
+    "sentence_idx": 5
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 26.791,
+    "end": 26.997,
+    "sentence_idx": 5
+  },
+  {
+    "word": "fuselage",
+    "text_token": "fuselage.",
+    "start": 26.997,
+    "end": 27.615,
+    "sentence_idx": 5
+  },
+  {
+    "word": "Special",
+    "text_token": "Special",
+    "start": 27.615,
+    "end": 28.057,
+    "sentence_idx": 6
+  },
+  {
+    "word": "metal",
+    "text_token": "metal",
+    "start": 28.057,
+    "end": 28.372,
+    "sentence_idx": 6
+  },
+  {
+    "word": "needles",
+    "text_token": "needles",
+    "start": 28.372,
+    "end": 28.814,
+    "sentence_idx": 6
+  },
+  {
+    "word": "on",
+    "text_token": "on",
+    "start": 28.814,
+    "end": 28.94,
+    "sentence_idx": 6
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 28.94,
+    "end": 29.129,
+    "sentence_idx": 6
+  },
+  {
+    "word": "wingtips",
+    "text_token": "wingtips",
+    "start": 29.129,
+    "end": 29.634,
+    "sentence_idx": 6
+  },
+  {
+    "word": "called",
+    "text_token": "called",
+    "start": 29.634,
+    "end": 30.012,
+    "sentence_idx": 6
+  },
+  {
+    "word": "static",
+    "text_token": "static",
+    "start": 30.012,
+    "end": 30.391,
+    "sentence_idx": 6
+  },
+  {
+    "word": "wicks",
+    "text_token": "wicks",
+    "start": 30.391,
+    "end": 30.706,
+    "sentence_idx": 6
+  },
+  {
+    "word": "discharge",
+    "text_token": "discharge",
+    "start": 30.706,
+    "end": 31.274,
+    "sentence_idx": 6
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 31.274,
+    "end": 31.463,
+    "sentence_idx": 6
+  },
+  {
+    "word": "high",
+    "text_token": "high",
+    "start": 31.463,
+    "end": 31.716,
+    "sentence_idx": 6
+  },
+  {
+    "word": "voltage",
+    "text_token": "voltage",
+    "start": 31.716,
+    "end": 32.157,
+    "sentence_idx": 6
+  },
+  {
+    "word": "harmlessly",
+    "text_token": "harmlessly",
+    "start": 32.157,
+    "end": 32.788,
+    "sentence_idx": 6
+  },
+  {
+    "word": "into",
+    "text_token": "into",
+    "start": 32.788,
+    "end": 33.041,
+    "sentence_idx": 6
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 33.041,
+    "end": 33.23,
+    "sentence_idx": 6
+  },
+  {
+    "word": "trailing",
+    "text_token": "trailing",
+    "start": 33.23,
+    "end": 33.735,
+    "sentence_idx": 6
+  },
+  {
+    "word": "wind",
+    "text_token": "wind.",
+    "start": 33.735,
+    "end": 34.05,
+    "sentence_idx": 6
+  },
+  {
+    "word": "Passengers",
+    "text_token": "Passengers",
+    "start": 34.05,
+    "end": 34.806,
+    "sentence_idx": 7
+  },
+  {
+    "word": "inside",
+    "text_token": "inside",
+    "start": 34.806,
+    "end": 35.259,
+    "sentence_idx": 7
+  },
+  {
+    "word": "barely",
+    "text_token": "barely",
+    "start": 35.259,
+    "end": 35.713,
+    "sentence_idx": 7
+  },
+  {
+    "word": "notice",
+    "text_token": "notice,",
+    "start": 35.713,
+    "end": 36.242,
+    "sentence_idx": 7
+  },
+  {
+    "word": "feeling",
+    "text_token": "feeling",
+    "start": 36.242,
+    "end": 36.771,
+    "sentence_idx": 7
+  },
+  {
+    "word": "only",
+    "text_token": "only",
+    "start": 36.771,
+    "end": 37.074,
+    "sentence_idx": 7
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 37.074,
+    "end": 37.149,
+    "sentence_idx": 7
+  },
+  {
+    "word": "dull",
+    "text_token": "dull",
+    "start": 37.149,
+    "end": 37.451,
+    "sentence_idx": 7
+  },
+  {
+    "word": "thump",
+    "text_token": "thump.",
+    "start": 37.451,
+    "end": 37.905,
+    "sentence_idx": 7
+  },
+  {
+    "word": "Have",
+    "text_token": "Have",
+    "start": 37.905,
+    "end": 38.125,
+    "sentence_idx": 8
+  },
+  {
+    "word": "you",
+    "text_token": "you",
+    "start": 38.125,
+    "end": 38.29,
+    "sentence_idx": 8
+  },
+  {
+    "word": "ever",
+    "text_token": "ever",
+    "start": 38.29,
+    "end": 38.511,
+    "sentence_idx": 8
+  },
+  {
+    "word": "experienced",
+    "text_token": "experienced",
+    "start": 38.511,
+    "end": 39.116,
+    "sentence_idx": 8
+  },
+  {
+    "word": "lightning",
+    "text_token": "lightning",
+    "start": 39.116,
+    "end": 39.612,
+    "sentence_idx": 8
+  },
+  {
+    "word": "on",
+    "text_token": "on",
+    "start": 39.612,
+    "end": 39.722,
+    "sentence_idx": 8
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 39.722,
+    "end": 39.777,
+    "sentence_idx": 8
+  },
+  {
+    "word": "flight",
+    "text_token": "flight?",
+    "start": 39.777,
+    "end": 40.162,
+    "sentence_idx": 8
+  },
+  {
+    "word": "Tell",
+    "text_token": "Tell",
+    "start": 40.162,
+    "end": 40.423,
+    "sentence_idx": 9
+  },
+  {
+    "word": "us",
+    "text_token": "us",
+    "start": 40.423,
+    "end": 40.554,
+    "sentence_idx": 9
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 40.554,
+    "end": 40.685,
+    "sentence_idx": 9
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 40.685,
+    "end": 40.881,
+    "sentence_idx": 9
+  },
+  {
+    "word": "comments",
+    "text_token": "comments.",
+    "start": 40.881,
+    "end": 41.469,
+    "sentence_idx": 9
+  }
+]

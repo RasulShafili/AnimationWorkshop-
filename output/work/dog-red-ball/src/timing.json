@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "totalFrames": 540,
+  "bpm": 120,
+  "beats": [0, 90, 210, 330, 450, 540],
+  "sweep": [44, 84],
+  "throw": 352,
+  "land": 392,
+  "catch": 404,
+  "texts": [
+    [[["YOUR DOG CAN'T", ""]], [["SEE THIS BALL", "#ff5a4a"]]],
+    [[["DOGS SEE MOSTLY", ""]], [["BLUE ", "#5ab0ff"], ["AND ", ""], ["YELLOW", "#ffd84a"]]],
+    [[["YOU HAVE ", ""], ["3", "#ff7a7a"], [" COLOR CONES", ""]], [["YOUR DOG HAS ", ""], ["2", "#5ab0ff"]]],
+    [[["SO BUY ", ""], ["BLUE", "#5ab0ff"], [" TOYS", ""]], [["NOT ", ""], ["RED", "#ff5a4a"], [" ONES", ""]]],
+    [[["SEND THIS TO", ""]], [["A DOG OWNER", "#55efc4"]]]
+  ]
+}

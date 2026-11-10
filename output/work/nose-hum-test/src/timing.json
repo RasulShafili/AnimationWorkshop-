@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "totalFrames": 540,
+  "beats": [0, 90, 195, 315, 435, 540],
+  "pinch": 34,
+  "stop": 162,
+  "release": 345,
+  "texts": [
+    [[["YOU CAN'T HUM", ""]], [["RIGHT NOW", "#ffe600"]]],
+    [[["PINCH YOUR ", ""], ["NOSE", "#ff8aa0"]], [["CLOSE MOUTH. NOW ", ""], ["HUM!", "#ffe600"]]],
+    [[["THE AIR HAS ", ""], ["NO EXIT", "#ff5a7a"]], [["SO THE SOUND DIES", ""]]],
+    [[["A HUM IS AIR", ""]], [["LEAVING YOUR ", ""], ["NOSE", "#5ce1e6"]]],
+    [[["HOW LONG DID ", ""], ["YOU", "#ffe600"], [" LAST?", ""]], [["TAG A FRIEND", "#55efc4"]]]
+  ]
+}

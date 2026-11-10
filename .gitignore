@@ -1,0 +1,29 @@
+# secrets — never commit
+.secrets/
+.env
+*.env
+# dependencies and local tools (reinstall instead)
+node_modules
+.venv/
+__pycache__/
+tools/kokoro/*.onnx
+tools/kokoro/*.bin
+# renders and audio: too large for git; kept only on the PC
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.glb.bak
+Final videos/
+output/work/*/out/
+output/work/*/frames/
+**/parts/
+**/_bundle.mjs
+# other people's packaged servers and caches
+mcp-servers/
+.agents/
+.cursor/
+# embedded upstream repo: re-clone from https://github.com/isabellagreco1997/sprite-forge
+.claude/skills/sprite-forge/

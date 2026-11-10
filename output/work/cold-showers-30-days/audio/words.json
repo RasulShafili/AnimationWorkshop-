@@ -1,0 +1,740 @@
+[
+  {
+    "word": "What",
+    "start": 0.104,
+    "end": 0.185,
+    "text_token": "What"
+  },
+  {
+    "word": "happens",
+    "start": 0.197,
+    "end": 0.544,
+    "text_token": "happens"
+  },
+  {
+    "word": "inside",
+    "start": 0.556,
+    "end": 0.949,
+    "text_token": "inside"
+  },
+  {
+    "word": "your",
+    "start": 0.961,
+    "end": 1.053,
+    "text_token": "your"
+  },
+  {
+    "word": "body",
+    "start": 1.065,
+    "end": 1.4,
+    "text_token": "body"
+  },
+  {
+    "word": "if",
+    "start": 1.412,
+    "end": 1.505,
+    "text_token": "if"
+  },
+  {
+    "word": "you",
+    "start": 1.516,
+    "end": 1.597,
+    "text_token": "you"
+  },
+  {
+    "word": "take",
+    "start": 1.609,
+    "end": 1.84,
+    "text_token": "take"
+  },
+  {
+    "word": "cold",
+    "start": 1.852,
+    "end": 2.106,
+    "text_token": "cold"
+  },
+  {
+    "word": "showers",
+    "start": 2.118,
+    "end": 2.5,
+    "text_token": "showers"
+  },
+  {
+    "word": "for",
+    "start": 2.512,
+    "end": 2.616,
+    "text_token": "for"
+  },
+  {
+    "word": "thirty",
+    "start": 2.627,
+    "end": 2.917,
+    "text_token": "thirty"
+  },
+  {
+    "word": "days",
+    "start": 2.928,
+    "end": 3.368,
+    "text_token": "days?"
+  },
+  {
+    "word": "Day",
+    "start": 3.75,
+    "end": 3.854,
+    "text_token": "Day"
+  },
+  {
+    "word": "one",
+    "start": 3.866,
+    "end": 4.132,
+    "text_token": "one."
+  },
+  {
+    "word": "Freezing",
+    "start": 4.572,
+    "end": 4.896,
+    "text_token": "Freezing"
+  },
+  {
+    "word": "water",
+    "start": 4.907,
+    "end": 5.22,
+    "text_token": "water"
+  },
+  {
+    "word": "hits",
+    "start": 5.231,
+    "end": 5.417,
+    "text_token": "hits"
+  },
+  {
+    "word": "your",
+    "start": 5.428,
+    "end": 5.521,
+    "text_token": "your"
+  },
+  {
+    "word": "skin",
+    "start": 5.532,
+    "end": 5.856,
+    "text_token": "skin."
+  },
+  {
+    "word": "Your",
+    "start": 6.238,
+    "end": 6.343,
+    "text_token": "Your"
+  },
+  {
+    "word": "heart",
+    "start": 6.354,
+    "end": 6.586,
+    "text_token": "heart"
+  },
+  {
+    "word": "rate",
+    "start": 6.597,
+    "end": 6.759,
+    "text_token": "rate"
+  },
+  {
+    "word": "spikes",
+    "start": 6.771,
+    "end": 7.326,
+    "text_token": "spikes,"
+  },
+  {
+    "word": "and",
+    "start": 7.5,
+    "end": 7.627,
+    "text_token": "and"
+  },
+  {
+    "word": "blood",
+    "start": 7.639,
+    "end": 7.94,
+    "text_token": "blood"
+  },
+  {
+    "word": "vessels",
+    "start": 7.951,
+    "end": 8.333,
+    "text_token": "vessels"
+  },
+  {
+    "word": "rapidly",
+    "start": 8.345,
+    "end": 8.819,
+    "text_token": "rapidly"
+  },
+  {
+    "word": "constrict",
+    "start": 8.831,
+    "end": 9.352,
+    "text_token": "constrict,"
+  },
+  {
+    "word": "sending",
+    "start": 9.63,
+    "end": 9.977,
+    "text_token": "sending"
+  },
+  {
+    "word": "warm",
+    "start": 9.988,
+    "end": 10.255,
+    "text_token": "warm"
+  },
+  {
+    "word": "blood",
+    "start": 10.266,
+    "end": 10.59,
+    "text_token": "blood"
+  },
+  {
+    "word": "to",
+    "start": 10.602,
+    "end": 10.683,
+    "text_token": "to"
+  },
+  {
+    "word": "protect",
+    "start": 10.694,
+    "end": 11.076,
+    "text_token": "protect"
+  },
+  {
+    "word": "your",
+    "start": 11.088,
+    "end": 11.192,
+    "text_token": "your"
+  },
+  {
+    "word": "vital",
+    "start": 11.204,
+    "end": 11.528,
+    "text_token": "vital"
+  },
+  {
+    "word": "organs",
+    "start": 11.539,
+    "end": 12.049,
+    "text_token": "organs."
+  },
+  {
+    "word": "Day",
+    "start": 12.431,
+    "end": 12.569,
+    "text_token": "Day"
+  },
+  {
+    "word": "three",
+    "start": 12.581,
+    "end": 12.882,
+    "text_token": "three."
+  },
+  {
+    "word": "Your",
+    "start": 13.264,
+    "end": 13.368,
+    "text_token": "Your"
+  },
+  {
+    "word": "brown",
+    "start": 13.38,
+    "end": 13.692,
+    "text_token": "brown"
+  },
+  {
+    "word": "fat",
+    "start": 13.704,
+    "end": 14.086,
+    "text_token": "fat"
+  },
+  {
+    "word": "tissue",
+    "start": 14.097,
+    "end": 14.456,
+    "text_token": "tissue"
+  },
+  {
+    "word": "wakes",
+    "start": 14.468,
+    "end": 14.803,
+    "text_token": "wakes"
+  },
+  {
+    "word": "up",
+    "start": 14.815,
+    "end": 15.046,
+    "text_token": "up,"
+  },
+  {
+    "word": "burning",
+    "start": 15.417,
+    "end": 15.694,
+    "text_token": "burning"
+  },
+  {
+    "word": "calories",
+    "start": 15.706,
+    "end": 16.238,
+    "text_token": "calories"
+  },
+  {
+    "word": "to",
+    "start": 16.25,
+    "end": 16.354,
+    "text_token": "to"
+  },
+  {
+    "word": "generate",
+    "start": 16.366,
+    "end": 16.875,
+    "text_token": "generate"
+  },
+  {
+    "word": "internal",
+    "start": 16.887,
+    "end": 17.384,
+    "text_token": "internal"
+  },
+  {
+    "word": "heat",
+    "start": 17.396,
+    "end": 17.731,
+    "text_token": "heat"
+  },
+  {
+    "word": "like",
+    "start": 17.928,
+    "end": 18.056,
+    "text_token": "like"
+  },
+  {
+    "word": "a",
+    "start": 18.067,
+    "end": 18.113,
+    "text_token": "a"
+  },
+  {
+    "word": "furnace",
+    "start": 18.125,
+    "end": 18.692,
+    "text_token": "furnace."
+  },
+  {
+    "word": "Day",
+    "start": 19.074,
+    "end": 19.201,
+    "text_token": "Day"
+  },
+  {
+    "word": "seven",
+    "start": 19.213,
+    "end": 19.549,
+    "text_token": "seven."
+  },
+  {
+    "word": "Your",
+    "start": 19.931,
+    "end": 20.046,
+    "text_token": "Your"
+  },
+  {
+    "word": "brain",
+    "start": 20.058,
+    "end": 20.359,
+    "text_token": "brain"
+  },
+  {
+    "word": "explodes",
+    "start": 20.37,
+    "end": 20.949,
+    "text_token": "explodes"
+  },
+  {
+    "word": "with",
+    "start": 20.961,
+    "end": 21.111,
+    "text_token": "with"
+  },
+  {
+    "word": "energy",
+    "start": 21.227,
+    "end": 21.643,
+    "text_token": "energy."
+  },
+  {
+    "word": "Dopamine",
+    "start": 22.037,
+    "end": 22.5,
+    "text_token": "Dopamine"
+  },
+  {
+    "word": "levels",
+    "start": 22.512,
+    "end": 22.824,
+    "text_token": "levels"
+  },
+  {
+    "word": "surge",
+    "start": 22.836,
+    "end": 23.113,
+    "text_token": "surge"
+  },
+  {
+    "word": "up",
+    "start": 23.125,
+    "end": 23.252,
+    "text_token": "up"
+  },
+  {
+    "word": "to",
+    "start": 23.264,
+    "end": 23.356,
+    "text_token": "to"
+  },
+  {
+    "word": "two",
+    "start": 23.368,
+    "end": 23.611,
+    "text_token": "two"
+  },
+  {
+    "word": "hundred",
+    "start": 23.623,
+    "end": 23.889,
+    "text_token": "hundred"
+  },
+  {
+    "word": "and",
+    "start": 23.9,
+    "end": 23.97,
+    "text_token": "and"
+  },
+  {
+    "word": "fifty",
+    "start": 23.982,
+    "end": 24.271,
+    "text_token": "fifty"
+  },
+  {
+    "word": "percent",
+    "start": 24.282,
+    "end": 24.699,
+    "text_token": "percent,"
+  },
+  {
+    "word": "boosting",
+    "start": 24.988,
+    "end": 25.382,
+    "text_token": "boosting"
+  },
+  {
+    "word": "mood",
+    "start": 25.393,
+    "end": 25.637,
+    "text_token": "mood"
+  },
+  {
+    "word": "for",
+    "start": 25.648,
+    "end": 25.799,
+    "text_token": "for"
+  },
+  {
+    "word": "hours",
+    "start": 25.81,
+    "end": 26.25,
+    "text_token": "hours."
+  },
+  {
+    "word": "Day",
+    "start": 26.632,
+    "end": 26.771,
+    "text_token": "Day"
+  },
+  {
+    "word": "fourteen",
+    "start": 26.782,
+    "end": 27.326,
+    "text_token": "fourteen."
+  },
+  {
+    "word": "Cold",
+    "start": 27.708,
+    "end": 27.905,
+    "text_token": "Cold"
+  },
+  {
+    "word": "shock",
+    "start": 27.917,
+    "end": 28.183,
+    "text_token": "shock"
+  },
+  {
+    "word": "proteins",
+    "start": 28.194,
+    "end": 28.715,
+    "text_token": "proteins"
+  },
+  {
+    "word": "flood",
+    "start": 28.727,
+    "end": 28.993,
+    "text_token": "flood"
+  },
+  {
+    "word": "your",
+    "start": 29.005,
+    "end": 29.097,
+    "text_token": "your"
+  },
+  {
+    "word": "bloodstream",
+    "start": 29.109,
+    "end": 29.618,
+    "text_token": "bloodstream,"
+  },
+  {
+    "word": "strengthening",
+    "start": 29.965,
+    "end": 30.486,
+    "text_token": "strengthening"
+  },
+  {
+    "word": "immune",
+    "start": 30.498,
+    "end": 30.799,
+    "text_token": "immune"
+  },
+  {
+    "word": "cells",
+    "start": 30.81,
+    "end": 31.227,
+    "text_token": "cells"
+  },
+  {
+    "word": "and",
+    "start": 31.377,
+    "end": 31.481,
+    "text_token": "and"
+  },
+  {
+    "word": "reducing",
+    "start": 31.493,
+    "end": 31.968,
+    "text_token": "reducing"
+  },
+  {
+    "word": "muscle",
+    "start": 31.979,
+    "end": 32.257,
+    "text_token": "muscle"
+  },
+  {
+    "word": "soreness",
+    "start": 32.269,
+    "end": 32.789,
+    "text_token": "soreness."
+  },
+  {
+    "word": "Day",
+    "start": 33.171,
+    "end": 33.333,
+    "text_token": "Day"
+  },
+  {
+    "word": "thirty",
+    "start": 33.345,
+    "end": 33.704,
+    "text_token": "thirty."
+  },
+  {
+    "word": "The",
+    "start": 34.086,
+    "end": 34.132,
+    "text_token": "The"
+  },
+  {
+    "word": "shock",
+    "start": 34.144,
+    "end": 34.421,
+    "text_token": "shock"
+  },
+  {
+    "word": "is",
+    "start": 34.433,
+    "end": 34.525,
+    "text_token": "is"
+  },
+  {
+    "word": "gone",
+    "start": 34.537,
+    "end": 34.826,
+    "text_token": "gone."
+  },
+  {
+    "word": "Your",
+    "start": 35.22,
+    "end": 35.37,
+    "text_token": "Your"
+  },
+  {
+    "word": "nervous",
+    "start": 35.382,
+    "end": 35.752,
+    "text_token": "nervous"
+  },
+  {
+    "word": "system",
+    "start": 35.764,
+    "end": 36.181,
+    "text_token": "system"
+  },
+  {
+    "word": "is",
+    "start": 36.285,
+    "end": 36.389,
+    "text_token": "is"
+  },
+  {
+    "word": "fully",
+    "start": 36.4,
+    "end": 36.794,
+    "text_token": "fully"
+  },
+  {
+    "word": "adapted",
+    "start": 36.806,
+    "end": 37.338,
+    "text_token": "adapted,"
+  },
+  {
+    "word": "building",
+    "start": 37.616,
+    "end": 37.963,
+    "text_token": "building"
+  },
+  {
+    "word": "unbreakable",
+    "start": 38.032,
+    "end": 38.762,
+    "text_token": "unbreakable"
+  },
+  {
+    "word": "mental",
+    "start": 38.773,
+    "end": 39.062,
+    "text_token": "mental"
+  },
+  {
+    "word": "discipline",
+    "start": 39.074,
+    "end": 39.549,
+    "text_token": "discipline."
+  },
+  {
+    "word": "This",
+    "start": 39.931,
+    "end": 40.127,
+    "text_token": "This"
+  },
+  {
+    "word": "is",
+    "start": 40.139,
+    "end": 40.255,
+    "text_token": "is"
+  },
+  {
+    "word": "general",
+    "start": 40.266,
+    "end": 40.625,
+    "text_token": "general"
+  },
+  {
+    "word": "information",
+    "start": 40.637,
+    "end": 41.204,
+    "text_token": "information,"
+  },
+  {
+    "word": "not",
+    "start": 41.458,
+    "end": 41.632,
+    "text_token": "not"
+  },
+  {
+    "word": "medical",
+    "start": 41.644,
+    "end": 41.968,
+    "text_token": "medical"
+  },
+  {
+    "word": "advice",
+    "start": 41.979,
+    "end": 42.512,
+    "text_token": "advice."
+  },
+  {
+    "word": "Could",
+    "start": 42.894,
+    "end": 43.009,
+    "text_token": "Could"
+  },
+  {
+    "word": "you",
+    "start": 43.021,
+    "end": 43.102,
+    "text_token": "you"
+  },
+  {
+    "word": "survive",
+    "start": 43.113,
+    "end": 43.565,
+    "text_token": "survive"
+  },
+  {
+    "word": "thirty",
+    "start": 43.576,
+    "end": 43.843,
+    "text_token": "thirty"
+  },
+  {
+    "word": "days",
+    "start": 43.854,
+    "end": 44.259,
+    "text_token": "days?"
+  },
+  {
+    "word": "Tell",
+    "start": 44.641,
+    "end": 44.745,
+    "text_token": "Tell"
+  },
+  {
+    "word": "me",
+    "start": 44.757,
+    "end": 44.85,
+    "text_token": "me"
+  },
+  {
+    "word": "in",
+    "start": 44.861,
+    "end": 44.919,
+    "text_token": "in"
+  },
+  {
+    "word": "the",
+    "start": 44.931,
+    "end": 45.0,
+    "text_token": "the"
+  },
+  {
+    "word": "comments",
+    "start": 45.012,
+    "end": 45.567,
+    "text_token": "comments."
+  }
+]

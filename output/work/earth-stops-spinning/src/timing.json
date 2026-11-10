@@ -1,0 +1,87 @@
+{
+  "durationInSeconds": 55.39,
+  "totalFrames": 1662,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": 1,
+      "name": "Scene1",
+      "startTime": 0.0,
+      "endTime": 6.633,
+      "duration": 6.633,
+      "startFrame": 0,
+      "endFrame": 199,
+      "durationInFrames": 199
+    },
+    {
+      "id": 2,
+      "name": "Scene2",
+      "startTime": 6.633,
+      "endTime": 14.4,
+      "duration": 7.767,
+      "startFrame": 199,
+      "endFrame": 432,
+      "durationInFrames": 233
+    },
+    {
+      "id": 3,
+      "name": "Scene3",
+      "startTime": 14.4,
+      "endTime": 22.167,
+      "duration": 7.767,
+      "startFrame": 432,
+      "endFrame": 665,
+      "durationInFrames": 233
+    },
+    {
+      "id": 4,
+      "name": "Scene4",
+      "startTime": 22.167,
+      "endTime": 30.467,
+      "duration": 8.3,
+      "startFrame": 665,
+      "endFrame": 914,
+      "durationInFrames": 249
+    },
+    {
+      "id": 5,
+      "name": "Scene5",
+      "startTime": 30.467,
+      "endTime": 37.667,
+      "duration": 7.2,
+      "startFrame": 914,
+      "endFrame": 1130,
+      "durationInFrames": 216
+    },
+    {
+      "id": 6,
+      "name": "Scene6",
+      "startTime": 37.667,
+      "endTime": 44.3,
+      "duration": 6.633,
+      "startFrame": 1130,
+      "endFrame": 1329,
+      "durationInFrames": 199
+    },
+    {
+      "id": 7,
+      "name": "Scene7",
+      "startTime": 44.3,
+      "endTime": 49.833,
+      "duration": 5.533,
+      "startFrame": 1329,
+      "endFrame": 1495,
+      "durationInFrames": 166
+    },
+    {
+      "id": 8,
+      "name": "Scene8",
+      "startTime": 49.833,
+      "endTime": 55.4,
+      "duration": 5.567,
+      "startFrame": 1495,
+      "endFrame": 1662,
+      "durationInFrames": 167
+    }
+  ]
+}

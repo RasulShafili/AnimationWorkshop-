@@ -1,0 +1,1045 @@
+[
+  {
+    "word": "You",
+    "text_token": "You",
+    "start": 0.05,
+    "end": 0.241,
+    "sentence_idx": 0
+  },
+  {
+    "word": "think",
+    "text_token": "think",
+    "start": 0.241,
+    "end": 0.559,
+    "sentence_idx": 0
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 0.559,
+    "end": 0.749,
+    "sentence_idx": 0
+  },
+  {
+    "word": "internet",
+    "text_token": "internet",
+    "start": 0.749,
+    "end": 1.258,
+    "sentence_idx": 0
+  },
+  {
+    "word": "is",
+    "text_token": "is",
+    "start": 1.258,
+    "end": 1.385,
+    "sentence_idx": 0
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 1.385,
+    "end": 1.512,
+    "sentence_idx": 0
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 1.512,
+    "end": 1.703,
+    "sentence_idx": 0
+  },
+  {
+    "word": "cloud",
+    "text_token": "cloud",
+    "start": 1.703,
+    "end": 2.021,
+    "sentence_idx": 0
+  },
+  {
+    "word": "or",
+    "text_token": "or",
+    "start": 2.021,
+    "end": 2.148,
+    "sentence_idx": 0
+  },
+  {
+    "word": "satellites",
+    "text_token": "satellites?",
+    "start": 2.148,
+    "end": 2.847,
+    "sentence_idx": 0
+  },
+  {
+    "word": "Ninety-nine",
+    "text_token": "Ninety-nine",
+    "start": 2.847,
+    "end": 3.615,
+    "sentence_idx": 1
+  },
+  {
+    "word": "percent",
+    "text_token": "percent",
+    "start": 3.615,
+    "end": 4.103,
+    "sentence_idx": 1
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 4.103,
+    "end": 4.243,
+    "sentence_idx": 1
+  },
+  {
+    "word": "all",
+    "text_token": "all",
+    "start": 4.243,
+    "end": 4.452,
+    "sentence_idx": 1
+  },
+  {
+    "word": "global",
+    "text_token": "global",
+    "start": 4.452,
+    "end": 4.871,
+    "sentence_idx": 1
+  },
+  {
+    "word": "data",
+    "text_token": "data",
+    "start": 4.871,
+    "end": 5.151,
+    "sentence_idx": 1
+  },
+  {
+    "word": "actually",
+    "text_token": "actually",
+    "start": 5.151,
+    "end": 5.709,
+    "sentence_idx": 1
+  },
+  {
+    "word": "travels",
+    "text_token": "travels",
+    "start": 5.709,
+    "end": 6.198,
+    "sentence_idx": 1
+  },
+  {
+    "word": "through",
+    "text_token": "through",
+    "start": 6.198,
+    "end": 6.686,
+    "sentence_idx": 1
+  },
+  {
+    "word": "thin",
+    "text_token": "thin",
+    "start": 6.686,
+    "end": 6.965,
+    "sentence_idx": 1
+  },
+  {
+    "word": "glass",
+    "text_token": "glass",
+    "start": 6.965,
+    "end": 7.314,
+    "sentence_idx": 1
+  },
+  {
+    "word": "cables",
+    "text_token": "cables",
+    "start": 7.314,
+    "end": 7.733,
+    "sentence_idx": 1
+  },
+  {
+    "word": "on",
+    "text_token": "on",
+    "start": 7.733,
+    "end": 7.873,
+    "sentence_idx": 1
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 7.873,
+    "end": 8.082,
+    "sentence_idx": 1
+  },
+  {
+    "word": "pitch-black",
+    "text_token": "pitch-black",
+    "start": 8.082,
+    "end": 8.85,
+    "sentence_idx": 1
+  },
+  {
+    "word": "ocean",
+    "text_token": "ocean",
+    "start": 8.85,
+    "end": 9.199,
+    "sentence_idx": 1
+  },
+  {
+    "word": "floor",
+    "text_token": "floor.",
+    "start": 9.199,
+    "end": 9.618,
+    "sentence_idx": 1
+  },
+  {
+    "word": "Over",
+    "text_token": "Over",
+    "start": 9.618,
+    "end": 9.97,
+    "sentence_idx": 2
+  },
+  {
+    "word": "500",
+    "text_token": "500",
+    "start": 9.97,
+    "end": 10.234,
+    "sentence_idx": 2
+  },
+  {
+    "word": "undersea",
+    "text_token": "undersea",
+    "start": 10.234,
+    "end": 10.937,
+    "sentence_idx": 2
+  },
+  {
+    "word": "cables",
+    "text_token": "cables",
+    "start": 10.937,
+    "end": 11.465,
+    "sentence_idx": 2
+  },
+  {
+    "word": "span",
+    "text_token": "span",
+    "start": 11.465,
+    "end": 11.817,
+    "sentence_idx": 2
+  },
+  {
+    "word": "1.4",
+    "text_token": "1.4",
+    "start": 11.817,
+    "end": 12.081,
+    "sentence_idx": 2
+  },
+  {
+    "word": "million",
+    "text_token": "million",
+    "start": 12.081,
+    "end": 12.696,
+    "sentence_idx": 2
+  },
+  {
+    "word": "kilometers",
+    "text_token": "kilometers",
+    "start": 12.696,
+    "end": 13.576,
+    "sentence_idx": 2
+  },
+  {
+    "word": "across",
+    "text_token": "across",
+    "start": 13.576,
+    "end": 14.103,
+    "sentence_idx": 2
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 14.103,
+    "end": 14.367,
+    "sentence_idx": 2
+  },
+  {
+    "word": "globe",
+    "text_token": "globe.",
+    "start": 14.367,
+    "end": 14.895,
+    "sentence_idx": 2
+  },
+  {
+    "word": "Inside",
+    "text_token": "Inside,",
+    "start": 14.895,
+    "end": 15.405,
+    "sentence_idx": 3
+  },
+  {
+    "word": "hair-thin",
+    "text_token": "hair-thin",
+    "start": 15.405,
+    "end": 16.06,
+    "sentence_idx": 3
+  },
+  {
+    "word": "silica",
+    "text_token": "silica",
+    "start": 16.06,
+    "end": 16.497,
+    "sentence_idx": 3
+  },
+  {
+    "word": "glass",
+    "text_token": "glass",
+    "start": 16.497,
+    "end": 16.861,
+    "sentence_idx": 3
+  },
+  {
+    "word": "fibers",
+    "text_token": "fibers",
+    "start": 16.861,
+    "end": 17.298,
+    "sentence_idx": 3
+  },
+  {
+    "word": "bounce",
+    "text_token": "bounce",
+    "start": 17.298,
+    "end": 17.735,
+    "sentence_idx": 3
+  },
+  {
+    "word": "laser",
+    "text_token": "laser",
+    "start": 17.735,
+    "end": 18.099,
+    "sentence_idx": 3
+  },
+  {
+    "word": "beams",
+    "text_token": "beams",
+    "start": 18.099,
+    "end": 18.463,
+    "sentence_idx": 3
+  },
+  {
+    "word": "via",
+    "text_token": "via",
+    "start": 18.463,
+    "end": 18.682,
+    "sentence_idx": 3
+  },
+  {
+    "word": "total",
+    "text_token": "total",
+    "start": 18.682,
+    "end": 19.046,
+    "sentence_idx": 3
+  },
+  {
+    "word": "internal",
+    "text_token": "internal",
+    "start": 19.046,
+    "end": 19.629,
+    "sentence_idx": 3
+  },
+  {
+    "word": "reflection",
+    "text_token": "reflection,",
+    "start": 19.629,
+    "end": 20.43,
+    "sentence_idx": 3
+  },
+  {
+    "word": "transmitting",
+    "text_token": "transmitting",
+    "start": 20.43,
+    "end": 21.304,
+    "sentence_idx": 3
+  },
+  {
+    "word": "10",
+    "text_token": "10",
+    "start": 21.304,
+    "end": 21.449,
+    "sentence_idx": 3
+  },
+  {
+    "word": "trillion",
+    "text_token": "trillion",
+    "start": 21.449,
+    "end": 22.032,
+    "sentence_idx": 3
+  },
+  {
+    "word": "dollars",
+    "text_token": "dollars",
+    "start": 22.032,
+    "end": 22.542,
+    "sentence_idx": 3
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 22.542,
+    "end": 22.687,
+    "sentence_idx": 3
+  },
+  {
+    "word": "financial",
+    "text_token": "financial",
+    "start": 22.687,
+    "end": 23.343,
+    "sentence_idx": 3
+  },
+  {
+    "word": "trades",
+    "text_token": "trades",
+    "start": 23.343,
+    "end": 23.78,
+    "sentence_idx": 3
+  },
+  {
+    "word": "every",
+    "text_token": "every",
+    "start": 23.78,
+    "end": 24.144,
+    "sentence_idx": 3
+  },
+  {
+    "word": "single",
+    "text_token": "single",
+    "start": 24.144,
+    "end": 24.581,
+    "sentence_idx": 3
+  },
+  {
+    "word": "day",
+    "text_token": "day.",
+    "start": 24.581,
+    "end": 24.872,
+    "sentence_idx": 3
+  },
+  {
+    "word": "But",
+    "text_token": "But",
+    "start": 24.872,
+    "end": 25.089,
+    "sentence_idx": 4
+  },
+  {
+    "word": "at",
+    "text_token": "at",
+    "start": 25.089,
+    "end": 25.234,
+    "sentence_idx": 4
+  },
+  {
+    "word": "4,000",
+    "text_token": "4,000",
+    "start": 25.234,
+    "end": 25.596,
+    "sentence_idx": 4
+  },
+  {
+    "word": "meters",
+    "text_token": "meters",
+    "start": 25.596,
+    "end": 26.03,
+    "sentence_idx": 4
+  },
+  {
+    "word": "deep",
+    "text_token": "deep,",
+    "start": 26.03,
+    "end": 26.392,
+    "sentence_idx": 4
+  },
+  {
+    "word": "these",
+    "text_token": "these",
+    "start": 26.392,
+    "end": 26.754,
+    "sentence_idx": 4
+  },
+  {
+    "word": "cables",
+    "text_token": "cables",
+    "start": 26.754,
+    "end": 27.188,
+    "sentence_idx": 4
+  },
+  {
+    "word": "are",
+    "text_token": "are",
+    "start": 27.188,
+    "end": 27.405,
+    "sentence_idx": 4
+  },
+  {
+    "word": "vulnerable",
+    "text_token": "vulnerable",
+    "start": 27.405,
+    "end": 28.129,
+    "sentence_idx": 4
+  },
+  {
+    "word": "to",
+    "text_token": "to",
+    "start": 28.129,
+    "end": 28.274,
+    "sentence_idx": 4
+  },
+  {
+    "word": "ship",
+    "text_token": "ship",
+    "start": 28.274,
+    "end": 28.563,
+    "sentence_idx": 4
+  },
+  {
+    "word": "anchors",
+    "text_token": "anchors,",
+    "start": 28.563,
+    "end": 29.142,
+    "sentence_idx": 4
+  },
+  {
+    "word": "underwater",
+    "text_token": "underwater",
+    "start": 29.142,
+    "end": 29.866,
+    "sentence_idx": 4
+  },
+  {
+    "word": "earthquakes",
+    "text_token": "earthquakes,",
+    "start": 29.866,
+    "end": 30.734,
+    "sentence_idx": 4
+  },
+  {
+    "word": "and",
+    "text_token": "and",
+    "start": 30.734,
+    "end": 30.951,
+    "sentence_idx": 4
+  },
+  {
+    "word": "covert",
+    "text_token": "covert",
+    "start": 30.951,
+    "end": 31.386,
+    "sentence_idx": 4
+  },
+  {
+    "word": "sabotage",
+    "text_token": "sabotage.",
+    "start": 31.386,
+    "end": 32.037,
+    "sentence_idx": 4
+  },
+  {
+    "word": "If",
+    "text_token": "If",
+    "start": 32.037,
+    "end": 32.193,
+    "sentence_idx": 5
+  },
+  {
+    "word": "key",
+    "text_token": "key",
+    "start": 32.193,
+    "end": 32.427,
+    "sentence_idx": 5
+  },
+  {
+    "word": "transoceanic",
+    "text_token": "transoceanic",
+    "start": 32.427,
+    "end": 33.363,
+    "sentence_idx": 5
+  },
+  {
+    "word": "choke",
+    "text_token": "choke",
+    "start": 33.363,
+    "end": 33.753,
+    "sentence_idx": 5
+  },
+  {
+    "word": "points",
+    "text_token": "points",
+    "start": 33.753,
+    "end": 34.221,
+    "sentence_idx": 5
+  },
+  {
+    "word": "are",
+    "text_token": "are",
+    "start": 34.221,
+    "end": 34.455,
+    "sentence_idx": 5
+  },
+  {
+    "word": "severed",
+    "text_token": "severed,",
+    "start": 34.455,
+    "end": 35.079,
+    "sentence_idx": 5
+  },
+  {
+    "word": "global",
+    "text_token": "global",
+    "start": 35.079,
+    "end": 35.547,
+    "sentence_idx": 5
+  },
+  {
+    "word": "internet",
+    "text_token": "internet",
+    "start": 35.547,
+    "end": 36.171,
+    "sentence_idx": 5
+  },
+  {
+    "word": "bandwidth",
+    "text_token": "bandwidth",
+    "start": 36.171,
+    "end": 36.873,
+    "sentence_idx": 5
+  },
+  {
+    "word": "collapses",
+    "text_token": "collapses",
+    "start": 36.873,
+    "end": 37.575,
+    "sentence_idx": 5
+  },
+  {
+    "word": "by",
+    "text_token": "by",
+    "start": 37.575,
+    "end": 37.731,
+    "sentence_idx": 5
+  },
+  {
+    "word": "70",
+    "text_token": "70%.",
+    "start": 37.731,
+    "end": 38.043,
+    "sentence_idx": 5
+  },
+  {
+    "word": "Banking",
+    "text_token": "Banking",
+    "start": 38.043,
+    "end": 38.503,
+    "sentence_idx": 6
+  },
+  {
+    "word": "networks",
+    "text_token": "networks",
+    "start": 38.503,
+    "end": 39.028,
+    "sentence_idx": 6
+  },
+  {
+    "word": "freeze",
+    "text_token": "freeze,",
+    "start": 39.028,
+    "end": 39.487,
+    "sentence_idx": 6
+  },
+  {
+    "word": "international",
+    "text_token": "international",
+    "start": 39.487,
+    "end": 40.341,
+    "sentence_idx": 6
+  },
+  {
+    "word": "stock",
+    "text_token": "stock",
+    "start": 40.341,
+    "end": 40.669,
+    "sentence_idx": 6
+  },
+  {
+    "word": "exchanges",
+    "text_token": "exchanges",
+    "start": 40.669,
+    "end": 41.26,
+    "sentence_idx": 6
+  },
+  {
+    "word": "halt",
+    "text_token": "halt,",
+    "start": 41.26,
+    "end": 41.588,
+    "sentence_idx": 6
+  },
+  {
+    "word": "and",
+    "text_token": "and",
+    "start": 41.588,
+    "end": 41.785,
+    "sentence_idx": 6
+  },
+  {
+    "word": "whole",
+    "text_token": "whole",
+    "start": 41.785,
+    "end": 42.113,
+    "sentence_idx": 6
+  },
+  {
+    "word": "continents",
+    "text_token": "continents",
+    "start": 42.113,
+    "end": 42.769,
+    "sentence_idx": 6
+  },
+  {
+    "word": "go",
+    "text_token": "go",
+    "start": 42.769,
+    "end": 42.901,
+    "sentence_idx": 6
+  },
+  {
+    "word": "dark",
+    "text_token": "dark.",
+    "start": 42.901,
+    "end": 43.229,
+    "sentence_idx": 6
+  },
+  {
+    "word": "Repairing",
+    "text_token": "Repairing",
+    "start": 43.229,
+    "end": 43.882,
+    "sentence_idx": 7
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 43.882,
+    "end": 43.955,
+    "sentence_idx": 7
+  },
+  {
+    "word": "severed",
+    "text_token": "severed",
+    "start": 43.955,
+    "end": 44.463,
+    "sentence_idx": 7
+  },
+  {
+    "word": "cable",
+    "text_token": "cable",
+    "start": 44.463,
+    "end": 44.826,
+    "sentence_idx": 7
+  },
+  {
+    "word": "takes",
+    "text_token": "takes",
+    "start": 44.826,
+    "end": 45.189,
+    "sentence_idx": 7
+  },
+  {
+    "word": "weeks",
+    "text_token": "weeks.",
+    "start": 45.189,
+    "end": 45.624,
+    "sentence_idx": 7
+  },
+  {
+    "word": "Specialized",
+    "text_token": "Specialized",
+    "start": 45.624,
+    "end": 46.428,
+    "sentence_idx": 8
+  },
+  {
+    "word": "ships",
+    "text_token": "ships",
+    "start": 46.428,
+    "end": 46.794,
+    "sentence_idx": 8
+  },
+  {
+    "word": "deploy",
+    "text_token": "deploy",
+    "start": 46.794,
+    "end": 47.232,
+    "sentence_idx": 8
+  },
+  {
+    "word": "robotic",
+    "text_token": "robotic",
+    "start": 47.232,
+    "end": 47.744,
+    "sentence_idx": 8
+  },
+  {
+    "word": "ROVs",
+    "text_token": "ROVs",
+    "start": 47.744,
+    "end": 48.036,
+    "sentence_idx": 8
+  },
+  {
+    "word": "miles",
+    "text_token": "miles",
+    "start": 48.036,
+    "end": 48.402,
+    "sentence_idx": 8
+  },
+  {
+    "word": "into",
+    "text_token": "into",
+    "start": 48.402,
+    "end": 48.694,
+    "sentence_idx": 8
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 48.694,
+    "end": 48.913,
+    "sentence_idx": 8
+  },
+  {
+    "word": "abyss",
+    "text_token": "abyss",
+    "start": 48.913,
+    "end": 49.279,
+    "sentence_idx": 8
+  },
+  {
+    "word": "to",
+    "text_token": "to",
+    "start": 49.279,
+    "end": 49.425,
+    "sentence_idx": 8
+  },
+  {
+    "word": "retrieve",
+    "text_token": "retrieve",
+    "start": 49.425,
+    "end": 50.01,
+    "sentence_idx": 8
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 50.01,
+    "end": 50.229,
+    "sentence_idx": 8
+  },
+  {
+    "word": "broken",
+    "text_token": "broken",
+    "start": 50.229,
+    "end": 50.668,
+    "sentence_idx": 8
+  },
+  {
+    "word": "ends",
+    "text_token": "ends,",
+    "start": 50.668,
+    "end": 51.033,
+    "sentence_idx": 8
+  },
+  {
+    "word": "where",
+    "text_token": "where",
+    "start": 51.033,
+    "end": 51.399,
+    "sentence_idx": 8
+  },
+  {
+    "word": "technicians",
+    "text_token": "technicians",
+    "start": 51.399,
+    "end": 52.203,
+    "sentence_idx": 8
+  },
+  {
+    "word": "splice",
+    "text_token": "splice",
+    "start": 52.203,
+    "end": 52.641,
+    "sentence_idx": 8
+  },
+  {
+    "word": "microscopic",
+    "text_token": "microscopic",
+    "start": 52.641,
+    "end": 53.445,
+    "sentence_idx": 8
+  },
+  {
+    "word": "glass",
+    "text_token": "glass",
+    "start": 53.445,
+    "end": 53.811,
+    "sentence_idx": 8
+  },
+  {
+    "word": "fibers",
+    "text_token": "fibers",
+    "start": 53.811,
+    "end": 54.249,
+    "sentence_idx": 8
+  },
+  {
+    "word": "by",
+    "text_token": "by",
+    "start": 54.249,
+    "end": 54.396,
+    "sentence_idx": 8
+  },
+  {
+    "word": "hand",
+    "text_token": "hand",
+    "start": 54.396,
+    "end": 54.688,
+    "sentence_idx": 8
+  },
+  {
+    "word": "inside",
+    "text_token": "inside",
+    "start": 54.688,
+    "end": 55.126,
+    "sentence_idx": 8
+  },
+  {
+    "word": "cleanrooms",
+    "text_token": "cleanrooms",
+    "start": 55.126,
+    "end": 55.857,
+    "sentence_idx": 8
+  },
+  {
+    "word": "at",
+    "text_token": "at",
+    "start": 55.857,
+    "end": 56.004,
+    "sentence_idx": 8
+  },
+  {
+    "word": "sea",
+    "text_token": "sea.",
+    "start": 56.004,
+    "end": 56.296,
+    "sentence_idx": 8
+  },
+  {
+    "word": "Could",
+    "text_token": "Could",
+    "start": 56.296,
+    "end": 56.617,
+    "sentence_idx": 9
+  },
+  {
+    "word": "our",
+    "text_token": "our",
+    "start": 56.617,
+    "end": 56.81,
+    "sentence_idx": 9
+  },
+  {
+    "word": "digital",
+    "text_token": "digital",
+    "start": 56.81,
+    "end": 57.259,
+    "sentence_idx": 9
+  },
+  {
+    "word": "civilization",
+    "text_token": "civilization",
+    "start": 57.259,
+    "end": 58.03,
+    "sentence_idx": 9
+  },
+  {
+    "word": "survive",
+    "text_token": "survive",
+    "start": 58.03,
+    "end": 58.479,
+    "sentence_idx": 9
+  },
+  {
+    "word": "if",
+    "text_token": "if",
+    "start": 58.479,
+    "end": 58.608,
+    "sentence_idx": 9
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 58.608,
+    "end": 58.8,
+    "sentence_idx": 9
+  },
+  {
+    "word": "undersea",
+    "text_token": "undersea",
+    "start": 58.8,
+    "end": 59.314,
+    "sentence_idx": 9
+  },
+  {
+    "word": "cables",
+    "text_token": "cables",
+    "start": 59.314,
+    "end": 59.699,
+    "sentence_idx": 9
+  },
+  {
+    "word": "went",
+    "text_token": "went",
+    "start": 59.699,
+    "end": 59.956,
+    "sentence_idx": 9
+  },
+  {
+    "word": "dark",
+    "text_token": "dark?",
+    "start": 59.956,
+    "end": 60.277,
+    "sentence_idx": 9
+  },
+  {
+    "word": "Drop",
+    "text_token": "Drop",
+    "start": 60.277,
+    "end": 60.502,
+    "sentence_idx": 10
+  },
+  {
+    "word": "your",
+    "text_token": "your",
+    "start": 60.502,
+    "end": 60.728,
+    "sentence_idx": 10
+  },
+  {
+    "word": "thoughts",
+    "text_token": "thoughts",
+    "start": 60.728,
+    "end": 61.178,
+    "sentence_idx": 10
+  },
+  {
+    "word": "below",
+    "text_token": "below!",
+    "start": 61.178,
+    "end": 61.516,
+    "sentence_idx": 10
+  }
+]

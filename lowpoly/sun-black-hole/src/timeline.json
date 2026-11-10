@@ -1,0 +1,93 @@
+{
+ "fps": 30,
+ "total": 990,
+ "beats": [
+  0,
+  75,
+  210,
+  360,
+  510,
+  660,
+  810,
+  990
+ ],
+ "collapse": 34,
+ "shellStart": 222,
+ "shellEnd": 330,
+ "dark": 402,
+ "wilt": [
+  520,
+  640
+ ],
+ "snow": 540,
+ "run": [
+  545,
+  610
+ ],
+ "week": 640,
+ "freeze": [
+  672,
+  790
+ ],
+ "year": 790,
+ "texts": [
+  [
+   "THE SUN JUST BECAME",
+   "A BLACK HOLE"
+  ],
+  [
+   "EARTH DOESN'T FALL IN",
+   "SAME MASS = SAME PULL"
+  ],
+  [
+   "FOR 8 MINUTES",
+   "NOTHING CHANGES"
+  ],
+  [
+   "THEN THE SKY",
+   "GOES BLACK"
+  ],
+  [
+   "PLANTS DIE",
+   "SNOW FALLS"
+  ],
+  [
+   "THE OCEANS",
+   "FREEZE"
+  ],
+  [
+   "WOULD YOU SURVIVE?",
+   "TAG A FRIEND"
+  ]
+ ],
+ "vo": [
+  [
+   4,
+   "What if the Sun became a black hole?"
+  ],
+  [
+   84,
+   "Earth wouldn't fall in. Same mass, same pull. Our orbit stays the same."
+  ],
+  [
+   220,
+   "For eight minutes, nothing changes. The Sun's last light is still on its way."
+  ],
+  [
+   394,
+   "Then the sky goes black. Stars at noon. Every city light switches on."
+  ],
+  [
+   520,
+   "Within a week, the plants die. It's minus eighteen."
+  ],
+  [
+   668,
+   "In a year, minus seventy three. The oceans freeze from the top down."
+  ],
+  [
+   822,
+   "Life might survive near deep sea vents. Would you? Tag a friend."
+  ]
+ ]
+}

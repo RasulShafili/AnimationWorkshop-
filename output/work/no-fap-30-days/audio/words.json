@@ -1,0 +1,849 @@
+[
+  {
+    "word": "What",
+    "raw": "What",
+    "start": 0.093,
+    "end": 0.185,
+    "text_token": "What"
+  },
+  {
+    "word": "happens",
+    "raw": "happens",
+    "start": 0.197,
+    "end": 0.521,
+    "text_token": "happens"
+  },
+  {
+    "word": "if",
+    "raw": "if",
+    "start": 0.532,
+    "end": 0.625,
+    "text_token": "if"
+  },
+  {
+    "word": "you",
+    "raw": "you",
+    "start": 0.637,
+    "end": 0.706,
+    "text_token": "you"
+  },
+  {
+    "word": "stop",
+    "raw": "stop",
+    "start": 0.718,
+    "end": 0.995,
+    "text_token": "stop"
+  },
+  {
+    "word": "masturbation",
+    "raw": "masturbation",
+    "start": 1.007,
+    "end": 1.655,
+    "text_token": "masturbation"
+  },
+  {
+    "word": "for",
+    "raw": "for",
+    "start": 1.667,
+    "end": 1.771,
+    "text_token": "for"
+  },
+  {
+    "word": "thirty",
+    "raw": "thirty",
+    "start": 1.782,
+    "end": 2.06,
+    "text_token": "thirty"
+  },
+  {
+    "word": "days",
+    "raw": "days",
+    "start": 2.072,
+    "end": 2.512,
+    "text_token": "days?"
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 2.893,
+    "end": 2.998,
+    "text_token": "Day"
+  },
+  {
+    "word": "one",
+    "raw": "one",
+    "start": 3.009,
+    "end": 3.275,
+    "text_token": "one."
+  },
+  {
+    "word": "Nothing",
+    "raw": "Nothing",
+    "start": 3.657,
+    "end": 3.97,
+    "text_token": "Nothing"
+  },
+  {
+    "word": "changes",
+    "raw": "changes",
+    "start": 3.982,
+    "end": 4.421,
+    "text_token": "changes"
+  },
+  {
+    "word": "yet",
+    "raw": "yet",
+    "start": 4.433,
+    "end": 4.757,
+    "text_token": "yet,"
+  },
+  {
+    "word": "but",
+    "raw": "but",
+    "start": 5.035,
+    "end": 5.15,
+    "text_token": "but"
+  },
+  {
+    "word": "the",
+    "raw": "the",
+    "start": 5.162,
+    "end": 5.231,
+    "text_token": "the"
+  },
+  {
+    "word": "habit",
+    "raw": "habit",
+    "start": 5.243,
+    "end": 5.637,
+    "text_token": "habit"
+  },
+  {
+    "word": "tempts",
+    "raw": "tempts",
+    "start": 5.648,
+    "end": 5.949,
+    "text_token": "tempts"
+  },
+  {
+    "word": "your",
+    "raw": "your",
+    "start": 5.961,
+    "end": 6.065,
+    "text_token": "your"
+  },
+  {
+    "word": "brain",
+    "raw": "brain",
+    "start": 6.076,
+    "end": 6.412,
+    "text_token": "brain."
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 6.794,
+    "end": 6.933,
+    "text_token": "Day"
+  },
+  {
+    "word": "three",
+    "raw": "three",
+    "start": 6.944,
+    "end": 7.245,
+    "text_token": "three."
+  },
+  {
+    "word": "The",
+    "raw": "The",
+    "start": 7.639,
+    "end": 7.708,
+    "text_token": "The"
+  },
+  {
+    "word": "urges",
+    "raw": "urges",
+    "start": 7.72,
+    "end": 8.021,
+    "text_token": "urges"
+  },
+  {
+    "word": "kick",
+    "raw": "kick",
+    "start": 8.032,
+    "end": 8.241,
+    "text_token": "kick"
+  },
+  {
+    "word": "in",
+    "raw": "in",
+    "start": 8.252,
+    "end": 8.461,
+    "text_token": "in."
+  },
+  {
+    "word": "Many",
+    "raw": "Many",
+    "start": 8.843,
+    "end": 9.028,
+    "text_token": "Many"
+  },
+  {
+    "word": "people",
+    "raw": "people",
+    "start": 9.039,
+    "end": 9.363,
+    "text_token": "people"
+  },
+  {
+    "word": "report",
+    "raw": "report",
+    "start": 9.375,
+    "end": 9.792,
+    "text_token": "report"
+  },
+  {
+    "word": "restlessness",
+    "raw": "restlessness",
+    "start": 9.803,
+    "end": 10.486,
+    "text_token": "restlessness"
+  },
+  {
+    "word": "and",
+    "raw": "and",
+    "start": 10.498,
+    "end": 10.648,
+    "text_token": "and"
+  },
+  {
+    "word": "trouble",
+    "raw": "trouble",
+    "start": 10.66,
+    "end": 10.961,
+    "text_token": "trouble"
+  },
+  {
+    "word": "focusing",
+    "raw": "focusing",
+    "start": 10.972,
+    "end": 11.505,
+    "text_token": "focusing,"
+  },
+  {
+    "word": "as",
+    "raw": "as",
+    "start": 11.794,
+    "end": 11.898,
+    "text_token": "as"
+  },
+  {
+    "word": "dopamine",
+    "raw": "dopamine",
+    "start": 11.91,
+    "end": 12.315,
+    "text_token": "dopamine"
+  },
+  {
+    "word": "drops",
+    "raw": "drops",
+    "start": 12.326,
+    "end": 12.847,
+    "text_token": "drops."
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 13.229,
+    "end": 13.356,
+    "text_token": "Day"
+  },
+  {
+    "word": "seven",
+    "raw": "seven",
+    "start": 13.368,
+    "end": 13.704,
+    "text_token": "seven."
+  },
+  {
+    "word": "Some",
+    "raw": "Some",
+    "start": 14.097,
+    "end": 14.294,
+    "text_token": "Some"
+  },
+  {
+    "word": "studies",
+    "raw": "studies",
+    "start": 14.306,
+    "end": 14.676,
+    "text_token": "studies"
+  },
+  {
+    "word": "note",
+    "raw": "note",
+    "start": 14.688,
+    "end": 14.931,
+    "text_token": "note"
+  },
+  {
+    "word": "a",
+    "raw": "a",
+    "start": 14.942,
+    "end": 15.012,
+    "text_token": "a"
+  },
+  {
+    "word": "temporary",
+    "raw": "temporary",
+    "start": 15.023,
+    "end": 15.625,
+    "text_token": "temporary"
+  },
+  {
+    "word": "peak",
+    "raw": "peak",
+    "start": 15.637,
+    "end": 15.995,
+    "text_token": "peak"
+  },
+  {
+    "word": "in",
+    "raw": "in",
+    "start": 16.065,
+    "end": 16.157,
+    "text_token": "in"
+  },
+  {
+    "word": "testosterone",
+    "raw": "testosterone",
+    "start": 16.169,
+    "end": 16.956,
+    "text_token": "testosterone,"
+  },
+  {
+    "word": "giving",
+    "raw": "giving",
+    "start": 17.234,
+    "end": 17.454,
+    "text_token": "giving"
+  },
+  {
+    "word": "a",
+    "raw": "a",
+    "start": 17.465,
+    "end": 17.512,
+    "text_token": "a"
+  },
+  {
+    "word": "sudden",
+    "raw": "sudden",
+    "start": 17.523,
+    "end": 17.917,
+    "text_token": "sudden"
+  },
+  {
+    "word": "burst",
+    "raw": "burst",
+    "start": 17.928,
+    "end": 18.252,
+    "text_token": "burst"
+  },
+  {
+    "word": "of",
+    "raw": "of",
+    "start": 18.264,
+    "end": 18.345,
+    "text_token": "of"
+  },
+  {
+    "word": "energy",
+    "raw": "energy",
+    "start": 18.357,
+    "end": 18.762,
+    "text_token": "energy."
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 19.143,
+    "end": 19.282,
+    "text_token": "Day"
+  },
+  {
+    "word": "fourteen",
+    "raw": "fourteen",
+    "start": 19.294,
+    "end": 19.838,
+    "text_token": "fourteen."
+  },
+  {
+    "word": "The",
+    "raw": "The",
+    "start": 20.232,
+    "end": 20.278,
+    "text_token": "The"
+  },
+  {
+    "word": "famous",
+    "raw": "famous",
+    "start": 20.289,
+    "end": 20.625,
+    "text_token": "famous"
+  },
+  {
+    "word": "flatline",
+    "raw": "flatline",
+    "start": 20.637,
+    "end": 21.134,
+    "text_token": "flatline."
+  },
+  {
+    "word": "Energy",
+    "raw": "Energy",
+    "start": 21.516,
+    "end": 21.817,
+    "text_token": "Energy"
+  },
+  {
+    "word": "feels",
+    "raw": "feels",
+    "start": 21.829,
+    "end": 22.106,
+    "text_token": "feels"
+  },
+  {
+    "word": "low",
+    "raw": "low",
+    "start": 22.118,
+    "end": 22.431,
+    "text_token": "low,"
+  },
+  {
+    "word": "and",
+    "raw": "and",
+    "start": 22.662,
+    "end": 22.778,
+    "text_token": "and"
+  },
+  {
+    "word": "mood",
+    "raw": "mood",
+    "start": 22.789,
+    "end": 23.044,
+    "text_token": "mood"
+  },
+  {
+    "word": "dips",
+    "raw": "dips",
+    "start": 23.056,
+    "end": 23.472,
+    "text_token": "dips."
+  },
+  {
+    "word": "But",
+    "raw": "But",
+    "start": 23.866,
+    "end": 23.947,
+    "text_token": "But"
+  },
+  {
+    "word": "don't",
+    "raw": "don't",
+    "start": 23.958,
+    "end": 24.155,
+    "text_token": "don't"
+  },
+  {
+    "word": "panic",
+    "raw": "panic",
+    "start": 24.167,
+    "end": 24.583,
+    "text_token": "panic,"
+  },
+  {
+    "word": "your",
+    "raw": "your",
+    "start": 24.826,
+    "end": 24.919,
+    "text_token": "your"
+  },
+  {
+    "word": "dopamine",
+    "raw": "dopamine",
+    "start": 24.931,
+    "end": 25.347,
+    "text_token": "dopamine"
+  },
+  {
+    "word": "receptors",
+    "raw": "receptors",
+    "start": 25.359,
+    "end": 25.856,
+    "text_token": "receptors"
+  },
+  {
+    "word": "are",
+    "raw": "are",
+    "start": 25.868,
+    "end": 25.949,
+    "text_token": "are"
+  },
+  {
+    "word": "just",
+    "raw": "just",
+    "start": 25.961,
+    "end": 26.227,
+    "text_token": "just"
+  },
+  {
+    "word": "resetting",
+    "raw": "resetting",
+    "start": 26.238,
+    "end": 26.736,
+    "text_token": "resetting."
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 27.118,
+    "end": 27.245,
+    "text_token": "Day"
+  },
+  {
+    "word": "twenty-one",
+    "raw": "twenty-one",
+    "start": 27.257,
+    "end": 27.766,
+    "text_token": "twenty-one."
+  },
+  {
+    "word": "Brain",
+    "raw": "Brain",
+    "start": 28.16,
+    "end": 28.356,
+    "text_token": "Brain"
+  },
+  {
+    "word": "fog",
+    "raw": "fog",
+    "start": 28.368,
+    "end": 28.773,
+    "text_token": "fog"
+  },
+  {
+    "word": "often",
+    "raw": "often",
+    "start": 28.912,
+    "end": 29.178,
+    "text_token": "often"
+  },
+  {
+    "word": "clears",
+    "raw": "clears",
+    "start": 29.19,
+    "end": 29.722,
+    "text_token": "clears."
+  },
+  {
+    "word": "Many",
+    "raw": "Many",
+    "start": 30.104,
+    "end": 30.336,
+    "text_token": "Many"
+  },
+  {
+    "word": "report",
+    "raw": "report",
+    "start": 30.347,
+    "end": 30.787,
+    "text_token": "report"
+  },
+  {
+    "word": "deeper",
+    "raw": "deeper",
+    "start": 30.857,
+    "end": 31.157,
+    "text_token": "deeper"
+  },
+  {
+    "word": "sleep",
+    "raw": "sleep",
+    "start": 31.169,
+    "end": 31.539,
+    "text_token": "sleep,"
+  },
+  {
+    "word": "sharper",
+    "raw": "sharper",
+    "start": 31.817,
+    "end": 32.164,
+    "text_token": "sharper"
+  },
+  {
+    "word": "concentration",
+    "raw": "concentration",
+    "start": 32.176,
+    "end": 32.882,
+    "text_token": "concentration,"
+  },
+  {
+    "word": "and",
+    "raw": "and",
+    "start": 33.148,
+    "end": 33.206,
+    "text_token": "and"
+  },
+  {
+    "word": "more",
+    "raw": "more",
+    "start": 33.218,
+    "end": 33.437,
+    "text_token": "more"
+  },
+  {
+    "word": "drive",
+    "raw": "drive",
+    "start": 33.449,
+    "end": 33.762,
+    "text_token": "drive"
+  },
+  {
+    "word": "in",
+    "raw": "in",
+    "start": 33.773,
+    "end": 33.843,
+    "text_token": "in"
+  },
+  {
+    "word": "the",
+    "raw": "the",
+    "start": 33.854,
+    "end": 33.924,
+    "text_token": "the"
+  },
+  {
+    "word": "gym",
+    "raw": "gym",
+    "start": 33.935,
+    "end": 34.201,
+    "text_token": "gym."
+  },
+  {
+    "word": "Day",
+    "raw": "Day",
+    "start": 34.583,
+    "end": 34.745,
+    "text_token": "Day"
+  },
+  {
+    "word": "thirty",
+    "raw": "thirty",
+    "start": 34.757,
+    "end": 35.116,
+    "text_token": "thirty."
+  },
+  {
+    "word": "Urges",
+    "raw": "Urges",
+    "start": 35.498,
+    "end": 35.787,
+    "text_token": "Urges"
+  },
+  {
+    "word": "still",
+    "raw": "still",
+    "start": 35.799,
+    "end": 36.053,
+    "text_token": "still"
+  },
+  {
+    "word": "exist",
+    "raw": "exist",
+    "start": 36.065,
+    "end": 36.586,
+    "text_token": "exist,"
+  },
+  {
+    "word": "but",
+    "raw": "but",
+    "start": 36.782,
+    "end": 36.898,
+    "text_token": "but"
+  },
+  {
+    "word": "they",
+    "raw": "they",
+    "start": 36.91,
+    "end": 37.002,
+    "text_token": "they"
+  },
+  {
+    "word": "no",
+    "raw": "no",
+    "start": 37.014,
+    "end": 37.164,
+    "text_token": "no"
+  },
+  {
+    "word": "longer",
+    "raw": "longer",
+    "start": 37.176,
+    "end": 37.535,
+    "text_token": "longer"
+  },
+  {
+    "word": "control",
+    "raw": "control",
+    "start": 37.546,
+    "end": 37.963,
+    "text_token": "control"
+  },
+  {
+    "word": "you",
+    "raw": "you",
+    "start": 37.975,
+    "end": 38.148,
+    "text_token": "you."
+  },
+  {
+    "word": "You",
+    "raw": "You",
+    "start": 38.53,
+    "end": 38.657,
+    "text_token": "You"
+  },
+  {
+    "word": "built",
+    "raw": "built",
+    "start": 38.669,
+    "end": 38.877,
+    "text_token": "built"
+  },
+  {
+    "word": "self-discipline",
+    "raw": "self-discipline",
+    "start": 38.889,
+    "end": 39.618,
+    "text_token": "self-discipline."
+  },
+  {
+    "word": "This",
+    "raw": "This",
+    "start": 40.0,
+    "end": 40.197,
+    "text_token": "This"
+  },
+  {
+    "word": "is",
+    "raw": "is",
+    "start": 40.208,
+    "end": 40.324,
+    "text_token": "is"
+  },
+  {
+    "word": "general",
+    "raw": "general",
+    "start": 40.336,
+    "end": 40.694,
+    "text_token": "general"
+  },
+  {
+    "word": "information",
+    "raw": "information",
+    "start": 40.706,
+    "end": 41.273,
+    "text_token": "information,"
+  },
+  {
+    "word": "not",
+    "raw": "not",
+    "start": 41.528,
+    "end": 41.701,
+    "text_token": "not"
+  },
+  {
+    "word": "medical",
+    "raw": "medical",
+    "start": 41.713,
+    "end": 42.037,
+    "text_token": "medical"
+  },
+  {
+    "word": "advice",
+    "raw": "advice",
+    "start": 42.049,
+    "end": 42.581,
+    "text_token": "advice."
+  },
+  {
+    "word": "Could",
+    "raw": "Could",
+    "start": 42.963,
+    "end": 43.067,
+    "text_token": "Could"
+  },
+  {
+    "word": "you",
+    "raw": "you",
+    "start": 43.079,
+    "end": 43.148,
+    "text_token": "you"
+  },
+  {
+    "word": "last",
+    "raw": "last",
+    "start": 43.16,
+    "end": 43.449,
+    "text_token": "last"
+  },
+  {
+    "word": "thirty",
+    "raw": "thirty",
+    "start": 43.461,
+    "end": 43.657,
+    "text_token": "thirty"
+  },
+  {
+    "word": "days",
+    "raw": "days",
+    "start": 43.669,
+    "end": 44.086,
+    "text_token": "days?"
+  },
+  {
+    "word": "Tell",
+    "raw": "Tell",
+    "start": 44.468,
+    "end": 44.572,
+    "text_token": "Tell"
+  },
+  {
+    "word": "me",
+    "raw": "me",
+    "start": 44.583,
+    "end": 44.676,
+    "text_token": "me"
+  },
+  {
+    "word": "in",
+    "raw": "in",
+    "start": 44.688,
+    "end": 44.745,
+    "text_token": "in"
+  },
+  {
+    "word": "the",
+    "raw": "the",
+    "start": 44.757,
+    "end": 44.826,
+    "text_token": "the"
+  },
+  {
+    "word": "comments",
+    "raw": "comments",
+    "start": 44.838,
+    "end": 45.393,
+    "text_token": "comments."
+  }
+]

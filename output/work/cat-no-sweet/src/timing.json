@@ -1,0 +1,110 @@
+{
+ "fps": 30,
+ "totalFrames": 540,
+ "bpm": 120,
+ "beats": [
+  0,
+  90,
+  210,
+  330,
+  450,
+  540
+ ],
+ "sniff": 20,
+ "bleh": 52,
+ "bounce": [
+  130,
+  160,
+  190
+ ],
+ "dock": [
+  232,
+  256
+ ],
+ "lick": 360,
+ "texts": [
+  [
+   [
+    [
+     "YOUR CAT CAN'T",
+     ""
+    ]
+   ],
+   [
+    [
+     "TASTE SWEET",
+     "#ff7ab0"
+    ]
+   ]
+  ],
+  [
+   [
+    [
+     "ITS ",
+     ""
+    ],
+    [
+     "SWEET SENSOR",
+     "#ff7ab0"
+    ]
+   ],
+   [
+    [
+     "IS BROKEN",
+     ""
+    ]
+   ]
+  ],
+  [
+   [
+    [
+     "BUT MEAT? ",
+     ""
+    ],
+    [
+     "UMAMI",
+     "#ffb347"
+    ]
+   ],
+   [
+    [
+     "WORKS PERFECTLY",
+     ""
+    ]
+   ]
+  ],
+  [
+   [
+    [
+     "IT LICKS ICE CREAM",
+     ""
+    ]
+   ],
+   [
+    [
+     "FOR THE ",
+     ""
+    ],
+    [
+     "FAT",
+     "#ffe14e"
+    ]
+   ]
+  ],
+  [
+   [
+    [
+     "SEND THIS TO",
+     ""
+    ]
+   ],
+   [
+    [
+     "A CAT OWNER",
+     "#55efc4"
+    ]
+   ]
+  ]
+ ],
+ "fishCut": 276
+}

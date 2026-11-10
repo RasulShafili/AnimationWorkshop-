@@ -1,0 +1,877 @@
+[
+  {
+    "word": "What",
+    "text_token": "What",
+    "start": 0.05,
+    "end": 0.296,
+    "sentence_idx": 0
+  },
+  {
+    "word": "actually",
+    "text_token": "actually",
+    "start": 0.296,
+    "end": 0.788,
+    "sentence_idx": 0
+  },
+  {
+    "word": "happens",
+    "text_token": "happens",
+    "start": 0.788,
+    "end": 1.219,
+    "sentence_idx": 0
+  },
+  {
+    "word": "when",
+    "text_token": "when",
+    "start": 1.219,
+    "end": 1.465,
+    "sentence_idx": 0
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 1.465,
+    "end": 1.526,
+    "sentence_idx": 0
+  },
+  {
+    "word": "submarine",
+    "text_token": "submarine",
+    "start": 1.526,
+    "end": 2.08,
+    "sentence_idx": 0
+  },
+  {
+    "word": "dives",
+    "text_token": "dives",
+    "start": 2.08,
+    "end": 2.388,
+    "sentence_idx": 0
+  },
+  {
+    "word": "past",
+    "text_token": "past",
+    "start": 2.388,
+    "end": 2.634,
+    "sentence_idx": 0
+  },
+  {
+    "word": "its",
+    "text_token": "its",
+    "start": 2.634,
+    "end": 2.818,
+    "sentence_idx": 0
+  },
+  {
+    "word": "crush",
+    "text_token": "crush",
+    "start": 2.818,
+    "end": 3.126,
+    "sentence_idx": 0
+  },
+  {
+    "word": "depth",
+    "text_token": "depth?",
+    "start": 3.126,
+    "end": 3.495,
+    "sentence_idx": 0
+  },
+  {
+    "word": "At",
+    "text_token": "At",
+    "start": 3.495,
+    "end": 3.646,
+    "sentence_idx": 1
+  },
+  {
+    "word": "300",
+    "text_token": "300",
+    "start": 3.646,
+    "end": 3.872,
+    "sentence_idx": 1
+  },
+  {
+    "word": "meters",
+    "text_token": "meters,",
+    "start": 3.872,
+    "end": 4.4,
+    "sentence_idx": 1
+  },
+  {
+    "word": "modern",
+    "text_token": "modern",
+    "start": 4.4,
+    "end": 4.853,
+    "sentence_idx": 1
+  },
+  {
+    "word": "attack",
+    "text_token": "attack",
+    "start": 4.853,
+    "end": 5.306,
+    "sentence_idx": 1
+  },
+  {
+    "word": "submarines",
+    "text_token": "submarines",
+    "start": 5.306,
+    "end": 6.06,
+    "sentence_idx": 1
+  },
+  {
+    "word": "cruise",
+    "text_token": "cruise",
+    "start": 6.06,
+    "end": 6.513,
+    "sentence_idx": 1
+  },
+  {
+    "word": "comfortably",
+    "text_token": "comfortably.",
+    "start": 6.513,
+    "end": 7.418,
+    "sentence_idx": 1
+  },
+  {
+    "word": "But",
+    "text_token": "But",
+    "start": 7.418,
+    "end": 7.628,
+    "sentence_idx": 2
+  },
+  {
+    "word": "if",
+    "text_token": "if",
+    "start": 7.628,
+    "end": 7.768,
+    "sentence_idx": 2
+  },
+  {
+    "word": "control",
+    "text_token": "control",
+    "start": 7.768,
+    "end": 8.258,
+    "sentence_idx": 2
+  },
+  {
+    "word": "is",
+    "text_token": "is",
+    "start": 8.258,
+    "end": 8.398,
+    "sentence_idx": 2
+  },
+  {
+    "word": "lost",
+    "text_token": "lost",
+    "start": 8.398,
+    "end": 8.678,
+    "sentence_idx": 2
+  },
+  {
+    "word": "and",
+    "text_token": "and",
+    "start": 8.678,
+    "end": 8.889,
+    "sentence_idx": 2
+  },
+  {
+    "word": "it",
+    "text_token": "it",
+    "start": 8.889,
+    "end": 9.029,
+    "sentence_idx": 2
+  },
+  {
+    "word": "sinks",
+    "text_token": "sinks",
+    "start": 9.029,
+    "end": 9.379,
+    "sentence_idx": 2
+  },
+  {
+    "word": "into",
+    "text_token": "into",
+    "start": 9.379,
+    "end": 9.659,
+    "sentence_idx": 2
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 9.659,
+    "end": 9.869,
+    "sentence_idx": 2
+  },
+  {
+    "word": "dark",
+    "text_token": "dark",
+    "start": 9.869,
+    "end": 10.149,
+    "sentence_idx": 2
+  },
+  {
+    "word": "abyss",
+    "text_token": "abyss,",
+    "start": 10.149,
+    "end": 10.569,
+    "sentence_idx": 2
+  },
+  {
+    "word": "hydrostatic",
+    "text_token": "hydrostatic",
+    "start": 10.569,
+    "end": 11.339,
+    "sentence_idx": 2
+  },
+  {
+    "word": "pressure",
+    "text_token": "pressure",
+    "start": 11.339,
+    "end": 11.9,
+    "sentence_idx": 2
+  },
+  {
+    "word": "surges",
+    "text_token": "surges",
+    "start": 11.9,
+    "end": 12.32,
+    "sentence_idx": 2
+  },
+  {
+    "word": "violently",
+    "text_token": "violently.",
+    "start": 12.32,
+    "end": 13.02,
+    "sentence_idx": 2
+  },
+  {
+    "word": "Every",
+    "text_token": "Every",
+    "start": 13.02,
+    "end": 13.371,
+    "sentence_idx": 3
+  },
+  {
+    "word": "10",
+    "text_token": "10",
+    "start": 13.371,
+    "end": 13.511,
+    "sentence_idx": 3
+  },
+  {
+    "word": "meters",
+    "text_token": "meters",
+    "start": 13.511,
+    "end": 13.931,
+    "sentence_idx": 3
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 13.931,
+    "end": 14.072,
+    "sentence_idx": 3
+  },
+  {
+    "word": "depth",
+    "text_token": "depth",
+    "start": 14.072,
+    "end": 14.422,
+    "sentence_idx": 3
+  },
+  {
+    "word": "adds",
+    "text_token": "adds",
+    "start": 14.422,
+    "end": 14.703,
+    "sentence_idx": 3
+  },
+  {
+    "word": "an",
+    "text_token": "an",
+    "start": 14.703,
+    "end": 14.843,
+    "sentence_idx": 3
+  },
+  {
+    "word": "entire",
+    "text_token": "entire",
+    "start": 14.843,
+    "end": 15.264,
+    "sentence_idx": 3
+  },
+  {
+    "word": "atmosphere",
+    "text_token": "atmosphere",
+    "start": 15.264,
+    "end": 15.965,
+    "sentence_idx": 3
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 15.965,
+    "end": 16.105,
+    "sentence_idx": 3
+  },
+  {
+    "word": "pressure",
+    "text_token": "pressure.",
+    "start": 16.105,
+    "end": 16.736,
+    "sentence_idx": 3
+  },
+  {
+    "word": "At",
+    "text_token": "At",
+    "start": 16.736,
+    "end": 16.894,
+    "sentence_idx": 4
+  },
+  {
+    "word": "1,000",
+    "text_token": "1,000",
+    "start": 16.894,
+    "end": 17.287,
+    "sentence_idx": 4
+  },
+  {
+    "word": "meters",
+    "text_token": "meters,",
+    "start": 17.287,
+    "end": 17.839,
+    "sentence_idx": 4
+  },
+  {
+    "word": "over",
+    "text_token": "over",
+    "start": 17.839,
+    "end": 18.154,
+    "sentence_idx": 4
+  },
+  {
+    "word": "100",
+    "text_token": "100",
+    "start": 18.154,
+    "end": 18.39,
+    "sentence_idx": 4
+  },
+  {
+    "word": "kilograms",
+    "text_token": "kilograms",
+    "start": 18.39,
+    "end": 19.099,
+    "sentence_idx": 4
+  },
+  {
+    "word": "push",
+    "text_token": "push",
+    "start": 19.099,
+    "end": 19.415,
+    "sentence_idx": 4
+  },
+  {
+    "word": "on",
+    "text_token": "on",
+    "start": 19.415,
+    "end": 19.572,
+    "sentence_idx": 4
+  },
+  {
+    "word": "every",
+    "text_token": "every",
+    "start": 19.572,
+    "end": 19.966,
+    "sentence_idx": 4
+  },
+  {
+    "word": "single",
+    "text_token": "single",
+    "start": 19.966,
+    "end": 20.439,
+    "sentence_idx": 4
+  },
+  {
+    "word": "square",
+    "text_token": "square",
+    "start": 20.439,
+    "end": 20.911,
+    "sentence_idx": 4
+  },
+  {
+    "word": "centimeter",
+    "text_token": "centimeter",
+    "start": 20.911,
+    "end": 21.699,
+    "sentence_idx": 4
+  },
+  {
+    "word": "of",
+    "text_token": "of",
+    "start": 21.699,
+    "end": 21.857,
+    "sentence_idx": 4
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 21.857,
+    "end": 22.093,
+    "sentence_idx": 4
+  },
+  {
+    "word": "steel",
+    "text_token": "steel",
+    "start": 22.093,
+    "end": 22.487,
+    "sentence_idx": 4
+  },
+  {
+    "word": "hull",
+    "text_token": "hull.",
+    "start": 22.487,
+    "end": 22.881,
+    "sentence_idx": 4
+  },
+  {
+    "word": "The",
+    "text_token": "The",
+    "start": 22.881,
+    "end": 23.085,
+    "sentence_idx": 5
+  },
+  {
+    "word": "submarine",
+    "text_token": "submarine",
+    "start": 23.085,
+    "end": 23.698,
+    "sentence_idx": 5
+  },
+  {
+    "word": "begins",
+    "text_token": "begins",
+    "start": 23.698,
+    "end": 24.107,
+    "sentence_idx": 5
+  },
+  {
+    "word": "to",
+    "text_token": "to",
+    "start": 24.107,
+    "end": 24.243,
+    "sentence_idx": 5
+  },
+  {
+    "word": "groan",
+    "text_token": "groan.",
+    "start": 24.243,
+    "end": 24.652,
+    "sentence_idx": 5
+  },
+  {
+    "word": "Rivets",
+    "text_token": "Rivets",
+    "start": 24.652,
+    "end": 25.092,
+    "sentence_idx": 6
+  },
+  {
+    "word": "shoot",
+    "text_token": "shoot",
+    "start": 25.092,
+    "end": 25.458,
+    "sentence_idx": 6
+  },
+  {
+    "word": "like",
+    "text_token": "like",
+    "start": 25.458,
+    "end": 25.752,
+    "sentence_idx": 6
+  },
+  {
+    "word": "bullets",
+    "text_token": "bullets",
+    "start": 25.752,
+    "end": 26.265,
+    "sentence_idx": 6
+  },
+  {
+    "word": "as",
+    "text_token": "as",
+    "start": 26.265,
+    "end": 26.411,
+    "sentence_idx": 6
+  },
+  {
+    "word": "metal",
+    "text_token": "metal",
+    "start": 26.411,
+    "end": 26.778,
+    "sentence_idx": 6
+  },
+  {
+    "word": "flexes",
+    "text_token": "flexes",
+    "start": 26.778,
+    "end": 27.218,
+    "sentence_idx": 6
+  },
+  {
+    "word": "inward",
+    "text_token": "inward.",
+    "start": 27.218,
+    "end": 27.731,
+    "sentence_idx": 6
+  },
+  {
+    "word": "The",
+    "text_token": "The",
+    "start": 27.731,
+    "end": 27.936,
+    "sentence_idx": 7
+  },
+  {
+    "word": "moment",
+    "text_token": "moment",
+    "start": 27.936,
+    "end": 28.345,
+    "sentence_idx": 7
+  },
+  {
+    "word": "crush",
+    "text_token": "crush",
+    "start": 28.345,
+    "end": 28.686,
+    "sentence_idx": 7
+  },
+  {
+    "word": "depth",
+    "text_token": "depth",
+    "start": 28.686,
+    "end": 29.027,
+    "sentence_idx": 7
+  },
+  {
+    "word": "is",
+    "text_token": "is",
+    "start": 29.027,
+    "end": 29.164,
+    "sentence_idx": 7
+  },
+  {
+    "word": "breached",
+    "text_token": "breached,",
+    "start": 29.164,
+    "end": 29.778,
+    "sentence_idx": 7
+  },
+  {
+    "word": "catastrophic",
+    "text_token": "catastrophic",
+    "start": 29.778,
+    "end": 30.597,
+    "sentence_idx": 7
+  },
+  {
+    "word": "implosion",
+    "text_token": "implosion",
+    "start": 30.597,
+    "end": 31.211,
+    "sentence_idx": 7
+  },
+  {
+    "word": "happens",
+    "text_token": "happens",
+    "start": 31.211,
+    "end": 31.688,
+    "sentence_idx": 7
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 31.688,
+    "end": 31.825,
+    "sentence_idx": 7
+  },
+  {
+    "word": "less",
+    "text_token": "less",
+    "start": 31.825,
+    "end": 32.098,
+    "sentence_idx": 7
+  },
+  {
+    "word": "than",
+    "text_token": "than",
+    "start": 32.098,
+    "end": 32.371,
+    "sentence_idx": 7
+  },
+  {
+    "word": "forty",
+    "text_token": "forty",
+    "start": 32.371,
+    "end": 32.712,
+    "sentence_idx": 7
+  },
+  {
+    "word": "milliseconds",
+    "text_token": "milliseconds.",
+    "start": 32.712,
+    "end": 33.599,
+    "sentence_idx": 7
+  },
+  {
+    "word": "Air",
+    "text_token": "Air",
+    "start": 33.599,
+    "end": 33.812,
+    "sentence_idx": 8
+  },
+  {
+    "word": "inside",
+    "text_token": "inside",
+    "start": 33.812,
+    "end": 34.239,
+    "sentence_idx": 8
+  },
+  {
+    "word": "is",
+    "text_token": "is",
+    "start": 34.239,
+    "end": 34.381,
+    "sentence_idx": 8
+  },
+  {
+    "word": "superheated",
+    "text_token": "superheated",
+    "start": 34.381,
+    "end": 35.163,
+    "sentence_idx": 8
+  },
+  {
+    "word": "by",
+    "text_token": "by",
+    "start": 35.163,
+    "end": 35.305,
+    "sentence_idx": 8
+  },
+  {
+    "word": "adiabatic",
+    "text_token": "adiabatic",
+    "start": 35.305,
+    "end": 35.944,
+    "sentence_idx": 8
+  },
+  {
+    "word": "compression",
+    "text_token": "compression,",
+    "start": 35.944,
+    "end": 36.797,
+    "sentence_idx": 8
+  },
+  {
+    "word": "vaporizing",
+    "text_token": "vaporizing",
+    "start": 36.797,
+    "end": 37.508,
+    "sentence_idx": 8
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 37.508,
+    "end": 37.721,
+    "sentence_idx": 8
+  },
+  {
+    "word": "interior",
+    "text_token": "interior",
+    "start": 37.721,
+    "end": 38.29,
+    "sentence_idx": 8
+  },
+  {
+    "word": "before",
+    "text_token": "before",
+    "start": 38.29,
+    "end": 38.716,
+    "sentence_idx": 8
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 38.716,
+    "end": 38.929,
+    "sentence_idx": 8
+  },
+  {
+    "word": "brain",
+    "text_token": "brain",
+    "start": 38.929,
+    "end": 39.285,
+    "sentence_idx": 8
+  },
+  {
+    "word": "can",
+    "text_token": "can",
+    "start": 39.285,
+    "end": 39.498,
+    "sentence_idx": 8
+  },
+  {
+    "word": "even",
+    "text_token": "even",
+    "start": 39.498,
+    "end": 39.782,
+    "sentence_idx": 8
+  },
+  {
+    "word": "register",
+    "text_token": "register",
+    "start": 39.782,
+    "end": 40.351,
+    "sentence_idx": 8
+  },
+  {
+    "word": "pain",
+    "text_token": "pain.",
+    "start": 40.351,
+    "end": 40.706,
+    "sentence_idx": 8
+  },
+  {
+    "word": "Deep",
+    "text_token": "Deep",
+    "start": 40.706,
+    "end": 40.989,
+    "sentence_idx": 9
+  },
+  {
+    "word": "sea",
+    "text_token": "sea",
+    "start": 40.989,
+    "end": 41.201,
+    "sentence_idx": 9
+  },
+  {
+    "word": "pressure",
+    "text_token": "pressure",
+    "start": 41.201,
+    "end": 41.766,
+    "sentence_idx": 9
+  },
+  {
+    "word": "is",
+    "text_token": "is",
+    "start": 41.766,
+    "end": 41.908,
+    "sentence_idx": 9
+  },
+  {
+    "word": "relentless",
+    "text_token": "relentless.",
+    "start": 41.908,
+    "end": 42.685,
+    "sentence_idx": 9
+  },
+  {
+    "word": "Would",
+    "text_token": "Would",
+    "start": 42.685,
+    "end": 43.01,
+    "sentence_idx": 10
+  },
+  {
+    "word": "you",
+    "text_token": "you",
+    "start": 43.01,
+    "end": 43.205,
+    "sentence_idx": 10
+  },
+  {
+    "word": "ever",
+    "text_token": "ever",
+    "start": 43.205,
+    "end": 43.466,
+    "sentence_idx": 10
+  },
+  {
+    "word": "travel",
+    "text_token": "travel",
+    "start": 43.466,
+    "end": 43.856,
+    "sentence_idx": 10
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 43.856,
+    "end": 43.986,
+    "sentence_idx": 10
+  },
+  {
+    "word": "a",
+    "text_token": "a",
+    "start": 43.986,
+    "end": 44.051,
+    "sentence_idx": 10
+  },
+  {
+    "word": "deep",
+    "text_token": "deep",
+    "start": 44.051,
+    "end": 44.311,
+    "sentence_idx": 10
+  },
+  {
+    "word": "submersible",
+    "text_token": "submersible?",
+    "start": 44.311,
+    "end": 45.092,
+    "sentence_idx": 10
+  },
+  {
+    "word": "Let",
+    "text_token": "Let",
+    "start": 45.092,
+    "end": 45.285,
+    "sentence_idx": 11
+  },
+  {
+    "word": "us",
+    "text_token": "us",
+    "start": 45.285,
+    "end": 45.414,
+    "sentence_idx": 11
+  },
+  {
+    "word": "know",
+    "text_token": "know",
+    "start": 45.414,
+    "end": 45.672,
+    "sentence_idx": 11
+  },
+  {
+    "word": "in",
+    "text_token": "in",
+    "start": 45.672,
+    "end": 45.801,
+    "sentence_idx": 11
+  },
+  {
+    "word": "the",
+    "text_token": "the",
+    "start": 45.801,
+    "end": 45.994,
+    "sentence_idx": 11
+  },
+  {
+    "word": "comments",
+    "text_token": "comments.",
+    "start": 45.994,
+    "end": 46.574,
+    "sentence_idx": 11
+  }
+]
