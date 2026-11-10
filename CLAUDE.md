@@ -35,8 +35,9 @@ Large and private files are not in the repo (see `.gitignore`):
 - `.claude/skills/sprite-forge`: `git clone https://github.com/isabellagreco1997/sprite-forge .claude/skills/sprite-forge`.
 
 ## Keeping this repo current
-`tools/sync_github.sh` copies the working memory into `memory/`, commits whatever changed and pushes. On the PC a
-Claude Code Stop hook runs it after every reply, so new rules, notes and project sources reach GitHub on their own.
+`tools/sync_github.sh` copies the working memory into `memory/`, commits whatever changed and pushes. On the PC, run it
+at the end of every piece of work that changed a rule, a skill, a note or a project source (the owner asked for this
+on 2026-11-10), and say in one line that the repo was updated.
 On another device, commit and push your changes the normal way. The repo holds only what is needed to make a video;
 old projects, renders and audio stay on the PC (see `.gitignore`).
 
