@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "total": 840,
+  "beats": [0, 75, 210, 375, 480, 675, 840],
+  "hours": [0, 24, 48, 72, 96, 264],
+  "micro": [[262, 292], [322, 350]],
+  "fall": 692,
+  "texts": [
+    ["WHAT IF YOU", "NEVER SLEPT AGAIN?"],
+    ["24 HOURS:", "LEGALLY DRUNK"],
+    ["48 HOURS:", "MICROSLEEPS"],
+    ["72 HOURS:", "HALLUCINATIONS"],
+    ["THE TWIST: YOUR BRAIN", "SLEEPS WITHOUT YOU"],
+    ["COULD YOU LAST", "EVEN ONE NIGHT?"]
+  ],
+  "vo": [4, 80, 216, 381, 487, 682]
+}
