@@ -34,6 +34,12 @@ Large and private files are not in the repo (see `.gitignore`):
 - Kokoro voice model: download `kokoro-v1.0.onnx` and `voices-v1.0.bin` into `tools/kokoro/` (see `tools/kokoro/say.py`).
 - `.claude/skills/sprite-forge`: `git clone https://github.com/isabellagreco1997/sprite-forge .claude/skills/sprite-forge`.
 
+## Keeping this repo current
+`tools/sync_github.sh` copies the working memory into `memory/`, commits whatever changed and pushes. On the PC a
+Claude Code Stop hook runs it after every reply, so new rules, notes and project sources reach GitHub on their own.
+On another device, commit and push your changes the normal way. The repo holds only what is needed to make a video;
+old projects, renders and audio stay on the PC (see `.gitignore`).
+
 ## Publishing
 `python3 share_video.py <topic-id> <video.mp4> <caption.txt>` posts to YouTube and Instagram through Buffer and records
 the post in `memory_db.json`. It needs the Buffer token in `$BUFFER_TOKEN` or `.secrets/buffer_token`; the token is

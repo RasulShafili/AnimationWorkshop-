@@ -27,3 +27,39 @@ mcp-servers/
 .cursor/
 # embedded upstream repo: re-clone from https://github.com/isabellagreco1997/sprite-forge
 .claude/skills/sprite-forge/
+
+# ---- only what is needed to make a video on another device ----
+# old projects, pipelines and outputs stay on the PC
+output/FINAL/
+lowpoly/FINAL/
+presentations/
+voice_samples/
+sfx_library/
+.agent/
+.mcp.json
+skills-lock.json
+project.json
+pipeline_state.json
+topics.json
+auto_publisher.py
+intake_engine.py
+run_autonomous_pipeline.py
+*.png.bak
+# pixel projects: keep the current templates + the shared package.json
+output/work/*
+!output/work/cat-no-sweet/
+!output/work/dog-red-ball/
+!output/work/nose-hum-test/
+!output/work/ring-finger-trap/
+!output/work/you-shrink-every-day/
+!output/work/liver-regeneration-70/
+output/work/liver-regeneration-70/*
+!output/work/liver-regeneration-70/package.json
+!output/work/liver-regeneration-70/package-lock.json
+# 3D projects: height-doubles only provides the shared node_modules
+lowpoly/height-doubles/*
+!lowpoly/height-doubles/package.json
+!lowpoly/height-doubles/package-lock.json
+# skills that are not about making videos
+.claude/skills/openspec-*/
+.claude/skills/product-from-scratch/

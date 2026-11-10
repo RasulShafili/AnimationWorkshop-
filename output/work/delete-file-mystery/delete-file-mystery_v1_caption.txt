@@ -1,7 +1,0 @@
-What actually happens when you delete a file on your computer? 💻🗑️
-
-When you empty the trash, your data isn't gone. The OS just unlinks the pointer, leaving raw data frozen in silicon until overwritten!
-
-Did you think delete meant gone forever? Tell us below! 👇
-
-#technology #computers #cybersecurity #techfacts #data
