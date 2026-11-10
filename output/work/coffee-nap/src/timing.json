@@ -1,0 +1,19 @@
+{
+  "fps": 30,
+  "totalFrames": 540,
+  "bpm": 120,
+  "beats": [0, 90, 210, 330, 450, 540],
+  "sipEnd": 30,
+  "cupDown": 44,
+  "asleep": 62,
+  "kick": 186,
+  "ring": 346,
+  "wake": 362,
+  "texts": [
+    [[["DRINK COFFEE", ""]], [["THEN NAP", "#ffd84a"]]],
+    [[["CAFFEINE TAKES ", ""], ["20 MIN", "#ffd84a"]], [["TO REACH YOUR BRAIN", ""]]],
+    [[["A NAP CLEARS", ""]], [["SLEEPY ", ""], ["ADENOSINE", "#c8a0ff"]], [["CAFFEINE", "#ffd84a"], [" TAKES ITS SPOT", ""]]],
+    [[["WAKE UP AT 20 MIN", ""]], [["MORE ALERT THAN", ""]], [["COFFEE ALONE", "#55efc4"]]],
+    [[["SEND THIS TO", ""]], [["A SLEEPY FRIEND", "#55efc4"]]]
+  ]
+}

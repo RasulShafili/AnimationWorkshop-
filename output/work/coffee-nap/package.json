@@ -1,0 +1,20 @@
+{
+  "name": "coffee-nap",
+  "version": "1.0.0",
+  "description": "Pixel Reel Studio - coffee-nap",
+  "scripts": {
+    "build": "remotion render Video out.mp4",
+    "render": "remotion render Video"
+  },
+  "dependencies": {
+    "@fontsource/press-start-2p": "^5.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.218"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.218",
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  }
+}

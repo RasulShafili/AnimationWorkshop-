@@ -49,6 +49,7 @@ run_autonomous_pipeline.py
 output/work/*
 !output/work/cat-no-sweet/
 !output/work/dog-red-ball/
+!output/work/coffee-nap/
 !output/work/nose-hum-test/
 !output/work/ring-finger-trap/
 !output/work/you-shrink-every-day/

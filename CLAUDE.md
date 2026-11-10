@@ -13,7 +13,7 @@ The owner writes in Azerbaijani; answer in Azerbaijani. Everything on screen in 
 ## Current formats
 1. **2D pixel, main format** (`memory/pixel-calm-music-format.md`): about 18 s, 270x480 canvas scaled 4x, a surprising
    shareable fact, "send this to X" ending, calm original music-box melody under the sound effects, no voice.
-   Templates: `output/work/cat-no-sweet`, `output/work/dog-red-ball`.
+   Templates: `output/work/cat-no-sweet`, `output/work/dog-red-ball`, `output/work/coffee-nap`.
 2. **3D "what if"** (`memory/whatif-3d-format.md`, `memory/lowpoly-premium-style.md`): 30–35 s, smooth low-poly, never
    pixelated, Kokoro `am_fenrir` narration. Templates: `lowpoly/oxygen-doubled`, `lowpoly/testosterone-x2`.
    People are rigged CC0 models from `assets/characters`, never built from primitives.
