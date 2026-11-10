@@ -19,3 +19,10 @@ From now on the user's Reels follow these rules (agreed 2026-11-08, after a revi
 **How to apply:** judge success by average watch time and shares, not views. Keep the 3D videos away from the pixel channel if possible. The YouTube channel has the same name as the Instagram one; Buffer only labels it "LiminalART", so it is not a branding problem.
 
 Related: [[pixel-video-engine]], [[sfx-only-no-music]]
+
+**Update 2026-11-10 (first breakout):** testosterone-x2 reached 8,095 Instagram views, 45 shares, 14 saves and 6,036 reach in about 14 hours. Every earlier post had 1,800–4,300 views and 0–6 shares. What was different:
+- A topic a specific audience cares about and forwards (gym / men's health).
+- The format "X doubles every 2 seconds", with a counter on screen.
+- A counter-intuitive twist named in the title ("Wait For The Twist").
+- A real rigged character.
+On YouTube it did not break out (526 views), so this is an Instagram signal. Make more in this vein: a body or fitness variable escalating, with a twist. Shares remain the metric that predicts reach.
