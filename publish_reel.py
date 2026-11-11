@@ -50,7 +50,7 @@ def get_connected_channels():
     data = r.json()
     channels = data.get("data", {}).get("channels", [])
     if not channels:
-        return [{"id": DEFAULT_IG_CHANNEL_ID, "name": "pixel_fact.8bit", "service": "instagram"}]
+        return [{"id": DEFAULT_IG_CHANNEL_ID, "name": "whatif.lab_daily", "service": "instagram"}]
     return channels
 
 

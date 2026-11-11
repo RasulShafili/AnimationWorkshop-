@@ -6,3 +6,4 @@
 - [Low-poly premium style](lowpoly-premium-style.md) — 3D low-poly = smooth premium (golden light, soft shadows, detailed props, bloom+fog, floating diorama); NO pixel filter (pixel only for 2D)
 - [Pixel calm-music format](pixel-calm-music-format.md) — approved main format: detailed 2D pixel, shareable random fact, ~18 s, calm melody + SFX, 'send this to X'
 - [GitHub sync](github-sync.md) — after changing rules/skills/notes/sources in Animations run tools/sync_github.sh; repo holds only video-making essentials
+- [Channel name](channel-name.md) — IG is now whatif.lab_daily (was pixel_fact.8bit); watermark @whatif.lab_daily

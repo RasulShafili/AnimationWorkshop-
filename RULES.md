@@ -29,7 +29,7 @@
 - **Anthropomorphic Characters**: Organs, objects, and concepts have expressive pixel faces (big cartoon eyes, blush cheeks, reactions like `> <`, `O_O`, `^ ^`).
 - **Dithered Lighting**: 2x2/4x4 Bayer matrix ordered dithering for hanging lamp light cones, glowing halos, moon glow, and curved surfaces.
 - **Gamified Science Elements**: Interactive stopwatches (`COUNT YOUR PULSE FOR 15 SEC`), digital timers (`0:00.00 HOLD YOUR BREATH`), thermometers (`21°`), speedometers, pulse conduits, and falling weights.
-- **Channel Watermark**: Discreetly embedded onto objects/props in the scene as `LEARN WITH 8-BIT`.
+- **Channel Watermark**: Discreetly embedded onto objects/props in the scene as `@whatif.lab_daily` (since 2026-11-11; older videos say `LEARN WITH 8-BIT`).
 
 ## RULE 3: MAXIMUM 5 HASHTAGS (STRICT)
 - When publishing to Instagram, use **EXACTLY 3 TO 5 HASHTAGS**.
