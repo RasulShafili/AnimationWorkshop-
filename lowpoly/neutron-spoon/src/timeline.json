@@ -1,0 +1,19 @@
+{
+  "fps": 30,
+  "total": 950,
+  "beats": [0, 100, 130, 315, 440, 565, 850, 950],
+  "spoonIn": 4,
+  "boom": 26,
+  "collapse": 205,
+  "boom2": 640,
+  "texts": [
+    ["ONE TEASPOON", "DID THIS"],
+    ["", ""],
+    ["A DEAD STAR:", "CITY-SIZED, SUN-HEAVY"],
+    ["1 TEASPOON =", "ALL 8 BILLION HUMANS"],
+    ["DROP IT ON EARTH", "AND IT SINKS…?"],
+    ["NOPE.", "IT EXPLODES"],
+    ["WOULD YOU", "HOLD IT?"]
+  ],
+  "vo": [30, 104, 136, 320, 446, 571, 856]
+}
