@@ -35,3 +35,9 @@ On YouTube it did not break out (526 views), so this is an Instagram signal. Mak
 - Old 32 s pixel SFX videos: 1.9–2.9k / 0–2.6 / 34–48%.
 - YouTube is a different audience: the 3D pixel height-doubles has 9,952 YT views (everything else 0.8–2.2k), but testosterone has only 1,180 on YT.
 **Lesson:** shares come from a "send this to a specific person" hook (cat owners, gym friends, a self-test). Pure spectacle (oxygen, sun) holds attention but is not shared. Keep ≤5 hashtags.
+
+**Feedback 2026-11-11 (coffee-doubles judged "çox maraqsız"):**
+- No well-known, everyday topics (coffee, sleep tips).
+- Pick things people are genuinely curious about and don't already know.
+- **Always open with the craziest moment of the video (a cold open)**, then rewind ("here's how we got here").
+- The coffee video was finished but not posted.
