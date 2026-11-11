@@ -1,0 +1,73 @@
+{
+ "fps": 30,
+ "total": 945,
+ "beats": [
+  0,
+  75,
+  165,
+  300,
+  435,
+  585,
+  825,
+  945
+ ],
+ "cupsAt": [
+  2,
+  120,
+  175,
+  190,
+  310,
+  322,
+  334,
+  346,
+  445,
+  452,
+  459,
+  466,
+  473,
+  480,
+  487,
+  494
+ ],
+ "release": 690,
+ "crash": 760,
+ "texts": [
+  [
+   "WHAT IF YOUR COFFEE",
+   "DOUBLED EVERY HOUR?"
+  ],
+  [
+   "2 CUPS:",
+   "UNSTOPPABLE"
+  ],
+  [
+   "4 CUPS:",
+   "THE DAILY LIMIT"
+  ],
+  [
+   "8 CUPS:",
+   "PANIC MODE"
+  ],
+  [
+   "16 CUPS:",
+   "DANGER ZONE"
+  ],
+  [
+   "THE TWIST: IT NEVER",
+   "GAVE YOU ENERGY"
+  ],
+  [
+   "HOW MANY CUPS",
+   "DID YOU HAVE TODAY?"
+  ]
+ ],
+ "vo": [
+  4,
+  80,
+  170,
+  306,
+  441,
+  592,
+  832
+ ]
+}
