@@ -26,3 +26,12 @@ Related: [[pixel-video-engine]], [[sfx-only-no-music]]
 - A counter-intuitive twist named in the title ("Wait For The Twist").
 - A real rigged character.
 On YouTube it did not break out (526 views), so this is an Instagram signal. Make more in this vein: a body or fitness variable escalating, with a twist. Shares remain the metric that predicts reach.
+
+**Channel analysis 2026-11-11** (Instagram views / shares per 1k views / watch-through):
+- testosterone-x2: 15,005 / 4.1 / 60%. The only breakout so far; its reach tripled through shares.
+- cat-no-sweet (pixel + calm melody, 18 s): 3,912 / **5.6, the best share rate** / 62%.
+- you-shrink: 3,924 / 3.8 / 55%.
+- oxygen and sun: about 3.3k / 0.6 / 62–63%. Well watched, almost never shared.
+- Old 32 s pixel SFX videos: 1.9–2.9k / 0–2.6 / 34–48%.
+- YouTube is a different audience: the 3D pixel height-doubles has 9,952 YT views (everything else 0.8–2.2k), but testosterone has only 1,180 on YT.
+**Lesson:** shares come from a "send this to a specific person" hook (cat owners, gym friends, a self-test). Pure spectacle (oxygen, sun) holds attention but is not shared. Keep ≤5 hashtags.
