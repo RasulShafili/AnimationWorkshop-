@@ -1,6 +1,12 @@
 # punch-doubles — "What if your punch power doubled every 2 seconds?" (3D what-if, 35 s)
 
-## Structure (src/timeline.json, 1050 frames @30)
+## v2 (2026-11-11, owner's storyboard) — FINAL/punch-doubles_v2.mp4
+Ten punches, each heavier, no cold open: 0:00 head snap → 0:06 knockdown → 0:18 out of the ring → 0:30 launched
+at 45° through the roof (exterior shot, Exterior.tsx) → 0:46 punch becomes a beam, arena explodes → 1:38 beam from
+Earth into space (biggest nuke) → 2:20 dinosaur asteroid → 2:46 oceans boil → 3:06 planet cracks → 3:18 Earth breaks.
+Punches 6–10 each open with a short shot of the boxer in the burnt ring, gloves glowing more each time.
+
+## v1 structure (superseded)
 Cold open: Earth cracks and shatters ("THIS PUNCH BROKE THE EARTH", clock 3:18) → ◀◀ REWIND → boxing arena, jabs,
 ×2 every 2 s → 0:18 KO flies out of the ring (car crash) → 0:46 TNT blast in the arena → 1:14 Hiroshima mushroom over
 the city → 2:20 dinosaur-asteroid blast from orbit → 2:46 oceans boil → ruined ring, DING DING at 3:00, "…ONE MORE?",

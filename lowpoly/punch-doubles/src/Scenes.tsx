@@ -130,7 +130,7 @@ export const EarthCut: React.FC<{ f: number; l: number }> = ({ f, l }) => {
 };
 
 // ---------- Earth from orbit with the blast spreading ----------
-export const EarthBlast: React.FC<{ f: number; t: number }> = ({ f, t }) => {
+export const EarthBlast: React.FC<{ f: number; t: number; beam?: number }> = ({ f, t, beam = 0 }) => {
   const geo = useMemo(() => { const g = new THREE.IcosahedronGeometry(3, 4).toNonIndexed(); const p = g.attributes.position, col = new Float32Array(p.count * 3); for (let i = 0; i < p.count; i += 3) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i); const land = Math.sin(x * 1.3 + Math.sin(z * 0.9) * 2) * Math.cos(y * 1.5 + x * 0.4) > 0.15; const c = new THREE.Color(Math.abs(y) > 2.6 ? "#f0f4ff" : land ? "#4aa04a" : "#2a6ad8"); for (let k = 0; k < 3; k++) col.set([c.r, c.g, c.b], (i + k) * 3); } g.setAttribute("color", new THREE.BufferAttribute(col, 3)); return g; }, []);
   const spot = new THREE.Vector3(0.4, 1.2, 2.7).normalize().multiplyScalar(3.02), q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), spot.clone().normalize());
   const r = 0.15 + Math.pow(sat(t / 140), 0.6) * 1.5;
@@ -145,6 +145,7 @@ export const EarthBlast: React.FC<{ f: number; t: number }> = ({ f, t }) => {
           <mesh position={[0, 0, 0.02]}><circleGeometry args={[r * 0.55, 32]} /><meshBasicMaterial color={new THREE.Color(2.2, 0.9, 0.25)} toneMapped={false} transparent opacity={0.85} /></mesh>
           <mesh position={[0, 0, 0.03]}><ringGeometry args={[r * 0.9, r, 48]} /><meshBasicMaterial color={new THREE.Color(1.8, 1.4, 1.1)} toneMapped={false} transparent opacity={0.55} side={THREE.DoubleSide} /></mesh>
           <Glow size={r * 2} color="#ff7a2a" opacity={0.35} pos={[0, 0, 0.2]} />
+          {beam > 0 && <group><mesh position={[0, 0, beam / 2]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.05, 0.12, beam, 12, 1, true]} /><meshBasicMaterial color={new THREE.Color(3.5, 3.2, 4)} toneMapped={false} /></mesh><mesh position={[0, 0, beam / 2]} rotation={[Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.2, 0.4, beam, 12, 1, true]} /><meshBasicMaterial color={new THREE.Color(1.2, 1.6, 3.5)} toneMapped={false} transparent opacity={0.3} depthWrite={false} blending={THREE.AdditiveBlending} /></mesh></group>}
         </group>
       </group>
       <ambientLight intensity={0.35} /><directionalLight position={[-5, 3, 6]} intensity={2.4} />
