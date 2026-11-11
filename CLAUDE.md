@@ -1,6 +1,6 @@
 # Animation Workshop
 
-Short science videos for the channel `whatif.lab_daily` (Instagram, renamed from `pixel_fact.8bit` on 2026-11-11) and its YouTube channel (Buffer shows it as "LiminalART").
+Short science videos for the channel `whatif.lab_daily` (Instagram, renamed from `pixel_fact.8bit` on 2026-11-11), YouTube and TikTok — all named `whatif.lab_daily` since 2026-11-11 (YouTube was "LiminalART" in Buffer).
 The owner writes in Azerbaijani; answer in Azerbaijani. Everything on screen in a video is English.
 
 ## Read first
