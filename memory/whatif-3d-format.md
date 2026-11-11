@@ -18,3 +18,10 @@ Narration: the user picked Kokoro voice am_fenrir (sample "2") over edge-tts, wh
 - Reference project: lowpoly/sun-black-hole (Space.tsx, Town.tsx, tools/build_sfx.py with VO ducking).
 - Pixel-art Reels still follow [[reels-retention-rules]] (15–20 s).
 - Keep each episode visually distinct, as [[vary-each-video]] requires.
+
+**Update 2026-11-11 (punch-doubles):** the user asked for NO narration in that video except the opening hook line,
+and said the rapid "doubling ticks" (short 1.5 kHz beeps) sounded like echolocation — never use tick/beep counters
+again. Keep the voice dry (no room reverb on the VO). Story ideas the user gives as a storyboard (e.g. "10 punches,
+each stronger") override the cold-open/rewind habit. Retention helpers that went in: "PUNCH n/10" progress counter,
+camera zoom-kick on impacts, text pop-in, a heartbeat sub pulse that speeds up. Whether to narrate the next what-if
+video in full: ask or follow the user's latest choice (hook-only as of 2026-11-11).

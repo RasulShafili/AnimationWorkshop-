@@ -20,12 +20,15 @@ const top = 1.0, BX = -0.6, OX = 0.6;
 export const World: React.FC<{ f: number; glb: Record<string, GLTF> | null }> = ({ f, glb }) => {
   const { camera, scene } = useThree();
   const pc = camera as THREE.PerspectiveCamera, b = beatOf(f);
+  const h = H[Math.min(b, H.length - 1)], k = f - h;
+  // camera "punch": a quick zoom-in on every impact, harder for later punches
+  const kick = k >= 0 && k < 20 ? (2.5 + Math.min(b, 9) * 0.7) * Math.exp(-k / 4) : 0;
   const set = (pos: THREE.Vector3, look: THREE.Vector3, fov: number, shake = 0) => {
-    pc.position.set(pos.x + Math.sin(f * 2.3) * shake, pos.y + Math.cos(f * 1.9) * shake, pos.z); pc.up.set(0, 1, 0); pc.lookAt(look); pc.fov = fov; pc.near = 0.05; pc.far = 900; pc.updateProjectionMatrix();
+    pc.position.set(pos.x + Math.sin(f * 2.3) * shake, pos.y + Math.cos(f * 1.9) * shake, pos.z); pc.up.set(0, 1, 0); pc.lookAt(look); pc.fov = fov - kick; pc.near = 0.05; pc.far = 900; pc.updateProjectionMatrix();
   };
   scene.fog = null;
   if (!glb) return null;
-  const g = glb["man.glb"], h = H[Math.min(b, H.length - 1)], k = f - h;
+  const g = glb["man.glb"];
   const hitShake = (amp: number, len = 10) => (k >= 0 && k < len ? (1 - k / len) * amp : 0);
   const impact = (pos: [number, number, number], size: number) => k >= 0 && k < 8 ? <Glow size={size * (1 - k / 8)} color="#fff4e0" opacity={1 - k / 8} pos={pos} /> : null;
   const boxer = (glow: number) => <Boxer g={g} pose={punchPose(f, h, glow)} pos={[BX, top, 0]} ry={Math.PI / 2} />;

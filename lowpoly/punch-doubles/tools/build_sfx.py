@@ -101,19 +101,15 @@ dr = sum(np.sin(2 * np.pi * fq * t + rng.uniform(0, 6)) * a for fq, a in ((41, .
 bed(dr + lp(noise(N), 120) * .4, dr + lp(noise(N), 120) * .4, space, .2, .4)
 gust = 0.5 + 0.5 * smooth(np.abs(noise(N)), 0.6) / 0.6
 bed(bp(noise(N), 150, 1200) * gust, bp(noise(N), 160, 1300) * gust[::-1], ruin, .3, .5)
-# ---- the doubling ticks
-K = T["clock"]
-def clock(f):
-    for i in range(len(K) - 1):
-        if f < K[i + 1][0]: return K[i][1] + (K[i + 1][1] - K[i][1]) * (f - K[i][0]) / (K[i + 1][0] - K[i][0])
-    return K[-1][1]
-last, lastT = -1, -9
-for f in range(0, END):
-    nn = int(clock(f) // 2)
-    if nn != last and ft(f) - lastT > .07:
-        m = int(.03 * SR); s = np.arange(m) / SR
-        place(ft(f), np.sin(2 * np.pi * (1500 + min(nn, 99) * 12) * s) * np.exp(-s * 160), .05, .3, .2); lastT = ft(f)
-    last = nn
+# ---- heartbeat sub pulse: speeds up and gets louder with every punch (replaces the doubling ticks)
+tt, beats = 0.0, []
+while tt < DUR - .5:
+    beats.append(tt); prog = tt / DUR; bpm = 72 + 95 * prog ** 1.4; tt += 60 / bpm
+hb_e = env([(0, .5), (H[4], .8), (H[9], 1.2), (H[9] + 6, 0), (END - 30, 0), (END, .4)])
+for tb in beats:
+    for j, gg in ((0, 1.0), (.17, .6)):
+        n = int(.25 * SR); s = np.arange(n) / SR
+        place(tb + j, np.sin(2 * np.pi * np.cumsum(48 + 30 * np.exp(-s * 25)) / SR) * np.exp(-s * 16), .22 * gg * hb_e[min(N - 1, int(tb * SR))], 0, .1)
 for c in B[1:10]: whoosh(ft(c) - .25, .4, .08, 500, 5000)
 whoosh(ft(END) - 1.2, 1.2, .3, 400, 6000, rise=True)
 # ---- reverb, narration, ducking
@@ -129,7 +125,7 @@ for i, f in enumerate(T["vo"]):
     if sr != SR: y = np.interp(np.arange(int(len(y) * SR / sr)) * sr / SR, np.arange(len(y)), y)
     a = int(ft(f) * SR); b = min(N, a + len(y)); vo[a:b] += y[: b - a]
 vo = hp(vo, 80) / (np.abs(vo).max() + 1e-9)
-vo_room = fftconvolve(vo, irL[: int(.6 * SR)])[:N] * .08
+vo_room = np.zeros(N)   # dry voice: no room echo
 duck = 1 - .55 * np.clip(smooth(np.abs(vo), 6) * 6, 0, 1)
 mix = mix * duck[:, None] * .55 + np.stack([vo + vo_room, vo + vo_room], 1) * .9
 mix /= np.abs(mix).max() + 1e-9; mix = np.tanh(mix * 1.15) / np.tanh(1.15) * .9

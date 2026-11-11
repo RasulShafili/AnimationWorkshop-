@@ -29,6 +29,9 @@ export const Video: React.FC<{ withAudio?: boolean }> = ({ withAudio = true }) =
   const rew = false;
   const dip = Math.max(...B.slice(1, 10).map(c => sat(1 - Math.abs(f - c) / 3)));
   const sec = clockAt(f), n = Math.floor(sec / 2), over = sec >= 180;
+  const done = T.hits.filter(x => f >= x).length, lastHit = [...T.hits].reverse().find(x => f >= x);
+  const kh = lastHit === undefined ? 99 : f - lastHit, pulse = 1 + 0.35 * Math.exp(-kh / 5);
+  const pop = b === 0 ? 1 : 1 + 0.28 * Math.exp(-Math.max(0, lf - 2) / 4);
   const num = big(n), fs = Math.min(64, 1500 / Math.max(8, num.length + 1));
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
@@ -41,18 +44,19 @@ export const Video: React.FC<{ withAudio?: boolean }> = ({ withAudio = true }) =
       <AbsoluteFill style={{ background: `rgba(255,248,235,${flash})` }} />
       <AbsoluteFill style={{ background: `rgba(0,0,0,${dip})` }} />
       {!rew && <AbsoluteFill style={{ fontFamily: "Inter", alignItems: "center", textAlign: "center", color: "#fff" }}>
-        <div style={{ marginTop: 210, fontWeight: 900, fontSize: b >= 1 && b <= 9 ? 120 : 92, lineHeight: 1.0, letterSpacing: -2, textShadow: sh, opacity: inT * outT }}>{l1}</div>
-        <div style={{ fontWeight: 900, fontSize: l2.length > 16 ? 76 : 104, lineHeight: 1.05, letterSpacing: -1, color: ACC[b], textShadow: sh, opacity: inT * outT, padding: "0 40px" }}>{l2}</div>
+        <div style={{ transform: `scale(${pop})`, marginTop: 210, fontWeight: 900, fontSize: b >= 1 && b <= 9 ? 120 : 92, lineHeight: 1.0, letterSpacing: -2, textShadow: sh, opacity: inT * outT }}>{l1}</div>
+        <div style={{ fontWeight: 900, fontSize: l2.length > 16 ? 76 : 104, lineHeight: 1.05, letterSpacing: -1, color: ACC[b], textShadow: sh, opacity: inT * outT, padding: "0 40px", transform: `scale(${pop})` }}>{l2}</div>
       </AbsoluteFill>}
       {/* round clock + punch multiplier HUD */}
       <div style={{ position: "absolute", bottom: 250, width: "100%", textAlign: "center", fontFamily: "Inter", textShadow: sh, color: "#fff" }}>
         <div style={{ display: "inline-block", padding: "10px 34px", borderRadius: 18, background: over ? "rgba(200,20,20,.85)" : "rgba(10,10,20,.7)", border: `3px solid ${over ? "#ff8a8a" : "#ffd36a"}` }}>
           <span style={{ fontWeight: 800, fontSize: 40, opacity: .85 }}>ROUND 1&nbsp;&nbsp;</span>
           <span style={{ fontWeight: 900, fontSize: 72, fontVariantNumeric: "tabular-nums" }}>{mmss(sec)}</span>
+          <span style={{ fontWeight: 900, fontSize: 40, marginLeft: 26, color: "#ffd36a" }}>PUNCH {Math.max(1, done)}/10</span>
         </div>
         <div style={{ margin: "16px auto 0", width: "fit-content", maxWidth: 1020, padding: "8px 26px 12px", borderRadius: 16, background: "rgba(10,10,20,.62)" }}>
           <div style={{ fontWeight: 800, fontSize: 36, opacity: .9 }}>PUNCH POWER</div>
-          <div style={{ fontWeight: 900, fontSize: fs, color: "#ffd36a", fontVariantNumeric: "tabular-nums", wordBreak: "break-all" }}>×{num}</div>
+          <div style={{ fontWeight: 900, fontSize: fs, color: kh < 4 ? "#ffffff" : "#ffd36a", fontVariantNumeric: "tabular-nums", wordBreak: "break-all", transform: `scale(${pulse})` }}>×{num}</div>
         </div>
       </div>
       {withAudio && <Audio src={staticFile("mix.wav")} />}
