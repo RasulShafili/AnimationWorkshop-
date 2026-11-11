@@ -9,3 +9,12 @@ Facts:
 - Hallucinations are typical by 48–72 h (Waters 2018).
 - Record: Randy Gardner, 264 h (11 days), 1964.
 The caption says it is not a challenge.
+
+## v2 (43 s, 1285 frames): the user asked for a longer video covering all 11 days
+Days pass one by one at first (24 h, 48 h, 72 h), then jump: day 4, day 6, day 9, day 11.
+- Day 4: memory glitches (small "memories" drift out of his head and fade).
+- Day 6: body breaks down (shiver, cold blue light, breath; tags: body temp ↓, hands shaking, immune system ↓).
+- Day 9: thoughts trail off (blank close-up, speech bubble "I was going to… to… uh…").
+- Brain scene now counts 216 h → 264 h; the end tag adds "then he slept 14 hours" (Gardner slept 14 h 40 min and recovered).
+Timeline beats and narration frames live in src/timeline.json; build_sfx.py uses BR/CR for the brain and crash beats.
+Rendering note: frames 0–475 were reused from v1; the rest was re-rendered. A laptop suspend pauses the render without failing it.

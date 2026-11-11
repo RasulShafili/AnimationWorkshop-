@@ -13,7 +13,7 @@ T = json.load(open(f"{ROOT}/src/timeline.json"))
 SR, FPS = 44100, T["fps"]
 DUR = T["total"] / FPS
 N = int(SR * DUR)
-B = T["beats"]; END = T["total"]; MICRO = T["micro"]; FALL = T["fall"]
+B = T["beats"]; END = T["total"]; MICRO = T["micro"]; FALL = T["fall"]; BR, CR = B[7], B[8]
 rng = np.random.default_rng(5)
 ft = lambda f: f / FPS
 t = np.arange(N) / SR
@@ -39,7 +39,7 @@ def stereo_bed(yL, yR, e, g, send=0.3):
     dry_L[:] += yL * e * g; dry_R[:] += yR * e * g; wet_L[:] += yL * e * g * send; wet_R[:] += yR * e * g * send
 
 # ---------------- beds ----------------
-room_e = env([(0, 1), (B[4] - 4, 1), (B[4], 0), (B[5], 0), (B[5] + 6, 1), (END, 1)])
+room_e = env([(0, 1), (BR - 4, 1), (BR, 0), (CR, 0), (CR + 6, 1), (END, 1)])
 stereo_bed(lp(noise(N), 170) * 1.2, lp(noise(N), 170) * 1.2, room_e, 0.22, 0.3)                       # night room tone
 pc = np.sin(2 * np.pi * 120 * t) * .25 + bp(noise(N), 2000, 5000) * .12                                # computer fan
 stereo_bed(pc, pc, room_e * env([(0, 1), (B[1], 1), (B[1] + 20, .4), (FALL + 40, .4), (FALL + 80, .1), (END, .1)]), 0.06, 0.2, )
@@ -55,7 +55,7 @@ while tk < ft(B[1]):
     m = int(.02 * SR); s = np.arange(m) / SR
     place(tk, bp(noise(m), 2500, 7000) * np.exp(-s * 220), .12, .4, .4); tk += max(.05, .28 - tk * .09)
 for k, f0 in enumerate(range(B[1], END, 30)):
-    if B[4] <= f0 < B[5]: continue
+    if BR <= f0 < CR: continue
     m = int(.03 * SR); s = np.arange(m) / SR
     place(ft(f0), bp(noise(m), 1500 if k % 2 else 2200, 6000) * np.exp(-s * 160), .07, .5, .5)
 # time passing in the hook: day/night whooshes
@@ -63,7 +63,7 @@ for k in range(3):
     m = int(.55 * SR); u = np.linspace(0, 1, m)
     place(ft(8 + k * 20), bp(noise(m), 400, 5000) * np.sin(np.pi * u) ** 2, .14, (-1) ** k * .5, .5)
 # counter jumps: a deep thump on every beat
-for c in B[1:6]:
+for c in B[1:9]:
     m = int(.6 * SR); s = np.arange(m) / SR
     place(ft(c), np.sin(2 * np.pi * np.cumsum(42 + 60 * np.exp(-s * 18)) / SR) * np.exp(-s * 6) + bp(noise(m), 60, 400) * np.exp(-s * 14) * .4, .6, 0, .3)
     m = int(.5 * SR); u = np.linspace(0, 1, m); w = noise(m)
@@ -113,21 +113,54 @@ for k in range(30):
     m = int(.02 * SR); s = np.arange(m) / SR
     place(ft(rng.uniform(B[3] + 20, B[4])), bp(noise(m), 3000, 9000) * np.exp(-s * 200), .07, rng.uniform(-.9, .9), .7)
 
+# ---------------- day 4: memories slipping (soft blips that fall away) ----------------
+for i in range(6):
+    m = int(.5 * SR); s_ = np.arange(m) / SR
+    blip = np.sin(2 * np.pi * np.cumsum(900 * np.exp(-s_ * 3.5) + 180) / SR) * np.exp(-s_ * 5)
+    place(ft(B[4] + 12 + i * 17), blip, .16, (-1) ** i * .5, .8)
+d4 = env([(0, 0), (B[4], 0), (B[4] + 15, 1), (B[5] - 6, 1), (B[5], 0), (END, 0)])
+stereo_bed(lp(noise(N), 260) * (0.6 + 0.4 * np.sin(2 * np.pi * .5 * t)), lp(noise(N), 260), d4, 0.2, 0.6)
+# ---------------- day 6: shivering cold (thin wind, chattering clicks, slow heavy heartbeat) ----------------
+d6 = env([(0, 0), (B[5], 0), (B[5] + 20, 1), (B[6] - 6, 1), (B[6], 0), (END, 0)])
+wind = bp(noise(N), 700, 3500) * (0.5 + 0.5 * smooth(np.abs(noise(N)), 0.9) / 0.6)
+stereo_bed(wind, wind[::-1], d6, 0.16, 0.6)
+tq = ft(B[5] + 20)
+while tq < ft(B[6] - 10):
+    for j in range(rng.integers(3, 7)):
+        m = int(.012 * SR); s_ = np.arange(m) / SR
+        place(tq + j * .055, bp(noise(m), 1800, 6000) * np.exp(-s_ * 300), .1, .2, .3)
+    tq += rng.uniform(.6, 1.1)
+tq = ft(B[5] + 10)
+while tq < ft(B[6] - 10): place(tq, lubdub(), .45, 0, .3); tq += 1.15
+for i, at in enumerate((30, 70, 110)):
+    m = int(.3 * SR); s_ = np.arange(m) / SR
+    place(ft(B[5] + at), np.sin(2 * np.pi * np.cumsum(500 - 300 * s_ / s_[-1]) / SR) * np.exp(-s_ * 9), .2, 0, .5)
+# ---------------- day 9: thoughts stop (muffled room, a tone that winds down, typing that stalls) ----------------
+d9 = env([(0, 0), (B[6], 0), (B[6] + 15, 1), (BR - 6, 1), (BR, 0), (END, 0)])
+stereo_bed(lp(noise(N), 150) * 1.4, lp(noise(N), 150) * 1.4, d9, 0.28, 0.4)
+for i in range(24):
+    f0 = B[6] + 14 + i / 0.38 * 1.0
+    if f0 > BR - 20: break
+    m = int(.02 * SR); s_ = np.arange(m) / SR
+    place(ft(f0), bp(noise(m), 1500, 5000) * np.exp(-s_ * 200), .08 * (1 - i / 30), .1, .3)
+m = int(2.2 * SR); s_ = np.arange(m) / SR
+place(ft(B[6] + 60), np.sin(2 * np.pi * np.cumsum(220 * np.exp(-s_ * 0.9) + 40) / SR) * np.sin(np.pi * s_ / s_[-1]) * .5, .18, 0, .7)
+
 # ---------------- the brain: electrical activity, patches powering down ----------------
-b_e = env([(0, 0), (B[4] - 2, 0), (B[4] + 6, 1), (B[5] - 4, 1), (B[5], 0), (END, 0)])
+b_e = env([(0, 0), (BR - 2, 0), (BR + 6, 1), (CR - 4, 1), (CR, 0), (END, 0)])
 hum = np.sin(2 * np.pi * 55 * t) * .5 + np.sin(2 * np.pi * 110.4 * t) * .25 + lp(noise(N), 200) * .5
-quiet = env([(0, 1), (B[4], 1), (B[5], .45), (END, .45)])                                               # less activity as more of it sleeps
+quiet = env([(0, 1), (BR, 1), (CR, .45), (END, .45)])                                               # less activity as more of it sleeps
 stereo_bed(hum, hum, b_e, 0.3, 0.3)
 for k in range(150):
-    f0 = rng.uniform(B[4], B[5]); 
+    f0 = rng.uniform(BR, CR); 
     if rng.uniform() > quiet[int(ft(f0) * SR)]: continue
     m = int(rng.uniform(.01, .03) * SR); s = np.arange(m) / SR
     place(ft(f0), hp(noise(m), 3000) * np.exp(-s * 150), rng.uniform(.04, .1), rng.uniform(-.8, .8), .5)   # neural crackle
-L5 = B[5] - B[4] - 20
+L5 = CR - BR - 20
 for st in (0.12, 0.3, 0.48, 0.62, 0.78):                                                              # each patch shutting down
     m = int(.9 * SR); s = np.arange(m) / SR
     down = np.sin(2 * np.pi * np.cumsum(420 * np.exp(-s * 2.6) + 50) / SR) * np.exp(-s * 2.2) * .5 + lp(noise(m), 500) * np.exp(-s * 4) * .5
-    place(ft(B[4] + st * L5), down, .3, rng.uniform(-.5, .5), .6)
+    place(ft(BR + st * L5), down, .3, rng.uniform(-.5, .5), .6)
 
 # ---------------- the crash ----------------
 m = int(.5 * SR); u = np.linspace(0, 1, m); place(ft(FALL + 6), bp(noise(m), 300, 3000) * np.sin(np.pi * u) ** 2, .25, -.3, .4)          # falling air
