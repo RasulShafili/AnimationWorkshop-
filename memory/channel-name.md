@@ -10,4 +10,4 @@ On 2026-11-11 the user renamed the Instagram channel from `pixel_fact.8bit` to *
 **Why:** the old "8bit" name no longer fit once 3D videos joined the channel.
 **How to apply:** new videos use the watermark/brand `@whatif.lab_daily` instead of `LEARN WITH 8-BIT`; the Buffer
 channel IDs are unchanged. The same day the user also renamed YouTube (was "LiminalART") and TikTok to
-`whatif.lab_daily`. TikTok is not connected to Buffer/share_video.py yet; posting there is the user's job unless they connect it.
+`whatif.lab_daily`. TikTok was connected to Buffer the same day; share_video.py now posts to all three by default.

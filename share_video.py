@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Share one finished video to YouTube + Instagram right now via Buffer, then record it in memory_db.json.
+"""Share one finished video to YouTube + Instagram + TikTok right now via Buffer, then record it in memory_db.json.
 
-Usage: python3 share_video.py <topic-id> <video.mp4> <caption.txt>
+Usage: python3 share_video.py <topic-id> <video.mp4> <caption.txt> [services]
+  services: comma list, default "youtube,instagram,tiktok". Give a subset (e.g. "tiktok") to add a platform
+  to a topic that was already posted elsewhere; it is then appended to that topic's history entry.
 
 Why not publish_reel.py: Litterbox returns 403 from this machine and Buffer cannot read Catbox links
 (Catbox answers HEAD with content-length 0). Uguu works, but its links expire within hours, so this
@@ -15,16 +17,21 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 DB = os.path.join(BASE, "memory_db.json")
 
 
-def main(topic, video, cap):
+ALL = ("youtube", "instagram", "tiktok")
+
+
+def main(topic, video, cap, services=",".join(ALL)):
+    want = [x.strip() for x in services.split(",") if x.strip()]
+    adding = set(want) != set(ALL)
     caption = open(cap, encoding="utf-8").read().strip()
     first = caption.splitlines()[0]
     db = json.load(open(DB, encoding="utf-8"))
-    if topic in db.get("processed_topics", []):
+    if topic in db.get("processed_topics", []) and not adding:
         sys.exit(f"[STOP] {topic} is already in memory_db.json; not posting twice.")
 
-    chans = [c for c in p.get_connected_channels() if c["service"] in ("instagram", "youtube")]
-    if len(chans) != 2:
-        sys.exit(f"[STOP] expected YouTube + Instagram, got {chans}")
+    chans = [c for c in p.get_connected_channels() if c["service"] in want]
+    if len(chans) != len(want):
+        sys.exit(f"[STOP] expected {want}, got {[c['service'] for c in chans]}")
 
     with open(video, "rb") as f:
         r = requests.post("https://uguu.se/upload.php", files={"files[]": (os.path.basename(video), f, "video/mp4")}, timeout=240)
@@ -53,17 +60,22 @@ def main(topic, video, cap):
     if not done:
         sys.exit("[FAIL] nothing was posted.")
     db = json.load(open(DB, encoding="utf-8"))
+    old = next((h for h in db["history"] if h["id"] == topic), None)
+    if old is not None:
+        old["channels"] += done
+        json.dump(db, open(DB, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
+        print(f"[OK] posted to {len(done)}/{len(want)} channels, added to {topic} in memory_db.json"); return
     db["processed_topics"].append(topic)
     db["history"].append({
         "id": topic, "title": first,
         "published_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
-        "channels": done, "status": "published" if len(done) == 2 else "partial",
+        "channels": done, "status": "published" if len(done) == len(want) else "partial",
     })
     json.dump(db, open(DB, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
-    print(f"[OK] posted to {len(done)}/2 channels and recorded {topic} in memory_db.json")
+    print(f"[OK] posted to {len(done)}/{len(want)} channels and recorded {topic} in memory_db.json")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) not in (4, 5):
         sys.exit(__doc__)
     main(*sys.argv[1:])

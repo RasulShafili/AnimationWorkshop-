@@ -42,6 +42,6 @@ On another device, commit and push your changes the normal way. The repo holds o
 old projects, renders and audio stay on the PC (see `.gitignore`).
 
 ## Publishing
-`python3 share_video.py <topic-id> <video.mp4> <caption.txt>` posts to YouTube and Instagram through Buffer and records
+`python3 share_video.py <topic-id> <video.mp4> <caption.txt> [services]` posts to YouTube, Instagram and TikTok (default all three; e.g. `tiktok` to add one platform later) through Buffer and records
 the post in `memory_db.json`. It needs the Buffer token in `$BUFFER_TOKEN` or `.secrets/buffer_token`; the token is
 never committed. **Publish only when the owner asks**, and leave at least 3 hours between posts.
