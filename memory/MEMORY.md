@@ -7,3 +7,4 @@
 - [Pixel calm-music format](pixel-calm-music-format.md) — approved main format: detailed 2D pixel, shareable random fact, ~18 s, calm melody + SFX, 'send this to X'
 - [GitHub sync](github-sync.md) — after changing rules/skills/notes/sources in Animations run tools/sync_github.sh; repo holds only video-making essentials
 - [Channel name](channel-name.md) — IG, YouTube, TikTok are all whatif.lab_daily (was pixel_fact.8bit / LiminalART); watermark @whatif.lab_daily
+- [Bədən Bələdçisi channel](beden-beledcisi-channel.md) — IG channel for Alviora value-first health videos (Azerbaijani, DİZ comment CTA); render with systemd-inhibit

@@ -23,7 +23,9 @@
     "testosterone-x2",
     "cat-no-sweet",
     "no-sleep",
-    "neutron-spoon"
+    "neutron-spoon",
+    "punch-doubles",
+    "dog-red-ball"
   ],
   "history": [
     {
@@ -383,6 +385,52 @@
           "service": "tiktok",
           "name": "whatif.lab_daily",
           "post_id": "6af48fbeea046cbab60949f1"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "punch-doubles",
+      "title": "Punch Power ×2 Every 2 Seconds… Wait For The End 😳",
+      "published_at": "2026-11-11 19:34:56 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af4c345cf36c484ae92532f"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af4c351e805a6da23109459"
+        },
+        {
+          "service": "instagram",
+          "name": "pixel_fact.8bit",
+          "post_id": "6af4c356cd8c8b4c7cf9a1d9"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "dog-red-ball",
+      "title": "Your Dog Can't See This Ball 🐶🔴 (Send This To A Dog Owner)",
+      "published_at": "2026-11-12 04:43:10 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af543c2bc9f3773a1bf8b46"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af543cfcb4c7286fd148da9"
+        },
+        {
+          "service": "instagram",
+          "name": "pixel_fact.8bit",
+          "post_id": "6af543d4bc9f3773a1bf8ded"
         }
       ],
       "status": "published"
