@@ -20,3 +20,6 @@ export const FRIEND: Look = { top: "#3a7ab8", topDark: "#2a5a88", pants: "#2a2a3
 export const RESCUER: Look = { top: "#d8762a", topDark: "#a85a1e", pants: "#2a2e3a", vest: "#e8d23a", helmet: "#f0c020", hair: "none", shoes: "#1a1a1a" };
 export const CHIEF: Look = { top: "#2a3a5a", topDark: "#1e2a44", pants: "#2a2e3a", helmet: "#f4f4f4", hair: "none", mustache: true, scale: 1.08 };
 export const GIRL: Look = { top: "#e86aa8", topDark: "#b84a80", pants: "#3a3a5a", hair: "tuft", scale: 0.7 };
+export const LEO: Look = { top: "#3a8ad8", topDark: "#2a6aa8", pants: "#2a2a3a", helmet: "#e84a4a", hair: "none", scale: 0.62 };
+export const MIA_SNOW: Look = { ...MIA, top: "#7a3ab8", helmet: "#f0c040" };
+export const HERO_SNOW: Look = { ...HERO, top: "#d8962c", headphones: "head" };
