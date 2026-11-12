@@ -19,3 +19,13 @@ their median, the top 6 videos, and whether a matching topic is already in `memo
 - Never copy a specific channel's video, characters or look; take the question, not the execution (see [[vary-each-video]] memory).
 - Facts still need checking against real sources before writing the script.
 - Our own results beat YouTube's: also check Buffer metrics (avg watch, shares) of our past posts.
+
+## Outliers (added 2026-11-12) — use this FIRST when picking a topic
+`python3 outliers.py "what if shorts" "what happens if you" "human body facts shorts" --n 15 --channels 22 --per 40 --min 30000 --ratio 3`
+Searches the queries, takes the channels behind the results, lists each channel's latest Shorts and flags those with
+views ≥ `--ratio` × the channel's median (its "usual"). An outlier means the topic/packaging travelled, not the
+channel's fan base. Pick from these, then give it our own angle (×2-every-2-seconds, a ground-level twist, a
+"send this to X" target). Never copy the video itself. `--kw` limits titles to our niche (`--kw any` disables);
+`--channel URL` scans a channel directly. Takes 3–8 min (yt-dlp, no API key).
+First scan (2026-11-12): nuke a hurricane 21×, Voyager on an alien planet 7×, nails growth 7.4× (4.6M), Milky Way ×
+Andromeda 4.4×, hantavirus 4.1×, "black hole star" 3.4×, "can Earth run out of water" 3.2× (4.1M).

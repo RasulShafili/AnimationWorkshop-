@@ -453,12 +453,11 @@
         },
         {
           "service": "instagram",
-          "name": "pixel_fact.8bit",
-          "post_id": "6af5b96a31339cd60d7bcccb",
-          "status": "error: Buffer lost Instagram authorization (2026-11-12)"
+          "name": "whatif.lab_daily",
+          "post_id": "6af5ca038c7215122320faa8"
         }
       ],
-      "status": "partial"
+      "status": "published"
     }
   ]
 }

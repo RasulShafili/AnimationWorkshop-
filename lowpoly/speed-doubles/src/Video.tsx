@@ -7,6 +7,8 @@ import { World, beatOf } from "./World";
 import { Post } from "./Post";
 import { useGLBs } from "./glb";
 import T from "./timeline.json";
+import WORDS from "./words.json";
+import { Captions } from "./Captions";
 
 const B = T.beats;
 const sat = (v: number) => Math.min(1, Math.max(0, v));
@@ -56,6 +58,7 @@ export const Video: React.FC<{ withAudio?: boolean }> = ({ withAudio = true }) =
           {sub && <div style={{ fontWeight: 900, fontSize: 40, color: light ? "#ff6a6a" : "#8ab8ff" }}>{sub}</div>}
         </div>
       </div>
+      <Captions f={f} words={WORDS} top={1150} accent="#7ff0c0" />
       {withAudio && <Audio src={staticFile("mix.wav")} />}
     </AbsoluteFill>
   );

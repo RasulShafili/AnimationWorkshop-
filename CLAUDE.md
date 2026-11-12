@@ -21,7 +21,8 @@ The owner writes in Azerbaijani; answer in Azerbaijani. Everything on screen in 
 Every video needs a new setting, palette and transition (`memory/vary-each-video.md`).
 
 ## Skills (in `.claude/skills`)
-`topic-research` (pick a topic), `reel-qc` (check every render), `kokoro-voice`, `real-sfx`, plus Remotion and three.js
+`topic-research` (pick a topic; run `outliers.py` first: Shorts that beat their channel's median many times),
+`tools/captions` (word-by-word burned-in captions for every narrated line), `reel-qc` (check every render), `kokoro-voice`, `real-sfx`, plus Remotion and three.js
 references. Run `reel-qc` and look at the contact sheet before showing or publishing anything.
 
 ## Setup on a new machine
