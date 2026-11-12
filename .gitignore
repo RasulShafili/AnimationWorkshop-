@@ -63,3 +63,7 @@ lowpoly/height-doubles/*
 # skills that are not about making videos
 .claude/skills/openspec-*/
 .claude/skills/product-from-scratch/
+
+# local tool environments and downloaded reference reels (other people's content)
+tools/whisper-venv/
+assets/refs/
