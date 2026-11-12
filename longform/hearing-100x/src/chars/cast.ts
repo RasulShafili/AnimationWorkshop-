@@ -13,3 +13,7 @@ export const STUDENTS: Look[] = [
   { top: "#4a6ad8", pants: "#2a2a3a", hair: "tuft" }, { top: "#e8c84a", pants: "#3a3a4a", hair: "none" },
   { top: "#c86ab8", pants: "#2a2a3a", hair: "tuft" }, { top: "#6ac8d8", pants: "#3a3040", hair: "none" },
 ];
+export const DAD: Look = { top: "#4a5a3a", topDark: "#34402a", pants: "#2a2a34", hair: "none", glasses: true, scale: 1.08 };
+export const UNCLE: Look = { top: "#b83a3a", topDark: "#882a2a", pants: "#2a2a34", hair: "grey", mustache: true, scale: 1.1 };
+export const AUNT: Look = { top: "#6a4aa8", topDark: "#4a3480", pants: "#2a2a34", hair: "tuft", scale: 1.0 };
+export const FRIEND: Look = { top: "#3a7ab8", topDark: "#2a5a88", pants: "#2a2a34", hair: "none", scale: 1.02 };
