@@ -70,3 +70,4 @@ assets/refs/
 
 # regenerable simulation data (tools/simulate.py)
 lowpoly/andromeda/public/*.bin
+lowpoly/rogue-blackhole/public/*.bin

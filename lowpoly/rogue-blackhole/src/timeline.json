@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "total": 1110,
+  "beats": [0, 80, 305, 440, 545, 665, 760, 990, 1110],
+  "frozenIn": 860,
+  "texts": [
+    ["WHAT IF A BLACK HOLE", "HIT OUR SOLAR SYSTEM?"],
+    ["THEY'RE REAL", "7× THE SUN · DRIFTING ALONE"],
+    ["YOU CAN'T SEE IT", "ONLY BENT STARLIGHT"],
+    ["+20 YEARS", "PAST NEPTUNE"],
+    ["CLOSEST PASS", "JUPITER THROWN OUT"],
+    ["THE TWIST:", "IT KIDNAPS EARTH"],
+    ["DRAGGED INTO THE DARK", "THE OCEANS FREEZE"],
+    ["SWALLOWED OR FROZEN?", "COMMENT BELOW"]
+  ],
+  "vo": [4, 86, 312, 446, 552, 672, 768, 996]
+}
