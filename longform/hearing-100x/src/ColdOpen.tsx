@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, useCurrentFrame, Sequence, delayRender, continueRender } from "remotion";
 import "@fontsource/inter/800.css";
 import "@fontsource/inter/900.css";
-import { Stage, camAt, sat } from "./engine/core";
+import { Stage, Layer, camAt, sat } from "./engine/core";
 import { Vignette, Grain, Grade } from "./engine/fx";
 import { Bedroom } from "./scenes/Bedroom";
 import { Stairs, STAIR } from "./scenes/Stairs";
@@ -27,7 +27,8 @@ export const ColdOpen: React.FC = () => {
   const heart = hb(f, BEATS);
   const C = CUTS;
   let scene: React.ReactNode;
-  if (f < C.stairs) scene = <Stage cam={cam} bg="#05040a"><Bedroom f={f} eyes={eyes} look={look} brow={f > 340 ? 1 : 0} mouth={f > 345 ? "o" : "flat"} xray={xray} heart={heart} heartOn={sat((f - 200) / 30)} beats={BEATS} /></Stage>;
+  if (f < C.stairs) scene = <Stage cam={cam} bg="#05040a"><Bedroom f={f} eyes={eyes} look={look} brow={f > 340 ? 1 : 0} mouth={f > 345 ? "o" : "flat"} xray={xray} heart={heart} heartOn={sat((f - 200) / 30)} beats={BEATS} />
+      <Layer depth={1.35} blur={7}><path d="M1780 1100 Q1700 900 1760 760 Q1800 880 1820 1100 Z M1820 1100 Q1860 880 1960 800 Q1900 960 1860 1100 Z M1740 1100 Q1620 980 1600 860 Q1700 940 1780 1100 Z" fill="#0c140e" /></Layer></Stage>;
   else if (f < C.street) { const l = f - C.stairs, u = l / (C.street - C.stairs), p = STAIR(u); scene = <Stage cam={{ x: p[0] - 960, y: p[1] - 600, zoom: 1.25 }} bg="#141617"><Stairs f={f} u={u} /></Stage>; }
   else if (f < C.hero) { const l = f - C.street; scene = <Stage cam={camAt(l, [[0, 80, -40, 1.0], [135, 200, -40, 1.06]])} bg="#0b0d1c"><Street f={f} stretcherU={sat(l / 120)} medicTalk={f >= VO.p0 && f < VO.p0 + 100} heroLook={[1, 0]} /></Stage>; }
   else if (f < C.title) { const l = f - C.hero; scene = <Stage cam={camAt(l, [[0, -560, -60, 2.0], [75, -575, -70, 2.25]])} bg="#0b0d1c"><Street f={f} stretcherU={1} medicTalk={false} heroMouth={l > 30 ? "smile" : "worried"} heroLook={[1, -0.2]} /></Stage>; }
