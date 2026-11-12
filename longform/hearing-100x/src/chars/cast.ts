@@ -17,3 +17,6 @@ export const DAD: Look = { top: "#4a5a3a", topDark: "#34402a", pants: "#2a2a34",
 export const UNCLE: Look = { top: "#b83a3a", topDark: "#882a2a", pants: "#2a2a34", hair: "grey", mustache: true, scale: 1.1 };
 export const AUNT: Look = { top: "#6a4aa8", topDark: "#4a3480", pants: "#2a2a34", hair: "tuft", scale: 1.0 };
 export const FRIEND: Look = { top: "#3a7ab8", topDark: "#2a5a88", pants: "#2a2a34", hair: "none", scale: 1.02 };
+export const RESCUER: Look = { top: "#d8762a", topDark: "#a85a1e", pants: "#2a2e3a", vest: "#e8d23a", helmet: "#f0c020", hair: "none", shoes: "#1a1a1a" };
+export const CHIEF: Look = { top: "#2a3a5a", topDark: "#1e2a44", pants: "#2a2e3a", helmet: "#f4f4f4", hair: "none", mustache: true, scale: 1.08 };
+export const GIRL: Look = { top: "#e86aa8", topDark: "#b84a80", pants: "#3a3a5a", hair: "tuft", scale: 0.7 };

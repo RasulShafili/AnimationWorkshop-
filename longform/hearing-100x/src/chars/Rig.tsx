@@ -6,7 +6,7 @@ import React from "react";
 export type Look = {
   head?: string; top: string; topDark?: string; pants: string; shoes?: string; hands?: string;
   hair?: "tuft" | "bald" | "grey" | "none"; headphones?: "head" | "neck" | false; hpColor?: string;
-  glasses?: boolean; mustache?: boolean; vest?: string; stripes?: string; scale?: number;
+  glasses?: boolean; mustache?: boolean; vest?: string; stripes?: string; scale?: number; helmet?: string;
 };
 export type Pose = {
   lean?: number; head?: number; aL?: number[]; aR?: number[]; lL?: number[]; lR?: number[];
@@ -80,6 +80,7 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
     {P.mouth === "o" ? <ellipse cx={hc[0] + fx} cy={hc[1] + 27} rx={7} ry={9} fill="#0b0a10" stroke="#f4f1ea" strokeWidth={0} />
       : P.mouth === "open" || P.mouth === "shout" ? <path d={`M${hc[0] + fx - (P.mouth === "shout" ? 14 : 10)} ${hc[1] + 20} Q${hc[0] + fx} ${hc[1] + (P.mouth === "shout" ? 46 : 36)} ${hc[0] + fx + (P.mouth === "shout" ? 14 : 10)} ${hc[1] + 20} Z`} fill="#0b0a10" stroke="#f4f1ea" strokeWidth={2.5} />
       : <path d={mouthD[P.mouth]} stroke="#f4f1ea" strokeWidth={4} fill={P.mouth === "grin" ? "#0b0a10" : "none"} strokeLinecap="round" />}
+    {look.helmet && <g><path d={`M${hc[0] - 64} ${hc[1] - 6} Q${hc[0] - 60} ${hc[1] - 78} ${hc[0]} ${hc[1] - 80} Q${hc[0] + 62} ${hc[1] - 78} ${hc[0] + 66} ${hc[1] - 6} Z`} fill={look.helmet} /><rect x={hc[0] - 74} y={hc[1] - 12} width={150} height={12} rx={6} fill={look.helmet} /><rect x={hc[0] - 6} y={hc[1] - 82} width={12} height={70} fill="#000" opacity={0.15} /></g>}
     {look.headphones === "head" && <g>
       <path d={`M${hc[0] - 46} ${hc[1] + 2} Q${hc[0] - 40} ${hc[1] - 70} ${hc[0] + 10} ${hc[1] - 60}`} stroke="#2a2a34" strokeWidth={10} fill="none" strokeLinecap="round" />
       <ellipse cx={hc[0] - 40} cy={hc[1] + 6} rx={17} ry={24} fill={look.hpColor ?? "#e8a53a"} /><ellipse cx={hc[0] - 44} cy={hc[1] + 6} rx={8} ry={14} fill="#2a2a34" />
