@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "total": 1200,
+  "beats": [0, 80, 320, 420, 610, 740, 860, 1085, 1200],
+  "skyIn": 680,
+  "texts": [
+    ["WHAT IF ANDROMEDA", "HIT OUR GALAXY?"],
+    ["TODAY", "A FAINT SMUDGE"],
+    ["+4 BILLION YEARS", "IT FILLS THE SKY"],
+    ["COLLISION", "STARS ALMOST NEVER TOUCH"],
+    ["NEW SUNS", "IGNITE EVERYWHERE"],
+    ["+6 BILLION YEARS", "ONE GIANT GALAXY"],
+    ["PLOT TWIST (2025)", "ONLY A 50/50 CHANCE"],
+    ["SEND THIS TO", "A SPACE LOVER"]
+  ],
+  "vo": [4, 86, 326, 426, 616, 748, 868, 1090]
+}

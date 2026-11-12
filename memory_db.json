@@ -26,7 +26,8 @@
     "neutron-spoon",
     "punch-doubles",
     "dog-red-ball",
-    "speed-doubles"
+    "speed-doubles",
+    "nuke-hurricane"
   ],
   "history": [
     {
@@ -455,6 +456,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6af5ca038c7215122320faa8"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "nuke-hurricane",
+      "title": "What If We Nuked A Hurricane? The Twist Is Worse 😳",
+      "published_at": "2026-11-12 17:38:33 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af5f930147131f8b37baf88"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af5f93ce9c506b7da843c53"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6af5f941147131f8b37bb600"
         }
       ],
       "status": "published"

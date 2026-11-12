@@ -67,3 +67,6 @@ lowpoly/height-doubles/*
 # local tool environments and downloaded reference reels (other people's content)
 tools/whisper-venv/
 assets/refs/
+
+# regenerable simulation data (tools/simulate.py)
+lowpoly/andromeda/public/*.bin
