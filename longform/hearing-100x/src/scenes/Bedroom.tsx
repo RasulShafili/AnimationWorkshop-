@@ -25,7 +25,7 @@ const Skyline: React.FC<{ f: number; day?: number }> = ({ f, day = 0 }) => (
   </g>
 );
 
-export const Bedroom: React.FC<{ f: number; eyes: number; look: number[]; brow?: number; mouth?: any; xray?: number; heart?: number; heartOn?: number; headTurn?: number; beats?: number[]; day?: number; lying?: boolean; children?: React.ReactNode }> = ({ f, eyes, look, brow = 0, mouth = "flat", xray = 0, heart = 0, heartOn = 1, headTurn = 0, beats = [], day = 0, lying = true, children }) => {
+export const Bedroom: React.FC<{ f: number; eyes: number; look: number[]; brow?: number; mouth?: any; xray?: number; heart?: number; heartOn?: number; headTurn?: number; beats?: number[]; day?: number; lying?: boolean; children?: React.ReactNode; clock?: string; selfScan?: number; heroHp?: boolean }> = ({ f, eyes, look, brow = 0, mouth = "flat", xray = 0, heart = 0, heartOn = 1, headTurn = 0, beats = [], day = 0, lying = true, children, clock, selfScan = 0, heroHp = false }) => {
   const rings = beats.filter(b => f >= b && f < b + 60).map(b => ({ r: 40 + (f - b) * 22, o: 1 - (f - b) / 60 }));
   const rim = { dx: 0, dy: -4, color: "#ffb36a" };
   const cyan = "#5ae0ff";
@@ -104,7 +104,7 @@ export const Bedroom: React.FC<{ f: number; eyes: number; look: number[]; brow?:
       <rect x={320} y={672} width={730} height={40} rx={16} fill="#3a3450" />
       <ellipse cx={420} cy={672} rx={95} ry={32} fill="#cfc8e0" /><ellipse cx={420} cy={664} rx={80} ry={18} fill="#e8e2f4" opacity={0.6} />
       {/* the hero, lying on his back, head on the pillow */}
-      {lying && <g transform={`rotate(${headTurn} 410 668)`}><Character look={{ ...HERO_PJ, headphones: false }} pose={{ eyes, look, brow, mouth, lL: [0, 0], lR: [0, 0], aL: [10, 10], aR: [-4, 6], headSpin: 90 }} x={772} y={676} rot={-90} rim={rim} /></g>}
+      {lying && <g transform={`rotate(${headTurn} 410 668)`}><Character look={{ ...HERO_PJ, headphones: heroHp ? "head" : false }} pose={{ eyes, look, brow, mouth, lL: [0, 0], lR: [0, 0], aL: [10, 10], aR: [-4, 6], headSpin: 90 }} x={772} y={676} rot={-90} rim={rim} /></g>}
       {!lying && <path d={`M470 690 Q600 660 760 676 Q900 650 1050 676 L1062 712 Q760 735 470 712 Z`} fill="#7a2e3e" />}
       {children}
       {/* blanket over the body */}
@@ -113,10 +113,17 @@ export const Bedroom: React.FC<{ f: number; eyes: number; look: number[]; brow?:
       <path d={`M470 640 Q520 610 600 625 Q700 600 820 618 Q940 600 1050 630 L1052 646 Q930 620 820 636 Q700 618 600 642 Q520 628 476 656 Z`} fill="#b84a5a" opacity={0.7} />
       {[600, 760, 920].map(x => <path key={x} d={`M${x} ${628} Q${x + 30} 670 ${x + 10} 712`} stroke="#5a1e2c" strokeWidth={5} fill="none" opacity={0.6} />)}
       </g>}
+      {/* the hero hearing his own body: an x-ray of heart, vessels and joints under the blanket */}
+      {selfScan > 0 && <g opacity={selfScan} style={{ filter: "drop-shadow(0 0 6px #5ae0ff)" }}>
+        <path d="M470 660 L780 660 M470 676 L780 676" stroke="#5ae0ff" strokeWidth={2} opacity={0.5} />
+        {[[520, 650, 760, 640], [520, 690, 760, 700], [560, 668, 1000, 650], [560, 668, 1000, 690]].map(([x1, y1, x2, y2], i) => <path key={i} d={`M${x1} ${y1} Q${(x1 + x2) / 2} ${y1 + (i % 2 ? 14 : -14)} ${x2} ${y2}`} stroke="#ff4a6a" strokeWidth={4} fill="none" strokeDasharray="14 10" strokeDashoffset={-f * 3} opacity={0.8} />)}
+        {[[760, 650], [900, 668], [1000, 660]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={11} fill="none" stroke="#5ae0ff" strokeWidth={3} opacity={0.6 + 0.4 * Math.sin(f * 0.3 + i)} />)}
+        {(() => { const b = Math.max(0, Math.sin(f * 0.22)) ** 8; return <g><Glow x={555} y={668} r={70 + b * 60} color="#ff3a5a" o={0.4 + b * 0.5} /><path transform={`translate(555 668) scale(${0.8 + b * 0.4})`} d="M0 18 C -26 -2 -22 -26 -6 -24 C 0 -23 0 -18 0 -14 C 0 -18 0 -23 6 -24 C 22 -26 26 -2 0 18 Z" fill="#ff4a6a" /></g>; })()}
+      </g>}
       {/* nightstand, clock, headphones */}
       <rect x={1080} y={700} width={130} height={160} rx={6} fill="#1a1524" /><rect x={1094} y={760} width={102} height={6} fill="#0c0a12" />
       <rect x={1100} y={652} width={70} height={46} rx={8} fill="#0c0a12" />
-      <text x={1135} y={684} textAnchor="middle" fontFamily="Inter" fontWeight={800} fontSize={24} fill="#ff3a3a">{day > 0.5 ? "7:12" : "3:00"}</text>
+      <text x={1135} y={684} textAnchor="middle" fontFamily="Inter" fontWeight={800} fontSize={24} fill="#ff3a3a">{clock ?? (day > 0.5 ? "7:12" : "3:00")}</text>
       <Glow x={1135} y={676} r={70} color="#ff2a2a" o={0.35} />
       <rect x={1100} y={700} width={10} height={4} fill="#5affb0" opacity={0.6} />
       <path d="M1180 690 Q1196 640 1214 690" stroke="#2a2a34" strokeWidth={7} fill="none" /><ellipse cx={1180} cy={690} rx={10} ry={8} fill="#f0a83a" /><ellipse cx={1214} cy={690} rx={10} ry={8} fill="#f0a83a" />

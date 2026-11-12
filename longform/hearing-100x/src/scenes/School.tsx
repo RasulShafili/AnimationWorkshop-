@@ -9,7 +9,7 @@ import { HERO, HERO_HP, MIA, TEACHER1, TEACHER2, STUDENTS } from "../chars/cast"
 const SUN = { dx: 4, dy: -3, color: "#ffe0b0" };
 export const talkM = (f: number, on: boolean) => (on ? (["open", "flat", "o", "flat"] as const)[Math.floor(f / 3) % 4] : "flat");
 
-export const BusStop: React.FC<{ f: number; busX: number; rings: number }> = ({ f, busX, rings }) => {
+export const BusStop: React.FC<{ f: number; busX: number; rings: number; extra?: React.ReactNode; hero?: React.ReactNode }> = ({ f, busX, rings, extra, hero }) => {
   const g = 860;
   return <>
     <Layer depth={0.3}>
@@ -39,7 +39,8 @@ export const BusStop: React.FC<{ f: number; busX: number; rings: number }> = ({ 
       {/* bus stop */}
       <rect x={1150} y={g - 330} width={14} height={330} fill="#3a3a44" /><rect x={1150} y={g - 330} width={380} height={18} fill="#3a3a44" /><rect x={1170} y={g - 312} width={340} height={230} fill="#bfe0f0" opacity={0.35} />
       <circle cx={1580} cy={g - 360} r={40} fill="#2a9a8a" /><text x={1580} y={g - 348} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={34} fill="#fff">B</text><rect x={1575} y={g - 320} width={10} height={320} fill="#3a3a44" />
-      <Character look={HERO_HP} pose={{ look: [-1, 0], facing: -1, mouth: "smile", brow: 0.5 }} x={1360} y={g} rim={SUN} />
+      {hero ?? <Character look={HERO_HP} pose={{ look: [-1, 0], facing: -1, mouth: "smile", brow: 0.5 }} x={1360} y={g} rim={SUN} />}
+      {extra}
       <rect x={1700} y={g - 230} width={20} height={230} fill="#4a3a2a" /><circle cx={1710} cy={g - 280} r={110} fill="#4a8a4a" /><circle cx={1660} cy={g - 230} r={70} fill="#3a7a3a" />
     </Layer>
   </>;
