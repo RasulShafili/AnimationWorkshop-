@@ -25,7 +25,8 @@
     "no-sleep",
     "neutron-spoon",
     "punch-doubles",
-    "dog-red-ball"
+    "dog-red-ball",
+    "speed-doubles"
   ],
   "history": [
     {
@@ -434,6 +435,30 @@
         }
       ],
       "status": "published"
+    },
+    {
+      "id": "speed-doubles",
+      "title": "Your Speed ×2 Every 2 Seconds… Wait For The Twist 😳",
+      "published_at": "2026-11-12 13:04:53 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af5b95a31339cd60d7bc34d"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af5b9666f4d84d775f824a9"
+        },
+        {
+          "service": "instagram",
+          "name": "pixel_fact.8bit",
+          "post_id": "6af5b96a31339cd60d7bcccb",
+          "status": "error: Buffer lost Instagram authorization (2026-11-12)"
+        }
+      ],
+      "status": "partial"
     }
   ]
 }

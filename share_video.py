@@ -59,6 +59,22 @@ def main(topic, video, cap, services=",".join(ALL)):
 
     if not done:
         sys.exit("[FAIL] nothing was posted.")
+    # Buffer answers "sending" at once; the real result (sent / error) comes later. Poll it so a failure is never missed.
+    import time
+    pending = {d["post_id"]: d for d in done}
+    for _ in range(12):
+        time.sleep(10)
+        for pid, d in list(pending.items()):
+            q = 'query { post(input: { id: "%s" }) { status error { message } externalLink } }' % pid
+            st = (requests.post("https://api.buffer.com", json={"query": q}, headers=p.HEADERS, timeout=30).json().get("data") or {}).get("post") or {}
+            if st.get("status") == "sent":
+                print(f"[SENT] {d['service']}: {st.get('externalLink')}"); pending.pop(pid)
+            elif st.get("status") == "error":
+                msg = (st.get("error") or {}).get("message")
+                print(f"[ERROR] {d['service']}: {msg}"); d["status"] = f"error: {msg}"; pending.pop(pid)
+        if not pending: break
+    for d in pending.values(): print(f"[?] {d['service']}: still sending after 2 min — check Buffer")
+    done_ok = [d for d in done if not d.get("status", "").startswith("error")]
     db = json.load(open(DB, encoding="utf-8"))
     old = next((h for h in db["history"] if h["id"] == topic), None)
     if old is not None:
@@ -69,7 +85,7 @@ def main(topic, video, cap, services=",".join(ALL)):
     db["history"].append({
         "id": topic, "title": first,
         "published_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
-        "channels": done, "status": "published" if len(done) == len(want) else "partial",
+        "channels": done, "status": "published" if len(done_ok) == len(want) else "partial",
     })
     json.dump(db, open(DB, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
     print(f"[OK] posted to {len(done)}/{len(want)} channels and recorded {topic} in memory_db.json")
