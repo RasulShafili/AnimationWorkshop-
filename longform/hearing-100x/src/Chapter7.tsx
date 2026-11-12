@@ -34,8 +34,8 @@ export const Chapter7: React.FC = () => {
     if (f >= C.dig) heroPose = { lean: 35, lL: [70, 110], lR: [30, 90], bob: 40, aL: [80 + Math.sin(f * 0.6) * 35, 30], aR: [70 + Math.sin(f * 0.6 + 1.4) * 35, 30], mouth: "flat", look: [1, 1], brow: 0.6 };
     const miaCry = f >= V.m0 && f < V.m0 + 50;
     const mia = f >= C.dig ? { mouth: miaCry ? talkM(f, true) : f > V.m0 + 50 ? "smile" : "worried", brow: 0.8, aL: [130, 40], aR: [130, 40], hands: "open", tears: true, look: [1, 0.3] } : { mouth: "worried", brow: 0.9, tears: true, aL: [150, 120], look: [1, 0] };
-    const cam = camAt(f, [[C.field, -300, -80, 1.0], [C.field + 140, -100, -80, 1.04], [C.field + 141, -440, -30, 1.9], [C.field + 230, -430, -30, 1.95], [C.field + 231, 200, -260, 1.3], [C.decide - 1, 260, -240, 1.35],
-      [C.decide, -60, -40, 2.3], [C.shout - 1, -60, -40, 2.5], [C.shout, 100, -140, 1.15], [C.shout + 120, 160, -100, 1.0], [C.shout + 150, 160, 180, 1.0], [C.dig - 1, 160, 220, 1.0], [C.dig, 140, -120, 1.5], [C.hosp - 1, 160, -120, 1.6]]);
+    const cam = camAt(f, [[C.field, -300, -80, 1.0], [C.field + 140, -100, -80, 1.04], [C.field + 141, -440, -30, 1.9], [C.field + 230, -430, -30, 1.95], [C.field + 231, 200, -60, 1.25], [C.decide - 1, 240, -60, 1.3],
+      [C.decide, -60, -40, 2.3], [C.shout - 1, -60, -40, 2.5], [C.shout, 100, -140, 1.15], [C.shout + 120, 160, -100, 1.0], [C.shout + 150, 160, 180, 1.0], [C.dig - 1, 160, 220, 1.0], [C.dig, 120, 60, 1.45], [C.hosp - 1, 140, 60, 1.52]]);
     scene = <Stage cam={cam}><Field7 f={f} heliX={heliX} heliY={heliY} wash={wash} freeze={freeze} hearts={hearts} under={under} dig={f >= C.dig ? 1 : 0} leo={f >= C.dig + 40 ? sat((f - C.dig - 40) / 40) : 0} heroPose={heroPose} heroHp={!hpOff} mia={mia} /></Stage>;
   } else scene = <Stage cam={camAt(f - C.hosp, [[0, 100, -60, 1.15], [260, 60, -80, 1.25]])}><Hospital f={f - C.hosp} /></Stage>;
   // the 15-minute timer during the search

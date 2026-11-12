@@ -14,7 +14,7 @@ export const Chapter4: React.FC = () => {
   React.useEffect(() => { Promise.all([document.fonts.load("800 24px Inter"), document.fonts.load("900 80px Inter")]).then(() => continueRender(h)); }, [h]);
   const C = C4, V = C4VO;
   const uncleBpm = f < V.u0 ? 78 : lerp(78, 132, sat((f - V.u0) / 30));
-  const cam = camAt(f, [[0, 60, 0, 1.0], [150, 60, 0, 1.06], [160, -150, -110, 1.9], [330, -130, -110, 2.0], [340, 60, -20, 1.05], [440, 120, -20, 1.1], [450, -400, -220, 2.1], [580, -400, -220, 2.2]]);
+  const cam = camAt(f, [[0, 60, 0, 1.0], [150, 60, 0, 1.06], [160, -150, -110, 1.9], [330, -130, -110, 2.0], [340, 60, -20, 1.05], [440, 120, -20, 1.1], [450, -440, -60, 1.9], [580, -440, -60, 2.0]]);
   const wins = f >= C.montage ? Math.min(11, 1 + Math.floor((f - C.montage) / 8)) : 0;
   return <AbsoluteFill>
     <Stage cam={cam} bg="#0a0606"><Poker f={f} icons={sat((f - 60) / 20)} uncleTalk={f >= V.u0 && f < V.u0 + 60} dadTalk={f >= V.d0 && f < V.d0 + 88} reveal={sat((f - 315) / 20)} chips={f >= C.montage ? sat((f - C.montage) / 90) : 0} uncleBpm={uncleBpm} heroMouth={f > V.n4 ? "flat" : "smile"} /></Stage>

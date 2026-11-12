@@ -44,8 +44,8 @@ export const Chapter2: React.FC = () => {
         {[0, 1, 2, 3, 4].map(k => { const t = ((l + k * 8) % 40) / 40; return <path key={k} d={`M${1700 - t * 600} ${380 + k * 40} q30 -20 60 0 t60 0 t60 0`} stroke="#9ec8ff" strokeWidth={5} fill="none" opacity={1 - t} />; })}
       </g></svg>;
     } else {
-      const k = sat((l - 80) / 300), z = 1 + k * 0.35;
-      scene = <div style={{ position: "absolute", inset: 0, transform: `scale(${z}) translate(${-k * 120}px, 0px)`, transformOrigin: "60% 50%", opacity: sat((l - 80) / 10) }}><Ear f={f} zoom={1} mine={sat((l - 150) / 30)} /></div>;
+      const k = sat((l - 80) / 300), z = 1 + k * 0.12;
+      scene = <div style={{ position: "absolute", inset: 0, transform: `scale(${z}) translate(${-k * 30}px, 0px)`, transformOrigin: "60% 50%", opacity: sat((l - 80) / 10) }}><Ear f={f} zoom={1} mine={sat((l - 150) / 30)} /></div>;
     }
     grade = false;
   }

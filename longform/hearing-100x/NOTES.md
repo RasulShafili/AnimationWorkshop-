@@ -1,5 +1,10 @@
-# hearing-100x — long-form YouTube (16:9) — WORK IN PROGRESS
-Script: SCRIPT.md (approved 2026-11-12). Checkpoint 1: the cold open (0:00–0:27) → out/coldopen_v1.mp4.
+# hearing-100x — long-form YouTube (16:9), 4:06 — DONE (v2, 2026-11-13)
+Script: SCRIPT.md. Final: out/hearing-100x_full_v2.mp4 (coldopen_v2 + ch2_v2 + ch3_v1 + ch4_v2 + ch5_v1 + ch6_v1 + ch7_v2 + ch8_v2,
+ffmpeg concat). Thumbnail: out/thumbnail.png (Thumb composition). Title/description/chapters/sources: out/youtube_description.txt.
+Each chapter = src/ChapterN.tsx + tools/audio_chN.py (shared tools/audio_lib.py: SFX, original score, voice + ducking, loudnorm).
+QA (owner asked for it): 1-fps contact sheets of the full video, every pose/framing error fixed (arm crossing the
+face in hands-to-ears poses → use aL [-160,-40] aR [25,40]; seated characters need a chair/bench; compute close-up
+cameras from the head position: cam.x = x − 960, cam.y = (rootY − 362·scale) − 540 at depth 1).
 
 ## Copyright-safe by construction
 Own characters (src/chars/Rig.tsx + cast.ts), own story, all backgrounds drawn in code, Kokoro voices (Apache-2.0),

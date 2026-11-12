@@ -11,16 +11,16 @@ export const Field: React.FC<{ f: number; whisper: number }> = ({ f, whisper }) 
   return <>
     <Layer depth={0.3}>
       <defs><linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#2a2a6a" /><stop offset="0.55" stopColor="#c86a7a" /><stop offset="1" stopColor="#ffb07a" /></linearGradient></defs>
-      <rect x={-1500} y={-400} width={W + 3000} height={g + 400} fill="url(#dusk)" />
+      <rect x={-3000} y={-400} width={W + 6000} height={g + 400} fill="url(#dusk)" />
       <Glow x={1500} y={g - 40} r={500} color="#ffd08a" o={0.6} />
       {Array.from({ length: 30 }, (_, i) => <ellipse key={i} cx={-1400 + i * 180} cy={g - 20} rx={110 + rnd(i, 1) * 80} ry={60 + rnd(i, 2) * 60} fill="#2a1e3a" />)}
     </Layer>
     <Layer depth={0.6}>
       {[-600, 2500].map((x, k) => <g key={k}><line x1={x} y1={g} x2={x} y2={180} stroke="#14121e" strokeWidth={14} /><rect x={x - 70} y={140} width={140} height={60} fill="#14121e" />{Array.from({ length: 8 }, (_, i) => <circle key={i} cx={x - 55 + (i % 4) * 36} cy={158 + Math.floor(i / 4) * 24} r={9} fill="#fff6d8" />)}<Glow x={x} y={170} r={380} color="#fff2c8" o={0.5} /></g>)}
-      <rect x={-1500} y={g - 120} width={W + 3000} height={40} fill="#1e1a2e" />{Array.from({ length: 60 }, (_, i) => <circle key={i} cx={-1450 + i * 90} cy={g - 125} r={14} fill="#2a2440" />)}
+      <rect x={-3000} y={g - 120} width={W + 6000} height={40} fill="#1e1a2e" />{Array.from({ length: 60 }, (_, i) => <circle key={i} cx={-1450 + i * 90} cy={g - 125} r={14} fill="#2a2440" />)}
     </Layer>
     <Layer depth={1}>
-      <rect x={-1500} y={g} width={W + 3000} height={600} fill="#2a6a3a" />
+      <rect x={-3000} y={g} width={W + 6000} height={600} fill="#2a6a3a" />
       {Array.from({ length: 22 }, (_, i) => <rect key={i} x={-1500 + i * 220} y={g} width={110} height={600} fill="#000" opacity={0.08} />)}
       <Noise x={-1500} y={g} w={W + 3000} h={600} freq={0.9} o={0.25} />
       <line x1={-1500} y1={g + 60} x2={W + 1500} y2={g + 60} stroke="#e8f0e0" strokeWidth={6} opacity={0.6} /><line x1={960} y1={g} x2={960} y2={g + 600} stroke="#e8f0e0" strokeWidth={6} opacity={0.6} />
@@ -58,7 +58,7 @@ export const House: React.FC<{ f: number }> = ({ f }) => {
       <rect x={700} y={520} width={120} height={240} rx={8} fill="#d8dce4" /><rect x={700} y={600} width={120} height={4} fill="#9aa0aa" />
       <rect x={900} y={640} width={200} height={14} fill="#5a3a2a" /><rect x={910} y={654} width={10} height={106} fill="#3a2418" /><rect x={1080} y={654} width={10} height={106} fill="#3a2418" />
       <path d="M1400 680 L1760 680 Q1760 760 1700 760 L1460 760 Q1400 760 1400 680 Z" fill="#e8ecf0" /><rect x={1730} y={600} width={10} height={80} fill="#aab" />
-      <Character look={HERO} pose={{ mouth: "frown", brow: -0.8, eyes: 0.6, aL: [150, 110], aR: [150, 110], look: [1, 0] }} x={300} y={760} rim={{ dx: 3, dy: -3, color: "#ffd8a0" }} s={0.9} />
+      <Character look={HERO} pose={{ mouth: "frown", brow: -0.8, eyes: 0.6, aL: [-160, -40], aR: [25, 40], look: [1, 0], head: -6 }} x={300} y={760} rim={{ dx: 3, dy: -3, color: "#ffd8a0" }} s={0.9} />
       {/* sound waves from the mosquito across the rooms */}
       {[0, 1, 2, 3].map(k => { const t = ((f + k * 10) % 40) / 40; return <circle key={k} cx={mx} cy={my} r={40 + t * 900} fill="none" stroke="#ff9a5a" strokeWidth={4} opacity={(1 - t) * 0.5} />; })}
       <g transform={`translate(${mx} ${my})`}>

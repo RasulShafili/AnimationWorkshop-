@@ -8,6 +8,8 @@ import { Chapter4 } from "./Chapter4";
 import { Chapter5 } from "./Chapter5";
 import { Chapter6 } from "./Chapter6";
 import { Chapter7 } from "./Chapter7";
+import { Chapter8 } from "./Chapter8";
+import { Thumb } from "./Thumb";
 export const Root: React.FC = () => <>
   <Composition id="Sheet" component={Sheet} durationInFrames={60} fps={30} width={1920} height={1080} />
   <Composition id="ColdOpen" component={ColdOpen} durationInFrames={800} fps={30} width={1920} height={1080} />
@@ -17,4 +19,6 @@ export const Root: React.FC = () => <>
   <Composition id="Chapter5" component={Chapter5} durationInFrames={900} fps={30} width={1920} height={1080} />
   <Composition id="Chapter6" component={Chapter6} durationInFrames={830} fps={30} width={1920} height={1080} />
   <Composition id="Chapter7" component={Chapter7} durationInFrames={1550} fps={30} width={1920} height={1080} />
+  <Composition id="Chapter8" component={Chapter8} durationInFrames={1090} fps={30} width={1920} height={1080} />
+  <Composition id="Thumb" component={Thumb} durationInFrames={1} fps={30} width={1280} height={720} />
 </>;
