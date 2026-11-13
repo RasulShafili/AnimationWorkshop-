@@ -11,6 +11,7 @@ import { Chapter7 } from "./Chapter7";
 import { Chapter8 } from "./Chapter8";
 import { Thumb } from "./Thumb";
 import { Banner } from "./Banner";
+import { ShortOverlay } from "./ShortOverlay";
 export const Root: React.FC = () => <>
   <Composition id="Sheet" component={Sheet} durationInFrames={60} fps={30} width={1920} height={1080} />
   <Composition id="ColdOpen" component={ColdOpen} durationInFrames={800} fps={30} width={1920} height={1080} />
@@ -23,4 +24,5 @@ export const Root: React.FC = () => <>
   <Composition id="Chapter8" component={Chapter8} durationInFrames={1090} fps={30} width={1920} height={1080} />
   <Composition id="Thumb" component={Thumb} durationInFrames={1} fps={30} width={1280} height={720} />
   <Composition id="Banner" component={Banner} durationInFrames={1} fps={30} width={2560} height={1440} defaultProps={{ guides: false }} />
+  <Composition id="ShortOverlay" component={ShortOverlay} durationInFrames={1} fps={30} width={1080} height={1920} />
 </>;
