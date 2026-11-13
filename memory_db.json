@@ -27,7 +27,8 @@
     "punch-doubles",
     "dog-red-ball",
     "speed-doubles",
-    "nuke-hurricane"
+    "nuke-hurricane",
+    "hearing-100x"
   ],
   "history": [
     {
@@ -482,6 +483,20 @@
         }
       ],
       "status": "published"
+    },
+    {
+      "id": "hearing-100x",
+      "title": "What If Your Hearing Was 100x Better?",
+      "published_at": "2026-11-13 19:00:00 UTC",
+      "channels": [
+        {
+          "service": "youtube",
+          "name": "whatif.lab_daily (manual, YouTube Studio)",
+          "url": "https://youtu.be/OxDh5ypJw5o"
+        }
+      ],
+      "status": "scheduled",
+      "note": "long-form 4:06, uploaded by the owner in YouTube Studio, scheduled 23:00 Baku; subtitles_en.srt + custom thumbnail"
     }
   ]
 }
