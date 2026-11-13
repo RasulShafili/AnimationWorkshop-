@@ -150,7 +150,8 @@ def build_metadata_block(service: str, title_line: str) -> str:
         }}
         """
     elif service == "youtube":
-        yt_title = clean_title if "#shorts" in clean_title.lower() else f"{clean_title} #Shorts"
+        # long-form uploads (LONGFORM=1) must not be tagged as Shorts
+        yt_title = clean_title if ("#shorts" in clean_title.lower() or os.environ.get("LONGFORM") == "1") else f"{clean_title} #Shorts"
         if len(yt_title) > 100:
             yt_title = yt_title[:100]
         escaped_yt_title = json.dumps(yt_title)

@@ -16,3 +16,8 @@ moody dusk lighting, rim light, layered detailed backgrounds, glow/blur/vignette
 **How to apply:** same genre and quality, but OUR OWN characters and stories (never copy Ifverse's red-hoodie hero).
 First project: `longform/hearing-100x` ("What If Your Hearing Was 100x Better?"), script in SCRIPT.md, awaiting
 approval before production. Related: [[whatif-3d-format]], [[outliers-and-captions]].
+
+**Publishing (2026-11-13):** Buffer's YouTube channel only accepts Shorts (rejects >3 min / horizontal:
+"Video must be no longer than 3 minutes for YouTube Shorts"), and Buffer can't set custom thumbnails. Long-form videos
+are uploaded by the owner in YouTube Studio; prepare ~/Desktop/YouTube_upload/ (mp4 + thumbnail.png + title/description).
+publish_reel.py now has LONGFORM=1 (no "#Shorts" in the title) for any future route that accepts long videos.
