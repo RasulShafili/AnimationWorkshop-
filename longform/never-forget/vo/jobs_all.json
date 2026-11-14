@@ -1,0 +1,415 @@
+[
+{
+"out": "vo/c2_n1.wav",
+"text": "Here's how memory normally works.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n2.wav",
+"text": "Your brain throws most of your life away.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n3.wav",
+"text": "What you ate last Tuesday. What your teacher wore. Gone.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n4.wav",
+"text": "And that's not a bug. It's cleaning.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n5.wav",
+"text": "You don't have that. Nothing ever drains.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n6.wav",
+"text": "Instead of a bucket... you have a palace.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n7.wav",
+"text": "Every day of your life is a door. And every door still opens.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n8.wav",
+"text": "This isn't pure fiction. A few dozen people on Earth have something close to it.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n9.wav",
+"text": "Give them any date, and they'll tell you what they did that day.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_n10.wav",
+"text": "You have it turned all the way up.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c2_lina1.wav",
+"text": "Okay. I can't remember being a baby. So... not everything.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n1.wav",
+"text": "School? You read every book once. That's it. Forever.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_sam1.wav",
+"text": "Did you even study?!",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_lina1.wav",
+"text": "I read it. In September.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n2.wav",
+"text": "Memory champions can memorize a whole shuffled deck of cards in under twenty seconds.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n3.wav",
+"text": "They use a trick that's two and a half thousand years old. The memory palace.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n4.wav",
+"text": "You do it in one glance.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_sam2.wav",
+"text": "Ace of spades, seven of hearts... how?!",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_sam3.wav",
+"text": "I never said that!",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_lina2.wav",
+"text": "Friday, June fourteenth, twelve oh two. You said, and I quote: I would never eat pineapple pizza.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n5.wav",
+"text": "You win every argument. Every single one.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c3_n6.wav",
+"text": "People stop arguing with you. Then... they stop talking to you.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c4_n1.wav",
+"text": "Five years later, on your twenty-first birthday, Sam drags you to Las Vegas.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c4_n2.wav",
+"text": "Blackjack. Six decks. Three hundred and twelve cards. You remember every single one that's been played.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c4_sam1.wav",
+"text": "Wait... we're up how much?!",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c4_manager1.wav",
+"text": "Congratulations. You're welcome to leave. And never come back.",
+"ref": "vo/refs/manager.wav",
+"exag": 0.45,
+"cfg": 0.45
+},
+{
+"out": "vo/c4_n3.wav",
+"text": "Fair.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c4_n4.wav",
+"text": "But that's the future. Right now, someone needs you.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_n1.wav",
+"text": "Your grandma Ayla is your favorite person in the world.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_n2.wav",
+"text": "She taught you to dance, to cook... and to cheat at cards.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_ayla1.wav",
+"text": "Never measure the butter, Lina. The heart measures.",
+"ref": "vo/refs/ayla.wav",
+"exag": 0.5,
+"cfg": 0.4
+},
+{
+"out": "vo/c5_n3.wav",
+"text": "Then she starts forgetting things.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_n4.wav",
+"text": "Her keys. Your mom's birthday. Whole afternoons.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_ayla2.wav",
+"text": "Have you seen my keys, dear? I just had them.",
+"ref": "vo/refs/ayla.wav",
+"exag": 0.5,
+"cfg": 0.4
+},
+{
+"out": "vo/c5_hale1.wav",
+"text": "It's Alzheimer's. It's early... but it will get worse.",
+"ref": "vo/refs/hale.wav",
+"exag": 0.45,
+"cfg": 0.5
+},
+{
+"out": "vo/c5_n5.wav",
+"text": "You remember everything. And the person you love most is slowly forgetting everything.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n1.wav",
+"text": "And here's the price nobody talks about.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n2.wav",
+"text": "You can't forget the bad days either.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n3.wav",
+"text": "Every embarrassing moment. Every goodbye. In perfect detail. On repeat.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n4.wav",
+"text": "The most famous memory man in history wrote things on paper and burned them, hoping to forget. It didn't work.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n5.wav",
+"text": "Scientists think forgetting is actually healthy. It clears space, so you can move on.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_hale2.wav",
+"text": "There's an experimental treatment. It would let you forget... like everyone else.",
+"ref": "vo/refs/hale.wav",
+"exag": 0.45,
+"cfg": 0.5
+},
+{
+"out": "vo/c6_n6.wav",
+"text": "No more replays. No more hurt. You'd be normal.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_ayla3.wav",
+"text": "I'm sorry, dear... have we met?",
+"ref": "vo/refs/ayla.wav",
+"exag": 0.5,
+"cfg": 0.4
+},
+{
+"out": "vo/c7_n1.wav",
+"text": "It's the worst day. She doesn't know you.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n2.wav",
+"text": "But you know something about her that nobody else remembers.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n3.wav",
+"text": "Ten years ago, she hummed a song while she was cooking. Just once.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n4.wav",
+"text": "The song from her wedding.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_ayla4.wav",
+"text": "Lina...? My Lina. You came.",
+"ref": "vo/refs/ayla.wav",
+"exag": 0.5,
+"cfg": 0.4
+},
+{
+"out": "vo/c7_n6.wav",
+"text": "For three minutes, she's back. She laughs. She tells you the butter story again.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n7.wav",
+"text": "Then... she's gone.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n8.wav",
+"text": "You'll keep every memory. The good ones, and the ones that hurt.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c7_n9.wav",
+"text": "Because someone has to remember for her.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_n1.wav",
+"text": "Then, one night, you notice something impossible.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_n2.wav",
+"text": "One door in your palace is empty. Saturday, March fourteenth, six years ago. Not a single second.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_lina1.wav",
+"text": "I don't forget things. I can't.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_n3.wav",
+"text": "So... who took it?",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_n4.wav",
+"text": "If you could never forget one day of your life, which day would it be? Tell us in the comments.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c8_n5.wav",
+"text": "And if you'd have kept the memories too... subscribe. Part two is coming.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+}
+]

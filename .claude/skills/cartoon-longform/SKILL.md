@@ -66,6 +66,14 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
   finger lobes, darker rim + light window reflections), drips over edges, a few early splash drops; lids land ON the
   surface with a shadow, never hang in the air. Puddles stay consistent in size between shots.
 
+- **Background props vs heads:** check that no background object (vase, lamp, shelf, sign) sits exactly behind a
+  character's head or neck — it reads as a hat/pom-pom or a stick through the head. Move the prop.
+- **Holding hands / touching:** solve both arms to the same point with `tools/fk_solve.py` (check reach: an arm is
+  148·s long from the shoulder); waving = arm out beside the head (`aR [112±8, 40±18]`), never across the face.
+- **Walking left:** walk/run phase must use `facing * x`, or the legs cycle backwards (moonwalk).
+- **Length:** narration of ~5 min of lines gives ~5 min of video; to pass 8:00 plan ~70 lines / 1,300 words of
+  narration + dialogue in the script (Part 1 and never-forget v1 both came out short).
+
 ## 4. Engine API (src/engine, src/chars) — see longform/hearing-100x
 - `Stage cam={x,y,zoom}` + `Layer depth blur` (parallax); `camAt(f, [[frame,x,y,zoom],…])` eased keys.
 - FX: `Glow, Shaft (light beams), Vignette, Grain (animated), Grade, Rain, PaneDrops, Bokeh`.
@@ -130,6 +138,7 @@ amplitude; more varied body shapes per character.
 - **Look:** glossy soft-shaded heads + mitten hands, bright detailed sets, crowds of extras with depth blur, one
   recurring visual language for the power, 15+ locations per video (IFNation reference, `assets/refs/ifnation`).
 - Length really over 8:00; Part 1 was 4:06.
+- Rig2 faces: sad = `{ brow: 0, browIn: 0.8, mouth: "sad" }`; angry = `brow: -0.6`; surprised = `eyes: 1.2, brow: 0.8, mouth: "o"`.
 - **Rig v2** (`longform/never-forget/src/chars/Rig2.tsx`): glossy heads, mitten hands, clothing styles, hats,
   blink/breath idle (`f`, `seed` props), lip-sync `talk` from `tools/vo_meta.py` envelopes, `gold` eyes, `noBlink`
   for hero close-ups, `SIT` pose (feet on floor; seat top = rootY − 86·s). Use it for new videos.

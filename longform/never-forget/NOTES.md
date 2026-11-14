@@ -50,3 +50,13 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   the knock done with Okafor's rig hand (angles from tools/fk_solve.py), close-up spill with pouring ribbon, flow
   puddle, reflections, drips, lid landing on the table; matching small puddle in the room shots; DMV thumbnail uses
   the new car. Timeline +26 frames (knock shot) → 48.4 s.
+
+## Full cut v1 (2026-11-14): 5:11 — chapters c1 48 s, c2 42, c3 43, c4 29, c5 29, c6 34, c7 45, c8 41 (end card 12 s)
+- Every chapter: voices (Chatterbox, Whisper small.en checked), vo_meta → timeline, audio_cN.py mirrors formulas,
+  640-px QA sheets read tile by tile, fixes, re-render. Re-takes: c5_n1/n4 (seed 11). out/concat.txt → full.
+- Errors caught in QA this round (now rules in the skill): static shots > 5 s (calendar, deck, gold words, final
+  beat), half faces / cut heads in close-ups, planks instead of sleeves (Sleeve everywhere), objects moving with no
+  hand (bottle pour), a background vase lining up with Lina's head as a "pom-pom", hands not meeting when holding
+  hands (fk_solve), arm across face when waving, moonwalk when walking left (phase uses facing), mirrored text,
+  overlapping labels/titles, chips hiding a face, counter behind characters instead of in front.
+- Length is under 8:00 → mid-rolls not possible yet. Extension plan: see chat (new scenes, not padding).

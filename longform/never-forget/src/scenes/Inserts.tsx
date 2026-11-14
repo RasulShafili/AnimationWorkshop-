@@ -13,7 +13,7 @@ const Mitt: React.FC<{ x: number; y: number; r?: number; c?: string; rot?: numbe
 </g>;
 
 // coat sleeve from (x0,y0) (off-screen) to the wrist (x1,y1): tapered, shaded, with fold lines and a cuff
-export const Sleeve: React.FC<{ x0: number; y0: number; x1: number; y1: number; w0?: number; w1?: number; c?: string }> = ({ x0, y0, x1, y1, w0 = 190, w1 = 120, c = "#7a5a3e" }) => {
+export const Sleeve: React.FC<{ x0: number; y0: number; x1: number; y1: number; w0?: number; w1?: number; c?: string; cuff?: string; dark?: string }> = ({ x0, y0, x1, y1, w0 = 190, w1 = 120, c = "#7a5a3e", cuff = "#5a3f28", dark = "#3a2a1c" }) => {
   const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
   const P = (t: number, side: number, w: number) => [x0 + dx * t + nx * side * w / 2, y0 + dy * t + ny * side * w / 2];
   const a1 = P(0, 1, w0), a2 = P(1, 1, w1), b2 = P(1, -1, w1), b1 = P(0, -1, w0);
@@ -21,11 +21,11 @@ export const Sleeve: React.FC<{ x0: number; y0: number; x1: number; y1: number; 
   const id = `sl${Math.round(x1)}${Math.round(y1)}`;
   return <g>
     <defs><linearGradient id={id} gradientUnits="userSpaceOnUse" x1={P(0.5, 1, w0)[0]} y1={P(0.5, 1, w0)[1]} x2={P(0.5, -1, w0)[0]} y2={P(0.5, -1, w0)[1]}>
-      <stop offset="0" stopColor={c} /><stop offset="0.35" stopColor={c} /><stop offset="1" stopColor="#3a2a1c" /></linearGradient></defs>
+      <stop offset="0" stopColor={c} /><stop offset="0.35" stopColor={c} /><stop offset="1" stopColor={dark} /></linearGradient></defs>
     <path d={`M${a1} L${a2} L${b2} L${b1} Z`} fill={`url(#${id})`} />
-    {[0.3, 0.5, 0.68].map((t, i) => { const p1 = P(t, 1, w0 * (1 - t) + w1 * t), p2 = P(t + 0.06, -0.2, w0 * (1 - t) + w1 * t); return <path key={i} d={`M${p1} Q${P(t + 0.03, 0.4, w0)} ${p2}`} stroke="#3a2a1c" strokeOpacity={0.45} strokeWidth={5} fill="none" strokeLinecap="round" />; })}
+    {[0.3, 0.5, 0.68].map((t, i) => { const p1 = P(t, 1, w0 * (1 - t) + w1 * t), p2 = P(t + 0.06, -0.2, w0 * (1 - t) + w1 * t); return <path key={i} d={`M${p1} Q${P(t + 0.03, 0.4, w0)} ${p2}`} stroke={dark} strokeOpacity={0.45} strokeWidth={5} fill="none" strokeLinecap="round" />; })}
     <path d={`M${a1} L${a2}`} stroke="#fff" strokeOpacity={0.18} strokeWidth={6} />
-    <path d={`M${c1} L${c2} L${c3} L${c4} Z`} fill="#5a3f28" />
+    <path d={`M${c1} L${c2} L${c3} L${c4} Z`} fill={cuff} />
   </g>;
 };
 // a hand gripping something on its right side: sleeve from the top-right, mitten wrapped around, thumb in front
