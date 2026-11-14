@@ -70,3 +70,4 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   a time-range bug that hid the whole teaser (card branch must end at T.t1), umbrella reading as a hat, `npx` inside
   a `while read` loop eats the heredoc (use arrays + `< /dev/null`), WebkitTextStroke artefacts (use shadows).
 - Upload package: ~/Desktop/YouTube_upload_never_forget (mp4, 2 thumbnails, title/description/tags, srt).
+- PUBLISHED 2026-11-15 ~00:00 Baku: https://youtu.be/5DqsYXv1EKQ (Film & Animation, 13 chapters + en subtitles detected; tags missing at first check). Ask for Reach/CTR + retention screenshots after 2-3 days.
