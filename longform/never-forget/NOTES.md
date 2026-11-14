@@ -40,3 +40,8 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   (pose `noBlink`); a character walked "through" a parked car (stop before it); static 4.6 s two-shot (split into
   reaction close-ups); fact card covering gauges.
 - Whisper base.en mishears Chatterbox sometimes ("hit" → "had"); recheck with small.en before regenerating.
+- v2 (owner said v1 had many errors): fixed hand contact (Okafor aL [50,16] aR [42,16] lean 18), hand/sleeve
+  drawings in inserts (Sleeve component), recognisable bicycle in the photo, car drives LEFT (we see its left side →
+  "back left door" is true), plate shown in a rear-view insert (side view can't show a plate), whole memory freezes
+  with the car (tf), extras hidden in close-ups, other character hidden in room close-ups, readable stamp, cup is
+  knocked by Okafor's hand, walk phase from distance, frames crown clear of the POLICE sign, real windows.

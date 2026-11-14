@@ -15,43 +15,67 @@ export const Mark: React.FC<{ x: number; y: number; w: number; h: number; k: num
     <text x={0} y={2} fontFamily="Inter" fontWeight={900} fontSize={30} fill={GOLD} textAnchor="middle">{label}</text></g>}
 </g>;
 
-// silver hatchback, side view, facing right. origin = rear-bottom of body. dent on the back door.
-export const Car: React.FC<{ x: number; y: number; s?: number; wheel?: number; marks?: number[]; active?: number }> = ({ x, y, s = 1, wheel = 0, marks = [0, 0, 0], active = -1 }) => <g transform={`translate(${x} ${y}) scale(${s})`}>
+// silver hatchback, side view. Drawn facing right in local space; dir=-1 mirrors it so it drives LEFT and we see
+// its LEFT side (the dent is on the back left door). Origin = rear-bottom. Marks are drawn un-mirrored (readable text).
+export const CAR_PTS = { dent: [205, -120], fresh: [520, -240] };      // local points (facing right, before scale)
+export const carPt = (x: number, s: number, dir: number, p: number[]) => [x + p[0] * s * dir, 880 + p[1] * s];
+export const Car: React.FC<{ x: number; y: number; s?: number; wheel?: number; dir?: 1 | -1 }> = ({ x, y, s = 1, wheel = 0, dir = 1 }) => <g transform={`translate(${x} ${y}) scale(${s * dir} ${s})`}>
   <defs><linearGradient id="carb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#e4e8ee" /><stop offset="0.5" stopColor="#b8c0cc" /><stop offset="1" stopColor="#7a8494" /></linearGradient></defs>
-  <ellipse cx={330} cy={8} rx={360} ry={22} fill="#000" opacity={0.35} />
+  <ellipse cx={350} cy={8} rx={380} ry={22} fill="#000" opacity={0.35} />
   <path d="M0 -40 L6 -150 Q14 -186 60 -196 L150 -200 Q200 -290 300 -296 L470 -296 Q540 -290 590 -210 L660 -190 Q700 -178 700 -120 L700 -40 Z" fill="url(#carb)" />
-  {/* windows */}
+  <rect x={-6} y={-70} width={22} height={34} rx={6} fill="#5a6474" /><rect x={690} y={-70} width={22} height={34} rx={6} fill="#5a6474" />
   <path d="M40 -196 L150 -200 L160 -206 Q208 -280 296 -284 L300 -206 Z" fill="#2a3444" />
   <path d="M320 -206 L318 -284 L465 -284 Q520 -280 570 -210 Z" fill="#2a3444" />
   <path d="M330 -270 L420 -270 L380 -214 L340 -214 Z" fill="#fff" opacity={0.12} />
-  {/* air freshener hanging behind the windscreen */}
-  <line x1={520} y1={-276} x2={520} y2={-250} stroke="#ddd" strokeWidth={2} />
-  <path d="M520 -250 L506 -226 L512 -226 L502 -208 L538 -208 L528 -226 L534 -226 Z" fill="#3aa85a" />
-  {/* doors + dent */}
+  {/* rear-view mirror + air freshener hanging from it */}
+  <rect x={500} y={-282} width={34} height={10} rx={4} fill="#1a1e26" />
+  <line x1={520} y1={-272} x2={520} y2={-252} stroke="#ddd" strokeWidth={2} />
+  <path d="M520 -252 L506 -228 L512 -228 L502 -210 L538 -210 L528 -228 L534 -228 Z" fill="#3aa85a" />
+  <path d="M585 -200 L612 -214 L620 -196 Z" fill="#2a3444" />
   <line x1={300} y1={-206} x2={300} y2={-48} stroke="#5a6474" strokeWidth={3} /><line x1={150} y1={-200} x2={150} y2={-60} stroke="#5a6474" strokeWidth={3} />
   <path d="M170 -140 Q200 -120 236 -138 Q250 -110 214 -96 Q188 -104 170 -140 Z" fill="#6a7484" opacity={0.75} />
   <path d="M182 -132 Q205 -122 226 -132" stroke="#f4f6fa" strokeWidth={3} fill="none" opacity={0.8} />
   <rect x={250} y={-160} width={34} height={8} rx={4} fill="#5a6474" /><rect x={420} y={-160} width={34} height={8} rx={4} fill="#5a6474" />
-  {/* lights + plate (rear on the left) */}
   <rect x={0} y={-150} width={16} height={46} rx={4} fill="#d8322c" /><rect x={686} y={-140} width={16} height={30} rx={4} fill="#fff6d0" />
-  <rect x={-6} y={-96} width={12} height={46} fill="#1a1e26" />
-  <g transform="translate(-4 -86)"><rect x={-58} y={0} width={60} height={34} rx={4} fill="#f4f1e6" stroke="#20242c" strokeWidth={2} /><text x={-28} y={25} fontFamily="Inter" fontWeight={900} fontSize={15} fill="#1a2a6a" textAnchor="middle">7KR·419</text></g>
-  {/* wheels */}
-  {[130, 560].map(cx => <g key={cx} transform={`rotate(${wheel} ${cx} -36)`}><circle cx={cx} cy={-36} r={52} fill="#141418" /><circle cx={cx} cy={-36} r={28} fill="#9aa2ae" />{[0, 72, 144, 216, 288].map(a => <line key={a} x1={cx} y1={-36} x2={cx + 26 * Math.cos(a * Math.PI / 180)} y2={-36 + 26 * Math.sin(a * Math.PI / 180)} stroke="#5a626e" strokeWidth={6} />)}</g>)}
-  <Mark x={-66} y={-90} w={68} h={42} k={marks[0]} label={active === 0 ? "7KR-419" : undefined} lx={30} ly={-40} />
-  <Mark x={164} y={-150} w={80} h={60} k={marks[1]} label={active === 1 ? "DENT · BACK LEFT DOOR" : undefined} lx={20} ly={-90} />
-  <Mark x={496} y={-282} w={46} h={80} k={marks[2]} label={active === 2 ? "PINE TREE" : undefined} lx={10} ly={-50} />
+  {[130, 560].map(cx => <g key={cx} transform={`rotate(${wheel * dir} ${cx} -36)`}><circle cx={cx} cy={-36} r={52} fill="#141418" /><circle cx={cx} cy={-36} r={28} fill="#9aa2ae" />{[0, 72, 144, 216, 288].map(a => <line key={a} x1={cx} y1={-36} x2={cx + 26 * Math.cos(a * Math.PI / 180)} y2={-36 + 26 * Math.sin(a * Math.PI / 180)} stroke="#5a626e" strokeWidth={6} />)}</g>)}
 </g>;
 
-// sunny street, 3 years ago (rendered through the memory filter by the chapter)
-export const StreetPast: React.FC<{ f: number; carX: number; wheel: number; marks: number[]; active?: number }> = ({ f, carX, wheel, marks, active = -1 }) => <>
+// rear view of the same car (for the plate close-up), centred at cx, ground at gy
+export const CarRear: React.FC<{ cx: number; gy: number; s?: number; k: number }> = ({ cx, gy, s = 1, k }) => <g transform={`translate(${cx} ${gy}) scale(${s})`}>
+  <ellipse cx={0} cy={6} rx={330} ry={26} fill="#000" opacity={0.4} />
+  <rect x={-300} y={-110} width={70} height={110} rx={18} fill="#141418" /><rect x={230} y={-110} width={70} height={110} rx={18} fill="#141418" />
+  <path d="M-310 -60 L-300 -230 Q-290 -280 -220 -300 Q-120 -440 0 -440 Q120 -440 220 -300 Q290 -280 300 -230 L310 -60 Q0 -40 -310 -60 Z" fill="url(#carb2)" />
+  <defs><linearGradient id="carb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#e4e8ee" /><stop offset="1" stopColor="#7a8494" /></linearGradient></defs>
+  <path d="M-200 -300 Q-110 -410 0 -410 Q110 -410 200 -300 Z" fill="#2a3444" /><path d="M-150 -320 Q-60 -390 40 -392 L-60 -320 Z" fill="#fff" opacity={0.1} />
+  <rect x={-290} y={-250} width={90} height={56} rx={12} fill="#d8322c" /><rect x={200} y={-250} width={90} height={56} rx={12} fill="#d8322c" />
+  <rect x={-280} y={-242} width={70} height={16} rx={6} fill="#ff8a7a" opacity={0.6} /><rect x={210} y={-242} width={70} height={16} rx={6} fill="#ff8a7a" opacity={0.6} />
+  <rect x={-320} y={-110} width={640} height={50} rx={16} fill="#5a6474" />
+  <rect x={-110} y={-200} width={220} height={74} rx={8} fill="#f4f1e6" stroke="#20242c" strokeWidth={5} />
+  <text x={0} y={-146} fontFamily="Inter" fontWeight={900} fontSize={52} fill="#1a2a6a" textAnchor="middle" letterSpacing={3}>7KR·419</text>
+  <Mark x={-110} y={-200} w={220} h={74} k={k} label="7KR-419" ly={-70} />
+</g>;
+
+export const PlateInsert: React.FC<{ f: number; k: number }> = ({ f, k }) => <svg width={W} height={H} style={{ position: "absolute" }}>
+  <defs><linearGradient id="pisky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#b8a68a" /><stop offset="1" stopColor="#8a7e6a" /></linearGradient></defs>
+  <rect width={W} height={H} fill="url(#pisky)" />
+  {/* blurred shop fronts behind */}
+  <g style={{ filter: "blur(10px)" }}>{[0, 1, 2, 3].map(i => <g key={i}><rect x={-100 + i * 560} y={60} width={520} height={560} fill={i % 2 ? "#a8856a" : "#b8957a"} /><rect x={-60 + i * 560} y={300} width={440} height={240} fill="#3a4250" /><rect x={-80 + i * 560} y={260} width={480} height={50} fill={["#e8b06a", "#6ac0a8", "#c87a6a", "#7a9ad8"][i]} /></g>)}</g>
+  <rect x={0} y={620} width={W} height={120} fill="#c8c2b6" /><rect x={0} y={740} width={W} height={340} fill="#4a4e58" />
+  <g transform={`translate(0 0) scale(${1 + f * 0.0012})`} style={{ transformOrigin: "960px 700px" }}><CarRear cx={960} gy={900} s={1.25} k={k} /></g>
+</svg>;
+
+// sunny street, 3 years ago. tf = memory time (stops when the car freezes → the whole memory freezes).
+// crowd=false hides the people (for close-ups, so no heads are cut by the frame).
+export const StreetPast: React.FC<{ f: number; tf: number; carX: number; wheel: number; marks: number[]; active?: number; crowd?: boolean }> = ({ f, tf, carX, wheel, marks, active = -1, crowd = true }) => {
+  const s = 1.15, dir = -1 as const, dent = carPt(carX, s, dir, CAR_PTS.dent), fr = carPt(carX, s, dir, CAR_PTS.fresh);
+  const walkX = 1500 - tf * 1.6;
+  return <>
   <Layer depth={0.3}>
     <rect x={-800} y={-400} width={3520} height={900} fill="#9ec6e8" />
     <Glow x={1500} y={80} r={500} color="#fff3c8" o={0.8} />
     {[[-200, 260], [300, 200], [900, 240], [1500, 180], [2100, 230]].map(([x, h], i) => <rect key={i} x={x} y={500 - h - 120} width={420} height={h + 200} fill="#b8c8d8" opacity={0.7} />)}
   </Layer>
   <Layer depth={0.75}>
-    {/* shop fronts */}
     {[["BAKERY", "#e8b06a", -200], ["PHARMACY", "#6ac0a8", 380], ["BOOKS", "#c87a6a", 960], ["CAFE", "#7a9ad8", 1540]].map(([name, c, x]: any, i) => <g key={i}>
       <Bricks x={x} y={100} w={560} h={520} color={i % 2 ? "#b88a6a" : "#c89a7a"} bw={56} bh={22} o={0.35} />
       <rect x={x + 40} y={330} width={480} height={240} fill="#2a3a4a" /><rect x={x + 40} y={330} width={480} height={240} fill="#fff" opacity={0.12} />
@@ -62,22 +86,23 @@ export const StreetPast: React.FC<{ f: number; carX: number; wheel: number; mark
     <AO x={-800} y={520} w={3520} h={100} dir="up" o={0.4} />
   </Layer>
   <Layer depth={1}>
-    {/* sidewalk + road */}
     <rect x={-800} y={620} width={3520} height={120} fill="#c8c2b6" />
     {Array.from({ length: 30 }, (_, i) => <line key={i} x1={-800 + i * 130} y1={620} x2={-800 + i * 130} y2={740} stroke="#9a948a" strokeWidth={3} />)}
     <rect x={-800} y={740} width={3520} height={16} fill="#e8e2d6" />
     <rect x={-800} y={756} width={3520} height={500} fill="#4a4e58" />
     <Noise x={-800} y={756} w={3520} h={500} freq={0.9} o={0.25} />
     {Array.from({ length: 16 }, (_, i) => <rect key={i} x={-800 + i * 240} y={930} width={130} height={14} fill="#f0e6c0" />)}
-    {/* pedestrians + young Lina (13) with an ice cream, watching */}
-    <Character look={EXTRAS[1]} pose={{ ...walkPose(f * 0.02), facing: -1 }} x={260} y={690} s={0.85} f={f} seed={5} />
-    <Character look={EXTRAS[4]} pose={{ facing: 1, look: [0.8, 0.3] }} x={1720} y={700} s={0.9} f={f} seed={6} />
-    <Character look={{ ...LINA, scale: 0.86 }} pose={{ facing: 1, look: [0.9, 0.5], aR: [40, 90], mouth: "o", eyes: 1.1 }} x={1120} y={700} s={1} f={f} seed={1} />
-    <g transform="translate(1160 470)"><path d="M0 0 L14 44 L28 0 Z" fill="#d8a85a" /><circle cx={14} cy={-6} r={18} fill="#f4c0d0" /></g>
-    {/* the car */}
-    <Car x={carX} y={880} s={1.15} wheel={wheel} marks={marks} active={active} />
+    {crowd && <>
+      <Character look={EXTRAS[1]} pose={{ ...walkPose((1500 - walkX) / 290 * Math.PI * 2), facing: -1 }} x={walkX} y={690} s={0.85} f={tf} seed={5} />
+      <Character look={EXTRAS[4]} pose={{ facing: -1, look: [0.8, 0.3] }} x={180} y={700} s={0.9} f={tf} seed={6} />
+      <Character look={{ ...LINA, scale: 0.86 }} pose={{ facing: -1, look: [0.9, 0.5], aR: [40, 90], mouth: "o", eyes: 1.1 }} x={900} y={700} s={1} f={tf} seed={1} />
+      <g transform="translate(828 470)"><path d="M0 0 L14 44 L28 0 Z" fill="#d8a85a" /><circle cx={14} cy={-6} r={18} fill="#f4c0d0" /></g>
+    </>}
+    <Car x={carX} y={880} s={s} wheel={wheel} dir={dir} />
+    <Mark x={dent[0] - 36 * s} y={dent[1] - 30 * s} w={84 * s} h={60 * s} k={marks[1]} label={active === 1 ? "DENT · BACK LEFT DOOR" : undefined} ly={-80} />
+    <Mark x={fr[0] - 26 * s} y={fr[1] - 46 * s} w={52 * s} h={84 * s} k={marks[2]} label={active === 2 ? "PINE TREE" : undefined} ly={-60} />
   </Layer>
-</>;
+</>; };
 
 // overlay on top of a memory: VHS tracking line, scanlines, gold edge glow, chromatic split (k = strength)
 export const MemoryFX: React.FC<{ f: number; k: number }> = ({ f, k }) => k <= 0 ? null : <>

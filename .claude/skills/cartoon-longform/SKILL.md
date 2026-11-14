@@ -71,6 +71,15 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
 - No beep/tick counters (owner: they sound like echolocation). Heartbeats/pulses instead.
 
 ## 6. Render, assemble, QA
+**Owner rejected a checkpoint QA'd on tiny 320 px 8×6 sheets ("xətalar çoxdur"). Use the strict QA below, always.**
+- Sheets: `fps=1, scale=640, tile=3x4` (12 s per sheet) and read every tile; plus a cut sheet (frame before + after
+  every cut: `select='eq(n,c-1)+eq(n,c)'`) to catch one-frame glitches.
+- Checklist per tile: hands actually touch what they hold/lean on; props attached to something (no plate floating
+  behind a car); logic (a car driving right shows its RIGHT side; walkers move instead of stepping in place; feet
+  don't slide: walk phase = distance / stride 290·s · 2π); no half faces on the frame edge (hide the other
+  character in close-ups = cheat cut); no heads cut by the top edge (hide extras in close-ups); labels only for the
+  current focus; stamps/text readable (dark backing); every action has a visible cause (a cup is knocked by a hand);
+  overlays don't cover faces or signs; arms/sleeves look like arms (tapered, shaded, cuff), not planks.
 - Render each chapter: `npx remotion render src/index.ts ChapterN out/chN_noaudio.mp4 --concurrency=6`
   (wrap long renders in `systemd-inhibit --what=sleep:idle`), mux with `public/chN.wav`, concat all with ffmpeg.
 - **QA is mandatory before showing:** 1-fps contact sheets with timestamps

@@ -71,18 +71,24 @@ export const Exterior: React.FC<{ f: number; linaX: number; walking: boolean; fr
     <Glow x={960} y={540} r={420} color="#ffd890" o={0.4} />
     <rect x={720} y={190} width={480} height={110} rx={12} fill="#0e1f44" /><text x={960} y={270} fontFamily="Inter" fontWeight={900} fontSize={76} fill="#9ad0ff" textAnchor="middle" letterSpacing={12} style={{ filter: "drop-shadow(0 0 16px #4aa8ff)" }}>POLICE</text>
     <Glow x={960} y={245} r={360} color="#4aa8ff" o={0.35} />
-    {[[200, 360], [1440, 360]].map(([x, y], i) => <g key={i}><rect x={x} y={y} width={260} height={200} fill="#ffd890" opacity={0.25} /><line x1={x} y1={y + 100} x2={x + 260} y2={y + 100} stroke="#2a3044" strokeWidth={8} /></g>)}
+    {[[200, 360], [1440, 360]].map(([x, y], i) => <g key={i}>
+      <rect x={x - 14} y={y - 14} width={288} height={228} fill="#1a2030" />
+      <rect x={x} y={y} width={260} height={200} fill={i ? "#3a4a6a" : "#ffd890"} opacity={i ? 0.9 : 0.55} />
+      {!i && <><rect x={x} y={y} width={260} height={200} fill="url(#winL)" /><circle cx={x + 170} cy={y + 120} r={26} fill="#2a2030" opacity={0.6} /><rect x={x + 146} y={y + 146} width={48} height={54} fill="#2a2030" opacity={0.6} /></>}
+      <line x1={x + 130} y1={y} x2={x + 130} y2={y + 200} stroke="#1a2030" strokeWidth={10} /><line x1={x} y1={y + 100} x2={x + 260} y2={y + 100} stroke="#1a2030" strokeWidth={10} />
+      <rect x={x - 22} y={y + 210} width={304} height={14} fill="#3a4258" /></g>)}
+    <defs><radialGradient id="winL" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stopColor="#fff2c8" stopOpacity={0.7} /><stop offset="1" stopColor="#c88a3a" stopOpacity={0.2} /></radialGradient></defs>
     <rect x={-400} y={720} width={2720} height={500} fill="#141a28" />
     <rect x={-400} y={720} width={2720} height={500} fill="url(#wet)" opacity={0.5} />
     <defs><linearGradient id="wet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#ffd890" stopOpacity={0.25} /><stop offset="1" stopColor="#000" stopOpacity={0} /></linearGradient></defs>
     <ellipse cx={960} cy={780} rx={300} ry={30} fill="#ffd890" opacity={0.18} />
     {/* police car with lights */}
-    <g transform="translate(1520 880)"><path d="M0 0 L20 -90 Q40 -130 140 -140 L320 -140 Q400 -130 440 -80 L520 -60 L520 0 Z" fill="#e8ecf2" /><rect x={20} y={-80} width={500} height={30} fill="#1a2a5a" />
+    <g transform="translate(1500 880)"><path d="M0 0 L20 -90 Q40 -130 140 -140 L320 -140 Q400 -130 440 -80 L520 -60 L520 0 Z" fill="#e8ecf2" /><rect x={20} y={-80} width={500} height={30} fill="#1a2a5a" />
       <rect x={180} y={-160} width={120} height={22} rx={6} fill="#222" /><rect x={182} y={-158} width={56} height={18} fill={f % 16 < 8 ? "#ff3a3a" : "#3a1010"} /><rect x={242} y={-158} width={56} height={18} fill={f % 16 >= 8 ? "#3a7aff" : "#10183a"} />
       <circle cx={110} cy={0} r={40} fill="#111" /><circle cx={420} cy={0} r={40} fill="#111" /></g>
-    <Glow x={1760} y={730} r={500} color={f % 16 < 8 ? "#ff3a3a" : "#3a7aff"} o={0.35} />
-    <Character look={LINA} pose={walking ? { ...walkPose(f * 0.16), facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.8, -0.2], mouth: "smile" } : { facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.9, -0.35], mouth: "smile" }} x={linaX} y={800} s={1.05} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#ffd890" }} />
-    {frames > 0 && Array.from({ length: 9 }, (_, i) => { const a = i / 9 * Math.PI * 2 + f * 0.03, rx = 200, ry = 40;
+    <Glow x={1740} y={730} r={500} color={f % 16 < 8 ? "#ff3a3a" : "#3a7aff"} o={0.35} />
+    <Character look={LINA} pose={walking ? { ...walkPose((linaX - 960) / 290 * Math.PI * 2), facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.8, -0.2], mouth: "smile" } : { facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.9, -0.35], mouth: "smile" }} x={linaX} y={800} s={1.05} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#ffd890" }} />
+    {frames > 0 && Array.from({ length: 9 }, (_, i) => { const a = i / 9 * Math.PI * 2 + f * 0.03, rx = 130, ry = 40;
       const z = Math.sin(a); return <MemFrame key={i} x={linaX + Math.cos(a) * rx} y={800 - 545 + z * 34} w={70 + 20 * (z + 1)} r={Math.cos(a) * 12} i={i} o={frames * (0.55 + 0.45 * (z + 1) / 2)} />; })}
     <Rain f={f} x={-400} y={-200} w={2720} h={1300} n={260} o={0.4} />
   </Layer>

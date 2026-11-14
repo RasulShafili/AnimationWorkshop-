@@ -5,7 +5,7 @@ import { Stage, camAt, sat, ease, easeOut, lerp } from "./engine/core";
 import { Vignette, Grain, Grade } from "./engine/fx";
 import { PoliceRoom } from "./scenes/Police";
 import { CoffeeSlam, PhotoInsert, CupTip, Screen } from "./scenes/Inserts";
-import { StreetPast, MemoryFX, MEMORY_FILTER } from "./scenes/Memory";
+import { StreetPast, PlateInsert, MemoryFX, MEMORY_FILTER } from "./scenes/Memory";
 import { TitleCard, Loftus, Exterior } from "./scenes/Title";
 import { FactCard, Stamp, useFonts } from "./ui";
 import { VO_C1, talkAt } from "./vo_c1";
@@ -43,32 +43,39 @@ export const ColdOpen: React.FC = () => {
   useFonts();
   const f = useCurrentFrame();
   const tk = (k: string) => talkAt(VO_C1[k], f, T[k.replace("c1_", "")]);
-  // police room camera: wide push → Okafor CU → Lina CU → eyes ECU ; later two-shot
-  const roomCam = camAt(f, [[42, -20, 40, 1.0], [T.photo, 40, 30, 1.2], [T.okafor2 - 1, 40, 30, 1.2], [T.okafor2, 197, -66, 1.9], [T.n1 - 1, 197, -60, 2.0],
-    [T.n1, -254, 40, 1.9], [T.n2 - 1, -254, 40, 2.15], [T.n2, -243, 38, 4.2], [T.flash + 12, -243, 38, 5.0]]);
-  const twoCam = camAt(f, [[T.two, 197, -60, 1.9], [T.two + 44, 197, -60, 2.05], [T.two + 45, -254, 40, 1.95], [T.two + 92, -254, 40, 2.1], [T.two + 93, 0, 50, 1.1], [T.loftus, 20, 50, 1.2]]);
-  const carX = T.lina1 + 30 > f ? lerp(-1100, 420, easeOut((f - T.rew) / (T.lina1 + 30 - T.rew))) : 420;
-  const wheel = (carX + 1100) * 0.6;
+  // police room. Close-ups hide the other character (cheat cut) so no half faces sit on the frame edge.
+  // Okafor CU: him on the right third looking left; Lina CU: her on the left third looking right.
+  const OKCU = [47, -34, 2.2], LICU = [-130, 69, 2.1];
+  const roomCam = camAt(f, [[42, -20, 40, 1.0], [T.photo, 40, 30, 1.2], [T.okafor2 - 1, 40, 30, 1.2], [T.okafor2, OKCU[0], OKCU[1], OKCU[2]], [T.n1 - 1, OKCU[0] + 10, OKCU[1], OKCU[2] + 0.12],
+    [T.n1, LICU[0], LICU[1], LICU[2]], [T.n2 - 1, LICU[0] + 8, LICU[1], LICU[2] + 0.12], [T.n2, -243, 38, 4.2], [T.flash + 12, -243, 38, 5.0]]);
+  const twoCam = camAt(f, [[T.two, OKCU[0], OKCU[1], OKCU[2]], [T.two + 44, OKCU[0] + 8, OKCU[1], OKCU[2] + 0.1], [T.two + 45, LICU[0], LICU[1], LICU[2]], [T.two + 92, LICU[0] + 8, LICU[1], LICU[2] + 0.1], [T.two + 93, 0, 50, 1.1], [T.loftus, 20, 50, 1.2]]);
+  const roomHide = (f >= T.okafor2 && f < T.n1) || (f >= T.two && f < T.two + 45) ? "lina" : (f >= T.n1 && f < T.rew) || (f >= T.two + 45 && f < T.two + 93) ? "ok" : null;
+  // memory: the car drives in from the right and FREEZES; the whole memory freezes with it (tf stops)
+  const tStop = T.lina1 + 30, tf = Math.min(f, tStop) - T.rew;
+  const carX = f < tStop ? lerp(2900, 1400, easeOut((f - T.rew) / (tStop - T.rew))) : 1400;
+  const wheel = (2900 - carX) * 0.6;
   const marks = [sat((f - T.plate) / 14), sat((f - T.lina2 - 10) / 14), sat((f - T.fresh) / 14)];
-  const streetCam = camAt(f, [[T.rew, 60, 40, 1.0], [T.plate - 1, 30, 50, 1.06], [T.plate, -580, 258, 2.5], [T.lina2 - 1, -560, 250, 2.65],
-    [T.lina2, -304, 202, 2.3], [T.fresh - 1, -290, 196, 2.45], [T.fresh, 58, 60, 2.9], [T.lina3 - 1, 58, 60, 3.1], [T.lina3, 120, 60, 1.02], [T.tip, 140, 50, 1.12]]);
-  const linaTalkRoom = f >= T.n3 ? 0 : 0;
+  const DENT = [1164, 742], FRESH = [802, 604];
+  const streetCam = camAt(f, [[T.rew, 60, 40, 1.0], [T.plate, 30, 50, 1.06], [T.lina2, DENT[0] - 960, DENT[1] - 540, 2.3], [T.fresh - 1, DENT[0] - 950, DENT[1] - 540, 2.45],
+    [T.fresh, FRESH[0] - 960, FRESH[1] - 540, 2.9], [T.lina3 - 1, FRESH[0] - 960, FRESH[1] - 540, 3.1], [T.lina3, 60, 40, 1.0], [T.tip, 80, 40, 1.08]]);
+  const closeStreet = f >= T.lina2 && f < T.lina3;
   const okRoom = { mouth: (f > T.screen ? "o" : "frown") as any, brow: f > T.screen ? 0.8 : -0.5, look: [0.6, 0.25], talk: tk("c1_okafor1") || tk("c1_okafor2"), eyes: f > T.screen ? 1.2 : 1 };
-  const linaRoom = { noBlink: f >= T.n1 && f < T.rew, eyes: f >= T.n2 && f < T.rew ? 1.15 : 1, look: [0.7, -0.15], mouth: (f > T.two ? "smirk" : "flat") as any, gold: f >= T.n2 + 18 ? sat((f - T.n2 - 18) / 6) : 0, talk: linaTalkRoom, brow: f > T.two ? 0.3 : 0 };
-  const extX = lerp(960, 1420, easeOut((f - T.ext) / 150));
+  const linaRoom = { noBlink: f >= T.n1 && f < T.rew, eyes: f >= T.n2 && f < T.rew ? 1.15 : 1, look: [0.7, -0.15], mouth: (f > T.two ? "smirk" : "flat") as any, gold: f >= T.n2 + 18 ? sat((f - T.n2 - 18) / 6) : 0, brow: f > T.two ? 0.3 : 0 };
+  const extX = lerp(960, 1340, easeOut((f - T.ext) / 150));
 
   let shot: React.ReactNode = null, grade = "room", mem = 0;
   if (f < 42) { shot = <CoffeeSlam f={f} />; }
   else if (f < T.photo) shot = <Stage cam={roomCam}><PoliceRoom f={f} lina={linaRoom} ok={okRoom} /></Stage>;
   else if (f < T.okafor2) shot = <PhotoInsert f={f - T.photo} />;
-  else if (f < T.rew) shot = <Stage cam={roomCam}><PoliceRoom f={f} lina={linaRoom} ok={okRoom} /></Stage>;
+  else if (f < T.rew) shot = <Stage cam={roomCam}><PoliceRoom f={f} lina={linaRoom} ok={okRoom} hide={roomHide as any} /></Stage>;
   else if (f < T.tip) { mem = sat((f - T.rew) / 8); grade = "mem";
-    shot = <div style={{ position: "absolute", inset: 0, filter: MEMORY_FILTER(mem) }}><Stage cam={streetCam} bg="#9ec6e8"><StreetPast f={f} carX={carX} wheel={wheel} marks={marks} active={f >= T.fresh ? 2 : f >= T.lina2 ? 1 : f >= T.plate ? 0 : -1} /></Stage></div>; }
+    shot = <div style={{ position: "absolute", inset: 0, filter: MEMORY_FILTER(mem) }}>{f >= T.plate && f < T.lina2 ? <PlateInsert f={f - T.plate} k={marks[0]} />
+      : <Stage cam={streetCam} bg="#9ec6e8"><StreetPast f={f} tf={tf} carX={carX} wheel={wheel} marks={marks} active={closeStreet ? (f >= T.fresh ? 2 : 1) : -1} crowd={!closeStreet} /></Stage>}</div>; }
   else if (f < T.screen) shot = <CupTip f={f - T.tip} />;
   else if (f < T.two) shot = <Screen f={f - T.screen} />;
-  else if (f < T.loftus) shot = <Stage cam={twoCam}><PoliceRoom f={f} lina={linaRoom} ok={{ ...okRoom, aR: [30, 40], aL: [40, 30], lean: 4 }} cupTip={1} /></Stage>;
+  else if (f < T.loftus) shot = <Stage cam={twoCam}><PoliceRoom f={f} lina={linaRoom} ok={{ ...okRoom, aR: [30, 40], aL: [40, 30], lean: 4 }} cupTip={1} hide={roomHide as any} /></Stage>;
   else if (f < T.ext) { shot = <Loftus f={f - T.loftus} />; grade = "none"; }
-  else if (f < T.title) { shot = <Stage cam={camAt(f, [[T.ext, 0, 0, 1.0], [T.title, 200, -20, 1.12]])}><Exterior f={f} linaX={extX} walking={f < T.ext + 140} frames={sat((f - T.n4 - 30) / 20)} /></Stage>; grade = "ext"; }
+  else if (f < T.title) { shot = <Stage cam={camAt(f, [[T.ext, 0, 0, 1.0], [T.title, 230, -20, 1.12]])}><Exterior f={f} linaX={extX} walking={f < T.ext + 140} frames={sat((f - T.ext - 80) / 20)} /></Stage>; grade = "ext"; }
   else { shot = <TitleCard f={f - T.title} />; grade = "none"; }
 
   const dateK = f >= T.rew && f < T.tip ? sat((f - T.rew - 6) / 8) : 0;

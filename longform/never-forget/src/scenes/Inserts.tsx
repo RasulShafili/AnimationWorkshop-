@@ -11,6 +11,31 @@ const Mitt: React.FC<{ x: number; y: number; r?: number; c?: string; rot?: numbe
   <ellipse cx={x - r * 0.3} cy={y - r * 0.45} rx={r * 0.35} ry={r * 0.2} fill="#fff" opacity={0.18} />
 </g>;
 
+// coat sleeve from (x0,y0) (off-screen) to the wrist (x1,y1): tapered, shaded, with fold lines and a cuff
+export const Sleeve: React.FC<{ x0: number; y0: number; x1: number; y1: number; w0?: number; w1?: number; c?: string }> = ({ x0, y0, x1, y1, w0 = 190, w1 = 120, c = "#7a5a3e" }) => {
+  const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L;
+  const P = (t: number, side: number, w: number) => [x0 + dx * t + nx * side * w / 2, y0 + dy * t + ny * side * w / 2];
+  const a1 = P(0, 1, w0), a2 = P(1, 1, w1), b2 = P(1, -1, w1), b1 = P(0, -1, w0);
+  const c1 = P(0.86, 1, w1 * 1.08), c2 = P(1, 1, w1 * 1.1), c3 = P(1, -1, w1 * 1.1), c4 = P(0.86, -1, w1 * 1.08);
+  const id = `sl${Math.round(x1)}${Math.round(y1)}`;
+  return <g>
+    <defs><linearGradient id={id} gradientUnits="userSpaceOnUse" x1={P(0.5, 1, w0)[0]} y1={P(0.5, 1, w0)[1]} x2={P(0.5, -1, w0)[0]} y2={P(0.5, -1, w0)[1]}>
+      <stop offset="0" stopColor={c} /><stop offset="0.35" stopColor={c} /><stop offset="1" stopColor="#3a2a1c" /></linearGradient></defs>
+    <path d={`M${a1} L${a2} L${b2} L${b1} Z`} fill={`url(#${id})`} />
+    {[0.3, 0.5, 0.68].map((t, i) => { const p1 = P(t, 1, w0 * (1 - t) + w1 * t), p2 = P(t + 0.06, -0.2, w0 * (1 - t) + w1 * t); return <path key={i} d={`M${p1} Q${P(t + 0.03, 0.4, w0)} ${p2}`} stroke="#3a2a1c" strokeOpacity={0.45} strokeWidth={5} fill="none" strokeLinecap="round" />; })}
+    <path d={`M${a1} L${a2}`} stroke="#fff" strokeOpacity={0.18} strokeWidth={6} />
+    <path d={`M${c1} L${c2} L${c3} L${c4} Z`} fill="#5a3f28" />
+  </g>;
+};
+// a hand gripping something on its right side: sleeve from the top-right, mitten wrapped around, thumb in front
+const Grip: React.FC<{ x: number; y: number; c?: string }> = ({ x, y, c = "#2a2636" }) => <g>
+  <Sleeve x0={x + 640} y0={y - 520} x1={x + 70} y1={y - 10} />
+  <ellipse cx={x + 30} cy={y + 10} rx={66} ry={82} fill={c} />
+  <ellipse cx={x + 8} cy={y - 26} rx={26} ry={16} fill="#fff" opacity={0.15} />
+  <ellipse cx={x - 34} cy={y + 30} rx={30} ry={22} fill={c} />
+  <ellipse cx={x - 40} cy={y + 24} rx={12} ry={7} fill="#fff" opacity={0.18} />
+</g>;
+
 const MetalTable: React.FC<{ y?: number }> = ({ y = 640 }) => <>
   <defs><linearGradient id="mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#6f7c92" /><stop offset="1" stopColor="#3a4458" /></linearGradient></defs>
   <rect x={0} y={0} width={W} height={y} fill="#141b2a" />
@@ -33,7 +58,7 @@ export const CoffeeSlam: React.FC<{ f: number; t0?: number }> = ({ f, t0 = 8 }) 
     <Shaft pts={[[700, -50], [1220, -50], [1500, 1080], [420, 1080]]} color="#d6ecff" o={0.25} />
     <ellipse cx={960} cy={772} rx={hit >= 0 ? 150 : 90 + u * 50} ry={22} fill="#000" opacity={0.45} />
     <Cup x={960} y={y} s={1.15} />
-    <Mitt x={1010} y={y - 170} r={78} rot={-12} />
+    <Grip x={960 + 84} y={y - 150} />
     {hit >= 0 && hit < 24 && Array.from({ length: 16 }, (_, i) => { const a = -Math.PI * (0.1 + 0.8 * rnd(i, 3)), v = 8 + rnd(i, 4) * 14, t = hit;
       return <circle key={i} cx={960 + Math.cos(a) * v * t * 1.6} cy={460 + Math.sin(a) * v * t + 0.9 * t * t} r={5 + rnd(i, 5) * 7} fill="#6a3a1c" opacity={1 - t / 24} />; })}
     {hit >= 0 && <ellipse cx={960} cy={776} rx={Math.min(230, 60 + hit * 18)} ry={Math.min(30, 8 + hit * 2)} fill="#5a3218" opacity={0.75} />}
@@ -54,11 +79,17 @@ export const PhotoInsert: React.FC<{ f: number }> = ({ f }) => {
     <g transform={`translate(${px} 260) rotate(${-5 + u * 3})`}>
       <rect x={0} y={0} width={640} height={540} fill="#f4f1e8" /><rect x={30} y={30} width={580} height={420} fill="#4a5262" />
       <rect x={30} y={300} width={580} height={150} fill="#2e3440" /><line x1={30} y1={380} x2={610} y2={380} stroke="#e8d27a" strokeWidth={8} strokeDasharray="40 30" />
-      <g transform="translate(320 330) rotate(-14)"><ellipse cx={-80} cy={0} rx={90} ry={70} fill="none" stroke="#1a1c22" strokeWidth={10} /><path d="M10 -10 Q80 -40 120 20 Q90 70 30 40" fill="none" stroke="#1a1c22" strokeWidth={10} />
-        <path d="M-80 0 L20 -20 L60 -70 M20 -20 L-20 -80 L50 -80" stroke="#c0392b" strokeWidth={9} fill="none" strokeLinecap="round" /></g>
+      <g transform="translate(330 360) rotate(-8)">
+        <circle cx={-120} cy={0} r={70} fill="none" stroke="#14161c" strokeWidth={9} /><circle cx={-120} cy={0} r={8} fill="#14161c" />
+        <ellipse cx={120} cy={4} rx={70} ry={48} fill="none" stroke="#14161c" strokeWidth={9} transform="rotate(25 120 4)" /><circle cx={120} cy={4} r={8} fill="#14161c" />
+        <path d="M-120 0 L-30 -2 L60 -80 L-60 -80 Z M-30 -2 L-60 -80 M60 -80 L120 4" stroke="#c0392b" strokeWidth={10} fill="none" strokeLinejoin="round" strokeLinecap="round" />
+        <path d="M-60 -80 L-70 -104 M-92 -108 L-48 -108" stroke="#14161c" strokeWidth={10} strokeLinecap="round" />
+        <path d="M60 -80 L52 -112 M30 -118 Q52 -128 74 -112" stroke="#14161c" strokeWidth={8} fill="none" strokeLinecap="round" />
+      </g>
       <text x={40} y={505} fontFamily="Inter" fontWeight={700} fontSize={28} fill="#555">03 / 03 · ELM STREET</text>
     </g>
-    <Mitt x={px + 600} y={600} r={74} rot={-70} />
+    <Sleeve x0={W + 300} y0={700} x1={px + 640} y1={742} w0={200} w1={118} />
+    <ellipse cx={px + 600} cy={740} rx={64} ry={54} fill="#2a2636" /><ellipse cx={px + 586} cy={716} rx={20} ry={11} fill="#fff" opacity={0.15} />
   </svg>;
 };
 
@@ -71,6 +102,9 @@ export const CupTip: React.FC<{ f: number; t0?: number }> = ({ f, t0 = 6 }) => {
     <path d={`M1000 760 Q${1000 - 500 * spill} ${760 - 40 * spill} ${1000 - 700 * spill} ${780 + 30 * spill} Q${1000 - 300 * spill} ${820 + 20 * spill} 1000 800 Z`} fill="#4a2810" opacity={0.9} />
     <ellipse cx={980} cy={790} rx={160} ry={24} fill="#000" opacity={0.35} />
     <g transform={`rotate(${-u * 88} 900 790)`}><Cup x={1000} y={790} s={1.05} /></g>
+    {(() => { const hx = lerp(W + 260, 1120, easeOut((f - t0 + 8) / 10)) + Math.max(0, f - t0 - 4) * 6; return <g>
+      <Sleeve x0={W + 500} y0={520} x1={hx + 56} y1={630} w0={210} w1={128} />
+      <ellipse cx={hx} cy={640} rx={76} ry={66} fill="#2a2636" /><ellipse cx={hx - 18} cy={612} rx={24} ry={13} fill="#fff" opacity={0.15} /></g>; })()}
   </svg>;
 };
 

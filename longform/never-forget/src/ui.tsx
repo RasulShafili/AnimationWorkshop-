@@ -14,5 +14,5 @@ export const FactCard: React.FC<{ text: string; k: number; side?: "left" | "righ
     <div style={{ color: "#ffc94a", fontSize: 22, letterSpacing: 4, marginBottom: 6 }}>REAL SCIENCE</div>{text}</div>;
 // memory replay stamp: VHS-like date/time in a corner
 export const Stamp: React.FC<{ text: string; k: number; f: number }> = ({ text, k, f }) => k <= 0 ? null :
-  <div style={{ position: "absolute", right: 70, top: 56, fontFamily: "VT323", fontSize: 58, color: "#ffd56a", opacity: k * (0.85 + 0.15 * Math.sin(f * 0.9)), textShadow: "2px 0 rgba(255,60,60,.6), -2px 0 rgba(60,200,255,.6), 0 0 18px rgba(255,200,80,.6)" }}>
+  <div style={{ position: "absolute", right: 60, top: 48, padding: "4px 18px", borderRadius: 8, background: "rgba(10,6,0,.55)", fontFamily: "VT323", fontSize: 72, color: "#ffd56a", opacity: k * (0.85 + 0.15 * Math.sin(f * 0.9)), textShadow: "2px 0 rgba(255,60,60,.6), -2px 0 rgba(60,200,255,.6), 0 0 18px rgba(255,200,80,.6)" }}>
     <span style={{ color: "#ff4a4a" }}>{Math.floor(f / 15) % 2 ? "●" : "○"} </span>{text}</div>;

@@ -60,7 +60,7 @@ eng = np.sin(2 * np.pi * (70 - 30 * prog ** 2) * s + 3 * np.sin(2 * np.pi * 9 * 
 y = eng * np.minimum(1, prog * 3) * (1 - prog ** 3); K = 12; L = len(y) // K
 for k in range(K):                                                       # pan sweeps left → right in chunks
     seg = y[k * L:(k + 1) * L + 400].copy(); w = np.minimum(1, np.minimum(np.arange(len(seg)), len(seg) - np.arange(len(seg))) / 400)
-    m.place(ft(T["rew"]) + k * L / SR, seg * w, .25, -.6 + 1.0 * (k + .5) / K, .3)
+    m.place(ft(T["rew"]) + k * L / SR, seg * w, .25, .6 - 1.0 * (k + .5) / K, .3)
 n = int(.8 * SR); s = np.arange(n) / SR; m.place(t_stop - .4, np.sin(2 * np.pi * (300 * np.exp(-s * 3)) * s) * np.exp(-s * 3) * .4, .3, 0, .5)
 m.thump(t_stop, .5, 40)
 for k in ("plate", "lina2", "fresh"): m.chime(ft(T[k] + (10 if k == "lina2" else 0)), m=88 if k != "fresh" else 91, g=.05)

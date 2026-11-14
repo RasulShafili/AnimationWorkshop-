@@ -35,7 +35,7 @@ const Board: React.FC<{ x: number; y: number }> = ({ x, y }) => <g>
   <path d={`M${x + 80} ${y + 34} L${x + 210} ${y + 54} L${x + 340} ${y + 30} M${x + 210} ${y + 54} L${x + 110} ${y + 164} L${x + 280} ${y + 154}`} stroke="#d83a3a" strokeWidth={3} fill="none" />
 </g>;
 
-export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: number; photo?: boolean; lamp?: number }> = ({ f, lina, ok, cupTip = 0, photo = true, lamp = 1 }) => {
+export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: number; photo?: boolean; lamp?: number; hide?: "lina" | "ok" | null }> = ({ f, lina, ok, cupTip = 0, photo = true, lamp = 1, hide = null }) => {
   const flick = f % 97 === 3 || f % 97 === 5 ? 0.7 : 1;      // fluorescent flicker
   const L = lamp * flick;
   return <>
@@ -65,8 +65,8 @@ export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: nu
       <rect x={LINA_X - 70} y={LINA_ROOT - 300} width={18} height={220} rx={6} fill="#3a4256" />
       <rect x={LINA_X - 70} y={LINA_ROOT - 92} width={130} height={16} rx={5} fill="#4a536a" />
       <line x1={LINA_X - 60} y1={LINA_ROOT - 80} x2={LINA_X - 60} y2={LINA_ROOT} stroke="#2a3040" strokeWidth={8} /><line x1={LINA_X + 48} y1={LINA_ROOT - 80} x2={LINA_X + 48} y2={LINA_ROOT} stroke="#2a3040" strokeWidth={8} />
-      <Character look={LINA} pose={{ ...SIT, facing: 1, ...lina }} x={LINA_X} y={LINA_ROOT} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#bfe2ff" }} />
-      <Character look={OKAFOR} pose={{ facing: -1, lean: 18, aL: [58, 14], aR: [50, 16], ...ok }} x={OK_X} y={OK_ROOT} f={f} seed={2} rim={{ dx: -4, dy: -3, color: "#bfe2ff" }} />
+      {hide !== "lina" && <Character look={LINA} pose={{ ...SIT, facing: 1, ...lina }} x={LINA_X} y={LINA_ROOT} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#bfe2ff" }} />}
+      {hide !== "ok" && <Character look={OKAFOR} pose={{ facing: -1, lean: 18, aL: [50, 16], aR: [42, 16], ...ok }} x={OK_X} y={OK_ROOT} f={f} seed={2} rim={{ dx: -4, dy: -3, color: "#bfe2ff" }} />}
       {/* table (in front of both) */}
       <rect x={520} y={TABLE_Y} width={880} height={26} rx={4} fill="#9aa6ba" />
       <rect x={520} y={TABLE_Y} width={880} height={6} rx={3} fill="#e4ecf8" opacity={0.7} />
