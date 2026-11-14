@@ -71,3 +71,4 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   a `while read` loop eats the heredoc (use arrays + `< /dev/null`), WebkitTextStroke artefacts (use shadows).
 - Upload package: ~/Desktop/YouTube_upload_never_forget (mp4, 2 thumbnails, title/description/tags, srt).
 - PUBLISHED 2026-11-15 ~00:00 Baku: https://youtu.be/5DqsYXv1EKQ (Film & Animation, 13 chapters + en subtitles detected; tags missing at first check). Ask for Reach/CTR + retention screenshots after 2-3 days.
+- Teaser Short posted 2026-11-15: YT https://www.youtube.com/watch?v=e2a16gD42iE · IG https://www.instagram.com/reel/DfvHbIzgAVU/ · TT https://tiktok.com/@whatif.lab_daily/video/7708134009078877447 (TeaserShort comp, clip 6:00–6:28, word captions). Owner sets Related video → 5DqsYXv1EKQ.
