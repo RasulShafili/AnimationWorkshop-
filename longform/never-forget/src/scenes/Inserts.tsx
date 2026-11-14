@@ -3,6 +3,7 @@ import React from "react";
 import { W, H, sat, ease, easeOut, rnd, lerp } from "../engine/core";
 import { Glow, Shaft } from "../engine/fx";
 import { Noise } from "../engine/tex";
+import { Hatchback } from "./Cars";
 
 const Mitt: React.FC<{ x: number; y: number; r?: number; c?: string; rot?: number; sleeve?: string }> = ({ x, y, r = 70, c = "#24212f", rot = 0, sleeve = "#7a5a3e" }) => <g transform={`rotate(${rot} ${x} ${y})`}>
   <rect x={x - r * 0.75} y={y - r * 3.4} width={r * 1.5} height={r * 2.8} rx={r * 0.4} fill={sleeve} />
@@ -44,9 +45,9 @@ const MetalTable: React.FC<{ y?: number }> = ({ y = 640 }) => <>
   {Array.from({ length: 7 }, (_, i) => <line key={i} x1={0} y1={y + 30 + i * 70} x2={W} y2={y + 30 + i * 70} stroke="#fff" strokeOpacity={0.03} strokeWidth={2} />)}
 </>;
 
-const Cup: React.FC<{ x: number; y: number; s?: number }> = ({ x, y, s = 1 }) => <g transform={`translate(${x} ${y}) scale(${s})`}>
+const Cup: React.FC<{ x: number; y: number; s?: number; lid?: boolean }> = ({ x, y, s = 1, lid = true }) => <g transform={`translate(${x} ${y}) scale(${s})`}>
   <path d="M-80 -250 L80 -250 L62 0 L-62 0 Z" fill="#f2efe6" /><path d="M30 -250 L80 -250 L62 0 L36 0 Z" fill="#000" opacity={0.08} />
-  <rect x={-88} y={-272} width={176} height={34} rx={8} fill="#3a3530" /><rect x={-74} y={-170} width={150} height={58} fill="#b0623a" />
+  {lid ? <rect x={-88} y={-272} width={176} height={34} rx={8} fill="#3a3530" /> : <ellipse cx={0} cy={-250} rx={80} ry={14} fill="#2e180a" />}<rect x={-74} y={-170} width={150} height={58} fill="#b0623a" />
   <text x={0} y={-130} fontFamily="Inter" fontWeight={900} fontSize={30} fill="#f2efe6" textAnchor="middle">JOE'S</text>
 </g>;
 
@@ -93,18 +94,52 @@ export const PhotoInsert: React.FC<{ f: number }> = ({ f }) => {
   </svg>;
 };
 
-// 3) the detective's coffee tips over (start at t0)
-export const CupTip: React.FC<{ f: number; t0?: number }> = ({ f, t0 = 6 }) => {
-  const u = ease((f - t0) / 14), spill = sat((f - t0 - 12) / 30);
-  return <svg width={W} height={H} style={{ position: "absolute" }}>
-    <MetalTable y={430} />
-    <Glow x={960} y={500} r={700} color="#d6ecff" o={0.2} />
-    <path d={`M1000 760 Q${1000 - 500 * spill} ${760 - 40 * spill} ${1000 - 700 * spill} ${780 + 30 * spill} Q${1000 - 300 * spill} ${820 + 20 * spill} 1000 800 Z`} fill="#4a2810" opacity={0.9} />
-    <ellipse cx={980} cy={790} rx={160} ry={24} fill="#000" opacity={0.35} />
-    <g transform={`rotate(${-u * 88} 900 790)`}><Cup x={1000} y={790} s={1.05} /></g>
-    {(() => { const hx = lerp(W + 260, 1120, easeOut((f - t0 + 8) / 10)) + Math.max(0, f - t0 - 4) * 6; return <g>
-      <Sleeve x0={W + 500} y0={520} x1={hx + 56} y1={630} w0={210} w1={128} />
-      <ellipse cx={hx} cy={640} rx={76} ry={66} fill="#2a2636" /><ellipse cx={hx - 18} cy={612} rx={24} ry={13} fill="#fff" opacity={0.15} /></g>; })()}
+// 3) close-up of the spill (cause shown in the room shot before): the cup lies on its side, the lid has rolled away,
+// coffee pours out of the mouth in a thick ribbon, spreads into an organic puddle with a highlight, reaches the case
+// photo (stains its corner) and drips over the table edge.
+export const CoffeeSpill: React.FC<{ f: number }> = ({ f }) => {
+  const k = easeOut(f / 34), mouth = [880, 640];
+  // a puddle that is mostly a flow: long in the pouring direction, thin, with a few finger-like lobes
+  const R = 360 * k, pts = Array.from({ length: 72 }, (_, i) => { const a = i / 72 * Math.PI * 2;
+    const lobes = 0.16 * Math.sin(3 * a + 0.6) + 0.1 * Math.sin(5 * a + 2.1) + 0.06 * Math.sin(9 * a + 1.3) + 0.22 * Math.max(0, Math.cos(a - 0.15)) ** 8;
+    const r = R * (1 + lobes + 0.015 * Math.sin(13 * a + f * 0.2));
+    return [mouth[0] + 30 + R * 0.62 + Math.cos(a) * r * 1.05, mouth[1] + 30 + Math.sin(a) * r * 0.24]; });
+  const d = "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join(" L") + " Z";
+  const edge = 900;
+  return <svg width={W} height={H} style={{ position: "absolute", transform: `scale(${1 + f * 0.002})`, transformOrigin: "900px 640px" }}>
+    <defs>
+      <linearGradient id="cs_t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#56627a" /><stop offset="1" stopColor="#8a96ac" /></linearGradient>
+      <radialGradient id="cs_c" cx="0.4" cy="0.4" r="0.7"><stop offset="0" stopColor="#7a4420" /><stop offset="0.6" stopColor="#4a2810" /><stop offset="1" stopColor="#2e180a" /></radialGradient>
+      <clipPath id="cs_clip"><rect x={0} y={0} width={W} height={edge} /></clipPath>
+    </defs>
+    <rect width={W} height={300} fill="#141b2a" />
+    <rect y={300} width={W} height={edge - 300} fill="url(#cs_t)" />
+    <Noise x={0} y={300} w={W} h={edge - 300} freq={0.03} stretch={20} o={0.25} />
+    <rect y={edge} width={W} height={60} fill="#3e475a" /><rect y={edge + 60} width={W} height={H - edge - 60} fill="#0e121c" />
+    <Glow x={900} y={420} r={800} color="#d6ecff" o={0.25} />
+    {/* case photo on the table; its corner gets stained */}
+    <g transform="rotate(-7 1400 560)"><rect x={1240} y={430} width={400} height={300} fill="#f4f1e8" /><rect x={1262} y={452} width={356} height={210} fill="#4a5262" />
+      <circle cx={1360} cy={600} r={44} fill="none" stroke="#14161c" strokeWidth={7} /><circle cx={1500} cy={600} r={44} fill="none" stroke="#14161c" strokeWidth={7} /><path d="M1360 600 L1420 600 L1460 550 L1390 550 Z" stroke="#c0392b" strokeWidth={7} fill="none" /></g>
+    {/* puddle */}
+    <g clipPath="url(#cs_clip)">
+      <path d={d} fill="#2e180a" opacity={0.35} transform="translate(0 6)" />
+      <path d={d} fill="url(#cs_c)" /><path d={d} fill="none" stroke="#b0784a" strokeWidth={4} opacity={0.55} />
+      {/* flow streaks + window-light reflections on the liquid */}
+      {[0, 1, 2].map(i => <path key={i} d={`M${mouth[0] + 40} ${mouth[1] + 24 + i * 12} Q${mouth[0] + 40 + R * 0.6} ${mouth[1] + 18 + i * 18} ${mouth[0] + 40 + R * 1.3} ${mouth[1] + 30 + i * 22}`} stroke="#8a5228" strokeWidth={3} fill="none" opacity={0.5} />)}
+      <rect x={mouth[0] + 120 + R * 0.3} y={mouth[1] + 14} width={R * 0.5} height={6} rx={3} fill="#e8f2ff" opacity={0.35} />
+      <rect x={mouth[0] + 140 + R * 0.35} y={mouth[1] + 26} width={R * 0.25} height={4} rx={2} fill="#e8f2ff" opacity={0.25} />
+    </g>
+    {/* drips over the table edge once the puddle reaches it */}
+    {mouth[1] + 40 + R * 0.32 > edge - 20 && [0, 1, 2, 3].map(i => { const t = (f + i * 7) % 18, x = 900 + i * 110 + R * 0.2;
+      return <g key={i}><path d={`M${x - 8} ${edge} Q${x} ${edge + 30} ${x + 8} ${edge}`} fill="#4a2810" /><ellipse cx={x} cy={edge + 40 + t * t * 1.4} rx={6} ry={9} fill="#4a2810" opacity={1 - t / 18} /></g>; })}
+    {/* pouring ribbon from the cup mouth */}
+    <path d={`M${mouth[0] - 6} ${mouth[1] - 26} Q${mouth[0] + 60} ${mouth[1] - 20} ${mouth[0] + 90 + 40 * k} ${mouth[1] + 30} L${mouth[0] + 70 + 40 * k} ${mouth[1] + 40} Q${mouth[0] + 40} ${mouth[1] + 10} ${mouth[0] - 6} ${mouth[1] + 22} Z`} fill="#5a3218" opacity={f < 30 ? 1 : Math.max(0, 1 - (f - 30) / 10)} />
+    {/* the cup on its side (mouth to the right) + its lid rolled away */}
+    <g transform={`translate(${mouth[0]} ${mouth[1]}) rotate(90)`}><Cup x={0} y={250} s={1.0} lid={false} /></g>
+    {(() => { const u = easeOut(f / 20), lx = lerp(mouth[0] + 40, 1010, u), ly = lerp(mouth[1] - 40, 820, u) - Math.sin(Math.min(1, f / 10) * Math.PI) * 60;
+      return <g><ellipse cx={lx} cy={828} rx={70} ry={12} fill="#000" opacity={0.25 * u} />
+        <g transform={`translate(${lx} ${ly}) rotate(${(1 - u) * -50})`}><ellipse cx={0} cy={0} rx={84} ry={18} fill="#2e2a26" /><ellipse cx={0} cy={-5} rx={74} ry={12} fill="#55504a" /><ellipse cx={-20} cy={-7} rx={14} ry={4} fill="#1a1714" /></g></g>; })()}
+    {f < 14 && Array.from({ length: 10 }, (_, i) => { const a = -Math.PI * (0.2 + 0.6 * i / 10), v = 10 + (i % 4) * 4; return <circle key={i} cx={mouth[0] + 80 + Math.cos(a) * v * f} cy={mouth[1] + 20 + Math.sin(a) * v * f + 1.2 * f * f} r={6 + (i % 3) * 3} fill="#5a3218" opacity={1 - f / 14} />; })}
   </svg>;
 };
 
@@ -123,7 +158,7 @@ export const Screen: React.FC<{ f: number }> = ({ f }) => {
     <text x={240} y={490} fontFamily="Inter" fontWeight={700} fontSize={30} fill="#5a86b0">{prog < 1 ? `searching 4,812,330 records… ${Math.floor(prog * 100)}%` : "1 result"}</text>
     {match && <g opacity={sat((f - 60) / 6)}>
       <rect x={1200} y={250} width={480} height={300} rx={14} fill="#0e2236" stroke="#3a7ac8" strokeWidth={3} />
-      <path d="M1250 470 L1290 400 Q1340 360 1430 360 L1560 360 Q1610 370 1630 420 L1640 470 Z" fill="#b8c0cc" /><circle cx={1310} cy={478} r={30} fill="#111" /><circle cx={1580} cy={478} r={30} fill="#111" />
+      <g transform="translate(1245 520) scale(0.5)"><Hatchback /></g>
       <text x={1220} y={300} fontFamily="Inter" fontWeight={800} fontSize={26} fill="#9ac4ee">SILVER HATCHBACK · 2019</text>
       <rect x={240} y={600} width={1440} height={200} rx={16} fill="#3a0d10" stroke="#ff4a4a" strokeWidth={6} transform={`scale(${1 + 0.05 * Math.exp(-(f - 60) / 4)})`} style={{ transformOrigin: "960px 700px" }} />
       <text x={960} y={735} fontFamily="Inter" fontWeight={900} fontSize={110} fill="#ff5a5a" textAnchor="middle" letterSpacing={12}>MATCH FOUND</text>

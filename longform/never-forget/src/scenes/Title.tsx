@@ -5,6 +5,7 @@ import { Glow, Rain, Bokeh, Shaft } from "../engine/fx";
 import { Bricks, Noise, AO } from "../engine/tex";
 import { Character, walkPose } from "../chars/Rig2";
 import { LINA } from "../chars/cast";
+import { PoliceCar } from "./Cars";
 
 const GOLD = "#ffc94a";
 const SCENES = ["#5a7ab8", "#c87a5a", "#6ab08a", "#b85a8a", "#d8b05a", "#5ab0c8", "#8a6ac8", "#c85a5a"];
@@ -82,11 +83,9 @@ export const Exterior: React.FC<{ f: number; linaX: number; walking: boolean; fr
     <rect x={-400} y={720} width={2720} height={500} fill="url(#wet)" opacity={0.5} />
     <defs><linearGradient id="wet" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#ffd890" stopOpacity={0.25} /><stop offset="1" stopColor="#000" stopOpacity={0} /></linearGradient></defs>
     <ellipse cx={960} cy={780} rx={300} ry={30} fill="#ffd890" opacity={0.18} />
-    {/* police car with lights */}
-    <g transform="translate(1500 880)"><path d="M0 0 L20 -90 Q40 -130 140 -140 L320 -140 Q400 -130 440 -80 L520 -60 L520 0 Z" fill="#e8ecf2" /><rect x={20} y={-80} width={500} height={30} fill="#1a2a5a" />
-      <rect x={180} y={-160} width={120} height={22} rx={6} fill="#222" /><rect x={182} y={-158} width={56} height={18} fill={f % 16 < 8 ? "#ff3a3a" : "#3a1010"} /><rect x={242} y={-158} width={56} height={18} fill={f % 16 >= 8 ? "#3a7aff" : "#10183a"} />
-      <circle cx={110} cy={0} r={40} fill="#111" /><circle cx={420} cy={0} r={40} fill="#111" /></g>
-    <Glow x={1740} y={730} r={500} color={f % 16 < 8 ? "#ff3a3a" : "#3a7aff"} o={0.35} />
+    {/* police car parked at the kerb, facing the door, lights flashing */}
+    <g transform="translate(1480 885) scale(0.7)"><PoliceCar f={f} /></g>
+    <Glow x={1755} y={650} r={520} color={f % 16 < 8 ? "#ff3a3a" : "#3a7aff"} o={0.3} />
     <Character look={LINA} pose={walking ? { ...walkPose((linaX - 960) / 290 * Math.PI * 2), facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.8, -0.2], mouth: "smile" } : { facing: 1, gold: frames > 0 ? 0.6 : 0, look: [0.9, -0.35], mouth: "smile" }} x={linaX} y={800} s={1.05} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#ffd890" }} />
     {frames > 0 && Array.from({ length: 9 }, (_, i) => { const a = i / 9 * Math.PI * 2 + f * 0.03, rx = 130, ry = 40;
       const z = Math.sin(a); return <MemFrame key={i} x={linaX + Math.cos(a) * rx} y={800 - 545 + z * 34} w={70 + 20 * (z + 1)} r={Math.cos(a) * 12} i={i} o={frames * (0.55 + 0.45 * (z + 1) / 2)} />; })}

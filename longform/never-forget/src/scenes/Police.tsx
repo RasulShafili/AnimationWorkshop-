@@ -35,7 +35,18 @@ const Board: React.FC<{ x: number; y: number }> = ({ x, y }) => <g>
   <path d={`M${x + 80} ${y + 34} L${x + 210} ${y + 54} L${x + 340} ${y + 30} M${x + 210} ${y + 54} L${x + 110} ${y + 164} L${x + 280} ${y + 154}`} stroke="#d83a3a" strokeWidth={3} fill="none" />
 </g>;
 
-export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: number; photo?: boolean; lamp?: number; hide?: "lina" | "ok" | null }> = ({ f, lina, ok, cupTip = 0, photo = true, lamp = 1, hide = null }) => {
+// organic coffee puddle on the table top (seen at a low angle → squashed), grows with k 0..1, drips over the front edge
+export const SpillPuddle: React.FC<{ x: number; y: number; k: number }> = ({ x, y, k }) => {
+  const R = 70 * Math.min(1, k), pts = Array.from({ length: 40 }, (_, i) => { const a = i / 40 * Math.PI * 2;
+    const r = R * (1 + 0.14 * Math.sin(3 * a + 1) + 0.08 * Math.sin(5 * a + 2) + 0.05 * Math.sin(9 * a)); return [x + Math.cos(a) * r * 1.3 + R * 0.6, y + Math.sin(a) * r * 0.1]; });
+  const d = "M" + pts.map(p => p.map(v => v.toFixed(1)).join(" ")).join(" L") + " Z";
+  return <g><path d={d} fill="#4a2810" /><path d={d} fill="none" stroke="#7a4a22" strokeWidth={2} opacity={0.8} />
+    <ellipse cx={x + R * 0.2} cy={y - 2} rx={R * 0.4} ry={2.5} fill="#fff" opacity={0.25} />
+    {k > 0.7 && [0, 1].map(i => <line key={i} x1={x + 70 + i * 34} y1={y + 2} x2={x + 70 + i * 34} y2={y + 2 + Math.min(22, (k - 0.7) * 90 * (1 - i * 0.3))} stroke="#4a2810" strokeWidth={3} strokeLinecap="round" />)}
+  </g>;
+};
+
+export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: number; photo?: boolean; lamp?: number; hide?: "lina" | "ok" | null; cupHeld?: boolean; splash?: number; spill?: number }> = ({ f, lina, ok, cupTip = 0, photo = true, lamp = 1, hide = null, cupHeld = false, splash = -1, spill = 0 }) => {
   const flick = f % 97 === 3 || f % 97 === 5 ? 0.7 : 1;      // fluorescent flicker
   const L = lamp * flick;
   return <>
@@ -66,7 +77,7 @@ export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: nu
       <rect x={LINA_X - 70} y={LINA_ROOT - 92} width={130} height={16} rx={5} fill="#4a536a" />
       <line x1={LINA_X - 60} y1={LINA_ROOT - 80} x2={LINA_X - 60} y2={LINA_ROOT} stroke="#2a3040" strokeWidth={8} /><line x1={LINA_X + 48} y1={LINA_ROOT - 80} x2={LINA_X + 48} y2={LINA_ROOT} stroke="#2a3040" strokeWidth={8} />
       {hide !== "lina" && <Character look={LINA} pose={{ ...SIT, facing: 1, ...lina }} x={LINA_X} y={LINA_ROOT} f={f} seed={1} rim={{ dx: 4, dy: -3, color: "#bfe2ff" }} />}
-      {hide !== "ok" && <Character look={OKAFOR} pose={{ facing: -1, lean: 18, aL: [50, 16], aR: [42, 16], ...ok }} x={OK_X} y={OK_ROOT} f={f} seed={2} rim={{ dx: -4, dy: -3, color: "#bfe2ff" }} />}
+      {hide !== "ok" && <Character look={OKAFOR} pose={{ facing: -1, lean: 18, aL: [37, 0], aR: [42, 16], ...ok }} x={OK_X} y={OK_ROOT} f={f} seed={2} rim={{ dx: -4, dy: -3, color: "#bfe2ff" }} />}
       {/* table (in front of both) */}
       <rect x={520} y={TABLE_Y} width={880} height={26} rx={4} fill="#9aa6ba" />
       <rect x={520} y={TABLE_Y} width={880} height={6} rx={3} fill="#e4ecf8" opacity={0.7} />
@@ -75,10 +86,14 @@ export const PoliceRoom: React.FC<{ f: number; lina: Pose; ok: Pose; cupTip?: nu
       <AO x={540} y={TABLE_Y + 66} w={840} h={60} dir="down" o={0.5} />
       {/* on the table: case photo + cup */}
       {photo && <g transform={`rotate(-6 960 ${TABLE_Y})`}><rect x={900} y={TABLE_Y - 8} width={130} height={10} fill="#f2eee4" /></g>}
-      <g transform={`translate(1180 ${TABLE_Y}) rotate(${-cupTip * 92} 14 0)`}>
-        <path d="M0 -44 L28 -44 L24 0 L4 0 Z" fill="#f2efe6" /><rect x={-1} y={-48} width={30} height={7} rx={2} fill="#3a3530" /><rect x={2} y={-30} width={24} height={10} fill="#b0623a" />
-      </g>
-      {cupTip > 0.6 && <ellipse cx={1120} cy={TABLE_Y + 2} rx={80 * Math.min(1, (cupTip - 0.6) * 3)} ry={7} fill="#5a3218" opacity={0.85} />}
+      {/* the cup (x 1100–1128), right next to Okafor's resting hand; tips over to the right around its base corner */}
+      {spill > 0 && <SpillPuddle x={1160} y={TABLE_Y - 1} k={spill} />}
+      {!cupHeld && <g transform={`translate(1100 ${TABLE_Y}) rotate(${cupTip * 90} 28 0)`}>
+        <path d="M0 -44 L28 -44 L24 0 L4 0 Z" fill="#f2efe6" /><rect x={-1} y={-48} width={30} height={7} rx={2} fill="#3a3530" opacity={cupTip > 0.5 ? 0 : 1} /><rect x={2} y={-30} width={24} height={10} fill="#b0623a" />
+      </g>}
+      {cupTip > 0.5 && <rect x={1184} y={TABLE_Y - 9} width={28} height={7} rx={2} fill="#3a3530" transform={`rotate(${20 + cupTip * 30} 1198 ${TABLE_Y - 5})`} />}
+      {splash >= 0 && splash < 22 && Array.from({ length: 12 }, (_, i) => { const a = -Math.PI * (0.15 + 0.7 * ((i * 37) % 12) / 12), v = 3 + ((i * 53) % 7) * 0.7, t = splash;
+        return <circle key={i} cx={1114 + Math.cos(a) * v * t * 1.4} cy={TABLE_Y - 44 + Math.sin(a) * v * t + 0.55 * t * t} r={2.2 + (i % 3)} fill="#5a3218" opacity={1 - t / 22} />; })}
     </Layer>
   </>;
 };

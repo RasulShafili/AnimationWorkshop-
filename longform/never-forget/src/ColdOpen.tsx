@@ -4,8 +4,8 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { Stage, camAt, sat, ease, easeOut, lerp } from "./engine/core";
 import { Vignette, Grain, Grade } from "./engine/fx";
 import { PoliceRoom } from "./scenes/Police";
-import { CoffeeSlam, PhotoInsert, CupTip, Screen } from "./scenes/Inserts";
-import { StreetPast, PlateInsert, MemoryFX, MEMORY_FILTER } from "./scenes/Memory";
+import { PhotoInsert, CoffeeSpill, Screen } from "./scenes/Inserts";
+import { StreetPast, PlateInsert, MemoryFX, MEMORY_FILTER, carPt, CAR_PTS } from "./scenes/Memory";
 import { TitleCard, Loftus, Exterior } from "./scenes/Title";
 import { FactCard, Stamp, useFonts } from "./ui";
 import { VO_C1, talkAt } from "./vo_c1";
@@ -23,7 +23,7 @@ T.lina1 = T.rew + 26; T.plate = T.lina1 + 34;
 T.lina2 = T.lina1 + D("c1_lina1") + 10; T.fresh = T.lina2 + Math.round(D("c1_lina2") * 0.55);
 T.lina3 = T.lina2 + D("c1_lina2") + 10;
 T.tip = T.lina3 + D("c1_lina3") + 14;
-T.screen = T.tip + 40;
+T.knock = T.tip; T.spillCU = T.tip + 26; T.screen = T.tip + 66;
 T.n3 = T.screen + 66; T.two = T.screen + 84;
 T.loftus = T.n3 + D("c1_n3") + 10;
 T.ext = T.loftus + 135;
@@ -55,7 +55,7 @@ export const ColdOpen: React.FC = () => {
   const carX = f < tStop ? lerp(2900, 1400, easeOut((f - T.rew) / (tStop - T.rew))) : 1400;
   const wheel = (2900 - carX) * 0.6;
   const marks = [sat((f - T.plate) / 14), sat((f - T.lina2 - 10) / 14), sat((f - T.fresh) / 14)];
-  const DENT = [1164, 742], FRESH = [802, 604];
+  const DENT = carPt(1400, 1.15, -1, CAR_PTS.dent), FRESH = carPt(1400, 1.15, -1, CAR_PTS.fresh);
   const streetCam = camAt(f, [[T.rew, 60, 40, 1.0], [T.plate, 30, 50, 1.06], [T.lina2, DENT[0] - 960, DENT[1] - 540, 2.3], [T.fresh - 1, DENT[0] - 950, DENT[1] - 540, 2.45],
     [T.fresh, FRESH[0] - 960, FRESH[1] - 540, 2.9], [T.lina3 - 1, FRESH[0] - 960, FRESH[1] - 540, 3.1], [T.lina3, 60, 40, 1.0], [T.tip, 80, 40, 1.08]]);
   const closeStreet = f >= T.lina2 && f < T.lina3;
@@ -64,16 +64,24 @@ export const ColdOpen: React.FC = () => {
   const extX = lerp(960, 1340, easeOut((f - T.ext) / 150));
 
   let shot: React.ReactNode = null, grade = "room", mem = 0;
-  if (f < 42) { shot = <CoffeeSlam f={f} />; }
+  // 0) Okafor slams his coffee down (his own rig hand holds the cup; arm angles solved so the cup base lands on the table)
+  const slamU = Math.min(1, (f / 8) ** 2), slamA = f < 8 ? [lerp(90, 12, slamU), lerp(134, 54, slamU)] : f < 24 ? [12, 54] : [lerp(12, 42, ease((f - 24) / 12)), lerp(54, 16, ease((f - 24) / 12))];
+  const slamOk = { ...okRoom, aR: slamA, hold: (f < 24 ? "cup" : null) as any, mouth: "frown" as any, brow: -0.7, look: [0.7, 0.3] };
+  // knock: Okafor startles at the plate, his hand jerks back and hits the cup (contact at +7), the cup tips right
+  const kf = f - T.knock, knA = kf < 4 ? [42, 16] : kf < 9 ? [lerp(42, 2, ease((kf - 4) / 5)), lerp(16, 58, ease((kf - 4) / 5))] : [lerp(2, -7, ease((kf - 9) / 8)), lerp(58, 64, ease((kf - 9) / 8))];
+  const cupTipK = f >= T.knock + 5 ? Math.min(1, ((f - T.knock - 5) / 8) ** 1.6) : 0;
+  const spillK = f >= T.knock + 16 ? 1 : 0;
+  if (f < 42) { shot = <Stage cam={camAt(f, [[0, 154, 60, 2.2], [42, 150, 60, 2.35]])}><PoliceRoom f={f} lina={linaRoom} ok={slamOk} cupHeld={f < 24} splash={f >= 8 ? f - 8 : -1} hide="lina" /></Stage>; }
   else if (f < T.photo) shot = <Stage cam={roomCam}><PoliceRoom f={f} lina={linaRoom} ok={okRoom} /></Stage>;
   else if (f < T.okafor2) shot = <PhotoInsert f={f - T.photo} />;
   else if (f < T.rew) shot = <Stage cam={roomCam}><PoliceRoom f={f} lina={linaRoom} ok={okRoom} hide={roomHide as any} /></Stage>;
   else if (f < T.tip) { mem = sat((f - T.rew) / 8); grade = "mem";
     shot = <div style={{ position: "absolute", inset: 0, filter: MEMORY_FILTER(mem) }}>{f >= T.plate && f < T.lina2 ? <PlateInsert f={f - T.plate} k={marks[0]} />
       : <Stage cam={streetCam} bg="#9ec6e8"><StreetPast f={f} tf={tf} carX={carX} wheel={wheel} marks={marks} active={closeStreet ? (f >= T.fresh ? 2 : 1) : -1} crowd={!closeStreet} /></Stage>}</div>; }
-  else if (f < T.screen) shot = <CupTip f={f - T.tip} />;
+  else if (f < T.spillCU) shot = <Stage cam={camAt(f, [[T.knock, 170, 40, 2.1], [T.spillCU, 175, 45, 2.2]])}><PoliceRoom f={f} lina={linaRoom} ok={{ ...okRoom, mouth: "o", brow: 0.9, eyes: 1.25, look: [0.7, -0.2], aR: knA }} cupTip={cupTipK} spill={spillK * 0.3} hide="lina" /></Stage>;
+  else if (f < T.screen) shot = <CoffeeSpill f={f - T.spillCU} />;
   else if (f < T.two) shot = <Screen f={f - T.screen} />;
-  else if (f < T.loftus) shot = <Stage cam={twoCam}><PoliceRoom f={f} lina={linaRoom} ok={{ ...okRoom, aR: [30, 40], aL: [40, 30], lean: 4 }} cupTip={1} hide={roomHide as any} /></Stage>;
+  else if (f < T.loftus) shot = <Stage cam={twoCam}><PoliceRoom f={f} lina={linaRoom} ok={{ ...okRoom, aR: [30, 40], aL: [40, 30], lean: 4 }} cupTip={1} spill={1} hide={roomHide as any} /></Stage>;
   else if (f < T.ext) { shot = <Loftus f={f - T.loftus} />; grade = "none"; }
   else if (f < T.title) { shot = <Stage cam={camAt(f, [[T.ext, 0, 0, 1.0], [T.title, 230, -20, 1.12]])}><Exterior f={f} linaX={extX} walking={f < T.ext + 140} frames={sat((f - T.ext - 80) / 20)} /></Stage>; grade = "ext"; }
   else { shot = <TitleCard f={f - T.title} />; grade = "none"; }
@@ -87,7 +95,7 @@ export const ColdOpen: React.FC = () => {
     <Stamp text={f >= T.lina3 ? "TUE 03 MAR 2023  16:17:09" : "03 MAR 2023  16:17:0" + Math.min(9, Math.floor((f - T.rew) / 12) % 10)} k={dateK} f={f} />
     <FactCard text="Memory is easy to rewrite: in a 1974 study, changing ONE word in a question changed how fast people remembered a car going." k={easeOut((f - T.loftus - 20) / 15) * (1 - sat((f - T.ext + 8) / 8))} />
     <Flash f={f} at={T.flash} />
-    <Flash f={f} at={T.tip - 2} color="200,230,255" len={8} />
+    <Flash f={f} at={T.knock - 2} color="200,230,255" len={8} />
     {grade !== "none" && <Vignette o={0.8} />}
     <Grain f={f} o={0.06} />
   </AbsoluteFill>;

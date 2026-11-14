@@ -49,6 +49,23 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
   `cam.x = subjectX − 960`, `cam.y = (rootY − 362·scale) − 540` (head centre), zoom 1.8–2.4.
   For Layers with depth d the screen offset is `world − cam·d` — background layers need larger cam values.
 
+## 3b. Props, vehicles, liquids (owner: "maşınlar, polis maşını, kofenin dağılması çox pis görünür", 2026-11-14)
+- **Vehicles:** use `longform/never-forget/src/scenes/Cars.tsx` (`Hatchback`, `HatchRear`, `PoliceCar`, `Wheel`) or
+  build new ones the same way: wheel arches cut into the body, big tyres with multi-spoke silver rims, a shoulder
+  crease splitting a light upper / dark lower body, dark bumpers + sills, tinted glass with a reflection streak,
+  black pillars, side mirror, swept headlight, corner tail light, ground shadow. References:
+  `assets/refs/design/sheet_*.jpg`. Never draw a car as one blob path with circles on it.
+- **Never mirror anything that carries text** (POLICE, plates, signs): `scale(-1,1)` writes it backwards. Draw the
+  object facing the other way or counter-flip the text. Side views can't show a plate → use a rear-view insert.
+- **Hands touching things:** use the character's own rig hand (same style as the film), not a separate drawn hand,
+  and solve the angles with `tools/fk_solve.py` (hand exactly on the cup/table). `hold: "cup"` puts the cup base
+  12 px below the hand centre.
+- **Every action needs a visible cause** in the shot before the insert (Okafor's hand jerks → cup tips), then the
+  insert shows the result. Things fall away from the force (hand moves right → cup falls right).
+- **Liquids:** a thick pouring ribbon from the opening, a flow-shaped puddle (long in the pour direction, thin,
+  finger lobes, darker rim + light window reflections), drips over edges, a few early splash drops; lids land ON the
+  surface with a shadow, never hang in the air. Puddles stay consistent in size between shots.
+
 ## 4. Engine API (src/engine, src/chars) — see longform/hearing-100x
 - `Stage cam={x,y,zoom}` + `Layer depth blur` (parallax); `camAt(f, [[frame,x,y,zoom],…])` eased keys.
 - FX: `Glow, Shaft (light beams), Vignette, Grain (animated), Grade, Rain, PaneDrops, Bokeh`.

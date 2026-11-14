@@ -45,3 +45,8 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   "back left door" is true), plate shown in a rear-view insert (side view can't show a plate), whole memory freezes
   with the car (tf), extras hidden in close-ups, other character hidden in room close-ups, readable stamp, cup is
   knocked by Okafor's hand, walk phase from distance, frames crown clear of the POLICE sign, real windows.
+- v3 (owner: cars, police car and the coffee spill looked bad; rest OK): new Cars.tsx (hatchback side + rear,
+  police sedan with livery and lightbar, shadows), police car no longer mirrored (text was backwards), the slam and
+  the knock done with Okafor's rig hand (angles from tools/fk_solve.py), close-up spill with pouring ribbon, flow
+  puddle, reflections, drips, lid landing on the table; matching small puddle in the room shots; DMV thumbnail uses
+  the new car. Timeline +26 frames (knock shot) → 48.4 s.

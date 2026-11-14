@@ -62,7 +62,7 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
   const prop = (h: number[], ang: number) => {
     if (!P.hold) return null;
     const t = `translate(${h[0]} ${h[1]}) rotate(${-ang * 0.15})`;
-    if (P.hold === "cup") return <g transform={t}><path d="M-12 -30 L12 -30 L9 4 L-9 4 Z" fill="#f2efe6" /><rect x={-13} y={-34} width={26} height={6} rx={2} fill="#3a3530" /><rect x={-11} y={-20} width={22} height={9} fill="#b0623a" /></g>;
+    if (P.hold === "cup") return <g transform={`translate(${h[0]} ${h[1]})`}><path d="M-13 -30 L13 -30 L10 12 L-10 12 Z" fill="#f2efe6" /><rect x={-14} y={-36} width={28} height={7} rx={2} fill="#3a3530" /><rect x={-12} y={-14} width={24} height={10} fill="#b0623a" /></g>;
     if (P.hold === "phone") return <g transform={t}><rect x={-12} y={-34} width={24} height={44} rx={5} fill="#16151c" /><rect x={-10} y={-31} width={20} height={36} rx={3} fill="#7fd0ff" opacity={0.9} /></g>;
     if (P.hold === "photo") return <g transform={t}><rect x={-26} y={-40} width={52} height={40} fill="#f4f1e8" /><rect x={-22} y={-36} width={44} height={28} fill="#59606e" /></g>;
     if (P.hold === "cards") return <g transform={t}>{[0, 1, 2, 3].map(i => <rect key={i} x={-12 + i * 5} y={-36} width={24} height={34} rx={3} fill="#fbf8f0" stroke="#c9302c" strokeWidth={1.5} transform={`rotate(${-18 + i * 12} 0 -2)`} />)}</g>;

@@ -18,7 +18,7 @@ T["lina1"] = T["rew"] + 26; T["plate"] = T["lina1"] + 34
 T["lina2"] = T["lina1"] + D["lina1"] + 10; T["fresh"] = T["lina2"] + round(D["lina2"] * 0.55)
 T["lina3"] = T["lina2"] + D["lina2"] + 10
 T["tip"] = T["lina3"] + D["lina3"] + 14
-T["screen"] = T["tip"] + 40
+T["knock"] = T["tip"]; T["spillCU"] = T["tip"] + 26; T["screen"] = T["tip"] + 66
 T["n3"] = T["screen"] + 66; T["two"] = T["screen"] + 84
 T["loftus"] = T["n3"] + D["n3"] + 10
 T["ext"] = T["loftus"] + 135
@@ -64,10 +64,16 @@ for k in range(K):                                                       # pan s
 n = int(.8 * SR); s = np.arange(n) / SR; m.place(t_stop - .4, np.sin(2 * np.pi * (300 * np.exp(-s * 3)) * s) * np.exp(-s * 3) * .4, .3, 0, .5)
 m.thump(t_stop, .5, 40)
 for k in ("plate", "lina2", "fresh"): m.chime(ft(T[k] + (10 if k == "lina2" else 0)), m=88 if k != "fresh" else 91, g=.05)
-# 4) snap back + the cup tips over
-m.whoosh(ft(T["tip"]) - .3, d=.4, g=.18, lo=800, hi=8000); m.hit(ft(T["tip"]), .25)
-n = int(.25 * SR); s = np.arange(n) / SR; m.place(ft(T["tip"] + 18), bp(m.noise(n), 800, 5000) * np.exp(-s * 18), .35, .2, .3)
-n = int(1.2 * SR); u = np.linspace(0, 1, n); m.place(ft(T["tip"] + 22), bp(m.noise(n), 400, 2500) * np.sin(np.pi * u) * (1 + .5 * np.sin(2 * np.pi * 13 * u)), .1, .2, .3)
+# 4) snap back; Okafor's hand knocks the cup (+7), it falls on its side (+16), coffee glugs out and spreads (close-up)
+m.whoosh(ft(T["knock"]) - .3, d=.4, g=.18, lo=800, hi=8000); m.hit(ft(T["knock"]), .2)
+n = int(.12 * SR); s = np.arange(n) / SR; m.place(ft(T["knock"] + 7), (bp(m.noise(n), 900, 5000) * .7 + np.sin(2 * np.pi * 520 * s) * .5) * np.exp(-s * 45), .35, .15, .2)   # knuckle on paper cup
+n = int(.3 * SR); s = np.arange(n) / SR; m.place(ft(T["knock"] + 16), (bp(m.noise(n), 300, 3000) + np.sin(2 * np.pi * 180 * s) * .6) * np.exp(-s * 16), .45, .2, .3)  # cup hits the table
+n = int(.18 * SR); s = np.arange(n) / SR; m.place(ft(T["knock"] + 19), bp(m.noise(n), 600, 4000) * np.exp(-s * 25), .2, .25, .3)                                   # lid pops off
+for k in range(9):                                                                                                                                                # glugs while pouring
+    n = int(.11 * SR); s = np.arange(n) / SR; f0 = 260 + 40 * np.sin(k)
+    m.place(ft(T["spillCU"]) + k * .12, np.sin(2 * np.pi * (f0 + 300 * s) * s) * np.exp(-s * 30) * .6 + bp(m.noise(n), 400, 2500) * np.exp(-s * 40) * .4, .14, .2, .3)
+n = int(1.3 * SR); u = np.linspace(0, 1, n); m.place(ft(T["spillCU"] + 4), bp(m.noise(n), 500, 3000) * np.sin(np.pi * u) * (1 + .4 * np.sin(2 * np.pi * 11 * u)), .1, .2, .3)  # spreading
+for k in range(4): m.place(ft(T["spillCU"] + 24) + k * .23, np.sin(2 * np.pi * 900 * np.arange(int(.05 * SR)) / SR) * np.exp(-np.arange(int(.05 * SR)) / SR * 80), .07, .3, .4)  # drips
 # 5) keyboard typing + search whirr + MATCH FOUND stab (a hit + low brass-like chord, no beeps)
 for k in range(7):
     n = int(.04 * SR); s = np.arange(n) / SR; m.place(ft(T["screen"] + 6 + k * 3) + m.rng.uniform(0, .02), bp(m.noise(n), 1500, 6000) * np.exp(-s * 120), .25, .1, .2)

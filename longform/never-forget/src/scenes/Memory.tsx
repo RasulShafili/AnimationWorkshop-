@@ -5,6 +5,7 @@ import { Glow, Shaft, Bokeh } from "../engine/fx";
 import { Noise, Bricks, AO } from "../engine/tex";
 import { Character, walkPose } from "../chars/Rig2";
 import { LINA, EXTRAS } from "../chars/cast";
+import { Hatchback, HatchRear, HATCH } from "./Cars";
 
 const GOLD = "#ffc94a";
 // gold "memory outline" marker with label, pops in with k
@@ -17,7 +18,7 @@ export const Mark: React.FC<{ x: number; y: number; w: number; h: number; k: num
 
 // silver hatchback, side view. Drawn facing right in local space; dir=-1 mirrors it so it drives LEFT and we see
 // its LEFT side (the dent is on the back left door). Origin = rear-bottom. Marks are drawn un-mirrored (readable text).
-export const CAR_PTS = { dent: [205, -120], fresh: [520, -240] };      // local points (facing right, before scale)
+export const CAR_PTS = { dent: HATCH.dent, fresh: HATCH.fresh };      // local points (facing right, before scale)
 export const carPt = (x: number, s: number, dir: number, p: number[]) => [x + p[0] * s * dir, 880 + p[1] * s];
 export const Car: React.FC<{ x: number; y: number; s?: number; wheel?: number; dir?: 1 | -1 }> = ({ x, y, s = 1, wheel = 0, dir = 1 }) => <g transform={`translate(${x} ${y}) scale(${s * dir} ${s})`}>
   <defs><linearGradient id="carb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#e4e8ee" /><stop offset="0.5" stopColor="#b8c0cc" /><stop offset="1" stopColor="#7a8494" /></linearGradient></defs>
@@ -61,7 +62,7 @@ export const PlateInsert: React.FC<{ f: number; k: number }> = ({ f, k }) => <sv
   {/* blurred shop fronts behind */}
   <g style={{ filter: "blur(10px)" }}>{[0, 1, 2, 3].map(i => <g key={i}><rect x={-100 + i * 560} y={60} width={520} height={560} fill={i % 2 ? "#a8856a" : "#b8957a"} /><rect x={-60 + i * 560} y={300} width={440} height={240} fill="#3a4250" /><rect x={-80 + i * 560} y={260} width={480} height={50} fill={["#e8b06a", "#6ac0a8", "#c87a6a", "#7a9ad8"][i]} /></g>)}</g>
   <rect x={0} y={620} width={W} height={120} fill="#c8c2b6" /><rect x={0} y={740} width={W} height={340} fill="#4a4e58" />
-  <g transform={`translate(0 0) scale(${1 + f * 0.0012})`} style={{ transformOrigin: "960px 700px" }}><CarRear cx={960} gy={900} s={1.25} k={k} /></g>
+  <g transform={`translate(960 900) scale(${1.25 * (1 + f * 0.0012)})`}><HatchRear /><Mark x={-112} y={-212} w={224} h={58} k={k} label="7KR-419" ly={-60} /></g>
 </svg>;
 
 // sunny street, 3 years ago. tf = memory time (stops when the car freezes → the whole memory freezes).
@@ -98,9 +99,9 @@ export const StreetPast: React.FC<{ f: number; tf: number; carX: number; wheel: 
       <Character look={{ ...LINA, scale: 0.86 }} pose={{ facing: -1, look: [0.9, 0.5], aR: [40, 90], mouth: "o", eyes: 1.1 }} x={900} y={700} s={1} f={tf} seed={1} />
       <g transform="translate(828 470)"><path d="M0 0 L14 44 L28 0 Z" fill="#d8a85a" /><circle cx={14} cy={-6} r={18} fill="#f4c0d0" /></g>
     </>}
-    <Car x={carX} y={880} s={s} wheel={wheel} dir={dir} />
-    <Mark x={dent[0] - 36 * s} y={dent[1] - 30 * s} w={84 * s} h={60 * s} k={marks[1]} label={active === 1 ? "DENT · BACK LEFT DOOR" : undefined} ly={-80} />
-    <Mark x={fr[0] - 26 * s} y={fr[1] - 46 * s} w={52 * s} h={84 * s} k={marks[2]} label={active === 2 ? "PINE TREE" : undefined} ly={-60} />
+    <g transform={`translate(${carX} 880) scale(${s * dir} ${s})`}><Hatchback wheelRot={wheel} /></g>
+    <Mark x={dent[0] - 42 * s} y={dent[1] - 32 * s} w={84 * s} h={64 * s} k={marks[1]} label={active === 1 ? "DENT · BACK LEFT DOOR" : undefined} ly={-80} />
+    <Mark x={fr[0] - 28 * s} y={fr[1] - 44 * s} w={56 * s} h={88 * s} k={marks[2]} label={active === 2 ? "PINE TREE" : undefined} ly={-60} />
   </Layer>
 </>; };
 
