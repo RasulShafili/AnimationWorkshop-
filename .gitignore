@@ -74,3 +74,4 @@ lowpoly/rogue-blackhole/public/*.bin
 longform/*/out/
 longform/*/public/*.wav
 tools/chatterbox-venv/
+tools/chatterbox/model/
