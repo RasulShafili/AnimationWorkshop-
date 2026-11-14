@@ -120,7 +120,7 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
   floating/sitting-in-air, limbs through faces, heads cut by framing, props covering people, text cut off,
   black/empty edges (extend background rects), static shots >5 s, wrong eye-lines. Fix, re-render only those
   chapters, re-check the exact timestamps.
-- Also: subtitles `out/subtitles_en.srt` from the line texts + voice durations; thumbnail (`Thumb` composition,
+- Also: subtitles with `tools/make_srt.py` (exact cues from the real line placements; Whisper on the final mix drops/smears lines under music); thumbnail (`Thumb` composition,
   1280×720, big 2-word text, face + glowing symbol); description with chapters + sources.
 
 ## 7. Publishing
