@@ -28,7 +28,9 @@
     "dog-red-ball",
     "speed-doubles",
     "nuke-hurricane",
-    "hearing-100x"
+    "hearing-100x",
+    "andromeda",
+    "hearing-teaser"
   ],
   "history": [
     {
@@ -497,6 +499,52 @@
       ],
       "status": "scheduled",
       "note": "long-form 4:06, uploaded by the owner in YouTube Studio, scheduled 23:00 Baku; subtitles_en.srt + custom thumbnail"
+    },
+    {
+      "id": "andromeda",
+      "title": "What If Andromeda Hit Our Galaxy? The 2025 Twist 😳",
+      "published_at": "2026-11-13 10:21:35 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af6e43f69e5ecee127c6bd4"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af6e44b639ce45418ccbcf3"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6af6e450a823708034403086"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "hearing-teaser",
+      "title": "His Hearing Is 100x Better… So He Takes Off His Headphones 😳",
+      "published_at": "2026-11-14 08:12:01 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6af81737d16af15d4dff86d7"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6af8174381e1228421f19dd1"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6af81746d8bd2962e4167136"
+        }
+      ],
+      "status": "published"
     }
   ]
 }

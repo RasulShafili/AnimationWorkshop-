@@ -22,7 +22,9 @@ Every video needs a new setting, palette and transition (`memory/vary-each-video
 
 ## Skills (in `.claude/skills`)
 `topic-research` (pick a topic; run `outliers.py` first: Shorts that beat their channel's median many times),
-`tools/captions` (word-by-word burned-in captions for every narrated line), `reel-qc` (check every render), `kokoro-voice`, `real-sfx`, plus Remotion and three.js
+`tools/captions` (word-by-word burned-in captions for every narrated line), `cartoon-longform` (8-min 16:9 animated
+stories: recipe, shot design, engine, QA, upload), `sim-video` (real physics particle simulations), `publish` (Buffer
+posting, checks, long-form uploads), `reel-qc` (check every render), `kokoro-voice`, `real-sfx`, plus Remotion and three.js
 references. Run `reel-qc` and look at the contact sheet before showing or publishing anything.
 
 ## Setup on a new machine

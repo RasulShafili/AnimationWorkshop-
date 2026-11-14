@@ -10,3 +10,4 @@
 - [Bədən Bələdçisi channel](beden-beledcisi-channel.md) — IG channel for Alviora value-first health videos (Azerbaijani, DİZ comment CTA); render with systemd-inhibit
 - [Outliers + captions](outliers-and-captions.md) — pick topics via topic-research/outliers.py; word-by-word captions (tools/captions) on every narrated line
 - [Long-form cartoon format](longform-cartoon-format.md) — ~7–8 min 16:9 YouTube what-ifs, cinematic 2D like the Ifverse reference, own characters; 3–5 h per video OK
+- [Keep skills updated](keep-skills-updated.md) — read Animations/.claude/skills/*/SKILL.md before a job; write every new lesson back into them
