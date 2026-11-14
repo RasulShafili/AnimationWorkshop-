@@ -75,3 +75,4 @@ longform/*/out/
 longform/*/public/*.wav
 tools/chatterbox-venv/
 tools/chatterbox/model/
+longform/*/vo/*.npy
