@@ -104,3 +104,10 @@ amplitude; more varied body shapes per character.
 - **Look:** glossy soft-shaded heads + mitten hands, bright detailed sets, crowds of extras with depth blur, one
   recurring visual language for the power, 15+ locations per video (IFNation reference, `assets/refs/ifnation`).
 - Length really over 8:00; Part 1 was 4:06.
+- **Rig v2** (`longform/never-forget/src/chars/Rig2.tsx`): glossy heads, mitten hands, clothing styles, hats,
+  blink/breath idle (`f`, `seed` props), lip-sync `talk` from `tools/vo_meta.py` envelopes, `gold` eyes, `noBlink`
+  for hero close-ups, `SIT` pose (feet on floor; seat top = rootY − 86·s). Use it for new videos.
+- Derive every cut from real voice lengths (vo_meta → `vo_<ch>.ts`), mirror the formulas in the audio script and
+  check its printed `end` equals the composition length.
+- Voices: Chatterbox with our own Kokoro refs per character (`vo/refs/*.wav`), one batch per chapter
+  (`tools/chatterbox/batch.py`, ~10 s compute per 1 s speech on this CPU); verify with Whisper small.en.

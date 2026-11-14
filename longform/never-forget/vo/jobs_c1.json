@@ -1,0 +1,72 @@
+[
+{
+"out": "vo/c1_okafor1.wav",
+"text": "Three years ago, a car hit a cyclist and drove off. No camera. No plate.",
+"ref": "vo/refs/okafor.wav",
+"exag": 0.45,
+"cfg": 0.4
+},
+{
+"out": "vo/c1_okafor2.wav",
+"text": "You were on that street.",
+"ref": "vo/refs/okafor.wav",
+"exag": 0.5,
+"cfg": 0.4
+},
+{
+"out": "vo/c1_n1.wav",
+"text": "Most people would remember a grey blur.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_n2.wav",
+"text": "You don't.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_lina1.wav",
+"text": "Silver hatchback. Plate seven, K, R, four, one, nine.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_lina2.wav",
+"text": "Dent on the back left door. A little pine tree air freshener.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_lina3.wav",
+"text": "Tuesday, March third. Four seventeen p.m.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_n3.wav",
+"text": "The police closed a three year old case... because a sixteen year old never forgets anything.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_n4.wav",
+"text": "Everyone's memory quietly edits itself. Yours never has.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c1_n5.wav",
+"text": "What if you could never forget anything?",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.6,
+"cfg": 0.45
+}
+]

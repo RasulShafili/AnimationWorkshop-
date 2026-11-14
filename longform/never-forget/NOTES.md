@@ -28,3 +28,15 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
 3. Power language: gold irises, REWIND stamp, Memory Palace set piece.
 4. Voices: Chatterbox for every line (refs = our own Kokoro voices), check with Whisper.
 5. Thumbnail v2: story quote + face + glow link; render 2 variants for YouTube "Test & compare".
+
+## Build log
+- 2026-11-14: rig v2 (`src/chars/Rig2.tsx`), cast, cold open (`src/ColdOpen.tsx`, 47.6 s) with Chatterbox voices
+  (narrator = fenrir ref [owner: male narrator], Lina = af_bella ref, Okafor = am_onyx ref; refs in vo/refs).
+  Timeline is derived from voice lengths: `tools/vo_meta.py c1` → `src/vo_c1.ts` (frames + lip-sync envelopes) and
+  the same formulas in `tools/audio_c1.py` (it prints `end`, must equal the composition length).
+- Bugs found in QA and fixed: table too high (seated Lina looked like a toddler → table top 712, seated pose
+  bob 82 so feet touch the floor); all memory labels on screen at once (only the active marker keeps its label);
+  memory frames covering the face (crown above the head instead); a random blink landed on the gold-eye close-up
+  (pose `noBlink`); a character walked "through" a parked car (stop before it); static 4.6 s two-shot (split into
+  reaction close-ups); fact card covering gauges.
+- Whisper base.en mishears Chatterbox sometimes ("hit" → "had"); recheck with small.en before regenerating.
