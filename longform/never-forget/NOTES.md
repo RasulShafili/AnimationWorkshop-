@@ -60,3 +60,13 @@ Pattern: a mind/perception power + social/emotional stakes; titles are a single 
   hands (fk_solve), arm across face when waving, moonwalk when walking left (phase uses facing), mirrored text,
   overlapping labels/titles, chips hiding a face, counter behind characters instead of in front.
 - Length is under 8:00 → mid-rolls not possible yet. Extension plan: see chat (new scenes, not padding).
+
+## Full cut v3 (2026-11-14): 8:07 — owner liked v1 and asked to extend
+- New chapters: c13 human search engine, c9 the test (age 12), c10 the gift (Sam's party), c11 the movie of your
+  life (cinema), c12 her own life (stories); Part 2 teaser in c8; 12 chapter cards (ChapterCard, 1.8 s, card.wav);
+  end card 20 s. Order in out/concat3.txt; chapter list out/chapters.txt; thumbnails Thumb A/B.
+- QA catches this round: wires across the face (draw behind), static scan/headlines/cinema (push), Lina's half head
+  in party inserts (showLina=false), phone held above the head with the arm across the face (hold it at the chest),
+  a time-range bug that hid the whole teaser (card branch must end at T.t1), umbrella reading as a hat, `npx` inside
+  a `while read` loop eats the heredoc (use arrays + `< /dev/null`), WebkitTextStroke artefacts (use shadows).
+- Upload package: ~/Desktop/YouTube_upload_never_forget (mp4, 2 thumbnails, title/description/tags, srt).

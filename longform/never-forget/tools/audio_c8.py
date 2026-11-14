@@ -7,7 +7,7 @@ sys.path.insert(0, __file__.rsplit("/", 1)[0])
 from audio_lib import *
 D = meta("c8"); T = {}
 T["n1"] = 20; T["n2"] = T["n1"] + D["n1"] + 8; T["hall"] = T["n2"] + round(D["n2"] * .5); T["lina1"] = T["n2"] + D["n2"] + 8; T["push"] = T["lina1"] + D["lina1"] + 10
-T["n3"] = T["push"] + 84; T["card"] = T["n3"] + D["n3"] + 24; T["n4"] = T["card"] + 96; T["n5"] = T["n4"] + D["n4"] + 10; T["end"] = T["n5"] + D["n5"] + 360
+T["n3"] = T["push"] + 84; T["card"] = T["n3"] + D["n3"] + 24; T["t1"] = T["card"] + 96; T["t2"] = T["t1"] + D["t1"] + 8; T["t3"] = T["t2"] + D["t2"] + 8; T["n4"] = T["t3"] + D["t3"] + 24; T["n5"] = T["n4"] + D["n4"] + 10; T["end"] = T["n5"] + D["n5"] + 600
 print("end", T["end"])
 m = Mix(T["end"], seed=81); N = m.N
 def sec(a, b, fade=8): return m.env([(0, 0), (max(0, a - fade), 0), (a, 1), (b, 1), (b + fade, 0), (T["end"], 0)])
@@ -29,12 +29,17 @@ for kk in (34, 46, 58):
 n = int(ft(T["card"] - T["n3"]) * SR); s = np.arange(n) / SR
 m.place(ft(T["n3"]), sum(np.sin(2 * np.pi * hz(p) * s) for p in (33, 40, 45)) * np.minimum(1, s / 2) * np.minimum(1, (s[-1] - s) / .5), .12, 0, .5)
 m.thump(ft(T["card"]), 1.0, 32); m.hit(ft(T["card"]), .35)
+# Part 2 teaser: low pulses, a knock, a paper whoosh, a rising swell cut to silence
+for k in range(int(ft(T["n4"] - T["t1"]) / .75)): m.thump(ft(T["t1"]) + k * .75, .35, 42)
+m.thump(ft(T["t1"]) + .5, .4, 70); m.whoosh(ft(T["t2"] + round(D["t2"] * .5)) - .2, g=.15)
+n = int(ft(T["n4"] - T["t3"]) * SR); s = np.arange(n) / SR; m.place(ft(T["t3"]), sum(np.sin(2 * np.pi * hz(p) * (1 + .5 * s / s[-1]) * s) for p in (45, 52, 57)) * (s / s[-1]) ** 2, .15, 0, .6)
+for kk in ("t1", "t2", "t3"): m.vo_line(f"c8_{kk}", T[kk])
 # outro: warm music box theme + soft pad, end card
-k = 0; t = ft(T["card"] + 40)
+k = 0; t = ft(T["n4"] - 20)
 while t < ft(T["end"]) - 1.5:
     p = motif[k % 8] + (0 if k % 16 < 8 else 2); n = int(1.6 * SR); s = np.arange(n) / SR
     m._mus(t, (np.sin(2 * np.pi * hz(p) * s) + .25 * np.sin(2 * np.pi * hz(p) * 3.01 * s)) * np.exp(-s * 3), .05, .25 * (-1) ** k)
     k += 1; t += .5
-m.score([[57, 64, 69, 72], [53, 60, 65, 69], [55, 62, 67, 71], [57, 64, 69, 72]], bar=2.0, gain=.035, piano=False, start=ft(T["card"] + 40), end=ft(T["end"]))
+m.score([[57, 64, 69, 72], [53, 60, 65, 69], [55, 62, 67, 71], [57, 64, 69, 72]], bar=2.0, gain=.035, piano=False, start=ft(T["n4"] - 20), end=ft(T["end"]))
 for k in ("n1", "n2", "lina1", "n3", "n4", "n5"): m.vo_line(f"c8_{k}", T[k])
 m.render(f"{ROOT}/public/c8.wav")

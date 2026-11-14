@@ -1,0 +1,170 @@
+[
+{
+"out": "vo/c9_n1.wav",
+"text": "When you're twelve, a team of memory scientists hears about you.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_doc1.wav",
+"text": "Okay, Lina. August sixteenth, two thousand nineteen. What day of the week was it?",
+"ref": "vo/refs/moreno.wav",
+"exag": 0.45,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_lina1.wav",
+"text": "A Friday. It rained after lunch. And you wore that same blue tie.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_n2.wav",
+"text": "They try a hundred random dates. You get every single one.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_doc2.wav",
+"text": "We've tested people with amazing memories before. We have never seen anything like this.",
+"ref": "vo/refs/moreno.wav",
+"exag": 0.45,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_n3.wav",
+"text": "Then they show you a scan of your own brain.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_doc3.wav",
+"text": "Some of the wiring that links memory and emotion... is unusually strong.",
+"ref": "vo/refs/moreno.wav",
+"exag": 0.45,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_n4.wav",
+"text": "Twelve years old. And already a medical mystery.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c9_n5.wav",
+"text": "By the next morning, you're in every newspaper in the country.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_n1.wav",
+"text": "For months, Sam doesn't sit with you. Then, one night, you remember something.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_n2.wav",
+"text": "In seventh grade, Sam said one sentence about his birthday. Just once.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_sam1.wav",
+"text": "I just want one birthday where somebody remembers the little stuff.",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_n3.wav",
+"text": "So you remember the little stuff. All of it.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_n4.wav",
+"text": "The blue cupcakes he loved when he was nine. The song his grandpa used to whistle. The name of his first dog... Biscuit.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_sam2.wav",
+"text": "How did you... I said that once. In seventh grade!",
+"ref": "vo/refs/sam.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_lina1.wav",
+"text": "I know. I don't forget the good stuff either.",
+"ref": "vo/refs/lina.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c10_n5.wav",
+"text": "Sometimes a perfect memory isn't a weapon. It's a gift.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c11_n1.wav",
+"text": "People with real super memory say it doesn't feel like remembering.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c11_n2.wav",
+"text": "It feels like watching a movie of your own life... with every feeling still attached.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c11_n3.wav",
+"text": "The best day of your life. And the worst one. Always playing.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c12_n1.wav",
+"text": "Every Sunday, you tell her her own life.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c12_n2.wav",
+"text": "The day she met Grandpa Kerem at a bus stop in the rain. The bakery she opened in nineteen seventy eight. The dance contest she won... by cheating.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "vo/c12_ayla1.wav",
+"text": "I cheated? Good for me.",
+"ref": "vo/refs/ayla.wav",
+"exag": 0.55,
+"cfg": 0.4
+},
+{
+"out": "vo/c12_n3.wav",
+"text": "She doesn't remember any of it. But she laughs in all the right places.",
+"ref": "vo/refs/narrator.wav",
+"exag": 0.5,
+"cfg": 0.5
+}
+]

@@ -7,12 +7,13 @@ import { PalaceCorridor, PalaceHall } from "./scenes/Palace";
 import { Character } from "./chars/Rig2";
 import { LINA } from "./chars/cast";
 import { useFonts } from "./ui";
+import { Frosted, TornPage } from "./scenes/Extra";
 import { VO_C8, talkAt } from "./vo_c8";
 
 const D = (k: string) => VO_C8[`c8_${k}`]?.dur ?? 60;
 const T: Record<string, number> = {};
 T.n1 = 20; T.n2 = T.n1 + D("n1") + 8; T.hall = T.n2 + Math.round(D("n2") * 0.5); T.lina1 = T.n2 + D("n2") + 8; T.push = T.lina1 + D("lina1") + 10;
-T.n3 = T.push + 84; T.card = T.n3 + D("n3") + 24; T.n4 = T.card + 96; T.n5 = T.n4 + D("n4") + 10; T.end = T.n5 + D("n5") + 360;
+T.n3 = T.push + 84; T.card = T.n3 + D("n3") + 24; T.t1 = T.card + 96; T.t2 = T.t1 + D("t1") + 8; T.t3 = T.t2 + D("t2") + 8; T.n4 = T.t3 + D("t3") + 24; T.n5 = T.n4 + D("n4") + 10; T.end = T.n5 + D("n5") + 600;
 export const C8 = T; export const C8_LEN = T.end;
 const DARK = 3653, HALL0 = 3646;   // 14 MAR 2020 (a Saturday) = door 7 in the hall (x 900)
 
@@ -36,11 +37,17 @@ export const Chapter8: React.FC = () => {
   else if (f < T.card) { const k = sat((f - T.n3) / (T.card - T.n3));
     shot = <div style={{ position: "absolute", inset: 0, opacity: 1 - sat((f - T.card + 14) / 14) }}><Stage cam={camAt(f, [[T.n3, 35, -30, 2.2], [T.card, 35, -40, 2.9]])} bg="#0a0716">
       <PalaceHall f={f} linaX={-300} walking={false} doorStart={HALL0} darkDoor={DARK} dim={0.35 + 0.3 * k} pillars={false} /></Stage></div>; }
-  else if (f < T.n4) { grade = "none"; const t = f - T.card;
+  else if (f < T.t1) { grade = "none"; const t = f - T.card;
     shot = <AbsoluteFill style={{ background: "#05030c", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
       <div style={{ fontFamily: "Inter", fontWeight: 900, fontSize: 70, letterSpacing: 16, color: "#ffc94a", opacity: sat(t / 14), textShadow: "0 0 30px rgba(255,190,60,.6)" }}>PART 2</div>
       <div style={{ fontFamily: "Inter", fontWeight: 900, fontSize: 130, color: "#fff", opacity: sat((t - 10) / 14), transform: `scale(${0.94 + 0.06 * easeOut((t - 10) / 20)})` }}>THE MISSING DAY</div>
       <div style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 40, letterSpacing: 10, color: "#8a80a8", opacity: sat((t - 30) / 14), marginTop: 20 }}>COMING SOON</div></AbsoluteFill>; }
+  else if (f < T.n4) { grade = "none";   // Part 2 teaser
+    const t2b = T.t2 + Math.round(D("t2") * 0.5);
+    if (f < T.t2) shot = <Stage cam={camAt(f, [[T.t1, 35, 40, 2.6], [T.t2, 35, 50, 2.9]])} bg="#0a0716"><PalaceHall f={f} linaX={-300} walking={false} doorStart={HALL0} darkDoor={DARK} dim={0.5} pillars={false} shake={f % 30 < 4 ? 1 : 0} /></Stage>;
+    else if (f < t2b) shot = <Frosted f={f - T.t2} />;
+    else if (f < T.t3) shot = <TornPage f={f - t2b} />;
+    else shot = <div style={{ position: "absolute", inset: 0, opacity: 1 - sat((f - T.n4 + 14) / 14) }}><PalaceCorridor f={f} z={(f - T.t3) * 40} doorStart={DARK - 20} darkDoor={DARK} brightEnd={0.15} sway={Math.sin(f / 5) * 40} /></div>; }
   else if (f < T.n5) { const t = f - T.n4;
     shot = <><PalaceCorridor f={f} z={t * 2} doorStart={500} brightEnd={1} />
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center" }}><div style={{ padding: "34px 60px", borderRadius: 30, background: "rgba(10,6,20,.72)", border: "2px solid rgba(255,201,74,.5)", textAlign: "center", opacity: sat(t / 14), transform: `translateY(${(1 - easeOut(t / 20)) * 40}px)` }}>

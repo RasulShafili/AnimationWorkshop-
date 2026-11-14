@@ -71,6 +71,14 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
 - **Holding hands / touching:** solve both arms to the same point with `tools/fk_solve.py` (check reach: an arm is
   148·s long from the shoulder); waving = arm out beside the head (`aR [112±8, 40±18]`), never across the face.
 - **Walking left:** walk/run phase must use `facing * x`, or the legs cycle backwards (moonwalk).
+- **Phones:** characters hold phones at chest height (speakerphone), never raised to the ear with the front arm
+  (it crosses the face). Wires/props attached to the head are drawn BEFORE the character.
+- **Time-range branches:** when you insert a new segment, check the previous branch's upper bound (`f < T.next`),
+  or the old shot silently covers the new one (the Part 2 teaser vanished this way).
+- **Shell:** never run `npx …` inside `while read` fed by a heredoc (it eats stdin) — loop over a bash array and add
+  `< /dev/null`. Thumbnail text: outline with 4 hard text-shadows, not WebkitTextStroke (inner-stroke artefacts).
+- **Reaching 8:00:** chapter title cards (`ChapterCard`, 1.8 s, also match the YouTube chapter list) and a 20 s end
+  card are legitimate length; extra story beats are better than padding.
 - **Length:** narration of ~5 min of lines gives ~5 min of video; to pass 8:00 plan ~70 lines / 1,300 words of
   narration + dialogue in the script (Part 1 and never-forget v1 both came out short).
 
