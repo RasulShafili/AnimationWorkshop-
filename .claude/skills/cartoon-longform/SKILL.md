@@ -94,3 +94,13 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
 blink + breathing idle; hands with fingers for insert close-ups; insert-shot library (phone in hand, watch, paper,
 laptop screen, CCTV frame); split-screen component; data-viz of icons (crowd → bell curve); lip-sync from voice
 amplitude; more varied body shapes per character.
+
+## 9. Lessons 2026-11-14 (after hearing-100x got 21 views in 36 h)
+- Pick the topic with `outliers.py "<queries>" --long --kw any` (scans /videos tabs): winners are mind/perception
+  powers with social/emotional stakes. Details: `longform/never-forget/NOTES.md`.
+- **Thumbnail:** big emotional face (≥40% of frame), rich lit scene, a neon glow line linking hero → other character
+  or object, and a 1–3 word *story quote* ("SHE FORGOT ME.", "I KNEW.") — never the title words on an empty background.
+  Make 2 variants for YouTube Studio "Test & compare". Reference sheet: `assets/refs/thumbs/sheet.jpg`.
+- **Look:** glossy soft-shaded heads + mitten hands, bright detailed sets, crowds of extras with depth blur, one
+  recurring visual language for the power, 15+ locations per video (IFNation reference, `assets/refs/ifnation`).
+- Length really over 8:00; Part 1 was 4:06.

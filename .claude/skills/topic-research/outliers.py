@@ -3,6 +3,7 @@
 
   python3 outliers.py "what if every 2 seconds" "body facts shorts" [--n 20] [--channels 15] [--per 40] [--min 50000] [--ratio 3] [--kw "space,body" | --kw any]
   python3 outliers.py --channel https://www.youtube.com/@SomeChannel   (scan given channels directly; repeatable)
+  python3 outliers.py "what if" --long   (long-form: scans each channel's /videos tab instead of /shorts)
 
 How it works: each query is searched on YouTube; the channels behind the results are collected; for every channel the
 latest --per Shorts are listed with their views; the channel's MEDIAN views is its "usual". A Short with
@@ -23,6 +24,8 @@ n, max_ch, per, vmin, rmin = opt("--n", 20), opt("--channels", 15), opt("--per",
 # keep only outliers whose title looks like our niche (comma list; "any" disables the filter)
 KW = opt("--kw", "what if,happen,science,body,brain,space,earth,planet,sun,moon,physics,fact,human,doubl,every second,speed,ocean,black hole,atom,virus,heart,blood,sleep,eye", str)
 KW = [] if KW == "any" else [k.strip().lower() for k in KW.split(",") if k.strip()]
+TAB = "videos" if "--long" in args else "shorts"   # --long: scan long-form uploads (the /videos tab) instead of Shorts
+if "--long" in args: args.remove("--long")
 chans = []
 while "--channel" in args:
     i = args.index("--channel"); chans.append(args[i + 1]); del args[i:i + 2]
@@ -40,9 +43,9 @@ for q in args:
     for r in ytjson(f"ytsearch{n}:{q}", []):
         cid = r.get("channel_id")
         if cid: count.setdefault(cid, [0, r.get("channel") or "?"])[0] += 1
-targets = [(f"https://www.youtube.com/channel/{c}/shorts", name) for c, (k, name) in sorted(count.items(), key=lambda x: -x[1][0])[:max_ch]]
-targets += [(c.rstrip("/") + ("" if c.rstrip("/").endswith("/shorts") else "/shorts"), c) for c in chans]
-print(f"scanning {len(targets)} channels ({per} latest Shorts each)…", file=sys.stderr)
+targets = [(f"https://www.youtube.com/channel/{c}/{TAB}", name) for c, (k, name) in sorted(count.items(), key=lambda x: -x[1][0])[:max_ch]]
+targets += [(c.rstrip("/") + ("" if c.rstrip("/").endswith("/" + TAB) else "/" + TAB), c) for c in chans]
+print(f"scanning {len(targets)} channels ({per} latest {TAB} each)…", file=sys.stderr)
 
 # 2) each channel's Shorts and its median
 def scan(t):
