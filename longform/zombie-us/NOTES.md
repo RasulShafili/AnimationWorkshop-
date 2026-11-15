@@ -31,3 +31,6 @@ Requested 2026-11-15 by the owner ("yeni uzun video... what if the zombie virus 
   crowd → zombies={0} in close-ups; a crowd moving with the global frame instead of shot time (ran ahead of the heroes);
   lantern exactly in front of Mira's face; Kai's arm reaching into other characters in close-ups (default arms down);
   map label colliding with fact cards; cab characters too small; arm across the face for "hands up" (use palms at chest).
+- Final cut 2026-11-16: out/zombie-us_full.mp4, 9:36 (576.1 s), −14.5 LUFS, 15 chapters + 14 cards, 135 subtitle cues.
+  Upload folder ~/Desktop/YouTube_upload_zombie_us. Background renders were once killed for low RAM while Chatterbox
+  (3.7 GB) and a Remotion render ran together → render only after the voice batch ends, concurrency 3.

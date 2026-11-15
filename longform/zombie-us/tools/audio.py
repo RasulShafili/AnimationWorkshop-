@@ -175,7 +175,7 @@ def cues(ch, m, T, END):
         for k in ("ruiz1", "kai1", "ruiz2", "n1", "fact1", "n2", "n3"): V(k)
     if ch == "c8":
         m.amb("wind", 0, A("n4")); m.amb("store", A("n4"), end); music(m, "mystery", 0, A("ruiz1")); m.crowd(0, A("n4"), 8, .04)
-        t_can = A("n2") + (10 + 2 + 24) / FPS; m.whoosh(A("n2") + 12 / FPS, .4, .1); m.clang(t_can, .35, .3); m.crowd(t_can + .3, t_can + 3, 10, .07)
+        t_can = A("n2") + (10 + 2 + 26) / FPS; m.whoosh(A("n2") + 12 / FPS, .4, .1); m.clang(t_can, .35, .3); m.crowd(t_can + .3, t_can + 3, 10, .07)
         m.marker(A("n4") + .3, E("n4") - A("n4") - .5)
         for i, k in enumerate((0, 10, 20)): m.knock(A("knock") + k / FPS, .55)
         m.knock(L("ruiz2", -20), .4)

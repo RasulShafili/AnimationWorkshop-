@@ -39,22 +39,22 @@ const Doc: React.FC<{ f: number }> = ({ f }) => <SV bg="#1a1612">
     {Array.from({ length: 9 }, (_, i) => <rect key={i} x={-430} y={-100 + i * 50} width={860 - (i % 3) * 120} height={16} fill="#8a8a84" />)}
     <g transform="translate(240 320) rotate(-14)" opacity={sat((f - 20) / 8)}><rect x={-230} y={-60} width={460} height={120} fill="none" stroke="#c8282a" strokeWidth={10} /><text x={0} y={22} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={56} fill="#c8282a">TRAINING · 2011</text></g></g>
 </SV>;
-const bench = (c: Ctx, cam: number[][], on: number, kai: any, group = false) => <S cam={camAt(c.t, [[0, ...cam[0]], [c.d, ...cam[1]]])}><RadioBench f={c.f} on={on}>
-  {group && <>{P(RUIZ, { facing: 1, mouth: "flat", look: [0.8, 0.3] }, 280, 1000, 1.1, c.f, 3, "#ffd86a")}{P(DANA, { facing: -1, mouth: "o", look: [-0.7, 0.3] }, 1500, 1000, 1.1, c.f, 4, "#ffd86a")}{P(MIRA, { facing: -1, mouth: "o", look: [-0.7, 0.2], hold: "walkie", aR: [20, 50] }, 1330, 1000, 1.1, c.f, 2, "#ffd86a")}</>}
-  {P(KAI, { facing: 1, aR: [70, 40], look: [0.6, 0.4], ...kai }, 760, 1000, 1.15, c.f, 1, "#ffd86a")}</RadioBench></S>;
+const bench = (c: Ctx, cam: number[][], on: number, kai: any, group = false, showK = true) => <S cam={camAt(c.t, [[0, ...cam[0]], [c.d, ...cam[1]]])}><RadioBench f={c.f} on={on}>
+  {group && <>{P(RUIZ, { facing: 1, mouth: "flat", look: [0.8, 0.3] }, 280, 1010, 1.1, c.f, 3, "#ffd86a")}{P(DANA, { facing: -1, mouth: "o", look: [-0.7, 0.3] }, 1500, 1000, 1.1, c.f, 4, "#ffd86a")}{P(MIRA, { facing: -1, mouth: "o", look: [-0.7, 0.2], hold: "walkie", aR: [20, 50] }, 1330, 1000, 1.1, c.f, 2, "#ffd86a")}</>}
+  {showK && P(KAI, { facing: 1, aR: [44, 50], look: [0.6, 0.4], ...kai }, 760, 1010, 1.15, c.f, 1, "#ffd86a")}</RadioBench></S>;
 const c11: Shot[] = [
   { at: ["n1"], r: c => <S cam={mv(c, [-100, -40, 1.15], [60, -40, 1.2])}><StoreAisle f={c.f} light="dark" empty={0.75}>{P(KAI, { facing: 1, ...walk(c.f), hold: "torch", beam: 1, aR: [80, 6] }, 500 + c.t * 3.2, 980, 1.15, c.f, 1)}</StoreAisle></S> },
   { at: ["n1", 0.55], r: c => bench(c, [[-100, -40, 1.2], [-80, -40, 1.25]], 0, { mouth: "flat", brow: 0.2 }) },
   { at: ["fact1"], r: c => <Iono f={c.t} /> },
-  { at: ["static"], r: c => bench(c, [[150, -150, 2.6], [150, -150, 2.8]], c.t % 9 < 4 ? 1 : 0.2, {}) },
+  { at: ["static"], r: c => bench(c, [[150, 60, 2.6], [150, 60, 2.8]], c.t % 9 < 4 ? 1 : 0.2, {}, false, false) },
   { at: ["holt1"], r: c => bench(c, [[-20, -40, 1.1], [-20, -40, 1.15]], 1, { mouth: "o", eyes: 1.2, brow: 0.6 }, true) },
   { at: ["holt1", 0.55], r: c => <USMap f={c.f} spread={0.85} safe={sat(c.t / 30)} /> },
   { at: ["fact2"], r: c => <Doc f={c.t} /> },
-  { at: ["fact3"], r: c => <USMap f={c.f} spread={0.6 + 0.4 * sat(c.t / c.d)} safe={1} label="CITIES FALL FIRST" /> },
+  { at: ["fact3"], r: c => <div style={{ position: "absolute", inset: 0, transform: `scale(${1 + 0.18 * c.t / c.d})`, transformOrigin: "35% 30%" }}><USMap f={c.f} spread={0.6 + 0.4 * sat(c.t / c.d)} safe={1} label="CITIES FALL FIRST" /></div> },
   { at: ["kai1"], r: c => bench(c, [onHead(760, 1000, 1.15, 2.3, 40, 30), onHead(760, 1000, 1.15, 2.45, 40, 30)], 1, { talk: c.talk("kai1"), brow: 0, browIn: 0.7, look: [-0.6, 0.1], facing: -1, aR: [20, 30] }) },
   { at: ["ruiz1"], r: c => bench(c, [onHead(280, 1000, 1.1 * 1.06, 2.2, 80, 30), onHead(280, 1000, 1.1 * 1.06, 2.35, 80, 30)], 1, {}, true) },
   { at: ["n2"], r: c => <S cam={mv(c, [200, -40, 1.1], [300, -60, 1.3])}><Lot f={c.f} zombies={8}><g transform="translate(1250 980)"><BoxTruck /></g>
-    <g opacity={sat((c.t - 20) / 10)}><path d="M300 1000 L1240 1000" stroke="#ffd86a" strokeWidth={4} strokeDasharray="20 14" /><text x={770} y={980} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={40} fill="#ffd86a">40 M</text></g></Lot></S> },
+    <g opacity={sat((c.t - 20) / 10)}><path d="M300 900 L1240 900" stroke="#ffd86a" strokeWidth={4} strokeDasharray="20 14" /><text x={770} y={880} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={44} fill="#ffd86a">40 M</text></g></Lot></S> },
 ];
 // fix the Ruiz close-up: he talks in it
 c11[9] = { at: ["ruiz1"], r: c => <S cam={mv(c, onHead(280, 1000, 1.1 * 1.06, 2.2, 80, 30), onHead(280, 1000, 1.1 * 1.06, 2.35, 80, 30))}><RadioBench f={c.f} on={1}>{P(RUIZ, { facing: 1, talk: c.talk("ruiz1"), mouth: "flat", brow: 0.2, look: [0.8, 0.2] }, 280, 1000, 1.1, c.f, 3, "#ffd86a")}</RadioBench></S> };
@@ -114,7 +114,7 @@ export const C13_LEN = chLen("c13", VO_C13);
 // ================= C14 — Day 30: the safe zone =================
 const cp = (c: Ctx, cam: number[][], holt: any, kids: any = {}, showKids = true) => <S cam={camAt(c.t, [[0, ...cam[0]], [c.d, ...cam[1]]])}><Checkpoint f={c.f}>
   {showKids && P(KAI_PACK, { facing: 1, aR: [88, 2], aL: [84, 4], mouth: "flat", look: [0.8, 0], ...kids }, 700, 1000, 1.0, c.f, 1)}
-  {showKids && P(MIRA, { facing: 1, aR: [88, 2], aL: [84, 4], mouth: "worried", look: [0.8, -0.2] }, 520, 1000, 1.0, c.f, 2)}
+  {showKids && P(MIRA, { facing: 1, aR: [88, 2], aL: [84, 4], mouth: "worried", look: [0.8, -0.2] }, 440, 1000, 1.0, c.f, 2)}
   {P(HOLT, { facing: -1, hold: "torch", beam: 1, aR: [82, 8], look: [0.7, 0.2], ...holt }, 1180, 1000, 1.05, c.f, 6)}</Checkpoint></S>;
 const c14: Shot[] = [
   { at: ["n1"], r: c => <S cam={mv(c, [0, -60, 1.0], [0, -60, 1.08])}><Checkpoint f={c.f}><g transform="translate(-200 980) scale(0.8)"><BoxTruck lights dirty={0.7} /></g>{P(HOLT, { facing: -1, hold: "rifle", aR: [50, 70], aL: [40, 60] }, 1180, 1000, 1.05, c.f, 6)}</Checkpoint></S> },

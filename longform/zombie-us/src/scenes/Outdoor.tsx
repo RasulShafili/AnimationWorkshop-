@@ -57,26 +57,37 @@ export const Highway: React.FC<{ f: number; children?: React.ReactNode; man?: bo
   {children}
 </g>;
 
-// ---------- the store roof: Kai's spot to watch the street ----------
-export const RoofView: React.FC<{ f: number; children?: React.ReactNode; crowd?: number; turn?: number; canT?: number }> = ({ f, children, crowd = 18, turn = 0, canT = -1 }) => <g>
-  <Sky kind="day" id="rfsky" /><Smoke x={1600} y={300} f={f} s={1.2} />
-  {Array.from({ length: 12 }, (_, i) => <rect key={i} x={-600 + i * 300} y={150 + rnd(i, 3) * 120} width={240} height={500} fill="#8a96aa" />)}
-  {/* street below (seen from above, so it sits high in frame) */}
-  <rect x={-800} y={480} width={3600} height={300} fill="#4a4c54" />{Array.from({ length: 20 }, (_, i) => <rect key={i} x={-800 + i * 200} y={620} width={110} height={10} fill="#e8d86a" />)}
-  <rect x={-800} y={440} width={3600} height={40} fill="#bab4a8" />
-  <g transform="translate(1180 700) scale(0.45)"><Hatchback color="#2f5ab8" /></g>
-  {/* zombies in the street, turning to the noise when turn>0 */}
-  {Array.from({ length: crowd }, (_, i) => { const x = -300 + rnd(i, 2) * 2400, y = 520 + rnd(i, 3) * 230, tgt = 1260; const face = turn > rnd(i, 6) * 0.6 ? (x < tgt ? 1 : -1) : (rnd(i, 4) > 0.5 ? 1 : -1);
-    return { y, el: <Character key={i} look={ZOMBIES[i % ZOMBIES.length]} pose={{ facing: face as 1 | -1, ...zombiePose(f, i), head: turn > rnd(i, 6) * 0.6 ? -6 : 10 }} x={x + (turn > rnd(i, 6) * 0.6 ? (tgt - x) * 0.002 * (f % 300) : 0)} y={y} s={0.34} f={f} seed={i} /> }; })
+// ---------- the store roof, side section: Kai up on the roof (left), the street far below (right) ----------
+// roof top y=520 (stand Kai at y=520, s≈0.8), building wall x=720, street ground y=1010. The can flies from Kai's hand
+// to the car roof. turn>0 makes the infected turn toward the car.
+export const ROOF_Y = 520, WALL_X = 720;
+export const RoofView: React.FC<{ f: number; children?: React.ReactNode; crowd?: number; turn?: number; canT?: number }> = ({ f, children, crowd = 16, turn = 0, canT = -1 }) => {
+  const carX = 1380, carTop = 1010 - 300 * 0.5;
+  return <g>
+  <Sky kind="day" id="rfsky" /><Smoke x={1700} y={420} f={f} s={1.3} />
+  {Array.from({ length: 14 }, (_, i) => <rect key={i} x={-600 + i * 260} y={300 + rnd(i, 3) * 160} width={210} height={700} fill="#9aa6ba" />)}
+  <rect x={-800} y={760} width={3600} height={40} fill="#b8c4d4" opacity={0.6} />
+  {/* street + far sidewalk */}
+  <rect x={-800} y={900} width={3600} height={40} fill="#bab4a8" /><rect x={-800} y={940} width={3600} height={400} fill="#4a4c54" />
+  {Array.from({ length: 20 }, (_, i) => <rect key={i} x={-800 + i * 200} y={1040} width={110} height={10} fill="#e8d86a" />)}
+  <g transform={`translate(${carX - 195} 1010) scale(0.5)`}><Hatchback color="#2f5ab8" /></g>
+  {Array.from({ length: crowd }, (_, i) => { const x0 = 860 + rnd(i, 2) * 1500, y = 975 + rnd(i, 3) * 70, on = turn > rnd(i, 6) * 0.7; const x = on ? x0 + (carX - x0) * 0.25 * turn : x0;
+    return { y, el: <Character key={i} look={ZOMBIES[i % ZOMBIES.length]} pose={{ facing: (on ? (x < carX ? 1 : -1) : (rnd(i, 4) > 0.5 ? 1 : -1)) as 1 | -1, ...zombiePose(f, i), head: on ? -4 : 10 }} x={x} y={y} s={0.42} f={f} seed={i} /> }; })
     .sort((a, b) => a.y - b.y).map(o => o.el)}
-  {/* the can arc: from the roof (left, low) to the car roof */}
-  {canT >= 0 && canT < 24 && (() => { const u = canT / 24, x = lerp(300, 1300, u), y = lerp(980, 620, u) - Math.sin(u * Math.PI) * 300; return <g transform={`translate(${x} ${y}) rotate(${canT * 30})`}><rect x={-12} y={-16} width={24} height={32} rx={3} fill="#c8342c" /><rect x={-12} y={-6} width={24} height={10} fill="#f2ead8" /></g>; })()}
-  {canT >= 24 && canT < 40 && <g transform="translate(1300 620)">{Array.from({ length: 8 }, (_, i) => <line key={i} x1={0} y1={0} x2={Math.cos(i * 0.8) * (20 + (canT - 24) * 4)} y2={Math.sin(i * 0.8) * (20 + (canT - 24) * 4)} stroke="#fff" strokeWidth={5} opacity={1 - (canT - 24) / 16} />)}</g>}
-  {/* roof parapet in the foreground */}
-  <rect x={-800} y={860} width={3600} height={400} fill="#6a6e78" /><rect x={-800} y={850} width={3600} height={24} fill="#8a8e98" /><Noise x={-800} y={860} w={3600} h={400} freq={0.5} o={0.3} />
-  <g transform="translate(1500 860)"><rect x={0} y={-120} width={220} height={120} fill="#9aa0aa" /><rect x={10} y={-110} width={200} height={10} fill="#7a808a" />{Array.from({ length: 6 }, (_, i) => <rect key={i} x={20 + i * 32} y={-90} width={20} height={70} fill="#5a606a" />)}</g>
+  {/* the can: from the roof edge to the car roof */}
+  {canT >= 0 && canT < 26 && (() => { const u = canT / 26, x = lerp(640, carX, u), y = lerp(ROOF_Y - 190, carTop, u) - Math.sin(u * Math.PI) * 220; return <g transform={`translate(${x} ${y}) rotate(${canT * 30})`}><rect x={-10} y={-13} width={20} height={26} rx={3} fill="#c8342c" /><rect x={-10} y={-5} width={20} height={8} fill="#f2ead8" /></g>; })()}
+  {canT >= 26 && canT < 44 && <g transform={`translate(${carX} ${carTop})`}>{Array.from({ length: 8 }, (_, i) => <line key={i} x1={0} y1={0} x2={Math.cos(i * 0.8) * (20 + (canT - 26) * 4)} y2={Math.sin(i * 0.8) * (20 + (canT - 26) * 4)} stroke="#fff" strokeWidth={5} opacity={1 - (canT - 26) / 18} />)}</g>}
+  {canT >= 26 && <g transform={`translate(${carX + 40} ${carTop + 4}) rotate(90)`}><rect x={-10} y={-13} width={20} height={26} rx={3} fill="#c8342c" /></g>}
+  {/* the building (store) on the left: brick wall, boarded windows, FRESHWAY sign, roof with parapet + HVAC */}
+  <rect x={-800} y={ROOF_Y} width={WALL_X + 800} height={900} fill="#8a5a46" />
+  <clipPath id="roofwall"><rect x={-800} y={ROOF_Y} width={WALL_X + 800} height={900} /></clipPath><g clipPath="url(#roofwall)">{Array.from({ length: 30 }, (_, r) => Array.from({ length: 16 }, (_, k) => <rect key={`${r}-${k}`} x={-800 + k * 100 + (r % 2) * 50} y={ROOF_Y + 30 + r * 36} width={94} height={30} fill="#9a6a52" opacity={0.6} />))}</g>
+  <rect x={WALL_X - 14} y={ROOF_Y} width={14} height={900} fill="#000" opacity={0.25} />
+  {[[120, 640], [420, 640]].map(([x, y], i) => <g key={i}><rect x={x} y={y} width={200} height={160} fill="#141820" />{[0, 1, 2].map(k => <rect key={k} x={x - 14} y={y + 20 + k * 50} width={228} height={26} fill="#a8865a" transform={`rotate(${(k - 1) * 4} ${x + 100} ${y + 33 + k * 50})`} />)}</g>)}
+  <rect x={60} y={850} width={560} height={90} rx={8} fill="#2f8a4e" /><text x={340} y={912} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={60} fill="#fff" letterSpacing={6}>FRESHWAY</text>
+  <rect x={-800} y={ROOF_Y - 24} width={WALL_X + 820} height={30} fill="#7a5a4a" /><rect x={-800} y={ROOF_Y - 30} width={WALL_X + 830} height={10} fill="#c8ccd4" />
+  <g transform={`translate(80 ${ROOF_Y - 24})`}><rect x={0} y={-130} width={230} height={130} fill="#9aa0aa" />{Array.from({ length: 6 }, (_, i) => <rect key={i} x={18 + i * 34} y={-110} width={20} height={80} fill="#5a606a" />)}<circle cx={115} cy={-150} r={34} fill="#7a808a" /></g>
   {children}
-</g>;
+  </g>; };
 
 // ---------- box truck (side view facing RIGHT; text never mirrored) ----------
 export const BoxTruck: React.FC<{ wheelRot?: number; lights?: boolean; dirty?: number }> = ({ wheelRot = 0, lights = false, dirty = 0 }) => <g>
@@ -90,7 +101,7 @@ export const BoxTruck: React.FC<{ wheelRot?: number; lights?: boolean; dirty?: n
   <rect x={740} y={-200} width={30} height={8} rx={3} fill="#9a9a9a" /><rect x={896} y={-180} width={26} height={30} rx={4} fill={lights ? "#fff6c8" : "#c8c4b0"} />{lights && <Glow x={940} y={-165} r={180} color="#fff2c0" o={0.6} />}
   <rect x={640} y={-100} width={290} height={24} fill="#2a2a30" /><rect x={-10} y={-90} width={60} height={20} fill="#2a2a30" />
   {[150, 470, 790].map(x => <g key={x}><path d={`M${x - 70} -76 A70 70 0 0 1 ${x + 70} -76 Z`} fill="#121318" /><Wheel cx={x} cy={-44} r={52} rot={wheelRot} /></g>)}
-  {dirty > 0 && <rect x={0} y={-460} width={930} height={400} fill="#6a5a3a" opacity={dirty * 0.25} />}
+  {dirty > 0 && <rect x={0} y={-460} width={640} height={380} rx={10} fill="#6a5a3a" opacity={dirty * 0.25} />}
 </g>;
 
 // ---------- the parking lot at night, store facade behind (sign dark) ----------

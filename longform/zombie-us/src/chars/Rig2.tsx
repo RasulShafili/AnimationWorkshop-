@@ -188,7 +188,7 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
     {/* mouth: lip-sync overrides the expression while talking */}
     {talkO > 0.06 || P.mouth === "open" || P.mouth === "shout" || P.mouth === "o"
       ? (() => { const o = P.mouth === "shout" ? 1 : P.mouth === "o" ? 0.6 : P.mouth === "open" ? 0.7 : talkO; const w = P.mouth === "o" ? 7 : 8 + 6 * o, hgt = 3 + 15 * o;
-        return <g><ellipse cx={mx} cy={my + hgt * 0.35} rx={w} ry={hgt * 0.6 + 1.5} fill="#120d14" /><ellipse cx={mx} cy={my + hgt * 0.62} rx={w * 0.6} ry={hgt * 0.22} fill="#d4626e" opacity={o > 0.3 ? 0.8 : 0} /></g>; })()
+        return <g><ellipse cx={mx} cy={my + hgt * 0.35} rx={Z ? w * 1.3 : w} ry={hgt * 0.6 + 1.5} fill="#120d14" /><ellipse cx={mx} cy={my + hgt * 0.62} rx={w * 0.6} ry={hgt * 0.22} fill={Z ? "#6a2a3a" : "#d4626e"} opacity={o > 0.3 ? 0.8 : 0} />{Z && [-1, -0.33, 0.33, 1].map((k, i) => <path key={i} d={`M${mx + k * w * 0.9 - 3} ${my + hgt * 0.35 - hgt * 0.6} l3 ${4 + o * 3} l3 ${-4 - o * 3} Z`} fill="#e8e4c8" />)}</g>; })()
       : <path d={mouthD[P.mouth] ?? mouthD.flat} stroke="#f4f1ea" strokeWidth={4.2} fill={P.mouth === "grin" ? "#120d14" : "none"} strokeLinecap="round" />}
     {P.mouth === "grin" && talkO <= 0.06 && <path d={`M${mx - 15} ${my - 8} Q${mx} ${my + 14} ${mx + 15} ${my - 8} Z`} fill="#120d14" stroke="#f4f1ea" strokeWidth={3} />}
     {look.earring && <path d={`M${hc[0] - 44} ${hc[1] + 30} l3 7 7 1 -5 5 1 7 -6 -3 -6 3 1 -7 -5 -5 7 -1 Z`} fill={look.earring} />}

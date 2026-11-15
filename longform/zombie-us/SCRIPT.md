@@ -169,7 +169,7 @@ map; a gas station with a hand pump; snowy mountains. Data viz: people-per-squar
 VISUAL: checkpoint at dusk: floodlights, fence, soldiers. Holt checks sleeves with a torch. Tent city inside, cooking
 fires. Mira pulls Kai to a missing-persons board covered in photos → a hospital badge photo: DR. GRACE COLE,
 note "ARRIVED DAY 12 · TENT 48".
-- [c14.n1] NARRATOR: Day thirty. A fence. Floodlights. Soldiers.
+- [c14.n1] NARRATOR: Day thirty. A tall fence. Floodlights. Soldiers.
 - [c14.holt1] HOLT: Sleeves up. Both arms. Let me see your necks… You're clean. Welcome to Montana.
 - [c14.n2] NARRATOR: Out of three hundred and thirty million Americans, only a few hundred thousand made it here.
 - [c14.n3] NARRATOR: The virus wasn't stopped by soldiers. It was stopped by cold, by distance, and by empty land.

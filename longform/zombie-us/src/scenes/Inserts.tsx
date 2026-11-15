@@ -97,25 +97,29 @@ export const RatCat: React.FC<{ f: number }> = ({ f }) => { const rx = lerp(300,
 // ---------- radio workbench (dark store), wire up to the roof ----------
 export const RadioBench: React.FC<{ f: number; on?: number; children?: React.ReactNode }> = ({ f, on = 0, children }) => <g>
   <rect x={-600} y={-200} width={3200} height={1500} fill="#0c0e14" />
-  <rect x={-600} y={640} width={3200} height={700} fill="#14161c" /><rect x={200} y={600} width={1500} height={40} fill="#3a3e48" /><rect x={200} y={640} width={1500} height={300} fill="#262a32" />
-  <path d="M1250 560 Q1300 200 1500 -100" stroke="#c8a83a" strokeWidth={4} fill="none" />
-  <g transform="translate(1100 600)"><rect x={-180} y={-160} width={360} height={160} rx={14} fill="#4a3a2e" /><rect x={-160} y={-140} width={180} height={120} rx={8} fill="#2a221c" />{Array.from({ length: 8 }, (_, i) => <line key={i} x1={-150} y1={-130 + i * 14} x2={10} y2={-130 + i * 14} stroke="#4a3a2e" strokeWidth={4} />)}
-    <rect x={40} y={-140} width={120} height={46} rx={4} fill={on ? "#ffd86a" : "#4a4030"} /><line x1={60 + ((f * 0.8) % 80)} y1={-136} x2={60 + ((f * 0.8) % 80)} y2={-98} stroke="#c8282a" strokeWidth={3} />{on > 0 && <Glow x={100} y={-117} r={120} color="#ffd86a" o={0.5} />}
+  {Array.from({ length: 8 }, (_, i) => <rect key={i} x={-500 + i * 420} y={150} width={380} height={520} fill="#12161e" />)}
+  <rect x={-600} y={690} width={3200} height={700} fill="#14161c" />
+  {/* counter (waist height) */}
+  <rect x={200} y={812} width={1500} height={34} fill="#3a3e48" /><rect x={200} y={846} width={1500} height={190} fill="#262a32" />
+  <path d="M1250 690 Q1300 300 1500 -100" stroke="#c8a83a" strokeWidth={4} fill="none" />
+  <g transform="translate(1100 812)"><rect x={-180} y={-160} width={360} height={160} rx={14} fill="#4a3a2e" /><rect x={-160} y={-140} width={180} height={120} rx={8} fill="#2a221c" />{Array.from({ length: 8 }, (_, i) => <line key={i} x1={-150} y1={-130 + i * 14} x2={10} y2={-130 + i * 14} stroke="#4a3a2e" strokeWidth={4} />)}
+    <rect x={40} y={-140} width={120} height={46} rx={4} fill={on ? "#ffd86a" : "#4a4030"} /><line x1={60 + ((f * 0.8) % 80)} y1={-136} x2={60 + ((f * 0.8) % 80)} y2={-98} stroke="#c8282a" strokeWidth={3} />{on > 0 && <Glow x={100} y={-117} r={160} color="#ffd86a" o={0.5} />}
     <circle cx={70} cy={-50} r={22} fill="#1a1612" /><circle cx={130} cy={-50} r={22} fill="#1a1612" /><path d="M160 -160 L230 -340" stroke="#888" strokeWidth={6} /></g>
-  <g transform="translate(560 600)"><rect x={-110} y={-120} width={220} height={120} rx={10} fill="#1a1a1e" /><rect x={-70} y={-140} width={30} height={22} fill="#c8282a" /><rect x={40} y={-140} width={30} height={22} fill="#2a2a2a" /><text x={0} y={-50} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={24} fill="#888">12V</text></g>
-  <path d="M500 480 Q700 420 940 520" stroke="#c8282a" strokeWidth={5} fill="none" /><path d="M630 480 Q800 450 960 540" stroke="#222" strokeWidth={5} fill="none" />
+  <g transform="translate(560 812)"><rect x={-110} y={-120} width={220} height={120} rx={10} fill="#1a1a1e" /><rect x={-70} y={-140} width={30} height={22} fill="#c8282a" /><rect x={40} y={-140} width={30} height={22} fill="#2a2a2a" /><text x={0} y={-50} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={24} fill="#888">12V</text></g>
+  <path d="M500 690 Q700 630 940 730" stroke="#c8282a" strokeWidth={5} fill="none" /><path d="M630 690 Q800 660 960 750" stroke="#222" strokeWidth={5} fill="none" />
+  {on > 0 && <Glow x={1150} y={700} r={900} color="#ffc860" o={0.18} />}
   {children}
 </g>;
 
 // ---------- data viz ----------
 export const Doubling: React.FC<{ f: number; k: number }> = ({ f, k }) => { const gen = Math.min(10, Math.floor(k * 11)), n = Math.pow(2, gen);
-  const cols = Math.max(1, Math.ceil(Math.sqrt(n * 2.2))), rows = Math.ceil(n / cols), cell = Math.min(1500 / cols, 640 / rows), sc = cell / 60;
-  const ox = 960 - (cols * cell) / 2 + cell / 2, oy = 260 + (640 - rows * cell) / 2 + cell / 2;
+  const cols = Math.max(1, Math.ceil(Math.sqrt(n * 2.6))), rows = Math.ceil(n / cols), cell = Math.min(1500 / cols, 560 / rows), sc = cell / 60 * (1 + 0.04 * Math.sin(f * 0.2));
+  const ox = 960 - (cols * cell) / 2 + cell / 2, oy = 250 + (560 - rows * cell) / 2 + cell / 2;
   return <SV bg="#0a0e18">
     <text x={960} y={140} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={64} fill="#fff">ROUND {gen}: <tspan fill="#ff4a3a">{n.toLocaleString()}</tspan> INFECTED</text>
     {Array.from({ length: n }, (_, i) => { const x = ox + (i % cols) * cell, y = oy + Math.floor(i / cols) * cell, fresh = i >= n / 2 && gen > 0;
       return <g key={i} transform={`translate(${x} ${y}) scale(${sc})`}><circle cx={0} cy={-12} r={12} fill={fresh ? "#ff7a5a" : "#d8322a"} /><path d="M-16 24 Q-16 4 0 4 Q16 4 16 24 Z" fill={fresh ? "#ff7a5a" : "#d8322a"} /></g>; })}
-    <text x={960} y={1000} textAnchor="middle" fontFamily="Inter" fontWeight={800} fontSize={36} fill="#8a9ab8" letterSpacing={4}>EVERY ROUND, EVERY INFECTED PERSON BITES TWO</text>
+    <text x={960} y={200} textAnchor="middle" fontFamily="Inter" fontWeight={800} fontSize={30} fill="#8a9ab8" letterSpacing={4}>EVERY ROUND, EVERY INFECTED PERSON BITES TWO</text>
   </SV>; };
 export const Density: React.FC<{ f: number; k: number }> = ({ f, k }) => <SV bg="#0a0e18">
   {[["NEW YORK CITY", 29000, 140, "#ff5a4a"], ["MONTANA", 7.5, 1100, "#4ae88a"]].map(([name, per, x, c], j) => { const n = j === 0 ? 290 : 1; return <g key={j}>
@@ -167,7 +171,7 @@ export const ER: React.FC<{ f: number; talk: number; children?: React.ReactNode 
     <rect x={0} y={560} width={W} height={20} fill="#6aa8c8" /><g transform="translate(960 120)"><rect x={-120} y={-30} width={240} height={60} rx={12} fill="#c8282a" /><text x={0} y={12} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={34} fill="#fff">EMERGENCY</text></g>
     {/* gurney */}
     <g transform="translate(1500 860)"><rect x={-200} y={-80} width={400} height={30} rx={8} fill="#e8ecf0" /><rect x={-180} y={-50} width={10} height={100} fill="#8a8a94" /><rect x={170} y={-50} width={10} height={100} fill="#8a8a94" /><circle cx={-175} cy={60} r={14} fill="#333" /><circle cx={175} cy={60} r={14} fill="#333" /></g>
-    <Character look={MOM} pose={{ facing: 1, hold: "phone", aR: [52, 120], aL: [10, 20], talk, brow: 0, browIn: 0.8, mouth: "worried", look: [0.6, 0.2] }} x={820} y={1080} s={1.9} f={f} seed={5} rim={{ dx: 5, dy: -3, color: "#ff5a4a" }} />
+    <Character look={MOM} pose={{ facing: 1, hold: "phone", aR: [34, 96], aL: [10, 20], talk, brow: 0, browIn: 0.8, mouth: "worried", look: [0.6, 0.2] }} x={820} y={1080} s={1.9} f={f} seed={5} rim={{ dx: 5, dy: -3, color: "#ff5a4a" }} />
     <rect width={W} height={H} fill="#ff2a2a" opacity={0.12 + 0.1 * alarm} style={{ mixBlendMode: "multiply" }} />
     <Glow x={960} y={120} r={500} color="#ff3a2a" o={0.35 * alarm} />
     {children}
@@ -215,3 +219,21 @@ export const EndCard: React.FC<{ f: number }> = ({ f }) => <SV bg="#0a0e14">
   <text x={110} y={220} fontFamily="Inter" fontWeight={800} fontSize={36} fill="#e8742a" opacity={sat((f - 8) / 12)}>WOULD YOU HAVE OPENED THE DOOR?</text>
   <g opacity={sat((f - 20) / 10)} transform={`translate(520 1010) scale(${1 + 0.04 * Math.sin(f * 0.15)})`}><rect x={-230} y={-44} width={460} height={88} rx={44} fill="#e8322a" /><text x={0} y={16} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={40} fill="#fff">SUBSCRIBE FOR PART 2</text></g>
 </SV>;
+
+// ---------- jump moment: an infected face pressed against the glass, breath fogging it ----------
+export const GlassFace: React.FC<{ f: number; t: number }> = ({ f, t }) => { const press = easeOut(t / 5), sh = t < 8 ? Math.sin(t * 3) * 6 : 0;
+  const HandG: React.FC<{ x: number; y: number; r: number; s: number }> = ({ x, y, r, s }) => <g transform={`translate(${x} ${y}) rotate(${r}) scale(${s})`}><ellipse cx={0} cy={0} rx={30} ry={36} fill="#7a9474" />{[-22, -8, 6, 20].map((fx, k) => <rect key={k} x={fx - 6} y={-74 + Math.abs(k - 1.5) * 6} width={13} height={44} rx={6} fill="#7a9474" />)}<rect x={26} y={-14} width={12} height={34} rx={6} fill="#7a9474" transform="rotate(30 30 0)" /><ellipse cx={0} cy={0} rx={40} ry={50} fill="#d8ffe0" opacity={0.08} /></g>;
+  return <svg width={W} height={H} style={{ position: "absolute" }}>
+    <rect width={W} height={H} fill="#0a1222" />
+    <g transform={`translate(${sh} 0) translate(960 540) scale(${1 + 0.05 * press + t * 0.002}) translate(-960 -540)`}>
+      <g style={{ filter: "blur(6px)" }} opacity={0.6}>{Array.from({ length: 10 }, (_, i) => <Character key={i} look={ZOMBIES[(i + 3) % ZOMBIES.length]} pose={{ facing: (i % 2 ? 1 : -1) as 1 | -1, ...zombiePose(f, i) }} x={100 + i * 190} y={900} s={0.9} f={f} seed={i} />)}</g>
+      <Glow x={1500} y={150} r={500} color="#fff0b0" o={0.18} />
+      <Character look={ZOMBIES[5]} pose={{ facing: 1, ...zombiePose(f, 2), aR: [10, 10], aL: [10, 10], mouth: "open", head: 0, lean: 0 }} x={940} y={1560} s={2.9} f={f} seed={4} />
+      <path d="M830 690 Q690 600 590 500" stroke="#3a4458" strokeWidth={70} strokeLinecap="round" fill="none" /><path d="M1050 690 Q1210 590 1330 480" stroke="#3a4458" strokeWidth={70} strokeLinecap="round" fill="none" />
+      <path d="M640 560 Q610 530 590 500" stroke="#7a9474" strokeWidth={56} strokeLinecap="round" fill="none" /><path d="M1290 530 Q1310 505 1330 480" stroke="#7a9474" strokeWidth={56} strokeLinecap="round" fill="none" />
+      <HandG x={560} y={430} r={-18} s={2.4 + 0.1 * press} /><HandG x={1360} y={400} r={16} s={2.4 + 0.1 * press} />
+      <ellipse cx={985} cy={690} rx={170 * (0.6 + 0.4 * Math.abs(Math.sin(t * 0.15)))} ry={90} fill="#e8f4f0" opacity={0.18} />
+      {Array.from({ length: 6 }, (_, i) => <path key={i} d={`M${i * 380 - 200} 0 l140 0 l-300 1080 l-140 0 Z`} fill="#fff" opacity={0.04} />)}
+    </g>
+    <rect width={W} height={H} fill="#4a8ac8" opacity={0.08} style={{ mixBlendMode: "screen" }} />
+  </svg>; };

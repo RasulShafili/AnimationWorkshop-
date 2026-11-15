@@ -91,7 +91,7 @@ export const NerveMicro: React.FC<{ f: number; k?: number }> = ({ f, k = 1 }) =>
   {Array.from({ length: 14 }, (_, i) => { const u = ((f * 0.004 * k + i / 14) % 1); const t = u; const bx = lerp(-100, 2050, t), by = 900 - 780 * Math.pow(t, 1.2) + Math.sin(t * 9) * 60;
     return <g key={i} transform={`translate(${bx} ${by}) rotate(${-25 - t * 10})`}><rect x={-34} y={-13} width={60} height={26} rx={13} fill="#7ad86a" /><path d="M26 -13 L40 0 L26 13 Z" fill="#7ad86a" />{[-24, -12, 0, 12].map(s => <line key={s} x1={s} y1={-13} x2={s} y2={13} stroke="#3a8a3a" strokeWidth={3} />)}<Glow x={0} y={0} r={50} color="#a8ff8a" o={0.35} /></g>; })}
   <text x={1840} y={90} textAnchor="end" fontFamily="Inter" fontWeight={900} fontSize={34} fill="#ffd88a" letterSpacing={6}>→ BRAIN</text>
-  <text x={80} y={1010} fontFamily="Inter" fontWeight={800} fontSize={28} fill="#8ab0c8" letterSpacing={4}>NERVE FIBRE · ×40,000</text>
+  <text x={80} y={90} fontFamily="Inter" fontWeight={800} fontSize={28} fill="#8ab0c8" letterSpacing={4}>NERVE FIBRE · ×40,000</text>
 </svg>;
 
 // ---------- Atlanta airport ----------
