@@ -12,3 +12,4 @@
 - [Long-form cartoon format](longform-cartoon-format.md) — ~7–8 min 16:9 YouTube what-ifs, cinematic 2D like the Ifverse reference, own characters; 3–5 h per video OK
 - [Keep skills updated](keep-skills-updated.md) — read Animations/.claude/skills/*/SKILL.md before a job; write every new lesson back into them
 - [Long-form approved method](longform-approved-method.md) — owner loved never-forget (2026-11-14): Rig2 + Chatterbox + strict 640px QA; plan 1,300 words for 8:00+
+- [Thumbnail answers title](thumbnail-matches-title.md) — long-form thumbnail = answer to the title's question, power visible, bright; A got 0.6% CTR

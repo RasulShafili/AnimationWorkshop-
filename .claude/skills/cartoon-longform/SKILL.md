@@ -140,6 +140,11 @@ amplitude; more varied body shapes per character.
 ## 9. Lessons 2026-11-14 (after hearing-100x got 21 views in 36 h)
 - Pick the topic with `outliers.py "<queries>" --long --kw any` (scans /videos tabs): winners are mind/perception
   powers with social/emotional stakes. Details: `longform/never-forget/NOTES.md`.
+- **Thumbnail must ANSWER the title** (owner, 2026-11-15: "tumbnail mənasızdır, adı ilə uyğun gəlmir"). never-forget
+  thumbnail A "SHE FORGOT ME." on a dark background got **0.6% CTR** while the video held 43% retention. Rule: title
+  = the question, thumbnail = the answer/proof ("What If You Could Never Forget Anything?" → "I REMEMBER EVERY
+  SECOND." + memory streams into gold eyes). Show the power on screen, bright saturated background (dark purple
+  disappears in YouTube dark mode), 3–4 word quote. Check CTR in Studio after 24–48 h; < 2% → swap the thumbnail.
 - **Thumbnail:** big emotional face (≥40% of frame), rich lit scene, a neon glow line linking hero → other character
   or object, and a 1–3 word *story quote* ("SHE FORGOT ME.", "I KNEW.") — never the title words on an empty background.
   Make 2 variants for YouTube Studio "Test & compare". Reference sheet: `assets/refs/thumbs/sheet.jpg`.
