@@ -1,0 +1,702 @@
+[
+ {
+  "out": "vo/c1_n1.wav",
+  "text": "Day three. Two fourteen in the morning. You've just locked the doors of the supermarket you work in.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n2.wav",
+  "text": "Outside, the parking lot is full. Nobody out there is shopping.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_mira1.wav",
+  "text": "Kai... are they gonna get in?",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_kai1.wav",
+  "text": "Not if we stay quiet. Turn off the light.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_n3.wav",
+  "text": "Three days ago, this was a normal Tuesday. Now the whole country is falling apart.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n4.wav",
+  "text": "What if a zombie virus started in the United States?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n1.wav",
+  "text": "Day one. Seven a.m. You just got home from your night shift. Your mom is leaving for hers.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_mom1.wav",
+  "text": "There's pancakes in the fridge. Mira's bus is at eight. Don't let her take that walkie-talkie to school.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_mira1.wav",
+  "text": "It's for emergencies!",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c2_mom2.wav",
+  "text": "Kai. If anything ever happens, you look after your sister. Promise me.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_kai1.wav",
+  "text": "Mom, nothing's gonna happen. It's Tuesday.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n2.wav",
+  "text": "On the TV behind her, nobody is paying attention to a tiny story from West Texas.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n1.wav",
+  "text": "It doesn't start in a lab. It starts in a barn, with a bat.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n2.wav",
+  "text": "A rancher tries to move it off a beam.|It bites his hand.|A tiny bite.|He wraps it and forgets about it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n3.wav",
+  "text": "Here's the thing. Something like this already exists.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_fact1.wav",
+  "text": "Rabies travels along your nerves, all the way up to your brain.|It makes animals aggressive.|It makes them want to bite.|And once the symptoms start, it's almost always fatal.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n4.wav",
+  "text": "Rabies is slow. It takes weeks. This one takes six hours.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n5.wav",
+  "text": "And that afternoon, the rancher gets on a plane.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n1.wav",
+  "text": "His connection is in Atlanta. The busiest airport on the planet.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_fact1.wav",
+  "text": "Atlanta's airport handles more than a hundred million passengers a year.|That's almost three hundred thousand people every single day.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n2.wav",
+  "text": "When he lands, he's burning with fever, confused... and angry.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n3.wav",
+  "text": "At gate B twelve, he bites a security guard.|The guard finishes his shift and goes home to his family.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n4.wav",
+  "text": "And the three hundred passengers who walked past them are now flying to forty different cities.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n1.wav",
+  "text": "Here's what makes zombies so scary. Not the teeth. The math.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_fact1.wav",
+  "text": "In two thousand nine, mathematicians in Canada actually modelled a zombie outbreak.|Their result: unless the response is fast and hard, zombies win.|Every single time.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n2.wav",
+  "text": "One infected person bites two.|Those two bite four.|After ten rounds, that's a thousand people.|After twenty, it's a million.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n3.wav",
+  "text": "Eleven p.m. You're stocking cereal when your phone starts buzzing. And it doesn't stop.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_kai1.wav",
+  "text": "Attacks at the airport? That's fifteen minutes from here.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_mom1.wav",
+  "text": "Kai, listen to me. Don't come to the hospital. Whatever happens, do not come here.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_kai2.wav",
+  "text": "Mom? Mom, what's going on?",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_mom2.wav",
+  "text": "Get Mira in the morning. Stay together. I love you, okay? I have to go.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n4.wav",
+  "text": "The line goes dead. That's the last time you hear her voice.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n1.wav",
+  "text": "Day two. You run home and grab Mira. Every phone in the city screams at the same time.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_mira1.wav",
+  "text": "Where's Mom?",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_kai1.wav",
+  "text": "She's at work. She's fine. She'll call. Come on.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n2.wav",
+  "text": "And everybody has the same idea: get in the car and get out.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_fact1.wav",
+  "text": "When Hurricane Rita threatened Texas in two thousand five, around three million people tried to evacuate at once.|The traffic jam stretched for over a hundred miles.|Cars ran out of gas on the highway.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n3.wav",
+  "text": "A highway full of stuck cars is the worst place to be.|You can't drive.|You can't run.|You can't hide.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n4.wav",
+  "text": "So you do the opposite. You walk back to the one place with food, water, and steel shutters.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_ruiz1.wav",
+  "text": "Kai! Thank God. Get inside, quick. Who's this?",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_kai1.wav",
+  "text": "My sister, Mira. Mira, this is Mr. Ruiz. My boss.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_ruiz2.wav",
+  "text": "Not anymore, kid. Today we're just neighbours.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_n1.wav",
+  "text": "A supermarket sounds like the perfect hideout. But stores don't actually store very much.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_fact1.wav",
+  "text": "Most supermarkets get deliveries almost every day.|If the trucks stop, the shelves are empty in about three days.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n2.wav",
+  "text": "Except nobody else is coming here. They're all stuck on the highway.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n3.wav",
+  "text": "Which brings you back to two fourteen a.m. And the hand on the glass.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n1.wav",
+  "text": "Day five. You start watching them from the roof. And you learn the rules.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n2.wav",
+  "text": "Rule one: they hunt by sound.|One can on a car roof, and every head on the street turns.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n3.wav",
+  "text": "Rule two: they don't climb. Stairs, ladders, the roof. You're safe up high.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n4.wav",
+  "text": "Rule three: never go anywhere alone.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_fact1.wav",
+  "text": "Survival experts use the rule of threes.|You can last about three minutes without air, three days without water, and three weeks without food.|Water is what you protect first.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_ruiz1.wav",
+  "text": "Two hundred bottles. Four people. We're good for a month.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_kai1.wav",
+  "text": "Four?",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_ruiz2.wav",
+  "text": "Somebody's knocking on the back door.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c9_dana1.wav",
+  "text": "Please! I'm not bitten! I'm a paramedic!",
+  "ref": "vo/refs/dana.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c9_ruiz1.wav",
+  "text": "Everybody says that.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c9_kai1.wav",
+  "text": "She came in daylight. She's alone. Let's check her arms first.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c9_n1.wav",
+  "text": "Opening that door could save a life. Or end four.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n2.wav",
+  "text": "You check her arms, her neck, her hands. Nothing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_dana2.wav",
+  "text": "Thank you. You have no idea what it's like out there.",
+  "ref": "vo/refs/dana.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_dana1.wav",
+  "text": "It's in the brain.|The part that makes you afraid shuts off.|The part that makes you angry goes to full volume.",
+  "ref": "vo/refs/dana.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n1.wav",
+  "text": "That sounds like fiction. But nature already does it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_fact1.wav",
+  "text": "There's a fungus in the rainforest that takes over an ant's body.|It makes the ant climb a plant, bite down, and wait.|Then it grows out of its head.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_fact2.wav",
+  "text": "And a tiny parasite called Toxoplasma makes infected rats lose their fear of cats.|They walk right up to them.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_mira1.wav",
+  "text": "Can Mom get it?",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_dana2.wav",
+  "text": "Your mom works in a hospital, sweetie. Hospitals have plans. She's probably safer than all of us.",
+  "ref": "vo/refs/dana.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n2.wav",
+  "text": "Dana doesn't tell you what she saw at the hospital. And you don't ask.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n1.wav",
+  "text": "Day fourteen. The power is gone. The phones are dead. But radio doesn't need cell towers.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_fact1.wav",
+  "text": "At night, AM radio waves bounce off the upper atmosphere.|A station hundreds of miles away can suddenly come through clearly.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_holt1.wav",
+  "text": "This is Sergeant Holt, U.S.|Army.|A safe zone has been established in Montana.|Repeat, Montana.|Travel north.|Avoid all cities.",
+  "ref": "vo/refs/holt.wav",
+  "exag": 0.45,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_fact2.wav",
+  "text": "And the military really did plan for this.|In two thousand eleven, the Pentagon wrote a training plan called CONPLAN eight eight eight eight.|A plan for zombies.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_fact3.wav",
+  "text": "Scientists at Cornell University simulated a zombie outbreak across America.|The cities fall first.|The safest place is the empty northern Rocky Mountains.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_kai1.wav",
+  "text": "Montana is two thousand miles away.",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_ruiz1.wav",
+  "text": "Then we need a vehicle that isn't stuck on the highway.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n2.wav",
+  "text": "There's one. The delivery truck in the parking lot. Full tank. Forty metres away.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "Day twenty-one. Moonless night. You move in a line. Nobody makes a sound.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n2.wav",
+  "text": "Then Mira's walkie-talkie switches on.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_kai1.wav",
+  "text": "Run! Run!",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c12_ruiz1.wav",
+  "text": "Go, go, go! Get in!",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c12_n3.wav",
+  "text": "You make it. All four of you. But Mr. Ruiz is holding his arm.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_ruiz2.wav",
+  "text": "It's nothing. Just a scratch.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_dana1.wav",
+  "text": "Kai... We need to talk.",
+  "ref": "vo/refs/dana.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_ruiz3.wav",
+  "text": "I know, kid. I know. Take care of your sister. Drive north and don't stop.",
+  "ref": "vo/refs/ruiz.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n4.wav",
+  "text": "At the next crossroads, he gets out. He doesn't look back. You don't either. You can't.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_mira1.wav",
+  "text": "It was my fault.",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_kai2.wav",
+  "text": "Hey. No. It wasn't. He chose to save us. Okay?",
+  "ref": "vo/refs/kai.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c13_n1.wav",
+  "text": "Nine days. Two thousand miles. You avoid every city. You sleep in the truck, one person always awake.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_fact1.wav",
+  "text": "New York City packs about twenty-nine thousand people into every square mile. Montana has fewer than eight.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n2.wav",
+  "text": "And that's the secret.|A virus that spreads by biting needs people close together.|Out here, there's nobody to bite.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n3.wav",
+  "text": "The further north you drive, the colder it gets. And the infected get slower.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n1.wav",
+  "text": "Day thirty. A fence. Floodlights. Soldiers.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_holt1.wav",
+  "text": "Sleeves up. Both arms. Let me see your necks... You're clean. Welcome to Montana.",
+  "ref": "vo/refs/holt.wav",
+  "exag": 0.45,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n2.wav",
+  "text": "Out of three hundred and thirty million Americans, only a few hundred thousand made it here.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n3.wav",
+  "text": "The virus wasn't stopped by soldiers. It was stopped by cold, by distance, and by empty land.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_mira1.wav",
+  "text": "Kai! The board! Look! It's Mom!",
+  "ref": "vo/refs/mira.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c14_n4.wav",
+  "text": "Arrived day twelve. Tent forty-eight.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n1.wav",
+  "text": "Tent forty-eight is empty. Her badge is on the bed. Next to it, a notebook.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n2.wav",
+  "text": "On the last page, in your mom's handwriting, four words.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n3.wav",
+  "text": "The bat wasn't an accident.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n4.wav",
+  "text": "Would you have opened the door for Dana?|Tell us in the comments.|And subscribe, so you don't miss part two.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ }
+]

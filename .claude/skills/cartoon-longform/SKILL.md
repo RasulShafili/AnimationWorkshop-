@@ -159,3 +159,18 @@ amplitude; more varied body shapes per character.
   check its printed `end` equals the composition length.
 - Voices: Chatterbox with our own Kokoro refs per character (`vo/refs/*.wav`), one batch per chapter
   (`tools/chatterbox/batch.py`, ~10 s compute per 1 s speech on this CPU); verify with Whisper small.en.
+
+## 10. Lessons 2026-11-15 (zombie-us)
+- **Timeline player** (`longform/zombie-us/src/Player.tsx`): beats in `src/plan.json` (voice id + pre/post, or silent
+  hold) shared with one generic `tools/audio.py`; shots start at `[beat, fraction]`. Write all chapters in 3 files
+  (chapters/A,B,C.tsx) with small helpers (`S`, `mv`, `onHead`) — much faster than one hand-timed file per chapter.
+- **Depth of field for "inside vs outside":** when a crowd is behind glass, render the outside as its own layer with
+  blur 4 + darkening and keep glass/hands/interior sharp; otherwise heads line up and the heroes look surrounded.
+- **Shot-local time for movement:** anything that travels (crowds, runners) must use `c.t` (time since the shot
+  started), never the chapter frame `c.f` — otherwise it is already far away when the shot begins.
+- **Close-ups:** hide every other character (`show` flags) and background crowds whose legs would hang into frame.
+- **Crowds:** vary professions/outfits; pale glowing eyes with dark sockets; arms forward; 3 depth rows; hands on glass.
+- **Day stamps:** red Permanent Marker "DAY N · TIME" top-left with a dark glow so it reads on bright skies.
+- **Kid voice:** adult Chatterbox ref + asetrate ×1.19 / atempo ×0.84 (`tools/kidify.sh`), check with Whisper.
+- **Voices are the bottleneck** (~10–13 s compute per 1 s speech, one process fits in 6 GB): start the batch first,
+  build scenes/QA previews (scale 0.4) while it runs; fix Whisper-BAD lines in a second small batch.
