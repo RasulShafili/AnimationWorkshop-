@@ -2,7 +2,7 @@ import React from "react";
 import { Composition } from "remotion";
 import { CharSheet } from "./CharSheet";
 import { Test } from "./Test";
-import { TeaserShort, TEASER_LEN } from "./TeaserShort";
+import { TeaserShort, TeaserShort2, TEASER_LEN, TEASER2_LEN } from "./TeaserShort";
 import { Thumb } from "./Thumb";
 import { ChapterCard } from "./ChapterCard";
 import { ExtraTest } from "./ExtraTest";
@@ -51,4 +51,5 @@ export const Root: React.FC = () => <>
   <Composition id="ChapterCard" component={ChapterCard} durationInFrames={54} fps={30} width={1920} height={1080} defaultProps={{ num: 1, title: "x" }} />
   <Composition id="Thumb" component={Thumb} durationInFrames={1} fps={30} width={1280} height={720} defaultProps={{ v: "A" }} />
   <Composition id="TeaserShort" component={TeaserShort} durationInFrames={TEASER_LEN} fps={30} width={1080} height={1920} />
+  <Composition id="TeaserShort2" component={TeaserShort2} durationInFrames={TEASER2_LEN} fps={30} width={1080} height={1920} />
 </>;
