@@ -38,3 +38,6 @@ Requested 2026-11-15 by the owner ("yeni uzun video... what if the zombie virus 
   removed all on-screen chapter cards (YouTube chapters stay in the description only); rebuilt with tools/assemble2.py —
   per-segment AAC + -shortest had cut 60–75 ms of audio per segment, so sound drifted ahead; now one sample-exact wav
   muxed once. Final 9:10 (550.9 s), −14.5 LUFS.
+- PUBLISHED long video by the owner: https://youtu.be/ocqtY5Lc5cs ("What If A Zombie Outbreak Started In Atlanta?", 9:10).
+- Teaser Short posted 2026-11-16 (cold open 0:00–0:29, "DAY 3 OF THE ZOMBIE OUTBREAK"): YT https://www.youtube.com/watch?v=Bu3mPh8HVaY ·
+  IG https://www.instagram.com/reel/DfxvRIpqQWF/ · TT https://tiktok.com/@whatif.lab_daily/video/7708511826446716166. Owner sets Related video → ocqtY5Lc5cs.

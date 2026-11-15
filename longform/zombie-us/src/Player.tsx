@@ -6,6 +6,8 @@ import { AbsoluteFill, useCurrentFrame } from "remotion";
 import PLAN from "./plan.json";
 import { Grain, Vignette } from "./engine/fx";
 import { FactCard, DayStamp, useFonts } from "./ui";
+// owner 2026-11-16: on-screen "DAY N · TIME" stamps at chapter starts feel like chapter cards → off
+const SHOW_DAYS = true;
 export type VO = Record<string, { dur: number; env: number[] }>;
 export type Beat = { id?: string; key?: string; pre?: number; post?: number; hold?: number };
 export type Span = { s: number; line: number; dur: number; e: number };
@@ -33,7 +35,7 @@ export const ChapterPlayer: React.FC<{ ch: string; vo: VO; shots: Shot[]; facts?
     {tint && <AbsoluteFill style={{ background: tint, mixBlendMode: "soft-light", opacity: 0.35, pointerEvents: "none" }} />}
     <Vignette o={0.6} />
     {facts.map(([k, text, side], j) => { const b = T[k]; if (!b) return null; const kk = Math.min((f - b.line + 6) / 12, (b.line + b.dur + 8 - f) / 10); return <FactCard key={j} text={text} k={kk} side={side ?? "left"} />; })}
-    {days.map(([k, day, time, dur], j) => <DayStamp key={j} day={day} time={time} t={f - at(k)} dur={dur ?? 120} />)}
+    {SHOW_DAYS && days.map(([k, day, time, dur], j) => <DayStamp key={j} day={day} time={time} t={f - at(k)} dur={dur ?? 120} />)}
     <Grain f={f} o={0.05} />
   </AbsoluteFill>;
 };

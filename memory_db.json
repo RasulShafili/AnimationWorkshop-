@@ -32,7 +32,8 @@
     "andromeda",
     "hearing-teaser",
     "never-forget-teaser",
-    "never-forget-teaser2"
+    "never-forget-teaser2",
+    "zombie-teaser"
   ],
   "history": [
     {
@@ -590,6 +591,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6af9803576c23bf1c76f26c9"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "zombie-teaser",
+      "title": "Day 3 Of A Zombie Outbreak… Don't Make A Sound 🤫",
+      "published_at": "2026-11-15 21:24:42 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6afa22c906e1675856a7863f"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6afa22d606e1675856a78a46"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6afa22dbdaa378ad68933d10"
         }
       ],
       "status": "published"
