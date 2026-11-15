@@ -34,3 +34,7 @@ Requested 2026-11-15 by the owner ("yeni uzun video... what if the zombie virus 
 - Final cut 2026-11-16: out/zombie-us_full.mp4, 9:36 (576.1 s), −14.5 LUFS, 15 chapters + 14 cards, 135 subtitle cues.
   Upload folder ~/Desktop/YouTube_upload_zombie_us. Background renders were once killed for low RAM while Chatterbox
   (3.7 GB) and a Remotion render ran together → render only after the voice batch ends, concurrency 3.
+- v2 2026-11-16 (owner: "every minute it writes chapter 10, 13 — lowers engagement"; "sound sometimes a bit early"):
+  removed all on-screen chapter cards (YouTube chapters stay in the description only); rebuilt with tools/assemble2.py —
+  per-segment AAC + -shortest had cut 60–75 ms of audio per segment, so sound drifted ahead; now one sample-exact wav
+  muxed once. Final 9:10 (550.9 s), −14.5 LUFS.

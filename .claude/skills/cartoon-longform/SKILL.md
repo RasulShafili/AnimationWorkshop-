@@ -174,3 +174,8 @@ amplitude; more varied body shapes per character.
 - **Kid voice:** adult Chatterbox ref + asetrate ×1.19 / atempo ×0.84 (`tools/kidify.sh`), check with Whisper.
 - **Voices are the bottleneck** (~10–13 s compute per 1 s speech, one process fits in 6 GB): start the batch first,
   build scenes/QA previews (scale 0.4) while it runs; fix Whisper-BAD lines in a second small batch.
+- **No on-screen chapter cards** (owner 2026-11-16: "CHAPTER 10/13 every minute lowers interest"). Chapters live only in
+  the YouTube description. Day/time stamps inside the story are fine.
+- **A/V sync:** never mux audio per chapter and concat (AAC + -shortest loses ~65 ms per segment → sound runs ahead).
+  Concat the silent chapter videos with stream copy, join the chapter wavs sample-exactly, mux once
+  (`longform/zombie-us/tools/assemble2.py`).
