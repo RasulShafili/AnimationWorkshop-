@@ -34,7 +34,8 @@
     "never-forget-teaser",
     "never-forget-teaser2",
     "zombie-teaser",
-    "zombie-teaser2"
+    "zombie-teaser2",
+    "ice-age-teaser"
   ],
   "history": [
     {
@@ -640,6 +641,29 @@
           "post_id": "6afaa4e960a910801c73bbd5",
           "url": "https://www.instagram.com/reel/Dfyu2Sxz7l8/",
           "status": "sent"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "ice-age-teaser",
+      "title": "A 30,000-Year-Old Cave Painting Of… A Phone?! 😳",
+      "published_at": "2026-11-16 19:26:18 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6afb586d23d030fd36c49b0a"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6afb587a08dd0180500b9a1d"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6afb587e08dd0180500b9b18"
         }
       ],
       "status": "published"

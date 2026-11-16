@@ -28,3 +28,6 @@ Upload kit: ~/Desktop/YouTube_upload_ice_age.
 - A waiter `until ! pgrep -f "batch.py jobs.json"` never ends: pgrep -f matches the waiter's own command line. Use `pgrep -f "[b]atch.py"` or wait on the PID.
 - Chatterbox repeated "I'm a friend" twice; splitting the line with "|" into two short parts fixed it (SEED=3).
 - Runtime after all VO: 15153 frames = 8:25.
+- Teaser Short posted 2026-11-16 23:2x Baku (c12 discovery 0:00–0:34.7, hook "A 30,000-YEAR-OLD PAINTING OF A PHONE?!"):
+  YT https://www.youtube.com/watch?v=gC7iAjJbg50 · IG https://www.instagram.com/reel/Df0GdVYgJwj/ ·
+  TT https://tiktok.com/@whatif.lab_daily/video/7708852411670056244. Long video not uploaded yet (owner uploads in Studio).
