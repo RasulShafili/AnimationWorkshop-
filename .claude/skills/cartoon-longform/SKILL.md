@@ -179,3 +179,20 @@ amplitude; more varied body shapes per character.
 - **A/V sync:** never mux audio per chapter and concat (AAC + -shortest loses ~65 ms per segment → sound runs ahead).
   Concat the silent chapter videos with stream copy, join the chapter wavs sample-exactly, mux once
   (`longform/zombie-us/tools/assemble2.py`).
+
+## 11. Lessons 2026-11-16 (ice-age)
+- **Thumbnail first** (owner: "thumbnail is the main thing, make it click-bait"): build A + B before the chapters, both
+  bright (no dark caves — light the cave wall warm orange), one giant shocked face ≥40 % of the frame, ONE impossible
+  detail circled in red (a phone saying 28,000 B.C.; a phone in a 30,000-year-old painting), ≤3 words + "?!".
+  Check both side by side at 320 px (`hstack`) before calling them done.
+- **Skin tones**: the owner wants a mixed cast, not everyone dark-skinned. Give the hero and several band members light
+  skin; when you add a dark skin, use a natural brown (#7a4e34, #8a5a3e), never near-black (#2a2532 read as a black
+  blob with eyes on the contact sheet). Rig2 switches line colour automatically on light skin (`LIGHT = lum > .42`).
+- After every outfit variant (ELI → ELI_FUR) diff the `skin` field: a copy-paste once gave the hero a black face in 4
+  chapters. Look at every chapter's contact sheet for this.
+- Seated poses (`bob: 82`) get an automatic rock/log seat from `H.P()`; never let a character sit on air.
+- Inserts: keep text inside x ≤ 1560 and keep the fact box off the drawing (default side = left).
+- Remotion `--scale` must give integer sizes (0.33 → 356.4 px fails; use 0.25 / 0.4 / 0.5).
+- While Chatterbox runs (~3.7 GB), previews at `--scale=0.25 --concurrency=1` and full renders at `CONC=2` survive.
+- Waiting for a background batch: never `until ! pgrep -f "batch.py ..."` (it matches its own command line, never ends). Use `pgrep -f "[b]atch.py"` or `while kill -0 $PID`.
+- Chatterbox sometimes repeats a short phrase ("I'm a friend. I'm a friend"): split the line with "|" into parts and change SEED; recheck with Whisper.

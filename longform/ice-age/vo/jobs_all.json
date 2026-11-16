@@ -1,0 +1,646 @@
+[
+ {
+  "out": "vo/c1_n1.wav",
+  "text": "Minus twenty-five degrees. Wind like broken glass. You're wearing a hoodie and sneakers.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n2.wav",
+  "text": "Ten minutes ago you were in a museum in twenty twenty-six.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n2b.wav",
+  "text": "No phone signal. No buildings. No people. Just snow, all the way to the edge of the world.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_eli1.wav",
+  "text": "Hello? Is anyone there? Hello?!",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c1_n3.wav",
+  "text": "Something answers. It's four metres tall. It's covered in hair. And it's looking right at you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n4.wav",
+  "text": "What if you woke up thirty thousand years ago?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n1.wav",
+  "text": "Your job is simple. Mop the Ice Age hall. Don't touch anything.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_eli1.wav",
+  "text": "Two more hours. Just two more hours.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n2.wav",
+  "text": "There's one case you always walk past.|A carved bone, thirty thousand years old.|Covered in tiny scratches nobody can explain.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n2b.wav",
+  "text": "The sign says the scratches might be the oldest calendar ever found.|Days, counted by somebody, one line at a time.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n3.wav",
+  "text": "Tonight, the scratches are glowing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_eli2.wav",
+  "text": "Okay. That's not normal.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n4.wav",
+  "text": "You touch the glass. And the museum disappears.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n1.wav",
+  "text": "The cold is the first thing that tries to kill you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_fact1.wav",
+  "text": "At minus twenty-five with strong wind, bare skin can get frostbite in under thirty minutes.|Your body pulls blood away from your fingers to save your heart.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_eli1.wav",
+  "text": "No signal. Twelve percent. Of course.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_eli2.wav",
+  "text": "Okay. Think. Don't panic. What did that survival guy say? Get out of the wind.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_n2.wav",
+  "text": "You do the one smart thing you remember from a survival video. You dig.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_fact2.wav",
+  "text": "Snow is full of trapped air.|Inside a small snow cave, your body heat can keep the air near zero, even when it's minus thirty outside.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n3.wav",
+  "text": "You survive the first night. Barely.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n1.wav",
+  "text": "In the morning, you finally see where you are. And it's beautiful. And terrifying.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_fact1.wav",
+  "text": "Thirty thousand years ago, ice sheets up to three kilometres thick covered the north of Europe.|The sea was so low, you could walk from France to Britain.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n2.wav",
+  "text": "There are no roads. No towns. No people. Just animals that don't exist anymore.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_fact2.wav",
+  "text": "A woolly mammoth could weigh six tonnes. And cave lions were even bigger than the lions alive today.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n3.wav",
+  "text": "And somewhere out there, something is following your footprints.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_fact3.wav",
+  "text": "The whole planet was about six degrees colder on average than today.|That sounds small.|It's the difference between our world and a frozen one.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_eli1.wav",
+  "text": "Okay. Okay. I'm in the Ice Age. I'm actually in the Ice Age.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n1.wav",
+  "text": "Day two. You inventory your survival kit. A phone. A pen. A frozen water bottle. One granola bar.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_eli1.wav",
+  "text": "Rubbing sticks. Like in the movies. How hard can it be?",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n2.wav",
+  "text": "Very hard. Forty minutes later, you have blisters. And no fire.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n3.wav",
+  "text": "Then you notice the stones in the riverbank. Some are grey and sharp. Some are shiny, like gold.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_fact1.wav",
+  "text": "Strike flint against a mineral called pyrite, and you get real sparks.|Scientists think Neanderthals were already making fire this way fifty thousand years ago.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_eli2.wav",
+  "text": "Yes! Yes! Fire! I made fire!",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c5_n5.wav",
+  "text": "For the first time in two days, you can feel your fingers.|You eat half the granola bar.|You save the other half.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n4.wav",
+  "text": "And in the dark, someone sees it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n1.wav",
+  "text": "Day three. You wake up surrounded.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_tor1.wav",
+  "text": "Hrah! Tuun ka!",
+  "ref": "vo/refs/tor.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c6_n2.wav",
+  "text": "They're human. Just like you. Same brain. Same body. Thirty thousand years of history between you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_fact1.wav",
+  "text": "Languages change so fast that English from a thousand years ago is almost impossible to read today.|From thirty thousand years ago, you'd share not a single word.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_eli1.wav",
+  "text": "I'm... friendly? Friend. I'm a friend.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n3.wav",
+  "text": "The little one breaks the silence. He points at your fire. Then at you. And he laughs.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_pip1.wav",
+  "text": "Fa-ra! Fa-ra!",
+  "ref": "vo/refs/pip.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c6_nia1.wav",
+  "text": "Tuun? Fa-ra... Eli?",
+  "ref": "vo/refs/nia.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n4.wav",
+  "text": "Fara. Fire. Your first word. And the reason they don't kill you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n1.wav",
+  "text": "They take you back to their camp. Twenty people. Mammoth bones holding up the tents.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_fact1.wav",
+  "text": "Scientists estimate that only a few thousand people lived in all of Western Europe back then.|Fewer than in one small town today.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n2.wav",
+  "text": "Everyone works.|Everyone is useful.|And you?|You can't sew.|You can't hunt.|You can't even skin a rabbit.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_ama1.wav",
+  "text": "Hmm. Kiti-ka.",
+  "ref": "vo/refs/ama.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n3.wav",
+  "text": "The old woman says one word. You learn later what it means. Little baby.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n3b.wav",
+  "text": "Then Pip finds your pen.|He draws a horse on your notebook.|And the whole band gathers around, amazed that ink comes out of a stick.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n4.wav",
+  "text": "But you have one thing they don't. You know how the story ends.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n1.wav",
+  "text": "Day nine. Pip has a fever. Then his mother. Then three more.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n2.wav",
+  "text": "And you realise something horrible. You brought this.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_fact1.wav",
+  "text": "When Europeans reached the Americas in fourteen ninety-two, they carried diseases nobody there had ever met.|In some places, up to nine out of ten people died.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_eli1.wav",
+  "text": "It's me. It's my cold. They've never had it.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n3.wav",
+  "text": "You can't make medicine.|But you know three things that save more lives than any pill.|Keep the sick apart.|Boil the water.|Wash your hands.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_eli2.wav",
+  "text": "Water. Fire. Boil. Hands. Like this. Everyone, like this!",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_tor1.wav",
+  "text": "Eli... Pip?",
+  "ref": "vo/refs/tor.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n4.wav",
+  "text": "It takes eleven days. Everyone lives. And Tor never looks at you the same way again.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n1.wav",
+  "text": "Day thirty. Winter is coming. Real winter. The band needs meat. A lot of it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n2.wav",
+  "text": "So you give them something from the future. Just a stick with a hook on the end.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_fact1.wav",
+  "text": "A spear-thrower works like an extra arm.|It can launch a spear at over a hundred and fifty kilometres an hour.|The oldest ones we've found are around twenty thousand years old.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_nia1.wav",
+  "text": "Ha! Eli! Again! Again!",
+  "ref": "vo/refs/nia.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c9_n3.wav",
+  "text": "The next morning, the hunters go after the biggest animal in the valley.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n4.wav",
+  "text": "And everything goes wrong. The mammoth turns. Nia slips on the ice.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_eli1.wav",
+  "text": "Nia! Move!",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c9_n5.wav",
+  "text": "Your throw isn't perfect. But it's close enough to scare a six-tonne animal away.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n6.wav",
+  "text": "That night, Nia carves a little picture on the bone she wears around her neck.|A stick figure with a hood.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n1.wav",
+  "text": "Day sixty. A storm hits so hard you can't see your own hand.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n2.wav",
+  "text": "When it's over, Tor is missing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_eli1.wav",
+  "text": "Tor! Tor! Can you hear me?",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c10_n3.wav",
+  "text": "You find him at the bottom of a gully. His leg is broken. Night is coming.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_eli2.wav",
+  "text": "Nia, help me! We tie his leg straight. Like this. Then we pull.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_fact1.wav",
+  "text": "Archaeologists have found skeletons from the Ice Age with healed broken bones.|Somebody fed them, carried them, and kept them alive for months.|People were caring for each other long before medicine.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_tor1.wav",
+  "text": "Eli... ana-ka. Ana-ka.",
+  "ref": "vo/refs/tor.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n4.wav",
+  "text": "Ana-ka. Brother. That's what he calls you now.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n5.wav",
+  "text": "You carve another line on your bone.|Sixty lines.|One for every day.|Just like the bone in the museum.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n1.wav",
+  "text": "Day one hundred. The band takes you somewhere special. A cave deep in the mountain.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_fact1.wav",
+  "text": "Real cave paintings in France are more than thirty thousand years old.|Lions, horses, rhinos, painted so well they look like they're moving in the torchlight.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n2.wav",
+  "text": "Your phone has one percent left. You record one last message.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_eli1.wav",
+  "text": "If anyone ever finds this... I'm okay. I have a family here now.",
+  "ref": "vo/refs/eli.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n3.wav",
+  "text": "Then you take the charcoal. And you paint something no one here has ever seen.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n4.wav",
+  "text": "The screen goes black. Forever.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_nia1.wav",
+  "text": "Eli. Friend. Always.",
+  "ref": "vo/refs/nia.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "Twenty twenty-six. A cave in southern France.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_voss1.wav",
+  "text": "Lights on panel seven, please. Thank you.",
+  "ref": "vo/refs/voss.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n2.wav",
+  "text": "Doctor Lena Voss has studied this cave for twenty years. She knows every painting in it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_voss2.wav",
+  "text": "That... wasn't there yesterday. That's a person in a hood. Holding... a screen?",
+  "ref": "vo/refs/voss.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n2b.wav",
+  "text": "Her team runs every test they have. The pigment. The charcoal. The dust on top of it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n3.wav",
+  "text": "The charcoal is thirty thousand years old. And next to the figure, someone scratched four letters.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n4.wav",
+  "text": "E. L. I. And a smiley face.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n5.wav",
+  "text": "What's the one thing you would take with you thirty thousand years into the past?|Tell us in the comments.|And subscribe, so you don't miss part two.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ }
+]

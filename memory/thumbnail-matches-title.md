@@ -14,3 +14,6 @@ and make the power visible. Dark backgrounds vanish in YouTube's dark mode.
 **How to apply:** for every long video, design the thumbnail from the title (question → answer), bright saturated
 background, power on screen, 3–4 words; make 2–3 variants for "Test & compare"; check CTR after 24–48 h and swap
 if < 2%. Related: [[longform-approved-method]], [[longform-cartoon-format]].
+
+2026-11-16 (ice-age): the owner said the thumbnail is "the main thing" and must be click-bait — spend real time on
+it: giant shocked face, one impossible detail circled in red, "?!" text, A + B both bright, checked at 320 px.
