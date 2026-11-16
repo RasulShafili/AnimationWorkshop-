@@ -3,7 +3,7 @@ import { Composition } from "remotion";
 import { CharSheet } from "./CharSheet";
 import { SceneTest } from "./SceneTest";
 import { Thumb } from "./Thumb";
-import { TeaserShort, TEASER_LEN } from "./TeaserShort";
+import { TeaserShort, TeaserShort2, TEASER_LEN, TEASER2_LEN } from "./TeaserShort";
 import { C6, C6_LEN, C7, C7_LEN, C8, C8_LEN, C9, C9_LEN, C10, C10_LEN } from "./chapters/B";
 import { C11, C11_LEN, C12, C12_LEN, C13, C13_LEN, C14, C14_LEN, C15, C15_LEN } from "./chapters/C";
 import { ChapterCard } from "./ChapterCard";
@@ -29,4 +29,5 @@ export const Root: React.FC = () => <>
   <Composition id="ChapterCard" component={ChapterCard} durationInFrames={54} fps={30} width={1920} height={1080} defaultProps={{ num: 1, title: "x", day: "" }} />
   <Composition id="Thumb" component={Thumb} durationInFrames={1} fps={30} width={1280} height={720} defaultProps={{ v: "A" }} />
   <Composition id="TeaserShort" component={TeaserShort} durationInFrames={TEASER_LEN} fps={30} width={1080} height={1920} />
+  <Composition id="TeaserShort2" component={TeaserShort2} durationInFrames={TEASER2_LEN} fps={30} width={1080} height={1920} />
 </>;

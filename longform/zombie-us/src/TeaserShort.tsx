@@ -6,8 +6,10 @@ import { sat, easeOut } from "./engine/core";
 import { Captions } from "./Captions";
 import { useFonts } from "./ui";
 import words1 from "./teaser_words.json";
-export const TEASER_LEN = 878;
+import words2 from "./teaser2_words.json";
+export const TEASER_LEN = 878; export const TEASER2_LEN = 848;
 type P = { clip?: string; words?: any; h1?: string; h2?: string; sub?: string };
+export const TeaserShort2: React.FC = () => <TeaserShort clip="teaser2_clip.mp4" words={words2} h1="IT'S NOTHING." h2="JUST A SCRATCH." sub="…day 21 of the zombie outbreak 💔" />;
 export const TeaserShort: React.FC<P> = ({ clip = "teaser_clip.mp4", words = words1, h1 = "DAY 3 OF THE", h2 = "ZOMBIE OUTBREAK", sub = "…don't make a sound 🤫" }) => {
   useFonts(); const f = useCurrentFrame(); const sh = "0 6px 0 rgba(0,0,0,.55), 0 12px 30px rgba(0,0,0,.6)";
   return <AbsoluteFill style={{ background: "#000" }}>

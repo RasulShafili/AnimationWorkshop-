@@ -33,7 +33,8 @@
     "hearing-teaser",
     "never-forget-teaser",
     "never-forget-teaser2",
-    "zombie-teaser"
+    "zombie-teaser",
+    "zombie-teaser2"
   ],
   "history": [
     {
@@ -614,6 +615,31 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6afa22dbdaa378ad68933d10"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "zombie-teaser2",
+      "title": "\"It's Nothing… Just A Scratch.\" 💔 Day 21 Of A Zombie Outbreak",
+      "published_at": "2026-11-16 06:40:48 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6afaa4d78e87c256a3b9b33b"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6afaa4e360a910801c73b9cd"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6afaa4e960a910801c73bbd5",
+          "url": "https://www.instagram.com/reel/Dfyu2Sxz7l8/",
+          "status": "sent"
         }
       ],
       "status": "published"

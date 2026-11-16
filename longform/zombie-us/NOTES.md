@@ -41,3 +41,5 @@ Requested 2026-11-15 by the owner ("yeni uzun video... what if the zombie virus 
 - PUBLISHED long video by the owner: https://youtu.be/ocqtY5Lc5cs ("What If A Zombie Outbreak Started In Atlanta?", 9:10).
 - Teaser Short posted 2026-11-16 (cold open 0:00–0:29, "DAY 3 OF THE ZOMBIE OUTBREAK"): YT https://www.youtube.com/watch?v=Bu3mPh8HVaY ·
   IG https://www.instagram.com/reel/DfxvRIpqQWF/ · TT https://tiktok.com/@whatif.lab_daily/video/7708511826446716166. Owner sets Related video → ocqtY5Lc5cs.
+- Teaser 2 posted 2026-11-16 (Ruiz "just a scratch", 6:56–7:25): YT https://www.youtube.com/watch?v=AtzpN0Usffg ·
+  IG https://www.instagram.com/reel/Dfyu2Sxz7l8/ · TT https://tiktok.com/@whatif.lab_daily/video/7708654511220346118.
