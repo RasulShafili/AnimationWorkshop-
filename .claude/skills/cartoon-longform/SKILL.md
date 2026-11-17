@@ -249,3 +249,13 @@ showing anything — not only the line-by-line sheet.
 - **Mirrored groups** (`scale(-1 1)`): `facing` flips, text flips (Pickup `mirrored`), world x = groupX − localX.
 - **Gauges/insert graphics:** needles tapered, shorter than the label radius, readout in its own box.
 - Shot order in a chapter file may differ from time order — the Player sorts by start frame.
+
+## 15. Watching reference videos (2026-11-18)
+Claude can't play video. `python3 tools/watch/watch.py URL [--end 360] [--max 64]` turns one into readable evidence:
+yt-dlp download (≤480p) + captions (else local faster-whisper), ffmpeg scene cuts → shot list, one frame per shot →
+contact sheets with timestamp, shot length and the words spoken under each frame, stats.json (shots, avg/median shot
+length, cuts/min, words/min). Output in refs_watch/<id>/. The third-party `/watch` skill (bradautomates/claude-video,
+local engine, captions only) is also installed at ~/.claude/skills/watch. Gemini engine (needs a free key from the
+owner) is the only option that really "watches" motion + audio.
+Studied: IFOLOGY → refs_watch/IFOLOGY_STYLE.md (cut every ~4 s, ~180 wpm, science as staged scenes with in-world
+signboards, rules-of-the-power spine, letterboxed warm 3D-toon look).

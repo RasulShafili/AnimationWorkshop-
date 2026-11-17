@@ -1,0 +1,44 @@
+{
+ "title": "What If You Could Control Minds",
+ "seconds": 360.0,
+ "shots": 82,
+ "avg_shot_s": 4.39,
+ "median_shot_s": 4.04,
+ "cuts_per_min": 13.5,
+ "words_per_min": 180.0,
+ "transcript_from": "captions",
+ "longest_shots": [
+  [
+   13.2,
+   76.9
+  ],
+  [
+   12.3,
+   240.1
+  ],
+  [
+   12.2,
+   190.8
+  ],
+  [
+   8.2,
+   291.5
+  ],
+  [
+   7.3,
+   316.7
+  ],
+  [
+   7.3,
+   14.8
+  ],
+  [
+   7.0,
+   52.5
+  ],
+  [
+   4.9,
+   307.2
+  ]
+ ]
+}
