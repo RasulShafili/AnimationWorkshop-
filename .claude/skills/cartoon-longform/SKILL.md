@@ -218,3 +218,16 @@ jaw, red eye sockets, "Skynet", film music/shots → Content-ID/copyright strike
   the street, phone countdowns, a smart-meter screen, dark streets with warm windows, DAY stamps, notes. Infographics
   Show: one recurring robot character whose visor eyes turn angry; robot-hand inserts; server rooms. Versors: data
   centres, orange factory arms, drone swarms. → Escalate: devices (Day 1–5) → drones/cars (Day 6–15) → robots (Day 16+).
+- Robot engine additions (ai-takeover): `drop: number[]` forces plates off (1 chest, 2 belly, 3 head, 10–13 arms,
+  20–23 legs) — e.g. white head + red eye + open chest = the scariest thumbnail read; `noArmR`, `smiley`, `gun`.
+
+## 13. Lessons 2026-11-17 (ai-takeover)
+- Reuse older projects' scenes by copying them into `src/scenes/z/` + their cast as `chars/zcast.ts` and fixing the
+  import paths with sed; switch off their story props (zombie Street smoke, Highway zombie man) via props.
+- Build + preview all chapters with placeholder VO (empty `vo_cN.ts`, 60-frame lines) while Chatterbox runs:
+  `tools/prev.sh cN` = 1/4-scale render → 5×6 sheet. Catches framing bugs hours before the voices are done.
+- Characters inside a translated or mirrored `<g>` (Walt in the truck bed, Leo in the cab window via clipPath): the
+  camera needs the WORLD position — add the group offset by hand; a `scale(-1 1)` group also flips `facing`.
+- Stay inside the scene's drawn world: a camera centred near x 3000 at zoom 1.7 showed black past the sky rect
+  (x ≤ 3200). Keep action between x −600 and 2600.
+- Long single inserts (data-viz, game) still need motion: counters, sweeps, push-in; a static 10 s shot → split it.
