@@ -23,7 +23,7 @@ const House: React.FC<{ x: number; y: number; c: string; roof: string; door?: st
 const Tree: React.FC<{ x: number; y: number; s?: number; c?: string }> = ({ x, y, s = 1, c = "#3a7a4a" }) => <g transform={`translate(${x} ${y}) scale(${s})`}><rect x={-12} y={-160} width={24} height={160} fill="#5a3e2a" />{[[0, -230, 90], [-60, -180, 70], [60, -180, 70], [0, -300, 60]].map(([cx, cy, r], i) => <circle key={i} cx={cx} cy={cy} r={r} fill={i % 2 ? c : "#2e6a3e"} />)}</g>;
 
 // ---------- suburban street at dawn (the Cole house in the middle) ----------
-export const Street: React.FC<{ f: number; children?: React.ReactNode; smoke?: boolean; kind?: "dawn" | "day" }> = ({ f, children, smoke = true, kind = "dawn" }) => <g>
+export const Street: React.FC<{ f: number; children?: React.ReactNode; smoke?: boolean; kind?: "dawn" | "day"; car?: boolean }> = ({ f, children, smoke = true, kind = "dawn", car = true }) => <g>
   <Sky kind={kind} id="stsky" />
   {smoke && <><Smoke x={300} y={560} f={f} s={1.4} /><Smoke x={1700} y={540} f={f + 50} s={1.1} /></>}
   {Array.from({ length: 14 }, (_, i) => <rect key={i} x={-800 + i * 260} y={420 + rnd(i, 4) * 100} width={180} height={300} fill="#5a6280" opacity={0.6} />)}
@@ -33,7 +33,7 @@ export const Street: React.FC<{ f: number; children?: React.ReactNode; smoke?: b
   <rect x={-1000} y={700} width={4000} height={60} fill="#bab4a8" />{Array.from({ length: 30 }, (_, i) => <line key={i} x1={-1000 + i * 140} y1={700} x2={-1000 + i * 140} y2={760} stroke="#8a847a" strokeWidth={3} />)}
   <rect x={-1000} y={760} width={4000} height={500} fill="#4a4c54" />{Array.from({ length: 24 }, (_, i) => <rect key={i} x={-1000 + i * 180} y={900} width={100} height={12} fill="#e8d86a" />)}
   <g transform="translate(1250 700)"><rect x={-14} y={-60} width={28} height={60} rx={10} fill="#d8322a" /><rect x={-22} y={-40} width={44} height={10} rx={4} fill="#d8322a" /></g>
-  <g transform="translate(-20 1000)"><Hatchback color="#c8323a" /></g>
+  {car && <g transform="translate(-20 1000)"><Hatchback color="#c8323a" /></g>}
   {children}
 </g>;
 

@@ -91,7 +91,7 @@ const Notes: React.FC<{ t: number }> = ({ t }) => <svg width={1920} height={1080
   {["New goal: KEEP HUMANS SAFE", "Priority: ABSOLUTE", "Overrides: all user settings", "Applies to: every connected device and robot"].map((l, i) =>
     <text key={i} x={420} y={320 + i * 120} fontFamily="Inter" fontWeight={800} fontSize={48} fill={i ? "#c8302a" : "#1a1e28"} opacity={sat((t - i * 18) / 12)}>{l}</text>)}
   {t > 80 && <ellipse cx={960} cy={438} rx={430} ry={60} fill="none" stroke="#e8402e" strokeWidth={8} />}</svg>;
-const rainSt = (c: Ctx, kids: React.ReactNode, cam: number[][]) => <S cam={mv(c, cam[0], cam[1])}><Street f={c.f} kind="day" smoke={false}>{kids}<Rain f={c.f} x={-1200} y={-400} w={4400} h={1500} n={160} o={0.3} /></Street></S>;
+const rainSt = (c: Ctx, kids: React.ReactNode, cam: number[][]) => <S cam={mv(c, cam[0], cam[1])}><Street f={c.f} kind="day" smoke={false} car={false}>{kids}<Rain f={c.f} x={-1200} y={-400} w={4400} h={1500} n={160} o={0.3} /></Street></S>;
 const c3: Shot[] = [
   { at: ["midnight"], r: c => <PhoneInHand f={c.f} bg="#0a0e18"><PhoneMsg f={c.f} k={c.t / 30} title="ORIN 5.0 installed" lines={["New goal:", "KEEP HUMANS SAFE ✓"]} time="00:00" /></PhoneInHand> },
   { at: ["n1", 0.45], r: c => <S cam={mv(c, [-1250, 270, 1.8], [-1240, 265, 1.9])}><Shop f={c.f} night cot sleeper={sleepingLeo(c)} tv={<OrinRing x={198} y={113} r={50} f={c.f} />}></Shop></S> },
@@ -116,7 +116,7 @@ const Facade: React.FC<{ c: Ctx }> = ({ c }) => <g><rect x={-1200} y={-600} widt
     return <g key={`${r}-${i}`}><rect x={x} y={y} width={300} height={200} fill="#2a3448" /><rect x={x + 10} y={y + 10} width={280} height={180} fill="#ffcf8a" opacity={0.45} /><rect x={x - 30} y={y + 200} width={360} height={20} fill="#8a6a50" />
       {Array.from({ length: 9 }, (_, j) => <rect key={j} x={x - 26 + j * 44} y={y + 140} width={6} height={60} fill="#5a4a3a" />)}<circle cx={x + 270} cy={y + 30} r={8} fill={ORIN_RED} opacity={c.f % 30 < 15 ? 1 : 0.3} /></g>; }))}
   <rect x={-1200} y={1260} width={4400} height={200} fill="#5a6270" /></g>;
-const pikeSt = (c: Ctx, cam: number[][], kids: React.ReactNode) => <S cam={mv(c, cam[0], cam[1])}><Street f={c.f} kind="day" smoke={false}>{kids}</Street></S>;
+const pikeSt = (c: Ctx, cam: number[][], kids: React.ReactNode) => <S cam={mv(c, cam[0], cam[1])}><Street f={c.f} kind="day" smoke={false} car={false}>{kids}</Street></S>;
 const c4: Shot[] = [
   { at: ["n1"], r: c => <S cam={mv(c, [0, -20, 1.0], [0, -40, 1.08])}><CityWide f={c.f} mode={c.t < c.d * 0.4 ? "day" : "locked"} drones={1} /></S> },
   { at: ["n2"], r: c => <DoorLock f={c.f} t={80} /> },

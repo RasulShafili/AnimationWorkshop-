@@ -46,3 +46,12 @@ Also pending: ice-age teaser 3 (out/short_ice_age_teaser3.mp4) was never posted 
   curly cord); Shop cot/snacks/outside-window svg; Motel scene; Zara hair ponytail (long hair read as a beard).
 - New QA step: tools-less script builds out/qa/lines_N.png = the mid frame of EVERY line with its text underneath →
   check picture vs words, not just framing.
+
+## v3 (2026-11-17 21:10) — owner: car smaller than the man, rifle held wrong, nets thrown to the side, 2 red eyes,
+## speedometer needle, "check everything yourself"; then "thumbnails are very bad"
+- Real scale (1 m = 240 px at s 1): Pickup ×1.8 (BED_Y, CAB_CLIP), Humvee ×1.6, facade people s 0.5, highway pickup
+  outer scale = lane scale. IK poses AIM / PORT / COVER + muzzle(); robotAim() for nets/darts/lasers from the gun tip.
+  Robot hostile = two red eyes. Speedometer redrawn. Street car removed (people walked in front of it with their
+  feet above its wheels). Mirrored truck plate un-mirrored.
+- QA: line sheet (mid frame of every line + 2 frames per action beat, 155 cells) + action contact sheet.
+- Thumbnails rebuilt from scratch with custom big art (BigHead): A "AI LOCKED US IN?!", B "PULL IT?!".
