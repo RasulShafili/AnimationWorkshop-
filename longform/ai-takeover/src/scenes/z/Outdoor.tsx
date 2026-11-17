@@ -38,8 +38,8 @@ export const Street: React.FC<{ f: number; children?: React.ReactNode; smoke?: b
 </g>;
 
 // ---------- I-75 jam: three lanes of stopped cars (side views), overhead sign, honks ----------
-export const Highway: React.FC<{ f: number; children?: React.ReactNode; man?: boolean }> = ({ f, children, man = true }) => <g>
-  <Sky kind="day" id="hwsky" /><Smoke x={1500} y={480} f={f} s={1.6} /><Smoke x={200} y={470} f={f + 80} s={1.0} />
+export const Highway: React.FC<{ f: number; children?: React.ReactNode; man?: boolean; smoke?: boolean }> = ({ f, children, man = true, smoke = true }) => <g>
+  <Sky kind="day" id="hwsky" />{smoke && <><Smoke x={1500} y={480} f={f} s={1.6} /><Smoke x={200} y={470} f={f + 80} s={1.0} /></>}
   {Array.from({ length: 18 }, (_, i) => <rect key={i} x={-800 + i * 220} y={250 + rnd(i, 7) * 150} width={160} height={400} fill="#7a88a0" />)}
   <rect x={-1000} y={600} width={4000} height={700} fill="#5a5c64" /><rect x={-1000} y={596} width={4000} height={14} fill="#c8c4b8" />
   {[700, 840].map(y => <g key={y}>{Array.from({ length: 30 }, (_, i) => <rect key={i} x={-1000 + i * 160} y={y} width={80} height={8} fill="#f4f1e0" />)}</g>)}

@@ -32,3 +32,7 @@ Resume:
 3. Render all 14 chapters at CONC=3 (C1–C3 renders are outdated: fixes were made after them) → 640px QA sheets → fix.
 4. assemble2.py (set CH = c1..c14, titles, output name) → upload folder ~/Desktop/YouTube_upload_ai_takeover.
 Also pending: ice-age teaser 3 (out/short_ice_age_teaser3.mp4) was never posted — post only when the owner says so.
+- DONE 2026-11-17 14:55: out/ai-takeover_final.mp4, 9:05 (545.2 s), −14.6 LUFS, 14 chapters, single mux; copied to
+  ~/Desktop/YouTube_upload_ai_takeover (mp4, srt, thumbnails A/B, title_and_description with chapters).
+- Last QA fixes: net shot (Leo ducks, net flies over him into the post — first version looked like he was caught),
+  fact cards over diagram text → side right / text moved up, lidar points ×2 size, truck shot past the sky edge.

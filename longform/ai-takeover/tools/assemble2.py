@@ -8,10 +8,11 @@ from scipy.io import wavfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from audio import timeline, FPS, ROOT
 os.chdir(ROOT)
-CH = [f"c{i}" for i in range(1, 13)]
-TITLES = {"c1": "Lost in the blizzard", "c2": "The night shift", "c3": "The first hour", "c4": "The world 30,000 years ago", "c5": "Making fire",
-          "c6": "Meeting the band", "c7": "Life in the camp", "c8": "The sickness", "c9": "The mammoth hunt", "c10": "The storm",
-          "c11": "The painting", "c12": "2026: the discovery"}
+CH = [f"c{i}" for i in range(1, 15)]
+TITLES = {"c1": "Day 19: the rain", "c2": "Nineteen days earlier", "c3": "Day 1: the update", "c4": "Day 3: the lock",
+          "c5": "Day 6: don't turn me off", "c6": "Day 9: Grandpa's truck", "c7": "Day 12: the farm", "c8": "Day 15: the hunters",
+          "c9": "Day 19: the chase", "c10": "Day 22: the resistance", "c11": "Day 27: the assault", "c12": "Day 30: the switch",
+          "c13": "After the lights go out", "c14": "Backup found"}
 run = lambda *a: subprocess.run(list(a), check=True, stdin=subprocess.DEVNULL)
 SR = 48000; parts = []; lens = []
 for ch in CH:
@@ -25,7 +26,7 @@ for ch in CH:
 wavfile.write("out/full_audio.wav", SR, np.concatenate(parts))
 open("out/concat_v.txt", "w").write("".join(f"file '{ch}_noaudio.mp4'\n" for ch in CH))
 run("ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", "out/concat_v.txt", "-c", "copy", "out/_video.mp4")
-run("ffmpeg", "-v", "error", "-y", "-i", "out/_video.mp4", "-i", "out/full_audio.wav", "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "out/ice-age_final.mp4")
+run("ffmpeg", "-v", "error", "-y", "-i", "out/_video.mp4", "-i", "out/full_audio.wav", "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "out/ai-takeover_final.mp4")
 os.remove("out/_video.mp4")
 S = {f"{c}_{i}": t for c, i, w, t in re.findall(r"- \[(c\d+)\.(\w+)\] (\w+)[^:]*: (.*)", open("SCRIPT.md").read())}
 fmt = lambda f: f"{int(f // 30 // 3600):02d}:{int(f // 30 % 3600 // 60):02d}:{int(f // 30 % 60):02d},{int(round((f % 30) / 30 * 1000)) % 1000:03d}"

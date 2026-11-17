@@ -179,7 +179,7 @@ export const Tunnel: React.FC<{ f: number; children?: React.ReactNode; back?: Re
   <path d="M-300 960 L-300 420 Q-300 80 960 70 Q2220 80 2220 420 L2220 960 Z" fill="#2a241e" />
   {/* rails */}
   <path d="M600 960 L860 560 M1320 960 L1060 560" stroke="#6a5e50" strokeWidth={8} />{Array.from({ length: 7 }, (_, i) => { const t = i / 7, y = 960 - 400 * t, w = 380 - 260 * t; return <rect key={i} x={960 - w} y={y - 6} width={w * 2} height={10 - 6 * t} fill="#4a3e32" />; })}
-  <ellipse cx={960} cy={560} rx={190} ry={130} fill="#0a0806" opacity={0.75} />
+  <ellipse cx={960} cy={560} rx={190} ry={130} fill="#0a0806" opacity={0.35} />
   {back}
   {/* string lights */}
   {[0, 1].map(r => <g key={r}><path d={`M-300 ${260 + r * 60} Q960 ${400 + r * 60} 2220 ${260 + r * 60}`} stroke="#2a2420" strokeWidth={3} fill="none" />

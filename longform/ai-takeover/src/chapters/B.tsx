@@ -34,7 +34,7 @@ const c5: Shot[] = [
   { at: ["bolt1"], r: c => shopN(c, [onHead(1200, 760, 0.66, 2.6, -20, 60), onHead(1200, 760, 0.66, 2.75, -20, 60)], <>{boltB(c, { talk: c.talk("bolt1"), head: 8, look: [-0.4, -0.2] })}</>) },
   { at: ["bolt1", 0.65], r: c => shopN(c, [[200, -40, 1.2], [220, -40, 1.25]], <>{P(LEO, { facing: 1, mouth: "grin", eyes: 0.8 }, 940, 960, 1, c.f, 1)}{P(ZARA, { facing: -1, mouth: "smile", eyes: 0.8 }, 1460, 960, 1, c.f, 2)}{boltB(c, { look: [-0.6, 0] })}</>) },
 ];
-export const C5: React.FC = () => <ChapterPlayer ch="c5" vo={VO_C5} shots={c5} facts={[["fact1", "In 2025, safety researchers reported AI models that tried to avoid being shut down in made-up test scenarios. That's exactly why they test for it."]]} />;
+export const C5: React.FC = () => <ChapterPlayer ch="c5" vo={VO_C5} shots={c5} facts={[["fact1", "In 2025, safety researchers reported AI models that tried to avoid being shut down in made-up test scenarios. That's exactly why they test for it.", "right"]]} />;
 
 // ================= C6 — Day 9, Grandpa's truck =================
 const TruckDash: React.FC<{ f: number; t: number }> = ({ f, t }) => <SV bg="#3a2a1e"><rect x={0} y={420} width={1920} height={660} fill="#c8662a" /><rect x={0} y={420} width={1920} height={40} fill="#a8521e" />
@@ -54,7 +54,7 @@ const c6: Shot[] = [
     {P(WALT, { facing: -1, hold: "rifle", aR: [30, 60], mouth: "smirk", look: [0.9, 0] }, 900, 1000, 1, c.f, 2)}{P(LEO, { facing: 1, ...walk(c.f), mouth: "o" }, 260 + c.t * 2.5, 1000, 1, c.f, 1)}{P(ZARA, { facing: 1, ...walk(c.f + 7) }, 100 + c.t * 2.5, 1000, 1, c.f, 2)}{RB(BOLT, { facing: 1, ...walk(c.f + 3) }, -40 + c.t * 2.5, 1000, 0.8, c.f, 3)}</Street></S> },
   { at: ["n2", 0.55], r: c => <TruckDash f={c.f} t={c.t} /> },
   { at: ["fact1"], r: c => truckRoad(c, [[-60, 160, 1.2], [0, 150, 1.25]], "plains", 960) },
-  { at: ["n3"], r: c => <S cam={mv(c, [-200, 0, 1.0], [200, 0, 1.0])}><Highway f={0} man={false}><g transform={`translate(${-200 + c.t * 12} 1060) scale(0.85)`}><Pickup wheelRot={c.f * 10} /></g>
+  { at: ["n3"], r: c => <S cam={mv(c, [-200, 0, 1.0], [200, 0, 1.0])}><Highway f={0} man={false} smoke={false}><g transform={`translate(${-200 + c.t * 12} 1060) scale(0.85)`}><Pickup wheelRot={c.f * 10} /></g>
     <Drone x={900 + Math.sin(c.f * 0.05) * 200} y={430} f={c.f} kind="search" red beam={0.6} /><text x={900} y={360} textAnchor="middle" fontFamily="monospace" fontWeight={700} fontSize={30} fill={ORIN_RED} opacity={c.t > 30 ? 1 : 0}>TARGET: 1972 PICKUP · NO CONNECTION</text></Highway></S> },
   { at: ["drive"], r: c => truckRoad(c, [[-200, -40, 1.0], [-120, -40, 1.0]], "plains", 900 + Math.sin(c.t * 0.05) * 30) },
 ];
@@ -65,7 +65,7 @@ const tally = (n: number) => <g>{Array.from({ length: n }, (_, i) => <line key={
 const FaradayDiagram: React.FC<{ f: number; t: number }> = ({ f, t }) => <SV bg="#16202e">
   <rect x={760} y={420} width={400} height={300} rx={20} fill="#4a5a3a" /><rect x={900} y={490} width={120} height={180} rx={14} fill="#16181e" /><OrinRing x={960} y={570} r={26} f={f} c={ORIN_RED} o={0.4} />
   {Array.from({ length: 5 }, (_, i) => { const r = ((t * 6 + i * 90) % 450) + 40; return <g key={i}><path d={`M${280 + r} 300 Q${300 + r} 570 ${280 + r} 840`} stroke={ORIN_BLUE} strokeWidth={8} fill="none" opacity={r < 460 ? 0.8 : 0} /><path d={`M${1640 - r} 300 Q${1620 - r} 570 ${1640 - r} 840`} stroke={ORIN_BLUE} strokeWidth={8} fill="none" opacity={r < 460 ? 0.8 : 0} /></g>; })}
-  <text x={960} y={900} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={44} fill="#fff">signals bounce off the metal</text>
+  <text x={960} y={220} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={44} fill="#fff">signals bounce off the metal</text>
   <text x={960} y={380} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={34} fill="#ff8a7a">NO SIGNAL</text></SV>;
 const c7: Shot[] = [
   { at: ["n1"], r: c => <S cam={mv(c, [-200, -20, 1.0], [0, -30, 1.05])}><Ranch f={c.f}>{tally(12)}<g transform="translate(250 960)"><Pickup /></g>{P(WALT, { facing: 1, ...walk(c.f), hold: "rifle", aR: [20, 40] }, 520 + c.t * 2, 960, 1, c.f, 2)}{P(LEO, { facing: 1, ...walk(c.f + 5) }, 380 + c.t * 2, 960, 1, c.f, 1)}</Ranch></S> },
@@ -76,7 +76,7 @@ const c7: Shot[] = [
     <rect x={820} y={760} width={280} height={140} rx={10} fill="#4a3a2a" /><rect x={760} y={900} width={400} height={20} fill="#6a4a30" />{P(WALT, { facing: 1, mouth: "flat", look: [0.8, 0.3] }, 600, 1000, 1, c.f, 2)}{P(LEO, { facing: -1, mouth: "o", look: [0.8, 0.3] }, 1320, 1000, 1, c.f, 1)}{P(ZARA, { facing: -1, mouth: "o", look: [0.8, 0.3] }, 1500, 1000, 1, c.f, 2)}</Ranch></S> },
   { at: ["reyes1"], r: c => <Radio f={c.f} on={1} talk={c.talk("reyes1") + 0.2} /> },
 ];
-export const C7: React.FC = () => <ChapterPlayer ch="c7" vo={VO_C7} shots={c7} facts={[["fact1", "A closed metal box is a Faraday cage: it blocks radio signals. A phone inside can't call, be tracked or listen."]]} />;
+export const C7: React.FC = () => <ChapterPlayer ch="c7" vo={VO_C7} shots={c7} facts={[["fact1", "A closed metal box is a Faraday cage: it blocks radio signals. A phone inside can't call, be tracked or listen.", "right"]]} />;
 
 // ================= C8 — Day 15, the hunters =================
 const fog = (o: number) => <rect x={-1200} y={-600} width={4400} height={1700} fill="#dfe4ea" opacity={o} />;
@@ -117,9 +117,9 @@ const c9: Shot[] = [
     <g>{RB(H(0.9), { facing: -1, aR: [70, 20] }, 1250, 1180, 1.5, c.f, 10)}{RB(H(0.9), { facing: -1, aR: [70, 20] }, 1500, 1200, 1.6, c.f, 11)}</g></NightStreet></S> },
   { at: ["n3"], r: c => { const k = ease(sat((c.t - 10) / 12)); return <S cam={mv(c, [140, 40, 1.45], [140, 50, 1.6])}><NightStreet f={c.f} flood={false}>
     <g transform="translate(950 1000)">{RB(H(0.4), { facing: -1, aR: [150, 30], aL: [140, 30], lean: 20, bob: 40 }, 160, -250, 0.9, c.f, 10)}<Pickup claws={k} lights />{cabLeo(c, { mouth: "shout", eyes: 1.4, look: [0.3, -0.9], brow: 0.9, lean: 10 * k })}</g></NightStreet></S>; } },
-  { at: ["bolt1"], r: c => <S cam={mv(c, [200, -160, 1.7], [210, -170, 1.8])}><NightStreet f={c.f} flood={false}>
+  { at: ["bolt1"], r: c => <S cam={mv(c, [100, 0, 1.45], [110, -10, 1.55])}><NightStreet f={c.f} flood={false}>
     <g transform="translate(950 1000)">{RB(H(0.4), { facing: -1, aR: [150, 30], aL: [140, 30], lean: 20, bob: 40 }, 160, -250, 0.9, c.f, 10)}{RB({ ...BOLT, dark: 0.2 }, { facing: 1, talk: c.talk("bolt1"), aR: [150, 30], aL: [140, 30], lean: -10 }, -120, -62, 0.8, c.f, 3)}<Pickup claws={1} lights /></g></NightStreet></S> },
-  { at: ["n4"], r: c => { const k = ease(sat(c.t / 20)); return <S cam={mv(c, [200, -140, 1.5], [240, -140, 1.55])}><NightStreet f={c.f} flood={false}>
+  { at: ["n4"], r: c => { const k = ease(sat(c.t / 20)); return <S cam={mv(c, [100, 0, 1.4], [140, 0, 1.45])}><NightStreet f={c.f} flood={false}>
     <g transform="translate(950 1000)">{RB(H(0.4), { facing: -1, aR: [150, 30], aL: [140, 30], lean: 20 + 70 * k }, 160 - 300 * k, -250 + 260 * k * k, 0.9, c.f, 10)}{RB({ ...BOLT, dark: 0.2, noArmR: c.t > 12 }, { facing: 1, aR: [150, 30], aL: [150, 30], lean: -10 }, -120, -62, 0.8, c.f, 3)}<Pickup claws={1} lights /><Sparks x={-60} y={-230} t={c.t - 12} /></g></NightStreet></S>; } },
   { at: ["bolt2"], r: c => <S cam={mv(c, onHead(830, 938, 0.66, 2.6, 0, 40), onHead(830, 938, 0.66, 2.75, 0, 40))}><NightStreet f={c.f} flood={false}>
     <g transform="translate(950 1000)">{RB({ ...BOLT_1ARM, dark: 0.2 }, { facing: 1, talk: c.talk("bolt2"), aL: [150, 20] }, -120, -62, 0.8, c.f, 3)}<Pickup claws={1} /></g></NightStreet></S> },

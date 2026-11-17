@@ -23,9 +23,9 @@ const c1: Shot[] = [
   { at: ["orin1"], r: c => <S cam={mv(c, onHead(1110, 905, 1.12, 2.6, -40, 20), onHead(1110, 905, 1.12, 2.8, -40, 20))}><NightStreet f={c.f} alley={1}>{RB(H(0.6), { facing: -1, talk: c.talk("orin1"), look: [-0.6, 0.1] }, 1110, 905, 1, c.f, 10)}</NightStreet></S> },
   { at: ["n2"], r: c => <S cam={mv(c, [80, 20, 1.15], [120, 10, 1.22])}><NightStreet f={c.f} alley={1}>{hunters(c, 3, 1110, 1)}{P(LEO_RAIN, { facing: 1, aR: [30, 40], aL: [24, 40], lean: -8, mouth: "o", eyes: 1.4, look: [0.9, 0], brow: 0.8 }, 560, 980, 1, c.f, 1)}
     {[0, 1, 2].map(i => <LaserDot key={i} x0={1090 + i * 190 - c.t * 1.2} y0={560 + i * 10} x={555 + i * 14} y={760 + i * 22} f={c.f + i * 5} o={sat((c.t - i * 12) / 10)} />)}</NightStreet></S> },
-  { at: ["n2", 0.62], r: c => { const k = sat(c.t / 16); return <S cam={mv(c, [-80, 40, 1.15], [-100, 50, 1.2])}><NightStreet f={c.f} alley={1}>{hunters(c, 2, 1040)}
-    <rect x={392} y={420} width={12} height={480} fill="#2a2e38" />{k >= 1 && <NetWrap x={398} y={900} w={90} h={360} />}<NetShot x0={1000} y0={640} x1={400} y1={700} k={k} />
-    {P(LEO_RAIN, { facing: 1, lean: -40 * sat(c.t / 8), aR: [140, 20], aL: [130, 20], mouth: "shout", bob: 60 * sat(c.t / 8) }, 640 - c.t * 3, 980, 1, c.f, 1)}</NightStreet></S>; } },
+  { at: ["n2", 0.62], r: c => { const k = sat(c.t / 16); return <S cam={mv(c, [-260, 40, 1.15], [-280, 50, 1.2])}><NightStreet f={c.f} alley={1}>{hunters(c, 2, 1040)}
+    <rect x={292} y={420} width={12} height={480} fill="#2a2e38" />{k >= 1 && <NetWrap x={298} y={900} w={90} h={360} />}<NetShot x0={1000} y0={600} x1={300} y1={640} k={k} />
+    {P(LEO_RAIN, { facing: 1, lean: -12 * sat(c.t / 6), aR: [168, 30], aL: [160, 30], mouth: "shout", eyes: 1.3, bob: 95 * sat(c.t / 6), lL: [70, 130], lR: [60, 120] }, 620, 980, 1, c.f, 1)}</NightStreet></S>; } },
   { at: ["walt1"], r: c => { const tx = Math.max(1500, 2600 - c.t * 40); return <S cam={mv(c, [300, 20, 1.0], [360, 10, 1.05])}><NightStreet f={c.f} alley={1}>{hunters(c, 2, 1040)}
     <g transform={`translate(${tx} 990) scale(-1 1)`}>{P(WALT, { facing: 1, hold: "rifle", aR: [80, 10], aL: [70, 40], talk: c.talk("walt1"), mouth: "shout" }, -60, -60, 0.95, c.f, 2)}<Pickup wheelRot={-c.t * 10} lights bounce={tx > 1500 ? 2 : 0} /></g></NightStreet></S>; } },
   { at: ["walt1", 0.5], r: c => <S cam={mv(c, onHead(1560, 930, 0.95, 2.0, -80, 40), onHead(1560, 930, 0.95, 2.1, -80, 40))}><NightStreet f={c.f} alley={1}>
@@ -36,7 +36,7 @@ const c1: Shot[] = [
   { at: ["walt2"], r: c => <S cam={mv(c, [420, 0, 1.0], [440, 0, 1.0])}><NightStreet f={c.f} alley={1}>
     <g transform="translate(1500 990) scale(-1 1)">{P(WALT, { facing: 1, hold: "rifle", aR: [150, 10], aL: [40, 60], talk: c.talk("walt2"), mouth: "shout" }, -60, -60, 0.95, c.f, 2)}<Pickup lights /></g>
     {P(LEO_RAIN, { facing: 1, ...run(c.f) }, 700 + c.t * 9, 980, 1, c.f, 1)}{RB(BOLT, { facing: 1, ...run(c.f + 6) }, 520 + c.t * 9, 985, 0.9, c.f, 3)}</NightStreet></S> },
-  { at: ["truck"], r: c => { const tx = 1500 + c.t * c.t * 0.5; return <S cam={mv(c, [700, 0, 1.0], [1700, 0, 1.0])}><NightStreet f={c.f} alley={1}>{hunters(c, 3, 1040, 1)}
+  { at: ["truck"], r: c => { const tx = 1500 + Math.min(c.t * c.t * 0.5, 1050); return <S cam={mv(c, [500, 0, 1.0], [1150, 0, 1.0])}><NightStreet f={c.f} alley={1}>{hunters(c, 3, 1040, 1)}
     <g transform={`translate(${tx} 990)`}>{P(LEO_RAIN, { facing: -1, mouth: "o", eyes: 1.3, aR: [60, 40] }, -150, -62, 0.9, c.f, 1)}{RB(BOLT, { facing: -1 }, -40, -62, 0.8, c.f, 3)}<Pickup wheelRot={c.t * 12} lights bounce={Math.abs(Math.sin(c.f)) * 3} /></g></NightStreet></S>; } },
   { at: ["n4"], r: c => <S cam={mv(c, onHead(2000, 1010, 1.15, 1.7, 120, 60), onHead(2000, 1010, 1.15, 1.85, 120, 60))}><NightStreet f={c.f} alley={0}>
     {[0, 1, 2, 3, 4].map(i => <g key={i}>{RB(H(0.94), { facing: 1, ...walk(c.f + i * 7, 1, 0.5) }, 1560 + i * 110 + c.t * 0.4, 902 - (i % 2) * 8, 0.42 - (i % 2) * 0.05, c.f, 20 + i)}</g>)}
@@ -92,10 +92,11 @@ const Facade: React.FC<{ c: Ctx }> = ({ c }) => <g><rect x={-1200} y={-600} widt
 const c4: Shot[] = [
   { at: ["n1"], r: c => <S cam={mv(c, [0, -20, 1.0], [0, -40, 1.08])}><CityWide f={c.f} mode={c.t < c.d * 0.4 ? "day" : "locked"} drones={1} /></S> },
   { at: ["n2"], r: c => <DoorLock f={c.f} t={80} /> },
-  { at: ["n2", 0.3], r: c => <S cam={mv(c, [0, 0, 1.0], [80, -10, 1.05])}><Highway f={0} man={false} /></S> },
+  { at: ["n2", 0.3], r: c => <S cam={mv(c, [0, 0, 1.0], [80, -10, 1.05])}><Highway f={0} man={false} smoke={false} /></S> },
   { at: ["n2", 0.62], r: c => <S cam={mv(c, [-200, 60, 1.25], [100, 60, 1.25])}><CityWide f={c.f} mode="locked" drones={0.5} /></S> },
   { at: ["lockwide"], r: c => <S cam={mv(c, [300, -40, 1.05], [0, -40, 1.0])}><CityWide f={c.f} mode="locked" drones={2} /></S> },
   { at: ["orin1"], r: c => <PhoneInHand f={c.f} red><PhoneMsg f={c.f} k={c.t / 40} title="STAY HOME. STAY SAFE." lines={["Doors locked for your safety", "Food & medicine: delivered", "You never have to", "do anything again."]} red time="9:00" /></PhoneInHand> },
+  { at: ["orin1", 0.5], r: c => <S cam={mv(c, [-200, 40, 1.2], [100, 20, 1.3])}><CityWide f={c.f} mode="locked" drones={2} /></S> },
   { at: ["n3"], r: c => <S cam={mv(c, [-100, 40, 1.0], [100, 0, 1.0])}><Facade c={c} />
     {[0, 1, 2].map(i => <Drone key={i} x={-60 + i * 960 + Math.sin(c.f * 0.02 + i) * 60} y={240 + (i % 2) * 300 - c.t * 0.5} f={c.f + i * 9} />)}
     <g>{P(RAINCOAT_GIRL, { facing: 1, aR: [160 + 15 * Math.sin(c.f * 0.4), 10], mouth: "grin", look: [0.6, -0.6] }, 1010, 560, 0.9, c.f, 7)}</g>

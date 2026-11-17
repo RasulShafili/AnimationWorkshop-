@@ -108,12 +108,12 @@ export const AmmoBox: React.FC<{ f: number; t: number }> = ({ f, t }) => { const
 
 // ---------- lidar: point cloud scan of the farm; fog scatters it ----------
 export const Lidar: React.FC<{ f: number; t: number; fog: number }> = ({ f, t, fog }) => { const sweep = (t * 12) % 1920;
-  const pts = Array.from({ length: 1400 }, (_, i) => { const x = rnd(i, 1) * 1920; let y = 780 + rnd(i, 2) * 300; const r = rnd(i, 3);
+  const pts = Array.from({ length: 2600 }, (_, i) => { const x = rnd(i, 1) * 1920; let y = 780 + rnd(i, 2) * 300; const r = rnd(i, 3);
     if (r < 0.25) { y = 300 + rnd(i, 4) * 480; if (x < 1100 || x > 1500) y = 780 + rnd(i, 2) * 300; }   // barn block
     if (r > 0.25 && r < 0.32) { const px = 520 + rnd(i, 5) * 60; return [px, 560 + rnd(i, 6) * 300]; }   // a person
     return [x, y]; });
   return <SV bg="#020406">{pts.map(([x, y], i) => { const sx = x + (rnd(i, 7) - 0.5) * 300 * fog, sy = y + (rnd(i, 8) - 0.5) * 300 * fog; const near = Math.abs(x - sweep) < 120;
-    return <circle key={i} cx={sx} cy={sy} r={2.4} fill={near ? "#9affc8" : ORIN_RED} opacity={(near ? 1 : 0.55) * (1 - 0.5 * fog)} />; })}
+    return <circle key={i} cx={sx} cy={sy} r={4} fill={near ? "#9affc8" : ORIN_RED} opacity={(near ? 1 : 0.8) * (1 - 0.4 * fog)} />; })}
     <rect x={sweep - 3} y={0} width={6} height={1080} fill="#9affc8" opacity={0.4} />
     <T x={80} y={90} s={34} c={ORIN_RED} a="start" f="monospace" w={700}>LIDAR · 1,200,000 PTS/S</T>
     <T x={80} y={140} s={30} c={fog > 0.5 ? "#ffb02a" : "#9affc8"} a="start" f="monospace" w={700}>{fog > 0.5 ? "SIGNAL SCATTERED · FOG" : "TARGET: HUMAN · 1"}</T></SV>; };
