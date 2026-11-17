@@ -196,3 +196,25 @@ amplitude; more varied body shapes per character.
 - While Chatterbox runs (~3.7 GB), previews at `--scale=0.25 --concurrency=1` and full renders at `CONC=2` survive.
 - Waiting for a background batch: never `until ! pgrep -f "batch.py ..."` (it matches its own command line, never ends). Use `pgrep -f "[b]atch.py"` or `while kill -0 $PID`.
 - Chatterbox sometimes repeats a short phrase ("I'm a friend. I'm a friend"): split the line with "|" into parts and change SEED; recheck with Whisper.
+
+## 12. Robots — skeleton rig (learned 2026-11-17, for an "AI turns against us" story)
+Owner asked for skeleton-form robots "like Terminator". **Never copy a film robot** (no chrome human skull, teeth,
+jaw, red eye sockets, "Skynet", film music/shots → Content-ID/copyright strike). The genre is free; the design must be ours.
+- Engine: `longform/ice-age/src/chars/Robot.tsx` (copy into the new project). Same joints + Pose API as Rig2, so `P()`,
+  `onHead()`, walkPose/runPose, rim light and cameras all work. Presets `HELPER` (white shell, calm, tag "ORIN") and
+  `HUNTER` (bare frame, hostile, scale 1.12). Tests: `RobotTest` (lineup), `RobotTest2` (night street), `RobotWalk`.
+- Design: capsule head + dark visor (no face) · eye light = the emotion (calm: two round eyes; scan: sweeping dot;
+  hostile: one narrow red slit + glow) · stacked-disc neck · spine blocks + 4 C-ribs + glowing core (core colour = eye
+  colour) · rod bones with a parallel piston + ball joints · 3-finger claws (close when holding) · wedge feet.
+  While talking the visor shows equaliser bars (no mouth).
+- `shell` 0..1 = white helper plates over the frame; plates drop out one by one as it falls → the story beat "the
+  friendly home robot's shell cracks and the skeleton shows". `dmg` 0..1 = scratches, cracked visor, sparking wire.
+- Night: `dark` 0..1 sinks the body into `night` colour with an SVG colour-matrix filter, then draws eyes + core again
+  unfiltered with a blur halo. **Never fake fog with opacity** (buildings show through the body — first try failed).
+- Text on a robot flips with `facing:-1` → counter-scale the text (`scale(-1 1)`), or it reads "NIЯO".
+- Rim light: draw only the outer silhouette in the rim colour, not inner details (every rib in orange looked heavy).
+- What the AI-takeover reference videos do (technique only): Segment Zero "AI Takeover Survival Day 1–30" (our
+  format) never shows killer robots early — fear comes from ordinary devices: a dome camera's red light, drones over
+  the street, phone countdowns, a smart-meter screen, dark streets with warm windows, DAY stamps, notes. Infographics
+  Show: one recurring robot character whose visor eyes turn angry; robot-hand inserts; server rooms. Versors: data
+  centres, orange factory arms, drone swarms. → Escalate: devices (Day 1–5) → drones/cars (Day 6–15) → robots (Day 16+).
