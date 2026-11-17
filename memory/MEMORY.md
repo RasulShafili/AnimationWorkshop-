@@ -14,3 +14,4 @@
 - [Long-form approved method](longform-approved-method.md) — owner loved never-forget (2026-11-14): Rig2 + Chatterbox + strict 640px QA; plan 1,300 words for 8:00+
 - [Thumbnail answers title](thumbnail-matches-title.md) — long-form thumbnail = answer to the title's question, power visible, bright; A got 0.6% CTR
 - [Mixed skin tones](mixed-skin-tones.md) — cartoon casts: light-skinned hero + mix; not everyone dark; no near-black skin hex
+- [Long-form performance](longform-performance.md) — 2026-11-17: long videos 30–70 views, teaser Shorts 500–1000; ice-age best velocity
