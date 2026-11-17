@@ -35,7 +35,8 @@
     "never-forget-teaser2",
     "zombie-teaser",
     "zombie-teaser2",
-    "ice-age-teaser"
+    "ice-age-teaser",
+    "ice-age-teaser2"
   ],
   "history": [
     {
@@ -664,6 +665,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6afb587e08dd0180500b9b18"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "ice-age-teaser2",
+      "title": "The Mammoth Turned… And She Slipped On The Ice 😱 Day 30 In 28,000 BC",
+      "published_at": "2026-11-17 06:26:38 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6afbf32ff83aaca8f3b4277f"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6afbf33af83aaca8f3b42ae5"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6afbf33f85dca6b14a278dbd"
         }
       ],
       "status": "published"
