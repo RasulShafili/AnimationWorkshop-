@@ -1,0 +1,11 @@
+[watch] asking gemini-3.7-flash…
+
+# watch: video report
+
+- **Source:** https://www.youtube.com/watch?v=PguPCPjptEg (URL sent to Google)
+- **Engine:** gemini-3.7-flash (failed)
+- **Focus range:** 00:00 → 06:00
+
+## Unavailable evidence
+
+- Gemini service: Gemini had a server error; retry shortly. Detail: HTTP 503: gemini-3.7-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later.. No local fallback was attempted; rerun with --engine local to use frames + transcript.
