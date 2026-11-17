@@ -15,3 +15,4 @@
 - [Thumbnail answers title](thumbnail-matches-title.md) — long-form thumbnail = answer to the title's question, power visible, bright; A got 0.6% CTR
 - [Mixed skin tones](mixed-skin-tones.md) — cartoon casts: light-skinned hero + mix; not everyone dark; no near-black skin hex
 - [Long-form performance](longform-performance.md) — 2026-11-17: long videos 30–70 views, teaser Shorts 500–1000; ice-age best velocity
+- [Story first, no fact cards](story-first-no-fact-cards.md) — long-form: logical action plot, no science card every chapter; QA each shot vs its line

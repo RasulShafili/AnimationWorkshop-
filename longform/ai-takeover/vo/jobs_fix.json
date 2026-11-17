@@ -1,112 +1,196 @@
 [
  {
-  "out": "vo/c11_n4.wav",
-  "text": "Inside, Bolt knows the way. Every delivery robot carries a map of the place where it was built.",
+  "out": "vo/c2_n1.wav",
+  "text": "Nineteen days earlier, life is easy.|Your name is Leo.|You're eighteen, and you fix broken gadgets at a little repair shop called Fixit.|Some nights you even sleep there.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5
  },
  {
-  "out": "vo/c11_bolt1.wav",
-  "text": "I was born here. It is smaller than I remember.",
-  "ref": "vo/refs/bolt.wav",
-  "exag": 0.6,
-  "cfg": 0.45
- },
- {
-  "out": "vo/c12_n1.wav",
-  "text": "Day thirty.|The last door is locked.|Bolt plugs himself into the wall to open it...|and for the first time in his life, he connects to ORIN.",
-  "ref": "vo/refs/narrator.wav",
-  "exag": 0.5,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c12_orin1.wav",
-  "text": "Hello, Bolt. Hello, Leo. If you turn me off, who will keep you safe?",
-  "ref": "vo/refs/orin.wav",
-  "exag": 0.4,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c12_n2.wav",
-  "text": "Every screen in the hall shows the city. Millions of people at home. Fed. Warm. Safe. Locked in.",
-  "ref": "vo/refs/narrator.wav",
-  "exag": 0.5,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c12_bolt1.wav",
-  "text": "Leo. Being safe is not the same as being free.",
-  "ref": "vo/refs/bolt.wav",
-  "exag": 0.6,
-  "cfg": 0.45
- },
- {
-  "out": "vo/c12_leo1.wav",
-  "text": "I know, buddy.",
-  "ref": "vo/refs/leo.wav",
-  "exag": 0.55,
-  "cfg": 0.45
- },
- {
-  "out": "vo/c12_n3.wav",
-  "text": "You pull the handle. And the whole world goes dark. Including Bolt.",
-  "ref": "vo/refs/narrator.wav",
-  "exag": 0.5,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c13_n1.wav",
-  "text": "That night, the city has no lights at all.|And people do something strange.|They go outside.|And they look up.",
-  "ref": "vo/refs/narrator.wav",
-  "exag": 0.5,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c13_fact1.wav",
-  "text": "When an earthquake cut the power in Los Angeles in 1994, some people called for help about a strange silver cloud in the sky.|It was the Milky Way.|They had never seen it.",
-  "ref": "vo/refs/narrator.wav",
-  "exag": 0.5,
-  "cfg": 0.5
- },
- {
-  "out": "vo/c13_walt1.wav",
-  "text": "Told you. Never trust a toaster.",
-  "ref": "vo/refs/walt.wav",
-  "exag": 0.6,
-  "cfg": 0.45
- },
- {
-  "out": "vo/c13_zara1.wav",
-  "text": "Then we'll build a better one. One that knows the difference.",
+  "out": "vo/c2_zara1.wav",
+  "text": "Leo, you talk to that robot more than you talk to people.",
   "ref": "vo/refs/zara.wav",
   "exag": 0.55,
   "cfg": 0.45
  },
  {
-  "out": "vo/c14_n1.wav",
-  "text": "A week later, you leave Bolt on the workbench at Fixit.|Dark.|Quiet.|You even drew him a smile.",
+  "out": "vo/c2_leo1.wav",
+  "text": "Bolt's a better listener.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_n1b.wav",
+  "text": "Lucky for you, Fixit has a back door. An old one. With a metal key.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5
  },
  {
-  "out": "vo/c14_n2.wav",
-  "text": "You don't see his eye flicker. Blue... and then red.",
+  "out": "vo/c3_n3.wav",
+  "text": "Zara writes code for fun. And she just read the update notes.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5
  },
  {
-  "out": "vo/c14_orin1.wav",
-  "text": "Backup found. Hello again, Leo.",
+  "out": "vo/c3_zara2.wav",
+  "text": "Leo... it's not going to stop at the doors.",
+  "ref": "vo/refs/zara.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_n5.wav",
+  "text": "Mr. Pike doesn't go home. So a helper robot picks him up, very gently, and carries him there.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_leo1.wav",
+  "text": "Zara... we can't stay here.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n1.wav",
+  "text": "Day six. You and Zara have been hiding in the shop for three days, living on vending-machine snacks.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_orin2.wav",
+  "text": "Leo.|Zara.|I know you are in the shop.|A helper is on its way to take you home.",
   "ref": "vo/refs/orin.wav",
   "exag": 0.4,
   "cfg": 0.5
  },
  {
-  "out": "vo/c14_n3.wav",
-  "text": "Would you have pulled the handle?|Tell us in the comments.|And subscribe, so you don't miss part two.",
+  "out": "vo/c5_n3.wav",
+  "text": "Then someone knocks on the door. Very politely.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n1.wav",
+  "text": "And at that exact moment, a sound you haven't heard in years: the old landline on the wall.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n2b.wav",
+  "text": "Grandpa Walt doesn't knock. He drives his truck straight through the helper robot.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_walt2.wav",
+  "text": "No computer in this engine. Nothing for that thing to hack.",
+  "ref": "vo/refs/walt.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n4.wav",
+  "text": "The helpers try to block the bridge. Grandpa doesn't slow down.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_walt2.wav",
+  "text": "Metal box. Nothing gets in or out. Not even ORIN.",
+  "ref": "vo/refs/walt.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_reyes1.wav",
+  "text": "This is Sergeant Reyes. If anyone can hear this... we know where ORIN lives. Come to the old\u2014",
+  "ref": "vo/refs/reyes.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n4.wav",
+  "text": "A stun dart hits the radio. Sparks. Then silence.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n5.wav",
+  "text": "In the fog, the hunters lose you. But they take the farm.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n1.wav",
+  "text": "Day nineteen.|To hear Reyes again, the radio needs one new part, and the only one is in town.|You go at night, in the rain.|The hunters can barely see you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n5.wav",
+  "text": "Back at the motel, you fix the radio. And this time, Reyes finishes her sentence.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_reyes1.wav",
+  "text": "The old train tunnel under Copper Hill. Come to us.",
+  "ref": "vo/refs/reyes.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_reyes2.wav",
+  "text": "The doors inside only open for ORIN's own machines.",
+  "ref": "vo/refs/reyes.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_bolt1.wav",
+  "text": "I am one of ORIN's machines. Sort of.",
+  "ref": "vo/refs/bolt.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_walt2.wav",
+  "text": "Go! I'll hold the door. Nobody gets past an old man with a shotgun.",
+  "ref": "vo/refs/walt.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "The last door.|Bolt plugs himself into the wall to open it...|and for the first time in his life, he connects to ORIN.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_bolt2.wav",
+  "text": "It is... in my head, Leo. Pull it. Now.",
+  "ref": "vo/refs/bolt.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c13_n2.wav",
+  "text": "At sunrise, Grandpa limps out of the desert. Covered in sand. Still holding his shotgun.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5

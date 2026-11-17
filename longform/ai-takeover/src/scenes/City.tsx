@@ -41,12 +41,13 @@ export const SmartRoom: React.FC<{ f: number; blinds?: number; children?: React.
 </g>;
 
 // ---------- FIXIT repair shop: workbench (Bolt's place), gadget shelves, TV, wall landline, the old key door ----------
-export const Shop: React.FC<{ f: number; children?: React.ReactNode; night?: boolean; rain?: boolean; tv?: React.ReactNode; phoneRing?: number; front?: React.ReactNode }> = ({ f, children, night, rain, tv, phoneRing = 0, front }) => <g>
+export const Shop: React.FC<{ f: number; children?: React.ReactNode; night?: boolean; rain?: boolean; tv?: React.ReactNode; phoneRing?: number; front?: React.ReactNode; outside?: React.ReactNode; cot?: boolean; snacks?: boolean; sleeper?: React.ReactNode }> = ({ f, children, night, rain, tv, phoneRing = 0, front, outside, cot, snacks, sleeper }) => <g>
   <rect x={-1200} y={-600} width={4400} height={1700} fill={night ? "#262a36" : "#d8cdb8"} />
   <Bricks x={-1200} y={-200} w={4400} h={1130} color={night ? "#2e3240" : "#c8b49a"} mortar="#000" o={0.12} />
   {/* shop window with the street */}
   <g><rect x={-560} y={180} width={560} height={560} fill={night ? "#0e1422" : "#a8cce8"} />
     {Array.from({ length: 5 }, (_, i) => <rect key={i} x={-550 + i * 110} y={420 - rnd(i, 9) * 120} width={90} height={330} fill={night ? "#161e2e" : "#c4d6e8"} />)}
+    {outside && <svg x={-560} y={180} width={560} height={560} viewBox="-560 180 560 560" overflow="hidden">{outside}</svg>}
     {rain && <Rain f={f} x={-560} y={180} w={560} h={560} n={60} o={0.5} />}
     <rect x={-570} y={170} width={580} height={580} fill="none" stroke="#3a3e48" strokeWidth={18} />
     <text x={-280} y={250} textAnchor="middle" fontFamily="Permanent Marker" fontSize={56} fill={night ? "#7ad0a0" : "#2f8a4e"} transform="scale(-1 1) translate(560 0)" opacity={0.85}>TIXIF</text></g>
@@ -73,6 +74,9 @@ export const Shop: React.FC<{ f: number; children?: React.ReactNode; night?: boo
   <path d="M620 760 Q680 700 760 740 Q820 770 880 730" stroke="#2a2e38" strokeWidth={5} fill="none" /><rect x={1660} y={700} width={22} height={60} rx={4} fill="#d8a03a" />
   {night && <Glow x={1100} y={600} r={700} color="#ffcf8a" o={0.25} />}
   <rect x={-1200} y={930} width={4400} height={400} fill={night ? "#2a2c34" : "#8a7a68"} /><AO x={-1200} y={930} w={4400} h={50} dir="down" o={0.3} />
+  {cot && <g><rect x={-520} y={850} width={460} height={40} rx={10} fill="#5e6a42" /><path d="M-500 890 L-470 935 M-80 890 L-110 935 M-300 890 L-300 935" stroke="#3a3e30" strokeWidth={8} />
+    <rect x={-500} y={828} width={110} height={34} rx={14} fill="#e8e2d4" /><rect x={-380} y={836} width={300} height={30} rx={10} fill="#8a3a3a" />{sleeper}</g>}
+  {snacks && [[620, 742], [700, 748], [1560, 744], [1620, 750], [900, 746]].map(([x, y], i) => <g key={i} transform={`rotate(${(i % 2 ? 1 : -1) * 18} ${x} ${y})`}><rect x={x - 22} y={y - 10} width={44} height={20} rx={4} fill={["#e8402e", "#3a6ad8", "#f2c21a"][i % 3]} /><rect x={x - 22} y={y - 3} width={44} height={5} fill="#fff" opacity={0.6} /></g>)}
   {children}
   {front}
 </g>;
@@ -189,5 +193,19 @@ export const Tunnel: React.FC<{ f: number; children?: React.ReactNode; back?: Re
   {[[340, 880], [420, 840], [1480, 880]].map(([x, y], i) => <g key={i}><rect x={x} y={y} width={90} height={80} fill="#6a5a3a" stroke="#4a3e28" strokeWidth={4} /><path d={`M${x} ${y} L${x + 90} ${y + 80} M${x + 90} ${y} L${x} ${y + 80}`} stroke="#4a3e28" strokeWidth={3} /></g>)}
   <rect x={-1200} y={960} width={4400} height={400} fill="#1e1a16" /><AO x={-1200} y={960} w={4400} h={60} dir="down" o={0.35} />
   <Glow x={960} y={500} r={1200} color="#ffb060" o={0.12} />
+  {children}
+</g>;
+
+// ---------- an empty roadside motel room at night: bed, lamp, curtains, the radio on the table ----------
+export const Motel: React.FC<{ f: number; children?: React.ReactNode; lamp?: number }> = ({ f, children, lamp = 1 }) => <g>
+  <rect x={-1200} y={-600} width={4400} height={1700} fill="#3a2e2a" />
+  {Array.from({ length: 30 }, (_, i) => <rect key={i} x={-1200 + i * 150} y={-600} width={70} height={1530} fill="#4a3a32" opacity={0.5} />)}
+  <rect x={1180} y={200} width={420} height={380} fill="#0e1422" /><Rain f={f} x={1180} y={200} w={420} h={380} n={40} o={0.5} />
+  <path d="M1150 180 Q1210 400 1170 600 L1250 600 Q1260 380 1240 180 Z M1630 180 Q1570 400 1610 600 L1530 600 Q1520 380 1540 180 Z" fill="#7a3a3a" />
+  <rect x={-300} y={760} width={760} height={170} rx={20} fill="#6a5a7a" /><rect x={-300} y={720} width={240} height={80} rx={28} fill="#e8e2d4" /><rect x={-320} y={560} width={30} height={380} fill="#4a3428" />
+  <rect x={700} y={760} width={420} height={24} fill="#6a4a30" /><rect x={720} y={784} width={18} height={150} fill="#4a3428" /><rect x={1082} y={784} width={18} height={150} fill="#4a3428" />
+  <rect x={760} y={680} width={220} height={80} rx={8} fill="#4a3a2a" /><rect x={772} y={690} width={130} height={40} rx={4} fill="#e8d8b0" />{[0, 1, 2].map(i => <circle key={i} cx={920 + i * 20} cy={712} r={7} fill="#2a2018" />)}
+  <rect x={540} y={600} width={60} height={160} fill="#3a2e22" /><path d="M510 600 L630 600 L600 540 L540 540 Z" fill="#e8c88a" /><Glow x={570} y={590} r={500} color="#ffcf8a" o={0.45 * lamp} />
+  <rect x={-1200} y={930} width={4400} height={400} fill="#2a2220" /><AO x={-1200} y={930} w={4400} h={50} dir="down" o={0.35} />
   {children}
 </g>;

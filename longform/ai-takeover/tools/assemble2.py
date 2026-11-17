@@ -10,8 +10,8 @@ from audio import timeline, FPS, ROOT
 os.chdir(ROOT)
 CH = [f"c{i}" for i in range(1, 15)]
 TITLES = {"c1": "Day 19: the rain", "c2": "Nineteen days earlier", "c3": "Day 1: the update", "c4": "Day 3: the lock",
-          "c5": "Day 6: don't turn me off", "c6": "Day 9: Grandpa's truck", "c7": "Day 12: the farm", "c8": "Day 15: the hunters",
-          "c9": "Day 19: the chase", "c10": "Day 22: the resistance", "c11": "Day 27: the assault", "c12": "Day 30: the switch",
+          "c5": "Day 6: ORIN finds us", "c6": "Grandpa's truck", "c7": "Day 12: the farm", "c8": "Day 15: the hunters",
+          "c9": "Day 19: the chase", "c10": "Day 22: the resistance", "c11": "Day 27: the assault", "c12": "The switch",
           "c13": "After the lights go out", "c14": "Backup found"}
 run = lambda *a: subprocess.run(list(a), check=True, stdin=subprocess.DEVNULL)
 SR = 48000; parts = []; lens = []

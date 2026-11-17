@@ -25,7 +25,9 @@ export const ChapterPlayer: React.FC<{ ch: string; vo: VO; shots: Shot[]; facts?
   useFonts();
   const f = useCurrentFrame(); const { T, len } = timeline(ch, vo);
   const at = (k: string, fr = 0) => { const b = T[k]; if (!b) throw new Error(`no beat ${k} in ${ch}`); return Math.round(b.s + (b.e - b.s) * fr); };
-  const starts = shots.map(s => at(s.at[0], s.at[1] ?? 0));
+  // shots may be listed in any order: sort by start frame (stable)
+  const ord = shots.map((s, j) => ({ s, st: at(s.at[0], s.at[1] ?? 0), j })).sort((a, b) => a.st - b.st || a.j - b.j);
+  shots = ord.map(o => o.s); const starts = ord.map(o => o.st);
   let i = 0; for (let j = 0; j < shots.length; j++) if (f >= starts[j]) i = j;
   const end = i + 1 < shots.length ? starts[i + 1] : len;
   const talk = (id: string) => { const v = vo[`${ch}_${id}`], b = T[id]; if (!v || !b) return 0; const k = Math.floor(f - b.line); return k >= 0 && k < v.env.length ? v.env[k] : 0; };

@@ -36,3 +36,13 @@ Also pending: ice-age teaser 3 (out/short_ice_age_teaser3.mp4) was never posted 
   ~/Desktop/YouTube_upload_ai_takeover (mp4, srt, thumbnails A/B, title_and_description with chapters).
 - Last QA fixes: net shot (Leo ducks, net flies over him into the post — first version looked like he was caught),
   fact cards over diagram text → side right / text moved up, lidar points ×2 size, truck shot past the sky edge.
+
+## v2 (2026-11-17 16:10) — owner: "errors in every scene, illogical story; no science facts every time; logical action story"
+- SCRIPT.md v2 (v1 kept as SCRIPT_v1.md): no fact cards; holes closed (Leo sleeps at the shop + old back-door key;
+  ORIN finds the shop on Day 6 → Walt rams the helper and the bridge; Reyes's call cut off → dart fries the radio →
+  town trip → Reyes: "train tunnel under Copper Hill"; inner doors only open for ORIN's machines → Bolt; Walt holds
+  the door, limps out of the desert at sunrise). 95 lines, 28 new voices, 9:18.
+- Engine: Player sorts shots by start (shots can be listed out of order); Rig2 hold "receiver" (back hand at the ear,
+  curly cord); Shop cot/snacks/outside-window svg; Motel scene; Zara hair ponytail (long hair read as a beard).
+- New QA step: tools-less script builds out/qa/lines_N.png = the mid frame of EVERY line with its text underneath →
+  check picture vs words, not just framing.

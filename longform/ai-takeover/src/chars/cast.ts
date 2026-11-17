@@ -4,7 +4,7 @@ import type { RobotLook } from "./Robot";
 export const LEO: Look = { top: "#3f8a4e", topDark: "#2a6038", pants: "#2c3a5a", shoes: "#e8e2d4", style: "hoodie", hair: "messy", hairColor: "#c8642a", skin: "#f4ccb0", blush: true };
 export const LEO_RAIN: Look = { ...LEO, top: "#356f42", topDark: "#244c2e", backpack: "#3a3a44" };
 export const WALT: Look = { top: "#b8402e", topDark: "#86301f", pants: "#3e4a5e", shoes: "#4a3a2a", style: "shirt", outfit: "flannel", hair: "cap", hatColor: "#3a5a3a", mustache: true, hairColor: "#e8e4dc", skin: "#f0c4a4", scale: 1.04 };
-export const ZARA: Look = { top: "#7a4ab8", topDark: "#563488", pants: "#2a2a36", shoes: "#f0ece4", style: "jacket", hair: "long", hairColor: "#1e1612", glasses: true, lashes: true, earring: "#ffd34a", skin: "#7a4e34" };
+export const ZARA: Look = { top: "#7a4ab8", topDark: "#563488", pants: "#2a2a36", shoes: "#f0ece4", style: "jacket", hair: "ponytail", hairColor: "#1e1612", glasses: true, lashes: true, earring: "#ffd34a", skin: "#7a4e34" };
 export const REYES: Look = { top: "#5e6a42", topDark: "#404a2c", pants: "#4a5434", shoes: "#2a2418", style: "uniform", hair: "helmet", hatColor: "#55603a", lashes: true, skin: "#c8956a", scale: 1.02 };
 export const SOLDIERS: Look[] = ["#e8b896", "#8a5a3e", "#c8956a", "#f2c8a8", "#6e4a34"].map((skin, i) => ({ top: "#5e6a42", topDark: "#404a2c", pants: "#4a5434", shoes: "#2a2418", style: "uniform" as const, hair: "helmet" as const, hatColor: "#55603a", skin, scale: 1 + (i % 3) * 0.04 }));
 export const PIKE: Look = { top: "#8a7a62", topDark: "#5e5242", pants: "#4a4a52", style: "cardigan", hair: "bald", mustache: true, hairColor: "#c8c4bc", glasses: true, skin: "#e8bc98", scale: 0.98 };

@@ -284,46 +284,54 @@ def cues(ch, m, T, END):
         m.gun(A("walt1", .55), .55); m.ricochet(A("walt1", .6), .1, .3); m.gun(A("n3", .1), .5); m.crash(A("n3", .4), .3); music(m, "western", A("n3"), A("truck"), .7)
         music(m, "action", A("truck"), A("title"), .8); m.riser(A("n4"), E("n4") - A("n4"), .16); m.hit(A("title"), .55)
     if ch == "c2":
-        m.amb("room", 0, A("montage")); music(m, "warm", 0, A("fact1"), .8); m.chime(L("orin1") - .4)
+        m.amb("room", 0, A("montage")); music(m, "warm", 0, end, .8); m.chime(L("orin1") - .4)
         m.amb("city", A("montage"), A("n3")); m.dronepass(A("montage", .2), 3, .06); m.dronepass(A("n2", .55), 3, .05)
-        m.amb("room", A("n3"), end); m.servo(A("n3", .8), .5, .08); m.servo(A("bolt1", .3), .4, .08); music(m, "orin", A("fact1"), end, .8)
+        m.amb("room", A("n3"), end); m.servo(A("n3", .8), .5, .08); m.servo(A("bolt1", .3), .4, .08); m.steps(A("zara1"), A("zara1", .4), .4, .12); m.servo(A("leo1", .3), .4, .08)
     if ch == "c3":
         m.amb("room", 0, end, .8); music(m, "orin", 0, A("leo1"), .8); m.chime(A("midnight", .1), 72, .05)
         m.lockclick(A("leo1", .2)); m.lockclick(A("leo1", .5)); m.chime(L("orin1") - .4, 64, .04); m.amb("rain", A("leo1"), A("n2"), .5)
-        music(m, "warm", A("n2"), A("zara1"), .7); m.beep(A("n2", .45)); m.beep(A("n2", .75)); music(m, "tense", A("zara1"), A("fact1"), .7)
-        music(m, "mystery", A("fact1"), end, .8); [m.beep(A("fact1") + k * .9) for k in range(int((E("fact1") - A("fact1")) / .9))]
+        m.click(A("n1b", .2), .3); m.slam(A("n1b", .65), .25); m.amb("rain", A("n1b", .6), A("n2"), .8); m.steps(A("street"), E("street"), .45, .12)
+        music(m, "warm", A("n2"), A("zara1"), .7); m.beep(A("n2", .45)); m.beep(A("n2", .75)); m.amb("rain", A("zara1"), end, .7); m.steps(A("zara1"), A("zara1", .3), .22, .18)
+        music(m, "tense", A("zara1"), end, .7); [m.keys(A("n3") + k * .8, .1) for k in range(3)]; m.dronepass(A("zara2"), E("zara2") - A("zara2"), .07)
     if ch == "c4":
         m.amb("city", 0, A("n3"), .7); music(m, "menace", 0, end, .8)
         for k in range(8): m.lockclick(A("n2") + k * .18, .2)
         m.dronepass(A("lockwide"), 4, .08); m.chime(L("orin1") - .4, 64, .05); m.amb("city", A("n3"), end, .5)
         m.dronepass(A("n3"), 4, .06); m.dronepass(A("n4", .2), E("drone1") - A("n4", .2), .07); m.steps(A("n4"), A("drone1", .5), .5, .12)
+        m.servosteps(A("n5"), A("n5", .45), .5, .12); m.servo(A("n5", .5), .8, .12); m.servosteps(A("carry"), E("carry"), .5, .12); m.amb("room", A("leo1"), end)
     if ch == "c5":
-        m.amb("rain", 0, end, .5); m.amb("room", 0, end); m.lockclick(A("n1", .2), .3); music(m, "tense", A("n1", .5), A("bolt1"), .8)
+        m.amb("rain", 0, end, .5); m.amb("room", 0, end); music(m, "tense", A("n1", .3), A("bolt1"), .8)
         m.keys(A("orin1") - .3); m.keys(A("refused", .1)); m.hit(A("refused", .3), .35); music(m, "menace", A("orin1"), A("bolt1"), .7)
-        m.servo(A("bolt1", .2), .4, .08); music(m, "warm", A("bolt1", .5), end, .6)
+        m.servo(A("bolt1", .2), .4, .08); m.chime(L("orin2") - .4, 64, .05); music(m, "menace", A("orin2"), end, .9); m.hit(A("orin2", .1), .3)
+        for k in range(3): m.knock(A("n3", .55) + k * .45, .3, metal=False)
+        for k in range(3): m.knock(A("knock") + .3 + k * .45, .3, metal=False)
     if ch == "c6":
-        m.amb("room", 0, A("n2")); m.ring(A("n1", .5)); m.ring(A("ring")); m.click(A("walt1") - .3, .2); music(m, "western", A("n2"), end, .8)
-        m.amb("city", A("n2"), A("n2", .5), .5); m.amb("engine", A("n2", .5), end, .9); m.dronepass(A("n3", .2), 4, .08); m.beep(A("n3", .6))
+        m.amb("room", 0, A("n2b")); m.ring(A("n1", .5)); m.ring(A("ring")); m.click(A("walt1") - .3, .2)
+        m.amb("rain", A("n2b"), A("n3"), .6); m.amb("engine", A("n2b"), end, .9); m.screech(A("n2b", .3), .12); m.crash(A("n2b", .55), .7); m.shellcrack(A("n2b", .58), .3)
+        music(m, "action", A("n2b"), A("n2"), .9); music(m, "western", A("n2"), A("n4"), .8); m.dronepass(A("n3", .2), 4, .08); m.beep(A("n3", .6))
+        music(m, "action", A("n4"), end, .9); m.crash(A("bridge", .38), .7); m.shellcrack(A("bridge", .4), .35); m.crash(A("bridge", .5), .5)
     if ch == "c7":
         m.amb("crickets", 0, end); m.amb("barn", A("walt1"), end, .6); music(m, "western", 0, A("box"), .7)
         for k in range(3): m.knock(A("box") + .3 + k * .6, .25)
-        m.slam(A("box", .85), .5); music(m, "mystery", A("fact1"), A("reyes1"), .7); m.amb("static", A("n2", .4), end, 1.3)
+        m.slam(A("box", .85), .5); music(m, "mystery", A("walt2"), A("reyes1"), .7); m.amb("static", A("n2", .4), end, 1.3); m.hit(E("reyes1") - .1, .3)
     if ch == "c8":
         m.amb("wind", 0, end, .6); music(m, "orin", 0, A("crack"), .8); m.servosteps(0, A("orin1"), .5, .12)
         m.shellcrack(A("crack", .1), .35); m.shellcrack(A("crack", .35), .3); m.servo(A("crack", .7), .8, .12); m.hit(A("crack", .6), .3)
-        music(m, "action", A("walt1"), A("fact1"), .9)
+        music(m, "action", A("walt1"), A("zara1"), .9)
         for k in range(int((E("fight") - A("n3")) / 1.6)):
             t = A("n3") + k * 1.6; m.netgun(t, .3, .4); m.zap(t + .6, .2, .3); m.gun(t + .9, .45, -.4); m.ricochet(t + 1.0, .08, .4)
-        m.pump(A("fight", .3), .3); music(m, "tense", A("fact1"), end, .8); m.steps(A("corn"), end, .22, .18)
+        m.pump(A("fight", .3), .3); m.zap(A("n4") + .3, .35); m.crash(A("n4") + .45, .3); m.flash(A("n4") + .45) if hasattr(m, "flash") else None
+        music(m, "tense", A("zara1"), end, .8); m.steps(A("corn"), A("n5"), .22, .18); m.servosteps(A("n5"), end, .6, .08)
     if ch == "c9":
         m.amb("rain", 0, end); music(m, "tense", 0, A("n3"), .8); m.amb("static", 0, A("n1", .4), .8); m.steps(A("n1", .4), A("n2"), .5, .12)
         m.servo(A("n2", .3), .6, .1); m.steps(A("alley"), A("n3"), .25, .2); m.amb("engine", A("n3"), end, .9); music(m, "action", A("n3"), A("bolt2"), .8)
         m.thump(A("n3", .25), .5, 60); m.crash(A("n3", .4), .4); m.servo(A("bolt1"), .6, .12); m.crash(A("n4", .25), .35); m.zap(A("n4", .3), .3)
         music(m, "warm", A("bolt2"), A("away"), .6); m.gun(A("away", .1), .4); m.gun(A("away", .5), .4)
+        m.amb("room", A("n5"), end); [m.click(A("n5") + k * .7, .12) for k in range(5)]; m.amb("static", A("reyes1"), end, 1.0); music(m, "hope", A("reyes1"), end, .7)
     if ch == "c10":
-        m.amb("tunnel", 0, end); music(m, "hope", 0, A("fact1"), .7); m.pump(A("n1", .3), .15)
-        music(m, "mystery", A("fact1"), A("zara1"), .7); [m.servo(A("fact1") + k * .7, .4, .04) for k in range(5)]
-        music(m, "western", A("walt1"), end, .8); m.pump(A("walt1", .4), .3)
+        m.amb("tunnel", 0, end); music(m, "hope", 0, A("reyes2"), .7); m.pump(A("n1", .3), .15)
+        music(m, "mystery", A("reyes2"), A("walt1"), .7); m.servo(A("bolt1", .1), .5, .08)
+        music(m, "western", A("walt1"), end, .8); m.pump(A("walt1", .4), .3); [m.pump(A("gear") + k * .5, .15) for k in range(3)]
     if ch == "c11":
         m.amb("desert", 0, end); m.amb("server", 0, A("n4"), .4); music(m, "menace", 0, A("reyes1"), .8)
         m.whoosh(A("reyes1", .3), .5, .2); music(m, "action", A("fire"), A("n4"), 1.0)
@@ -331,13 +339,16 @@ def cues(ch, m, T, END):
             t = A("fire") + k * .9; m.burst(t, 4, .1, .25, -.5 + .3 * (k % 3), far=k % 2 == 1); m.netgun(t + .4, .2, .5)
         m.boom(A("fire") + 1.0, .5); m.boom(A("n2", .55) + .3, .55); m.dronepass(A("fire"), 3, .06)
         m.amb("engine", A("walt1"), A("n4"), 1.0); m.crash(A("ram", .45), .7); m.boom(A("ram", .5), .3)
+        m.pump(A("walt2", .2), .3); music(m, "action", A("walt2"), A("n4"), .9)
+        for k in range(int((E("hold") - A("hold")) / .8)): m.gun(A("hold") + k * .8, .45, .2); m.ricochet(A("hold") + k * .8 + .1, .08, .4)
         m.amb("server", A("n4"), end, 1.0); m.steps(A("n4"), A("bolt1"), .22, .18); music(m, "tense", A("n4"), end, .7)
     if ch == "c12":
         m.amb("server", 0, A("n3", .8)); music(m, "tense", 0, A("orin1"), .7); m.servo(A("n1", .5), .6, .1); m.zap(A("n1", .62), .2); m.lockclick(A("n1", .85), .3)
-        music(m, "orin", A("orin1"), A("pull"), .9); music(m, "sad", A("bolt1"), A("dark"), .9); m.heart(A("pull"), E("pull"), 80, .3)
+        music(m, "orin", A("orin1"), A("bolt2"), .9); [m.zap(A("bolt2") + k * .6, .12) for k in range(int((E("bolt2") - A("bolt2")) / .6))]
+        music(m, "sad", A("bolt1"), A("dark"), .9); m.heart(A("pull"), E("pull"), 80, .3)
         m.breaker(A("pull", .55), .7); m.wavedown(E("pull"), 4, .18); m.powerdown(A("n3", .6)); m.amb("wind", A("dark"), end, .4)
     if ch == "c13":
-        m.amb("crickets", 0, end, .8); music(m, "hope", 0, end, .9)
+        m.amb("crickets", 0, A("n2"), .8); music(m, "hope", 0, end, .9); m.amb("desert", A("n2"), end, .6); m.steps(A("n2"), E("n2"), .7, .12)
     if ch == "c14":
         m.amb("room", 0, end); music(m, "sad", 0, A("n2", .3), .8); m.steps(A("n1", .55), A("n1", .85), .5, .12); m.click(A("n1", .85), .2)
         m.beep(A("n2", .35)); m.beep(A("n2", .45)); m.chime(A("n2", .7), 60, .05); music(m, "menace", A("n2", .5), A("n3"), .9); m.hit(A("orin1"), .4)

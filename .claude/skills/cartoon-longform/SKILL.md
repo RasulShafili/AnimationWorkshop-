@@ -20,7 +20,9 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
 1. **Cold open = action in second 1** (no intro). Title question at ~0:30.
 2. **Second person** ("you…"), short punchy sentences.
 3. **Escalation ladder:** everyday → social/fun → skill → public hero → big stakes. New "wow" every 60–90 s; chapters.
-4. **A real fact as a twist** (fact cards) inside every chapter; facts researched and listed in SCRIPT.md with sources.
+4. **Story first (owner 2026-11-17):** NO "real science" fact card in every chapter — it stops the story. Explain things
+   through characters ("No computer in this engine. Nothing to hack."). Check the plot for holes before building:
+   how did they get there, why is it broken, why is this character needed. Action beats without narration are good.
 5. **A cost** (the power hurts / has a price) → **emotional choice** at the climax → bittersweet win.
 6. **Cliffhanger** into the next part (series bring viewers back) + comment question + subscribe line.
 7. Write the script first (SCRIPT.md, scene-by-scene: VISUAL / NARRATOR / CHARACTER lines / FACT CARD); get approval.

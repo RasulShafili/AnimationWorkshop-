@@ -15,7 +15,7 @@ export type Pose = { seat?: boolean;
   lean?: number; head?: number; aL?: number[]; aR?: number[]; lL?: number[]; lR?: number[];
   eyes?: number; look?: number[]; brow?: number; browIn?: number;
   mouth?: "smile" | "grin" | "o" | "flat" | "open" | "frown" | "shout" | "worried" | "smirk" | "sad";
-  talk?: number; bob?: number; facing?: 1 | -1; gold?: number; tears?: number; breath?: number; hold?: "cup" | "phone" | "photo" | "cards" | "pills" | "torch" | "walkie" | "keys" | "clipboard" | "binoculars" | "map" | "can" | "radio" | "mop" | "bat" | "crowbar" | "rifle" | "spear" | "torchfire" | null; beam?: number; noBlink?: boolean;
+  talk?: number; bob?: number; facing?: 1 | -1; gold?: number; tears?: number; breath?: number; hold?: "cup" | "phone" | "photo" | "cards" | "pills" | "torch" | "walkie" | "keys" | "clipboard" | "binoculars" | "map" | "can" | "radio" | "mop" | "bat" | "crowbar" | "rifle" | "spear" | "torchfire" | "receiver" | null; beam?: number; noBlink?: boolean;
 };
 type Rim = { dx: number; dy: number; color: string } | null;
 
@@ -82,6 +82,8 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
     if (P.hold === "rifle") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang + 150})`}><rect x={-6} y={-60} width={12} height={150} rx={3} fill="#2a2a2e" /><path d="M-8 60 L8 60 L14 120 L-10 120 Z" fill="#6a4a2e" /><rect x={-4} y={-90} width={6} height={36} fill="#1a1a1e" /><rect x={-10} y={0} width={10} height={26} rx={2} fill="#1a1a1e" /></g>;
     if (P.hold === "spear") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang * 0.3})`}><line x1={0} y1={170} x2={0} y2={-230} stroke="#8a6a44" strokeWidth={8} strokeLinecap="round" /><path d="M-12 -226 L0 -290 L12 -226 Z" fill="#7a808a" stroke="#4a4e58" strokeWidth={3} /><path d="M-8 -230 L8 -210" stroke="#5a3e28" strokeWidth={4} /></g>;
     if (P.hold === "torchfire") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang * 0.3})`}><line x1={0} y1={60} x2={0} y2={-90} stroke="#6a4a2a" strokeWidth={10} strokeLinecap="round" /><path d={`M-18 -90 Q0 ${-170 - 10 * Math.sin(f * 0.5)} 18 -90 Z`} fill="#ffb84a" /><path d={`M-9 -92 Q0 ${-140 - 8 * Math.sin(f * 0.7)} 9 -92 Z`} fill="#fff2b0" /></g>;
+    if (P.hold === "receiver") return <g transform={`translate(${h[0]} ${h[1]})`}><path d="M-10 -46 Q-26 -40 -22 -20 L-14 24 Q-12 44 6 46 L14 40 Q4 30 2 10 L0 -20 Q2 -34 10 -42 Z" fill="#e8dcc0" stroke="#b8a888" strokeWidth={2} />
+      <path d="M2 44 q10 30 -6 50 q-16 20 4 44 q16 22 -4 46" stroke="#d4c6a4" strokeWidth={4} fill="none" strokeDasharray="6 3" /></g>;
     if (P.hold === "mop") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang * 0.3})`}><line x1={0} y1={-150} x2={0} y2={160} stroke="#b08a5a" strokeWidth={8} strokeLinecap="round" /><path d="M-26 150 Q0 196 26 150 Z" fill="#d8d4c8" /></g>;
     return null;
   };
@@ -93,7 +95,7 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
       {!c && style !== "shirt" && <circle cx={h[0] - (h[0] - e[0]) * 0.12} cy={h[1] - (h[1] - e[1]) * 0.12} r={12} fill={back ? shade(look.top, 0.55) : shade(look.top, 0.8)} />}
       <circle cx={h[0]} cy={h[1]} r={15} fill={c ?? (back ? shade(mitt, 0.8) : `url(#${id}m)`)} />
       {!c && <circle cx={h[0] + 9 * Math.cos(rad(a[0] + a[1]))} cy={h[1] - 9 * Math.sin(rad(a[0] + a[1])) - 4} r={6.5} fill={back ? shade(mitt, 0.8) : mitt} />}
-      {!c && !back && prop(h, a[0] + a[1])}
+      {!c && (P.hold === "receiver" ? back : !back) && prop(h, a[0] + a[1])}
     </g>}</R>;
   };
   const bot = longCoat ? hipY + 74 : hipY + 14;

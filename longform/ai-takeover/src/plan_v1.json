@@ -1,0 +1,530 @@
+{
+"c1": [
+{
+"key": "open",
+"hold": 45
+},
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt2",
+"pre": 0,
+"post": 10
+},
+{
+"key": "truck",
+"hold": 70
+},
+{
+"id": "n4",
+"pre": 0,
+"post": 24
+},
+{
+"key": "title",
+"hold": 80,
+"post": 10
+}
+],
+"c2": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "montage",
+"hold": 40
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 24
+}
+],
+"c3": [
+{
+"key": "midnight",
+"hold": 40
+},
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "leo1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "zara1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 24
+}
+],
+"c4": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"key": "lockwide",
+"hold": 30
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n4",
+"pre": 0,
+"post": 10
+},
+{
+"id": "drone1",
+"pre": 0,
+"post": 24
+}
+],
+"c5": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "zara1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "refused",
+"hold": 40
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 24
+}
+],
+"c6": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "ring",
+"hold": 30
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 24
+},
+{
+"key": "drive",
+"hold": 40
+}
+],
+"c7": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "box",
+"hold": 50
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "reyes1",
+"pre": 0,
+"post": 24
+}
+],
+"c8": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "crack",
+"hold": 60
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"key": "fight",
+"hold": 70
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "zara1",
+"pre": 0,
+"post": 24
+},
+{
+"key": "corn",
+"hold": 40
+}
+],
+"c9": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"key": "alley",
+"hold": 40
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n4",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt2",
+"pre": 0,
+"post": 24
+},
+{
+"key": "away",
+"hold": 40
+}
+],
+"c10": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "reyes1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "zara1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 24
+}
+],
+"c11": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "reyes1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "fire",
+"hold": 60
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "ram",
+"hold": 50
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n4",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 24
+}
+],
+"c12": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"id": "bolt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "leo1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "pull",
+"hold": 40
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 24
+},
+{
+"key": "dark",
+"hold": 70
+}
+],
+"c13": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"key": "stars",
+"hold": 50
+},
+{
+"id": "fact1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "walt1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "zara1",
+"pre": 0,
+"post": 24
+}
+],
+"c14": [
+{
+"id": "n1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n2",
+"pre": 0,
+"post": 10
+},
+{
+"key": "flicker",
+"hold": 50
+},
+{
+"id": "orin1",
+"pre": 0,
+"post": 10
+},
+{
+"id": "n3",
+"pre": 0,
+"post": 24
+},
+{
+"key": "end",
+"hold": 420,
+"post": 10
+}
+]
+}
