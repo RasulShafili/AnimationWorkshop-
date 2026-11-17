@@ -36,7 +36,8 @@
     "zombie-teaser",
     "zombie-teaser2",
     "ice-age-teaser",
-    "ice-age-teaser2"
+    "ice-age-teaser2",
+    "ai-takeover-teaser"
   ],
   "history": [
     {
@@ -688,6 +689,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6afbf33f85dca6b14a278dbd"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "ai-takeover-teaser",
+      "title": "Day 19 After AI Turned On Us… It Just Wants To Take You Home 😳",
+      "published_at": "2026-11-17 19:23:21 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6afca93f3f600a65285c1d42"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6afca94adfd7767b0073f475"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6afca94f9c73f3089bb19af0"
         }
       ],
       "status": "published"

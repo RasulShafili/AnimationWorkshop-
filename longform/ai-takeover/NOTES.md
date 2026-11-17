@@ -55,3 +55,7 @@ Also pending: ice-age teaser 3 (out/short_ice_age_teaser3.mp4) was never posted 
   feet above its wheels). Mirrored truck plate un-mirrored.
 - QA: line sheet (mid frame of every line + 2 frames per action beat, 155 cells) + action contact sheet.
 - Thumbnails rebuilt from scratch with custom big art (BigHead): A "AI LOCKED US IN?!", B "PULL IT?!".
+- PUBLISHED long video by the owner: https://youtu.be/ckDcLT3ze5M (2026-11-17).
+- Teaser Short posted 2026-11-17 23:25 Baku (c1 cold open 0:00–0:34.5, hook "DAY 19 AFTER AI TURNED ON US"):
+  YT https://www.youtube.com/watch?v=OHfZrvhVZbE · IG https://www.instagram.com/reel/Df2q65LilX3/ ·
+  TT https://tiktok.com/@whatif.lab_daily/video/7709222408858717441. Owner sets Related video → ckDcLT3ze5M.
