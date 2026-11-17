@@ -233,3 +233,19 @@ jaw, red eye sockets, "Skynet", film music/shots → Content-ID/copyright strike
 - Stay inside the scene's drawn world: a camera centred near x 3000 at zoom 1.7 showed black past the sky rect
   (x ≤ 3200). Keep action between x −600 and 2600.
 - Long single inserts (data-viz, game) still need motion: counters, sweeps, push-in; a static 10 s shot → split it.
+
+## 14. Physical-logic checklist (owner 2026-11-17: "every scene has errors; fix them yourself")
+Run this on an ACTION contact sheet (frames picked at the key moment of every fight/vehicle/prop beat) before
+showing anything — not only the line-by-line sheet.
+- **Real scale: 1 m = 240 px at s = 1.** Pickup `Pickup` draws ×PK (1.8) → 4.5 m × 1.9 m; people in the bed stand on
+  `BED_Y`, the cab window is `CAB_CLIP` (a person at s 0.95 inside, head centre ~CAB). Humvee ×1.6. Zombie-project
+  hatchbacks are ~0.82 real → in their highway use the same outer scale as the lane. Facade windows 200 px = 1.7 m
+  → people s 0.5 on the balcony floor. Background depth: scale vehicles with the people at that depth.
+- **Weapons (Rig2):** `AIM` (IK-solved: rifle level at the shoulder, both hands on it, `muzzle(x,y,s·look.scale,facing)`
+  gives the flash point), `PORT` (carry diagonally, −45° so it never crosses the face), `COVER` (duck, hands on head).
+  `ik(sx,sy,tx,ty)` solves any reach. Never `hold: "rifle"` with free arm angles.
+- **Robots aim:** `robotAim(x,y,s·look.scale,facing,tx,ty)` → straight gun arm at the target + `tip`; nets, darts and
+  laser dots start at `tip`. A "miss" = the target ducks and the shot passes just over into something right behind.
+- **Mirrored groups** (`scale(-1 1)`): `facing` flips, text flips (Pickup `mirrored`), world x = groupX − localX.
+- **Gauges/insert graphics:** needles tapered, shorter than the label radius, readout in its own box.
+- Shot order in a chapter file may differ from time order — the Player sorts by start frame.

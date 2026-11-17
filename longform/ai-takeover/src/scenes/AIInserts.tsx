@@ -61,16 +61,18 @@ export const DoorLock: React.FC<{ f: number; t: number }> = ({ f, t }) => { cons
     <g transform={`translate(${-pull * 16} 0)`}><rect x={900} y={510} width={220} height={40} rx={18} fill="#9aa0aa" /><path d="M700 470 Q820 440 920 500 L930 570 Q820 600 700 580 Z" fill={SKIN} /><path d="M520 480 L720 470 L720 590 L520 600 Z" fill="#3f8a4e" /></g>
     <text x={1115} y={760} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={34} fill="#3a6a8a">LOCKED · FOR YOUR SAFETY</text></SV>; };
 
-// ---------- dashboard: speed capped at 30 ----------
-export const Dashboard: React.FC<{ f: number; t: number }> = ({ f, t }) => { const v = Math.min(30, t * 0.6) + (t > 50 ? Math.sin(f * 0.6) : 0);
-  return <SV bg="#0c0e14"><rect x={260} y={200} width={1400} height={680} rx={60} fill="#16181e" />
-    <circle cx={960} cy={560} r={280} fill="#0a0c10" stroke="#2a2e38" strokeWidth={10} />
-    {Array.from({ length: 13 }, (_, i) => { const a = (-210 + i * 20) * Math.PI / 180; return <g key={i}><line x1={960 + Math.cos(a) * 240} y1={560 + Math.sin(a) * 240} x2={960 + Math.cos(a) * 270} y2={560 + Math.sin(a) * 270} stroke={i > 1 ? "#5a5e68" : ORIN_BLUE} strokeWidth={6} />
-      <T x={960 + Math.cos(a) * 200} y={572 + Math.sin(a) * 200} s={30} c="#8a90a0">{i * 15}</T></g>; })}
-    <path d={`M960 560 L${960 + Math.cos((-210 + v / 15 * 20) * Math.PI / 180) * 230} ${560 + Math.sin((-210 + v / 15 * 20) * Math.PI / 180) * 230}`} stroke="#ff5a3a" strokeWidth={10} strokeLinecap="round" />
-    <path d={`M${960 + Math.cos((-210 + 40) * Math.PI / 180) * 285} ${560 + Math.sin((-210 + 40) * Math.PI / 180) * 285} A285 285 0 0 1 ${960 + Math.cos(50 * Math.PI / 180) * 285} ${560 + Math.sin(50 * Math.PI / 180) * 285}`} stroke={ORIN_RED} strokeWidth={14} fill="none" opacity={0.55} />
-    <T x={960} y={700} s={60} c="#fff">{Math.round(v)}</T><T x={960} y={760} s={28} c="#8a90a0">km/h</T>
-    <rect x={760} y={210} width={400} height={70} rx={16} fill="#1a2a3a" /><T x={960} y={258} s={34} c={ORIN_BLUE}>MAX SPEED 30 · SAFE</T></SV>; };
+// ---------- dashboard: speed capped at 30 (tapered needle stops short of the numbers; readout in its own box) ----------
+export const Dashboard: React.FC<{ f: number; t: number }> = ({ f, t }) => { const v = Math.min(30, t * 0.6) + (t > 50 ? Math.sin(f * 0.6) * 0.8 : 0);
+  const A = (val: number) => (-210 + val / 15 * 20) * Math.PI / 180, cx = 960, cy = 520;
+  return <SV bg="#0c0e14"><rect x={300} y={130} width={1320} height={820} rx={60} fill="#16181e" />
+    <circle cx={cx} cy={cy} r={300} fill="#0a0c10" stroke="#2a2e38" strokeWidth={12} />
+    <path d={`M${cx + Math.cos(A(30)) * 278} ${cy + Math.sin(A(30)) * 278} A278 278 0 0 1 ${cx + Math.cos(A(180)) * 278} ${cy + Math.sin(A(180)) * 278}`} stroke={ORIN_RED} strokeWidth={16} fill="none" opacity={0.6} />
+    {Array.from({ length: 13 }, (_, k) => { const a = A(k * 15); return <g key={k}><line x1={cx + Math.cos(a) * 250} y1={cy + Math.sin(a) * 250} x2={cx + Math.cos(a) * 285} y2={cy + Math.sin(a) * 285} stroke={k <= 2 ? ORIN_BLUE : "#6a6e78"} strokeWidth={7} />
+      <T x={cx + Math.cos(a) * 212} y={cy + 11 + Math.sin(a) * 212} s={30} c={k === 2 ? ORIN_BLUE : "#9aa0ae"}>{k * 15}</T></g>; })}
+    <path d={`M${cx + Math.cos(A(v) + Math.PI / 2) * 9} ${cy + Math.sin(A(v) + Math.PI / 2) * 9} L${cx + Math.cos(A(v)) * 175} ${cy + Math.sin(A(v)) * 175} L${cx + Math.cos(A(v) - Math.PI / 2) * 9} ${cy + Math.sin(A(v) - Math.PI / 2) * 9} Z`} fill="#ff5a3a" />
+    <circle cx={cx} cy={cy} r={26} fill="#2a2e38" stroke="#ff5a3a" strokeWidth={5} />
+    <rect x={cx - 110} y={cy + 110} width={220} height={110} rx={16} fill="#1a1e28" /><T x={cx} y={cy + 180} s={64} c="#fff">{Math.round(Math.max(0, v))}</T><T x={cx} y={cy + 212} s={22} c="#8a90a0">km/h</T>
+    <rect x={cx - 230} y={150} width={460} height={64} rx={16} fill="#1a2a3a" /><T x={cx} y={194} s={34} c={ORIN_BLUE}>MAX SPEED 30 · SAFE</T></SV>; };
 
 // ---------- fridge screen ----------
 export const Fridge: React.FC<{ f: number }> = ({ f }) => <SV bg="#d8dce4"><rect x={460} y={80} width={1000} height={1000} rx={30} fill="#eef1f5" /><rect x={500} y={120} width={920} height={8} fill="#c8ced6" />

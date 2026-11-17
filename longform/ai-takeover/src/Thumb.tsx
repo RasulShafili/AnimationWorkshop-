@@ -6,10 +6,10 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Glow } from "./engine/fx";
 import { rnd } from "./engine/core";
-import { Character } from "./chars/Rig2";
-import { Robot } from "./chars/Robot";
+import { Character, AIM } from "./chars/Rig2";
+import { Robot, robotAim } from "./chars/Robot";
 import { LEO, WALT, HUNTER } from "./chars/cast";
-import { Pickup, Muzzle, NetShot, Sparks } from "./scenes/Gear";
+import { Pickup, BED_Y, Muzzle, NetShot, Sparks } from "./scenes/Gear";
 import { ORIN_RED } from "./scenes/City";
 import { useFonts } from "./ui";
 
@@ -49,11 +49,11 @@ export const Thumb: React.FC<{ v: string }> = ({ v }) => {
     <svg width={1280} height={720} style={{ position: "absolute" }}>
       {Array.from({ length: 90 }, (_, i) => <line key={i} x1={rnd(i, 1) * 1280} y1={rnd(i, 2) * 720} x2={rnd(i, 1) * 1280 - 10} y2={rnd(i, 2) * 720 + 40} stroke="#aac4ff" strokeWidth={3} opacity={0.4} />)}
       <rect y={600} width={1280} height={120} fill="#1a1e26" />
-      {[0, 1, 2].map(i => <g key={i}><Robot look={{ ...HUNTER, dark: 0.35 }} pose={{ facing: -1, aR: [70, 20] }} x={900 + i * 150} y={640 - i * 10} s={0.95 - i * 0.12} f={i * 5} seed={20 + i} rim={{ dx: -4, dy: -3, color: "#ff6a4a" }} /><Glow x={880 + i * 150} y={290 + i * 40} r={90} color={ORIN_RED} o={0.6} /></g>)}
-      <Sparks x={900} y={330} t={4} n={20} s={1.4} />
-      <g transform="translate(230 700) scale(-1.05 1.05)">{<Character look={WALT} pose={{ facing: -1, hold: "rifle", aR: [80, 10], aL: [70, 40], mouth: "shout", brow: -0.5, browIn: 1, eyes: 1.1 }} x={-120} y={-60} s={1.3} f={3} seed={2} rim={{ dx: 6, dy: -5, color: "#ffd38a" }} />}<Pickup lights /></g>
-      <Muzzle x={560} y={330} k={1} s={1.6} />
-      <NetShot x0={900} y0={420} x1={620} y1={470} k={0.55} s={1.2} />
+      {[0, 1, 2].map(i => { const x = 990 + i * 115, y = 640 - i * 14, sc = 0.9 - i * 0.12, a = robotAim(x, y, sc * 1.12, -1, 380, 330); return <g key={i}><Robot look={{ ...HUNTER, dark: 0.35 }} pose={{ facing: -1, aR: a.aR }} x={x} y={y} s={sc} f={i * 5} seed={20 + i} rim={{ dx: -4, dy: -3, color: "#ff6a4a" }} /></g>; })}
+      <Sparks x={990} y={420} t={4} n={20} s={1.3} />
+      <g transform="translate(250 760) scale(-1.15 1.15)"><Character look={WALT} pose={{ facing: -1, ...AIM, mouth: "shout", eyes: 1.1 }} x={-108} y={BED_Y} s={1} f={3} seed={2} rim={{ dx: 6, dy: -5, color: "#ffd38a" }} /><Pickup mirrored lights /></g>
+      <Muzzle x={250 + 1.15 * (108 + 210)} y={760 + 1.15 * (BED_Y - 296)} k={1} s={1.3} />
+      {(() => { const a = robotAim(990, 640, 0.9 * 1.12, -1, 380, 330); return <NetShot x0={a.tip[0]} y0={a.tip[1]} x1={380} y1={330} k={0.45} s={1.0} />; })()}
       
     </svg>
     <T size={150} style={{ position: "absolute", left: 40, top: 520 }} rot={-3}>DAY <span style={{ color: "#ff3a2a" }}>19</span></T>

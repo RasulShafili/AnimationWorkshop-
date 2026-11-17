@@ -16,3 +16,4 @@
 - [Mixed skin tones](mixed-skin-tones.md) — cartoon casts: light-skinned hero + mix; not everyone dark; no near-black skin hex
 - [Long-form performance](longform-performance.md) — 2026-11-17: long videos 30–70 views, teaser Shorts 500–1000; ice-age best velocity
 - [Story first, no fact cards](story-first-no-fact-cards.md) — long-form: logical action plot, no science card every chapter; QA each shot vs its line
+- [Scale + aim self-check](scale-aim-selfcheck.md) — real-world scale, rifles held/aimed right, nets/darts hit targets, 2 red robot eyes; self-QA before showing

@@ -15,7 +15,7 @@ export type Pose = { seat?: boolean;
   lean?: number; head?: number; aL?: number[]; aR?: number[]; lL?: number[]; lR?: number[];
   eyes?: number; look?: number[]; brow?: number; browIn?: number;
   mouth?: "smile" | "grin" | "o" | "flat" | "open" | "frown" | "shout" | "worried" | "smirk" | "sad";
-  talk?: number; bob?: number; facing?: 1 | -1; gold?: number; tears?: number; breath?: number; hold?: "cup" | "phone" | "photo" | "cards" | "pills" | "torch" | "walkie" | "keys" | "clipboard" | "binoculars" | "map" | "can" | "radio" | "mop" | "bat" | "crowbar" | "rifle" | "spear" | "torchfire" | "receiver" | null; beam?: number; noBlink?: boolean;
+  talk?: number; bob?: number; facing?: 1 | -1; gold?: number; tears?: number; breath?: number; hold?: "cup" | "phone" | "photo" | "cards" | "pills" | "torch" | "walkie" | "keys" | "clipboard" | "binoculars" | "map" | "can" | "radio" | "mop" | "bat" | "crowbar" | "rifle" | "spear" | "torchfire" | "receiver" | "aim" | "port" | null; beam?: number; noBlink?: boolean;
 };
 type Rim = { dx: number; dy: number; color: string } | null;
 
@@ -79,6 +79,9 @@ export const Character: React.FC<{ look: Look; pose: Pose; x: number; y: number;
     if (P.hold === "radio") return <g transform={t}><rect x={-30} y={-44} width={60} height={40} rx={6} fill="#4a3a2e" /><circle cx={-12} cy={-24} r={11} fill="#2a221c" /><rect x={6} y={-36} width={18} height={10} fill="#e8c86a" /></g>;
     if (P.hold === "bat") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang + 180})`}><path d="M-5 -10 L5 -10 L11 150 Q0 162 -11 150 Z" fill="#c8ccd4" /><path d="M-2 -10 L-1 150" stroke="#fff" strokeOpacity={0.5} strokeWidth={3} /><rect x={-6} y={-24} width={12} height={22} rx={3} fill="#1a1a20" /></g>;
     if (P.hold === "crowbar") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang + 180})`}><path d="M0 -20 L0 130 Q0 150 18 150" stroke="#b8323a" strokeWidth={9} fill="none" strokeLinecap="round" /><path d="M0 -20 l-10 -10" stroke="#b8323a" strokeWidth={8} strokeLinecap="round" /><path d="M-2 0 L-2 120" stroke="#fff" strokeOpacity={0.25} strokeWidth={2} /></g>;
+    if (P.hold === "aim") return <g><rect x={-30} y={-306} width={70} height={18} rx={5} fill="#6a4a2e" /><rect x={30} y={-302} width={170} height={11} rx={3} fill="#2a2a2e" /><rect x={196} y={-300} width={14} height={7} fill="#1a1a1e" />
+      <rect x={60} y={-292} width={12} height={22} rx={2} fill="#1a1a1e" /><rect x={90} y={-292} width={46} height={10} rx={3} fill="#6a4a2e" /><rect x={70} y={-312} width={34} height={8} rx={3} fill="#3a3a40" /></g>;
+    if (P.hold === "port") return <g transform="rotate(-45 15 -250)"><rect x={-95} y={-259} width={70} height={18} rx={5} fill="#6a4a2e" /><rect x={-35} y={-255} width={170} height={11} rx={3} fill="#2a2a2e" /><rect x={131} y={-253} width={14} height={7} fill="#1a1a1e" /><rect x={25} y={-245} width={46} height={10} rx={3} fill="#6a4a2e" /></g>;
     if (P.hold === "rifle") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang + 150})`}><rect x={-6} y={-60} width={12} height={150} rx={3} fill="#2a2a2e" /><path d="M-8 60 L8 60 L14 120 L-10 120 Z" fill="#6a4a2e" /><rect x={-4} y={-90} width={6} height={36} fill="#1a1a1e" /><rect x={-10} y={0} width={10} height={26} rx={2} fill="#1a1a1e" /></g>;
     if (P.hold === "spear") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang * 0.3})`}><line x1={0} y1={170} x2={0} y2={-230} stroke="#8a6a44" strokeWidth={8} strokeLinecap="round" /><path d="M-12 -226 L0 -290 L12 -226 Z" fill="#7a808a" stroke="#4a4e58" strokeWidth={3} /><path d="M-8 -230 L8 -210" stroke="#5a3e28" strokeWidth={4} /></g>;
     if (P.hold === "torchfire") return <g transform={`translate(${h[0]} ${h[1]}) rotate(${-ang * 0.3})`}><line x1={0} y1={60} x2={0} y2={-90} stroke="#6a4a2a" strokeWidth={10} strokeLinecap="round" /><path d={`M-18 -90 Q0 ${-170 - 10 * Math.sin(f * 0.5)} 18 -90 Z`} fill="#ffb84a" /><path d={`M-9 -92 Q0 ${-140 - 8 * Math.sin(f * 0.7)} 9 -92 Z`} fill="#fff2b0" /></g>;
@@ -234,3 +237,22 @@ export const walkPose = (ph: number, amp = 1): Pose => { const s = Math.sin(ph),
 // → seat top at rootY − 86·s, head centre at rootY − 280·s. Put the chair BEHIND the character (draw it first).
 export const SIT: Pose = { bob: 82, lL: [90, 90], lR: [84, 84] };
 export const SIT_Y = 86, SIT_HEAD = 280;
+
+// ---- poses solved with 2-bone IK (upper arm 78, forearm 70; angle 0 = straight down, 90 = forward) ----
+export const ik = (sx: number, sy: number, tx: number, ty: number, elbowUp = false): number[] => {
+  const dx = tx - sx, dy = ty - sy, L = Math.min(147.9, Math.max(9, Math.hypot(dx, dy)));
+  const dir = Math.atan2(dx, dy) * 180 / Math.PI, a = Math.acos((78 * 78 + L * L - 70 * 70) / (2 * 78 * L)) * 180 / Math.PI;
+  const a0 = elbowUp ? dir + a : dir - a; const ex = sx + 78 * Math.sin(a0 * Math.PI / 180), ey = sy + 78 * Math.cos(a0 * Math.PI / 180);
+  return [a0, Math.atan2(tx - ex, ty - ey) * 180 / Math.PI - a0];
+};
+// rifle aimed level from the shoulder: front hand on the fore-grip, back hand on the trigger (hold: "aim")
+export const AIM: Pose = { hold: "aim", aR: ik(27, -284, 112, -290), aL: ik(-27, -284, 50, -284), head: 4, look: [1, 0], brow: -0.4, browIn: 0.8 };
+// hands on top of the head (ducking / covering)
+export const COVER: Pose = { aR: ik(27, -284, 30, -410, true), aL: ik(-27, -284, -20, -405, true) };
+// muzzle of the aimed rifle in world space for a character at (x, y), scale s (incl. look.scale), facing ±1
+export const muzzle = (x: number, y: number, s: number, facing = 1) => [x + 210 * s * facing, y - 296 * s];
+// rifle carried diagonally across the chest (port arms): rifle line rotated −45° about (15, −250); the muzzle end
+// stays right of the head (it crossed the face at −62°)
+const rp = (d: number) => { const a = -45 * Math.PI / 180; return [15 + d * Math.cos(a), -250 + d * Math.sin(a)]; };
+const [px1, py1] = rp(85), [px2, py2] = rp(-50);
+export const PORT: Pose = { hold: "port", aR: ik(27, -284, px1, py1, false), aL: ik(-27, -284, px2, py2, false) };

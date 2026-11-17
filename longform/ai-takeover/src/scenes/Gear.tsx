@@ -9,7 +9,12 @@ import { Wheel } from "./z/Cars";
 import { ORIN_BLUE, ORIN_RED } from "./City";
 
 // pickup side view, facing right, origin = ground under the middle. ~560 long.
-export const Pickup: React.FC<{ wheelRot?: number; bounce?: number; lights?: boolean; walt?: React.ReactNode; dent?: number; claws?: number }> = ({ wheelRot = 0, bounce = 0, lights, walt, dent = 0, claws = 0 }) => <g>
+// REAL SCALE (owner 2026-11-17: "the car is smaller than the man"): 1 m = 240 px for a character at s = 1.
+// The art below is drawn at 1/PK; PK = 1.8 → 4.5 m long, 1.88 m tall, wheels 0.75 m. Bed floor at BED_Y, cab
+// window centre at CAB. People in the bed: x between −500 and +60, feet at BED_Y, scale = their normal s.
+export const PK = 1.8, BED_Y = -108, CAB = [306, -360];
+export const CAB_CLIP = "M173 -432 L360 -432 Q400 -432 414 -389 L443 -299 L173 -299 Z";
+export const Pickup: React.FC<{ wheelRot?: number; bounce?: number; lights?: boolean; walt?: React.ReactNode; dent?: number; claws?: number; mirrored?: boolean }> = ({ wheelRot = 0, bounce = 0, lights, walt, dent = 0, claws = 0, mirrored }) => <g transform={`scale(${PK})`}>
   <ellipse cx={0} cy={4} rx={300} ry={16} fill="#000" opacity={0.3} />
   <g transform={`translate(0 ${-bounce})`}>
     <path d="M-280 -60 L-280 -150 L40 -150 L60 -160 L80 -250 L210 -250 Q240 -250 250 -220 L270 -160 L300 -150 Q316 -146 316 -120 L316 -60 Z" fill="#d8742a" />
@@ -24,7 +29,7 @@ export const Pickup: React.FC<{ wheelRot?: number; bounce?: number; lights?: boo
     <rect x={296} y={-148} width={22} height={18} rx={4} fill={lights ? "#fff4c0" : "#e8e0c0"} />
     {lights && <path d="M318 -140 L1100 -260 L1100 0 Z" fill="#fff4c0" opacity={0.12} />}
     {/* plate WHAT-IF (easter egg) */}
-    <rect x={-300} y={-120} width={44} height={22} rx={2} fill="#f4f0e0" stroke="#2a2a2a" strokeWidth={2} /><text x={-278} y={-104} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={8} fill="#2a3a6a">WHAT-IF</text>
+    <rect x={-300} y={-120} width={44} height={22} rx={2} fill="#f4f0e0" stroke="#2a2a2a" strokeWidth={2} /><text x={-278} y={-104} textAnchor="middle" fontFamily="Inter" fontWeight={900} fontSize={8} fill="#2a3a6a" transform={mirrored ? "translate(-556 0) scale(-1 1)" : undefined}>WHAT-IF</text>
     {/* claw holes in the roof (c9) */}
     {claws > 0 && [0, 1, 2].map(i => <path key={i} d={`M${140 + i * 22} -250 l6 ${30 * claws} l6 ${-30 * claws}`} fill="#2a2e38" />)}
     {dent > 0 && <path d="M90 -250 Q150 -230 210 -250" stroke="#8a4a1e" strokeWidth={6} fill="none" />}
@@ -32,7 +37,8 @@ export const Pickup: React.FC<{ wheelRot?: number; bounce?: number; lights?: boo
   <Wheel cx={-170} cy={-50} r={50} rot={wheelRot} /><Wheel cx={200} cy={-50} r={50} rot={wheelRot} />
 </g>;
 
-export const Humvee: React.FC<{ wheelRot?: number; f: number; firing?: boolean; gunner?: React.ReactNode }> = ({ wheelRot = 0, f, firing, gunner }) => <g>
+// Humvee real scale: 4.6 m × 1.9 m → drawn ×1.6
+export const Humvee: React.FC<{ wheelRot?: number; f: number; firing?: boolean; gunner?: React.ReactNode }> = ({ wheelRot = 0, f, firing, gunner }) => <g transform="scale(1.6)">
   <ellipse cx={0} cy={4} rx={320} ry={18} fill="#000" opacity={0.3} />
   <path d="M-300 -60 L-300 -190 L-120 -200 L-60 -280 L150 -280 L200 -200 L300 -190 L310 -60 Z" fill="#6a6a4a" />
   <path d="M-40 -270 L140 -270 L180 -206 L-80 -206 Z" fill="#3a4250" /><rect x={-300} y={-130} width={610} height={10} fill="#4e4e36" />

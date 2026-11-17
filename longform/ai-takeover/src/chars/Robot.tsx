@@ -113,7 +113,9 @@ export const Robot: React.FC<{ look: RobotLook; pose: Pose; x: number; y: number
   const headShell = has(3);
   const eyesG = (() => {
     const lx = P.look[0] * 9, ly = P.look[1] * 5, e = Math.max(0.08, P.eyes);
-    if (mode === "hostile") return <g><rect x={vx - 40 + lx} y={vy - 4 * e + ly} width={80} height={8 * e} rx={4} fill={eyeC} /><rect x={vx - 52 + lx} y={vy - 12 + ly} width={104} height={24} rx={12} fill={eyeC} opacity={0.22} /></g>;
+    if (mode === "hostile") return <g>{[-1, 1].map(k => <g key={k}><circle cx={vx + k * 22 + lx} cy={vy + ly} r={16} fill={eyeC} opacity={0.3} />
+      <path d={`M${vx + k * 22 - 11 + lx} ${vy - 6 * e + ly - (k < 0 ? 4 : -2)} L${vx + k * 22 + 11 + lx} ${vy - 6 * e + ly - (k < 0 ? -2 : 4)} L${vx + k * 22 + 10 + lx} ${vy + 7 * e + ly} Q${vx + k * 22 + lx} ${vy + 11 * e + ly} ${vx + k * 22 - 10 + lx} ${vy + 7 * e + ly} Z`} fill={eyeC} />
+      <circle cx={vx + k * 22 + lx - 3} cy={vy + ly - 1} r={2.5} fill="#ffd0c8" /></g>)}</g>;
     if (mode === "scan") { const sx = Math.sin(f * 0.12) * 34; return <g><rect x={vx - 44} y={vy - 2} width={88} height={4} rx={2} fill={eyeC} opacity={0.35} /><circle cx={vx + sx} cy={vy} r={8 * e} fill={eyeC} /><circle cx={vx + sx} cy={vy} r={18} fill={eyeC} opacity={0.25} /></g>; }
     return <g>{[-1, 1].map(k => <g key={k}><circle cx={vx + k * 22 + lx} cy={vy + ly} r={12} fill={eyeC} opacity={0.25} /><ellipse cx={vx + k * 22 + lx} cy={vy + ly} rx={8} ry={9 * e} fill={eyeC} /><circle cx={vx + k * 22 + lx - 2} cy={vy + ly - 3} r={2.5} fill="#fff" opacity={0.9} /></g>)}</g>;
   })();
@@ -161,3 +163,11 @@ export const Robot: React.FC<{ look: RobotLook; pose: Pose; x: number; y: number
 // handy presets
 export const HELPER: RobotLook = { shell: 1, mode: "calm", tag: "ORIN" };
 export const HUNTER: RobotLook = { shell: 0, mode: "hostile", frame: "#2e333c", scale: 1.12 };
+
+// aim the right arm (gun arm) straight at a world target; returns the pose part + the gun-tip world point
+export const robotAim = (x: number, y: number, s: number, facing: 1 | -1, tx: number, ty: number) => {
+  const sx = x + 34 * s * facing, sy = y - 286 * s;
+  const a0 = Math.atan2((tx - sx) * facing, ty - sy) * 180 / Math.PI;
+  const tip = [sx + 150 * s * Math.sin(a0 * Math.PI / 180) * facing, sy + 150 * s * Math.cos(a0 * Math.PI / 180)];
+  return { aR: [a0, 0], tip };
+};
