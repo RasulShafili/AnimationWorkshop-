@@ -36,3 +36,24 @@ their characters or designs.
 - Science only as staged scenes with in-world signboards, never a fact card that stops the story (owner rule).
 - Give the power/threat "rules" the hero discovers and tests — a game-like spine for the middle of the video.
 - Keep one signature colour per character; letterbox + warm grade for the cinematic feel.
+
+## Motion, camera, sound (Gemini 2.5 flash watched 0:00–3:00 with audio, 2026-11-18; raw: gemini_ifology_motion.md)
+- **Animation is minimal on purpose:** rigid pose-to-pose pivots (lean from the waist, arm out, arms crossed), walks are
+  a shuffle/slide, faints = whole-body rotate + drop. **No lip sync** — mouth shape = emotion only. Blinks rare.
+  Emotion = eye shape + brows + mouth shape (smile / line / open oval). Power state = glowing eyes (+ "click" SFX).
+- **Camera mostly static.** Moves only for meaning: slow push-in on a reveal/close-up, slow pan, a quick zoom-out at
+  the title question, a small shake on impacts (fork drop, faint).
+- **Cuts land exactly on the key word** of the narration ("arms crossed", "goes click", "eats the broccoli").
+- **Music:** quiet instrumental bed, always under the voice; it changes mood with every section (calm → playful on the
+  power → dramatic at the title → neutral "curious" for science → mystical for history).
+- **SFX on actions:** click (power), crunch (eating), clink (fork), pop + ding (props appear), pop for each text sign,
+  whoosh (invisible force), thump (falls).
+- **Text signs pop in instantly (+ pop SFX)** or **slide in from the left**; never fade.
+- Lighting per location: warm lamp home at night, flat bright classroom, sepia spotlight for the concept/title shot,
+  cool white lab, sunny garden.
+
+### What this means for us (3D)
+- Their speed comes from doing LESS: pose-to-pose (2–3 key poses per shot, held), static cameras, no lip sync.
+  Our lib3d can do more (walk cycles, lip sync, aim) — use it only where the story needs it; static shots with good
+  poses are cheaper AND safer (fewer chances for illogical motion).
+- One mood-music cue per section + a fixed SFX vocabulary (pop per sign, whoosh, thump, click for the power moment).

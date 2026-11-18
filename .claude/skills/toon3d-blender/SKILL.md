@@ -1,6 +1,6 @@
 ---
 name: toon3d-blender
-description: PLAN (not yet installed, 2026-11-18) for making long-form what-if stories in a warm 3D-toon look (technique learned from IFOLOGY) with Blender driven entirely by Python scripts. Use when the owner says to start the 3D/Blender pipeline. Covers install, scene building, characters, animation, cameras, render, audio reuse and QA.
+description: Blender pipeline (installed 2026-11-18, toolkit longform3d/lib3d.py) for making long-form what-if stories in a warm 3D-toon look (technique learned from IFOLOGY) with Blender driven entirely by Python scripts. Use when the owner says to start the 3D/Blender pipeline. Covers install, scene building, characters, animation, cameras, render, audio reuse and QA.
 ---
 
 # 3D toon long-form with Blender — the plan
@@ -89,3 +89,40 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
 - Still to learn: shared rig + action clip library (walk/run/sit/talk/point/aim/port/duck), lip-sync shape keys from
   the vo envelope, 5–6 reusable rooms, render-time tuning (samples, 720p, 12 fps "on twos"), Workbench preview QA
   sheets, and the Gemini watch of Ifology's motion/music (retry loop died with the session — rerun when not 503).
+
+## 9. lib3d.py — the toolkit (learned + tested 2026-11-18, test: longform3d/test/lib_test.py)
+`import lib3d as L` (sys.path longform3d). Everything in metres; characters face −Y at facing 0.
+- Build: `L.fresh()`, `L.kitchen()` / `L.street()` (real sizes, ceiling included), `L.sign(text, loc)` (in-world board),
+  `L.world()`, `L.interior_lights()` / `L.sun_lights()`, `L.character(name, look)` (look: skin, top, pants, hair,
+  hairstyle spiky|long|cap|bald, scale, glasses) → armature + rigid parts parented to bones + face (eyes, pupils,
+  brows, nose, mouth).
+- Animate per frame: `L.key_pose(ch, f, pose, loc, facing)` with pose dicts from `idle, walk, run, talk_gesture,
+  point, sit, cover, wave` (merge dicts: `{**L.idle(t), **L.sit()}`); then `L.plant(ch, f)` for walk/run (foot lock);
+  `L.aim_arm(ch, side, target, f)` (exact: hand lands on the shoulder→target line; for pointing/rifles/throws),
+  `L.look_at(ch, target, f)` (spine+head yaw/pitch), `L.key_face(ch, f, talk, blink, brow, look=L.eye_look(ch, target, f))`.
+  Order per frame: key the root + body pose FIRST, then call aim/look helpers (they `frame_set(f)` and read it).
+- Seated: `{**pose, **L.sit()}`, root at seat centre + 0.05 m to the back, z = −L.SIT_DROP, facing away from the chair back.
+- Cameras: `L.camera(name, loc, target, lens, dof)`, `L.face_cam(name, ch, frame, dist 1.4–1.8, side_deg)` for
+  close-ups (never hand-place a close-up: the head turns), `L.cut(cam, frame)` = timeline marker switch.
+- Render: `L.setup("preview"|"final", res, samples, frames)`; resumable (skips frames on disk).
+- **Auto-QA before any render:** `L.qa_ground(chars, frames, seated=…)` (shoes within ±2.5 cm of the floor) and
+  `L.view_angle(cam, a, b)` ≥ 35° for every point/aim/throw (else the arm hides behind the body).
+- Speed on this PC (iGPU): Workbench preview 0.1 s/frame at 640×360; Eevee 1280×720, 24 samples ≈ 5 s/frame
+  → 9 min ≈ 18 h at 24 fps, ≈ 9 h "on twos" (12 fps). Night batches by chapter.
+
+### Bugs found in the test (never again)
+- `transform_apply()` defaults to location=True → every part's origin moved to the world origin, so scaling the mouth
+  (talk) or eyes (blink) flew them off the face. Always `transform_apply(location=False, rotation=False, scale=True)`.
+- A bone pointing DOWN has local X = world +X and local Z = world +Y: raw +X rotation swings the limb BACKWARD.
+  key_pose flips x,z for limbs so poses read naturally (x+ = forward / joint bends the right way).
+- Upward bones (spine, head) turn left/right about their own axis = pose **y**; z on them is a side tilt.
+- `Bone.vector` is parent-relative — aim maths must use the posed parent matrix (see aim_arm).
+- Head-bone space: Y = up, +Z = face forward (eye_look).
+- Hair shell as big as the head z-fights at the hairline → hair radius 0.216 and offset back/up.
+- Mouth centred under the eyes read as a nose → add a small skin nose, mouth lower and wider, very dark red.
+- Sit: thighs 80° (not 90°) and drop 0.305 m, else shoes float 8 cm or the thighs sink into the seat.
+- Over-the-shoulder camera on a pointing arm lined up with the lens → arm invisible. Check view_angle.
+- Lip sync: `L.talk_curve(wav, fps, start_frame)` → {frame: 0..1} from RMS. Feed it the RAW voice line (vo/*.wav),
+  never the mixed chapter wav (music/SFX keep the mouth open ~80 % of the time).
+- "On twos": `scene.frame_step = 2`, then `ffmpeg -framerate 12 -i %04d.jpg -vf fps=24` — halves render time;
+  camera moves look steppy, so keep camera moves slow or render camera-move shots on ones.
