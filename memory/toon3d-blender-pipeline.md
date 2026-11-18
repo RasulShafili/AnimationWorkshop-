@@ -1,0 +1,18 @@
+---
+name: toon3d-blender-pipeline
+description: 3D-toon (Ifology-technique) Blender pipeline learned 2026-11-18 — lib3d.py toolkit, sets, rig, QA; owner said "learn everything and save it, it will be needed later"
+metadata:
+  type: project
+---
+Owner (2026-11-18) wants a 3D-toon long-form pipeline so videos come out logical the first time; told me to learn
+everything and keep it for later. Built + tested: Blender 4.5.16 LTS at ~/Applications/blender (headless),
+toolkit `~/Desktop/Animations/longform3d/lib3d.py` (sets, own characters on one rig, poses, aim/look/eye helpers,
+lip sync from WAV, Ifology moves, auto-QA: ground contact + camera/arm angle), tests in longform3d/test/.
+Full manual: Animations/.claude/skills/toon3d-blender/SKILL.md (§8–10 = status, API, bugs). Ifology motion/sound
+analysis (Gemini watched it): refs_watch/IFOLOGY_STYLE.md.
+
+**Why:** 2D videos needed many re-renders for scale/aim/logic errors; real metres + automatic checks prevent that.
+**How to apply:** for a new 3D long-form, read the skill first, reuse lib3d (never rebuild from scratch), static
+pose-to-pose shots like Ifology, render chapters overnight (resumable) under systemd-inhibit. Render speed on this
+iGPU: 5–10 s/frame at 720p → a used RTX 3060 or cloud GPU would cut it 10×. Related: [[story-first-no-fact-cards]],
+[[scale-aim-selfcheck]], [[video-watch-tool]], [[mixed-skin-tones]].

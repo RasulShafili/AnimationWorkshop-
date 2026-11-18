@@ -126,3 +126,17 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
   never the mixed chapter wav (music/SFX keep the mouth open ~80 % of the time).
 - "On twos": `scene.frame_step = 2`, then `ffmpeg -framerate 12 -i %04d.jpg -vf fps=24` — halves render time;
   camera moves look steppy, so keep camera moves slow or render camera-move shots on ones.
+
+## 10. Sets, moods, Ifology moves (added + tested 2026-11-18, test: longform3d/test/sets_test.py)
+- Sets (all real sizes, each returns useful points): `kitchen()`, `street()`, `classroom()` → seats/board/teacher,
+  `lab()` → screens/bench_top, `park()` → bench seats, `bedroom()` → mattress_top/desk_top; props `chair`, `desk_chair`,
+  `bench`. Results: test/out/set_*_final.jpg (classroom + park already read as Ifology-like).
+- Moods: `L.lighting("lamp_night"|"class_day"|"lab_cool"|"sun_day"|"concept")` — change mood with the location.
+- Sitting anywhere: `L.key_pose(ch, f, {**pose, **L.sit()}, L.sit_root(ch, seat_surface_xyz, facing), facing)`;
+  facing = AWAY from the backrest / toward the open bed edge (legs must hang over the edge, never into the bed or the
+  wall). Kids' feet dangle (correct). sit() rests the hands on the thighs (straight arms sank into the mattress).
+- Ifology moves: `sign_pop(board, f)` (+pop SFX), `sign_slide(board, f)` (from the left), `push_in(cam, f0, f1, 0.12)`
+  only on reveals, `shake(cam, f)` on impacts (+thump), `power_eyes(ch, f_on, f_off)` glowing rings (+click).
+  Default = static camera, pose-to-pose (2–3 held key poses per shot), mouth by emotion; lip sync only for close-ups.
+- QA sheet: `longform3d/tools/qa_sheet.sh <dir_of_jpgs> <out.jpg> [cols] [captions.txt "file|line"]`.
+- Eevee 1280×720 24 samples: 5 s/frame (small room) – 10 s/frame (classroom, park: more objects/lights).

@@ -45,7 +45,8 @@ def text3d(body, loc, size, m, rot=(math.pi / 2, 0, 0), extrude=0.004):
 def sign(body, loc, w=0.9, h=0.28, tilt=0.0):
     """in-world signboard (Ifology technique): cream board + dark slab text, slightly tilted, facing −Y"""
     b = box((w, 0.03, h), loc, mat("efe3c6", 0.6), 0.01, "sign"); b.rotation_euler = (0, tilt, 0)
-    t = text3d(body, (loc[0], loc[1] - 0.02, loc[2]), h * 0.6, mat("3a2a1a")); t.rotation_euler = (math.pi / 2, tilt, 0); return b
+    t = text3d(body, (loc[0], loc[1] - 0.02, loc[2]), h * 0.6, mat("3a2a1a")); t.rotation_euler = (math.pi / 2, tilt, 0)
+    bpy.context.view_layer.update(); mw = t.matrix_world.copy(); t.parent = b; t.matrix_world = mw; return b
 
 # ---------------------------------------------------------------- rooms (real sizes)
 def kitchen(origin=(0, 0, 0)):
@@ -180,7 +181,8 @@ def talk_gesture(t, side="R"):
 def point(side="R"):
     return {f"uarm.{side}": (85, 0, -10 if side == "R" else 10), f"farm.{side}": (5, 0, 0)}
 def sit():   # thighs tip 10° down to the knee so the shoes reach the floor from a 0.45 m seat
-    return {"thigh.L": (80, 0, 0), "thigh.R": (80, 0, 0), "shin.L": (-80, 0, 0), "shin.R": (-80, 0, 0)}
+    return {"thigh.L": (80, 0, 0), "thigh.R": (80, 0, 0), "shin.L": (-80, 0, 0), "shin.R": (-80, 0, 0),
+            "uarm.L": (28, 0, 6), "uarm.R": (28, 0, -6), "farm.L": (42, 0, 0), "farm.R": (42, 0, 0)}   # hands rest on the thighs
 def cover():
     return {"thigh.L": (70, 0, 0), "thigh.R": (60, 0, 0), "shin.L": (-110, 0, 0), "shin.R": (-100, 0, 0), "spine": (25, 0, 0),
             "uarm.L": (150, 0, 25), "uarm.R": (150, 0, -25), "farm.L": (100, 0, 0), "farm.R": (100, 0, 0)}
@@ -330,3 +332,131 @@ def talk_curve(wav_path, fps=FPS, start_frame=1, gate=0.08):
     v = np.where(v < gate, 0, (v - gate) / (1 - gate)) ** 0.7
     v = np.convolve(v, [0.25, 0.5, 0.25], "same")                 # smooth jaw, no 1-frame flicker
     return {start_frame + i: float(x) for i, x in enumerate(v)}
+
+# ---------------------------------------------------------------- more reusable sets (real sizes; camera side = −Y)
+def _room(w, d, hgt, wall, floor, origin=(0, 0, 0), name="room"):
+    ox, oy, oz = origin; W = mat(wall, 0.9)
+    box((w, d, 0.05), (ox, oy, oz - 0.025), mat(floor, 0.5), 0, name + "_floor")
+    box((w, 0.1, hgt), (ox, oy + d / 2, oz + hgt / 2), W, 0, name + "_wall_back")
+    for sx in (-1, 1): box((0.1, d, hgt), (ox + sx * w / 2, oy, oz + hgt / 2), W, 0, name + "_wall_side")
+    box((w + 0.2, d + 0.2, 0.08), (ox, oy, oz + hgt + 0.04), W, 0, name + "_ceiling")
+def desk_chair(x, y, z=0, rot=0):
+    WOOD = mat("b8844f", 0.5); MET = mat("6a7280", 0.35, metal=0.6)
+    box((0.6, 0.45, 0.03), (x, y, z + 0.75), WOOD)
+    for sx in (-0.27, 0.27):
+        for sy in (-0.19, 0.19): box((0.03, 0.03, 0.74), (x + sx, y + sy, z + 0.37), MET, 0)
+    cy = y - 0.45; box((0.4, 0.4, 0.03), (x, cy, z + 0.45), WOOD); box((0.4, 0.03, 0.35), (x, cy - 0.2, z + 0.65), WOOD)
+    for sx in (-0.17, 0.17):
+        for sy in (-0.17, 0.17): box((0.025, 0.025, 0.44), (x + sx, cy + sy, z + 0.22), MET, 0)
+    return (x, cy, z + 0.465)          # seat centre (a seated pupil faces +Y, toward the board: facing 180)
+def classroom(origin=(0, 0, 0), rows=3, cols=3):
+    """8 × 7 m, walls 3 m, desks 0.75 m, seats 0.45 m, board 3 × 1.2 m (bottom 0.9 m), teacher desk; pupils face +Y"""
+    ox, oy, oz = origin; _room(8, 7, 3.0, "e8dcc0", "b08a5a", origin, "class")
+    box((3.0, 0.04, 1.2), (ox, oy + 3.43, oz + 1.5), mat("2f4a3a", 0.85), 0.01, "board")
+    box((3.1, 0.08, 0.04), (ox, oy + 3.4, oz + 0.88), mat("a8743f", 0.5), 0.005)
+    box((1.4, 0.7, 0.05), (ox + 2.2, oy + 2.3, oz + 0.76), mat("8a5a30", 0.5), 0.01, "teacher_desk")
+    box((1.3, 0.6, 0.72), (ox + 2.2, oy + 2.3, oz + 0.36), mat("7a4a28", 0.6), 0.01)
+    for k in range(3): box((0.06, 1.6, 1.5), (ox - 3.95, oy - 2 + k * 2, oz + 1.65), mat("9ac0e0", 0.15, emit=0.4), 0, "window")
+    seats = [desk_chair(ox - 2 + c * 2, oy + 1.2 - r * 1.5, oz) for r in range(rows) for c in range(cols)]
+    return {"seats": seats, "board": (ox, oy + 3.4, oz + 1.5), "teacher": (ox + 1.2, oy + 2.6, oz)}
+def lab(origin=(0, 0, 0)):
+    """6 × 5 m white lab, walls 2.8 m, benches 0.9 m with monitors, wall cabinets, cool light"""
+    ox, oy, oz = origin; _room(6, 5, 2.8, "eef1f2", "c9ced2", origin, "lab")
+    WH = mat("f4f6f7", 0.3); MON = mat("1a2a3a", 0.2); SCR = mat("3ac0e0", 0.3, emit=2.0)
+    for bx in (-1.6, 1.6):
+        box((2.2, 0.8, 0.05), (ox + bx, oy + 0.6, oz + 0.9), WH, 0.01, "bench"); box((2.1, 0.7, 0.85), (ox + bx, oy + 0.6, oz + 0.43), mat("b8c4cc", 0.4), 0.01)
+        box((0.55, 0.04, 0.34), (ox + bx, oy + 0.85, oz + 1.12), MON, 0.008); box((0.5, 0.01, 0.29), (ox + bx, oy + 0.828, oz + 1.12), SCR, 0)
+        box((0.05, 0.05, 0.2), (ox + bx, oy + 0.88, oz + 0.98), MON, 0)
+        for k in range(3): cyl(0.03, 0.14, (ox + bx - 0.8 + k * 0.12, oy + 0.45, oz + 0.995), mat("cfe6f2", 0.05))
+    for k in range(4): box((1.2, 0.4, 0.7), (ox - 2.1 + k * 1.4, oy + 2.28, oz + 1.95), WH, 0.01, "cabinet")
+    return {"bench_top": oz + 0.925, "screens": [(ox - 1.6, oy + 0.83, oz + 1.12), (ox + 1.6, oy + 0.83, oz + 1.12)]}
+def bench(x, y, z=0, rot=0):
+    WOOD = mat("9a6a3a", 0.6); MET = mat("3a3f46", 0.4, metal=0.5)
+    box((1.6, 0.45, 0.05), (x, y, z + 0.45), WOOD); box((1.6, 0.05, 0.4), (x, y + 0.24, z + 0.75), WOOD)
+    for sx in (-0.7, 0.7): box((0.06, 0.45, 0.43), (x + sx, y, z + 0.22), MET, 0)
+    return [(x - 0.4, y, z + 0.47), (x + 0.4, y, z + 0.47)]
+def park(origin=(0, 0, 0), seed=1):
+    """sunny park: grass 60 × 60 m, gravel path 2.5 m, benches (seat 0.45 m), trees 5–7 m, lamp posts 3.5 m"""
+    import random; rnd = random.Random(seed); ox, oy, oz = origin
+    box((60, 60, 0.1), (ox, oy + 20, oz - 0.05), mat("6aa84a", 0.9), 0, "grass")
+    box((60, 2.5, 0.02), (ox, oy + 1.5, oz + 0.01), mat("d8c8a0", 0.9), 0, "path")
+    seats = bench(ox - 1.5, oy + 3.3, oz) + bench(ox + 4, oy + 3.3, oz)
+    for k in range(9):
+        tx = ox - 14 + k * 3.6 + rnd.uniform(-1, 1); ty = oy + 7 + rnd.uniform(0, 8); hgt = rnd.uniform(5, 7)
+        cyl(0.22, hgt * 0.55, (tx, ty, oz + hgt * 0.275), mat("6a4a30", 0.8))
+        sph(hgt * 0.3, (tx, ty, oz + hgt * 0.68), mat(rnd.choice(["4a8a3a", "5a9a40", "3f7a35"]), 0.9))
+    for lx in (-6, 7):
+        cyl(0.06, 3.5, (ox + lx, oy + 3.0, oz + 1.75), mat("2a2f36", 0.4, metal=0.6)); sph(0.18, (ox + lx, oy + 3.0, oz + 3.6), mat("fff2c8", 0.3, emit=1.5))
+    return {"seats": seats}
+def bedroom(origin=(0, 0, 0)):
+    """4 × 3.5 m, walls 2.6 m, bed 2.0 × 0.9 m (mattress top 0.5 m), desk 0.75 m, bedside lamp, window"""
+    ox, oy, oz = origin; _room(4, 3.5, 2.6, "c8d8e8", "9a7050", origin, "bed")
+    box((0.95, 2.0, 0.3), (ox - 1.45, oy + 0.6, oz + 0.15), mat("7a5a40", 0.6), 0.02, "bed_frame")
+    box((0.9, 1.95, 0.2), (ox - 1.45, oy + 0.6, oz + 0.4), mat("f2efe8", 0.7), 0.05, "mattress")
+    box((0.92, 1.3, 0.06), (ox - 1.45, oy + 0.35, oz + 0.52), mat("4a7ab0", 0.8), 0.03, "blanket")
+    box((0.6, 0.35, 0.12), (ox - 1.45, oy + 1.4, oz + 0.56), mat("ffffff", 0.7), 0.05, "pillow")
+    box((0.45, 0.4, 0.5), (ox - 0.75, oy + 1.45, oz + 0.25), mat("a8743f", 0.5), 0.01)
+    cyl(0.1, 0.3, (ox - 0.75, oy + 1.45, oz + 0.65), mat("ffe0a0", 0.4, emit=1.2))
+    box((1.2, 0.6, 0.04), (ox + 1.2, oy + 1.4, oz + 0.75), mat("a8743f", 0.5), 0.01, "desk"); chair((ox + 1.2, oy + 0.85, oz), 0)
+    box((1.2, 0.02, 1.0), (ox + 0.3, oy + 1.74, oz + 1.5), mat("1c2a4a", 1.0, emit=0.6), 0, "window")
+    return {"mattress_top": oz + 0.5, "desk_top": oz + 0.77}
+
+# ---------------------------------------------------------------- lighting moods (Ifology: light changes per location)
+def lighting(mood):
+    """'lamp_night' warm home at night · 'class_day' bright even · 'lab_cool' white/blue · 'sun_day' outdoor ·
+    'concept' sepia spotlight on the subject at (0,0) with a dim world (title / concept shots)"""
+    if mood == "lamp_night": world((0.03, 0.035, 0.06)); interior_lights()
+    elif mood == "class_day":
+        world((0.5, 0.52, 0.55), 0.6); interior_lights((-3.5, 0, 2.0), 300, 260)
+        bpy.ops.object.light_add(type="AREA", location=(0, 0, 2.9)); c = bpy.context.object; c.data.energy = 600; c.data.size = 5
+    elif mood == "lab_cool":
+        world((0.6, 0.7, 0.8), 0.5)
+        for x in (-1.6, 1.6):
+            bpy.ops.object.light_add(type="AREA", location=(x, 0.3, 2.7)); c = bpy.context.object; c.data.energy = 350; c.data.size = 2; c.data.color = (0.88, 0.94, 1.0)
+    elif mood == "sun_day": world((0.45, 0.65, 0.95), 1.0); sun_lights(45, 4.0)
+    elif mood == "concept":
+        world((0.12, 0.09, 0.06), 0.4)
+        bpy.ops.object.light_add(type="SPOT", location=(0, -1.0, 4.0)); sp = bpy.context.object; sp.data.energy = 900; sp.data.spot_size = math.radians(40)
+        sp.data.spot_blend = 0.5; sp.data.color = (1, 0.85, 0.65); sp.rotation_euler = (math.radians(14), 0, 0)
+
+# ---------------------------------------------------------------- Ifology moves: sign pop/slide, push-in, shake, power eyes
+def sign_pop(board, frame):
+    """sign appears instantly with a small overshoot (add a 'pop' SFX at this frame)"""
+    for f, sc in ((frame - 1, 0.001), (frame, 0.6), (frame + 2, 1.12), (frame + 4, 1.0)):
+        board.scale = (sc, sc, sc); board.keyframe_insert("scale", frame=f)
+def sign_slide(board, frame, dist=2.5, dur=6):
+    """sign slides in from the left (screen left when the camera looks along +Y) and settles"""
+    end = board.location.copy(); board.location = end - Vector((dist, 0, 0)); board.keyframe_insert("location", frame=frame)
+    board.location = end + Vector((0.05, 0, 0)); board.keyframe_insert("location", frame=frame + dur - 2)
+    board.location = end; board.keyframe_insert("location", frame=frame + dur)
+def push_in(cam, f0, f1, amount=0.12):
+    """slow push-in toward the camera's target (5–15 %): only on reveals / emotional close-ups"""
+    tgt = cam.constraints[0].target.location; a = cam.location.copy(); cam.keyframe_insert("location", frame=f0)
+    cam.location = a + (tgt - a) * amount; cam.keyframe_insert("location", frame=f1); cam.location = a
+    for fc in (cam.animation_data.action.fcurves if cam.animation_data and cam.animation_data.action else []):
+        for kp in fc.keyframe_points: kp.interpolation = "SINE"
+def shake(cam, frame, frames=8, amp=0.03, seed=0):
+    """short decaying camera shake on an impact (fall, crash, door slam) — add a thump SFX"""
+    import random; rnd = random.Random(seed); base = cam.location.copy()
+    cam.keyframe_insert("location", frame=frame - 1)
+    for i in range(frames):
+        k = amp * (1 - i / frames); cam.location = base + Vector((rnd.uniform(-k, k), 0, rnd.uniform(-k, k))); cam.keyframe_insert("location", frame=frame + i)
+    cam.location = base; cam.keyframe_insert("location", frame=frame + frames)
+def power_eyes(ch, f_on, f_off=None, color="b04aff"):
+    """glowing rings over the pupils (the 'power' moment, + click SFX); scale-keyed so they pop on/off"""
+    k = ch["k"]; out = []
+    for s in ("L", "R"):
+        p = ch["face"]["pup" + s]; bpy.context.view_layer.update()
+        bpy.ops.mesh.primitive_torus_add(major_radius=0.032 * k, minor_radius=0.007 * k, location=p.matrix_world.translation + Vector((0, -0.012, 0)), rotation=(math.pi / 2, 0, 0))
+        r = bpy.context.object; r.data.materials.append(mat(color, 0.3, emit=6.0))
+        mw = r.matrix_world.copy(); r.parent = p; r.matrix_world = mw
+        for f, sc in ((f_on - 1, 0.001), (f_on, 1.0)) + (((f_off - 1, 1.0), (f_off, 0.001)) if f_off else ()):
+            r.scale = (sc,) * 3; r.keyframe_insert("scale", frame=f)
+        out.append(r)
+    return out
+
+def sit_root(ch, seat_top, facing):
+    """root location to sit on any surface: seat_top = (x, y, z of the SEAT SURFACE). Hips land 0.105·k above the
+    surface, 0.05 m toward the backrest; kids' feet may dangle (correct), adults' shoes reach the floor from 0.45 m."""
+    k = ch["k"]; a = math.radians(facing); x, y, z = seat_top
+    return (x - 0.05 * math.sin(a), y + 0.05 * math.cos(a), z - 0.755 * k)
