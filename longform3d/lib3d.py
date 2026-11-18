@@ -460,3 +460,15 @@ def sit_root(ch, seat_top, facing):
     surface, 0.05 m toward the backrest; kids' feet may dangle (correct), adults' shoes reach the floor from 0.45 m."""
     k = ch["k"]; a = math.radians(facing); x, y, z = seat_top
     return (x - 0.05 * math.sin(a), y + 0.05 * math.cos(a), z - 0.755 * k)
+
+def blend(p0, p1, u):
+    """mix two pose dicts (u 0→1, eased). Use 4–8 frames between key poses so arms don't snap (the lib test's point
+    snapped in 1 frame). Euler entries (aim_arm) are slerped via quaternions."""
+    u = 0.5 - 0.5 * math.cos(math.pi * max(0, min(1, u))); out = {}
+    for b in set(p0) | set(p1):
+        a, c = p0.get(b, (0, 0, 0)), p1.get(b, (0, 0, 0))
+        if isinstance(a, Euler) or isinstance(c, Euler):
+            fix = lambda v: v if isinstance(v, Euler) else Euler([math.radians(x) * (-1 if b.split(".")[0] in LIMB and i != 1 else 1) for i, x in enumerate(v)])
+            out[b] = fix(a).to_quaternion().slerp(fix(c).to_quaternion(), u).to_euler("XYZ")
+        else: out[b] = tuple(x + (y - x) * u for x, y in zip(a, c))
+    return out

@@ -140,3 +140,6 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
   Default = static camera, pose-to-pose (2–3 held key poses per shot), mouth by emotion; lip sync only for close-ups.
 - QA sheet: `longform3d/tools/qa_sheet.sh <dir_of_jpgs> <out.jpg> [cols] [captions.txt "file|line"]`.
 - Eevee 1280×720 24 samples: 5 s/frame (small room) – 10 s/frame (classroom, park: more objects/lights).
+- First full animated test (2026-11-18): test/out/lib_test.mp4, 10 s, 240 frames in 1131 s (4.7 s/frame), auto-QA OK.
+  Seen in the sheet: walk, close-up talk, pointing at the window, Mia's head turning all correct; the point SNAPPED in
+  one frame → use `L.blend(p0, p1, u)` over 4–8 frames between key poses.
