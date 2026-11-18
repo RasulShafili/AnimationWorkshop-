@@ -16,3 +16,8 @@ analysis (Gemini watched it): refs_watch/IFOLOGY_STYLE.md.
 pose-to-pose shots like Ifology, render chapters overnight (resumable) under systemd-inhibit. Render speed on this
 iGPU: 5–10 s/frame at 720p → a used RTX 3060 or cloud GPU would cut it 10×. Related: [[story-first-no-fact-cards]],
 [[scale-aim-selfcheck]], [[video-watch-tool]], [[mixed-skin-tones]].
+
+Owner verdict on the first 3D test (2026-11-18): "not that bad, but still a long way from Ifology's animation".
+Gap order: 1) characters look like primitive mannequins → one-piece smooth body (Skin modifier + subdivision,
+clothes shapes, mitten hands); 2) empty sets → prop pack (shelves, plants, frames, rugs, curtains); 3) flat light →
+Eevee raytracing/GI + subtle textures; 4) stiff acting → expressive pose library. Do them in that order, one still each.
