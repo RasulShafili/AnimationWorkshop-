@@ -76,3 +76,16 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
 1. Install + headless Eevee test frame (5 min). 2. kit.py: one kitchen room at real size. 3. cast.py: one hero with rig
    + 4 clips (idle, walk, talk, point). 4. A 20-second test scene (cold open style, 5 shots) → preview → final render
    → show the owner before any long-form.
+
+## 8. Status 2026-11-18 + resumable rendering
+- Installed: Blender 4.5.16 LTS at ~/Applications/blender (official tarball, sha256 verified, no sudo).
+- Test: longform3d/test/scene_test.py → 1280×720 Eevee Next, 32 samples = 13.1 s incl. first-frame shader compile.
+  Real-scale room + Leo worked. Found: chair without legs (floating), floor noise (more samples / denoise), mouth reads
+  as a nose, patchy hair.
+- **Render in parts (owner asked):** every frame is its own image file, so a render can stop and resume any time —
+  `scene.render.use_overwrite = False` + `use_placeholder = True` makes Blender skip frames already on disk (also lets
+  two processes share a range). Render chapter by chapter in night batches under `systemd-inhibit`; nothing is lost if
+  the PC sleeps or is turned off; finish with `systemctl poweroff` when the owner asks.
+- Still to learn: shared rig + action clip library (walk/run/sit/talk/point/aim/port/duck), lip-sync shape keys from
+  the vo envelope, 5–6 reusable rooms, render-time tuning (samples, 720p, 12 fps "on twos"), Workbench preview QA
+  sheets, and the Gemini watch of Ifology's motion/music (retry loop died with the session — rerun when not 503).
