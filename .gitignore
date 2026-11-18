@@ -76,3 +76,7 @@ longform/*/public/*.wav
 tools/chatterbox-venv/
 tools/chatterbox/model/
 longform/*/vo/*.npy
+
+# Blender test renders
+longform3d/**/out/
+*.blend1
