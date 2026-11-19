@@ -201,9 +201,10 @@ CH["c8"] = dict(
 )
 CH["c8b"] = dict(
     set="classroom_dressed", light="class_day", mood="warm_in",
-    cast={"LEO": dict(at=(1.3, 1.45), face=40, emo="determined", look_at="HALE"), "HALE": dict(seat=(2.2, 2.95, 0.47), face=180 + 30, emo="neutral", look_at="LEO")},
+    # Leo's body turns toward Hale's desk (face=40 faced away from him)
+    cast={"LEO": dict(at=(1.3, 1.45), face=150, emo="determined", look_at="HALE"), "HALE": dict(seat=(2.2, 2.95, 0.47), face=180 + 30, emo="neutral", look_at="LEO")},
     anim=[lambda info, T, fps: L.chair((2.2, 2.95, 0), 210)],
-    shots={"two": ("fixed", (-0.2, -0.2, 1.6), (1.8, 2.3, 1.1), 24), "cu_leo": ("cu", "LEO", 1.3, 0), "cu_hale": ("cu", "HALE", 1.4, 0)},
+    shots={"two": ("fixed", (3.0, 0.9, 1.55), (1.6, 2.0, 1.15), 24), "cu_leo": ("cu", "LEO", 1.3, 0), "cu_hale": ("cu", "HALE", 1.4, 0)},
     signs=[("c8_n5", "C", (2.0, 3.36, 2.3), 0.4, 0.3, 0.3)],
     lines=[("c8_n4", "two", {}), ("c8_leo1", "cu_leo", {}), ("c8_hale1", "cu_hale", {"emo": {"HALE": "surprised"}}),
            ("c8_leo2", "cu_leo", {"emo": {"LEO": "smile"}}), ("c8_n5", "two", {"emo": {"LEO": "happy", "HALE": "smile"}, "hold": 0.8})],
@@ -263,7 +264,7 @@ CH["c11b"] = dict(
     cast={"MIA": dict(seat=cafeteria_seat(3, 1, True)[0], face=0, emo="surprised"), "LEO": dict(seat=cafeteria_seat(3, 0, True)[0], face=0, emo="smile", look_at="MIA"),
           "THEO": dict(seat=cafeteria_seat(3, 0, False)[0], face=180, emo="smile", look_at="MIA"), "NORA": dict(seat=cafeteria_seat(3, 1, False)[0], face=180, emo="smile", look_at="MIA"),
           "DEX": dict(seat=cafeteria_seat(3, 2, False)[0], face=180, emo="smile", look_at="MIA")},
-    shots={"wide": ("fixed", (5.4, -1.5, 1.45), (2.0, -1.4, 0.85), 26), "cu_mia": ("cu", "MIA", 1.3, 0), "cu_dex": ("cu", "DEX", 1.3, 20)},   # side view: both benches in profile
+    shots={"wide": ("fixed", (4.6, -1.5, 1.45), (2.0, -1.4, 0.85), 26), "cu_mia": ("cu", "MIA", 1.3, 0), "cu_dex": ("cu", "DEX", 1.3, 20)},   # side view: both benches in profile
     lines=[("c11_n3", "wide", {}), ("c11_mia1", "cu_mia", {}), ("c11_dex1", "cu_dex", {"emo": {"DEX": "smug"}}),
            ("c11_n4", "wide", {"emo": {"MIA": "happy", "LEO": "happy", "THEO": "happy", "NORA": "happy", "DEX": "smile"}, "hold": 0.8})],
 )
