@@ -204,7 +204,7 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
-        P(sph((0.207 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.04, 0.045 if st != "buzz" else 0.03)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
+        P(sph((0.211 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.03, 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
         if st == "spiky":
             for i in range(7):
                 a = -0.9 + i * 0.3; P(sph(0.07 * k, HC + Vector((math.sin(a) * 0.15, -0.05 + 0.05 * abs(a), 0.17 - 0.05 * abs(a))) * k, HR, (1, 0.8, 1.3)), "head")
@@ -228,8 +228,9 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
         P(_fin(bpy.context.object, mat(look["headband"], 0.5)), "head")
     if look.get("glasses"):
         for sx in (1, -1):
-            bpy.ops.mesh.primitive_torus_add(major_radius=0.05 * k, minor_radius=0.006 * k, location=HC + Vector((sx * 0.075, -0.2, 0.025)) * k, rotation=(math.pi / 2, 0, 0))
-            P(_fin(bpy.context.object, mat(look.get("frames", "2a2a30"), 0.3)), "head")
+            # thin, roomy frames ON the face (fat dark rings around the eyes looked hypnotic/creepy — owner rule: never creepy)
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.058 * k, minor_radius=0.0035 * k, location=HC + Vector((sx * 0.075, -0.192, 0.022)) * k, rotation=(math.pi / 2, 0, 0))
+            g = _fin(bpy.context.object, mat(look.get("frames", "6a4a3a"), 0.3)); g.name = f"{name}_glasses{sx}"; P(g, "head")
     bpy.context.view_layer.update()
     for o, bone in parts:                                   # rigid parenting, keeps the rest placement
         mw = o.matrix_world.copy(); o.parent = ao; o.parent_type = "BONE"; o.parent_bone = bone; o.matrix_world = mw
@@ -498,7 +499,7 @@ def park(origin=(0, 0, 0), seed=1):
     return {"seats": seats}
 def bedroom(origin=(0, 0, 0)):
     """4 × 3.5 m, walls 2.6 m, bed 2.0 × 0.9 m (mattress top 0.5 m), desk 0.75 m, bedside lamp, window"""
-    ox, oy, oz = origin; _room(4, 3.5, 2.6, "c8d8e8", "9a7050", origin, "bed")
+    ox, oy, oz = origin; _room(4, 3.5, 2.6, "8fb8e0", "9a7050", origin, "bed")
     box((0.95, 2.0, 0.3), (ox - 1.45, oy + 0.6, oz + 0.15), mat("7a5a40", 0.6), 0.02, "bed_frame")
     box((0.9, 1.95, 0.2), (ox - 1.45, oy + 0.6, oz + 0.4), mat("f2efe8", 0.7), 0.05, "mattress")
     box((0.92, 1.3, 0.06), (ox - 1.45, oy + 0.35, oz + 0.52), mat("4a7ab0", 0.8), 0.03, "blanket")
@@ -594,7 +595,7 @@ def hands_up(ch, frame, spread=0.32, up=0.5, fwd=0.12):
 # flat 2–3 tone toon shading + cream rim on the light side + black inverted-hull ink outline + strong DOF + dust +
 # gradient sky. Call L.toon_look(chars, light_dir) AFTER the whole scene is built (it rebuilds every material).
 CREAM = "f5e8c8"
-FACE_PARTS = ("_eye", "_pup", "_mouth", "_brow", "_nose", "_blush")
+FACE_PARTS = ("_eye", "_pup", "_mouth", "_brow", "_nose", "_blush", "_glasses")   # no ink on these
 def _toon_nodes(m, rim=False, light_dir=(0.4, -0.5, 0.75), rim_col=CREAM, shade=(0.62, 0.86), tint=(1, 1, 1)):
     if m.get("toon"): return
     nt = m.node_tree; old = nt.nodes.get("Principled BSDF")
@@ -642,10 +643,12 @@ def toon_look(chars, light_dir=(0.4, -0.5, 0.75), rim_col=CREAM, prop_outline=0.
     char_objs = {o for ch in chars for o in [ch["arm"]] + list(ch["arm"].children)}
     skin_mats = {s.material for o in char_objs if any(t in o.name for t in ("_head", "_neck", "_hand", "_thumb")) for s in o.material_slots}
     stint = tuple(1 - (1 - t) * 0.25 for t in tint)   # faces stay warm and bright in any mood (owner: face looked pale)
+    env_mats = {sl.material for o in bpy.data.objects if o.type == "MESH" and any(t in o.name for t in ("wall", "ceiling", "floor")) for sl in o.material_slots}
     rim_mats = {s.material for o in char_objs if o.type == "MESH" for s in o.material_slots if s.material and not any(p in o.name for p in FACE_PARTS)}
     for m in list(bpy.data.materials):
         if m.use_nodes and m.name != "ink":
             if m in skin_mats: _toon_nodes(m, True, light_dir, rim_col, shade=(0.84, 0.95), tint=stint)
+            elif m in env_mats and m not in rim_mats: _toon_nodes(m, False, shade=(0.9, 0.97), tint=tint)   # big walls: steps from a lamp drew pale curves
             elif m in rim_mats:   # characters: own copy so props sharing a colour don't get a rim
                 _toon_nodes(m, True, light_dir, rim_col, tint=ctint)
             else: _toon_nodes(m, False, tint=tint)

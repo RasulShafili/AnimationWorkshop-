@@ -1,0 +1,30 @@
+[
+ {
+  "out": "vo/c1_leo1.wav",
+  "text": "What vase?",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_mia1.wav",
+  "text": "I didn't say anything.",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_crowd2.wav",
+  "text": "She hates me.",
+  "ref": "vo/refs/kid.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n1.wav",
+  "text": "Day thirty. Midnight.|Then, nothing.|Day thirty-one, breakfast. You look at Mia. Silence.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ }
+]

@@ -207,3 +207,17 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
 - Owner 2026-11-19: never creepy (soft default smile, highlights + blush always, warm faces at night, wide stare only
   briefly), and every set full of cheap background details (books, jars, posters, plants, rugs, bags, clocks, magnets)
   — simple geometry is fine, empty rooms are not. Build a `dress_set()` prop scatter before the thoughts video.
+
+## 14. Thoughts video: assets ready (2026-11-19)
+- Voices: longform3d/thoughts/vo (100 Chatterbox lines, 6.7 min; refs = our own earlier voices; tools/make_jobs.py,
+  tools/check_vo.py with tools/whisper-venv). Whisper check: number words ("73") are fine; real faults = repeated words
+  ("What vase? What vase?"), a stray first word ("So, what vase?") → regenerate with another SEED / slightly new text.
+- Cast: thoughts/cast.py (9 characters; hairstyles short/buzz/bun/ponytail/curls, headband, thin brown glasses —
+  fat dark glasses rings looked hypnotic/creepy). Test: test/cast_test.py → test/out/cast.jpg.
+- Sets: sets3d.py — kitchen_dressed, bedroom_dressed (mirror for the rule notes), classroom_dressed, library, hallway
+  (tiles for "three steps"), cafeteria (mustard + blue band), gym_back, street_dressed; props shelf/books/plant/poster/
+  rug/clock/lamp/bag/fridge(calendar)/counter/lockers/long_table/car; `thought_ring(ch, f_on, f_off)`.
+  Test: test/sets2_test.py → test/out/sets2/*.jpg. Eevee 8 samples 720p = 2–3 s/frame.
+- Fixed: props placed over the door/window (check against fixed openings), solid fence walled the camera off (rails),
+  wide shots use f/8 (f/4 blurred near ceiling edges into pale curves), walls/floors get a soft ramp (0.9/0.97) — a
+  lamp drew pale toon circles on big walls; bedroom walls more saturated blue (never pale).

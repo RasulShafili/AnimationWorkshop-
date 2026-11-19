@@ -15,7 +15,7 @@
  },
  {
   "out": "vo/c1_leo1.wav",
-  "text": "...What vase?",
+  "text": "What vase?!",
   "ref": "vo/refs/leo.wav",
   "exag": 0.55,
   "cfg": 0.45
@@ -659,7 +659,7 @@
  },
  {
   "out": "vo/c13_n1.wav",
-  "text": "Day thirty. Midnight. Then... nothing. Day thirty-one, breakfast. You look at Mia. Silence.",
+  "text": "Day thirty. Midnight.|Then, nothing.|Day thirty-one, breakfast. You look at Mia. Silence.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5

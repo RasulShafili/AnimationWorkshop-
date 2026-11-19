@@ -83,8 +83,9 @@ def car(x, y, col="d9534f", rot=0):
 
 # ---------------------------------------------------------------- dressed sets
 def kitchen_dressed():
-    info = L.kitchen(); fridge(-1.6, 1.2); counter(1.2, 1.25, 1.4); rug(0.2, 0.3, 2.2, 1.5, "4a7ab0")
-    wall_clock(-0.2, 1.52, 2.0); plant(1.8, -1.2, 0, 0.6); lamp(-1.75, -1.2, 0, 1.4); poster(-1.95, 0.2, 1.6, 0.5, 0.7, 7)
+    # layout checked against the fixed walls: door x −1.65…−0.75, window x 0.3…1.5 / z 1.0…2.0 (nothing may cover them)
+    info = L.kitchen(); fridge(-1.6, -0.9); counter(-0.25, 1.25, 0.8); rug(0.2, 0.3, 2.2, 1.5, "4a7ab0")
+    wall_clock(0.9, 1.52, 2.32); plant(1.75, 1.3, 0, 0.6); plant(1.8, -1.2, 0, 0.5); lamp(1.75, -0.3, 0, 1.4); poster(-1.94, 0.6, 1.6, 0.5, 0.7, 7)
     return info
 def bedroom_dressed():
     info = L.bedroom(); shelf(1.6, 1.55, 0, 0.8, 1.6, 0.28, 3, 9); rug(0.2, 0.4, 1.6, 1.2, "8e6fc1"); bag(0.6, -0.6)
@@ -143,7 +144,8 @@ def gym_back(origin=(0, 0, 0)):
     for r in range(12): box((16, 0.62, 0.03), (ox, oy + 4, oz + 0.25 + r * 0.5), mat("9a5040", 0.8), 0)
     box((2.0, 1.2, 1.3), (ox + 3.5, oy + 3.0, oz + 0.65), mat("3f7a52", 0.6), 0.03, "dumpster"); box((2.05, 1.25, 0.08), (ox + 3.5, oy + 3.0, oz + 1.34), mat("2f5a3e", 0.6), 0.02)
     for i in range(9): cyl(0.03, 2.0, (ox - 8 + i * 2, oy - 3, oz + 1.0), mat("9aa3ad", 0.3))
-    box((16, 0.02, 1.8), (ox, oy - 3, oz + 1.05), mat("9aa3ad", 0.4), 0, "fence")
+    for zz in (0.3, 1.0, 1.95): box((16, 0.03, 0.04), (ox, oy - 3, oz + zz), mat("9aa3ad", 0.4), 0, "fence")   # rails, not a solid sheet (it walled the camera off)
+    for i in range(80): box((0.012, 0.012, 1.7), (ox - 8 + i * 0.2, oy - 3, oz + 1.1), mat("b8c0c8", 0.4), 0)
     cyl(0.06, 3.05, (ox - 4.5, oy + 2.6, oz + 1.525), mat("3a3a46", 0.5)); box((1.2, 0.05, 0.8), (ox - 4.5, oy + 2.55, oz + 3.3), mat("f4f1ea", 0.5), 0.01)
     bpy.ops.mesh.primitive_torus_add(major_radius=0.23, minor_radius=0.015, location=(ox - 4.5, oy + 2.2, oz + 3.05)); bpy.context.object.data.materials.append(mat("e8743b", 0.5))
     box((0.9, 0.5, 0.25), (ox + 6, oy + 3.3, oz + 0.12), mat("8a8f98", 0.7), 0.02); bag(ox + 5.5, oy + 2.9, oz)
