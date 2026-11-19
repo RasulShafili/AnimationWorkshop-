@@ -1,4 +1,4 @@
-# What If You Could Hear Everyone's Thoughts for 30 Days?
+# What If You Could Hear Everyone's Thoughts?
 
 Format: 16:9 long-form, 3D toon (longform3d/lib3d.py, toon look §12), target 8:30+ (≈1,400 spoken words),
 second person ("you" = Leo), Day 1 → Day 30. Simple Ifology-style animation: held poses, static cameras, cuts on key
@@ -50,7 +50,7 @@ in a tie, reading notes. Leo meets Mia's eyes → ring of light around her head.
 - [c1.n3] NARRATOR: You look at Mom.
 - [c1.mom_t1] MOM (thought): Please let the car start today. Please, please, please.
 - [c1.n4] NARRATOR: Three people. Three secret radio stations. And somehow, you're tuned into all of them.
-- [c1.n5] NARRATOR: So… what if you could hear everyone's thoughts for thirty days?
+- [c1.n5] NARRATOR: So… what if you could hear everyone's thoughts?
 
 ## c2 — Day 1 · the walk to school · street
 VISUAL: Sunny suburban street. Leo walks, testing: meets a jogger's eyes, a man walking a dog, a girl at a bus stop.
@@ -204,7 +204,7 @@ VISUAL: Same breakfast as c1. Leo meets Mia's eyes. No ring. Silence. One cookie
   recovered the gist of heard stories, failed when the person resisted (thought of other things).
 
 ## Title / thumbnail
-- Title: What If You Could Hear Everyone's Thoughts for 30 Days?
+- Title: What If You Could Hear Everyone's Thoughts?  (owner 2026-11-19: no "for 30 Days" in the title)
 - Thumbnail (answers the title): Leo's shocked face big on the left; on the right Nora with a glowing ring and a bold
   thought bubble "I LIKE… THEO?!" — bright, saturated, big face (owner rules: click-bait but relevant, never pale).
 

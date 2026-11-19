@@ -193,3 +193,14 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   pelvis wider than the torso showed as a dark spot on the hip; a camera outside the room showed blurred wall ends as
   pale curves — keep interior cameras inside the room (18–22 mm). Font: DejaVu Sans Bold (default "1" looked like "I").
 - Tests: test/toon_test.py (park day, night close-up), cookie/cookie.py `-- final toon [stills]`.
+
+## 13. Flat 2D faces (owner 2026-11-19: "eyes, pupils, brows don't need to be 3D"; "face looks pale")
+- Eyes, pupils, highlights, brows, nose, blush = `decal()` fan meshes projected onto the head sphere (flat unlit colour,
+  origin at the decal centre). Mouth = mouth_mesh (also a decal, with shape keys). Result: test/out/sheet_face.jpg.
+- Pupils + highlights are children of `<name>_eyepivot` (an empty at the head centre); looking = rotating the pivot,
+  so they slide ON the sphere. Translating them sank them up to 1 cm into the head.
+- Brows lift 7 mm: a tilted decal's ends leave the sphere and sank under the skin/hair (angry brows vanished).
+- Any rotation of a bone-parented part = compose with its stored rest rotation `o["r0"]` (world = B·R0·X → X acts in
+  world axes); overwriting rotation_euler destroys the parenting compensation.
+- Skin in toon_look: 2 soft tones (shade 0.84/0.95) and only 25 % of the mood tint → warm, never pale.
+- ffmpeg finishing: put `noise` BEFORE the letterbox drawbox (grain on the black bars looked like a glitch).

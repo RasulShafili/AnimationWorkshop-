@@ -8,6 +8,8 @@ for i, e in enumerate(EM):
     L.key_pose(A, i + 1, L.idle(0), (0, 0, 0), 0)
     L.key_face(A, i + 1, emotion="neutral" if e == "talk" else e, talk=0.9 if e == "talk" else 0)
 cam = L.face_cam("cu", A, 1, 1.25, 15, 0.0, 50); bpy.context.scene.camera = cam
+L.key_face(A, 3, emotion="happy", look=(1, 0.6))       # look test on the happy frame
+L.toon_look([A], (0.9, -1.0, 2.2))
 L.setup("final", (640, 640), 16); sc = bpy.context.scene
 for i, e in enumerate(EM):
     sc.frame_set(i + 1); sc.render.filepath = f"/home/rasul/Desktop/Animations/longform3d/test/out/face/{i}_{e}.jpg"; bpy.ops.render.render(write_still=True)

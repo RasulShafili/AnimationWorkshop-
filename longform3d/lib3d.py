@@ -198,7 +198,7 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
         face["eye" + s] = P(decal(f"{name}_eye{s}", HC, R0, k, ex, 0.025, _ellipse(0.04, 0.05), 0.0015, "f8f6f0"), "head")
         face["pup" + s] = P(decal(f"{name}_pup{s}", HC, R0, k, ex, 0.018, _ellipse(0.023, 0.026), 0.003, "121018"), "head")
         face["hl" + s] = P(decal(f"{name}_eyehl{s}", HC, R0, k, ex + 0.011, 0.031, _ellipse(0.0075, 0.0075, 12), 0.0045, "ffffff"), "head")
-        face["brow" + s] = P(decal(f"{name}_brow{s}", HC, R0, k, ex, 0.105, _ellipse(0.036, 0.008, 24, 4), 0.0015, "2a1a14"), "head")
+        face["brow" + s] = P(decal(f"{name}_brow{s}", HC, R0, k, ex, 0.105, _ellipse(0.036, 0.008, 24, 4), 0.007, "2a1a14"), "head")
         P(decal(f"{name}_blush{s}", HC, R0, k, sx * 0.12, -0.05, _ellipse(0.026, 0.016), 0.001, "ff9a8a"), "head")
     face["mouth"] = P(mouth_mesh(name + "_mouth", HC, 0.2 * k, k), "head")
     P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
@@ -221,6 +221,15 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     for o, bone in parts:                                   # rigid parenting, keeps the rest placement
         mw = o.matrix_world.copy(); o.parent = ao; o.parent_type = "BONE"; o.parent_bone = bone; o.matrix_world = mw
         o["r0"] = list(o.rotation_euler)        # rest (compensation) rotation: compose with it, never overwrite
+    # eye pivot: pupils + highlights orbit the HEAD CENTRE when looking, so they always stay on the sphere
+    # (sliding them sideways sank them into the eye whites/head by up to 1 cm)
+    bpy.ops.object.empty_add(location=HC); piv = bpy.context.object; piv.name = name + "_eyepivot"; bpy.context.view_layer.update()
+    mw = piv.matrix_world.copy(); piv.parent = ao; piv.parent_type = "BONE"; piv.parent_bone = "head"; piv.matrix_world = mw; piv["r0"] = list(piv.rotation_euler)
+    bpy.context.view_layer.update()
+    for s in ("L", "R"):
+        for key in ("pup" + s, "hl" + s):
+            o = face[key]; mw = o.matrix_world.copy(); o.parent = piv; o.parent_type = "OBJECT"; o.matrix_world = mw
+    face["pivot"] = piv
     ao.location = loc; ao.rotation_euler = (0, 0, math.radians(facing_deg))
     for pb in ao.pose.bones: pb.rotation_mode = "XYZ"
     return {"arm": ao, "face": face, "k": k, "name": name}
@@ -285,16 +294,16 @@ def key_face(ch, frame, talk=0.0, blink=False, brow=None, look=(0, 0), emotion="
         # eyes/pupils keep world-aligned local axes (verified: matrix_world = identity at rest) → squash local Z
         e = f["eye" + s]; e.scale = (1, 1, z); e.keyframe_insert("scale", frame=frame)
         p = f["pup" + s]; p.scale = (1, 1, min(1, z + 0.1) if not blink else 0.08); p.keyframe_insert("scale", frame=frame)
-        if "rest" not in p: p["rest"] = list(p.location)
-        p.location = Vector(p["rest"]) + R @ (Vector((look[0] * 0.022, 0, look[1] * 0.016)) * k); p.keyframe_insert("location", frame=frame)
+
         b = f["brow" + s]
         if "rest" not in b: b["rest"] = list(b.location)
         b.location = Vector(b["rest"]) + R @ (Vector((0, 0, raise_)) * k); b.keyframe_insert("location", frame=frame)
         phi = math.radians((1 if s == "L" else -1) * 16 * tilt)          # + = inner end down (angry) for tilt > 0
         b.rotation_euler = (Euler(b["r0"]).to_matrix() @ Matrix.Rotation(-phi, 3, "Y")).to_euler(); b.keyframe_insert("rotation_euler", frame=frame)
         h = f["hl" + s]; h.scale = (1, 1, 0.08 if blink else 1); h.keyframe_insert("scale", frame=frame)
-        if "rest" not in h: h["rest"] = list(h.location)
-        h.location = Vector(h["rest"]) + R @ (Vector((look[0] * 0.022, 0, look[1] * 0.016)) * k); h.keyframe_insert("location", frame=frame)
+    piv = f["pivot"]; yaw = look[0] * 0.11; pitch = look[1] * 0.08          # radians around the head centre
+    piv.rotation_euler = (Euler(piv["r0"]).to_matrix() @ Matrix.Rotation(yaw, 3, "Z") @ Matrix.Rotation(-pitch, 3, "X")).to_euler()
+    piv.keyframe_insert("rotation_euler", frame=frame)
 def blink_at(frame, seed=0):
     p = 70 + (seed * 37) % 50; return (frame + seed * 13) % p < 3
 
