@@ -105,6 +105,29 @@ for s, x in (("L", 0.22), ("R", -0.22)):
 # the natural way, z = sideways (R arm: negative = out, L arm: positive = out). Spine/neck/head: x+ = lean/nod forward.
 LIMB = ("uarm", "farm", "thigh", "shin")
 
+def _ellipse(rx, rz, n=28, p=2):
+    """2D outline points (superellipse: p=2 ellipse, p=4 rounded bar for brows)"""
+    out = []
+    for i in range(n):
+        t = 2 * math.pi * i / n; c, sn = math.cos(t), math.sin(t)
+        out.append((rx * math.copysign(abs(c) ** (2 / p), c), rz * math.copysign(abs(sn) ** (2 / p), sn)))
+    return out
+def decal(name, HC, r, k, x, z, outline, lift, col):
+    """flat face decal: a fan mesh projected onto the head sphere (`lift` m above it), flat unlit colour, object origin
+    at its centre so blink-scaling and brow tilts happen in place"""
+    def proj(X, Z): return Vector((HC.x + X * k, HC.y - math.sqrt(max(1e-8, r * r - (X * k) ** 2 - (Z * k) ** 2)) - lift * k, HC.z + Z * k))
+    c = proj(x, z); vs = [Vector((0, 0, 0))]
+    for j in (0.5, 1.0):
+        vs += [proj(x + px * j, z + pz * j) - c for px, pz in outline]
+    n = len(outline); faces = [(0, 1 + i, 1 + (i + 1) % n) for i in range(n)] + [(1 + i, 1 + n + i, 1 + n + (i + 1) % n, 1 + (i + 1) % n) for i in range(n)]
+    me = bpy.data.meshes.new(name); me.from_pydata([tuple(v) for v in vs], [], faces); me.update()
+    o = bpy.data.objects.new(name, me); bpy.context.collection.objects.link(o); o.location = c
+    m = bpy.data.materials.get("flat_" + col)
+    if not m:
+        m = bpy.data.materials.new("flat_" + col); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+        e = nt.nodes.new("ShaderNodeEmission"); e.inputs["Color"].default_value = (*hexc(col), 1); out = nt.nodes.new("ShaderNodeOutputMaterial")
+        nt.links.new(e.outputs[0], out.inputs[0]); m["toon"] = 1; m.diffuse_color = (*hexc(col), 1)
+    me.materials.append(m); return o
 def mouth_mesh(name, HC, r, k, zoff=-0.105):
     """mouth that lies ON the head sphere (no blob sticking out). 2D outline (x, z) per shape → projected onto the
     sphere 1.5 mm out. Shape keys: smile, frown, open, happy, O."""
@@ -168,15 +191,17 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     HC = Vector((0, -0.01, 1.58)) * k
     P(sph(0.20 * k, HC, SK, seg=72, name=name + "_head"), "head")
     face = {}
+    # owner 2026-11-19: eyes, pupils, brows must NOT be 3D → flat decals lying on the head sphere (like the mouth)
+    R0 = 0.2 * k; dark = "%02x%02x%02x" % tuple(int(int(look["skin"][i:i + 2], 16) * 0.82) for i in (0, 2, 4))
     for s, sx in (("L", 1), ("R", -1)):
-        e = HC + Vector((sx * 0.075, -0.165, 0.025)) * k
-        face["eye" + s] = P(sph(0.055 * k, e, mat("f6f3ec", 0.15), (1, 0.42, 1.2), name=f"{name}_eye{s}"), "head")
-        face["pup" + s] = P(sph(0.027 * k, e + Vector((0, -0.023, -0.005)) * k, mat("0d0c12", 0.1), name=f"{name}_pup{s}"), "head")
-        P(sph(0.009 * k, e + Vector((0.014, -0.043, 0.02)) * k, mat("ffffff", 0.1), name=f"{name}_eyehl{s}"), "head")
-        face["brow" + s] = P(capsule(e + Vector((-0.035, -0.02, 0.085)) * k, e + Vector((0.035, -0.02, 0.085)) * k, 0.009 * k, mat("2a1a14", 0.6)), "head")
-        P(sph(0.032 * k, HC + Vector((sx * 0.12, -0.15, -0.05)) * k, mat("ff9a8a", 0.7), (1, 0.4, 0.6), name=f"{name}_blush{s}"), "head")
+        ex = sx * 0.075
+        face["eye" + s] = P(decal(f"{name}_eye{s}", HC, R0, k, ex, 0.025, _ellipse(0.04, 0.05), 0.0015, "f8f6f0"), "head")
+        face["pup" + s] = P(decal(f"{name}_pup{s}", HC, R0, k, ex, 0.018, _ellipse(0.023, 0.026), 0.003, "121018"), "head")
+        face["hl" + s] = P(decal(f"{name}_eyehl{s}", HC, R0, k, ex + 0.011, 0.031, _ellipse(0.0075, 0.0075, 12), 0.0045, "ffffff"), "head")
+        face["brow" + s] = P(decal(f"{name}_brow{s}", HC, R0, k, ex, 0.105, _ellipse(0.036, 0.008, 24, 4), 0.0015, "2a1a14"), "head")
+        P(decal(f"{name}_blush{s}", HC, R0, k, sx * 0.12, -0.05, _ellipse(0.026, 0.016), 0.001, "ff9a8a"), "head")
     face["mouth"] = P(mouth_mesh(name + "_mouth", HC, 0.2 * k, k), "head")
-    P(sph(0.026 * k, HC + Vector((0, -0.2, -0.035)) * k, SK, (1, 0.8, 0.8), name=name + "_nose"), "head")
+    P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
         P(sph(0.216 * k, HC + Vector((0, 0.04, 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
@@ -195,6 +220,7 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     bpy.context.view_layer.update()
     for o, bone in parts:                                   # rigid parenting, keeps the rest placement
         mw = o.matrix_world.copy(); o.parent = ao; o.parent_type = "BONE"; o.parent_bone = bone; o.matrix_world = mw
+        o["r0"] = list(o.rotation_euler)        # rest (compensation) rotation: compose with it, never overwrite
     ao.location = loc; ao.rotation_euler = (0, 0, math.radians(facing_deg))
     for pb in ao.pose.bones: pb.rotation_mode = "XYZ"
     return {"arm": ao, "face": face, "k": k, "name": name}
@@ -264,7 +290,11 @@ def key_face(ch, frame, talk=0.0, blink=False, brow=None, look=(0, 0), emotion="
         b = f["brow" + s]
         if "rest" not in b: b["rest"] = list(b.location)
         b.location = Vector(b["rest"]) + R @ (Vector((0, 0, raise_)) * k); b.keyframe_insert("location", frame=frame)
-        b.rotation_euler = (0, 0, math.radians((1 if s == "L" else -1) * 16 * tilt)); b.keyframe_insert("rotation_euler", frame=frame)   # head-bone Z = toward the viewer
+        phi = math.radians((1 if s == "L" else -1) * 16 * tilt)          # + = inner end down (angry) for tilt > 0
+        b.rotation_euler = (Euler(b["r0"]).to_matrix() @ Matrix.Rotation(-phi, 3, "Y")).to_euler(); b.keyframe_insert("rotation_euler", frame=frame)
+        h = f["hl" + s]; h.scale = (1, 1, 0.08 if blink else 1); h.keyframe_insert("scale", frame=frame)
+        if "rest" not in h: h["rest"] = list(h.location)
+        h.location = Vector(h["rest"]) + R @ (Vector((look[0] * 0.022, 0, look[1] * 0.016)) * k); h.keyframe_insert("location", frame=frame)
 def blink_at(frame, seed=0):
     p = 70 + (seed * 37) % 50; return (frame + seed * 13) % p < 3
 
@@ -588,10 +618,13 @@ def toon_look(chars, light_dir=(0.4, -0.5, 0.75), rim_col=CREAM, prop_outline=0.
             if m.name.startswith(f"m_{o_}_"): m.diffuse_color = (*hexc(n_), 1)
     """rebuild every material as toon; characters get the cream rim (use pale blue 'c8d8ff' at night) + thicker ink"""
     char_objs = {o for ch in chars for o in [ch["arm"]] + list(ch["arm"].children)}
+    skin_mats = {s.material for o in char_objs if any(t in o.name for t in ("_head", "_neck", "_hand", "_thumb")) for s in o.material_slots}
+    stint = tuple(1 - (1 - t) * 0.25 for t in tint)   # faces stay warm and bright in any mood (owner: face looked pale)
     rim_mats = {s.material for o in char_objs if o.type == "MESH" for s in o.material_slots if s.material and not any(p in o.name for p in FACE_PARTS)}
     for m in list(bpy.data.materials):
         if m.use_nodes and m.name != "ink":
-            if m in rim_mats:   # characters: own copy so props sharing a colour don't get a rim
+            if m in skin_mats: _toon_nodes(m, True, light_dir, rim_col, shade=(0.84, 0.95), tint=stint)
+            elif m in rim_mats:   # characters: own copy so props sharing a colour don't get a rim
                 _toon_nodes(m, True, light_dir, rim_col, tint=ctint)
             else: _toon_nodes(m, False, tint=tint)
     for o in list(bpy.data.objects):

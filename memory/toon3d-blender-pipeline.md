@@ -25,3 +25,9 @@ Eevee raytracing/GI + subtle textures; 4) stiff acting → expressive pose libra
 2026-11-19 direction: owner approved Ifology's RENDER technique (toon shading, ink outline, rim light, DOF, dust,
 simple animation) with OUR OWN characters and a clear visual difference so we are not a copy; colours must never be
 pale (said twice). Details: skill toon3d-blender §12.
+
+Current 3D project (2026-11-19): longform3d/thoughts/ — "What If You Could Hear Everyone's Thoughts for 30 Days?"
+(picked by outliers.py: hear-thoughts titles 6–22× channel median). SCRIPT.md v1 done (~1,330 words, 15 chapters,
+crush/emotions, no sexual content per owner). Owner wants it as fast/easy as possible on the iGPU: 12 fps on twos,
+8 samples, 720p, reuse sets, 3–4 shots per chapter. Pending before building: face decals (owner: eyes, pupils,
+brows must be flat 2D, not 3D; face looked pale) — that edit was interrupted, not applied yet.
