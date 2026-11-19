@@ -204,3 +204,6 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   world axes); overwriting rotation_euler destroys the parenting compensation.
 - Skin in toon_look: 2 soft tones (shade 0.84/0.95) and only 25 % of the mood tint → warm, never pale.
 - ffmpeg finishing: put `noise` BEFORE the letterbox drawbox (grain on the black bars looked like a glitch).
+- Owner 2026-11-19: never creepy (soft default smile, highlights + blush always, warm faces at night, wide stare only
+  briefly), and every set full of cheap background details (books, jars, posters, plants, rugs, bags, clocks, magnets)
+  — simple geometry is fine, empty rooms are not. Build a `dress_set()` prop scatter before the thoughts video.
