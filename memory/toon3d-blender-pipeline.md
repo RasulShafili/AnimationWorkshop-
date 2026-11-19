@@ -21,3 +21,7 @@ Owner verdict on the first 3D test (2026-11-18): "not that bad, but still a long
 Gap order: 1) characters look like primitive mannequins → one-piece smooth body (Skin modifier + subdivision,
 clothes shapes, mitten hands); 2) empty sets → prop pack (shelves, plants, frames, rugs, curtains); 3) flat light →
 Eevee raytracing/GI + subtle textures; 4) stiff acting → expressive pose library. Do them in that order, one still each.
+
+2026-11-19 direction: owner approved Ifology's RENDER technique (toon shading, ink outline, rim light, DOF, dust,
+simple animation) with OUR OWN characters and a clear visual difference so we are not a copy; colours must never be
+pale (said twice). Details: skill toon3d-blender §12.

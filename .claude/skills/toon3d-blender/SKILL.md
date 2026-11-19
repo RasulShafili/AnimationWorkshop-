@@ -172,3 +172,24 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
 - Blender's default font draws "1" like "I" ("1 COOKIE LEFT" read "I COOKIE LEFT") → load a real font for signs
   (bpy.data.fonts.load("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")).
 - Result: ~/Desktop/3d_cookie_test.mp4 (10 s, render 240 frames ≈ 20 min).
+
+## 12. TOON LOOK (owner-approved direction 2026-11-19): Ifology render TECHNIQUE + OUR characters + simple animation
+Owner showed 14 frames of Ifology "What If You Could Stop Time?" + a style-bible skill. Decision: take the rendering
+technique, keep our own characters and a visible difference ("elə bir fərqlilik et ki bu bizə problem yaşatmasın").
+- `L.toon_look(chars, light_dir, rim_col, mood=…, recolor=…)` after building the scene: every material → flat 3-tone
+  toon (Diffuse → Shader to RGB → constant ramp → Emission), cream rim on characters' light side (pale blue/warm at
+  night), black inverted-hull ink outline (chars 7 mm, props 4 mm; face parts, walls, floors excluded), Standard view
+  transform + "Medium High Contrast". Then `L.dust(cam)` per camera, DOF f/1.6 on close-ups, `L.sky_gradient()` outside.
+- **Never pale (owner, twice):** AgX washed toon colours → Standard transform. Toon emission ignores light strength, so
+  a mood must be IN the colours: `mood="night"` tint + `recolor=L.NIGHT_SET` (saturated purple-blue walls). A plain
+  multiply tint over cream walls only gave grey-lilac.
+- World-shader gradients (Generated/Window) did not work in Eevee → sky = solid blue world + open emissive cylinder band.
+- Our difference from Ifology (keep it): skin-tone faces with hair, pupils, brows, blush, nose; mixed skin tones;
+  sweaters/tees + jeans; saturated palette; our own text style (NOT their cream "RULE 1"). Never black ball heads,
+  hoodie drawstrings + kangaroo pocket, stick legs.
+- Simple animation like Ifology: held poses + blends, mouth = 2-state open/closed swap while speaking (no lip sync),
+  hands never animate (`L.hold(ch, side, obj)` parents a prop into the fist), the camera does the work.
+- Fixed while learning: unnamed eye highlights/blush got ink rings (name every face part with a FACE_PARTS suffix);
+  pelvis wider than the torso showed as a dark spot on the hip; a camera outside the room showed blurred wall ends as
+  pale curves — keep interior cameras inside the room (18–22 mm). Font: DejaVu Sans Bold (default "1" looked like "I").
+- Tests: test/toon_test.py (park day, night close-up), cookie/cookie.py `-- final toon [stills]`.

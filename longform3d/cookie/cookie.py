@@ -2,7 +2,7 @@
 # blender -b -P cookie.py -- preview|final|check
 import sys, math; sys.path.insert(0, "/home/rasul/Desktop/Animations/longform3d"); import bpy, lib3d as L
 from mathutils import Vector
-MODE = sys.argv[sys.argv.index("--") + 1]; D = "/home/rasul/Desktop/Animations/longform3d/cookie"
+A = sys.argv[sys.argv.index("--") + 1:]; MODE = A[0]; TOON = "toon" in A; D = "/home/rasul/Desktop/Animations/longform3d/cookie"
 L.fresh(); L.kitchen(); L.lighting("lamp_night"); sc = bpy.context.scene
 COOKIE = Vector((-0.25, 0.2, 0.79))          # on the left plate, within Leo's reach
 L.cyl(0.05, 0.014, COOKIE, L.mat("c08040", 0.7), name="cookie")
@@ -27,25 +27,34 @@ for f in range(1, 241):
     tgt = COOKIE if f < 150 else L.head_pos(MIA, f)
     L.key_pose(LEO, f, {**pose, **L.look_at(LEO, tgt, f, 0.8, max_pitch=12)})
     emo = "neutral" if f < 66 else "happy" if f < 160 else "scared"
-    L.key_face(LEO, f, talk=min(1, 1.4 * leo_talk.get(f, 0)), blink=L.blink_at(f, 1) and emo != "happy", emotion=emo, look=L.eye_look(LEO, tgt, f))
+    L.key_face(LEO, f, talk=(0.85 if leo_talk.get(f, 0) > 0.25 else 0) if TOON else min(1, 1.4 * leo_talk.get(f, 0)), blink=L.blink_at(f, 1) and emo != "happy", emotion=emo, look=L.eye_look(LEO, tgt, f))
     # ---- Mia: seated, eyes on the cookie → turns to Leo, angry → smug once he gives up
     mb = {**L.idle(t, 2.0), **L.sit()}; L.key_pose(MIA, f, mb, L.sit_root(MIA, MIA_SEAT, MIA_FACE), MIA_FACE)
     mt = COOKIE if f < 100 else L.head_pos(LEO, f)
     L.key_pose(MIA, f, {**mb, **L.look_at(MIA, mt, f, 0.75)})
     memo = "neutral" if f < 100 else "angry" if f < 200 else "smug"
-    L.key_face(MIA, f, talk=min(1, 1.4 * mia_talk.get(f, 0)), blink=L.blink_at(f, 4), emotion=memo, look=L.eye_look(MIA, mt, f))
-c1 = L.camera("wide", (0.25, -3.0, 1.6), (0.25, 0.35, 1.05), 24)
+    L.key_face(MIA, f, talk=(0.85 if mia_talk.get(f, 0) > 0.25 else 0) if TOON else min(1, 1.4 * mia_talk.get(f, 0)), blink=L.blink_at(f, 4), emotion=memo, look=L.eye_look(MIA, mt, f))
+c1 = L.camera("wide", (0.25, -1.5, 1.55), (0.25, 0.4, 1.05), 18)
 c2 = L.face_cam("leo_cu", LEO, 90, 1.5, -10, up=-0.04)
 c3 = L.face_cam("mia_cu", MIA, 140, 1.35, 10)
-c4 = L.camera("two", (0.25, -2.4, 1.45), (0.25, 0.2, 1.15), 28)
+c4 = L.camera("two", (0.25, -1.5, 1.4), (0.25, 0.25, 1.15), 22)
 for c, f in ((c1, 1), (c2, 67), (c3, 121), (c4, 187)): L.cut(c, f)
 sc.camera = c1
+if TOON:   # Ifology-technique render, our own characters; mouth = 2-state swap, no lip sync
+    L.world(L.hexc("3a3360"), 0.6); L.toon_look([LEO, MIA], (0.7, 0.9, 0.5), "ffe2b8", mood="night", recolor=L.NIGHT_SET)
+    for c in (c1, c2, c3, c4): L.dust(c, 25, (1, 240))
+    for c in (c2, c3): c.data.dof.aperture_fstop = 1.6
+    c1.data.dof.use_dof = True; c1.data.dof.focus_distance = 3.2; c1.data.dof.aperture_fstop = 4
 print("QA_GROUND", L.qa_ground([LEO, MIA], range(1, 241, 4), seated=("Mia",)) or "OK")
 sc.frame_set(200); ao = LEO["arm"]
 print("HANDS_UP_VIEW", round(L.view_angle(c4.location, ao.matrix_world @ ao.pose.bones["uarm.R"].head, ao.matrix_world @ ao.pose.bones["farm.R"].tail), 1))
 sc.frame_set(100); print("REACH_HAND", [round(v, 2) for v in ao.matrix_world @ ao.pose.bones["farm.R"].tail], "cookie", [round(v, 2) for v in COOKIE])
 if MODE == "check": sys.exit()
 L.setup(MODE, frames=(1, 240), samples=24)
+if "stills" in A:
+    for f in (30, 100, 145, 215):
+        sc.frame_set(f); sc.render.filepath = f"{D}/out/still_{f}.jpg"; bpy.ops.render.render(write_still=True)
+    sys.exit()
 if MODE == "preview":
     sc.render.resolution_percentage = 50; sc.frame_step = 12
-sc.render.filepath = f"{D}/out/{MODE}/####"; bpy.ops.render.render(animation=True); print("RENDER_DONE")
+sc.render.filepath = f"{D}/out/{MODE}{'_toon' if TOON else ''}/####"; bpy.ops.render.render(animation=True); print("RENDER_DONE")

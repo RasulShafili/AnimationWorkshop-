@@ -41,6 +41,8 @@ def capsule(a, b, r, m, name="cap"):
     bpy.context.view_layer.objects.active = c; bpy.ops.object.join(); c.data.materials.append(m); return c
 def text3d(body, loc, size, m, rot=(math.pi / 2, 0, 0), extrude=0.004):
     bpy.ops.object.text_add(location=loc, rotation=rot); t = bpy.context.object; t.data.body = body; t.data.size = size; t.data.extrude = extrude
+    try: t.data.font = bpy.data.fonts.get("DejaVu Sans Bold") or bpy.data.fonts.load("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
+    except Exception: pass    # Blender's default font draws "1" like "I"
     t.data.align_x = "CENTER"; t.data.align_y = "CENTER"; t.data.materials.append(m); return t
 def sign(body, loc, w=0.9, h=0.28, tilt=0.0):
     """in-world signboard (Ifology technique): cream board + dark slab text, slightly tilted, facing −Y"""
@@ -153,7 +155,7 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     def P(o, bone): parts.append((o, bone)); return o
     # body (rest pose)
     P(box((0.40 * k, 0.26 * k, 0.52 * k), (0, 0, 1.08 * k), TOP, 0.09 * k, name + "_torso"), "spine")
-    P(sph(0.21 * k, (0, 0.02 * k, 0.90 * k), PANT, (1, 0.7, 0.45), name=name + "_pelvis"), "hips")
+    P(sph(0.21 * k, (0, 0.02 * k, 0.90 * k), PANT, (0.88, 0.62, 0.45), name=name + "_pelvis"), "hips")   # must stay inside the torso width (it poked out as a dark spot)
     for s, x in (("L", 0.22), ("R", -0.22)):
         P(capsule((x * k, 0, 1.27 * k), (x * 1.08 * k, 0, 1.00 * k), 0.055 * k, TOP), f"uarm.{s}")
         P(capsule((x * 1.08 * k, 0, 1.00 * k), (x * 1.12 * k, 0, 0.76 * k), 0.048 * k, TOP), f"farm.{s}")
@@ -168,11 +170,11 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     face = {}
     for s, sx in (("L", 1), ("R", -1)):
         e = HC + Vector((sx * 0.075, -0.165, 0.025)) * k
-        face["eye" + s] = P(sph(0.055 * k, e, mat("f6f3ec", 0.15), (1, 0.55, 1.2), name=f"{name}_eye{s}"), "head")
-        face["pup" + s] = P(sph(0.027 * k, e + Vector((0, -0.03, -0.005)) * k, mat("0d0c12", 0.1), name=f"{name}_pup{s}"), "head")
-        P(sph(0.009 * k, e + Vector((0.014, -0.05, 0.02)) * k, mat("ffffff", 0.1)), "head")
+        face["eye" + s] = P(sph(0.055 * k, e, mat("f6f3ec", 0.15), (1, 0.42, 1.2), name=f"{name}_eye{s}"), "head")
+        face["pup" + s] = P(sph(0.027 * k, e + Vector((0, -0.023, -0.005)) * k, mat("0d0c12", 0.1), name=f"{name}_pup{s}"), "head")
+        P(sph(0.009 * k, e + Vector((0.014, -0.043, 0.02)) * k, mat("ffffff", 0.1), name=f"{name}_eyehl{s}"), "head")
         face["brow" + s] = P(capsule(e + Vector((-0.035, -0.02, 0.085)) * k, e + Vector((0.035, -0.02, 0.085)) * k, 0.009 * k, mat("2a1a14", 0.6)), "head")
-        P(sph(0.032 * k, HC + Vector((sx * 0.12, -0.15, -0.05)) * k, mat("ff9a8a", 0.7), (1, 0.4, 0.6)), "head")
+        P(sph(0.032 * k, HC + Vector((sx * 0.12, -0.15, -0.05)) * k, mat("ff9a8a", 0.7), (1, 0.4, 0.6), name=f"{name}_blush{s}"), "head")
     face["mouth"] = P(mouth_mesh(name + "_mouth", HC, 0.2 * k, k), "head")
     P(sph(0.026 * k, HC + Vector((0, -0.2, -0.035)) * k, SK, (1, 0.8, 0.8), name=name + "_nose"), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
@@ -289,9 +291,11 @@ def world(color=(0.05, 0.06, 0.09), strength=1.0):
     bg.inputs["Color"].default_value = (*color, 1); bg.inputs["Strength"].default_value = strength
 def setup(preset="final", res=(1280, 720), samples=16, frames=(1, 120)):
     sc = bpy.context.scene; sc.render.fps = FPS; sc.frame_start, sc.frame_end = frames
-    sc.render.resolution_x, sc.render.resolution_y = res; sc.view_settings.view_transform = "AgX"
-    try: sc.view_settings.look = "AgX - Medium High Contrast"
-    except Exception: pass
+    sc.render.resolution_x, sc.render.resolution_y = res
+    if not sc.get("toon"):                      # toon_look() picks its own colour transform (Standard)
+        sc.view_settings.view_transform = "AgX"
+        try: sc.view_settings.look = "AgX - Medium High Contrast"
+        except Exception: pass
     sc.render.use_overwrite = False; sc.render.use_placeholder = True          # resumable: skip frames already on disk
     sc.render.image_settings.file_format = "JPEG"; sc.render.image_settings.quality = 92
     if preset == "preview":
@@ -533,3 +537,94 @@ def hands_up(ch, frame, spread=0.32, up=0.5, fwd=0.12):
         sh = M @ ao.pose.bones[f"uarm.{s}"].head
         out.update(aim_arm(ch, s, sh + R @ (Vector((sx * spread, -fwd, up)) * k), frame, bend=25))
     return out
+
+# ================================================================= TOON LOOK (Ifology-technique render, our own characters)
+# flat 2–3 tone toon shading + cream rim on the light side + black inverted-hull ink outline + strong DOF + dust +
+# gradient sky. Call L.toon_look(chars, light_dir) AFTER the whole scene is built (it rebuilds every material).
+CREAM = "f5e8c8"
+FACE_PARTS = ("_eye", "_pup", "_mouth", "_brow", "_nose", "_blush")
+def _toon_nodes(m, rim=False, light_dir=(0.4, -0.5, 0.75), rim_col=CREAM, shade=(0.62, 0.86), tint=(1, 1, 1)):
+    if m.get("toon"): return
+    nt = m.node_tree; old = nt.nodes.get("Principled BSDF")
+    if old and old.inputs["Emission Strength"].default_value > 0: m["toon"] = 1; return     # windows, screens, lamps stay glowing
+    b = Vector([c * t for c, t in zip(m.diffuse_color[:3], tint)]); nt.nodes.clear(); N = nt.nodes.new; L_ = nt.links.new
+    out = N("ShaderNodeOutputMaterial"); em = N("ShaderNodeEmission"); diff = N("ShaderNodeBsdfDiffuse"); s2r = N("ShaderNodeShaderToRGB")
+    bw = N("ShaderNodeRGBToBW"); ramp = N("ShaderNodeValToRGB"); ramp.color_ramp.interpolation = "CONSTANT"
+    cool = Vector((0.18, 0.22, 0.42)); sh = b * shade[0] * 0.85 + cool * 0.06 * shade[0]; mid = b * shade[1]
+    E = ramp.color_ramp.elements; E[0].position = 0.0; E[0].color = (*sh, 1); E[1].position = 0.12; E[1].color = (*mid, 1)
+    e3 = E.new(0.38); e3.color = (*b, 1)
+    L_(diff.outputs[0], s2r.inputs[0]); L_(s2r.outputs[0], bw.inputs[0]); L_(bw.outputs[0], ramp.inputs[0]); col = ramp.outputs[0]
+    if rim:
+        lw = N("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = 0.32
+        rr = N("ShaderNodeValToRGB"); rr.color_ramp.interpolation = "CONSTANT"; rr.color_ramp.elements[1].position = 0.62
+        geo = N("ShaderNodeNewGeometry"); dot = N("ShaderNodeVectorMath"); dot.operation = "DOT_PRODUCT"; dot.inputs[1].default_value = Vector(light_dir).normalized()
+        gt = N("ShaderNodeMath"); gt.operation = "GREATER_THAN"; gt.inputs[1].default_value = 0.05
+        mul = N("ShaderNodeMath"); mul.operation = "MULTIPLY"; mix = N("ShaderNodeMix"); mix.data_type = "RGBA"
+        mix.inputs["B"].default_value = (*hexc(rim_col), 1)
+        L_(lw.outputs["Facing"], rr.inputs[0]); L_(geo.outputs["Normal"], dot.inputs[0]); L_(dot.outputs["Value"], gt.inputs[0])
+        L_(rr.outputs[0], mul.inputs[0]); L_(gt.outputs[0], mul.inputs[1]); L_(mul.outputs[0], mix.inputs["Factor"]); L_(col, mix.inputs["A"]); col = mix.outputs["Result"]
+    L_(col, em.inputs["Color"]); L_(em.outputs[0], out.inputs["Surface"]); m["toon"] = 1
+def _ink():
+    if "ink" in bpy.data.materials: return bpy.data.materials["ink"]
+    m = bpy.data.materials.new("ink"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    o = nt.nodes.new("ShaderNodeOutputMaterial"); e = nt.nodes.new("ShaderNodeEmission"); e.inputs["Color"].default_value = (0.008, 0.008, 0.01, 1)
+    nt.links.new(e.outputs[0], o.inputs["Surface"]); m.use_backface_culling = True; m["toon"] = 1; m.diffuse_color = (0, 0, 0, 1); return m
+def outline(o, thick=0.007):
+    """inverted hull: solidify outward, flipped normals, black back-face-culled material on the shell"""
+    if o.type != "MESH" or any(p in o.name for p in FACE_PARTS) or not o.data.materials: return
+    if o.data.users > 1: o.data = o.data.copy()
+    n = len(o.data.materials); o.data.materials.append(_ink())
+    s = o.modifiers.new("ink", "SOLIDIFY"); s.thickness = thick; s.offset = 1.0; s.use_flip_normals = True; s.use_rim = False; s.material_offset = n
+# mood tints (toon emission ignores light strength, so night must be graded in the colours themselves)
+MOOD = {"day": (1, 1, 1), "warm_in": (1.0, 0.95, 0.85), "night": (0.62, 0.58, 0.86), "rain": (0.5, 0.52, 0.7), "frozen": (0.72, 0.78, 0.9)}
+NIGHT_SET = {"e9dcc4": "4b3f86", "8fa67a": "3b5c95", "8a6240": "3a2c4a", "a8743f": "7a4e3a", "f2efe8": "d8d4f0"}   # kitchen walls/wainscot/floor/wood/white
+def toon_look(chars, light_dir=(0.4, -0.5, 0.75), rim_col=CREAM, prop_outline=0.004, char_outline=0.007, contrast=None, mood="day", char_lift=1.25, recolor=None):
+    """mood: MOOD key; characters are tinted less (char_lift) so they still pop from a dark set.
+    recolor {old_hex: new_hex}: swap set colours for the mood (owner: never pale — a tint over cream walls gives grey;
+    night needs SATURATED purple-blue walls, e.g. NIGHT_SET)"""
+    tint = MOOD[mood]; ctint = tuple(min(1, t * char_lift) for t in tint)
+    for m in bpy.data.materials:
+        for o_, n_ in (recolor or {}).items():
+            if m.name.startswith(f"m_{o_}_"): m.diffuse_color = (*hexc(n_), 1)
+    """rebuild every material as toon; characters get the cream rim (use pale blue 'c8d8ff' at night) + thicker ink"""
+    char_objs = {o for ch in chars for o in [ch["arm"]] + list(ch["arm"].children)}
+    rim_mats = {s.material for o in char_objs if o.type == "MESH" for s in o.material_slots if s.material and not any(p in o.name for p in FACE_PARTS)}
+    for m in list(bpy.data.materials):
+        if m.use_nodes and m.name != "ink":
+            if m in rim_mats:   # characters: own copy so props sharing a colour don't get a rim
+                _toon_nodes(m, True, light_dir, rim_col, tint=ctint)
+            else: _toon_nodes(m, False, tint=tint)
+    for o in list(bpy.data.objects):
+        if o.type == "MESH" and o.name not in ("floor", "grass", "road", "lawn", "path") and "wall" not in o.name and "ceiling" not in o.name:
+            outline(o, char_outline if o in char_objs else prop_outline)
+    # owner 2026-11-19: AgX made the toon frames pale → toon uses the Standard view transform (palette colours 1:1),
+    # plus a small saturation lift in the compositor-free way: slightly richer base colours via the 'Medium Contrast' look
+    bpy.context.scene["toon"] = 1; vs = bpy.context.scene.view_settings; vs.view_transform = "Standard"
+    try: vs.look = contrast or "Medium High Contrast"
+    except Exception: pass
+def sky_gradient(top="7fa8e6", horizon="f2d6c8", strength=1.0, radius=45, band=7.0):
+    """blue sky + soft peach horizon band. World-shader gradients (Generated/Window coords) did NOT work in Eevee here
+    (whole sky = horizon colour) → solid blue world + an open emissive cylinder whose mesh-Generated Z fades peach→blue."""
+    world(hexc(top), strength)
+    bpy.ops.mesh.primitive_cylinder_add(vertices=96, radius=radius, depth=band, location=(0, 0, band / 2 - 0.5), end_fill_type="NOTHING")
+    c = bpy.context.object; c.name = "sky_band"; m = bpy.data.materials.new("sky_band"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear(); N = nt.nodes.new
+    tc = N("ShaderNodeTexCoord"); sep = N("ShaderNodeSeparateXYZ"); r = N("ShaderNodeValToRGB"); e = N("ShaderNodeEmission"); o = N("ShaderNodeOutputMaterial")
+    r.color_ramp.elements[0].position = 0.1; r.color_ramp.elements[0].color = (*hexc(horizon), 1); r.color_ramp.elements[1].position = 0.95; r.color_ramp.elements[1].color = (*hexc(top), 1)
+    nt.links.new(tc.outputs["Generated"], sep.inputs[0]); nt.links.new(sep.outputs["Z"], r.inputs[0]); nt.links.new(r.outputs[0], e.inputs[0])
+    e.inputs["Strength"].default_value = strength; nt.links.new(e.outputs[0], o.inputs[0]); m["toon"] = 1; c.data.materials.append(m)
+    c.visible_shadow = False; return c
+def dust(cam, n=45, frames=(1, 240), seed=3, dist=(2.5, 9.0), col=CREAM):
+    """slow floating dust specks in front of the camera (they blur into soft dots with DOF)"""
+    import random; r = random.Random(seed); M = cam.matrix_world; mt = mat(col, 0.5, emit=1.2)
+    for i in range(n):
+        d = r.uniform(*dist); p = M @ Vector((r.uniform(-0.6, 0.6) * d, r.uniform(-0.35, 0.35) * d, -d))
+        s = sph(r.uniform(0.003, 0.006) * (0.5 + d * 0.15), p, mt, seg=8, name="dust")
+        s.keyframe_insert("location", frame=frames[0]); s.location = p + Vector((r.uniform(-0.15, 0.15), r.uniform(-0.15, 0.15), r.uniform(-0.05, 0.25)))
+        s.keyframe_insert("location", frame=frames[1])
+        for fc in s.animation_data.action.fcurves:
+            for kp in fc.keyframe_points: kp.interpolation = "LINEAR"
+def hold(ch, side, obj, offset=(0, -0.03, -0.02)):
+    """Ifology rule: hands never animate — a held prop is parented to the hand and pushed into the fist"""
+    bpy.context.view_layer.update(); h = bpy.data.objects[f"{ch['name']}_hand{side}"]
+    obj.location = h.matrix_world.translation + Vector(offset) * ch["k"]; bpy.context.view_layer.update()
+    mw = obj.matrix_world.copy(); obj.parent = h; obj.matrix_world = mw; return obj

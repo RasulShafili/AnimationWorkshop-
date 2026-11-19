@@ -57,3 +57,13 @@ their characters or designs.
   Our lib3d can do more (walk cycles, lip sync, aim) — use it only where the story needs it; static shots with good
   poses are cheaper AND safer (fewer chances for illogical motion).
 - One mood-music cue per section + a fixed SFX vocabulary (pop per sign, whoosh, thump, click for the power moment).
+
+## Render look (owner's 14 screenshots of "What If You Could Stop Time?" + a style-bible SKILL.md, 2026-11-19)
+Technique we can use (generic toon rendering): flat 2–3-tone toon shading (Shader to RGB → constant ramp), black
+inverted-hull ink outline (~2–3 px), hard cream rim light (#F5E8C8) on the light side of every character, strong DOF
+(background clearly blurred), slow floating dust specks, painterly cream highlight patches on tree blobs, pastel
+desaturated palettes graded per mood (suburb day / mustard+blue cafeteria / purple-blue rainy night with pale-blue rim
+/ frozen-time grey-blue + peach horizon), rigid hands that hold props by intersecting them, limited animation with the
+camera doing the work (over-the-shoulder, from behind, slow push), big cream bold "RULE 1" overlay text with soft
+shadow, frozen-time bubble. NOT ours to copy: their character design (black ball heads with white decal faces, hoodie
+with two drawstrings + kangaroo pocket + scalloped hem, stick legs, white shoes) — that is the channel's identity.
