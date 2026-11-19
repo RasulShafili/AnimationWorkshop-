@@ -204,19 +204,32 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
-        P(sph(0.216 * k, HC + Vector((0, 0.04, 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
+        P(sph((0.207 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.04, 0.045 if st != "buzz" else 0.03)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
         if st == "spiky":
             for i in range(7):
                 a = -0.9 + i * 0.3; P(sph(0.07 * k, HC + Vector((math.sin(a) * 0.15, -0.05 + 0.05 * abs(a), 0.17 - 0.05 * abs(a))) * k, HR, (1, 0.8, 1.3)), "head")
         if st == "long":
             P(sph(0.2 * k, HC + Vector((0, 0.08, -0.1)) * k, HR, (1.05, 0.6, 1.3)), "head")
+        if st == "bun":       # mom: hair pulled back + bun on top-back
+            P(sph(0.09 * k, HC + Vector((0, 0.12, 0.16)) * k, HR, seg=24, name=name + "_bun"), "head")
+        if st == "ponytail":  # Nora: tail hangs behind the head
+            P(sph(0.06 * k, HC + Vector((0, 0.2, 0.06)) * k, HR, seg=20), "head")
+            P(capsule(HC + Vector((0, 0.24, 0.02)) * k, HC + Vector((0, 0.27, -0.2)) * k, 0.05 * k, HR), "head")
+        if st == "curls":     # Theo: short curls = a cap of small spheres
+            for i in range(14):
+                a = i / 14 * 2 * math.pi; P(sph(0.055 * k, HC + Vector((math.cos(a) * 0.15, math.sin(a) * 0.12 + 0.03, 0.15 + 0.03 * math.sin(3 * a))) * k, HR, seg=16), "head")
+        if st == "buzz":      # Dex: tight cap, no volume
+            pass
         if st == "cap":
             P(sph(0.215 * k, HC + Vector((0, 0.01, 0.07)) * k, mat(look.get("cap", "3a5a3a"), 0.6), (1, 1, 0.6)), "head")
             P(box((0.22 * k, 0.16 * k, 0.02 * k), HC + Vector((0, -0.2, 0.08)) * k, mat(look.get("cap", "3a5a3a"), 0.6), 0.01), "head")
+    if look.get("headband"):  # Nora's red headband
+        bpy.ops.mesh.primitive_torus_add(major_radius=0.212 * k, minor_radius=0.012 * k, location=HC + Vector((0, 0.03, 0.09)) * k, rotation=(math.radians(-70), 0, 0))
+        P(_fin(bpy.context.object, mat(look["headband"], 0.5)), "head")
     if look.get("glasses"):
         for sx in (1, -1):
             bpy.ops.mesh.primitive_torus_add(major_radius=0.05 * k, minor_radius=0.006 * k, location=HC + Vector((sx * 0.075, -0.2, 0.025)) * k, rotation=(math.pi / 2, 0, 0))
-            P(_fin(bpy.context.object, mat("d9d2c0", 0.3)), "head")
+            P(_fin(bpy.context.object, mat(look.get("frames", "2a2a30"), 0.3)), "head")
     bpy.context.view_layer.update()
     for o, bone in parts:                                   # rigid parenting, keeps the rest placement
         mw = o.matrix_world.copy(); o.parent = ao; o.parent_type = "BONE"; o.parent_bone = bone; o.matrix_world = mw

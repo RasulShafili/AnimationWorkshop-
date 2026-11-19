@@ -1,0 +1,702 @@
+[
+ {
+  "out": "vo/c1_n1.wav",
+  "text": "Day one. A normal Tuesday. Cereal, a yawn, and one cookie left on the plate.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_mia_t1.wav",
+  "text": "If he takes that cookie, I'm telling Mom he broke the vase.",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_leo1.wav",
+  "text": "...What vase?",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_mia1.wav",
+  "text": "I didn't say anything.",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_n2.wav",
+  "text": "She didn't. Her mouth never moved. You look at Dad.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_dad_t1.wav",
+  "text": "Don't sweat in the interview. Don't sweat in the interview. Why am I already sweating?",
+  "ref": "vo/refs/dad.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_n3.wav",
+  "text": "You look at Mom.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_mom_t1.wav",
+  "text": "Please let the car start today. Please, please, please.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_n4.wav",
+  "text": "Three people. Three secret radio stations. And somehow, you're tuned into all of them.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n5.wav",
+  "text": "So... what if you could hear everyone's thoughts?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n1.wav",
+  "text": "On the way to school, you run a test.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_jog_t.wav",
+  "text": "Two more blocks and I'm allowed a donut.",
+  "ref": "vo/refs/jogger.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_dog_t.wav",
+  "text": "If he barks at that cat one more time, I'm moving to the moon.",
+  "ref": "vo/refs/walker.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_bus_t.wav",
+  "text": "Act cool. Act cool. Why did I wave at a bus? Buses can't wave back.",
+  "ref": "vo/refs/girl.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_leo1.wav",
+  "text": "This is the best day of my life.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n2.wav",
+  "text": "It's real.|And there's a lot of it.|Scientists in Canada once tracked brain scans to count when one thought ends and the next begins.|Their estimate?|About six thousand two hundred thoughts a day.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n3.wav",
+  "text": "For every person. And you just walked into a school with five hundred of them.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_hale1.wav",
+  "text": "Good news, everyone. Your tests are graded.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_hale_t.wav",
+  "text": "They are not graded. They are in my car. Under a pizza box.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_n1.wav",
+  "text": "Teachers. Are. Bluffing. You almost laugh out loud. Then you make the mistake of looking at Theo.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_theo_t.wav",
+  "text": "Don't look at Nora. Don't look at Nora. Okay I looked at Nora.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_n2.wav",
+  "text": "Wait. Theo looks at Nora? Since when?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n1.wav",
+  "text": "By day two, you need rules. So you test it on the only person you trust.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_leo1.wav",
+  "text": "Theo. Look at me. Think of a number.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_theo_t1.wav",
+  "text": "Seventy-three. No, wait, that's weird. Seven.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_leo2.wav",
+  "text": "Seventy-three. No, wait , seven.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_theo1.wav",
+  "text": "Dude. Get out of my head.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c4_n2.wav",
+  "text": "Rule one: eyes.|If you look away, the voice cuts off like someone pulled a plug.|Rule two: three steps.|Theo backs away, one tile at a time...|and at the fourth step, silence.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n3.wav",
+  "text": "Rule three, you learn on day four. In the cafeteria.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_crowd0.wav",
+  "text": "Is that chicken?",
+  "ref": "vo/refs/boy.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_crowd1.wav",
+  "text": "I forgot my homework.",
+  "ref": "vo/refs/girl2.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_crowd2.wav",
+  "text": "She hates me.",
+  "ref": "vo/refs/kid.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_crowd3.wav",
+  "text": "I'm so tired.",
+  "ref": "vo/refs/girl.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n4.wav",
+  "text": "Calm people whisper.|Scared, angry or excited people...|shout.|Rule three: loud feelings are loud.|You spend lunch staring at your shoes.|They have never been so interesting.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n1.wav",
+  "text": "Day six.|You've liked Nora since the third grade.|She draws comics in the library every lunch.|Today, you finally sit at her table.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_leo1.wav",
+  "text": "Cool... robot.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_nora1.wav",
+  "text": "It's a cat.",
+  "ref": "vo/refs/nora.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n2.wav",
+  "text": "Great start. But then she looks up, and you hear it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_nora_t.wav",
+  "text": "Is Theo coming today? He always laughs at my comics. Best laugh in the whole school.",
+  "ref": "vo/refs/nora.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n3.wav",
+  "text": "Oh. Oh no. Nora likes Theo. And Theo... likes Nora. And neither of them knows.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n4.wav",
+  "text": "You could stay quiet. Nobody would ever know. You'd still have a chance.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n5.wav",
+  "text": "That night you stare at the ceiling for three hours.|Your own head is the only one you can't turn off.|And it keeps saying the same thing: that's not fair.|Not to them.|And not to you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n1.wav",
+  "text": "Day nine. You trip. Orange juice. Everywhere. The whole hallway turns to look.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n2.wav",
+  "text": "This is it. Your life is over. You brace for what they're thinking about you...",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_t1.wav",
+  "text": "Did I lock the front door?",
+  "ref": "vo/refs/girl.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_t2.wav",
+  "text": "Is my hair doing the weird thing again?",
+  "ref": "vo/refs/boy.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_t3.wav",
+  "text": "I really hope my mom remembers the dentist.",
+  "ref": "vo/refs/kid.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n3.wav",
+  "text": "Nobody is thinking about you. Not really. Everyone is busy worrying about themselves.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n4.wav",
+  "text": "Psychologists have a name for this: the spotlight effect.|In one study, students wore an embarrassing T-shirt into a room.|They guessed half the people noticed.|In reality, it was about a quarter.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_dex1.wav",
+  "text": "You lost, ginger?",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_n1.wav",
+  "text": "Dex. Fifteen. The kid everyone crosses the street to avoid. You wait for something terrifying.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_dex_t.wav",
+  "text": "Please don't make me go home early. Please. They're yelling again.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_n2.wav",
+  "text": "Not terrifying. Terrified.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_leo1.wav",
+  "text": "Hey... you can eat with us. If you want.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_dex2.wav",
+  "text": "...Whatever.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_dex_t2.wav",
+  "text": "Nobody's ever asked me that.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c7_n3.wav",
+  "text": "The next day, Dex sits at the end of your table. He doesn't talk. But he doesn't leave.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n1.wav",
+  "text": "Day fifteen. The real test. And the smartest kid in class is sitting right next to you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_priya_t.wav",
+  "text": "Question four: the answer is the mitochondria. Obviously.",
+  "ref": "vo/refs/priya.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n2.wav",
+  "text": "You get a perfect score. Your first ever. Mr. Hale even tapes it to the board.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_priya_t2.wav",
+  "text": "Leo got a hundred? Huh. Good for him. He's been trying really hard lately.",
+  "ref": "vo/refs/priya.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n3.wav",
+  "text": "That's worse. So much worse. It feels like you stole something. Because you did.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n4.wav",
+  "text": "Day sixteen. You knock on Mr. Hale's door before class.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_leo1.wav",
+  "text": "I want to take the test again. Alone. In the hallway. Facing the wall.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_hale1.wav",
+  "text": "...Facing the wall?",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_leo2.wav",
+  "text": "Trust me.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c8_n5.wav",
+  "text": "You get a C. It's the proudest C in the history of C's.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n1.wav",
+  "text": "That night, you dream about the people who are trying to do this for real.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n2.wav",
+  "text": "In twenty twenty-three, scientists in Texas put volunteers in a brain scanner for sixteen hours, while they listened to stories.|Then a computer tried to turn their brain activity back into words.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n3.wav",
+  "text": "It got the gist.|Not the exact words, but the meaning.|And here's the part that matters: it only worked if the person wanted it to.|If they thought about something else...|it got nothing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n4.wav",
+  "text": "Real mind-reading needs permission. Yours... never asked.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9b_n1.wav",
+  "text": "Day twenty. Dad comes home. He tries to look serious. He fails.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9b_dad_t.wav",
+  "text": "I GOT IT! I GOT THE JOB! Don't cry in front of the kids. Too late, I'm crying.",
+  "ref": "vo/refs/dad.wav",
+  "exag": 0.85,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c9b_n2.wav",
+  "text": "Loud feelings are loud.|That one almost knocks you off your chair.|And the car?|It started every single day.|Mom never found out how much she'd been praying about it.|But you did.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n1.wav",
+  "text": "Day twenty-one. You walk home with Theo and Nora. You still haven't told them.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_theo_t.wav",
+  "text": "Light's red but nothing's coming. I'll just run it.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n2.wav",
+  "text": "But you can see what Theo can't. A delivery truck, coming fast around the corner.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_leo1.wav",
+  "text": "Theo! STOP!",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c10_n3.wav",
+  "text": "You grab his jacket. The truck roars past, so close it blows his hair back.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_theo1.wav",
+  "text": "How... how did you know?",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_leo2.wav",
+  "text": "Your face. You had your... running face.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n4.wav",
+  "text": "Not a lie.|Not the truth either.|Theo sits down on the curb, shaking.|Nora sits next to him.|And for the first time, you hear a thought you didn't want to hear from yourself: you almost lost your best friend over a girl he never knew you liked.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n1.wav",
+  "text": "Day twenty-five. Mia's lunchbox comes home full again. You almost don't look. Then you do.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_mia_t.wav",
+  "text": "Nobody sat with me again. Maybe tomorrow. Maybe tomorrow.",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n2.wav",
+  "text": "It's the quietest thought you've heard in twenty-five days. And somehow, the loudest.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n3.wav",
+  "text": "The next morning, you walk her to school.|At lunch, you bring Theo, Nora, and Dex to her table.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_mia1.wav",
+  "text": "Why are you all here?",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_dex1.wav",
+  "text": "Heard you're the cookie champion.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n4.wav",
+  "text": "Mia laughs so hard milk comes out of her nose. Best day of the whole month.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "Day twenty-nine. One day left. You know what you have to do.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_leo1.wav",
+  "text": "Theo. Nora drew this. Tell her it's funny.",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_theo1.wav",
+  "text": "It's... really funny.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n2.wav",
+  "text": "Nora's smile could light up the whole library.|Theo goes red to the ears.|You walk away before you can hear what either of them is thinking.|Some thoughts deserve privacy.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n3.wav",
+  "text": "It stings a little. But it's the first time all month you feel like a hero without cheating.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n1.wav",
+  "text": "Day thirty. Midnight. Then... nothing. Day thirty-one, breakfast. You look at Mia. Silence.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n2.wav",
+  "text": "For a second you feel lost. Then you try something you haven't done all month.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_leo1.wav",
+  "text": "Hey. What are you thinking?",
+  "ref": "vo/refs/leo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c13_mia1.wav",
+  "text": "That you're weird. And that I want the cookie.",
+  "ref": "vo/refs/mia.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c13_n3.wav",
+  "text": "You give her the cookie.|Turns out you don't need to read minds.|Sometimes, you just have to ask.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n4.wav",
+  "text": "Which of your thoughts would you never want anyone to hear? Tell me in the comments.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ }
+]
