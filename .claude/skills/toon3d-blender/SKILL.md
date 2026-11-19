@@ -143,3 +143,32 @@ Timings come from the same plan.json + vo meta, so audio and picture can't drift
 - First full animated test (2026-11-18): test/out/lib_test.mp4, 10 s, 240 frames in 1131 s (4.7 s/frame), auto-QA OK.
   Seen in the sheet: walk, close-up talk, pointing at the window, Mia's head turning all correct; the point SNAPPED in
   one frame → use `L.blend(p0, p1, u)` over 4–8 frames between key poses.
+
+## 11. Face system + first story test (2026-11-19, owner: "style is good, learn the mouth and the rest, then a 10 s video")
+- **Mouth** = `mouth_mesh()`: a fan mesh lying ON the head sphere (1.5 mm out) with shape keys smile, frown, open,
+  happy (open D smile), O. No more dark blob that read as a nose / stuck out.
+- **Emotions:** `L.key_face(ch, f, emotion=…, talk=…, blink=…, look=…)` with presets in `L.EMO`: neutral, smile, happy,
+  sad, angry, surprised, scared, smug, determined = mouth keys + brow raise/tilt (+ = inner ends down = angry,
+  − = inner up = sad) + eye squash. Talking mixes 'open'/'O' so speech isn't one flapping shape. Sheet:
+  test/face_test.py → test/out/sheet_face.jpg (all read clearly).
+- Hands = mittens with a thumb. Head + hair spheres 72 segments (40 left a jagged hairline).
+- **Bugs (never again):** capsule() oriented with quaternion mode → rotation_euler was silently ignored (brows never
+  tilted) → set rotation_mode "XYZ" after orienting. Eyes/pupils keep world-aligned local axes (matrix_world = I at
+  rest): squash local Z. Verify such things NUMERICALLY (vertex heights) before rendering.
+- **Staging rules learned in cookie/ (longform3d/cookie/cookie.py, the reference scene):**
+  - Characters 3/4 to the main camera (Leo first stood with his back to the lens in the wide AND the two-shot).
+  - `face_cam` aims at where the HEAD points (not the body) — after a look_at turn the old version filmed an ear.
+  - Close-ups: `look_at(..., max_pitch=12)` (a 30° look down at a table filled the frame with forehead); the eyes
+    still look down via eye_look.
+  - Props a character reaches for must be within ~0.5 m of the shoulder (cookie 1 m away = reads as pointing).
+  - Big arm poses (hands up, wave high) = `aim_arm` targets (`L.hands_up`), never raw 135° Euler combos (the arm
+    crossed over the head).
+  - Workbench preview every 12th frame + qa_sheet BEFORE the final caught all of the above in ~1 min each.
+- Dialogue voices: Kokoro am_fenrir narrator, am_puck Leo, af_bella Mia (trim silence with ffmpeg silenceremove);
+  lip sync only in close-ups (talk_curve ×1.4). Audio: cookie/audio.py reuses longform/ai-takeover/tools/audio_lib.py
+  (Mix at 30 fps units: pass seconds×30) — pop on the sign frame, whoosh on the hands-up, music stops on the conflict.
+- Letterbox: decide it BEFORE framing. 2.39:1 bars (92 px at 720p) cut heads off our 16:9 close-ups → used 40 px bars
+  (≈2:1). For real 2.39 framing, place face_cam a bit farther (dist +0.3) and keep heads in the middle 75 %.
+- Blender's default font draws "1" like "I" ("1 COOKIE LEFT" read "I COOKIE LEFT") → load a real font for signs
+  (bpy.data.fonts.load("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")).
+- Result: ~/Desktop/3d_cookie_test.mp4 (10 s, render 240 frames ≈ 20 min).

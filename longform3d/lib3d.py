@@ -35,7 +35,7 @@ def capsule(a, b, r, m, name="cap"):
     """rounded limb from a to b (cylinder + two spheres joined into one object)"""
     a, b = Vector(a), Vector(b); d = b - a
     c = cyl(r, d.length, (a + b) / 2, None, name=name); c.rotation_mode = "QUATERNION"; c.rotation_quaternion = d.to_track_quat("Z", "Y")
-    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+    bpy.ops.object.transform_apply(location=False, rotation=True, scale=False); c.rotation_mode = "XYZ"   # capsule() used quaternion mode to orient; back to Euler or rotation_euler is ignored
     s1 = sph(r, a, None); s2 = sph(r, b, None)
     for o in (c, s1, s2): o.select_set(True)
     bpy.context.view_layer.objects.active = c; bpy.ops.object.join(); c.data.materials.append(m); return c
@@ -103,6 +103,40 @@ for s, x in (("L", 0.22), ("R", -0.22)):
 # the natural way, z = sideways (R arm: negative = out, L arm: positive = out). Spine/neck/head: x+ = lean/nod forward.
 LIMB = ("uarm", "farm", "thigh", "shin")
 
+def mouth_mesh(name, HC, r, k, zoff=-0.105):
+    """mouth that lies ON the head sphere (no blob sticking out). 2D outline (x, z) per shape → projected onto the
+    sphere 1.5 mm out. Shape keys: smile, frown, open, happy, O."""
+    def outline(w, smile, up, dn, n=28):
+        pts = []
+        for i in range(n):
+            t = 2 * math.pi * i / n; x = w * math.cos(t); sn = math.sin(t)
+            c = smile * 0.016 * ((x / w) ** 2 - 0.35)
+            pts.append((x, c + (up if sn > 0 else dn) * sn))
+        return pts
+    SH = {"Basis": (0.042, 0.15, 0.0035, 0.0035), "smile": (0.05, 1.0, 0.003, 0.004), "frown": (0.04, -0.9, 0.0035, 0.0035),
+          "open": (0.036, 0.1, 0.012, 0.034), "happy": (0.052, 0.9, 0.002, 0.034), "O": (0.022, 0.0, 0.022, 0.024)}
+    RINGS = 4
+    def verts(spec):
+        o = outline(*spec); vs = [(0.0, sum(z for _, z in o) / len(o))]
+        for j in range(1, RINGS + 1):
+            u = j / RINGS; cx, cz = vs[0]; vs += [(cx + (x - cx) * u, cz + (z - cz) * u) for x, z in o]
+        out = []
+        for x, z in vs:
+            X, Z = x * k, (zoff + z) * k; y = -math.sqrt(max(1e-6, r * r - X * X - Z * Z)) - 0.0015 * k
+            out.append(Vector((HC.x + X, HC.y + y, HC.z + Z)))
+        return out
+    n = 28; faces = [(0, 1 + i, 1 + (i + 1) % n) for i in range(n)]
+    for j in range(RINGS - 1):
+        a0, b0 = 1 + j * n, 1 + (j + 1) * n
+        faces += [(a0 + i, b0 + i, b0 + (i + 1) % n, a0 + (i + 1) % n) for i in range(n)]
+    me = bpy.data.meshes.new(name); me.from_pydata(verts(SH["Basis"]), [], faces); me.update()
+    o = bpy.data.objects.new(name, me); bpy.context.collection.objects.link(o); o.data.materials.append(mat("3a0c12", 0.4))
+    for p in me.polygons: p.use_smooth = True
+    o.shape_key_add(name="Basis")
+    for kn in ("smile", "frown", "open", "happy", "O"):
+        sk = o.shape_key_add(name=kn); 
+        for i, v in enumerate(verts(SH[kn])): sk.data[i].co = v
+    return o
 def character(name, look, loc=(0, 0, 0), facing_deg=0):
     """look: skin, top, pants, shoes, hair (colour), hairstyle ('spiky'|'long'|'cap'|'bald'), scale, eyes ('round'),
     glasses (bool), sig (signature colour). Returns dict with armature + face parts."""
@@ -123,13 +157,14 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     for s, x in (("L", 0.22), ("R", -0.22)):
         P(capsule((x * k, 0, 1.27 * k), (x * 1.08 * k, 0, 1.00 * k), 0.055 * k, TOP), f"uarm.{s}")
         P(capsule((x * 1.08 * k, 0, 1.00 * k), (x * 1.12 * k, 0, 0.76 * k), 0.048 * k, TOP), f"farm.{s}")
-        P(sph(0.06 * k, (x * 1.12 * k, 0, 0.70 * k), SK, name=f"{name}_hand{s}"), f"farm.{s}")
+        P(sph(0.06 * k, (x * 1.12 * k, 0, 0.70 * k), SK, (0.6, 0.95, 1.2), name=f"{name}_hand{s}"), f"farm.{s}")
+        P(sph(0.024 * k, ((x * 1.12 - 0.022 * (1 if x > 0 else -1)) * k, -0.04 * k, 0.725 * k), SK, (1, 1, 1.5), name=f"{name}_thumb{s}"), f"farm.{s}")
         P(capsule((x * 0.42 * k, 0, 0.86 * k), (x * 0.45 * k, 0, 0.46 * k), 0.07 * k, PANT), f"thigh.{s}")
         P(capsule((x * 0.45 * k, 0, 0.46 * k), (x * 0.45 * k, 0, 0.10 * k), 0.06 * k, PANT), f"shin.{s}")
         P(box((0.12 * k, 0.25 * k, 0.08 * k), (x * 0.45 * k, -0.05 * k, 0.04 * k), SHOE, 0.035 * k, name + "_shoe"), f"shin.{s}")
     P(sph(0.06 * k, (0, 0, 1.36 * k), SK, name=name + "_neck"), "neck")
     HC = Vector((0, -0.01, 1.58)) * k
-    P(sph(0.20 * k, HC, SK, name=name + "_head"), "head")
+    P(sph(0.20 * k, HC, SK, seg=72, name=name + "_head"), "head")
     face = {}
     for s, sx in (("L", 1), ("R", -1)):
         e = HC + Vector((sx * 0.075, -0.165, 0.025)) * k
@@ -138,11 +173,11 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
         P(sph(0.009 * k, e + Vector((0.014, -0.05, 0.02)) * k, mat("ffffff", 0.1)), "head")
         face["brow" + s] = P(capsule(e + Vector((-0.035, -0.02, 0.085)) * k, e + Vector((0.035, -0.02, 0.085)) * k, 0.009 * k, mat("2a1a14", 0.6)), "head")
         P(sph(0.032 * k, HC + Vector((sx * 0.12, -0.15, -0.05)) * k, mat("ff9a8a", 0.7), (1, 0.4, 0.6)), "head")
-    face["mouth"] = P(sph(0.05 * k, HC + Vector((0, -0.172, -0.108)) * k, mat("3a0c12", 0.4), (1.25, 0.3, 0.22), name=name + "_mouth"), "head")
+    face["mouth"] = P(mouth_mesh(name + "_mouth", HC, 0.2 * k, k), "head")
     P(sph(0.026 * k, HC + Vector((0, -0.2, -0.035)) * k, SK, (1, 0.8, 0.8), name=name + "_nose"), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
-        P(sph(0.216 * k, HC + Vector((0, 0.04, 0.045)) * k, HR, (1, 1, 0.8), name=name + "_hair"), "head")
+        P(sph(0.216 * k, HC + Vector((0, 0.04, 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
         if st == "spiky":
             for i in range(7):
                 a = -0.9 + i * 0.3; P(sph(0.07 * k, HC + Vector((math.sin(a) * 0.15, -0.05 + 0.05 * abs(a), 0.17 - 0.05 * abs(a))) * k, HR, (1, 0.8, 1.3)), "head")
@@ -201,17 +236,33 @@ def key_pose(ch, frame, pose, loc=None, facing=None):
         pb.keyframe_insert("rotation_euler", frame=frame)
     if loc is not None: ao.location = loc; ao.keyframe_insert("location", frame=frame)
     if facing is not None: ao.rotation_euler = (0, 0, math.radians(facing)); ao.keyframe_insert("rotation_euler", frame=frame)
-def key_face(ch, frame, talk=0.0, blink=False, brow=0.0, look=(0, 0)):
-    """talk 0..1 opens the mouth; blink closes the eyes; brow −1 (angry) .. +1 (surprised); look = (x, z) pupil shift"""
-    f = ch["face"]; k = ch["k"]; m = f["mouth"]
-    m.scale = (1 - 0.15 * talk, 1, 1 + 2.6 * talk); m.keyframe_insert("scale", frame=frame)
+# Emotion presets (Ifology: emotion = mouth shape + brows + eye shape). mouth keys: smile, frown, open, happy (open D
+# smile), O. brow: (raise metres, tilt: + = inner ends DOWN = angry, − = inner ends UP = sad/worried). eye: z scale.
+EMO = {"neutral": ({}, (0, 0), 1.0), "smile": ({"smile": 1}, (0.004, 0), 1.0), "happy": ({"happy": 1}, (0.012, -0.2), 0.6),
+       "sad": ({"frown": 0.8}, (0.006, -1.0), 0.85), "angry": ({"frown": 0.6}, (-0.01, 1.0), 0.78),
+       "surprised": ({"O": 1}, (0.022, -0.2), 1.18), "scared": ({"O": 0.5, "frown": 0.6}, (0.016, -0.9), 1.15),
+       "smug": ({"smile": 0.7}, (0.0, 0.4), 0.62), "determined": ({"frown": 0.2}, (-0.006, 0.6), 0.9)}
+def key_face(ch, frame, talk=0.0, blink=False, brow=None, look=(0, 0), emotion="neutral"):
+    """emotion preset (EMO) + talk 0..1 (mouth opens, alternating 'open'/'O' shapes so speech isn't one flapping
+    shape) + blink + look (x, z pupil shift −1..1). brow (old API) overrides the tilt: −1 sad .. +1 angry-ish."""
+    f = ch["face"]; k = ch["k"]; keys, (raise_, tilt), eye = EMO[emotion]
+    if brow is not None: tilt = -brow
+    kb = f["mouth"].data.shape_keys.key_blocks; vo = 0.5 + 0.5 * math.sin(frame * 0.9)
+    val = {n: keys.get(n, 0) * (1 - 0.6 * talk) for n in ("smile", "frown", "happy", "O")}
+    val["open"] = talk * (1 - 0.45 * vo); val["O"] = val["O"] + talk * 0.45 * vo
+    for n, v in val.items(): kb[n].value = min(1, v); kb[n].keyframe_insert("value", frame=frame)
+    R = ch["arm"].data.bones["head"].matrix_local.to_3x3().inverted()
     for s in ("L", "R"):
-        e = f["eye" + s]; e.scale = (1, 1, 0.08 if blink else 1); e.keyframe_insert("scale", frame=frame)
-        p = f["pup" + s]; p.scale = (1, 1, 0.08 if blink else 1); p.keyframe_insert("scale", frame=frame)
+        z = 0.08 if blink else eye
+        # eyes/pupils keep world-aligned local axes (verified: matrix_world = identity at rest) → squash local Z
+        e = f["eye" + s]; e.scale = (1, 1, z); e.keyframe_insert("scale", frame=frame)
+        p = f["pup" + s]; p.scale = (1, 1, min(1, z + 0.1) if not blink else 0.08); p.keyframe_insert("scale", frame=frame)
         if "rest" not in p: p["rest"] = list(p.location)
-        R = ch["arm"].data.bones["head"].matrix_local.to_3x3().inverted()
         p.location = Vector(p["rest"]) + R @ (Vector((look[0] * 0.022, 0, look[1] * 0.016)) * k); p.keyframe_insert("location", frame=frame)
-        b = f["brow" + s]; b.rotation_euler = (0, math.radians((-1 if s == "L" else 1) * 12 * brow), 0); b.keyframe_insert("rotation_euler", frame=frame)
+        b = f["brow" + s]
+        if "rest" not in b: b["rest"] = list(b.location)
+        b.location = Vector(b["rest"]) + R @ (Vector((0, 0, raise_)) * k); b.keyframe_insert("location", frame=frame)
+        b.rotation_euler = (0, 0, math.radians((1 if s == "L" else -1) * 16 * tilt)); b.keyframe_insert("rotation_euler", frame=frame)   # head-bone Z = toward the viewer
 def blink_at(frame, seed=0):
     p = 70 + (seed * 37) % 50; return (frame + seed * 13) % p < 3
 
@@ -293,15 +344,16 @@ def head_pos(ch, frame=None):
 def face_cam(name, ch, frame, dist=0.9, side_deg=25, up=0.05, lens=50):
     """close-up camera placed in front of the character's face at this frame (side_deg = orbit around the face)"""
     bpy.context.scene.frame_set(frame); ao = ch["arm"]; h = head_pos(ch)
-    fwd = (ao.matrix_world.to_3x3() @ Vector((0, -1, 0))); fwd.z = 0; fwd.normalize()
+    fwd = (ao.matrix_world @ ao.pose.bones["head"].matrix).to_3x3() @ Vector((0, 0, 1))   # where the FACE points (head-bone +Z)
+    fwd.z = 0; fwd.normalize()
     fwd = Matrix.Rotation(math.radians(side_deg), 3, "Z") @ fwd
     return camera(name, h + fwd * dist + Vector((0, 0, up)), h, lens, dof=2.8)
-def look_at(ch, target, frame, head_share=0.7):
+def look_at(ch, target, frame, head_share=0.7, max_pitch=30):
     """pose entries turning spine + head (yaw, a little pitch) so the face looks at a world point; key the root first"""
     ao = ch["arm"]; h = head_pos(ch, frame); d = Vector(target) - h
     yaw_body = ao.rotation_euler.z; want = math.atan2(d.x, -d.y)
     dy = math.degrees((want - yaw_body + math.pi) % (2 * math.pi) - math.pi); dy = max(-85, min(85, dy))
-    pitch = -math.degrees(math.atan2(d.z, math.hypot(d.x, d.y))); pitch = max(-30, min(30, pitch))
+    pitch = -math.degrees(math.atan2(d.z, math.hypot(d.x, d.y))); pitch = max(-max_pitch, min(max_pitch, pitch))   # close-ups: ≤15 so the face stays visible (eyes do the rest)
     return {"spine": (0, dy * (1 - head_share), 0), "head": (pitch, dy * head_share, 0)}
 
 def view_angle(cam_loc, a, b):
@@ -471,4 +523,13 @@ def blend(p0, p1, u):
             fix = lambda v: v if isinstance(v, Euler) else Euler([math.radians(x) * (-1 if b.split(".")[0] in LIMB and i != 1 else 1) for i, x in enumerate(v)])
             out[b] = fix(a).to_quaternion().slerp(fix(c).to_quaternion(), u).to_euler("XYZ")
         else: out[b] = tuple(x + (y - x) * u for x, y in zip(a, c))
+    return out
+
+def hands_up(ch, frame, spread=0.32, up=0.5, fwd=0.12):
+    """'I give up' V-arms: each arm aimed at a point above-outside its shoulder (big Euler combos crossed the arm over
+    the head — always build big arm poses with aim_arm targets, not raw 135° angles). Key root + body first."""
+    bpy.context.scene.frame_set(frame); ao = ch["arm"]; M = ao.matrix_world; R = M.to_3x3(); k = ch["k"]; out = {}
+    for s, sx in (("L", 1), ("R", -1)):
+        sh = M @ ao.pose.bones[f"uarm.{s}"].head
+        out.update(aim_arm(ch, s, sh + R @ (Vector((sx * spread, -fwd, up)) * k), frame, bend=25))
     return out
