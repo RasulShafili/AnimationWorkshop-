@@ -109,8 +109,8 @@ def library(origin=(0, 0, 0)):
         for sx in (-0.7, 0.7):
             for sy in (-0.38, 0.38): box((0.05, 0.05, 0.73), (ox + tx + sx, oy + 0.3 + sy, oz + 0.365), mat("8a5a30", 0.5), 0)
         for sx in (-0.4, 0.4):
-            L.chair((ox + tx + sx, oy - 0.35, oz), 0); seats.append((ox + tx + sx, oy - 0.35, oz + 0.47))
-            L.chair((ox + tx + sx, oy + 0.95, oz), 180); seats.append((ox + tx + sx, oy + 0.95, oz + 0.47))
+            L.chair((ox + tx + sx, oy - 0.35, oz), 180); seats.append((ox + tx + sx, oy - 0.35, oz + 0.47, 180))   # faces the table (+Y)
+            L.chair((ox + tx + sx, oy + 0.95, oz), 0); seats.append((ox + tx + sx, oy + 0.95, oz + 0.47, 0))
         lamp(ox + tx + 0.6, oy + 0.45, oz + 0.77, 0.35); books(ox + tx - 0.4, oy + 0.4, oz + 0.77, 0.3, 0.2)
     plant(ox - 3.0, oy - 2.5, oz, 0.8); plant(ox + 3.0, oy - 2.5, oz, 0.7); rug(ox + 0.1, oy + 0.3, 5.0, 2.4, "3e6a9e")
     for i in range(3): poster(ox - 1.5 + i * 1.5, oy + 2.95, oz + 2.45, 0.5, 0.35, 70 + i)
@@ -161,14 +161,49 @@ def street_dressed():
     return info
 
 # ---------------------------------------------------------------- the thought ring (thoughts video)
-def thought_ring(ch, f_on, f_off, col="bfe6ff"):
-    """soft glowing ring around the thinker's head while Leo hears them (mouth stays closed!) — pops on, gently pulses"""
-    hb = ch["arm"]; k = ch["k"]; bpy.context.view_layer.update(); hc = L.head_pos(ch)
-    bpy.ops.mesh.primitive_torus_add(major_radius=0.27 * k, minor_radius=0.008 * k, location=hc, rotation=(math.pi / 2, 0, 0))
-    r = bpy.context.object; r.name = ch["name"] + "_ring"; r.data.materials.append(mat(col, 0.3, emit=4.0)); r["toon"] = 1
-    mw = r.matrix_world.copy(); r.parent = hb; r.parent_type = "BONE"; r.parent_bone = "head"; r.matrix_world = mw
-    for f, s in ((f_on - 1, 0.001), (f_on + 3, 1.08), (f_on + 6, 1.0)): r.scale = (s,) * 3; r.keyframe_insert("scale", frame=f)
-    f = f_on + 6
-    while f < f_off - 4: r.scale = (1.05,) * 3; r.keyframe_insert("scale", frame=f + 6); r.scale = (1.0,) * 3; r.keyframe_insert("scale", frame=f + 12); f += 12
-    r.scale = (1.0,) * 3; r.keyframe_insert("scale", frame=f_off - 2); r.scale = (0.001,) * 3; r.keyframe_insert("scale", frame=f_off + 2)
+def thought_ring(ch, f_on, f_off, cam=None, col="bfe6ff"):
+    """glowing AURA circle around the thinker's head while Leo hears them (mouth stays closed!). The ring always faces
+    the shot's camera (Track To), so it outlines the head silhouette. Tried before: vertical ring = cut through the
+    face; horizontal ring = looked like an angel halo across the brows."""
+    k = ch["k"]; bpy.context.view_layer.update(); hc = L.head_pos(ch, f_on)
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.3 * k, minor_radius=0.008 * k, location=hc + Vector((0, 0, 0.03 * k)))
+    r = bpy.context.object; r.name = ch["name"] + "_ring"; r.data.materials.append(mat(col, 0.3, emit=4.0))
+    mw = r.matrix_world.copy(); r.parent = ch["arm"]; r.parent_type = "BONE"; r.parent_bone = "head"; r.matrix_world = mw
+    if cam:
+        t = r.constraints.new("TRACK_TO"); t.target = cam; t.track_axis = "TRACK_Z"; t.up_axis = "UP_Y"
+    keys = [(f_on - 1, 0.001), (f_on + 2, 1.08), (f_on + 4, 1.0)]
+    f = f_on + 4
+    while f + 8 < f_off - 3: keys += [(f + 4, 1.05), (f + 8, 1.0)]; f += 8
+    keys += [(f_off - 2, 1.0), (f_off + 1, 0.001)]
+    for f, sc in keys: r.scale = (sc,) * 3; r.keyframe_insert("scale", frame=f)
     return r
+
+# ---------------------------------------------------------------- animals + vehicles (simple, real size)
+def _group(name, parts, origin):
+    bpy.ops.object.empty_add(location=origin); g = bpy.context.object; g.name = name; bpy.context.view_layer.update()
+    for o in parts:
+        mw = o.matrix_world.copy(); o.parent = g; o.matrix_world = mw
+    return g
+def dog(x, y, z=0, facing=0, col="b07a48"):
+    """medium dog ~0.55 m at the shoulder, facing like a character (0 = toward −Y)"""
+    C = mat(col, 0.7); D = mat("3a2a20", 0.6); P = []
+    P.append(L.capsule((x, y + 0.25, z + 0.5), (x, y - 0.25, z + 0.5), 0.14, C))
+    P.append(sph(0.12, (x, y - 0.4, z + 0.68), C, seg=20)); P.append(sph(0.06, (x, y - 0.52, z + 0.64), C, (1, 1.3, 0.8), seg=16))
+    P.append(sph(0.02, (x, y - 0.6, z + 0.66), D, seg=10))
+    for sx in (-1, 1):
+        P.append(sph(0.05, (x + sx * 0.08, y - 0.38, z + 0.8), D, (0.6, 0.5, 1.4), seg=12))
+        for sy in (-0.2, 0.2): P.append(L.capsule((x + sx * 0.08, y + sy, z + 0.42), (x + sx * 0.08, y + sy, z + 0.04), 0.035, C))
+    P.append(L.capsule((x, y + 0.36, z + 0.55), (x, y + 0.48, z + 0.75), 0.025, C))
+    g = _group("dog", P, (x, y, z)); g.rotation_euler.z = math.radians(facing); return g
+def cat(x, y, z=0, facing=0, col="6a6a72"):
+    C = mat(col, 0.7); P = [L.capsule((x, y + 0.12, z + 0.16), (x, y - 0.1, z + 0.16), 0.08, C), sph(0.07, (x, y - 0.17, z + 0.25), C, seg=16)]
+    for sx in (-1, 1): P.append(sph(0.025, (x + sx * 0.04, y - 0.17, z + 0.32), C, (0.7, 0.4, 1.3), seg=8))
+    P.append(L.capsule((x, y + 0.18, z + 0.18), (x, y + 0.24, z + 0.4), 0.015, C))
+    g = _group("cat", P, (x, y, z)); g.rotation_euler.z = math.radians(facing); return g
+def truck(x, y, col="e8e2d4", logo="3f7fbf"):
+    """delivery box truck, real scale: 7.2 m long, cargo box 3.1 m tall, cab 2.6 m (drives along X)"""
+    W = mat(col, 0.5); P = [box((5.0, 2.4, 2.6), (x - 1.0, y, 1.85), W, 0.04, "truck_box"), box((2.0, 2.3, 2.0), (x + 2.6, y, 1.5), mat(logo, 0.5), 0.12, "truck_cab")]
+    P.append(box((0.05, 2.0, 0.8), (x + 3.62, y, 2.0), mat("2a3a52", 0.2), 0.02)); P.append(box((3.0, 0.02, 0.7), (x - 1.0, y - 1.21, 2.0), mat(logo, 0.5), 0))
+    for sx in (-2.6, -1.4, 2.6):
+        for sy in (-1.05, 1.05): P.append(cyl(0.48, 0.35, (x + sx, y + sy, 0.48), mat("222226", 0.8), rot=(math.pi / 2, 0, 0)))
+    return _group("truck", P, (x, y, 0))

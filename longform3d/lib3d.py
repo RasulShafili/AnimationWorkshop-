@@ -66,13 +66,19 @@ def kitchen(origin=(0, 0, 0)):
     for sx in (-0.62, 0.62):
         for sy in (-0.32, 0.32): box((0.05, 0.05, 0.73), (ox + 0.2 + sx, oy + 0.3 + sy, oz + 0.365), WOOD)
     for x in (-0.25, 0.65): cyl(0.12, 0.015, (ox + x, oy + 0.2, oz + 0.778), WHITE); cyl(0.035, 0.12, (ox + x + 0.2, oy + 0.35, oz + 0.83), mat("cfe6f2", 0.05))
-    chair((ox + 1.25, oy + 0.3, oz), 90)
+    chair((ox + 1.25, oy + 0.3, oz), -90)
     cyl(0.16, 0.03, (ox - 0.2, oy + 1.53, oz + 2.0), WHITE, rot=(math.pi / 2, 0, 0))
     return {"table_top": oz + 0.77, "seat": (ox + 1.25, oy + 0.3, oz + 0.47)}
-def chair(loc, rot_deg=0):
+def chair(loc, facing=-90):
+    """chair whose SITTER faces `facing` (character convention: 0 = toward −Y camera side). The old version ignored its
+    rotation argument (backrest always at +X) — every chair faced the same way."""
     x, y, z = loc; WOOD = mat("a8743f", 0.5); parts = [box((0.45, 0.45, 0.04), (x, y, z + 0.45), WOOD), box((0.04, 0.45, 0.5), (x + 0.2, y, z + 0.72), WOOD)]
     for sx in (-0.19, 0.19):
         for sy in (-0.19, 0.19): parts.append(box((0.04, 0.04, 0.45), (x + sx, y + sy, z + 0.225), WOOD))
+    a = math.radians(facing + 90)
+    for o in parts:
+        dx, dy = o.location.x - x, o.location.y - y
+        o.location.x, o.location.y = x + dx * math.cos(a) - dy * math.sin(a), y + dx * math.sin(a) + dy * math.cos(a); o.rotation_euler.z = a
     return parts
 def street(origin=(0, 0, 0), n=5):
     """suburban street: road 7 m, sidewalks 2 m, houses 6 m tall with 2.1 m doors, set back 4 m. Camera side = −Y."""
@@ -204,7 +210,7 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
-        P(sph((0.211 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.03, 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
+        P(sph((0.211 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.05 if st == "buzz" else 0.04, 0.07 if st == "buzz" else 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
         if st == "spiky":
             for i in range(7):
                 a = -0.9 + i * 0.3; P(sph(0.07 * k, HC + Vector((math.sin(a) * 0.15, -0.05 + 0.05 * abs(a), 0.17 - 0.05 * abs(a))) * k, HR, (1, 0.8, 1.3)), "head")
@@ -506,7 +512,7 @@ def bedroom(origin=(0, 0, 0)):
     box((0.6, 0.35, 0.12), (ox - 1.45, oy + 1.4, oz + 0.56), mat("ffffff", 0.7), 0.05, "pillow")
     box((0.45, 0.4, 0.5), (ox - 0.75, oy + 1.45, oz + 0.25), mat("a8743f", 0.5), 0.01)
     cyl(0.1, 0.3, (ox - 0.75, oy + 1.45, oz + 0.65), mat("ffe0a0", 0.4, emit=1.2))
-    box((1.2, 0.6, 0.04), (ox + 1.2, oy + 1.4, oz + 0.75), mat("a8743f", 0.5), 0.01, "desk"); chair((ox + 1.2, oy + 0.85, oz), 0)
+    box((1.2, 0.6, 0.04), (ox + 1.2, oy + 1.4, oz + 0.75), mat("a8743f", 0.5), 0.01, "desk"); chair((ox + 1.2, oy + 0.85, oz), 180)
     box((1.2, 0.02, 1.0), (ox + 0.3, oy + 1.74, oz + 1.5), mat("1c2a4a", 1.0, emit=0.6), 0, "window")
     return {"mattress_top": oz + 0.5, "desk_top": oz + 0.77}
 
@@ -535,6 +541,7 @@ def sign_pop(board, frame):
         board.scale = (sc, sc, sc); board.keyframe_insert("scale", frame=f)
 def sign_slide(board, frame, dist=2.5, dur=6):
     """sign slides in from the left (screen left when the camera looks along +Y) and settles"""
+    board.scale = (0.001,) * 3; board.keyframe_insert("scale", frame=frame - 1); board.scale = (1,) * 3; board.keyframe_insert("scale", frame=frame)   # hidden until it slides in (it sat on screen from frame 1)
     end = board.location.copy(); board.location = end - Vector((dist, 0, 0)); board.keyframe_insert("location", frame=frame)
     board.location = end + Vector((0.05, 0, 0)); board.keyframe_insert("location", frame=frame + dur - 2)
     board.location = end; board.keyframe_insert("location", frame=frame + dur)

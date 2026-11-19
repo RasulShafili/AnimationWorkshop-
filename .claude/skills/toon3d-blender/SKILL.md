@@ -221,3 +221,20 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
 - Fixed: props placed over the door/window (check against fixed openings), solid fence walled the camera off (rails),
   wide shots use f/8 (f/4 blurred near ceiling edges into pale curves), walls/floors get a soft ramp (0.9/0.97) — a
   lamp drew pale toon circles on big walls; bedroom walls more saturated blue (never pale).
+
+## 15. Scene engine (thoughts/build.py + chapters.py) — how a chapter is made (2026-11-19)
+- Chapter spec = set, light, mood, props/anim hooks, cast {at|seat|path|sit_from, face, emo, look_at, pose}, shots
+  {fixed|cu|ots|two}, signs, lines [(vo id, shot, {emo, look, pose, hold, who, rings})]. Timing = trimmed 16-bit voices
+  (vo16/; Chatterbox writes float32 WAV which the wave module can't read). 12 fps, 2-state mouth, rings on thoughts,
+  Leo↔thinker eye contact forced on every thought line. `stills` mode = one frame per line → qa_sheet. Render with
+  tools/render_chapter.sh (thermal guard: pause > 90 °C). Audio: tools/audio_ch.py; assembly: tools/assemble.sh.
+- Lessons from QA (all fixed in the engine):
+  - close-up cameras are placed fresh PER LINE at mid-line (a reused one filmed an ear after the head turned);
+  - if another head blocks a close-up → over-the-shoulder from that person (orbiting gave profiles);
+  - thought ring = circle that Track-To's the line's camera (vertical cut the face, horizontal looked like a halo);
+  - the "two" auto camera can land inside a wall → use fixed cameras in rooms; wide cams 2+ m from the cast;
+  - props/signs must be in front of the camera that shows them (100% sign was behind the class camera);
+  - slide-in signs must be hidden (scale 0) before they slide (sat on screen from frame 1);
+  - anything moving toward a shot must come TOWARD that camera and be timed to the line (truck);
+  - if the narration says someone sits, they must sit (sit_from + "curb" pose for sitting on a kerb);
+  - Python 3.11 in Blender: no nested same quotes in f-strings; never sed a comment in front of a trailing comma.
