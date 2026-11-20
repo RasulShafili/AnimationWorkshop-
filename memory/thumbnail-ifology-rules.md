@@ -20,3 +20,6 @@ their black-head design). Extends [[thumbnail-matches-title]].
 ~/Downloads; I crop to 1280×720 and add the caption with tools/thumb_text.py. Result thumb_C_gemini_too_loud.jpg looked
 far better than our Blender thumbnails — prefer this for every long-form. Ask for "no text" (AI misspells), leave the
 left 40 % calm for the caption.
+Upgrade trick that worked (2026-11-21): give Gemini the first good result as a composition reference + "remake it
+ultra-detailed": bigger/lower-angle hero, extreme expression, 12–15 swirling bubbles with readable icons, sound waves
+into the ears, neon rays → thumb_F_gemini_too_loud_v2.jpg (best so far). Prompts: ~/Desktop/YouTube_upload_thoughts/gemini_prompt/.
