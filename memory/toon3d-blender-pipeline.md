@@ -38,3 +38,6 @@ RESUME: delete 0-byte jpgs (`find out -name "*.jpg" -size 0 -delete`), then run 
 `systemd-inhibit --what=sleep:idle --why=thoughts ~/Desktop/Animations/longform3d/thoughts/tools/make_all.sh`
 (skips frames on disk). Gotcha: `pkill -f make_all.sh` inside a bash command killed that same command — use
 `pkill -f "[m]ake_all"` patterns and also stop render_chapter.sh, or the loop moves on to the next chapter.
+2026-11-20 15:5x: FIRST 3D long-form DONE — ~/Desktop/YouTube_upload_thoughts/ (8:27, 1280×720 24 fps, −14.4 LUFS,
+chapters, SRT, thumbnail). Not published (publish only when the owner says). Known weak spots: c8b Leo seen from behind,
+some dialogue close-ups are 3/4 profiles.
