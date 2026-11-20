@@ -11,3 +11,7 @@ sheets (frame per shot + spoken words), transcript.txt, stats.json (cuts/min, wo
 (bradautomates/claude-video) installed 2026-11-18 at ~/.claude/skills/watch, local engine, captions only — the owner
 approved the install. Real motion + audio understanding needs its Gemini engine with a key from the owner.
 Ifology style study: ~/Desktop/Animations/refs_watch/IFOLOGY_STYLE.md. Related: [[longform-cartoon-format]].
+
+2026-11-20: the Gemini key has NO image-generation quota (free tier limit 0 on gemini-2.5-flash-image, 3.1-flash-image,
+3.1-flash-lite-image → HTTP 429). Image gen needs billing on the key, or the owner makes images in the Gemini app;
+tool ready: longform3d/thoughts/tools/gemini_image.py (key never printed), caption via tools/thumb_text.py.

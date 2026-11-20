@@ -14,3 +14,9 @@ not the topic.
 **How to apply:** build a separate thumbnail scene (Blender toon, dramatic pose, neon dark backdrop, glow) and add the
 giant outlined text in post (PIL); make 2–3 variants for YouTube "Test & compare". Our own characters only (never
 their black-head design). Extends [[thumbnail-matches-title]].
+
+2026-11-20 workflow that WORKED (owner chose the free path): I write a prompt + give a reference render of our hero
+(gemini_prompt/PROMPT.txt + leo_reference.jpg); the owner generates it in the Gemini app (free), drops it in
+~/Downloads; I crop to 1280×720 and add the caption with tools/thumb_text.py. Result thumb_C_gemini_too_loud.jpg looked
+far better than our Blender thumbnails — prefer this for every long-form. Ask for "no text" (AI misspells), leave the
+left 40 % calm for the caption.
