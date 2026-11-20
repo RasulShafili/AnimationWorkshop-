@@ -8,3 +8,5 @@
 - Teaser 2 (c5 crush, 33.6 s) posted 2026-11-20 ~23:00 Baku via tools/teaser.py: YouTube https://www.youtube.com/watch?v=J8rp__aP_D8
   · Instagram https://www.instagram.com/reel/Df-WO8fSgt4/ · TikTok 7710329100254154005. Next teaser idea: c10 truck save
   (≥ 3 h later). Owner added channel upload-default tags 2026-11-20.
+- Thumbnails 2026-11-21 (Gemini app + our captions): C "TOO LOUD." (emotion), D "HIM?!" (crush twist), E "TOO CLOSE."
+  (truck action) → owner runs YouTube Test & compare; record the winner here and in memory thumbnail-ifology-rules.
