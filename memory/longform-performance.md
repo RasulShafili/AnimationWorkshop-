@@ -15,5 +15,10 @@ Snapshot 2026-11-17 10:00 Baku (yt-dlp, public counts):
 - Owner left tags empty on all long uploads; categories mixed (Science & Tech / Film & Animation).
 - Time-travel / "you woke up in the past" topic beat zombie and the body what-ifs on both formats.
 
+Snapshot 2026-11-20 ~19:30 Baku: thoughts (first 3D) 12 views/5.6 h = 2.2/h (best start of the recent ones);
+AI-takeover 12/72 h = 0.17/h (worst); ice-age 54/96 h; zombie 95/118 h; never-forget 61/143 h; hearing 71/168 h.
+Teasers: thoughts 316 (same day), AI 263 (weakest), others 600–1000. Still 0 tags on every long upload, 0 comments,
+categories mixed. Shorts still don't convert → recommend Studio "Related video" link on each Short + pinned comment.
+
 **Why:** decides where effort goes next (more teasers per long video, series topics).
 **How to apply:** re-check with yt-dlp before the next analysis and compare velocity (views/hour), not totals; ask the owner for Studio Reach (impressions, CTR) and retention to explain the gap. Related: [[longform-approved-method]], [[thumbnail-matches-title]].

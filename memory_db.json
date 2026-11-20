@@ -38,7 +38,8 @@
     "ice-age-teaser",
     "ice-age-teaser2",
     "ai-takeover-teaser",
-    "thoughts-teaser"
+    "thoughts-teaser",
+    "thoughts-teaser2"
   ],
   "history": [
     {
@@ -736,6 +737,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b0048755d9549971ca965ee"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "thoughts-teaser2",
+      "title": "He Finally Sat Next To His Crush… Then He Heard What She Was Thinking 💔",
+      "published_at": "2026-11-20 18:56:37 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b009775d425f1473a0676fb"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b0097816f199ec35b72e8c9"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b009785d425f1473a067bf5"
         }
       ],
       "status": "published"
