@@ -31,3 +31,10 @@ Current 3D project (2026-11-19): longform3d/thoughts/ — "What If You Could Hea
 crush/emotions, no sexual content per owner). Owner wants it as fast/easy as possible on the iGPU: 12 fps on twos,
 8 samples, 720p, reuse sets, 3–4 shots per chapter. Pending before building: face decals (owner: eyes, pupils,
 brows must be flat 2D, not 3D; face looked pale) — that edit was interrupted, not applied yet.
+2026-11-20: all 19 chapter specs QA'd (stills sheets) and the overnight chain tools/make_all.sh started (render →
+audio → assemble → ~/Desktop/what_if_hear_thoughts.mp4). Next: watch the result, run reel-qc/loudness, fix, thumbnail.
+2026-11-20 01:2x: owner went to sleep; render STOPPED cleanly at 2,475 / 6,085 frames (c1–c5 done, c6 partial).
+RESUME: delete 0-byte jpgs (`find out -name "*.jpg" -size 0 -delete`), then run in background:
+`systemd-inhibit --what=sleep:idle --why=thoughts ~/Desktop/Animations/longform3d/thoughts/tools/make_all.sh`
+(skips frames on disk). Gotcha: `pkill -f make_all.sh` inside a bash command killed that same command — use
+`pkill -f "[m]ake_all"` patterns and also stop render_chapter.sh, or the loop moves on to the next chapter.

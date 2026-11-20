@@ -238,3 +238,9 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   - anything moving toward a shot must come TOWARD that camera and be timed to the line (truck);
   - if the narration says someone sits, they must sit (sit_from + "curb" pose for sitting on a kerb);
   - Python 3.11 in Blender: no nested same quotes in f-strings; never sed a comment in front of a trailing comma.
+- Final checks that caught real faults (2026-11-20): whole-video flat-frame scan (fps=2, 64×36 gray, share of pixels
+  near the median; > 0.5 with grain+vignette = suspicious) found Leo walking into the wide lens (all-green seconds);
+  the auto "two" shot sat inside a bystander → use fixed cameras when a third person is near; a table LAMP hid a face →
+  props block faces too (check every two-shot still for props between camera and heads). ffmpeg drawtext: an
+  apostrophe in text= silently dropped chapter c1 → always textfile=. Package: thoughts/tools/package.py (SRT from the
+  timelines, chapters from chapter durations).

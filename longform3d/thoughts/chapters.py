@@ -272,9 +272,10 @@ CH["c11b"] = dict(
 CH["c12"] = dict(
     set="library", light="class_day", mood="warm_in", props=[comic],
     cast={"NORA": dict(seat=(-1.6, 0.95, 0.47), face=0, emo="smile", look_at="THEO"), "THEO": dict(seat=(-0.8, 0.95, 0.47), face=0, emo="neutral", look_at="LEO"),
-          "LEO": dict(path=[(0, -1.2, -0.75), (("c12_n2", 3.0), -1.2, -0.75), (("c12_n2", 7.5), 1.6, -1.6)], face=180, emo="determined", look_at="THEO")},
+          "LEO": dict(path=[(0, -1.2, -0.75), (("c12_n2", 3.0), -1.2, -0.75), (("c12_n2", 7.5), 2.8, -0.4)], face=180, emo="determined", look_at="THEO")},
+    # ^ walks away to the right, parallel to the shelves (walking to (1.6, −1.6) passed 1 m in front of the wide camera = all-green frames)
     shots={"wide": ("fixed", (1.6, -2.6, 1.6), (-1.0, 0.4, 0.95), 22), "cu_leo": ("cu", "LEO", 1.3, 0), "cu_theo": ("cu", "THEO", 1.3, 0),
-           "two": ("two", "NORA", "THEO")},
+           "two": ("fixed", (-2.1, -0.55, 1.3), (-1.2, 0.95, 1.0), 30)},   # from the left: lamp stays right of Theo (auto two-shot sat inside Leo; right side hid Theo behind the lamp)
     lines=[("c12_n1", "wide", {}), ("c12_leo1", "cu_leo", {"pose": {"LEO": "point:NORA"}}),
            ("c12_theo1", "cu_theo", {"emo": {"THEO": "smile"}, "look": {"THEO": "NORA"}, "pose": {"LEO": None}}),
            ("c12_n2", "two", {"emo": {"NORA": "happy", "THEO": "happy"}, "look": {"NORA": "THEO", "THEO": "NORA", "LEO": None}}),

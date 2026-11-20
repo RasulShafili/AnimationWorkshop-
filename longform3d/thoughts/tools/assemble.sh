@@ -9,7 +9,7 @@ for c in $ORDER; do
   VF="fps=24,noise=alls=3:allf=t,vignette=PI/7,drawbox=y=0:w=iw:h=40:color=black:t=fill,drawbox=y=ih-40:w=iw:h=40:color=black:t=fill"
   if [ $c = c1 ]; then   # title on the question line (our own style: white bold on a green bar, not Ifology's cream text)
     T0=$(python3 -c "import json; j=json.load(open('out/c1_timeline.json')); print([x['t0'] for x in j['lines'] if x['id']=='c1_n5'][0] + 0.6)")
-    VF="$VF,drawbox=x=(iw-860)/2:y=ih-170:w=860:h=74:color=0x2f8f4e@0.92:t=fill:enable='gte(t,$T0)',drawtext=fontfile=$FONT:text='WHAT IF YOU COULD HEAR EVERYONE\\'S THOUGHTS?':fontsize=34:fontcolor=white:x=(w-tw)/2:y=h-148:enable='gte(t,$T0)'"
+    VF="$VF,drawbox=x=(iw-860)/2:y=ih-170:w=860:h=74:color=0x2f8f4e@0.92:t=fill:enable='gte(t,$T0)',drawtext=fontfile=$FONT:textfile=out/title.txt:fontsize=34:fontcolor=white:x=(w-tw)/2:y=h-148:enable='gte(t,$T0)'"   # textfile: the apostrophe in EVERYONE'S broke inline text= quoting and dropped c1
   fi
   ffmpeg -v error -y -framerate 12 -i out/$c/%04d.jpg -i out/$c.wav -vf "$VF" -c:v libx264 -pix_fmt yuv420p -crf 19 -c:a aac -b:a 192k -ar 44100 -shortest out/$c.mp4 && echo "file '$c.mp4'" >> out/concat.txt
 done
