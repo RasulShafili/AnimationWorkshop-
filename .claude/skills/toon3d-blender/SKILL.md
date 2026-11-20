@@ -249,3 +249,7 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   match the people: cafeteria trays are now one per seated person (random trays gave a girl 3 and her friends 1) —
   generally: every eating/working prop belongs to a specific character; (3) thumbnail crush bubble gets hearts —
   decorations go in the bubble's own camera-facing plane (world offsets hid them behind the disc).
+- Thumbnails (owner 2026-11-20, see memory thumbnail-ifology-rules): thoughts/thumb2.py builds a dedicated scene (neon
+  emissive backdrop + bokeh, our characters, rings, white flat bubbles with big icons, DOF focused on the hero's head —
+  v1 left the hero blurry) and tools/thumb_text.py adds the giant outlined 2-word caption (yellow last word, white
+  first, 14 px black stroke, 3° tilt). Ears/hands-on-face poses need real IK — use hands_up "panic" or a chin hand.
