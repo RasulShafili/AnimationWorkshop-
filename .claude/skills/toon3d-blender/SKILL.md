@@ -244,3 +244,8 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   props block faces too (check every two-shot still for props between camera and heads). ffmpeg drawtext: an
   apostrophe in text= silently dropped chapter c1 → always textfile=. Package: thoughts/tools/package.py (SRT from the
   timelines, chapters from chapter durations).
+- Owner review of the first 3D long-form (2026-11-20): (1) science lines → 2D motion-graphics cutaways
+  (thoughts/tools/gfx.py: PIL frames timed from the timeline, overlaid in assemble.sh; our own style); (2) props must
+  match the people: cafeteria trays are now one per seated person (random trays gave a girl 3 and her friends 1) —
+  generally: every eating/working prop belongs to a specific character; (3) thumbnail crush bubble gets hearts —
+  decorations go in the bubble's own camera-facing plane (world offsets hid them behind the disc).

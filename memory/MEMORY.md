@@ -20,3 +20,4 @@
 - [Video watch tool](video-watch-tool.md) — tools/watch/watch.py turns a video into frames+words+rhythm; Ifology style notes in refs_watch/
 - [3D toon Blender pipeline](toon3d-blender-pipeline.md) — lib3d.py + skill toon3d-blender; toon look = Ifology technique + our own characters, never pale, simple animation
 - [Friendly faces, detailed sets](toon-friendly-detailed-sets.md) — 3D toon: never creepy faces; backgrounds simple but full of props (DOF hides low detail)
+- [Science = 2D graphics](science-as-2d-graphics.md) — 3D long-form: fact lines cut to 2D motion graphics (counters/bars), not 3D signs

@@ -61,12 +61,15 @@ def lockers(x, y, n=10, z=0):
         cx = x + (i - n / 2) * 0.42; box((0.4, 0.45, 1.85), (cx, y, z + 0.925), mat(cols[i % 3], 0.5), 0.008, "locker")
         for k in range(3): box((0.25, 0.01, 0.012), (cx, y - 0.228, z + 1.6 + k * 0.04), mat("2a3a5a", 0.6), 0)
         box((0.03, 0.02, 0.1), (cx + 0.14, y - 0.23, z + 1.05), mat("c0c6cc", 0.3), 0)
-def long_table(x, y, w=3.0, z=0):
+def tray(x, y, z=0.77, seed=0):
+    r = random.Random(seed); box((0.36, 0.26, 0.015), (x, y, z), mat(r.choice(["e8743b", "4aa39a", "5bc0de"]), 0.6), 0.004, "tray")
+    sph(0.06, (x - 0.05, y, z + 0.03), mat("e8b860", 0.7), (1.4, 0.8, 0.6)); box((0.06, 0.06, 0.1), (x + 0.1, y, z + 0.06), mat("f4f4f4", 0.5), 0.005)
+def long_table(x, y, w=3.0, z=0, trays=True):
     box((w, 0.8, 0.04), (x, y, z + 0.74), mat("efe6cf", 0.5), 0.01, "table")
     for sx in (-w / 2 + 0.2, w / 2 - 0.2): box((0.06, 0.6, 0.72), (x + sx, y, z + 0.36), mat("3a5a8a", 0.5), 0)
     for sy in (-0.65, 0.65): box((w, 0.3, 0.04), (x, y + sy, z + 0.44), mat("3e6a9e", 0.5), 0.01, "bench"); box((0.05, 0.25, 0.42), (x, y + sy, z + 0.21), mat("3a5a8a", 0.5), 0)
     r = random.Random(int(x * 10 + y))
-    for i in range(int(w / 0.7)):
+    for i in range(int(w / 0.7) if trays else 0):
         tx = x - w / 2 + 0.4 + i * 0.7
         for sy in (-0.2, 0.2):
             if r.random() < 0.7:
@@ -126,12 +129,14 @@ def hallway(origin=(0, 0, 0), length=14):
     for i in range(5): poster(ox + 2.0 + (i % 3) * 0.45, oy + 1.69, oz + 1.4 + (i // 3) * 0.4, 0.3, 0.3, 80 + i)
     wall_clock(ox - 4.0, oy + 1.72, oz + 2.5); plant(ox + 6.3, oy + 1.2, oz, 0.7)
     return {"floor_y": oy - 0.5}
-def cafeteria(origin=(0, 0, 0)):
+CAF_TABLES = ((-2.5, 1.2), (2.5, 1.2), (-2.5, -1.4), (2.5, -1.4))
+def cafeteria(origin=(0, 0, 0), trays=False):
+    # trays=False: build.py puts ONE tray in front of each seated character (random trays gave Mia 3 and her friends 1)
     """10 × 8 m: mustard walls + blue band (warm indoor mood), long tables with trays, serving counter, menu board"""
     ox, oy, oz = origin; L._room(10, 8, 3.2, "e3b866", "c9c2b4", origin, "caf")
     box((10, 0.12, 0.9), (ox, oy + 3.94, oz + 0.75), mat("3e6a9e", 0.6), 0, "band")
     seats = []
-    for i, (tx, ty) in enumerate(((-2.5, 1.2), (2.5, 1.2), (-2.5, -1.4), (2.5, -1.4))): seats += long_table(ox + tx, oy + ty, 3.4, oz)
+    for i, (tx, ty) in enumerate(CAF_TABLES): seats += long_table(ox + tx, oy + ty, 3.4, oz, trays)
     box((5, 0.7, 1.0), (ox, oy + 3.4, oz + 0.5), mat("c0c6cc", 0.35), 0.01, "serving"); box((3.2, 0.04, 1.0), (ox, oy + 3.93, oz + 2.3), mat("23324a", 0.7), 0.01, "menu")
     for i in range(3): box((0.8, 0.01, 0.12), (ox - 0.9 + i * 0.9, oy + 3.9, oz + 2.55), mat("e6c24a", 0.6), 0); box((0.8, 0.01, 0.12), (ox - 0.9 + i * 0.9, oy + 3.9, oz + 2.15), mat("f4f1ea", 0.6), 0)
     wall_clock(ox + 3.8, oy + 3.93, oz + 2.6); plant(ox - 4.5, oy + 3.4, oz, 0.8)

@@ -52,6 +52,15 @@ for name, c in spec["cast"].items():
     look = dict(LOOKS.get(name, LOOKS["LEO"])) if name in LOOKS else dict(c["look"])
     C[name] = dict(ch=L.character(name, look), **c)
 def head(name, f): return L.head_pos(C[name]["ch"], f)
+if spec["set"] == "cafeteria":      # one tray in front of every seated person; busy random trays only on tables nobody uses
+    used = set()
+    for n, c in spec["cast"].items():
+        if c.get("seat"):
+            a = math.radians(c["face"]); x, y = c["seat"][0] - math.sin(a) * -0.42, c["seat"][1] - 0.42 * math.cos(a)
+            S.tray(x, y, 0.77, hash(n) % 9); used |= {i for i, (tx, ty) in enumerate(S.CAF_TABLES) if abs(c["seat"][1] - ty) < 0.8 and abs(c["seat"][0] - tx) < 1.8}
+    for i, (tx, ty) in enumerate(S.CAF_TABLES):
+        if i not in used:
+            for k in range(4): S.tray(tx - 1.2 + (k % 3) * 0.7, ty + (0.2 if k % 2 else -0.2), 0.77, i * 7 + k)
 
 # ---------------------------------------------------------------- per-frame state from the lines
 def state_at(sec):

@@ -33,5 +33,5 @@ Which of YOUR thoughts would you never want anyone to hear? Tell me in the comme
 Chapters:
 """ + "\n".join(chap) + "\n\n#whatif #animation #mindreading #story #psychology"
 open(f"{OUT}/title_and_description.txt", "w").write("TITLE:\nWhat If You Could Hear Everyone's Thoughts?\n\nDESCRIPTION:\n" + desc + "\n")
-shutil.copy(f"{D}/out/what_if_hear_thoughts.mp4", f"{OUT}/what_if_hear_thoughts.mp4"); shutil.copy(f"{D}/out/thumb/thumb_v3.jpg", f"{OUT}/thumbnail.jpg")
+shutil.copy(f"{D}/out/what_if_hear_thoughts.mp4", f"{OUT}/what_if_hear_thoughts.mp4"); shutil.copy(f"{D}/out/thumb/thumb_v5.jpg", f"{OUT}/thumbnail.jpg")
 print("\n".join(chap)); print(k - 1, "subtitle lines;", round(off, 1), "s")

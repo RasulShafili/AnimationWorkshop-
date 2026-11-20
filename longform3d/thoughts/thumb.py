@@ -23,6 +23,11 @@ b = L.cyl(0.58, 0.04, bc, WH, rot=(math.pi / 2, 0, 0), name="bubble"); b.scale =
 for i, (dx, dz, r) in enumerate(((0.1, 0.46, 0.07), (0.05, 0.36, 0.045))): L.cyl(r, 0.04, hb + Vector((dx, 0, dz)), WH, rot=(math.pi / 2, 0, 0), name="bubble_dot")
 t = L.text3d("I LIKE... THEO?!", (bc.x, bc.y - 0.03, bc.z), 0.15, INK); t.data.extrude = 0.006
 t.name = "bubble_text"
+# owner 2026-11-20: hearts in Nora's thought bubble (it's a crush thought)
+RED = L.mat("e8384f", 0.4); nrm = (cam.location - bc).normalized(); rgt = Vector((0, 0, 1)).cross(nrm).normalized(); up = nrm.cross(rgt)
+# hearts placed in the bubble's OWN plane (the disc turns to the camera; world-axis offsets hid the right-hand hearts)
+for i, (dx, dz, size) in enumerate(((-0.47, 0.02, 0.17), (0.48, 0.02, 0.17), (0.34, 0.19, 0.11), (-0.32, -0.17, 0.1), (0.3, -0.18, 0.09))):
+    h = L.text3d("♥", bc + rgt * dx + up * dz + nrm * 0.05, size, RED); h.data.extrude = 0.008; h.name = f"bubble_heart{i}"
 for o in bpy.data.objects:
     if o.name.startswith("bubble"):
         tc = o.constraints.new("TRACK_TO"); tc.target = cam; tc.track_axis = "TRACK_Z"; tc.up_axis = "UP_Y"   # disc normal (local Z) faces the lens

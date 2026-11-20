@@ -11,6 +11,11 @@ for c in $ORDER; do
     T0=$(python3 -c "import json; j=json.load(open('out/c1_timeline.json')); print([x['t0'] for x in j['lines'] if x['id']=='c1_n5'][0] + 0.6)")
     VF="$VF,drawbox=x=(iw-860)/2:y=ih-170:w=860:h=74:color=0x2f8f4e@0.92:t=fill:enable='gte(t,$T0)',drawtext=fontfile=$FONT:textfile=out/title.txt:fontsize=34:fontcolor=white:x=(w-tw)/2:y=h-148:enable='gte(t,$T0)'"   # textfile: the apostrophe in EVERYONE'S broke inline text= quoting and dropped c1
   fi
+  if [ -f out/gfx_$c.json ]; then   # 2D motion-graphics cutaway over the science line (owner 2026-11-20)
+    GS=$(python3 -c "import json; print(json.load(open('out/gfx_$c.json'))['start'])")
+    ffmpeg -v error -y -framerate 12 -i out/$c/%04d.jpg -i out/$c.wav -i out/gfx_$c.mp4 -filter_complex "[0:v]fps=24[b];[2:v]setpts=PTS+$GS/TB[g];[b][g]overlay=eof_action=pass,$VF[v]" -map "[v]" -map 1:a -c:v libx264 -pix_fmt yuv420p -crf 19 -c:a aac -b:a 192k -ar 44100 -shortest out/$c.mp4 && echo "file '$c.mp4'" >> out/concat.txt
+  else
   ffmpeg -v error -y -framerate 12 -i out/$c/%04d.jpg -i out/$c.wav -vf "$VF" -c:v libx264 -pix_fmt yuv420p -crf 19 -c:a aac -b:a 192k -ar 44100 -shortest out/$c.mp4 && echo "file '$c.mp4'" >> out/concat.txt
+  fi
 done
 ffmpeg -v error -y -f concat -safe 0 -i out/concat.txt -c copy out/what_if_hear_thoughts.mp4 && ffprobe -v error -show_entries format=duration -of csv=p=0 out/what_if_hear_thoughts.mp4
