@@ -37,7 +37,8 @@
     "zombie-teaser2",
     "ice-age-teaser",
     "ice-age-teaser2",
-    "ai-takeover-teaser"
+    "ai-takeover-teaser",
+    "thoughts-teaser"
   ],
   "history": [
     {
@@ -712,6 +713,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6afca94f9c73f3089bb19af0"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "thoughts-teaser",
+      "title": "He Can Hear Everyone's Thoughts… Even His Little Sister's 😳",
+      "published_at": "2026-11-20 13:20:00 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b00486477e195b7220398ef"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b004870fc5b97f0f809eaf6"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0048755d9549971ca965ee"
         }
       ],
       "status": "published"
