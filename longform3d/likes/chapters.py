@@ -152,10 +152,10 @@ CH["c9"] = dict(set="hallway", light="class_day", mood="warm_in", props=[books_f
            ("c9_n3", "cu_ben", {"emo": {"BEN": "smile"}, "hold": 0.6})])
 # ================================================================================ c10 — Day 18, fixing Theo (porch, dusk) + 2D graphic
 CH["c10"] = dict(set="street_dressed", light="sun", mood="warm_in", props=[porch, chips],
-    cast={"BEN": dict(at=(0.6, 5.3, 0.45), face=-160, emo="sad", look_at="THEO"),          # porch deck top = 0.45 m
-          "THEO": dict(at=(-0.1, 6.0, 0.45), face=20, emo="neutral", look_at="BEN",
+    cast={"BEN": dict(at=(0.6, 5.3, 0.45), face=-135, emo="sad", look_at="THEO"),          # porch deck top = 0.45 m; facing each other
+          "THEO": dict(at=(-0.1, 6.0, 0.45), face=40, emo="neutral", look_at="BEN",
                        tag=[(0.5, 41), (("c10_theo1", 1.0), 60), (("c10_n2", 0.5), 75), (("c10_n2", 2.0), 88), (("c10_n2", 3.5), 92)])},
-    shots={"wide": ("fixed", (2.3, 4.3, 1.5), (0.1, 5.7, 1.35), 24), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_theo": ("cu", "THEO", 1.4, 0)},   # side view: Ben's back hid Theo
+    shots={"wide": ("fixed", (-1.6, 3.2, 1.6), (0.2, 5.7, 1.35), 26), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_theo": ("cu", "THEO", 1.4, 0)},   # front-left: clear of the porch posts (side view sat behind a post)
     lines=[("c10_n1", "wide", {}), ("c10_ben1", "cu_ben", {}), ("c10_theo1", "cu_theo", {"emo": {"THEO": "smug"}}),
            ("c10_n2", "wide", {"emo": {"THEO": "happy", "BEN": "happy"}}), ("c10_n3", "wide", {"hold": 0.6})])
 # ================================================================================ c11 — Day 22, the concert

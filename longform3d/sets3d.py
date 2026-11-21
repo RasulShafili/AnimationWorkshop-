@@ -244,10 +244,13 @@ def like_tag(ch, schedule, track, last_frame, height=0.33):
     vis = []
     def obj(o, a, b, pulse):
         o.parent = root; o.matrix_parent_inverse.identity()
-        keys = [(a - 1, 0.001), (a, 1.25 if pulse else 1.0), (a + 3, 1.0), (b - 1, 1.0), (b, 0.001)]
+        # strictly increasing keys: a 1–2 frame count-up step used to put (a+3, 1.0) AFTER (b, 0.001) → the old digit
+        # came back and stayed forever ("5▮%" phantom digits, likes QA 2026-11-21)
+        keys = [(a - 1, 0.001), (a, 1.25 if pulse and b - a > 3 else 1.0)] + ([(a + 3, 1.0)] if a + 3 < b - 1 else []) + \
+               ([(b - 1, 1.0)] if b - 1 > a else []) + [(b, 0.001)]
         for fr, sc in keys: o.scale = (sc,) * 3; o.keyframe_insert("scale", frame=max(0, fr))
-        for fc in o.animation_data.action.fcurves:
-            for kp in fc.keyframe_points: kp.interpolation = "CONSTANT" if kp.co[1] < 0.01 else "LINEAR"
+        for fc in o.animation_data.action.fcurves:       # hard swaps; only the pulse eases (soft fades overlapped two digits: "6▮%")
+            for kp in fc.keyframe_points: kp.interpolation = "LINEAR" if abs(kp.co[0] - a) < 0.5 else "CONSTANT"
     for a, b, v, pulse in steps:
         t = L.text3d(f"{v}%", (0, 0, 0), 0.15 * k, _flat(tag_col(v)), rot=(0, 0, 0), extrude=0.004); t.name = f"{ch['name']}_tag{v}"
         t.location = (0, 0, 0.004); obj(t, a, b, pulse); vis.append((a, b))

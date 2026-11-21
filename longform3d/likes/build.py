@@ -149,9 +149,9 @@ def make_cam(name, cs, f):
     if kind == "fixed": return L.camera(name, cs[1], cs[2], cs[3] if len(cs) > 3 else 24)
     if kind == "cu":
         # occlusion check: if another head sits near the camera→face line, orbit the camera sideways (Leo's head hid Dad)
-        base = cs[3] if len(cs) > 3 else 12; dist = max(1.75, cs[2] if len(cs) > 2 else 1.5)   # likes: wider so face AND the % tag fit
+        base = cs[3] if len(cs) > 3 else 12; dist = max(2.05 if spec["cast"][cs[1]].get("tag") else 1.75, cs[2] if len(cs) > 2 else 1.5)   # likes: wider so face AND the % tag fit
         for tries, off in enumerate((0, 22, -22)):
-            side = base + off; c = L.face_cam(name, C[cs[1]]["ch"], f, dist, side, up=0.16, lens=50)   # the % tag above the head must stay in frame; bpy.context.view_layer.update()
+            side = base + off; c = L.face_cam(name, C[cs[1]]["ch"], f, dist, side, up=0.2, lens=50)   # the % tag above the head must stay in frame; bpy.context.view_layer.update()
             cp, hp = c.location.copy(), head(cs[1], f); seg = hp - cp; blocker = None
             for n2 in C:
                 if n2 == cs[1]: continue
@@ -163,6 +163,10 @@ def make_cam(name, cs, f):
                 dg = bpy.context.evaluated_depsgraph_get(); ray = cp - hp; hit, loc, *_ = sc.ray_cast(dg, hp + ray.normalized() * 0.3, ray.normalized(), distance=ray.length)
                 if hit:   # a wall between face and camera (close-up landed outside the room) → come back inside, wider lens
                     c.location = hp + ray.normalized() * max(0.7, (loc - hp).length - 0.15); c.data.lens = 28
+                if spec["cast"][cs[1]].get("tag"):   # tagged: frame head AND the % tag (it was cut by the letterbox): aim between them
+                    kk = C[cs[1]]["ch"]["k"]; c.constraints[0].target.location.z += 0.17 * kk; c.location.z += 0.12 * kk
+                    d_ = (c.location - hp).length; c.data.lens = max(18, min(50, 50 * d_ / 2.05))   # need ~2.05 m of 50 mm framing
+                    c.data.dof.focus_object = None; c.data.dof.focus_distance = d_   # focus stays on the face
                 c.data.dof.aperture_fstop = 1.8; return c
             bpy.data.objects.remove(c.constraints[0].target); bpy.data.objects.remove(c)
         # someone stands between the camera and the face (two people talking face to face): film over THEIR shoulder
@@ -215,6 +219,13 @@ json.dump(dict(lines=[{k: v for k, v in x.items() if k != "opt"} for x in TL], e
 print("QA_GROUND", "OK" if not bad else bad[:6]); print(f"CHAPTER {CID}: {END:.1f}s, {NF} frames @ {FPS} fps, {len(TL)} lines")
 L.setup("final", samples=8 if MODE == "final" else 4, frames=(1, NF)); sc.render.fps = FPS
 os.makedirs(f"{D}/out/{CID}", exist_ok=True)
+if MODE == "plan":              # frames whose look changed after the tag/close-up fix: tagged close-ups + everything after the first tag change
+    first = min([int(tsec(t) * FPS) + 1 for c in spec["cast"].values() for i, (t, v) in enumerate(sorted(c.get("tag", []), key=lambda x: tsec(x[0]))) if i > 0] or [NF + 1])
+    tagged = {n for n, c in spec["cast"].items() if c.get("tag")}; redo = set(range(first, NF + 1))
+    for i, (fr, cam) in enumerate(CUTS):
+        nxt = CUTS[i + 1][0] if i + 1 < len(CUTS) else NF + 1; base = cam.name.split("@")[0]; sh = spec["shots"].get(base)
+        if sh and sh[0] == "cu" and sh[1] in tagged: redo |= set(range(max(1, fr), nxt))
+    open(f"{D}/out/{CID}_redo.txt", "w").write(" ".join(map(str, sorted(redo)))); print("REDO", CID, len(redo)); sys.exit(0)
 if MODE == "stills":            # one frame in the middle of every line → QA sheet with the line id
     for ln in TL:
         f = int((ln["t0"] + ln["t1"]) / 2 * FPS) + 1; sc.frame_set(f); sc.render.resolution_percentage = 50

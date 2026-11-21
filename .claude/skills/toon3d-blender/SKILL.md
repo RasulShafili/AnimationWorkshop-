@@ -259,7 +259,15 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   (red ≤30 / yellow ≤69 / green), counts through ≤6 steps on a change, pulses; every value is its own text object
   (text bodies can't be keyframed). `S.cam_follower(cuts)`: empty that jumps to the active camera at every cut — tags
   Track-To it. Chapter cast "tag": [(time, value)]. Tag changes emit tag_new/up/down audio events (pop/chime/blip).
-- Close-ups for a tag video: dist ≥ 1.75 and up 0.16 or the tag is cut off at the top.
+- Close-ups of a TAGGED character (final QA: 10 shots had the number cut by the letterbox): dist ≥ 2.05, aim target
+  +0.17·k above the head, camera +0.12·k, lens = 50·d/2.05 (min 18) when a wall pulled the camera in, DOF focus_distance
+  = face distance (the moved target would blur the face). Head sits in the lower half, the tag fully inside the frame.
+- Keyframe rule (phantom digits "5▮%"): scale keys must be STRICTLY increasing per object — a 1–2 frame count step put
+  (a+3, 1.0) after (b, 0.001), so the old digit reappeared and stayed for the rest of the chapter. Filter keys so
+  a+3 < b−1, never key the same frame twice. Whole-video contact sheet (1 frame / 5 s) caught it; per-line stills didn't.
+- Selective re-render: build.py mode "plan" writes out/<c>_redo.txt (frames whose look changed: tagged close-ups +
+  everything after the first tag change); tools/redo.sh deletes only those jpgs and re-renders (resumable render
+  skips the rest) → 2,370 of 6,031 frames instead of all.
 - Close-up guards (build.py make_cam "cu"): ray-cast head→camera — a wall in between pulls the camera inside (28 mm);
   a camera within 0.38 m of another body (not just head) counts as blocked → over-the-shoulder fallback.
 - Hand-held props: cast "hold": [(side, builder)] → parented into the fist at rest (builders must return ONE joined
