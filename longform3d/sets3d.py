@@ -212,3 +212,66 @@ def truck(x, y, col="e8e2d4", logo="3f7fbf"):
     for sx in (-2.6, -1.4, 2.6):
         for sy in (-1.05, 1.05): P.append(cyl(0.48, 0.35, (x + sx, y + sy, 0.48), mat("222226", 0.8), rot=(math.pi / 2, 0, 0)))
     return _group("truck", P, (x, y, 0))
+
+# ---------------------------------------------------------------- the LIKE % tag (likes video)
+def _flat(col):
+    m = bpy.data.materials.get("flat_" + col)
+    if m: return m
+    m = bpy.data.materials.new("flat_" + col); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
+    e = nt.nodes.new("ShaderNodeEmission"); e.inputs["Color"].default_value = (*L.hexc(col), 1); o = nt.nodes.new("ShaderNodeOutputMaterial")
+    nt.links.new(e.outputs[0], o.inputs[0]); m["toon"] = 1; m.diffuse_color = (*L.hexc(col), 1); return m
+def tag_col(v): return "ff4d5e" if v <= 30 else ("ffcc33" if v <= 69 else "4ee07a")
+def like_tag(ch, schedule, track, last_frame, height=0.33):
+    """glowing 'NN%' above a head. schedule = [(frame, value|None)] sorted; a change counts up/down through ≤6 steps
+    over 8 frames, then pulses. A dark pill plate keeps it readable; the whole tag Track-To's `track` (an empty that
+    follows the active camera). Text objects can't animate their body, so every shown value is its own object."""
+    k = ch["k"]; bpy.context.view_layer.update(); hc = L.head_pos(ch, max(1, schedule[0][0]))
+    bpy.ops.object.empty_add(location=hc + Vector((0, 0, height * k))); root = bpy.context.object; root.name = ch["name"] + "_tagroot"
+    mw = root.matrix_world.copy(); root.parent = ch["arm"]; root.parent_type = "BONE"; root.parent_bone = "head"; root.matrix_world = mw
+    tc = root.constraints.new("TRACK_TO"); tc.target = track; tc.track_axis = "TRACK_Z"; tc.up_axis = "UP_Y"
+    steps = []                                   # (start_frame, end_frame, value, pulse?)
+    prev = None
+    for i, (f, v) in enumerate(schedule):
+        nxt = schedule[i + 1][0] if i + 1 < len(schedule) else last_frame + 1
+        if v is None: prev = None; continue
+        if prev is None or prev == v: steps.append([f, nxt, v, prev is None])
+        else:
+            n = min(6, abs(v - prev)); vals = [round(prev + (v - prev) * (j + 1) / n) for j in range(n)]
+            for j, vv in enumerate(vals):
+                a = f + int(j * 8 / n); b = f + int((j + 1) * 8 / n) if j < n - 1 else nxt
+                steps.append([a, max(a + 1, b), vv, j == n - 1])
+        prev = v
+    vis = []
+    def obj(o, a, b, pulse):
+        o.parent = root; o.matrix_parent_inverse.identity()
+        keys = [(a - 1, 0.001), (a, 1.25 if pulse else 1.0), (a + 3, 1.0), (b - 1, 1.0), (b, 0.001)]
+        for fr, sc in keys: o.scale = (sc,) * 3; o.keyframe_insert("scale", frame=max(0, fr))
+        for fc in o.animation_data.action.fcurves:
+            for kp in fc.keyframe_points: kp.interpolation = "CONSTANT" if kp.co[1] < 0.01 else "LINEAR"
+    for a, b, v, pulse in steps:
+        t = L.text3d(f"{v}%", (0, 0, 0), 0.15 * k, _flat(tag_col(v)), rot=(0, 0, 0), extrude=0.004); t.name = f"{ch['name']}_tag{v}"
+        t.location = (0, 0, 0.004); obj(t, a, b, pulse); vis.append((a, b))
+    if vis:                                      # one plate spanning every visible interval
+        bpy.ops.mesh.primitive_cylinder_add(radius=0.5, depth=0.004, vertices=32); p = bpy.context.object; p.name = ch["name"] + "_tagplate"
+        p.rotation_euler = (math.pi / 2, 0, 0); bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
+        p.dimensions = (0.34 * k, 0.15 * k, 0.004); bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+        p.data.materials.append(_flat("1e1a2a")); p.parent = root; p.matrix_parent_inverse.identity(); p.location = (0, 0, -0.004)
+        spans = sorted(vis); merged = [list(spans[0])]
+        for a, b in spans[1:]:
+            if a <= merged[-1][1] + 1: merged[-1][1] = max(merged[-1][1], b)
+            else: merged.append([a, b])
+        p.scale = (0.001,) * 3; p.keyframe_insert("scale", frame=0)
+        for a, b in merged:
+            for fr, sc in ((a - 1, 0.001), (a, 1.0), (b - 1, 1.0), (b, 0.001)): p.scale = (sc,) * 3; p.keyframe_insert("scale", frame=max(0, fr))
+        for fc in p.animation_data.action.fcurves:
+            for kp in fc.keyframe_points: kp.interpolation = "CONSTANT"
+    return root
+def cam_follower(cuts):
+    """empty that jumps to the active camera at every cut (tags/rings Track-To it); cuts = [(frame, cam)]"""
+    bpy.ops.object.empty_add(location=(0, 0, 0)); e = bpy.context.object; e.name = "CAMTRACK"
+    for f, c in cuts:
+        e.location = c.location.copy(); e.keyframe_insert("location", frame=max(0, f))   # matrix_world is stale right after creation
+    if e.animation_data:
+        for fc in e.animation_data.action.fcurves:
+            for kp in fc.keyframe_points: kp.interpolation = "CONSTANT"
+    return e

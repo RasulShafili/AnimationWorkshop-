@@ -1,0 +1,534 @@
+[
+ {
+  "out": "vo/c1_n1.wav",
+  "text": "Day one. You wake up, walk downstairs, and there's a number floating above your mom's head. One hundred.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_mom1.wav",
+  "text": "Morning, sweetheart! Pancakes?",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c1_n2.wav",
+  "text": "Above your dad: one hundred.|Above your little sister, who put a frog in your shoe last week: also one hundred.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_zoe1.wav",
+  "text": "Benny, you have syrup on your face.",
+  "ref": "vo/refs/zoe.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c1_n3.wav",
+  "text": "You don't know what the numbers mean yet.|But you're about to find out.|At school.|The hard way.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c1_n4.wav",
+  "text": "So... what if you could see how much everyone likes you?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n1.wav",
+  "text": "The hallway is a sea of numbers. Twelve. Forty-five. Zero. A kid you've never even met: zero. Fair.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_theo1.wav",
+  "text": "Ben! Did you finish the science homework? I need to copy... I mean, compare.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n2.wav",
+  "text": "Your best friend since kindergarten. Sixty-two. Not bad. Not great. Kind of... a C minus.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n3.wav",
+  "text": "And then Lila walks past.|The girl who plays violin at every school concert.|The girl you've liked since fourth grade.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_n4.wav",
+  "text": "Three. Three percent. You've seen higher numbers above the vending machine.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c2_hale1.wav",
+  "text": "Ben! Homework, please. And try to stay awake today.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c2_n5.wav",
+  "text": "Mister Hale: forty-eight.|Basically a coin flip.|A red-haired kid in a green sweater walks past, staring at everyone's eyes like he can hear something.|Weird.|His number for you?|Fifty.|Strangers are generous.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_dex1.wav",
+  "text": "You. New kid who sits by the window.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_ben1.wav",
+  "text": "I've been here for three years.",
+  "ref": "vo/refs/ben.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_dex2.wav",
+  "text": "...Cool jacket.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c3_n1.wav",
+  "text": "Dex.|The kid teachers walk around in the hallway.|Ninety-one.|Ninety-one percent.|Dex likes you more than your best friend does.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n2.wav",
+  "text": "You have no idea what to do with that information.|So you do what anyone would do.|You say \"thanks\" and run.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c3_n3.wav",
+  "text": "That night you lie in bed doing math.|Mom, one hundred.|Dex, ninety-one.|Theo, sixty-two.|Lila, three.|Somewhere in that list is a lesson.|You just can't read it yet.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n1.wav",
+  "text": "By day three, you start taking notes.|Rule one: the numbers only change when something happens between you and that person.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n2.wav",
+  "text": "You held a door for a teacher.|Plus four.|You laughed at a joke that wasn't funny.|Minus two.|People can tell.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n3.wav",
+  "text": "Rule two: you can't see your own number.|Not in the mirror, not in a window, not in a spoon.|You checked.|Twice.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n4.wav",
+  "text": "Rule three: the numbers never lie. Which is great. Until it isn't.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c4_n5.wav",
+  "text": "You test it on your mom.|You do the dishes without being asked.|Still one hundred.|You leave your socks on the stairs.|Still one hundred.|Moms are broken.|In the best way.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n1.wav",
+  "text": "Day seven. The popular kids wave you over. Their numbers are low, but their table is shiny.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_theo1.wav",
+  "text": "Hey, I saved you a seat! I brought the good chips!",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_ben1.wav",
+  "text": "Oh , sorry, man. Tomorrow?",
+  "ref": "vo/refs/ben.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c5_n2.wav",
+  "text": "Fifty-five.|You watch it happen.|You watch your best friend like you a little bit less, in real time.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n3.wav",
+  "text": "The worst part? He still waves at you from across the room. Fifty-four.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c5_n4.wav",
+  "text": "And the popular kids?|Their numbers don't move at all.|Fourteen, eleven, nine.|You traded a sixty-two for a table full of single digits.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n1.wav",
+  "text": "Day nine.|You decide to fix Lila's number.|You watch three videos called \"How to make anyone like you.\" You practise in the mirror.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_ben1.wav",
+  "text": "Hey. Your violin... is very... shiny. Like your... hair. Which is also... nice.",
+  "ref": "vo/refs/ben.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_lila1.wav",
+  "text": "...Thanks? I have to go.",
+  "ref": "vo/refs/lila.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c6_n2.wav",
+  "text": "One percent. You actually made it go DOWN. People can feel when you're trying too hard.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c6_n3.wav",
+  "text": "You walk home holding a rose nobody wanted.|A dog on the street looks at you.|No number.|Dogs like everybody.|You need that energy.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n1.wav",
+  "text": "Here's the thing. Most people are terrible at guessing how much others like them.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n2.wav",
+  "text": "In a study at Cornell and Yale, strangers talked for five minutes, then guessed how much the other person liked them.|Almost everyone guessed too low.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c7_n3.wav",
+  "text": "Scientists call it the liking gap.|People like us more than we think.|You're the only person on Earth who can see the real number.|And it still doesn't help.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n1.wav",
+  "text": "Day twelve. You give up on speeches. You just say hi to Lila every morning. That's it. Hi.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n2.wav",
+  "text": "Four. Then nine. Then fifteen. Not because hi is magic. Because you keep showing up.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n3.wav",
+  "text": "Psychologists noticed this in 1968: the more often we see someone, the more we tend to like them.|They call it the mere exposure effect.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c8_n4.wav",
+  "text": "In one classroom study, a student who simply showed up to more lectures was rated more likable , by people who never even talked to her.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n1.wav",
+  "text": "Day fifteen. Dex's backpack rips open in the hallway. Everybody laughs. You don't even think. You just help.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_dex1.wav",
+  "text": "Two years ago, you were the only kid who didn't laugh when I tripped in gym.|You probably don't remember.",
+  "ref": "vo/refs/dex.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c9_n2.wav",
+  "text": "You don't. But he did. For two whole years. Ninety-four.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c9_n3.wav",
+  "text": "Sometimes you have no idea which tiny moment someone will remember forever.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n1.wav",
+  "text": "Day eighteen. Theo's number is forty-one. You've been so busy watching numbers that you stopped watching your friend.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_ben1.wav",
+  "text": "I brought the good chips. And I'm sorry. For the seat. And the rest.",
+  "ref": "vo/refs/ben.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_theo1.wav",
+  "text": "...Took you long enough. You're player two.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c10_n2.wav",
+  "text": "Sixty. Seventy-five. Eighty-eight. You don't even notice when it hits ninety. You're too busy losing at video games.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n3.wav",
+  "text": "There's a reason this works: we tend to like the people who show they like us.|Psychologists call it reciprocity.|Theo just calls it Tuesday.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n1.wav",
+  "text": "Day twenty-two.|Lila's solo at the winter concert.|Halfway through, her bow slips.|One horrible squeak.|The whole room goes quiet.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n2.wav",
+  "text": "You do the only thing you can think of.|You stand up.|And you clap.|Loud.|Alone.|For about three very long seconds.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n3.wav",
+  "text": "Then Theo stands up. Then Dex. Then the whole room.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_lila1.wav",
+  "text": "That was the worst concert of my life. Thank you for making it the best.",
+  "ref": "vo/refs/lila.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n4.wav",
+  "text": "Sixty-seven. Not a hundred. And somehow, that feels better than a hundred ever could.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11b_lila1.wav",
+  "text": "Is this seat taken? The good chips table, right?",
+  "ref": "vo/refs/lila.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11b_theo1.wav",
+  "text": "Only for people who clap at concerts.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11b_n1.wav",
+  "text": "Seventy-two.|She sits with you every day after that.|You never tell her about the numbers.|Some things are better without a score.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "Day twenty-five. Bad day. Zoe spills juice on your science project and you yell. Really yell.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_zoe1.wav",
+  "text": "I'm sorry, Benny. I just wanted to help.",
+  "ref": "vo/refs/zoe.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n2.wav",
+  "text": "You look up, ready to watch her number crash. One hundred. It doesn't even flicker.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n3.wav",
+  "text": "Some people's numbers aren't about what you do.|They're about who you are to them.|You spend the rest of the night helping her fix the drawing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_dad1.wav",
+  "text": "You know she thinks you're a superhero, right?",
+  "ref": "vo/refs/dad.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c12_n4.wav",
+  "text": "You do now. You can literally see it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n1.wav",
+  "text": "Day thirty.|Midnight.|You brush your teeth, look in the mirror, and for the first time there's a number above your own head.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n2.wav",
+  "text": "Forty-one. Lower than Dex. Lower than Lila. Lower than the hamster's best friend.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n3.wav",
+  "text": "And you realise what it means. Not how much others like you. How much YOU like you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_ben1.wav",
+  "text": "Okay. Let's work on that one.",
+  "ref": "vo/refs/ben.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c13_n4.wav",
+  "text": "Forty-two.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n5.wav",
+  "text": "Thirty days of numbers taught you three things.|People like you more than you think.|Showing up beats showing off.|And being kind to yourself counts too.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n1.wav",
+  "text": "Day thirty-one. You walk downstairs. No numbers. Just your family, and pancakes.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_zoe1.wav",
+  "text": "Benny, you have syrup on your face. Again.",
+  "ref": "vo/refs/zoe.wav",
+  "exag": 0.55,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c14_n2.wav",
+  "text": "You can't see how much they like you anymore. But for the first time, you don't need to.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n3.wav",
+  "text": "At school, Theo saves you a seat.|Dex nods at you in the hallway.|Lila waves with her violin case.|No numbers.|Just people.|Your people.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n4.wav",
+  "text": "If you could see one person's number, whose would you look at first? Tell me in the comments.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.5,
+  "cfg": 0.5
+ }
+]
