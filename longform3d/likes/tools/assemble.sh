@@ -17,5 +17,6 @@ for c in $ORDER; do
   else
   ffmpeg -v error -y -framerate 12 -i out/$c/%04d.jpg -i out/$c.wav -vf "$VF" -c:v libx264 -pix_fmt yuv420p -crf 19 -c:a aac -b:a 192k -ar 44100 -shortest out/$c.mp4 && echo "file '$c.mp4'" >> out/concat.txt
   fi
+  python3 tools/names_overlay.py $c      # character name cards on first solo close-ups (owner 2026-11-21)
 done
 ffmpeg -v error -y -f concat -safe 0 -i out/concat.txt -c copy out/what_if_see_likes.mp4 && ffprobe -v error -show_entries format=duration -of csv=p=0 out/what_if_see_likes.mp4

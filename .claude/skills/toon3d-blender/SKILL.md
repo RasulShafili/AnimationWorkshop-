@@ -276,3 +276,6 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
 - Facing math check before staging: forward = (sin f, −cos f); Mom at face −130 looked at the window and her close-up
   camera ended inside the wall. Mirror shots: a mirrored twin behind an empty frame (no Eevee mirror needed).
 - Per-chapter custom sets: spec "set_fn" (auditorium inside the classroom collided with the desks).
+- Name cards (owner: "can't tell boy/girl or who is who"): likes/tools/names.py → RGBA .mov lower thirds on each main
+  character's first SOLO close-up line (start t0+0.2, ≤3.2 s, slide-in/fade-out), names_overlay.py burns them into the
+  chapter mp4 inside assemble.sh. Next cast needs real gender/identity silhouettes (see memory readable-characters).

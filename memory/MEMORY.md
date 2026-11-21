@@ -22,3 +22,4 @@
 - [Friendly faces, detailed sets](toon-friendly-detailed-sets.md) — 3D toon: never creepy faces; backgrounds simple but full of props (DOF hides low detail)
 - [Science = 2D graphics](science-as-2d-graphics.md) — 3D long-form: fact lines cut to 2D motion graphics (counters/bars), not 3D signs
 - [Thumbnail = dramatic art + 2-word text](thumbnail-ifology-rules.md) — dedicated scene, giant outlined 'TOO LOUD.' style text, neon dark bg; not a video still
+- [Readable characters](readable-characters.md) — boy/girl + who-is-who must read at a glance; name cards on first close-up; redesign cast next
