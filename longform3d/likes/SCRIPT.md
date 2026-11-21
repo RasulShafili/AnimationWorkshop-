@@ -49,6 +49,8 @@ VISUAL: School hallway; numbers above every student: 12, 45, 0, 67, 30… Theo r
 - [c2.n2] NARRATOR: Your best friend since kindergarten. Sixty-two. Not bad. Not great. Kind of… a C minus.
 - [c2.n3] NARRATOR: And then Lila walks past. The girl who plays violin at every school concert. The girl you've liked since fourth grade.
 - [c2.n4] NARRATOR: Three. Three percent. You've seen higher numbers above the vending machine.
+- [c2.hale1] MR. HALE: Ben! Homework, please. And try to stay awake today.
+- [c2.n5] NARRATOR: Mister Hale: forty-eight. Basically a coin flip. A red-haired kid in a green sweater walks past, staring at everyone's eyes like he can hear something. Weird. His number for you? Fifty. Strangers are generous.
 VISUAL NOTE: Ben checks the vending machine: no number. He checks the class hamster: 4%. Beat. (visual gag)
 
 ## c3 — Day 2 · the scariest kid
@@ -58,6 +60,7 @@ VISUAL: Behind the gym (gym_back). Dex walks straight at Ben. Ben braces. Number
 - [c3.dex2] DEX: …Cool jacket.
 - [c3.n1] NARRATOR: Dex. The kid teachers walk around in the hallway. Ninety-one. Ninety-one percent. Dex likes you more than your best friend does.
 - [c3.n2] NARRATOR: You have no idea what to do with that information. So you do what anyone would do. You say "thanks" and run.
+- [c3.n3] NARRATOR: That night you lie in bed doing math. Mom, one hundred. Dex, ninety-one. Theo, sixty-two. Lila, three. Somewhere in that list is a lesson. You just can't read it yet.
 
 ## c4 — Day 3–5 · the rules
 VISUAL: Ben's bedroom at night; he draws a chart on a big notepad pinned to the wall (Day 3, Day 4, Day 5 columns).
@@ -65,6 +68,7 @@ VISUAL: Ben's bedroom at night; he draws a chart on a big notepad pinned to the 
 - [c4.n2] NARRATOR: You held a door for a teacher. Plus four. You laughed at a joke that wasn't funny. Minus two. People can tell.
 - [c4.n3] NARRATOR: Rule two: you can't see your own number. Not in the mirror, not in a window, not in a spoon. You checked. Twice.
 - [c4.n4] NARRATOR: Rule three: the numbers never lie. Which is great. Until it isn't.
+- [c4.n5] NARRATOR: You test it on your mom. You do the dishes without being asked. Still one hundred. You leave your socks on the stairs. Still one hundred. Moms are broken. In the best way.
 
 ## c5 — Day 7 · Theo's number is falling
 VISUAL: Cafeteria. Theo saves Ben a seat; Ben walks past to sit with popular kids; Theo's number ticks 62 → 55.
@@ -73,6 +77,7 @@ VISUAL: Cafeteria. Theo saves Ben a seat; Ben walks past to sit with popular kid
 - [c5.ben1] BEN: Oh — sorry, man. Tomorrow?
 - [c5.n2] NARRATOR: Fifty-five. You watch it happen. You watch your best friend like you a little bit less, in real time.
 - [c5.n3] NARRATOR: The worst part? He still waves at you from across the room. Fifty-four.
+- [c5.n4] NARRATOR: And the popular kids? Their numbers don't move at all. Fourteen, eleven, nine. You traded a sixty-two for a table full of single digits.
 
 ## c6 — Day 9 · trying to cheat the number
 VISUAL: Music room. Lila practising violin. Ben barges in with a rehearsed speech and a rose; her number drops 3 → 1.
@@ -80,6 +85,7 @@ VISUAL: Music room. Lila practising violin. Ben barges in with a rehearsed speec
 - [c6.ben1] BEN: Hey. Your violin… is very… shiny. Like your… hair. Which is also… nice.
 - [c6.lila1] LILA: …Thanks? I have to go.
 - [c6.n2] NARRATOR: One percent. You actually made it go DOWN. People can feel when you're trying too hard.
+- [c6.n3] NARRATOR: You walk home holding a rose nobody wanted. A dog on the street looks at you. No number. Dogs like everybody. You need that energy.
 
 ## c7 — Day 10 · the liking gap (science → 2D graphic)
 VISUAL: Ben sits on the school steps, head in hands. Then a 2D motion-graphics cutaway (two people talking, two bars).
@@ -117,12 +123,20 @@ VISUAL: School auditorium (classroom set dressed as stage). Lila plays a solo; h
 - [c11.lila1] LILA: That was the worst concert of my life. Thank you for making it the best.
 - [c11.n4] NARRATOR: Sixty-seven. Not a hundred. And somehow, that feels better than a hundred ever could.
 
+## c11b — Day 24 · lunch
+VISUAL: Cafeteria. Lila walks over with her tray to Ben's table (Theo and Dex there); she hesitates; sits down.
+- [c11b.lila1] LILA: Is this seat taken? The good chips table, right?
+- [c11b.theo1] THEO: Only for people who clap at concerts.
+- [c11b.n1] NARRATOR: Seventy-two. She sits with you every day after that. You never tell her about the numbers. Some things are better without a score.
+
 ## c12 — Day 25 · the zero
 VISUAL: Kitchen at night. Zoe is crying over a broken drawing; Ben, tired, snaps at her; her number flickers… stays 100.
 - [c12.n1] NARRATOR: Day twenty-five. Bad day. Zoe spills juice on your science project and you yell. Really yell.
 - [c12.zoe1] ZOE: I'm sorry, Benny. I just wanted to help.
 - [c12.n2] NARRATOR: You look up, ready to watch her number crash. One hundred. It doesn't even flicker.
 - [c12.n3] NARRATOR: Some people's numbers aren't about what you do. They're about who you are to them. You spend the rest of the night helping her fix the drawing.
+- [c12.dad1] DAD: You know she thinks you're a superhero, right?
+- [c12.n4] NARRATOR: You do now. You can literally see it.
 
 ## c13 — Day 30 · the last number
 VISUAL: Ben's bedroom, night. He stands at the mirror; above his reflection a number fades in for the first time: 41%.
@@ -131,13 +145,15 @@ VISUAL: Ben's bedroom, night. He stands at the mirror; above his reflection a nu
 - [c13.n3] NARRATOR: And you realise what it means. Not how much others like you. How much YOU like you.
 - [c13.ben1] BEN: Okay. Let's work on that one.
 - [c13.n4] NARRATOR: Forty-two.
+- [c13.n5] NARRATOR: Thirty days of numbers taught you three things. People like you more than you think. Showing up beats showing off. And being kind to yourself counts too.
 
 ## c14 — Day 31 · the morning after
 VISUAL: Kitchen, same as c1. No numbers anywhere. Zoe, Mom, Dad. Ben smiles and sits down.
 - [c14.n1] NARRATOR: Day thirty-one. You walk downstairs. No numbers. Just your family, and pancakes.
 - [c14.zoe1] ZOE: Benny, you have syrup on your face. Again.
 - [c14.n2] NARRATOR: You can't see how much they like you anymore. But for the first time, you don't need to.
-- [c14.n3] NARRATOR: If you could see one person's number, whose would you look at first? Tell me in the comments.
+- [c14.n3] NARRATOR: At school, Theo saves you a seat. Dex nods at you in the hallway. Lila waves with her violin case. No numbers. Just people. Your people.
+- [c14.n4] NARRATOR: If you could see one person's number, whose would you look at first? Tell me in the comments.
 
 ---
 
