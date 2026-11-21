@@ -52,6 +52,8 @@ for name, c in spec["cast"].items():
     look = dict(LOOKS.get(name, LOOKS["LEO"])) if name in LOOKS else dict(c["look"])
     C[name] = dict(ch=L.character(name, look), **c)
 def head(name, f): return L.head_pos(C[name]["ch"], f)
+for n, c in spec["cast"].items():
+    for side, fn in c.get("hold", []): L.hold(C[n]["ch"], side, fn())
 if spec["set"] == "cafeteria":      # one tray in front of every seated person; busy random trays only on tables nobody uses
     used = set()
     for n, c in spec["cast"].items():
@@ -90,7 +92,7 @@ POSES = {"sit": L.sit, "hands_up": None, "cross": lambda: {"uarm.L": (35, 0, 20)
          "curb": lambda: {"thigh.L": (120, 0, 0), "thigh.R": (120, 0, 0), "shin.L": (-120, 0, 0), "shin.R": (-120, 0, 0),
                           "uarm.L": (55, 0, 8), "uarm.R": (55, 0, -8), "farm.L": (60, 0, 0), "farm.R": (60, 0, 0), "spine": (12, 0, 0)},
          "reach": lambda: {"uarm.R": (80, 0, -5), "farm.R": (10, 0, 0)},
-         "wave": lambda: L.wave(sec, "R"),
+         "wave": "AIMWAVE",
          "clap": lambda: {"uarm.L": (55, 0, -12), "uarm.R": (55, 0, 12), "farm.L": (72 + 12 * math.sin(sec * 14), 0, 0), "farm.R": (72 + 12 * math.sin(sec * 14), 0, 0)},
          "pick": lambda: {"thigh.L": (75, 0, 0), "thigh.R": (60, 0, 0), "shin.L": (-115, 0, 0), "shin.R": (-100, 0, 0), "spine": (38, 0, 0),
                           "uarm.L": (55, 0, 8), "uarm.R": (70, 0, -8), "farm.L": (20, 0, 0), "farm.R": (15, 0, 0)}}
@@ -119,6 +121,9 @@ for f in range(1, NF + 1):
         p = pose.get(n)
         if p == "hands_up": base.update(L.hands_up(ch, f))
         elif p and p.startswith("point:"): tgt = p[6:]; base.update(L.aim_arm(ch, "R", head(tgt, f) if tgt in C else Vector(info.get(tgt, (0, 0, 1))), f))
+        elif p == "wave":
+            M_ = ch["arm"].matrix_world; sh = M_ @ ch["arm"].pose.bones["uarm.R"].head
+            base.update(L.aim_arm(ch, "R", sh + M_.to_3x3() @ Vector((-0.38 + 0.06 * math.sin(sec * 9), -0.12, 0.42)), f, bend=25))
         elif p in POSES and p != "sit": base.update(POSES[p]())
         # look: thought lines force eye contact Leo ↔ thinker; else the spec, else the speaker
         tgt = look.get(n)
@@ -128,6 +133,7 @@ for f in range(1, NF + 1):
         tp = head(tgt, f) if tgt in C else (Vector(tgt) if isinstance(tgt, (tuple, list)) else None)
         if tp is not None: base.update(L.look_at(ch, tp, f, 0.75, max_pitch=15))
         L.key_pose(ch, f, base)
+        if p == "pick" and not seated: L.plant(ch, f, loc[2])            # crouch: feet back on the floor (it floated 18 cm)
         L.key_face(ch, f, talk=talk_open(n, sec, ln), blink=L.blink_at(f * 2, hash(n) % 9) and emo[n] not in ("happy", "smug"),
                    emotion=emo[n], look=L.eye_look(ch, tp, f) if tp is not None else (0, 0))
 # in-world signs
@@ -143,15 +149,21 @@ def make_cam(name, cs, f):
     if kind == "fixed": return L.camera(name, cs[1], cs[2], cs[3] if len(cs) > 3 else 24)
     if kind == "cu":
         # occlusion check: if another head sits near the camera→face line, orbit the camera sideways (Leo's head hid Dad)
-        base = cs[3] if len(cs) > 3 else 12; dist = cs[2] if len(cs) > 2 else 1.5
+        base = cs[3] if len(cs) > 3 else 12; dist = max(1.75, cs[2] if len(cs) > 2 else 1.5)   # likes: wider so face AND the % tag fit
         for tries, off in enumerate((0, 22, -22)):
-            side = base + off; c = L.face_cam(name, C[cs[1]]["ch"], f, dist, side, up=0.1, lens=50)   # up=0.1: the % tag above the head stays in frame; bpy.context.view_layer.update()
+            side = base + off; c = L.face_cam(name, C[cs[1]]["ch"], f, dist, side, up=0.16, lens=50)   # the % tag above the head must stay in frame; bpy.context.view_layer.update()
             cp, hp = c.location.copy(), head(cs[1], f); seg = hp - cp; blocker = None
             for n2 in C:
                 if n2 == cs[1]: continue
                 q = head(n2, f); u = max(0, min(1, (q - cp).dot(seg) / seg.length_squared))
                 if (cp + seg * u - q).length < 0.32 and u < 0.92: blocker = n2
-            if not blocker: c.data.dof.aperture_fstop = 1.8; return c
+                # camera INSIDE someone's body (Zoe's close-up landed inside Ben's jacket: an all-blue frame)
+                if math.hypot(cp.x - q.x, cp.y - q.y) < 0.38 and cp.z < q.z + 0.3: blocker = n2
+            if not blocker:
+                dg = bpy.context.evaluated_depsgraph_get(); ray = cp - hp; hit, loc, *_ = sc.ray_cast(dg, hp + ray.normalized() * 0.3, ray.normalized(), distance=ray.length)
+                if hit:   # a wall between face and camera (close-up landed outside the room) → come back inside, wider lens
+                    c.location = hp + ray.normalized() * max(0.7, (loc - hp).length - 0.15); c.data.lens = 28
+                c.data.dof.aperture_fstop = 1.8; return c
             bpy.data.objects.remove(c.constraints[0].target); bpy.data.objects.remove(c)
         # someone stands between the camera and the face (two people talking face to face): film over THEIR shoulder
         # instead of orbiting into a profile (orbiting gave side views of both faces in c4)

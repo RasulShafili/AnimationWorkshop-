@@ -13,8 +13,10 @@ def pancakes(info):
     for x in (-0.25, 0.65):
         for k in range(3): L.cyl(0.09, 0.018, (x, 0.2, 0.79 + k * 0.019), L.mat("e8b060", 0.6))
 def violin(x, y, z, rot=0.0):
-    b = L.sph(0.12, (x, y, z), L.mat("a0522d", 0.4), (0.55, 0.18, 1.0), name="violin"); L.box((0.03, 0.02, 0.32), (x, y, z + 0.24), L.mat("2a1a10", 0.5), 0.005)
-    b.rotation_euler.y = rot; return b
+    """body + neck joined into ONE object (a separate neck stayed floating when only the body was held)"""
+    b = L.sph(0.12, (x, y, z), L.mat("a0522d", 0.4), (0.55, 0.18, 1.0), name="violin"); n = L.box((0.03, 0.02, 0.32), (x, y, z + 0.24), L.mat("2a1a10", 0.5), 0.005)
+    for o in bpy.context.selected_objects: o.select_set(False)
+    b.select_set(True); n.select_set(True); bpy.context.view_layer.objects.active = b; bpy.ops.object.join(); b.name = "violin"; b.rotation_euler.y = rot; return b
 def music_set():
     L._room(7, 6, 2.9, "e8d8c0", "a07848", (0, 0, 0), "music"); music_room({}); S.plant(-3.0, 2.4, 0, 0.7); S.poster(-1.5, 2.95, 1.9, 0.6, 0.45, 91)
     S.poster(0.5, 2.95, 1.9, 0.6, 0.45, 92); S.wall_clock(2.0, 2.94, 2.4); S.rug(0, 0.6, 3.0, 2.0, "8e6fc1"); return {}
@@ -40,6 +42,11 @@ def chart(info):
         for j in range(4): L.box((0.25, 0.012, 0.04), (-0.62 + k * 0.42, 1.705, 1.85 - j * 0.16), flat(col), 0)
 def mom_laundry(info): L.box((0.45, 0.35, 0.18), (-0.3, 1.0, 0.95), L.mat("e8e2d4", 0.8), 0.04, "laundry")
 def rose(x, y, z): L.cyl(0.008, 0.35, (x, y, z), L.mat("3f8a45", 0.6)); L.sph(0.04, (x, y, z + 0.19), L.mat("d9334a", 0.5), seg=12, name="rose")
+def rose_obj():
+    """one object (stem + bloom joined) so it can be parented into a fist"""
+    st = L.cyl(0.008, 0.35, (0, 0, 0.1), L.mat("3f8a45", 0.6)); bl = L.sph(0.045, (0, 0, 0.29), L.mat("d9334a", 0.5), seg=12)
+    for o in bpy.context.selected_objects: o.select_set(False)
+    st.select_set(True); bl.select_set(True); bpy.context.view_layer.objects.active = st; bpy.ops.object.join(); st.name = "rose"; return st
 def books_floor(info):
     import random; r = random.Random(5)
     for k in range(9): b = L.box((0.18, 0.25, 0.03), (0.4 + r.uniform(-0.6, 0.6), -0.4 + r.uniform(-0.4, 0.3), 0.016), L.mat(S.PAL[k % 10], 0.6), 0.003, "book"); b.rotation_euler.z = r.uniform(0, 3)
@@ -66,12 +73,12 @@ SW = 0.15
 CH = {}
 # ================================================================================ c1 — Day 1, breakfast: everyone at home is 100
 CH["c1"] = dict(set="kitchen_dressed", light="class_day", mood="warm_in", props=[day_window, chair2(-0.75, 0.3, 90), pancakes],
-    cast={"BEN": dict(at=(-0.35, -0.55), face=35, emo="neutral"), "MOM": dict(at=(1.45, 0.95), face=-130, emo="happy", tag=[(("c1_n1", 2.8), 100)]),
+    cast={"BEN": dict(at=(-0.35, -0.55), face=35, emo="neutral"), "MOM": dict(at=(1.45, 0.95), face=-50, emo="happy", tag=[(("c1_n1", 2.8), 100)]),   # faces Ben/table (−130 faced the window)
           "DAD": dict(seat=(-0.75, 0.3, 0.47), face=90, emo="smile", tag=[(("c1_n2", 0.2), 100)]),
           "ZOE": dict(seat=(1.25, 0.3, 0.47), face=-90, emo="smug", tag=[(("c1_n2", 2.6), 100)])},
     shots={"wide": ("fixed", (0.2, -1.5, 1.55), (0.3, 0.45, 1.0), 18), "cu_ben": ("cu", "BEN", 1.4, 10), "cu_mom": ("cu", "MOM", 1.6, 0),
            "cu_zoe": ("cu", "ZOE", 1.3, 0), "two": ("fixed", (1.6, -1.2, 1.4), (-0.2, 0.4, 1.0), 22)},
-    lines=[("c1_n1", "wide", {"look": {"BEN": "MOM"}}), ("c1_mom1", "cu_mom", {}), ("c1_n2", "two", {"emo": {"BEN": "surprised"}, "look": {"BEN": "ZOE"}}),
+    lines=[("c1_n1", "two", {"look": {"BEN": "MOM"}}), ("c1_mom1", "cu_mom", {}), ("c1_n2", "two", {"emo": {"BEN": "surprised"}, "look": {"BEN": "ZOE"}}),
            ("c1_zoe1", "cu_zoe", {}), ("c1_n3", "cu_ben", {"emo": {"BEN": "scared"}}), ("c1_n4", "cu_ben", {"emo": {"BEN": "surprised"}, "hold": 1.2})])
 # ================================================================================ c2 — Day 1, the hallway of numbers
 CH["c2"] = dict(set="hallway", light="class_day", mood="warm_in",
@@ -100,9 +107,9 @@ CH["c3b"] = dict(set="bedroom_dressed", light="lamp_night", mood="night", recolo
     shots={"wide": ("fixed", (1.2, -1.5, 1.4), (-1.0, 0.5, 0.95), 20)}, lines=[("c3_n3", "wide", {"hold": 0.8})])
 # ================================================================================ c4 — Day 3–5, the rules (bedroom chart)
 CH["c4"] = dict(set="bedroom_dressed", light="lamp_night", mood="night", props=[chart, mom_laundry],
-    cast={"BEN": dict(at=(0.3, 1.0), face=180, emo="determined", look_at=(-0.2, 1.72, 1.55)),
+    cast={"BEN": dict(at=(0.85, 1.0), face=200, emo="determined", look_at=(-0.2, 1.72, 1.55)),          # beside the chart, not in front of it
           "MOM": dict(at=(-0.9, 0.9), face=150, emo="happy", tag=[(("c4_n5", 0.3), 100)], look_at="BEN")},
-    shots={"wide": ("fixed", (1.3, -1.5, 1.5), (-0.2, 1.2, 1.3), 20), "chart": ("fixed", (0.3, 0.2, 1.55), (-0.2, 1.72, 1.55), 30),
+    shots={"wide": ("fixed", (1.3, -1.5, 1.5), (-0.2, 1.2, 1.3), 20), "chart": ("fixed", (-0.25, 0.1, 1.55), (-0.2, 1.72, 1.55), 30),
            "cu_ben": ("cu", "BEN", 1.4, -20), "cu_mom": ("cu", "MOM", 1.5, 0)},
     lines=[("c4_n1", "wide", {}), ("c4_n2", "chart", {}), ("c4_n3", "cu_ben", {"emo": {"BEN": "sad"}, "pose": {"BEN": None}}),
            ("c4_n4", "wide", {"emo": {"BEN": "determined"}}), ("c4_n5", "cu_mom", {"look": {"BEN": "MOM"}, "hold": 0.6})])
@@ -119,10 +126,10 @@ CH["c5"] = dict(set="cafeteria", light="class_day", mood="warm_in",
            ("c5_n4", "cu_ben", {"emo": {"BEN": "sad"}, "pose": {"THEO": None}, "hold": 0.6})])
 # ================================================================================ c6 — Day 9, trying to cheat (music room) + walk home
 CH["c6"] = dict(set="music", set_fn=music_set, light="class_day", mood="warm_in",
-    anim=[lambda info, T, fps: rose(0.15, -0.2, 1.0)],
-    cast={"LILA": dict(at=(-0.6, 1.6), face=-10, emo="smile", tag=[(("c6_n1", 0.5), 3), (("c6_lila1", 1.0), 1)], look_at=(0.4, 1.6, 1.0)),
-          "BEN": dict(at=(0.3, 0.6), face=150, emo="happy", look_at="LILA")},
-    shots={"wide": ("fixed", (1.8, -2.4, 1.6), (-0.2, 1.4, 1.1), 22), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_lila": ("cu", "LILA", 1.5, 0)},
+    cast={"LILA": dict(at=(-0.6, 1.6), face=-10, emo="smile", tag=[(("c6_n1", 0.5), 3), (("c6_lila1", 1.0), 1)], look_at=(0.4, 1.6, 1.0),
+                       hold=[("L", lambda: violin(0, 0, 0))]),
+          "BEN": dict(at=(0.5, 0.7), face=150, emo="happy", look_at="LILA", hold=[("R", lambda: rose_obj())])},
+    shots={"wide": ("fixed", (-2.2, -1.8, 1.6), (-0.1, 1.2, 1.1), 22), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_lila": ("cu", "LILA", 1.5, 0)},
     lines=[("c6_n1", "wide", {}), ("c6_ben1", "cu_ben", {"emo": {"BEN": "smug"}}), ("c6_lila1", "cu_lila", {"emo": {"LILA": "surprised"}, "look": {"LILA": "BEN"}}),
            ("c6_n2", "cu_lila", {"emo": {"LILA": "sad"}}), ("c6_n3", "wide", {"emo": {"BEN": "sad"}, "hold": 0.4})])
 # ================================================================================ c7 — Day 10, the liking gap (steps) + 2D graphic
@@ -133,7 +140,7 @@ CH["c7"] = dict(set="gym_back", light="sun", mood="day", props=[steps],
 CH["c8"] = dict(set="hallway", light="class_day", mood="warm_in",
     cast={"BEN": dict(at=(-0.5, -0.3), face=60, emo="smile", look_at="LILA", pose="wave"),
           "LILA": dict(at=(0.6, 0.6), face=-120, emo="neutral", look_at="BEN", tag=[(0.5, 1), (("c8_n2", 0.5), 4), (("c8_n2", 2.0), 9), (("c8_n2", 3.5), 15)])},
-    shots={"two": ("fixed", (0.3, -2.6, 1.55), (0.1, 0.2, 1.3), 30), "cu_lila": ("cu", "LILA", 1.5, 0)},
+    shots={"two": ("fixed", (2.1, -2.2, 1.55), (0.0, 0.2, 1.3), 30), "cu_lila": ("cu", "LILA", 1.5, 0)},   # from the right: Ben's face, not his back
     lines=[("c8_n1", "two", {}), ("c8_n2", "cu_lila", {"emo": {"LILA": "smile"}}), ("c8_n3", "two", {}), ("c8_n4", "two", {"hold": 0.6})])
 # ================================================================================ c9 — Day 15, why Dex likes you (hallway)
 CH["c9"] = dict(set="hallway", light="class_day", mood="warm_in", props=[books_floor],
@@ -148,7 +155,7 @@ CH["c10"] = dict(set="street_dressed", light="sun", mood="warm_in", props=[porch
     cast={"BEN": dict(at=(0.6, 5.3, 0.45), face=-160, emo="sad", look_at="THEO"),          # porch deck top = 0.45 m
           "THEO": dict(at=(-0.1, 6.0, 0.45), face=20, emo="neutral", look_at="BEN",
                        tag=[(0.5, 41), (("c10_theo1", 1.0), 60), (("c10_n2", 0.5), 75), (("c10_n2", 2.0), 88), (("c10_n2", 3.5), 92)])},
-    shots={"wide": ("fixed", (1.4, 2.6, 1.5), (0.2, 5.8, 1.4), 26), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_theo": ("cu", "THEO", 1.4, 0)},
+    shots={"wide": ("fixed", (2.3, 4.3, 1.5), (0.1, 5.7, 1.35), 24), "cu_ben": ("cu", "BEN", 1.4, 0), "cu_theo": ("cu", "THEO", 1.4, 0)},   # side view: Ben's back hid Theo
     lines=[("c10_n1", "wide", {}), ("c10_ben1", "cu_ben", {}), ("c10_theo1", "cu_theo", {"emo": {"THEO": "smug"}}),
            ("c10_n2", "wide", {"emo": {"THEO": "happy", "BEN": "happy"}}), ("c10_n3", "wide", {"hold": 0.6})])
 # ================================================================================ c11 — Day 22, the concert
@@ -193,7 +200,7 @@ CH["c13"] = dict(set="bedroom_dressed", light="lamp_night", mood="night", props=
 # ================================================================================ c14 — Day 31, no numbers (kitchen morning) + school
 CH["c14"] = dict(set="kitchen_dressed", light="class_day", mood="warm_in", props=[day_window, chair2(-0.75, 0.3, 90), pancakes],
     cast={"BEN": dict(seat=(-0.75, 0.3, 0.47), face=90, emo="happy", look_at="ZOE"), "ZOE": dict(seat=(1.25, 0.3, 0.47), face=-90, emo="smug", look_at="BEN"),
-          "MOM": dict(at=(1.45, 0.95), face=-130, emo="happy", look_at="BEN")},
+          "MOM": dict(at=(1.45, 0.95), face=-50, emo="happy", look_at="BEN")},
     shots={"wide": ("fixed", (0.2, -1.5, 1.55), (0.3, 0.45, 1.0), 18), "cu_zoe": ("cu", "ZOE", 1.3, 0), "cu_ben": ("cu", "BEN", 1.4, 15)},
     lines=[("c14_n1", "wide", {}), ("c14_zoe1", "cu_zoe", {}), ("c14_n2", "cu_ben", {"hold": 0.4})])
 CH["c14b"] = dict(set="hallway", light="class_day", mood="warm_in",

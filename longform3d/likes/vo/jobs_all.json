@@ -470,7 +470,7 @@
  },
  {
   "out": "vo/c13_n3.wav",
-  "text": "And you realise what it means. Not how much others like you. How much YOU like you.",
+  "text": "And you realise what it means. Not how much others like you. How much you like you.",
   "ref": "vo/refs/narrator.wav",
   "exag": 0.5,
   "cfg": 0.5

@@ -253,3 +253,18 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
   emissive backdrop + bokeh, our characters, rings, white flat bubbles with big icons, DOF focused on the hero's head —
   v1 left the hero blurry) and tools/thumb_text.py adds the giant outlined 2-word caption (yellow last word, white
   first, 14 px black stroke, 3° tilt). Ears/hands-on-face poses need real IK — use hands_up "panic" or a chin hand.
+
+## 16. Likes video (longform3d/likes, 2026-11-21): engine additions + QA lessons
+- `S.like_tag(ch, [(frame, value)], track, NF)`: glowing "NN%" above a head on a dark pill plate, colour by value
+  (red ≤30 / yellow ≤69 / green), counts through ≤6 steps on a change, pulses; every value is its own text object
+  (text bodies can't be keyframed). `S.cam_follower(cuts)`: empty that jumps to the active camera at every cut — tags
+  Track-To it. Chapter cast "tag": [(time, value)]. Tag changes emit tag_new/up/down audio events (pop/chime/blip).
+- Close-ups for a tag video: dist ≥ 1.75 and up 0.16 or the tag is cut off at the top.
+- Close-up guards (build.py make_cam "cu"): ray-cast head→camera — a wall in between pulls the camera inside (28 mm);
+  a camera within 0.38 m of another body (not just head) counts as blocked → over-the-shoulder fallback.
+- Hand-held props: cast "hold": [(side, builder)] → parented into the fist at rest (builders must return ONE joined
+  object — a separate violin neck floated in mid-air). Waves = aimed raised hand (Euler wave crossed the face).
+  Crouch poses ("pick") get L.plant (feet floated 18 cm). Seating on a 17 cm step = sitpose "curb".
+- Facing math check before staging: forward = (sin f, −cos f); Mom at face −130 looked at the window and her close-up
+  camera ended inside the wall. Mirror shots: a mirrored twin behind an empty frame (no Eevee mirror needed).
+- Per-chapter custom sets: spec "set_fn" (auditorium inside the classroom collided with the desks).
