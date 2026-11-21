@@ -118,6 +118,10 @@ def _ellipse(rx, rz, n=28, p=2):
         t = 2 * math.pi * i / n; c, sn = math.cos(t), math.sin(t)
         out.append((rx * math.copysign(abs(c) ** (2 / p), c), rz * math.copysign(abs(sn) ** (2 / p), sn)))
     return out
+def _rot_ellipse(rx, rz, ang, n=20):
+    ca, sa = math.cos(ang), math.sin(ang)
+    return [(x * ca - z * sa, x * sa + z * ca) for x, z in _ellipse(rx, rz, n)]
+FEM_HAIR = ("long", "ponytail", "bun", "curly_long", "pigtails")
 def decal(name, HC, r, k, x, z, outline, lift, col):
     """flat face decal: a fan mesh projected onto the head sphere (`lift` m above it), flat unlit colour, object origin
     at its centre so blink-scaling and brow tilts happen in place"""
@@ -172,6 +176,9 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     """look: skin, top, pants, shoes, hair (colour), hairstyle ('spiky'|'long'|'cap'|'bald'), scale, eyes ('round'),
     glasses (bool), sig (signature colour). Returns dict with armature + face parts."""
     k = look.get("scale", 1.0)
+    # owner 2026-11-21: "men must not have red cheeks; women must look like women; Lila and Theo look like the same
+    # person". sex 'f' → eyeliner + lashes, bigger eyes, blush, long hair, skirt, slimmer legs, narrower torso.
+    fem = look.get("sex", "f" if look.get("hairstyle") in FEM_HAIR else "m") == "f"
     arm = bpy.data.armatures.new(name + "_arm"); ao = bpy.data.objects.new(name, arm); bpy.context.collection.objects.link(ao)
     bpy.context.view_layer.objects.active = ao; bpy.ops.object.mode_set(mode="EDIT"); eb = {}
     for bn, h, t, p in BONES:
@@ -183,15 +190,19 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     parts = []
     def P(o, bone): parts.append((o, bone)); return o
     # body (rest pose)
-    P(box((0.40 * k, 0.26 * k, 0.52 * k), (0, 0, 1.08 * k), TOP, 0.09 * k, name + "_torso"), "spine")
+    P(box(((0.36 if fem else 0.42) * k, (0.24 if fem else 0.26) * k, 0.52 * k), (0, 0, 1.08 * k), TOP, 0.09 * k, name + "_torso"), "spine")
+    if look.get("skirt"):   # flared skirt on the hips, above the knee (legs below = tights in the pants colour)
+        bpy.ops.mesh.primitive_cone_add(vertices=40, radius1=0.30 * k, radius2=0.19 * k, depth=0.34 * k, location=(0, 0.01 * k, 0.80 * k))
+        sk = bpy.context.object; sk.name = name + "_skirt"; sk.scale = (1, 0.78, 1); bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+        P(_fin(sk, mat(look["skirt"], 0.6)), "hips")
     P(sph(0.21 * k, (0, 0.02 * k, 0.90 * k), PANT, (0.88, 0.62, 0.45), name=name + "_pelvis"), "hips")   # must stay inside the torso width (it poked out as a dark spot)
     for s, x in (("L", 0.22), ("R", -0.22)):
         P(capsule((x * k, 0, 1.27 * k), (x * 1.08 * k, 0, 1.00 * k), 0.055 * k, TOP), f"uarm.{s}")
         P(capsule((x * 1.08 * k, 0, 1.00 * k), (x * 1.12 * k, 0, 0.76 * k), 0.048 * k, TOP), f"farm.{s}")
         P(sph(0.06 * k, (x * 1.12 * k, 0, 0.70 * k), SK, (0.6, 0.95, 1.2), name=f"{name}_hand{s}"), f"farm.{s}")
         P(sph(0.024 * k, ((x * 1.12 - 0.022 * (1 if x > 0 else -1)) * k, -0.04 * k, 0.725 * k), SK, (1, 1, 1.5), name=f"{name}_thumb{s}"), f"farm.{s}")
-        P(capsule((x * 0.42 * k, 0, 0.86 * k), (x * 0.45 * k, 0, 0.46 * k), 0.07 * k, PANT), f"thigh.{s}")
-        P(capsule((x * 0.45 * k, 0, 0.46 * k), (x * 0.45 * k, 0, 0.10 * k), 0.06 * k, PANT), f"shin.{s}")
+        P(capsule((x * 0.42 * k, 0, 0.86 * k), (x * 0.45 * k, 0, 0.46 * k), (0.058 if fem else 0.07) * k, PANT), f"thigh.{s}")
+        P(capsule((x * 0.45 * k, 0, 0.46 * k), (x * 0.45 * k, 0, 0.10 * k), (0.048 if fem else 0.06) * k, PANT), f"shin.{s}")
         P(box((0.12 * k, 0.25 * k, 0.08 * k), (x * 0.45 * k, -0.05 * k, 0.04 * k), SHOE, 0.035 * k, name + "_shoe"), f"shin.{s}")
     P(sph(0.06 * k, (0, 0, 1.36 * k), SK, name=name + "_neck"), "neck")
     HC = Vector((0, -0.01, 1.58)) * k
@@ -201,21 +212,45 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
     R0 = 0.2 * k; dark = "%02x%02x%02x" % tuple(int(int(look["skin"][i:i + 2], 16) * 0.82) for i in (0, 2, 4))
     for s, sx in (("L", 1), ("R", -1)):
         ex = sx * 0.075
-        face["eye" + s] = P(decal(f"{name}_eye{s}", HC, R0, k, ex, 0.025, _ellipse(0.04, 0.05), 0.0015, "f8f6f0"), "head")
+        erx, erz = (0.044, 0.056) if fem else (0.04, 0.05)
+        face["eye" + s] = P(decal(f"{name}_eye{s}", HC, R0, k, ex, 0.025, _ellipse(erx, erz), 0.0015, "f8f6f0"), "head")
+        if fem:   # dark liner peeking above the eye white + two lash flicks at the outer corner (children of the eye → they blink)
+            face["lash" + s] = [decal(f"{name}_eyeliner{s}", HC, R0, k, ex, 0.032, _ellipse(erx + 0.005, erz + 0.004), 0.0009, "1c1418")]
+            for j, (dx, dz, ang) in enumerate(((0.040, 0.046, 0.75), (0.050, 0.026, 0.35))):
+                face["lash" + s].append(decal(f"{name}_eyelash{s}{j}", HC, R0, k, ex + sx * dx, 0.025 + dz, _rot_ellipse(0.016, 0.0045, sx * ang), 0.0011, "1c1418"))
         face["pup" + s] = P(decal(f"{name}_pup{s}", HC, R0, k, ex, 0.018, _ellipse(0.023, 0.026), 0.003, "121018"), "head")
         face["hl" + s] = P(decal(f"{name}_eyehl{s}", HC, R0, k, ex + 0.011, 0.031, _ellipse(0.0075, 0.0075, 12), 0.0045, "ffffff"), "head")
         face["brow" + s] = P(decal(f"{name}_brow{s}", HC, R0, k, ex, 0.105, _ellipse(0.036, 0.008, 24, 4), 0.007, "2a1a14"), "head")
-        P(decal(f"{name}_blush{s}", HC, R0, k, sx * 0.12, -0.05, _ellipse(0.026, 0.016), 0.001, "ff9a8a"), "head")
+        if look.get("blush", fem): P(decal(f"{name}_blush{s}", HC, R0, k, sx * 0.12, -0.05, _ellipse(0.026, 0.016), 0.001, "ff9a8a"), "head")
     face["mouth"] = P(mouth_mesh(name + "_mouth", HC, 0.2 * k, k), "head")
     P(decal(name + "_nose", HC, R0, k, 0, -0.04, _ellipse(0.014, 0.010, 16), 0.001, dark), "head")
     HR = mat(look.get("hair", "2a1a10"), 0.6); st = look.get("hairstyle", "spiky")
     if st != "bald":
-        P(sph((0.211 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.05 if st == "buzz" else 0.04, 0.07 if st == "buzz" else 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
+        if st == "flattop": pass   # Theo: squared box top, built below (no round cap)
+        else: P(sph((0.211 if st == "buzz" else 0.216) * k, HC + Vector((0, 0.05 if st == "buzz" else 0.04, 0.07 if st == "buzz" else 0.045)) * k, HR, (1, 1, 0.8), seg=72, name=name + "_hair"), "head")
         if st == "spiky":
             for i in range(7):
                 a = -0.9 + i * 0.3; P(sph(0.07 * k, HC + Vector((math.sin(a) * 0.15, -0.05 + 0.05 * abs(a), 0.17 - 0.05 * abs(a))) * k, HR, (1, 0.8, 1.3)), "head")
-        if st == "long":
-            P(sph(0.2 * k, HC + Vector((0, 0.08, -0.1)) * k, HR, (1.05, 0.6, 1.3)), "head")
+        if st in ("long", "bun", "ponytail", "pigtails"):   # side locks framing the face down to the jaw (feminine silhouette)
+            low = -0.20 if st == "long" else -0.08
+            for sx in (1, -1): P(capsule(HC + Vector((sx * 0.172, 0.0, 0.06)) * k, HC + Vector((sx * 0.185, 0.03, low)) * k, 0.052 * k, HR), "head")
+        if st == "long":   # hair down the back to the shoulders
+            P(sph(0.2 * k, HC + Vector((0, 0.07, -0.13)) * k, HR, (1.1, 0.72, 1.45), name=name + "_hairback"), "head")
+        if st == "curly_long":   # Lila: big curly hair to the shoulders — rings of curls round the back and sides, face left open
+            for zl, rr, cr in ((0.19, 0.10, 0.06), (0.12, 0.18, 0.075), (0.02, 0.215, 0.085), (-0.09, 0.22, 0.085), (-0.19, 0.20, 0.08), (-0.27, 0.16, 0.07)):
+                n = 16; skip = 38 if zl > 0.15 else 72
+                for i in range(n):
+                    a = i / n * 2 * math.pi; deg = math.degrees(a)
+                    if deg < skip or deg > 360 - skip: continue          # a = 0 is the face (−Y)
+                    P(sph(cr * k, HC + Vector((math.sin(a) * rr, -math.cos(a) * rr + 0.03, zl)) * k, HR, seg=14, name=name + "_curl"), "head")
+        if st == "pigtails":   # Zoe: two bunches with ties
+            for sx in (1, -1):
+                P(sph(0.07 * k, HC + Vector((sx * 0.215, 0.06, 0.06)) * k, HR, seg=20), "head")
+                P(capsule(HC + Vector((sx * 0.235, 0.07, 0.03)) * k, HC + Vector((sx * 0.25, 0.09, -0.16)) * k, 0.048 * k, HR), "head")
+                P(sph(0.026 * k, HC + Vector((sx * 0.205, 0.05, 0.11)) * k, mat(look.get("headband", "e8384f"), 0.5), seg=14), "head")
+        if st == "flattop":    # Theo: short sides + a squared top — a boxy silhouette nobody else has
+            P(sph(0.207 * k, HC + Vector((0, 0.03, 0.035)) * k, HR, (1, 1, 0.82), seg=72, name=name + "_hair"), "head")
+            P(box((0.30 * k, 0.31 * k, 0.12 * k), HC + Vector((0, 0.025, 0.175)) * k, HR, 0.035 * k, name + "_hairtop"), "head")
         if st == "bun":       # mom: hair pulled back + bun on top-back
             P(sph(0.09 * k, HC + Vector((0, 0.12, 0.16)) * k, HR, seg=24, name=name + "_bun"), "head")
         if st == "ponytail":  # Nora: tail hangs behind the head
@@ -229,8 +264,16 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
         if st == "cap":
             P(sph(0.215 * k, HC + Vector((0, 0.01, 0.07)) * k, mat(look.get("cap", "3a5a3a"), 0.6), (1, 1, 0.6)), "head")
             P(box((0.22 * k, 0.16 * k, 0.02 * k), HC + Vector((0, -0.2, 0.08)) * k, mat(look.get("cap", "3a5a3a"), 0.6), 0.01), "head")
-    if look.get("headband"):  # Nora's red headband
-        bpy.ops.mesh.primitive_torus_add(major_radius=0.212 * k, minor_radius=0.012 * k, location=HC + Vector((0, 0.03, 0.09)) * k, rotation=(math.radians(-70), 0, 0))
+    if look.get("headband"):  # Nora's red headband (curly hair: bigger + further forward or the curls swallow it)
+        cu = look.get("hairstyle") == "curly_long"
+        if cu:   # ear-to-ear ARC lying on the curls (a tilted full ring floated like a halo)
+            import bmesh
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.284 * k, minor_radius=0.022 * k, location=(0, 0, 0))
+            tb = bpy.context.object; bm = bmesh.new(); bm.from_mesh(tb.data)
+            bmesh.ops.delete(bm, geom=[v for v in bm.verts if v.co.y < 0.02 * k], context="VERTS"); bm.to_mesh(tb.data); bm.free()
+            tb.rotation_euler = (math.radians(90 - 20), 0, 0); tb.location = HC + Vector((0, 0.02, -0.01)) * k
+        else:
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.212 * k, minor_radius=0.012 * k, location=HC + Vector((0, 0.03, 0.09)) * k, rotation=(math.radians(-70), 0, 0))
         P(_fin(bpy.context.object, mat(look["headband"], 0.5)), "head")
     if look.get("glasses"):
         for sx in (1, -1):
@@ -250,6 +293,9 @@ def character(name, look, loc=(0, 0, 0), facing_deg=0):
         for key in ("pup" + s, "hl" + s):
             o = face[key]; mw = o.matrix_world.copy(); o.parent = piv; o.parent_type = "OBJECT"; o.matrix_world = mw
     face["pivot"] = piv
+    for s in ("L", "R"):
+        for o in face.pop("lash" + s, []):
+            o.parent = face["eye" + s]; o.matrix_parent_inverse = face["eye" + s].matrix_world.inverted()
     ao.location = loc; ao.rotation_euler = (0, 0, math.radians(facing_deg))
     for pb in ao.pose.bones: pb.rotation_mode = "XYZ"
     return {"arm": ao, "face": face, "k": k, "name": name}

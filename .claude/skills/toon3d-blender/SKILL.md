@@ -279,3 +279,17 @@ technique, keep our own characters and a visible difference ("elə bir fərqlili
 - Name cards (owner: "can't tell boy/girl or who is who"): likes/tools/names.py → RGBA .mov lower thirds on each main
   character's first SOLO close-up line (start t0+0.2, ≤3.2 s, slide-in/fade-out), names_overlay.py burns them into the
   chapter mp4 inside assemble.sh. Next cast needs real gender/identity silhouettes (see memory readable-characters).
+
+## 17. Readable cast: sex + identity (owner 2026-11-21: "men must not have red cheeks; women must look like women;
+## Lila and Theo look like the same person — don't take the easy way")
+- look["sex"] ("f"/"m"; default f for hairstyles long/ponytail/bun/curly_long/pigtails). Female: eyes 0.044×0.056,
+  dark eyeliner ellipse behind the eye white (+0.006 up) + 2 lash flicks at the outer top corner (decals PARENTED TO THE
+  EYE → they squash with blinks), blush (males: NO blush; look["blush"] overrides), torso 0.36 wide (male 0.42),
+  thighs 0.058 / shins 0.048, side locks framing the face, look["skirt"] = flared cone on the hips (legs below in the
+  pants colour = tights/bare legs). Seated/walking skirts tested fine.
+- Hairstyles added: "curly_long" (rings of curls round back/sides, face left open; headband = ear-to-ear half-torus
+  ARC radius 0.284 — a tilted full ring floated like a halo or got buried), "pigtails" (bunches + ties), "flattop"
+  (squared box top — gives a boy a silhouette no girl has), "long" now = back volume to the shoulders + side locks.
+- Two characters with similar skin must differ in hair SILHOUETTE + skin shade + pants colour + height.
+- Always render a cast sheet (likes/cast_sheet.py: full-body lineup + face close-ups) and a lash/blink test before a
+  production render.

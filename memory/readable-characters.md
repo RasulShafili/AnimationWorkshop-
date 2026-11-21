@@ -13,7 +13,8 @@ Same body, same navy jeans and white shoes for everyone; only small hair caps an
 - Every long video: lower-third name cards (likes/tools/names.py + names_overlay.py, wired into assemble.sh) on each
   main character's FIRST solo close-up — "BEN · that's you", "LILA · the girl you like". Owner OK'd "not ugly" style:
   dark rounded plate, accent strip in the character's colour.
-- Next cast (todo before the next video): girls = long hair/ponytail/pigtails + 2D lashes + skirt/dress or coloured
+- DONE 2026-11-21 in lib3d (sex/skirt/lashes/curly_long/pigtails/flattop; skill §17); owner also said men = NO blush.
+- Rules for every cast: girls = long hair/ponytail/pigtails + 2D lashes + skirt/dress or coloured
   pants + narrower shoulders; boys short hair, no lashes; height differences; unique pants/shoes colours + one prop;
   extras in muted colours. Render a cast sheet for owner approval first. Related: [[toon3d-blender-pipeline]],
   [[toon-friendly-detailed-sets]], [[mixed-skin-tones]].
