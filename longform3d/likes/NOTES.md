@@ -10,3 +10,6 @@
 ## 2026-11-21 — v2 (redesigned cast) render paused by owner; FINISHED 2026-11-22 (8:22, -14.4 LUFS, QA OK)
 - Done: c1–c12 full, c13 163/413. Left: rest of c13, c14 (185), c14b (222) ≈ 25 min, then audio_ch + assemble.
 - Resume: `systemd-inhibit --what=sleep:idle tools/make_all.sh` (existing jpgs are skipped). Desktop mp4 is still the OLD-design version until assemble runs.
+- Teaser Short (c2 hallway, cut 31.4 s + hold on Lila 3% frame 352, 34.9 s) posted 2026-11-22 ~18:20 Baku:
+  YouTube https://www.youtube.com/watch?v=Ggz-t9ALmv4 · IG https://www.instagram.com/reel/DgC9OiIC3nM/ · TikTok 7710993517123734792.
+  tools/teaser.py now takes [cut_s] [hold_frame]. Next teaser ideas (≥3 h later): c3 Dex 91%, c13 mirror 41%.
