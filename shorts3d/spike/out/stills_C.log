@@ -1,0 +1,36 @@
+Blender 4.5.16 LTS (hash 3f6797307da5 built 2026-11-10 01:31:21)
+Fra:570 Mem:397.69M (Peak 460.69M) | Time:00:01.08 | Rendering 1 / 8 samples
+Fra:570 Mem:397.69M (Peak 460.69M) | Time:00:01.94 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S09.jpg'
+Time: 00:02.02 (Saving: 00:00.04)
+
+Fra:615 Mem:425.61M (Peak 462.93M) | Time:00:00.98 | Rendering 1 / 8 samples
+Fra:615 Mem:425.61M (Peak 462.93M) | Time:00:02.01 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S10.jpg'
+Time: 00:02.09 (Saving: 00:00.02)
+
+Fra:649 Mem:425.61M (Peak 462.97M) | Time:00:00.84 | Rendering 1 / 8 samples
+Fra:649 Mem:425.61M (Peak 462.97M) | Time:00:01.86 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S11.jpg'
+Time: 00:01.95 (Saving: 00:00.02)
+
+Fra:692 Mem:425.61M (Peak 462.97M) | Time:00:00.85 | Rendering 1 / 8 samples
+Fra:692 Mem:425.61M (Peak 462.97M) | Time:00:01.86 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S12.jpg'
+Time: 00:01.98 (Saving: 00:00.05)
+
+Fra:740 Mem:425.61M (Peak 462.97M) | Time:00:00.91 | Rendering 1 / 8 samples
+Fra:740 Mem:425.61M (Peak 462.97M) | Time:00:01.89 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S13.jpg'
+Time: 00:02.01 (Saving: 00:00.06)
+
+Info: Removed 62 vertices
+Info: Removed 118 vertices
+Info: Removed 118 vertices
+Info: Removed 118 vertices
+Info: Removed 118 vertices
+Info: Removed 118 vertices
+Info: Removed 118 vertices
+GROUP_DONE C ['S09', 'S10', 'S11', 'S12', 'S13']
+
+Blender quit

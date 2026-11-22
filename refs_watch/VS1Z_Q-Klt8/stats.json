@@ -1,0 +1,20 @@
+{
+ "title": "The Ancient Jar That Warned an Empire",
+ "seconds": 64.9,
+ "shots": 2,
+ "avg_shot_s": 32.45,
+ "median_shot_s": 32.45,
+ "cuts_per_min": 0.9,
+ "words_per_min": 219.1,
+ "transcript_from": "captions",
+ "longest_shots": [
+  [
+   61.8,
+   3.1
+  ],
+  [
+   3.1,
+   0
+  ]
+ ]
+}

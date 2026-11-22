@@ -1,0 +1,26 @@
+Blender 4.5.16 LTS (hash 3f6797307da5 built 2026-11-10 01:31:21)
+Fra:1203 Mem:144.03M (Peak 164.73M) | Time:00:00.69 | Rendering 1 / 8 samples
+Fra:1203 Mem:144.03M (Peak 164.73M) | Time:00:01.59 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S21.jpg'
+Time: 00:01.68 (Saving: 00:00.03)
+
+Fra:1317 Mem:153.72M (Peak 166.78M) | Time:00:00.37 | Rendering 1 / 8 samples
+Fra:1317 Mem:153.72M (Peak 166.78M) | Time:00:01.27 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S22.jpg'
+Time: 00:01.32 (Saving: 00:00.02)
+
+Fra:1423 Mem:153.73M (Peak 166.80M) | Time:00:00.39 | Rendering 1 / 8 samples
+Fra:1423 Mem:153.73M (Peak 166.80M) | Time:00:01.35 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S23.jpg'
+Time: 00:01.42 (Saving: 00:00.02)
+
+Fra:1504 Mem:153.72M (Peak 166.79M) | Time:00:00.37 | Rendering 1 / 8 samples
+Fra:1504 Mem:153.72M (Peak 166.79M) | Time:00:01.29 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/spike/out/stills/S24.jpg'
+Time: 00:01.35 (Saving: 00:00.01)
+
+Info: Removed 62 vertices
+Info: Removed 134 vertices
+GROUP_DONE X ['S21', 'S22', 'S23', 'S24']
+
+Blender quit

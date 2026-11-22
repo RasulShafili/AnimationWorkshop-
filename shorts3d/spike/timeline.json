@@ -1,0 +1,117 @@
+{
+ "lines": [
+  {
+   "id": "n01",
+   "who": "N",
+   "text": "He put an iron spike on top of his roof and told the whole town, when the next storm comes, stay away from the church.",
+   "t0": 0.35,
+   "t1": 6.022
+  },
+  {
+   "id": "n02",
+   "who": "N",
+   "text": "The whole square burst out laughing.",
+   "t0": 6.162,
+   "t1": 7.868
+  },
+  {
+   "id": "n03",
+   "who": "N",
+   "text": "You see, the church had the tallest bell tower for a hundred miles, and everybody knew church bells chased lightning away.",
+   "t0": 8.008,
+   "t1": 13.506
+  },
+  {
+   "id": "n04",
+   "who": "N",
+   "text": "So every time thunder rolled, the bell ringers climbed the tower and rang as hard as they could.",
+   "t0": 13.646,
+   "t1": 18.23
+  },
+  {
+   "id": "n05",
+   "who": "N",
+   "text": "The priest called his spike an insult to heaven, and the kids threw rocks at it.",
+   "t0": 18.37,
+   "t1": 22.077
+  },
+  {
+   "id": "n06",
+   "who": "N",
+   "text": "Weeks later, a storm rolled in, and a bolt of lightning hit the spike. But nothing happened. Not even a scorch mark.",
+   "t0": 22.217,
+   "t1": 28.061
+  },
+  {
+   "id": "n07",
+   "who": "N",
+   "text": "Now they laughed even harder.",
+   "t0": 28.201,
+   "t1": 29.425
+  },
+  {
+   "id": "t01",
+   "who": "T",
+   "text": "Ooh, your toothpick caught a spark! Very scary.",
+   "t0": 29.565,
+   "t1": 32.137
+  },
+  {
+   "id": "n08",
+   "who": "N",
+   "text": "Then, one night, the biggest storm in years rolled in. The bells started ringing. The sky flashed white.",
+   "t0": 32.437,
+   "t1": 38.032
+  },
+  {
+   "id": "n09",
+   "who": "N",
+   "text": "He ran to the church, screaming for everyone to get out.",
+   "t0": 38.172,
+   "t1": 40.749
+  },
+  {
+   "id": "r01",
+   "who": "R",
+   "text": "Hey, it's the spike guy! Scared of a little rain?",
+   "t0": 40.889,
+   "t1": 43.357
+  },
+  {
+   "id": "n10",
+   "who": "N",
+   "text": "The ringers laughed and kept on pulling.",
+   "t0": 43.497,
+   "t1": 45.282
+  },
+  {
+   "id": "n11",
+   "who": "N",
+   "text": "The next morning, a sixth of the city was gone.",
+   "t0": 45.832,
+   "t1": 47.954
+  },
+  {
+   "id": "n12",
+   "who": "N",
+   "text": "Under that bell tower, the government had hidden ninety tons of gunpowder.",
+   "t0": 48.204,
+   "t1": 51.996
+  },
+  {
+   "id": "n13",
+   "who": "N",
+   "text": "The tower was the tallest thing in town, so the lightning hit it, tore down through the stone, and found the powder.",
+   "t0": 52.136,
+   "t1": 57.558
+  },
+  {
+   "id": "n14",
+   "who": "N",
+   "text": "His spike gave the lightning a metal road straight into the ground. The church gave it a road straight into the powder.",
+   "t0": 57.698,
+   "t1": 63.159
+  }
+ ],
+ "end": 64.359
+}

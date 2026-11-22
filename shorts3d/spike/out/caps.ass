@@ -1,0 +1,177 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Montserrat XB,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,1,7,3,2,40,40,600,1
+Style: Mark,Montserrat XB,30,&H50FFFFFF,&H50FFFFFF,&H50000000,&H00000000,0,0,0,0,100,100,0,0,1,2,0,8,40,40,70,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:01:04.36,Mark,,0,0,0,,@whatif.lab_daily
+Dialogue: 0,0:00:00.00,0:00:00.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}He put
+Dialogue: 0,0:00:00.60,0:00:01.02,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}an iron
+Dialogue: 0,0:00:01.02,0:00:01.34,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}spike
+Dialogue: 0,0:00:01.34,0:00:01.76,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}on top
+Dialogue: 0,0:00:01.76,0:00:02.02,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}of his
+Dialogue: 0,0:00:02.02,0:00:02.28,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}roof
+Dialogue: 0,0:00:02.28,0:00:02.76,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and told
+Dialogue: 0,0:00:02.76,0:00:03.12,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the whole
+Dialogue: 0,0:00:03.12,0:00:03.66,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}town,
+Dialogue: 0,0:00:03.66,0:00:03.72,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}when
+Dialogue: 0,0:00:03.72,0:00:04.02,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the next
+Dialogue: 0,0:00:04.02,0:00:04.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}storm
+Dialogue: 0,0:00:04.24,0:00:04.90,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}comes,
+Dialogue: 0,0:00:04.90,0:00:05.08,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}stay
+Dialogue: 0,0:00:05.08,0:00:05.30,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}away
+Dialogue: 0,0:00:05.30,0:00:05.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}from
+Dialogue: 0,0:00:05.48,0:00:06.16,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the church.
+Dialogue: 0,0:00:06.16,0:00:06.54,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The whole
+Dialogue: 0,0:00:06.54,0:00:06.88,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}square
+Dialogue: 0,0:00:06.88,0:00:07.18,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}burst
+Dialogue: 0,0:00:07.18,0:00:07.44,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}out
+Dialogue: 0,0:00:07.44,0:00:08.02,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}laughing.
+Dialogue: 0,0:00:08.02,0:00:08.14,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}You
+Dialogue: 0,0:00:08.14,0:00:08.58,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}see,
+Dialogue: 0,0:00:08.58,0:00:08.78,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the church
+Dialogue: 0,0:00:08.78,0:00:08.98,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}had
+Dialogue: 0,0:00:08.98,0:00:09.38,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the tallest
+Dialogue: 0,0:00:09.38,0:00:09.64,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}bell
+Dialogue: 0,0:00:09.64,0:00:09.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}tower
+Dialogue: 0,0:00:09.92,0:00:10.26,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}for a
+Dialogue: 0,0:00:10.26,0:00:10.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}hundred
+Dialogue: 0,0:00:10.48,0:00:11.10,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}miles,
+Dialogue: 0,0:00:11.10,0:00:11.52,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and everybody
+Dialogue: 0,0:00:11.52,0:00:11.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}knew
+Dialogue: 0,0:00:11.92,0:00:12.16,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}church
+Dialogue: 0,0:00:12.16,0:00:12.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}bells
+Dialogue: 0,0:00:12.40,0:00:12.70,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}chased
+Dialogue: 0,0:00:12.70,0:00:13.00,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}lightning
+Dialogue: 0,0:00:13.00,0:00:13.66,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}away.
+Dialogue: 0,0:00:13.66,0:00:14.06,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}So every
+Dialogue: 0,0:00:14.06,0:00:14.26,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}time
+Dialogue: 0,0:00:14.26,0:00:14.56,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}thunder
+Dialogue: 0,0:00:14.56,0:00:15.22,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}rolled,
+Dialogue: 0,0:00:15.22,0:00:15.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the bell
+Dialogue: 0,0:00:15.50,0:00:15.82,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}ringers
+Dialogue: 0,0:00:15.82,0:00:16.06,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}climbed
+Dialogue: 0,0:00:16.06,0:00:16.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the tower
+Dialogue: 0,0:00:16.50,0:00:17.12,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and rang
+Dialogue: 0,0:00:17.12,0:00:17.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}as
+Dialogue: 0,0:00:17.40,0:00:17.64,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}hard
+Dialogue: 0,0:00:17.64,0:00:17.78,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}as
+Dialogue: 0,0:00:17.78,0:00:17.90,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}they
+Dialogue: 0,0:00:17.90,0:00:18.38,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}could.
+Dialogue: 0,0:00:18.38,0:00:18.72,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The priest
+Dialogue: 0,0:00:18.72,0:00:18.98,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}called
+Dialogue: 0,0:00:18.98,0:00:19.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}his spike
+Dialogue: 0,0:00:19.48,0:00:19.94,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}an insult
+Dialogue: 0,0:00:19.94,0:00:20.56,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}to heaven,
+Dialogue: 0,0:00:20.56,0:00:20.90,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and the
+Dialogue: 0,0:00:20.90,0:00:21.08,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}kids
+Dialogue: 0,0:00:21.08,0:00:21.36,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}threw
+Dialogue: 0,0:00:21.36,0:00:21.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}rocks
+Dialogue: 0,0:00:21.60,0:00:22.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}at it.
+Dialogue: 0,0:00:22.50,0:00:22.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Weeks
+Dialogue: 0,0:00:22.60,0:00:23.10,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}later,
+Dialogue: 0,0:00:23.10,0:00:23.56,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a storm
+Dialogue: 0,0:00:23.56,0:00:23.80,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}rolled
+Dialogue: 0,0:00:23.80,0:00:24.30,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}in and
+Dialogue: 0,0:00:24.30,0:00:24.58,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a bolt
+Dialogue: 0,0:00:24.58,0:00:25.04,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}of lightning
+Dialogue: 0,0:00:25.04,0:00:25.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}hit
+Dialogue: 0,0:00:25.24,0:00:25.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the spike.
+Dialogue: 0,0:00:25.92,0:00:26.32,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}But nothing
+Dialogue: 0,0:00:26.32,0:00:26.98,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}happened,
+Dialogue: 0,0:00:26.98,0:00:27.28,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}not even
+Dialogue: 0,0:00:27.28,0:00:27.74,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a scorch
+Dialogue: 0,0:00:27.74,0:00:28.28,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}mark.
+Dialogue: 0,0:00:28.28,0:00:28.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Now they
+Dialogue: 0,0:00:28.60,0:00:28.80,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}laughed
+Dialogue: 0,0:00:28.80,0:00:29.26,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}even harder.
+Dialogue: 0,0:00:29.26,0:00:29.98,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Ooh,
+Dialogue: 0,0:00:29.98,0:00:30.12,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}your
+Dialogue: 0,0:00:30.12,0:00:30.46,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}toothpick
+Dialogue: 0,0:00:30.46,0:00:30.64,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}caught
+Dialogue: 0,0:00:30.64,0:00:31.36,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a spark.
+Dialogue: 0,0:00:31.36,0:00:31.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Very
+Dialogue: 0,0:00:31.60,0:00:32.21,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}scary.
+Dialogue: 0,0:00:32.64,0:00:33.02,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Then, one
+Dialogue: 0,0:00:33.02,0:00:33.54,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}night,
+Dialogue: 0,0:00:33.54,0:00:33.94,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the biggest
+Dialogue: 0,0:00:33.94,0:00:34.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}storm
+Dialogue: 0,0:00:34.24,0:00:34.62,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}in years
+Dialogue: 0,0:00:34.62,0:00:34.88,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}rolled
+Dialogue: 0,0:00:34.88,0:00:35.42,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}in.
+Dialogue: 0,0:00:35.42,0:00:35.80,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The bells
+Dialogue: 0,0:00:35.80,0:00:36.16,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}started
+Dialogue: 0,0:00:36.16,0:00:36.76,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}ringing.
+Dialogue: 0,0:00:36.76,0:00:37.20,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The sky
+Dialogue: 0,0:00:37.20,0:00:37.58,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}flashed
+Dialogue: 0,0:00:37.58,0:00:38.18,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}white.
+Dialogue: 0,0:00:38.18,0:00:38.54,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}He ran
+Dialogue: 0,0:00:38.54,0:00:38.84,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}to the
+Dialogue: 0,0:00:38.84,0:00:39.38,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}church,
+Dialogue: 0,0:00:39.38,0:00:39.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}screaming
+Dialogue: 0,0:00:39.50,0:00:40.04,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}for everyone
+Dialogue: 0,0:00:40.04,0:00:40.36,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}to get
+Dialogue: 0,0:00:40.36,0:00:40.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}out.
+Dialogue: 0,0:00:40.92,0:00:41.18,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Hey,
+Dialogue: 0,0:00:41.18,0:00:41.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}it's the
+Dialogue: 0,0:00:41.50,0:00:41.70,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}spike
+Dialogue: 0,0:00:41.70,0:00:42.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}guy.
+Dialogue: 0,0:00:42.58,0:00:42.62,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Scared
+Dialogue: 0,0:00:42.62,0:00:42.84,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}of a
+Dialogue: 0,0:00:42.84,0:00:42.94,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}little
+Dialogue: 0,0:00:42.94,0:00:43.52,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}rain?
+Dialogue: 0,0:00:43.52,0:00:43.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The ringers
+Dialogue: 0,0:00:43.92,0:00:44.20,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}laughed
+Dialogue: 0,0:00:44.20,0:00:44.70,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and kept
+Dialogue: 0,0:00:44.70,0:00:45.35,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}on pulling.
+Dialogue: 0,0:00:45.74,0:00:46.16,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The next
+Dialogue: 0,0:00:46.16,0:00:46.62,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}morning,
+Dialogue: 0,0:00:46.62,0:00:46.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a sixth
+Dialogue: 0,0:00:46.92,0:00:47.26,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}of the
+Dialogue: 0,0:00:47.26,0:00:47.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}city
+Dialogue: 0,0:00:47.40,0:00:47.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}was
+Dialogue: 0,0:00:47.60,0:00:48.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}gone.
+Dialogue: 0,0:00:48.24,0:00:48.44,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}Under
+Dialogue: 0,0:00:48.44,0:00:48.86,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}that bell
+Dialogue: 0,0:00:48.86,0:00:49.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}tower,
+Dialogue: 0,0:00:49.40,0:00:49.56,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the
+Dialogue: 0,0:00:49.56,0:00:49.80,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}government
+Dialogue: 0,0:00:49.80,0:00:50.08,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}had
+Dialogue: 0,0:00:50.08,0:00:50.38,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}hidden
+Dialogue: 0,0:00:50.38,0:00:50.72,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}ninety
+Dialogue: 0,0:00:50.72,0:00:51.06,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}tons
+Dialogue: 0,0:00:51.06,0:00:52.10,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}of gunpowder.
+Dialogue: 0,0:00:52.10,0:00:52.62,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The tower
+Dialogue: 0,0:00:52.62,0:00:52.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}was
+Dialogue: 0,0:00:52.92,0:00:53.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the tallest
+Dialogue: 0,0:00:53.40,0:00:53.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}thing
+Dialogue: 0,0:00:53.60,0:00:54.18,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}in town,
+Dialogue: 0,0:00:54.18,0:00:54.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}so the
+Dialogue: 0,0:00:54.48,0:00:54.72,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}lightning
+Dialogue: 0,0:00:54.72,0:00:55.00,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}hit
+Dialogue: 0,0:00:55.00,0:00:55.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}it,
+Dialogue: 0,0:00:55.48,0:00:55.52,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}tore
+Dialogue: 0,0:00:55.52,0:00:55.82,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}down
+Dialogue: 0,0:00:55.82,0:00:56.00,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}through
+Dialogue: 0,0:00:56.00,0:00:56.60,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the stone,
+Dialogue: 0,0:00:56.60,0:00:56.94,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}and found
+Dialogue: 0,0:00:56.94,0:00:57.38,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the powder.
+Dialogue: 0,0:00:57.38,0:00:58.20,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}His spike
+Dialogue: 0,0:00:58.20,0:00:58.48,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}gave
+Dialogue: 0,0:00:58.48,0:00:58.86,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}the lightning
+Dialogue: 0,0:00:58.86,0:00:59.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}a metal
+Dialogue: 0,0:00:59.24,0:00:59.56,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}road
+Dialogue: 0,0:00:59.56,0:00:59.90,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}straight
+Dialogue: 0,0:00:59.90,0:01:00.28,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}into the
+Dialogue: 0,0:01:00.28,0:01:00.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}ground.
+Dialogue: 0,0:01:00.92,0:01:01.24,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}The church
+Dialogue: 0,0:01:01.24,0:01:01.50,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}gave
+Dialogue: 0,0:01:01.50,0:01:01.70,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}it a
+Dialogue: 0,0:01:01.70,0:01:01.92,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}road
+Dialogue: 0,0:01:01.92,0:01:02.28,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}straight
+Dialogue: 0,0:01:02.28,0:01:02.72,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}into the
+Dialogue: 0,0:01:02.72,0:01:03.40,Cap,,0,0,0,,{\fscx86\fscy86\t(0,70,\fscx100\fscy100)}powder.

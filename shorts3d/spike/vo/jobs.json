@@ -1,0 +1,114 @@
+[
+ {
+  "out": "vo/n01.wav",
+  "text": "He put an iron spike on top of his roof and told the whole town, when the next storm comes, stay away from the church.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n02.wav",
+  "text": "The whole square burst out laughing.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n03.wav",
+  "text": "You see, the church had the tallest bell tower for a hundred miles, and everybody knew church bells chased lightning away.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n04.wav",
+  "text": "So every time thunder rolled, the bell ringers climbed the tower and rang as hard as they could.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n05.wav",
+  "text": "The priest called his spike an insult to heaven, and the kids threw rocks at it.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n06.wav",
+  "text": "Weeks later, a storm rolled in, and a bolt of lightning hit the spike. But nothing happened. Not even a scorch mark.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n07.wav",
+  "text": "Now they laughed even harder.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/t01.wav",
+  "text": "Ooh, your toothpick caught a spark! Very scary.",
+  "ref": "vo/hale.wav",
+  "exag": 0.75,
+  "cfg": 0.35
+ },
+ {
+  "out": "vo/n08.wav",
+  "text": "Then, one night, the biggest storm in years rolled in. The bells started ringing. The sky flashed white.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n09.wav",
+  "text": "He ran to the church, screaming for everyone to get out.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/r01.wav",
+  "text": "Hey, it's the spike guy! Scared of a little rain?",
+  "ref": "vo/dad.wav",
+  "exag": 0.75,
+  "cfg": 0.35
+ },
+ {
+  "out": "vo/n10.wav",
+  "text": "The ringers laughed and kept on pulling.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n11.wav",
+  "text": "The next morning, a sixth of the city was gone.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n12.wav",
+  "text": "Under that bell tower, the government had hidden ninety tons of gunpowder.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n13.wav",
+  "text": "The tower was the tallest thing in town, so the lightning hit it, tore down through the stone, and found the powder.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/n14.wav",
+  "text": "His spike gave the lightning a metal road straight into the ground. The church gave it a road straight into the powder.",
+  "ref": "vo/narrator.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ }
+]
