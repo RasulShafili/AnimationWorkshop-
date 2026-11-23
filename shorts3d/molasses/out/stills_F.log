@@ -1,0 +1,47 @@
+Blender 4.5.16 LTS (hash 3f6797307da5 built 2026-11-10 01:31:21)
+Fra:1057 Mem:381.92M (Peak 426.51M) | Time:00:02.80 | Rendering 1 / 8 samples
+Fra:1057 Mem:381.92M (Peak 426.51M) | Time:00:04.00 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S19.jpg'
+Time: 00:04.25 (Saving: 00:00.13)
+
+Fra:1104 Mem:384.50M (Peak 404.32M) | Time:00:01.87 | Rendering 1 / 8 samples
+Fra:1104 Mem:384.50M (Peak 404.32M) | Time:00:03.17 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S20.jpg'
+Time: 00:03.35 (Saving: 00:00.05)
+
+Fra:1147 Mem:384.50M (Peak 404.38M) | Time:00:02.29 | Rendering 1 / 8 samples
+Fra:1147 Mem:384.50M (Peak 404.38M) | Time:00:03.55 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S21.jpg'
+Time: 00:03.69 (Saving: 00:00.05)
+
+Fra:1208 Mem:384.50M (Peak 404.38M) | Time:00:01.79 | Rendering 1 / 8 samples
+Fra:1208 Mem:384.50M (Peak 404.38M) | Time:00:03.02 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S22.jpg'
+Time: 00:03.17 (Saving: 00:00.06)
+
+OBJ crest2 (-2.4, -4.0, 2.4)
+OBJ fence_rail.001 (1.2, 7.4, 1.2)
+OBJ hoop.010 (-1.8, -0.4, 2.1)
+OBJ hoop.011 (-1.8, -0.4, 2.5)
+OBJ hoop.012 (-1.0, -0.4, 2.1)
+OBJ hoop.013 (-1.0, -0.4, 2.5)
+OBJ hoop.014 (-0.3, -0.4, 2.1)
+OBJ hoop.015 (-0.3, -0.4, 2.5)
+OBJ hoop.016 (-1.8, 0.4, 2.1)
+OBJ hoop.017 (-1.8, 0.4, 2.5)
+OBJ hoop.018 (-1.0, 0.4, 2.1)
+OBJ hoop.019 (-1.0, 0.4, 2.5)
+OBJ hoop.020 (-0.3, 0.4, 2.1)
+OBJ hoop.021 (-0.3, 0.4, 2.5)
+OBJ lamp_cap.007 (1.0, 5.4, 4.1)
+OBJ lamp_head.007 (1.0, 5.4, 3.8)
+OBJ lamp_pole.007 (1.0, 5.4, 1.8)
+OBJ rivet.002 (7.8, 4.5, 1.5)
+OBJ rivet.004 (4.6, 3.9, 2.5)
+OBJ rivet.006 (6.5, 5.2, 3.5)
+OBJ rivet.007 (5.4, 5.3, 4.0)
+OBJ rivet.009 (7.6, 3.8, 5.0)
+OBJ rivet.011 (5.7, 3.0, 6.0)
+GROUP_DONE F ['S19', 'S20', 'S21', 'S22']
+
+Blender quit

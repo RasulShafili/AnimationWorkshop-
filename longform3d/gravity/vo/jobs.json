@@ -1,0 +1,485 @@
+[
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c01_n1.wav",
+  "text": "It happens on a Tuesday, at seven forty-two in the morning. You're pouring cereal.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c01_n2.wav",
+  "text": "And the cereal doesn't land.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c02_n1.wav",
+  "text": "It just keeps going. The milk comes out of the carton as a wobbly white ball. Your spoon drifts past your nose.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c02_mom1.wav",
+  "text": "Why is the cat on the ceiling?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/mom.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c02_n2.wav",
+  "text": "Five seconds later, gravity comes back. The cereal, the milk and the cat all come down at once.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c03_n1.wav",
+  "text": "So, what if gravity turned off for five seconds, every single day?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c04_n1.wav",
+  "text": "By lunch, the whole world knows. Once a day, at a random time, everywhere on Earth at once, gravity disappears for exactly five seconds.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c04_n2.wav",
+  "text": "Nobody knows why. Nobody knows when. You only know it's happening when your stomach suddenly floats up into your chest.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c05_n1.wav",
+  "text": "First, the good news. You don't fly off into space. The Earth spins at about sixteen hundred kilometres an hour, but so do you, so does the air, and so does your kitchen. You all just keep moving together.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c05_n2.wav",
+  "text": "The bad news is your legs.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c06_n1.wav",
+  "text": "Every step you take pushes you up a tiny bit. Normally, gravity pulls you right back down. Without it, nothing does.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c06_n2.wav",
+  "text": "Walk a little too fast, and you drift off the pavement like a balloon somebody let go of.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c07_maya1.wav",
+  "text": "Okay, but what happens if you jump?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c07_n1.wav",
+  "text": "Maya is your best friend, and she is full of bad ideas. So the next day, the two of you wait in her backyard. All afternoon.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c08_n1.wav",
+  "text": "At four seventeen, your stomach floats. You do a tiny hop.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c08_n2.wav",
+  "text": "A tiny hop pushes you up at about one metre per second. And with no gravity, nothing slows you down. One metre. Two. Three.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c08_maya1.wav",
+  "text": "Get down! Get down!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c08_n3.wav",
+  "text": "There is no down. After five seconds, you're five metres up, level with the roof. Then gravity comes back.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c09_n1.wav",
+  "text": "Luckily, Maya's paddling pool is right underneath you.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c09_maya1.wav",
+  "text": "Ten out of ten!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c09_n2.wav",
+  "text": "Maya's mom makes you both promise never to do that again. You promise. Maya crosses her fingers.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c10_n1.wav",
+  "text": "You also learn why astronauts throw up. Deep inside your ears, tiny crystals floating in fluid tell your brain which way is down.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c10_n2.wav",
+  "text": "With no gravity, they stop making sense. Your eyes say one thing, your ears say another, and your stomach votes to leave. More than half of all astronauts get space sick in their first few days.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c11_n1.wav",
+  "text": "Then there's traffic. A car only stops because its tyres grip the road, and grip needs weight. No weight, no grip.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c11_n2.wav",
+  "text": "So for five seconds a day, every car on Earth turns into a sled. No brakes. No steering.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c12_n1.wav",
+  "text": "On day four, a bus slides straight through a red light and stops in the middle of the crossing. Nobody is hurt. But by the weekend, every speed limit in the city is twenty.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c12_n2.wav",
+  "text": "Planes are fine, by the way. Their wings keep pushing them up, so for five seconds they just climb a little, and every drink on board floats out of its cup.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c13_n1.wav",
+  "text": "At school, everything gets a strap. Pencils on strings. Backpacks clipped to chairs. Chairs bolted to the floor.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c13_coach1.wav",
+  "text": "Seatbelts on, people. Yes, even for spelling.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/hale.wav",
+  "exag": 0.65,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c14_n1.wav",
+  "text": "In science class, you're lighting a candle when your stomach floats. The flame doesn't go out. It turns into a little blue ball.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c14_n2.wav",
+  "text": "On Earth, flames are tall because hot air rises and cool air rushes in underneath. Without gravity, hot air doesn't rise. So the flame grows the same in every direction and burns blue and quiet. Astronauts have seen exactly this.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c15_n1.wav",
+  "text": "The worst place to be is the gym. A good basketball jump pushes you up at about three metres per second.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c15_n2.wav",
+  "text": "On day nine, Marcus from the eighth grade goes up for a dunk at exactly the wrong moment.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c16_n1.wav",
+  "text": "He doesn't come down. He rises past the hoop, past the scoreboard, past the lights. In five seconds, he's fifteen metres up, touching the ceiling.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c16_coach1.wav",
+  "text": "Mats! Every mat in the building! Now!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/hale.wav",
+  "exag": 0.65,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c17_n1.wav",
+  "text": "Then gravity comes back. A fifteen metre fall is like falling off a five storey building. But by then there are eleven mats under him, and Marcus just bounces.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c17_n2.wav",
+  "text": "After that, the rule is simple. Nobody jumps. Ever.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c18_n1.wav",
+  "text": "Night is worse. You roll over in your sleep, and that little roll is enough.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c18_n2.wav",
+  "text": "You wake up pressed against the ceiling, looking down at your own bed.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c19_n1.wav",
+  "text": "Then gravity comes back, and so do you. Very fast.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c19_mom1.wav",
+  "text": "Are you okay up there?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/mom.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c20_n1.wav",
+  "text": "So you start sleeping like an astronaut. On the space station, they sleep in sleeping bags tied to the wall. You tie yours to your bed with four belts and a jump rope.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c20_n2.wav",
+  "text": "It takes you three weeks to learn how to get out of it in the morning.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c21_n1.wav",
+  "text": "Water does the strangest thing of all. At the beach, a wave is breaking when gravity switches off.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c21_n2.wav",
+  "text": "The splash doesn't fall back. It hangs in the air and pulls itself into wobbling balls, because water sticks to itself. Without gravity, a ball is the easiest shape there is.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c22_n1.wav",
+  "text": "You swim through a floating ball of seawater the size of a car. Then you remember what happens in five seconds, and you swim out of it really, really fast.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c22_maya1.wav",
+  "text": "Did you just swim in the sky?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c23_n1.wav",
+  "text": "Out in space, it's even bigger. The Moon only goes around the Earth because gravity keeps pulling it in. For five seconds, nothing pulls.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c23_n2.wav",
+  "text": "So the Moon flies off in a straight line, about five kilometres, before gravity grabs it again. And the Earth, racing around the Sun at thirty kilometres every second, shoots a hundred and fifty kilometres off its path.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c24_n1.wav",
+  "text": "Then the Sun pulls it back into a very slightly different orbit. Your year gets a tiny bit longer. Nobody notices.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c25_n1.wav",
+  "text": "Even the air is held down by gravity. When it switches off, the whole sky starts to lift away from the ground. Only for a moment. But every day, at the same second, everybody's ears pop.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c26_n1.wav",
+  "text": "After a month, people get good at it. Every bus has handles. Every pot has a lid. Restaurants serve soup in bags with straws, like on the space station.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c26_n2.wav",
+  "text": "Shops sell sticky shoes. Dogs wear harnesses. And everyone on Earth learns to hold a handrail like their life depends on it. Because five seconds a day, it does.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c27_n1.wav",
+  "text": "And some people start to love it. Five seconds of floating is the best ride in the world. People pay thousands of dollars to fly in planes that dive, just to feel twenty seconds of it. You get it for free, every day.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c27_maya1.wav",
+  "text": "Best. Ride. Ever.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c27_n2.wav",
+  "text": "You and Maya invent a game. When your stomach floats, you push off the fence and see who can drift the furthest before gravity comes back. Maya always wins. She cheats.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c28_n1.wav",
+  "text": "Then, on day forty, you're at the playground with Maya and her little brother Leo. Leo is at the very top of his swing when your stomach floats.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c29_n1.wav",
+  "text": "Leo lets go. And with no gravity, he doesn't swing back. He just keeps going, straight up and away, out over the road.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c29_leo1.wav",
+  "text": "Maya!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/theo.wav",
+  "exag": 0.7,
+  "cfg": 0.4
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c30_n1.wav",
+  "text": "Here's the thing about zero gravity. When you push off something, you go exactly where you pushed. No curve. No falling. A perfectly straight line.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c30_n2.wav",
+  "text": "So you plant your feet on the slide, aim at Leo, and push as hard as you can.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c31_n1.wav",
+  "text": "Three seconds left. Two. You catch his shoe. Then his hand. Then him.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c31_n2.wav",
+  "text": "One second left. The only thing below you is the sandbox.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c32_n1.wav",
+  "text": "You turn so you land first. Gravity comes back, and the two of you hit the sand with a big, soft crunch.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c32_maya1.wav",
+  "text": "That was the coolest thing I have ever seen. And I'm telling Mom.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c33_n1.wav",
+  "text": "That night, the news has a new number. Scientists say the five seconds are slowly getting longer.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c33_n2.wav",
+  "text": "Tomorrow, it'll be six.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c33_n3.wav",
+  "text": "Six seconds means a tiny hop takes you six metres up. Basketball becomes even more illegal.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform3d/gravity/vo/c34_n1.wav",
+  "text": "At breakfast, you pour your cereal. You look at your mom. Your mom looks at you. And you both grab the table.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ }
+]

@@ -1,0 +1,26 @@
+Blender 4.5.16 LTS (hash 3f6797307da5 built 2026-11-10 01:31:21)
+Fra:24 Mem:390.83M (Peak 439.07M) | Time:00:02.91 | Rendering 1 / 8 samples
+Fra:24 Mem:390.83M (Peak 439.07M) | Time:00:04.04 | Rendering 8 / 8 samples
+Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S01.jpg'
+Time: 00:04.25 (Saving: 00:00.12)
+
+Info: Removed 118 vertices
+OBJ fence_rail.001 (1.2, 7.4, 1.2)
+OBJ hoop.010 (-1.8, -0.4, 2.1)
+OBJ hoop.011 (-1.8, -0.4, 2.5)
+OBJ hoop.012 (-1.0, -0.4, 2.1)
+OBJ hoop.013 (-1.0, -0.4, 2.5)
+OBJ hoop.014 (-0.3, -0.4, 2.1)
+OBJ hoop.015 (-0.3, -0.4, 2.5)
+OBJ hoop.016 (-1.8, 0.4, 2.1)
+OBJ hoop.017 (-1.8, 0.4, 2.5)
+OBJ hoop.018 (-1.0, 0.4, 2.1)
+OBJ hoop.019 (-1.0, 0.4, 2.5)
+OBJ hoop.020 (-0.3, 0.4, 2.1)
+OBJ hoop.021 (-0.3, 0.4, 2.5)
+OBJ lamp_cap.007 (1.0, 5.4, 4.1)
+OBJ lamp_head.007 (1.0, 5.4, 3.8)
+OBJ lamp_pole.007 (1.0, 5.4, 1.8)
+GROUP_DONE N ['S01']
+
+Blender quit

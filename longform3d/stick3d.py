@@ -133,6 +133,10 @@ def stick(name, look, loc=(0, 0, 0), facing_deg=0):
     if hat == "priest":   # wide round brim + dome (saturno)
         P(L.cyl(0.40 * k, 0.025 * k, HC + Vector((0, 0, 0.22)) * k, hm, verts=48, name=name + "_brim"), "head")
         P(L.sph(0.19 * k, HC + Vector((0, 0, 0.24)) * k, hm, (1, 1, 0.75), seg=32, name=name + "_dome"), "head")
+    if hat == "bowler":   # 1910s boss: tall round crown + narrow brim (sits ON the head, eyes stay free)
+        P(L.cyl(0.33 * k, 0.022 * k, HC + Vector((0, 0, 0.21)) * k, hm, verts=48, name=name + "_brim"), "head")
+        P(L.sph(0.205 * k, HC + Vector((0, 0, 0.25)) * k, hm, (1, 1, 0.95), seg=32, name=name + "_crown"), "head")
+        P(L.cyl(0.208 * k, 0.03 * k, HC + Vector((0, 0, 0.245)) * k, L.mat("2a2a2a", 0.5), verts=48, name=name + "_band"), "head")
     if hat == "beanie":
         P(_dome(name + "_beanie", R * 1.04, HC + Vector((0, 0.01, 0.10)) * k, hm, (1, 1, 0.95), cut=0.0, tilt=-0.1), "head")
         bpy.ops.mesh.primitive_torus_add(major_radius=R * 1.02, minor_radius=0.035 * k, location=HC + Vector((0, 0.01, 0.10)) * k, rotation=(-0.1, 0, 0))

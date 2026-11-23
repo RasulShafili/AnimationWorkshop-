@@ -74,6 +74,15 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
 - Mix check without ears: transcribe the final mixed audio with faster-whisper and diff against the script
   (spike: 0.996 word match → music/SFX don't bury the VO).
 
+- Molasses (2026-11-23) stills QA: check every camera position against the big solids — S11 (4.6, 9.2) sat INSIDE the
+  tank (distance to its centre < R → an all-grey frame), S28 (6, −9) inside a house (all brown). Quick test:
+  hypot(cam − tank centre) > R + 0.5 and cam.y outside every building footprint.
+- `town.barrel()` returns only the body: its 2 hoops stay loose. Parenting just the body to a group (truck) left
+  12 hoops floating at the world origin = "dark discs" in every shot looking past (0, 0, 2). Collect all parts.
+- Long fence rails must stop at the gate gap — one 34 m rail crossed the opening at waist height through the cast.
+- Seated groups: face the camera side (sit facing the tank showed the workers' backs in both of their shots).
+- Never run Chatterbox and a Blender render at the same time on this 6.7 GB PC: the background job got killed for low memory.
+
 ## 5. Long-form in this style (longform3d/teleport, 2026-11-22: "What If You Teleported Every Time You Thought of a Place?")
 - Owner: what-if long video in the stick style, NOT character-heavy and NOT a pure explainer — a mix; viewers have a
   short attention span → one hero ("you", 2nd person) + 3 tiny roles; a new place or danger every 20–30 s; real
@@ -110,3 +119,10 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
     screen → sets_tp.pops now ends any flicker 3 frames before an out-pop. Check the frames right after every tp_out.
   - Teasers: longform3d/teleport/tools/teaser.py cuts from the FINAL video (keeps captions + mix), several ranges can be
     joined ("a-b,c-d", cut on a shot change); keep ≤ 38 s (all our teasers are 26–38 s); end on a frozen cliffhanger frame.
+- Gravity long-form (longform3d/gravity, 2026-11-23: "What If Gravity Turned Off for 5 Seconds Every Day?"), forked
+  from teleport: zero-g windows `zero=[(t0, t1)]`, cast `float=(t0, t1, v, land_dz[, "curb"])` = constant velocity
+  while off, then z = z1 + vz·t − 4.9t² until it lands; `p3=[(t, (x, y, z))]` explicit floating paths (a p3-only cast
+  member needs no "at"). gtools.py holds the props (water balls, blue candle flame, cars that slide, news screen).
+  Stills QA fixes: over-the-shoulder TV shots need the camera 0.9 m+ behind the sofa heads; a `cu` of someone facing
+  a wall gets clamped to a giant face → fixed close shot; trees (canopy r 1.2 at 3.6 m) hid a mid-air catch — check
+  the camera→subject line against the canopy; L.hands_up in a close-up crossed the face → drop it or spread 0.55.

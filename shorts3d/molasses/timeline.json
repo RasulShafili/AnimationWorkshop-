@@ -1,0 +1,124 @@
+{
+ "lines": [
+  {
+   "id": "n01",
+   "who": "N",
+   "text": "He heard the giant tank groan every night, and told his boss: one day, this thing is going to burst and drown the whole street.",
+   "t0": 0.35,
+   "t1": 5.877
+  },
+  {
+   "id": "n02",
+   "who": "N",
+   "text": "The whole street burst out laughing.",
+   "t0": 6.017,
+   "t1": 7.574
+  },
+  {
+   "id": "n03",
+   "who": "N",
+   "text": "You see, it was the biggest tank in Boston. Fifteen metres tall, and full of nearly nine million litres of sticky molasses.",
+   "t0": 7.714,
+   "t1": 13.482
+  },
+  {
+   "id": "n04",
+   "who": "N",
+   "text": "When it started leaking, the boss had a better idea. He painted the tank brown, so nobody could see the leaks.",
+   "t0": 13.622,
+   "t1": 18.229
+  },
+  {
+   "id": "n05",
+   "who": "N",
+   "text": "And the neighbourhood kids ran over with cups to catch the free syrup.",
+   "t0": 18.369,
+   "t1": 21.914
+  },
+  {
+   "id": "n06",
+   "who": "N",
+   "text": "Then he found a crack running down the side. He showed everyone. Nothing happened.",
+   "t0": 22.054,
+   "t1": 26.017
+  },
+  {
+   "id": "n07",
+   "who": "N",
+   "text": "Now they laughed even harder.",
+   "t0": 26.157,
+   "t1": 27.522
+  },
+  {
+   "id": "b01",
+   "who": "B",
+   "text": "Relax! It's syrup, not dynamite!",
+   "t0": 27.662,
+   "t1": 29.845
+  },
+  {
+   "id": "n08",
+   "who": "N",
+   "text": "Then a ship pumped in a fresh load, and one January morning, the air turned warm. The tank groaned louder than ever.",
+   "t0": 29.985,
+   "t1": 35.393
+  },
+  {
+   "id": "n09",
+   "who": "N",
+   "text": "He ran down the street, shouting at everyone to get away from the tank.",
+   "t0": 35.533,
+   "t1": 38.376
+  },
+  {
+   "id": "w01",
+   "who": "W",
+   "text": "Ha! Scared of pancakes, are we?",
+   "t0": 38.516,
+   "t1": 40.695
+  },
+  {
+   "id": "n10",
+   "who": "N",
+   "text": "The workers laughed and sat down for lunch.",
+   "t0": 40.835,
+   "t1": 42.577
+  },
+  {
+   "id": "n11",
+   "who": "N",
+   "text": "Minutes later, rivets shot out like bullets, the tank split open, and a wave of molasses eight metres high roared down the street.",
+   "t0": 43.127,
+   "t1": 48.619
+  },
+  {
+   "id": "n12",
+   "who": "N",
+   "text": "It knocked houses off their foundations and bent the train tracks. Twenty-one people never got out.",
+   "t0": 48.759,
+   "t1": 53.509
+  },
+  {
+   "id": "n13",
+   "who": "N",
+   "text": "Nobody had ever tested the tank. Not even with water. Its steel was too thin for that much weight.",
+   "t0": 53.649,
+   "t1": 58.926
+  },
+  {
+   "id": "n14",
+   "who": "N",
+   "text": "And as the molasses cooled in the winter air, it turned thick as glue, trapping everyone it caught.",
+   "t0": 59.066,
+   "t1": 63.858
+  },
+  {
+   "id": "n15",
+   "who": "N",
+   "text": "The brown paint never stopped a single leak. It only hid the warning.",
+   "t0": 63.998,
+   "t1": 66.83
+  }
+ ],
+ "end": 68.03
+}
