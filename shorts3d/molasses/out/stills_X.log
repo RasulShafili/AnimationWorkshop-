@@ -1,13 +1,13 @@
 Blender 4.5.16 LTS (hash 3f6797307da5 built 2026-11-10 01:31:21)
-Fra:1327 Mem:84.85M (Peak 88.18M) | Time:00:00.61 | Rendering 1 / 8 samples
-Fra:1327 Mem:84.85M (Peak 88.18M) | Time:00:01.47 | Rendering 8 / 8 samples
+Fra:1327 Mem:84.78M (Peak 88.11M) | Time:00:00.71 | Rendering 1 / 8 samples
+Fra:1327 Mem:84.78M (Peak 88.11M) | Time:00:01.55 | Rendering 8 / 8 samples
 Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S24.jpg'
-Time: 00:01.56 (Saving: 00:00.03)
+Time: 00:01.69 (Saving: 00:00.06)
 
-Fra:1392 Mem:93.27M (Peak 98.51M) | Time:00:00.32 | Rendering 1 / 8 samples
-Fra:1392 Mem:93.27M (Peak 98.51M) | Time:00:01.29 | Rendering 8 / 8 samples
+Fra:1392 Mem:93.20M (Peak 98.44M) | Time:00:00.36 | Rendering 1 / 8 samples
+Fra:1392 Mem:93.20M (Peak 98.44M) | Time:00:01.32 | Rendering 8 / 8 samples
 Saved: '/home/rasul/Desktop/Animations/shorts3d/molasses/out/stills/S25.jpg'
-Time: 00:01.37 (Saving: 00:00.02)
+Time: 00:01.41 (Saving: 00:00.03)
 
 Info: Removed 122 vertices
 GROUP_DONE X ['S24', 'S25']

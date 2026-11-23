@@ -284,7 +284,7 @@ if GROUP == "W":
     everyone = [HERO, MOCK, WK2, M1]; used = {id(c): set() for c in everyone}
     def P(ch, f, pose, loc, facing): put(ch, f, pose, loc, facing); used[id(ch)].add(f)
     prop_on_pipe(env["pipe"], SH["S13"]["f0"], SH["S13"]["f1"] + 2, 5)
-    cam("S13", (-4.0, 31.0, 1.8), (-9.0, 43.0, 4.5), 20, (-3.5, 30.5, 1.9), (-8.0, 42.0, 5.5), 21)     # beside the pipe, not on it
+    cam("S13", (-8.0, 32.0, 1.8), (-9.0, 43.0, 4.5), 20, (-7.5, 31.5, 1.9), (-8.0, 42.0, 5.5), 21)     # beside the pipe, not on it
     th = env["thermo"]; f14 = SH["S14"]["f0"]; th.scale = (1, 1, 0.25); th.keyframe_insert("scale", frame=f14 + 4); th.scale = (1, 1, 0.78); th.keyframe_insert("scale", frame=SH["S14"]["f1"] - 4)
     for k in range(3): drip_loop(f"melt{k}", (-14.0 + k * 0.5, -6.6, 3.9), (-14.0 + k * 0.5, -6.5, 0.2), f14, SH["S14"]["f1"], 0.7, k * 0.23, 0.04)
     for o in bpy.data.objects:
@@ -378,7 +378,9 @@ if GROUP == "A":
     L.box((110, 46, 0.6), (0, 10.0, 0.25), L.mat(H.MOL, 0.12), 0.0, "flood")
     rnd = random.Random(12)
     for i in range(40):
-        s_ = rnd.uniform(0.3, 1.2); b_ = L.box((s_ * 1.6, s_, s_ * 0.4), (rnd.uniform(-30, 35), rnd.uniform(-4.5, 20), 0.6), L.mat(rnd.choice(["8a5a32", "6b4a2b", "a8743f", "3a3a40"]), 0.7), 0.03, "wreck")
+        s_ = rnd.uniform(0.3, 1.2); wp = (rnd.uniform(-30, 35), rnd.uniform(-4.5, 20))
+        if math.hypot(wp[0] + 0.5, wp[1] - 3.2) < 4.5 or math.hypot(wp[0] + 16, wp[1] + 4) < 4.0: continue   # a wreck box sat on the S26 camera (all-brown frame)
+        b_ = L.box((s_ * 1.6, s_, s_ * 0.4), (*wp, 0.6), L.mat(rnd.choice(["8a5a32", "6b4a2b", "a8743f", "3a3a40"]), 0.7), 0.03, "wreck")
         b_.rotation_euler = (rnd.uniform(-0.3, 0.3), rnd.uniform(-0.3, 0.3), rnd.uniform(0, 3))
     hit = min(env["south"], key=lambda e: abs(e.location.x - 6.0)); hit.location.y -= 2.2; hit.rotation_euler.z += math.radians(7); hit.rotation_euler.x = math.radians(-4)
     bpy.ops.object.empty_add(location=(6.0, -2.1, H.EL_Z)); piv = bpy.context.object
@@ -393,19 +395,20 @@ if GROUP == "A":
     d = (Vector((6, 15, 0)) - Vector((*hp, 0))).normalized(); sd = Vector((-d.y, d.x, 0))
     tg = Vector((*hp, 2.3)); cam("S23", tg + d * 3.6 - sd * 1.2 + Vector((0, 0, 0.2)), tg, 28, tg + d * 3.2 - sd * 1.0 + Vector((0, 0, 0.2)), tg, 30)
     # S26: the cold — the molasses sets like glue: a cart stuck to its axles, a man stuck to his knees, frost drifting
-    L.box((1.8, 1.1, 0.5), (-1.5, 1.4, 0.75), L.mat("8a5a32", 0.7), 0.03, "cart")
-    for wx in (-0.7, 0.7): L.cyl(0.55, 0.1, (-1.5 + wx, 0.8, 0.45), L.mat("6b4a2b", 0.7), rot=(math.pi / 2, 0, 0), name="cart_wheel", verts=18)
-    mp = (1.4, 0.6)
+    L.box((1.8, 1.1, 0.5), (-1.5, 5.4, 0.75), L.mat("8a5a32", 0.7), 0.03, "cart")     # S26 moved 4 m north: the camera sat inside the fallen el span
+    for wx in (-0.7, 0.7): L.cyl(0.55, 0.1, (-1.5 + wx, 4.8, 0.45), L.mat("6b4a2b", 0.7), rot=(math.pi / 2, 0, 0), name="cart_wheel", verts=18)
+    mp = (1.4, 4.6)
     for f in frames("S26"):
         t = tsec(f); s_ = 0.5 + 0.5 * math.sin(t * 5)
-        put(M1, f, {**L.idle(t), "spine": (18, 0, 0), "uarm.L": (60 + 20 * s_, 0, 20), "uarm.R": (60 + 20 * (1 - s_), 0, -20), "farm.L": (40, 0, 0), "farm.R": (40, 0, 0),
-                    "thigh.L": (20 * s_, 0, 0), "thigh.R": (20 * (1 - s_), 0, 0)}, (*mp, -0.38), face_to(mp, (-3.0, -3.5)))
+        put(M1, f, {**L.idle(t), "spine": (8, 0, 0), "head": (-8, 0, 0),     # less bow: at 18° his cap covered his eyes
+                    "uarm.L": (60 + 20 * s_, 0, 20), "uarm.R": (60 + 20 * (1 - s_), 0, -20), "farm.L": (40, 0, 0), "farm.R": (40, 0, 0),
+                    "thigh.L": (20 * s_, 0, 0), "thigh.R": (20 * (1 - s_), 0, 0)}, (*mp, -0.38), face_to(mp, (6.0, 3.6)))
     blinks(M1, frames("S26"), "strain", 4)
     for k in range(40):        # light snow falling in the cold (the frost rings read as white wire)
         fl = L.sph(0.035, (0, 0, 0), L.mat("ffffff", 0.6), seg=8, name="flake"); fl["noink"] = 1
-        p0 = Vector((rnd.uniform(-6, 5), rnd.uniform(-2.5, 4.5), rnd.uniform(2.5, 4.5))); f0, f1 = SH["S26"]["f0"], SH["S26"]["f1"] + 1
+        p0 = Vector((rnd.uniform(-6, 5), rnd.uniform(1.5, 8.5), rnd.uniform(2.5, 4.5))); f0, f1 = SH["S26"]["f0"], SH["S26"]["f1"] + 1
         fl.location = p0; fl.keyframe_insert("location", frame=f0); fl.location = p0 + Vector((0.6, 0.2, -2.6)); fl.keyframe_insert("location", frame=f1)
-    cam("S26", (-1.2, -2.8, 1.7), (0.3, 1.2, 0.6), 26, (-1.0, -2.5, 1.65), (0.3, 1.2, 0.6), 28)
+    cam("S26", (6.0, 3.6, 1.9), (-0.2, 5.0, 0.7), 24, (5.4, 3.8, 1.85), (-0.2, 5.0, 0.7), 26)     # from the east: man + cart in line, the fallen el span out of frame
     offstage(HERO, ALLF, frames("S23")); offstage(M1, ALLF, frames("S26"))
     LOOK = "day"
 
@@ -415,7 +418,7 @@ if GROUP == "X":
     L.sky_gradient("8fb8e8", "eef2f6", 1.0, radius=220, band=50); L.sun_lights(elev=35, energy=3.5)
     c = XO + Vector((TK.x, TK.y, 0)); half = []
     for k in range(8):
-        a0 = math.pi * k / 8; o = H.arc_panel(f"half{k}", R_, TH, a0, a0 + math.pi / 8, 0, 0.25, L.mat(H.PAINT, 0.55)); o.location += XO; half.append(o)
+        a0 = math.pi * k / 8; o = H.arc_panel(f"half{k}", R_, TH, a0, a0 + math.pi / 8, 0, 0.25, L.mat("8d949c", 0.45))     # steel grey: brown walls melted into the brown molasses; o.location += XO; half.append(o)
     for sx in (-1, 1): L.box((0.25, 0.25, TH), c + Vector((sx * (R_ - 0.125), 0, TH / 2)), L.mat("c0c4c8", 0.4), 0, "cut_edge")
     bpy.ops.mesh.primitive_cylinder_add(vertices=96, radius=R_ - 0.25, depth=TH - 1.0, location=c + Vector((0, 0, (TH - 1.0) / 2)))
     mol = bpy.context.object; mol.name = "mol_half"; import bmesh
@@ -437,8 +440,8 @@ if GROUP == "X":
             for o in (sh, hd): show(o, f25 + (3 - j) * 2)
     for o in half[:2] + half[6:]:         # the side walls bulge out under the push
         n = o.location - c; n.z = 0; o.keyframe_insert("location", frame=f25 + 6); o.location += n.normalized() * 0.45; o.keyframe_insert("location", frame=SH["S25"]["f1"])
-    cam("S24", c + Vector((-18.0, -27.0, 30.0)), c + Vector((0, 3.0, 3.0)), 20, c + Vector((-16.0, -24.0, 27.0)), c + Vector((0, 3.0, 3.5)), 20)
-    cam("S25", c + Vector((4.0, -17.0, 6.0)), c + Vector((7.5, 0.0, 5.0)), 22, c + Vector((5.0, -15.0, 5.5)), c + Vector((8.0, 0.0, 4.8)), 23)
+    cam("S24", c + Vector((-20.0, -36.0, 34.0)), c + Vector((3.0, 2.0, 5.0)), 22, c + Vector((-18.5, -33.5, 32.0)), c + Vector((3.0, 2.0, 5.5)), 22)
+    cam("S25", c + Vector((6.0, -18.0, 16.0)), c + Vector((8.0, 0.0, 6.0)), 22, c + Vector((6.5, -16.5, 15.0)), c + Vector((8.0, 0.0, 6.0)), 23)
     LOOK = "day"
 
 # ---------------------------------------------------------------- look + render
@@ -450,7 +453,14 @@ if os.environ.get("LISTOBJ"):       # debug: what floats in front of the S26 cam
 finish_look(chars, LOOK)
 os.makedirs(f"{D}/out/frames", exist_ok=True); os.makedirs(f"{D}/out/stills", exist_ok=True)
 L.setup("final", (720, 1280), 8, (1, 1)); sc.render.fps = FPS
-if MODE == "stills":
+if MODE == "info":            # debug: camera position/target per shot at its middle frame + meshes within 3 m of the camera
+    for sid in MINE:
+        s = SH[sid]; f = (s["f0"] + s["f1"]) // 2; sc.frame_set(f); c = bpy.data.objects["cam_" + sid]; t = bpy.data.objects["cam_" + sid + "_tgt"]
+        print("CAM", sid, f, tuple(round(v, 2) for v in c.matrix_world.translation), tuple(round(v, 2) for v in t.matrix_world.translation))
+        for o in bpy.data.objects:
+            if o.type == "MESH" and not o.hide_render and (o.matrix_world.translation - c.matrix_world.translation).length < 3.0: print("  NEAR", o.name, tuple(round(v, 1) for v in o.matrix_world.translation))
+    raise SystemExit
+elif MODE == "stills":
     for sid in MINE:
         s = SH[sid]; f = (s["f0"] + s["f1"]) // 2; sc.frame_set(f)
         sc.camera = bpy.data.objects["cam_" + sid]; sc.render.filepath = f"{D}/out/stills/{sid}.jpg"; bpy.ops.render.render(write_still=True)

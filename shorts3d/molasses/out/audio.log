@@ -1,0 +1,3 @@
+/home/rasul/Desktop/Animations/shorts3d/molasses/audio.py:16: WavFileWarning: Chunk (non-data) not understood, skipping it.
+  sr, y = wavfile.read(path); y = y.astype(float)
+wrote /home/rasul/Desktop/Animations/shorts3d/molasses/out/audio.wav
