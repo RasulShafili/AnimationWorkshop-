@@ -20,3 +20,9 @@ description: Post finished videos to YouTube/Instagram/TikTok (whatif.lab_daily)
 - Channel facts (2026-11-14): 32.8k subs but 0.3% of views come from subscribers (old FNAF/Roblox audience; ~200
   old videos deleted). Not monetized yet: needs 4,000 long-form watch hours (or 10M Shorts views / 90 days);
   the 1,000-subscriber requirement is already met → stay on this channel.
+
+## YouTube tags (2026-11-23)
+Buffer's YoutubePostMetadataInput has NO tags field (only title, categoryId, privacy, madeForKids, notifySubscribers,
+embeddable, license, isAiGenerated) → tags cannot be sent with the post. Write a tags.txt per video (one comma line per
+upload, < 500 chars: topic words, the science terms, "what if …", format words) in the upload folder; the owner pastes it
+in YouTube Studio → Details → Show more → Tags.
