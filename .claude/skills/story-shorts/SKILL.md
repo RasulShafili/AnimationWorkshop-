@@ -106,3 +106,7 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
     `point:<info target>` at one spot (props can write targets into `info`).
   - Any spec change made after the stills QA gets its own stills before the final render.
   - Contact sheet of the whole video (1 frame / 6 s) + full-res grabs of anything odd found both bugs in minutes.
+  - Flicker + pop-out on the same character: flicker keys after the pop (and its scale-1 reset) brought him back on
+    screen → sets_tp.pops now ends any flicker 3 frames before an out-pop. Check the frames right after every tp_out.
+  - Teasers: longform3d/teleport/tools/teaser.py cuts from the FINAL video (keeps captions + mix), several ranges can be
+    joined ("a-b,c-d", cut on a shot change); keep ≤ 38 s (all our teasers are 26–38 s); end on a frozen cliffhanger frame.

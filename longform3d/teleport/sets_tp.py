@@ -69,6 +69,8 @@ def pops(C, spec, tsec, FPS, NF):
             _burst(ctr, f0)
         for t0, t1 in c.get("flicker", []):
             f0, f1 = int(tsec(t0) * FPS) + 1, int(tsec(t1) * FPS) + 1; r = random.Random(f0)
+            outs = [fo for fo, kind in ev if kind == "out" and f0 <= fo <= f1 + 3]
+            if outs: f1 = outs[0] - 3      # flicker keys after an out-pop (incl. its scale-1 reset) brought him BACK (c29 end)
             for f in range(f0, f1 + 1, 2):
                 s = 1.0 if r.random() < 0.55 else r.uniform(0.6, 0.88); ao.scale = (s, s, 1.0 + (1.0 - s) * 0.35); ao.keyframe_insert("scale", frame=f)   # 1/s stretched him 1.7× tall
             ao.scale = (1, 1, 1); ao.keyframe_insert("scale", frame=f1 + 2)

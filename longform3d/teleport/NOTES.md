@@ -32,3 +32,11 @@ tools/render_all.sh (all chapters → audio_all.py → assemble_all.py → ~/Des
   into her face, and 0.57 m apart the two 0.54 m ball heads overlapped. Now both sit on the floor 0.9 m apart facing
   each other, hands meeting at one point (`point:meet` from an info target set in props).
 - Lesson: every spec change made AFTER the stills QA needs its own stills (c32 was changed after the QA and broke).
+
+## Teasers (2026-11-23) — tools/teaser.py (cut from the final video; ranges "a-b,c-d" join pieces)
+- teaser_bear.mp4 39.3 s: white-bear test (c08 without n4) → "page forty… the Sahara" → Sahara → lands on the desk, "Detention."
+- teaser_trench.mp4 34.0 s: Sam's sofa → Mariana Trench documentary → flicker → dark blue → he VANISHES (empty sofa).
+- Both −14 LUFS, question card + "FULL VIDEO ON THE CHANNEL" on a frozen last frame; captions in out/teaser_*_caption.txt.
+- QA found: flicker keys written after an out-pop brought the hero back on the sofa for 0.4 s at the end of c29 (and 1
+  frame in c16) → sets_tp.pops clips a flicker before any out-pop; c16/c29 tails re-rendered, video re-assembled
+  (the copy already uploaded to YouTube still has that 0.4 s glitch at 6:21).

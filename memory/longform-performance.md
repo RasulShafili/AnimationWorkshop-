@@ -22,3 +22,8 @@ categories mixed. Shorts still don't convert → recommend Studio "Related video
 
 **Why:** decides where effort goes next (more teasers per long video, series topics).
 **How to apply:** re-check with yt-dlp before the next analysis and compare velocity (views/hour), not totals; ask the owner for Studio Reach (impressions, CTR) and retention to explain the gap. Related: [[longform-approved-method]], [[thumbnail-matches-title]].
+
+Snapshot 2026-11-23 ~09:30 Baku (yt-dlp): likes long 50 views/24 h = 2.1/h (best long start ever) with its teaser
+892/24 h = 37/h (best teaser start ever, 4× any other); thoughts 32/73 h; AI 13/139 h (worst). Every teaser so far is
+26–38 s and plateaus at 600–1,100; teasers convert only ~5 % into long-video views. Teleport long uploaded (0 views at 3.7 h);
+its 2 teasers (bear 39 s, trench 34 s) are ready, not posted. Keep teasers ≤ 38 s; "He … emotional twist 😳/💔" titles win.
