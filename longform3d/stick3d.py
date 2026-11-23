@@ -158,7 +158,8 @@ def stick(name, look, loc=(0, 0, 0), facing_deg=0):
 SEMO = {"neutral": ({"smile": 0.15}, (0, 0), "dot"), "smile": ({"smile": 1}, (0.006, -0.1), "dot"), "happy": ({"happy": 1}, (0.012, -0.3), "squint"),
         "laugh": ({"happy": 1}, (0.014, -0.4), "shut"), "sad": ({"frown": 0.8}, (0.006, -1.0), "dot"), "angry": ({"frown": 0.7}, (-0.008, 1.1), "dot"),
         "surprised": ({"O": 1}, (0.02, -0.2), "wide"), "scared": ({"O": 0.6, "frown": 0.5}, (0.016, -1.0), "wide"),
-        "smug": ({"smile": 0.8}, (0.0, 0.5), "half"), "determined": ({"frown": 0.2}, (-0.006, 0.7), "dot"), "bored": ({}, (-0.004, 0), "half")}
+        "smug": ({"smile": 0.8}, (0.0, 0.5), "half"), "determined": ({"frown": 0.2}, (-0.006, 0.7), "dot"), "bored": ({}, (-0.004, 0), "half"),
+        "strain": ({"frown": 0.7}, (-0.008, 1.0), "shut"), "sleep": ({"smile": 0.2}, (0.0, 0.0), "shut"), "tired": ({"frown": 0.3}, (-0.002, -0.4), "half")}
 def key_face(ch, f, emotion="neutral", talk=0.0, blink=False):
     face = ch["face"]; keys, (raise_, tilt), eye = SEMO[emotion]
     kb = face["mouth"].data.shape_keys.key_blocks; vo = 0.5 + 0.5 * math.sin(f * 1.3)

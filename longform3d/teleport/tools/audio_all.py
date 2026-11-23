@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""Whole-video audio for teleport: VO lines at their global times, teleport pops (whoosh + pop), flicker crackle,
+an ambience bed per location, a quiet ORIGINAL plucked score that changes mood with the story, −14 LUFS.
+Also writes out/vo_only.wav (for word timings) and out/global.json (chapter offsets + global line times).
+  python3 tools/audio_all.py"""
+import sys, json, os, numpy as np
+sys.path.insert(0, "/home/rasul/Desktop/Animations/longform/ai-takeover/tools")
+sys.path.insert(0, "/home/rasul/Desktop/Animations/longform3d/teleport")
+from audio_lib import Mix, SR, hz, lp, bp, hp
+from scipy.io import wavfile
+from order import ORDER
+D = "/home/rasul/Desktop/Animations/longform3d/teleport"
+FPS = 24
+chap = []; off = 0.0
+for c in ORDER:
+    J = json.load(open(f"{D}/out/{c}_timeline.json")); NF = int(J["end"] * FPS) + 1; dur = NF / FPS
+    chap.append({"id": c, "off": off, "dur": dur, "J": J}); off += dur
+TOTAL = off
+json.dump({"total": TOTAL, "chapters": [{"id": x["id"], "off": x["off"], "dur": x["dur"]} for x in chap],
+           "lines": [{"id": l["id"], "t0": x["off"] + l["t0"], "t1": x["off"] + l["t1"], "who": l["who"]} for x in chap for l in x["J"]["lines"]]},
+          open(f"{D}/out/global.json", "w"), indent=1)
+m = Mix(int(TOTAL * 30) + 60, seed=7); N = m.N; t = m.t
+vo_only = np.zeros(N)
+def load16(p):
+    sr, y = wavfile.read(p); y = y.astype(float) / 32768
+    return np.interp(np.arange(int(len(y) * SR / sr)) * sr / SR, np.arange(len(y)), y)
+for x in chap:
+    for l in x["J"]["lines"]:
+        for k, f in enumerate(l["files"]):
+            a = x["off"] + l["t0"]; m.voice(f"{D}/vo16/{f}", a * 30, 1.0)
+            y = load16(f"{D}/vo16/{f}"); i = int(a * SR); j = min(N, i + len(y)); vo_only[i:j] += y[:j - i]
+wavfile.write(f"{D}/out/vo_only.wav", SR, (vo_only / (np.abs(vo_only).max() + 1e-9) * 30000).astype(np.int16))
+# ---------------------------------------------------------------- sfx atoms
+def seg_env(a, b, fade=0.5): return np.clip(np.minimum((t - a) / fade, (b - t) / fade), 0, 1)
+def pop(t0, g=0.3, out=True):
+    n = int(0.25 * SR); s = np.arange(n) / SR
+    f0 = 900 if out else 500; sweep = np.sin(2 * np.pi * np.cumsum(f0 + (1200 if out else -300) * s / 0.25) / SR) * np.exp(-s * 18)
+    m.place(t0, sweep * 0.8 + bp(m.noise(n), 1500, 7000) * np.exp(-s * 30) * 0.5, g, 0, .4); m.whoosh(t0 - (0.12 if out else 0.0), 0.3, g * 0.35, 600, 6000)
+def crackle(a, b, g=0.08):
+    n = int((b - a) * SR)
+    if n <= 0: return
+    s = np.arange(n) / SR; buzz = np.sign(np.sin(2 * np.pi * 110 * s)) * (np.random.default_rng(int(a * 10)).random(n) < 0.02) + bp(m.noise(n), 3000, 8000) * 0.3
+    m.place(a, buzz * np.minimum(1, s / 0.1) * np.minimum(1, (b - a - s) / 0.1), g, 0, .3)
+def bed_noise(lo, hi, a, b, g, wob=0.0, rate=0.15):
+    x = bp(m.noise(N), lo, hi); x2 = bp(m.noise(N), lo, hi)
+    e = seg_env(a, b, 0.4) * (1 + wob * np.sin(2 * np.pi * rate * t)); m.bed(x, e, g, .4, x2)
+def chirps(a, b, g=0.02):
+    tt = a + 0.3; k = 0
+    while tt < b - 0.3: m.chime(tt, 96 + (k % 5), g); tt += 0.6 + (k % 3) * 0.37; k += 1
+AMB = {   # set → ambience
+    "classroom_dressed": lambda a, b: bed_noise(200, 1200, a, b, 0.006),
+    "moon": lambda a, b: bed_noise(40, 120, a, b, 0.02),
+    "bedroom_tp": lambda a, b: bed_noise(150, 900, a, b, 0.004),
+    "kitchen_dressed": lambda a, b: bed_noise(150, 900, a, b, 0.005),
+    "bathroom": lambda a, b: bed_noise(300, 2500, a, b, 0.006),
+    "tokyo": lambda a, b: (bed_noise(60, 300, a, b, 0.02), bed_noise(2000, 6000, a, b, 0.003)),
+    "backyard": lambda a, b: (bed_noise(200, 1500, a, b, 0.006), chirps(a, b)),
+    "sahara": lambda a, b: bed_noise(150, 800, a, b, 0.03, 0.5),
+    "everest": lambda a, b: bed_noise(200, 1500, a, b, 0.06, 0.7, 0.3),
+    "ocean": lambda a, b: bed_noise(150, 1500, a, b, 0.04, 0.8, 0.12),
+    "antarctica": lambda a, b: bed_noise(250, 2000, a, b, 0.045, 0.6, 0.25),
+    "zoo": lambda a, b: (bed_noise(200, 1500, a, b, 0.008), chirps(a, b, 0.015)),
+    "beach": lambda a, b: bed_noise(150, 2000, a, b, 0.045, 0.8, 0.1),
+    "bus_street": lambda a, b: bed_noise(60, 500, a, b, 0.03),
+    "freezer": lambda a, b: bed_noise(80, 200, a, b, 0.03),
+    "stadium": lambda a, b: bed_noise(300, 3000, a, b, 0.08, 0.3, 0.5),
+    "living_room": lambda a, b: bed_noise(150, 900, a, b, 0.004),
+    "hospital": lambda a, b: bed_noise(200, 1500, a, b, 0.006),
+    "grandma_kitchen": lambda a, b: bed_noise(150, 900, a, b, 0.004),
+}
+for x in chap:
+    a, b = x["off"], x["off"] + x["dur"]; f = AMB.get(x["J"].get("set"))
+    if f: f(a, b)
+    for ev in x["J"].get("events", []):
+        if ev[0] == "tp_out": pop(x["off"] + ev[1], 0.3, True)
+        elif ev[0] == "tp_in": pop(x["off"] + ev[1], 0.26, False)
+        elif ev[0] == "flicker": crackle(x["off"] + ev[1], x["off"] + ev[2])
+# special beats
+G = {l["id"]: (l["t0"], l["t1"]) for l in json.load(open(f"{D}/out/global.json"))["lines"]}
+m.thump(G["c10_kent1"][0] - 0.05, 0.25)                                     # landing on the desk / "Detention."
+for k in range(6): m.place(G["c27_n1"][0] + 0.4 + k * 0.05, bp(m.noise(int(0.8 * SR)), 300, 3000) * np.exp(-np.arange(int(0.8 * SR)) / SR * 2), 0.05)   # crowd gasp
+bed_noise(30, 90, G["c29_n5"][0], G["c29_n5"][1] + 0.4, 0.08)               # the trench rumble
+# ---------------------------------------------------------------- original score: plucks + pad, mood per section
+def pluck(f, d=0.5):
+    n = int(d * SR); s = np.arange(n) / SR; y = sum(a * np.sin(2 * np.pi * f * k * s) * np.exp(-s * (6 + 3 * k)) for k, a in ((1, 1), (2, .4), (3, .2)))
+    return y * np.minimum(1, s / 0.004)
+def pad(ch, a, b, g):
+    n = int((b - a) * SR); s = np.arange(n) / SR; y = sum(np.sin(2 * np.pi * hz(q) * s) for q in ch)
+    m._mus(a, lp(y, 1100) * np.minimum(1, s / 1.0) * np.minimum(1, (b - a - s) / 1.0), g)
+MOODS = {"play": ([60, 64, 67, 72, 71, 67, 64, 62, 60, 64, 69, 67, 65, 64, 62, 59], [[48, 55, 60], [45, 52, 57], [41, 48, 53], [43, 50, 55]], 0.28),
+         "tense": ([57, 60, 64, 60, 59, 62, 65, 62, 57, 60, 64, 69, 68, 64, 62, 59], [[45, 52, 57], [46, 53, 58], [45, 52, 57], [44, 52, 56]], 0.3),
+         "calm": ([64, 67, 71, 67, 62, 66, 69, 66, 60, 64, 67, 72, 71, 67, 64, 62], [[52, 59, 64], [50, 57, 62], [48, 55, 60], [47, 54, 59]], 0.45),
+         "warm": ([67, 71, 74, 72, 71, 67, 69, 71, 72, 69, 67, 64, 66, 67, 69, 71], [[43, 50, 55], [48, 55, 60], [45, 52, 57], [50, 57, 62]], 0.42)}
+SECT = [("c01", "c03", "tense"), ("c04", "c07", "play"), ("c08", "c10", "play"), ("c11", "c18", "tense"), ("c19", "c20", "warm"), ("c21", "c28", "calm"),
+        ("c29", "c30", "tense"), ("c31", "c34", "warm")]
+CO = {x["id"]: x for x in chap}
+for a_id, b_id, mood in SECT:
+    a = CO[a_id]["off"] + 0.2; b = CO[b_id]["off"] + CO[b_id]["dur"] - 0.2; mel, chs, step = MOODS[mood]
+    k = 0; tt = a
+    while tt < b - 0.3:
+        if k % 2 == 0 or mood == "play": m._mus(tt, pluck(hz(mel[k % 16])), 0.03, 0.2 * (-1) ** k)
+        if k % 4 == 0: m._mus(tt, pluck(hz(chs[(k // 8) % 4][0]), 0.7), 0.03)
+        tt += step; k += 1
+    tt = a; i = 0
+    while tt < b - 0.5: pad(chs[i % 4], tt, min(b, tt + step * 8), 0.022); tt += step * 8; i += 1
+m.render(f"{D}/out/audio_all.wav")
+print("TOTAL", round(TOTAL, 1))

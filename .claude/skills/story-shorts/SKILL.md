@@ -73,3 +73,36 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
 - Bash: `until ! pgrep -f "x.sh"` matches its own command line forever — wait on a PID or a log line instead.
 - Mix check without ears: transcribe the final mixed audio with faster-whisper and diff against the script
   (spike: 0.996 word match → music/SFX don't bury the VO).
+
+## 5. Long-form in this style (longform3d/teleport, 2026-11-22: "What If You Teleported Every Time You Thought of a Place?")
+- Owner: what-if long video in the stick style, NOT character-heavy and NOT a pure explainer — a mix; viewers have a
+  short attention span → one hero ("you", 2nd person) + 3 tiny roles; a new place or danger every 20–30 s; real
+  science in 1–2 lines per chapter said inside the story; every chapter ends on a mini-cliffhanger; 8 min
+  (1,345 words at natural Chatterbox pace ≈ 8 min with 0.4 s gaps; 1,100 words was only ~7 min).
+- Engine = likes chapter engine forked (teleport/build.py): stick3d cast, 24 fps, keys every 2nd frame, sets_tp.py
+  for moods/look/pops/drift. One chapter = one location (35 chapters). New spec features:
+  cast "pops": [(t, 'in'|'out')] (squash + glowing ring + sparks), "jumps": [(t, (x, y[, z]), face)] (teleport inside a
+  set), "flicker": [(t0, t1)]; times may be (line, 'end-0.3'). drift(): every cut pushes in 7 % (some truck sideways).
+- Close-ups for stick heads: face_cam dist ×1.45, lens 40, target 0.22 m below the head; head pitch ≤ 7° (a nod puts
+  the hat brim over the eyes). In small rooms a close-up can get pulled to 0.7 m by the wall ray-cast → use a fixed
+  close shot there. A cu of someone looking at a neighbour often films that neighbour → use a fixed camera placed
+  in front of the face (check facing math) instead.
+- Animals/props built from joined primitives: T.join() moves the origin to the world origin (else .location=(x,y,0)
+  sank lions/penguins by their body height).
+- Keep plain-python tools free of bpy: chapter ORDER lives in order.py (chapters.py imports bpy; importing it in
+  a shell script silently gave an EMPTY order → only a few chapters rendered).
+- Never `pkill -f <script name>` from a shell whose own command line contains that name — it kills itself. Kill by PID.
+- Static set test without voices: teleport/set_test.py renders each chapter's set + cast from its first fixed shot
+  (caught 6 bad cameras in one run before any VO existed).
+- Final-QA lessons (teleport, 2026-11-23):
+  - A killed render leaves a 0-byte frame; Blender's resume skips existing files and ffmpeg's concat demuxer stops
+    there with exit 0 (the 7:39 video came out 61 s). assemble_all.py now refuses missing/<2 kB frames and checks the
+    encoded frame count. After any kill: `find out -name '*.jpg' -size -2k`.
+  - List lines ("your car. your bedroom. the crack in the ceiling. the lamp. the sock") need one shot per item:
+    line option `"cuts": [(offset_s, shot), …]` (offsets from whisper words); stills mode samples every sub-cut.
+  - Sets without a ceiling show sky on any upward shot → add a ceiling patch with `visible_shadow = False`.
+  - Ball heads are 0.54 m wide: two characters need ≥ 0.9 m between centres or the heads overlap. A standing
+    character beside a floor-sitter gets his head cropped — put both on the same level. Hand-holding = both
+    `point:<info target>` at one spot (props can write targets into `info`).
+  - Any spec change made after the stills QA gets its own stills before the final render.
+  - Contact sheet of the whole video (1 frame / 6 s) + full-res grabs of anything odd found both bugs in minutes.

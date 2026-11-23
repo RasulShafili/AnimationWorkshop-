@@ -1,0 +1,58 @@
+[
+ {
+  "out": "vo/c07_n3.wav",
+  "text": "Sam is not happy about this. Sam stays not happy about this for a whole week.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c11_n2.wav",
+  "text": "You write it in big letters and tape it to the wall above your bed.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n3.wav",
+  "text": "You picture your bedroom. You picture it harder than you have ever pictured anything.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c18_n2.wav",
+  "text": "She just hands you a towel. Moms can tell when a question will ruin their whole day.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c23_n2.wav",
+  "text": "The driver doesn't notice. The kid at the bus stop definitely does.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c24_n2.wav",
+  "text": "A lady reaching for ice cream screams so loud the manager drops a watermelon.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c30_n3.wav",
+  "text": "Downstairs, your mom shouts that dinner is ready. You walk down the stairs. Like a normal person. It feels amazing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c20_sam2.wav",
+  "text": "Okay, okay. Pizza place!",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ }
+]

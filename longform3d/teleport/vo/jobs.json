@@ -1,0 +1,562 @@
+[
+ {
+  "out": "vo/c01_kent1.wav",
+  "text": "Okay, everyone close your eyes. Imagine you're standing on the Moon.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c01_n1.wav",
+  "text": "And then you are.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c02_n1.wav",
+  "text": "No air. No sound. The spit on your tongue starts to bubble. You have about fifteen seconds before you pass out.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c02_n2.wav",
+  "text": "So you squeeze your eyes shut and picture the only place you know by heart. Your bedroom.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c03_n1.wav",
+  "text": "Pop. You're lying on your carpet, gasping, with frost on your eyelashes.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c03_n2.wav",
+  "text": "So, what if you teleported every time you thought of a place?",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c04_n1.wav",
+  "text": "It takes you one morning to figure out the rules. You think of the fridge. You're at the fridge.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c04_n2.wav",
+  "text": "You think of the bathroom.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c05_n1.wav",
+  "text": "Bathroom. You don't have to want it. You just have to picture it clearly. No flash, no smoke. Just a little pop in your ears.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c05_n2.wav",
+  "text": "So you do what anyone would do. You go to Tokyo for lunch.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c06_n1.wav",
+  "text": "Pop. It's pitch black. Every shop is closed. Because when it's noon at your house, it's two in the morning in Tokyo.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c06_n2.wav",
+  "text": "A very confused cat stares at you. You stare back. You go home and eat cereal.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c07_sam1.wav",
+  "text": "Wait, wait. You can go anywhere? Take me to Hawaii! Right now!",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c07_n1.wav",
+  "text": "You grab Sam's hand and picture a beach. Pop. Sam is still standing in the backyard, holding nothing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c07_n2.wav",
+  "text": "It only takes you, your clothes, and whatever's in your pockets. And that's when you notice the real problem. You can't turn it off.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c08_n1.wav",
+  "text": "Try this. For the next five seconds, do not think about a white bear.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c08_n2.wav",
+  "text": "You just thought about a white bear.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c08_n3.wav",
+  "text": "In 1987, a psychologist named Daniel Wegner asked people not to think about a white bear for five minutes. They thought about it more than once a minute.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c08_n4.wav",
+  "text": "And when they were finally allowed to think about it, the bear came back even stronger. Your brain checks if you're not thinking about the thing, by thinking about the thing.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c08_kent1.wav",
+  "text": "Alright, page forty. Today we're talking about the Sahara Desert.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c09_n1.wav",
+  "text": "Pop. The sand is so hot it burns through your socks. A camel looks at you like you owe it money.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c09_n2.wav",
+  "text": "You can feel the heat climbing up through your shoes.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_n1.wav",
+  "text": "You think about your classroom so hard that you land right on your teacher's desk.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c10_kent1.wav",
+  "text": "Detention.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c11_n1.wav",
+  "text": "That night, you make a list. Places you are never, ever allowed to think about.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n1.wav",
+  "text": "Number one. The top of Mount Everest. Every breath up there has about a third of the oxygen you're used to.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n2.wav",
+  "text": "Climbers call it the death zone. Without extra oxygen, you'd have a minute or two before your brain starts shutting down.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c12_n3.wav",
+  "text": "Your ears hurt, your head pounds, and the wind is trying to throw you off the mountain.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n1.wav",
+  "text": "Number two. Point Nemo. The loneliest spot in the ocean. The nearest land is more than two and a half thousand kilometres away.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c13_n2.wav",
+  "text": "Some days, the closest humans to you are astronauts on the space station, flying four hundred kilometres over your head.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n1.wav",
+  "text": "Number three. Antarctica. The coldest temperature ever measured there was minus eighty-nine degrees.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c14_n2.wav",
+  "text": "Your eyelashes freeze together. A penguin waddles past like this happens every single day.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n1.wav",
+  "text": "Number four. The lion enclosure at the zoo. This one isn't science. It's just lions.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c15_n2.wav",
+  "text": "The biggest one stops chewing. You have never pictured your bedroom so fast in your life.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c16_n1.wav",
+  "text": "And then you realize the problem with the list. Every time you read it, you picture it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c17_n1.wav",
+  "text": "Snow. Lions. Snow again. You're flicking around the planet like a broken TV remote.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c18_n1.wav",
+  "text": "Your mom finds you in the kitchen, soaking wet, holding a penguin feather.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c18_mom1.wav",
+  "text": "Sweetie, I'm not even going to ask.",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c19_n1.wav",
+  "text": "But Wegner found a trick. Don't fight the thought. Replace it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c19_n2.wav",
+  "text": "People who were told to think about a red car every time the bear showed up thought about the bear way less.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c19_n3.wav",
+  "text": "So you pick your red car. Your bedroom. Every crack in the ceiling. The blue lamp. The sock that's been under your bed since summer.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c20_n1.wav",
+  "text": "You practise it a hundred times a day. Sam shouts random places at you.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c20_sam1.wav",
+  "text": "Volcano! Shark tank! Your crush's house!",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.8,
+  "cfg": 0.3
+ },
+ {
+  "out": "vo/c20_n2.wav",
+  "text": "And every time, your body flickers\u2026 and stays. By Friday, your brain runs home before the scary thought is even finished.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c20_n3.wav",
+  "text": "You did it. You're safe. Until the sun goes down.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c21_n1.wav",
+  "text": "Because there's one time you can't control your thoughts at all. When you're asleep.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c21_n2.wav",
+  "text": "Most people dream four to six times a night. And almost every dream happens somewhere.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c21_n3.wav",
+  "text": "And you can't skip them. Your brain needs that sleep to sort out everything you learned that day.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c22_n1.wav",
+  "text": "You wake up on a beach in your pyjamas.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c23_n1.wav",
+  "text": "On the roof of a bus.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c24_n1.wav",
+  "text": "In a supermarket freezer, next to the frozen peas.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c25_n1.wav",
+  "text": "So you decide to stop sleeping. Bad idea.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c25_n2.wav",
+  "text": "After about eighteen hours awake, your brain works about as well as someone who's been drinking. After a full day, it's like being legally drunk.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c25_n3.wav",
+  "text": "Your thoughts get slow and slippery. Which is exactly what you can't afford.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c26_n1.wav",
+  "text": "On night three, you fall asleep in the bath.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c27_n1.wav",
+  "text": "And you wake up in the middle of a football stadium, during the game. Sixty thousand people. One kid in a towel.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c27_n3.wav",
+  "text": "Security chases you across the pitch. You think of your bed and vanish, right in front of the cameras.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c27_n2.wav",
+  "text": "By the next morning, the video has twenty million views. Nobody can explain it. The internet thinks you're a ghost.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c28_n1.wav",
+  "text": "So you make a deal with your brain. You can dream all you want, but every dream starts in your bedroom and ends in your bedroom.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c28_n2.wav",
+  "text": "It takes a week of practice. But one night, you sleep straight through till morning, and wake up exactly where you fell asleep.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c29_n1.wav",
+  "text": "Two weeks later, you're at Sam's house. Sam turns on the TV.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c29_n2.wav",
+  "text": "It's a documentary about the deepest place on Earth. The Mariana Trench.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c29_n3.wav",
+  "text": "Down there, the water presses on you with about eight tons on every square inch. Nothing like you would survive a single second.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c29_n4.wav",
+  "text": "You see the black water on the screen, and your brain starts building the picture.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c29_sam1.wav",
+  "text": "Hey, are you okay? You're kind of flickering.",
+  "ref": "vo/refs/theo.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c29_n5.wav",
+  "text": "Your ears pop. Your skin goes cold. For one tiny moment, the whole room turns dark blue.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c30_n1.wav",
+  "text": "And then, bedroom. Your brain jumped home before the thought was even finished.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c30_n2.wav",
+  "text": "You lie on the floor, staring at the crack in the ceiling, laughing like an idiot. The training worked.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c31_n1.wav",
+  "text": "After that, you stop being scared of it. You start being careful with it.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c31_n2.wav",
+  "text": "You can only go where you can picture. So you start learning places. Real ones.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c31_n3.wav",
+  "text": "The hospital across town, every hallway. The fire station. Your grandma's kitchen, three hundred kilometres away.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c31_n4.wav",
+  "text": "You walk every route with your eyes wide open. The colour of the doors. The smell of the floors. The number of steps.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c32_n1.wav",
+  "text": "So when your grandma falls in her kitchen and can't reach the phone, you're the first one there. Faster than any ambulance.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c32_gran1.wav",
+  "text": "Oh! Where did you come from?",
+  "ref": "vo/refs/mom.wav",
+  "exag": 0.45,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c32_n2.wav",
+  "text": "You don't answer. You just hold her hand and call for help.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c33_n1.wav",
+  "text": "It turns out the power was never about going anywhere you want. It was about knowing exactly where you are, and where you're needed.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c33_n3.wav",
+  "text": "Your mom still doesn't know. Grandma does. She keeps cookies on the kitchen table now, just in case.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c33_n2.wav",
+  "text": "Except the Moon. You are never thinking about the Moon again.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "vo/c34_kent1.wav",
+  "text": "Good morning, class! Today we're starting a new unit. The solar system.",
+  "ref": "vo/refs/hale.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "vo/c34_n1.wav",
+  "text": "Oh no.",
+  "ref": "vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ }
+]
