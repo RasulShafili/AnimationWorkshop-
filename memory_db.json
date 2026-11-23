@@ -40,7 +40,8 @@
     "ai-takeover-teaser",
     "thoughts-teaser",
     "thoughts-teaser2",
-    "likes-teaser"
+    "likes-teaser",
+    "teleport-teaser"
   ],
   "history": [
     {
@@ -784,6 +785,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b02f3ab846b0ee9078d6541"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "teleport-teaser",
+      "title": "Don't Think Of A White Bear… He Just Did. Now He's In The Sahara 😳",
+      "published_at": "2026-11-23 13:52:42 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0444baf3aecf260a9a8941"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b0444c69a08ec49a630e6ea"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0444cbd35c00e2ba753870"
         }
       ],
       "status": "published"
