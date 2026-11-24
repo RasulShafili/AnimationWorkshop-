@@ -80,3 +80,4 @@ longform/*/vo/*.npy
 # Blender test renders
 longform3d/**/out/
 *.blend1
+longform25/*/out/

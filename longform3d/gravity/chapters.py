@@ -102,6 +102,20 @@ def classroom_props(info):
         L.cyl(0.01, 0.16, (x + 0.15, y + 0.1, 0.8), M(rnd.choice(["f2c230", "e84a3a", "3a8ad8"]), 0.5), rot=(0, 1.5, 0), name="pencil")
 def candle_hook(info, TT, FPS):
     z0 = E(TT, "c14_n1", 2.4); G.candle(2.2, 2.3, 0.785, z0, z0 + 40)
+    # "On Earth, flames are tall…": the tall flame is back for this shot, hot air (orange) rises, cool air (blue) rushes in below
+    a, b = int(E(TT, "c14_n2", 0.0) * FPS) - 1, int(E(TT, "c14_n2", 5.05) * FPS) + 1
+    def vis(o, on0, on1, v):
+        for f, h in ((on0, not v), (on1, v)): o.hide_render = h; o.keyframe_insert("hide_render", frame=f)
+    for n in ("flame_tall", "flame_core"): vis(bpy.data.objects[n], a, b, True)
+    vis(bpy.data.objects["flame_ball"], a, b, False)
+    for k in range(6):
+        hot = L.sph(0.011, (2.2, 2.3, 1.2), M("ff8a3a", 0.5, emit=2.0), seg=10, name="hot_air"); cool = L.sph(0.011, (2.2, 2.3, 1.0), M("4ab0ff", 0.5, emit=1.0), seg=10, name="cool_air")
+        sx = -1 if k % 2 else 1
+        for o in (hot, cool): o.hide_render = True; o.keyframe_insert("hide_render", frame=1); vis(o, a, b, True)
+        for c in range(5):
+            f0 = a + int((k / 6 + c) * 32); f1 = f0 + 31
+            hot.location = (2.2 + 0.03 * math.sin(k * 2.1), 2.3, 1.14); hot.keyframe_insert("location", frame=f0); hot.location = (2.2 + 0.07 * math.sin(k * 2.1), 2.3, 1.42); hot.keyframe_insert("location", frame=f1)
+            cool.location = (2.2 + sx * 0.26, 2.3, 0.99 + 0.01 * k); cool.keyframe_insert("location", frame=f0); cool.location = (2.2 + sx * 0.03, 2.3, 1.03); cool.keyframe_insert("location", frame=f1)
 def candle_on(info, TT, FPS):
     G.candle(2.2, 2.3, 0.785, -1.0, 200)
 def gym_mats_hook(info, TT, FPS):
@@ -203,7 +217,7 @@ CH["c05"] = dict(set_fn=G.space, set="space", light="space", mood="day", anim=[s
 CH["c06"] = dict(set="street_dressed", light="sun", mood="day",
     cast={"HERO": dict(path=[(0, -6.0, 2.4), (("c06_n2", 0.0), -1.0, 2.4)], face=90, emo="smile", z=0.15, speed=1.0,
                        float=(("c06_n2", 0.3), ("c06_n2", "end-0.2"), (0.6, 0, 0.35), 0.0))},
-    shots={"side": ("fixed", (-1.5, -4.0, 1.6), (-2.5, 2.4, 1.6), 24), "cu_hero": ("cu", "HERO", 1.8, 10)},
+    shots={"side": ("fixed", (-1.5, -5.6, 1.9), (-1.6, 2.4, 1.8), 24), "cu_hero": ("cu", "HERO", 1.8, 10)},
     lines=[("c06_n1", "side", {}), ("c06_n2", "side", {"emo": {"HERO": "scared"}, "hold": 0.4})], zero=[(("c06_n2", 0.3), ("c06_n2", "end-0.2"))])
 B = "backyard"
 CH["c07"] = dict(set=B, light="sun", mood="day", props=[second_storey, pool],
@@ -233,7 +247,7 @@ CH["c11"] = dict(set="street_dressed", light="sun", mood="day", anim=[c11_hook],
     lines=[("c11_n1", "street", {}), ("c11_n2", "low", {"emo": {"HERO": "scared"}, "hold": 0.6})], zero=[(("c11_n2", -0.3), ("c11_n2", "end"))])
 CH["c12"] = dict(set="street_dressed", light="sun", mood="day", anim=[c12_hook],
     cast={"HERO": dict(at=(-9.0, 2.7, 0.15), face=150, emo="scared", look_at=(-6, -2.5, 1.5))},
-    shots={"cross": ("fixed", (10.0, 4.2, 2.4), (-8.0, -1.5, 1.2), 22), "sky": ("fixed", (-8.0, -1.0, 1.2), (-35.0, 30.0, 40.0), 26)},
+    shots={"cross": ("fixed", (10.0, 4.2, 2.4), (-8.0, -1.5, 1.2), 22), "sky": ("fixed", (-8.0, 2.0, 1.4), (-8.8, 4.82, 5.45), 24)},
     lines=[("c12_n1", "cross", {}), ("c12_n2", "sky", {"emo": {"HERO": "smile"}, "hold": 0.4})], zero=[(("c12_n1", 0.6), ("c12_n1", 3.4))])
 CL = "classroom_dressed"
 CLASS = {"HERO": dict(seat=(0.0, 0.0, 0.47), face=0, emo="bored", look_at="COACH"), "MAYA": dict(seat=(2.4, 0.0, 0.47), face=0, emo="smile", look_at="COACH"),
@@ -245,9 +259,9 @@ CH["c13"] = dict(set=CL, light="class_day", mood="day", props=[classroom_props],
     lines=[("c13_n1", "wide", {}), ("c13_coach1", "cu_coach", {"hold": 0.4})])
 CH["c14"] = dict(set=CL, light="class_day", mood="day", props=[classroom_props], anim=[candle_hook],
     cast={"HERO": dict(at=(1.6, 1.9), face=40, emo="smile", look_at=(2.2, 2.3, 0.95)), "COACH": dict(at=(2.9, 2.6), face=-120, emo="smile", look_at=(2.2, 2.3, 0.95)),
-          "MAYA": dict(at=(2.4, 1.6), face=10, emo="happy", look_at=(2.2, 2.3, 0.95))},
-    shots={"candle": ("fixed", (2.05, 1.55, 1.05), (2.2, 2.3, 0.98), 40), "wide": ("fixed", (0.6, -0.8, 1.6), (2.2, 2.2, 1.0), 26), "cu_hero": ("cu", "HERO", 1.6, -20)},
-    lines=[("c14_n1", "candle", {"emo": {"HERO": "surprised", "MAYA": "surprised"}}), ("c14_n2", "candle", {"emo": {"HERO": "happy"}}), ], zero=[(("c14_n1", 2.4), 200)])
+          "MAYA": dict(at=(2.95, 1.75), face=-50, emo="happy", look_at=(2.2, 2.3, 0.95))},
+    shots={"candle": ("fixed", (2.05, 1.5, 1.08), (2.2, 2.3, 1.06), 36), "earth": ("fixed", (2.1, 1.45, 1.12), (2.2, 2.3, 1.13), 36), "wide": ("fixed", (0.6, -0.8, 1.6), (2.2, 2.2, 1.0), 26), "cu_hero": ("cu", "HERO", 1.6, -20)},
+    lines=[("c14_n1", "wide", {"cuts": [(1.9, "candle")], "emo": {"HERO": "surprised", "MAYA": "surprised"}}), ("c14_n2", "earth", {"cuts": [(5.05, "candle"), (11.3, "wide")], "emo": {"HERO": "happy"}}), ], zero=[(("c14_n1", 2.4), 200)])
 GYMK = {"K1": dict(at=(-6.0, -3.0), face=-60, emo="surprised", look_at="MARCUS"), "K2": dict(at=(-5.0, 2.5), face=-120, emo="surprised", look_at="MARCUS"),
         "K4": dict(at=(-7.5, 3.8), face=-150, emo="scared", look_at="MARCUS"), "MAYA": dict(at=(-6.5, -1.0), face=-80, emo="scared", look_at="MARCUS")}
 CH["c15"] = dict(set_fn=G.gym, set="gym", light="class_day", mood="day",
@@ -346,7 +360,7 @@ CH["c31"] = dict(**PG, cast={"LEO": dict(p3=[(0, (3.7, 9.6, 3.6)), (("c31_n1", 2
 CH["c32"] = dict(**PG, cast={"HERO": dict(at=(-1.6, 1.0, 2.0), face=60, emo="scared", float=(-0.5, ("c32_n1", 1.2), (-0.1, -1.0, 0), -1.85, "curb")),
                             "LEO": dict(at=(-1.2, 1.3, 2.1), face=180, emo="scared", float=(-0.5, ("c32_n1", 1.2), (-0.1, -1.0, 0), -1.95, "curb")),
                             "MAYA": dict(at=(0.6, -0.6), face=-120, emo="surprised", look_at="HERO")},
-    shots={"wide": ("fixed", (1.8, -4.6, 1.7), (-1.8, 0.6, 1.0), 22), "cu_maya": ("cu", "MAYA", 1.5, -15)},
+    shots={"wide": ("fixed", (1.8, -4.6, 1.7), (-1.6, 0.6, 1.35), 19), "cu_maya": ("cu", "MAYA", 1.5, -15)},
     lines=[("c32_n1", "wide", {"emo": {"HERO": "happy", "LEO": "happy"}}), ("c32_maya1", "cu_maya", {"emo": {"MAYA": "laugh"}, "hold": 0.4})], zero=[(-1.0, ("c32_n1", 1.2))])
 CH["c33"] = dict(set="living_room", light="lamp_night", mood="night", props=[news_g("TOMORROW: 6 SEC", "SCIENTISTS: IT'S GETTING LONGER")],
     cast={"HERO": dict(seat=(0.45, -0.55, 0.45), face=180, emo="surprised", look_at=(0, 2.1, 1.35)), "MOM": dict(seat=(-0.5, -0.55, 0.45), face=180, emo="scared", look_at=(0, 2.1, 1.35))},
