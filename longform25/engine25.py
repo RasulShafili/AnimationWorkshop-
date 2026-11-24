@@ -69,7 +69,15 @@ class Scene:
             ys = [p[1] for p in pts]; g = cairo.LinearGradient(0, min(ys), 0, max(ys)); g.add_color_stop_rgba(0, *C(grad[0]), a); g.add_color_stop_rgba(1, *C(grad[1]), a); col = g
         s.fill(col, s.lw(np.mean([np.array(p, float) for p in Ps], 0), line) if line else None, a)
     def line(s, Ps, col, m, a=1.0):
-        pts = [s.cam.pr(p) for p in Ps]; s.path(pts, False); s.c.set_source_rgba(*C(col), a); s.c.set_line_width(max(1, s.cam.px(Ps[0], m))); s.c.stroke()
+        Q = [s.cam.cs(p) for p in Ps]; n = .12; f = s.cam.f; c = s.c; pen = False; zs = []
+        for A, B in zip(Q, Q[1:]):                                # near-plane clip: a point behind the camera must never be projected
+            if A[2] < n and B[2] < n: pen = False; continue
+            if A[2] < n: A = A + (B - A) * ((n - A[2]) / (B[2] - A[2])); pen = False
+            B2 = A + (B - A) * ((n - A[2]) / (B[2] - A[2])) if B[2] < n else B
+            if not pen: c.move_to(W / 2 + f * A[0] / A[2], H / 2 - f * A[1] / A[2])
+            c.line_to(W / 2 + f * B2[0] / B2[2], H / 2 - f * B2[1] / B2[2]); pen = B[2] >= n; zs += [A[2], B2[2]]
+        if not zs: return
+        c.set_source_rgba(*C(col), a); c.set_line_width(max(1, f * m / (sum(zs) / len(zs)))); c.stroke()
     def box(s, c, d, col, yaw=0.0, line=0.012, top=1.12, side=0.8, front=1.0):
         c = V(*c); h = V(*d) / 2; a = math.radians(yaw); X = V(math.cos(a), math.sin(a), 0); Y = V(-math.sin(a), math.cos(a), 0); Z = V(0, 0, 1)
         faces = []
@@ -110,7 +118,8 @@ def ik(a, b, l1, l2, pole):
     return a + u * x + p * h, e
 # ------------------------------------------------------------------ faces: every number blends, so expressions morph
 #           eyeW  eyeH pupil  lid  browY browTilt mW  mH  curve(+smile) teeth blush
-FACE = {"smile":   (.15, .19, .085, .00, .00, .00, .20, .02, .10, 0, .5), "happy": (.15, .17, .085, .12, .05, .05, .24, .13, .12, 1, .7),
+FACE = {"sick": (.15, .13, .07, .30, .02, .20, .16, .03, -.12, 0, .0), "sad": (.15, .18, .085, .15, .06, .22, .14, .01, -.08, 0, .2), "laugh": (.16, .05, .07, .0, .08, .05, .28, .22, .12, 1, .8), "smug": (.15, .13, .085, .35, .02, -.08, .18, .01, .09, 0, .4), "angry": (.16, .17, .08, .18, -.06, -.30, .18, .05, -.08, 0, .2), "det": (.16, .18, .085, .12, -.04, -.20, .12, .0, -.01, 0, .3), "sleep": (.15, .02, .05, .0, -.02, .06, .08, .03, .02, 0, .5),
+        "smile":   (.15, .19, .085, .00, .00, .00, .20, .02, .10, 0, .5), "happy": (.15, .17, .085, .12, .05, .05, .24, .13, .12, 1, .7),
         "neutral": (.14, .18, .085, .05, .00, .00, .14, .00, .00, 0, .3), "shock": (.19, .27, .060, .00, .16, .10, .13, .24, .00, 0, .3),
         "scared":  (.18, .25, .055, .00, .12, .30, .22, .14, -.10, 1, .2), "focus": (.14, .14, .085, .22, -.05, -.10, .12, .02, -.02, 0, .3),
         "sleepy":  (.15, .18, .085, .45, .02, .08, .10, .02, .02, 0, .4), "ooh": (.18, .23, .075, .00, .14, .05, .08, .10, .00, 0, .5), "wince": (.16, .09, .06, .35, -.06, -.14, .26, .10, -.06, 1, .5)}
@@ -123,9 +132,9 @@ def face_at(t, K, dur=0.22):
     return cur
 class Char:
     """Stick person. look: body, cap/hair colours, kind. pose fields are plain attributes set every frame."""
-    def __init__(s, body, k=1.0, cap=None, hair=None, bun=False, dress=False, belt=None, apron=None, skin="fffaf2", legs=True):
-        s.__dict__.update(body=body, k=k, cap=cap, hair=hair, bun=bun, dress=dress, belt=belt, apron=apron, skin=skin)
-        s.R = .205 * k; s.tl = .44 * k; s.tr = .115 * k; s.ua = .26 * k; s.fa = .26 * k; s.th = .235 * k; s.sh = .235 * k
+    def __init__(s, body, k=1.0, cap=None, hair=None, bun=False, dress=False, belt=None, apron=None, skin="fffaf2", style=None, stache=None, glasses=False, coat=None, tie=None, num=None, whistle=False, helmet=None, pal=None, fat=1.0):
+        s.__dict__.update(body=body, k=k, cap=cap, hair=hair, bun=bun, dress=dress, belt=belt, apron=apron, skin=skin, style=style, stache=stache, glasses=glasses, coat=coat, tie=tie, num=num, whistle=whistle, helmet=helmet, pal=pal, green=0.0)
+        s.R = .205 * k; s.tl = .44 * k; s.tr = .115 * k * fat; s.ua = .26 * k; s.fa = .26 * k; s.th = .235 * k; s.sh = .235 * k
         s.hip = V(0, 0, s.th + s.sh); s.yaw = 0.0; s.lean = V(0, 0); s.hyaw = 0.0; s.hpitch = 0.0; s.hroll = 0.0; s.face = FACE["neutral"]; s.talk = 0.0; s.blink = 0.0; s.look = (0, 0)
         s.hands = [None, None]; s.feet = [None, None]; s.squash = 1.0; s.hairlift = 0.0; s.elbow = [V(0, 0, -1), V(0, 0, -1)]; s.knee = None
     def frame(s):
@@ -172,6 +181,16 @@ class Char:
                 P = []
                 for q, (zz, rr) in ((lon, (0.0, rb)), (lon + 10, (0.0, rb)), (lon + 10, (.62, rt)), (lon, (.62, rt))): P.append(bot + up * (zz * s.tl * 1.15) + dirv(s.yaw + q) * rr)
                 if dirv(s.yaw + lon) @ (cam.p - s.hip) > 0: sc.path([cam.pr(p_) for p_ in P]); c.set_source_rgb(*C(s.apron)); c.fill()
+        def onb(lon, zz, rad=1.0): return s.hip + up * (zz * s.tl * s.squash) + dirv(s.yaw + lon) * s.tr * rad
+        seen = lambda lon: dirv(s.yaw + lon) @ (cam.p - s.hip) > .02
+        if s.coat:
+            for lo0, lo1 in ((-24, 24),):
+                P = [onb(lo0, 1.0), onb(0, .45), onb(lo1, 1.0)]
+                if seen(0): sc.path([cam.pr(p_) for p_ in P]); sc.fill(s.coat, sc.lw(s.hip, .008 * k))
+        if s.tie and seen(0): sc.path([cam.pr(p_) for p_ in (onb(-7, .96), onb(7, .96), onb(9, .40), onb(0, .28), onb(-9, .40))]); sc.fill(s.tie, sc.lw(s.hip, .007 * k))
+        if s.whistle and seen(8): x, y = cam.pr(onb(10, .62)); c.new_path(); c.arc(x, y, cam.px(s.hip, .03 * k), 0, 7); sc.fill("ffd24a", 1.5); sc.path([cam.pr(onb(-30, 1.0)), (x, y), cam.pr(onb(34, 1.0))], False); c.set_source_rgb(*INK); c.set_line_width(cam.px(s.hip, .008)); c.stroke()
+        if s.num and seen(0):
+            o_, a_, b_ = cam.pr(onb(0, .55)), cam.pr(onb(20, .55)), cam.pr(onb(0, .8)); c.save(); c.new_path(); m_ = s.tr * math.sin(math.radians(20)); c.transform(cairo.Matrix((a_[0] - o_[0]) / m_, (a_[1] - o_[1]) / m_, -(b_[0] - o_[0]) / (.25 * s.tl), -(b_[1] - o_[1]) / (.25 * s.tl), *o_)); c.select_font_face("Montserrat XB"); c.set_font_size(.17 * k); e_ = c.text_extents(s.num); c.move_to(-e_.width / 2 - e_.x_bearing, .06 * k); c.set_source_rgb(1, 1, 1); c.show_text(s.num); c.new_path(); c.restore()
         if s.belt:
             P = [s.hip + up * .10 * k + dirv(s.yaw + q) * s.tr * 1.08 for q in np.linspace(0, 360, 40)]; P = [p_ for p_ in P if (p_ - s.hip) @ (cam.p - s.hip) > -.004]; P.sort(key=lambda p_: cam.pr(p_)[0])
             if len(P) > 2: sc.path([cam.pr(p_) for p_ in P], False); c.set_source_rgb(*C(s.belt)); c.set_line_width(cam.px(s.hip, .035 * k)); c.stroke()
@@ -195,8 +214,12 @@ class Char:
             sc.path([cam.pr(p_) for p_ in P]); sc.fill(mul(s.cap, .82 if cam.p[2] < HC[2] + R * .4 else 1.0), lw)
         front = fh @ toc > -.1
         if s.cap and not front: brim()
+        if s.hair and s.style == "puffs":
+            for sg in (-1, 1):
+                pq = sp(sg * 100, 34, R * 1.22)
+                if (pq - HC) @ toc < -.02: sc.ball(pq, R * .40, s.hair, .014 * s.k)
         if s.bun and (-fh @ toc) < .15: sc.ball(HC - fh * R * .75 + uh * R * .78, R * .42, s.hair, .014 * s.k)
-        c.arc(x0, y0, q, 0, 7); g = cairo.RadialGradient(x0 - q * .35, y0 - q * .4, q * .2, x0, y0, q * 1.1); g.add_color_stop_rgb(0, 1, 1, 1); g.add_color_stop_rgb(.65, *C(s.skin)); g.add_color_stop_rgb(1, *mul(s.skin, .84)); sc.fill(g, lw)
+        c.arc(x0, y0, q, 0, 7); g = cairo.RadialGradient(x0 - q * .35, y0 - q * .4, q * .2, x0, y0, q * 1.1); sk = mix(s.skin, "b5dc7a", s.green); g.add_color_stop_rgb(0, *mix(mul(sk, 1.06), "ffffff", .35)); g.add_color_stop_rgb(.65, *C(sk)); g.add_color_stop_rgb(1, *mul(sk, .84)); sc.fill(g, lw)
         def patch(lon, lat, fn):                                 # draw in a plane tangent to the ball (unit = head radius)
             P = sp(lon, lat); n = unit(P - HC)
             if n @ toc < .06: return
@@ -221,8 +244,27 @@ class Char:
             if teeth > .4: c.rectangle(-w, o * .16 + mc * .2, 2 * w, o); c.set_source_rgb(1, 1, 1); c.fill()
             c.restore(); c.append_path(p); c.set_source_rgb(*INK); c.set_line_width(.04); c.stroke()
         patch(0, -27, mouth)
-        if s.hair: shell(lambda lo, la: (la > 42 - 18 * math.cos(math.radians(lo)) * -1 if abs(lo) < 90 else la > -28) if True else False, R * 1.045, s.hair, lw)
+        if s.stache: patch(0, -14, lambda: (c.move_to(0, .06), c.curve_to(.12, .10, .22, .02, .30, -.06), c.curve_to(.18, -.09, .08, -.07, 0, -.02), c.curve_to(-.08, -.07, -.18, -.09, -.30, -.06), c.curve_to(-.22, .02, -.12, .10, 0, .06), c.set_source_rgb(*C(s.stache)), c.fill()))
+        if s.glasses:
+            for sg in (-1, 1): patch(sg * 23, 3, lambda: (ell(0, 0, .25, .25), c.set_source_rgb(*INK), c.set_line_width(.05), c.stroke()))
+        if s.hair and s.style == "puffs":
+            for sg in (-1, 1):
+                pq = sp(sg * 100, 34, R * 1.22)
+                if (pq - HC) @ toc >= -.02: sc.ball(pq, R * .40, s.hair, .014 * s.k)
+        if s.hair:
+            st = s.style
+            if st in ("short", "spiky", "fade"): test = lambda lo, la: (la > 40 if abs(lo) < 70 else la > (8 if st != "fade" else 20)) if abs(lo) < 115 else la > (-12 if st != "fade" else 8)
+            elif st == "long": test = lambda lo, la: la > 44 + 10 * math.sin(math.radians(lo * 2)) if abs(lo) < 62 else la > -62
+            else: test = lambda lo, la: (la > 42 + 18 * math.cos(math.radians(lo)) if abs(lo) < 90 else la > -28)
+            if st == "spiky":
+                for lo in range(-150, 180, 40):
+                    for la in (48, 74):
+                        tip = sp(lo + 8, la + 4, R * 1.36)
+                        if (tip - HC) @ toc < -.06: continue
+                        A, B, T_ = cam.pr(sp(lo - 16, la - 6, R * 1.02)), cam.pr(sp(lo + 16, la - 6, R * 1.02)), cam.pr(tip); sc.path([A, T_, B]); sc.fill(s.hair, lw)
+            shell(test, R * 1.045, s.hair, lw)
         if s.bun and (-fh @ toc) >= .15: sc.ball(HC - fh * R * .75 + uh * R * .78, R * .42, s.hair, .014 * s.k)
+        if s.helmet: c.new_path(); c.arc(x0, y0, q * 1.28, 0, 7); c.set_source_rgba(.75, .9, 1, .22); c.fill_preserve(); c.set_source_rgb(*C("f2f4f8")); c.set_line_width(q * .14); c.stroke(); c.new_path(); c.arc(x0, y0, q * 1.36, 0, 7); c.set_source_rgb(*INK); c.set_line_width(lw); c.stroke(); c.arc(x0, y0, q * 1.02, -2.5, -1.9); c.set_source_rgba(1, 1, 1, .8); c.set_line_width(q * .07); c.stroke()
         if s.cap:
             shell(lambda lo, la: la > 22, R * 1.06, s.cap, lw)
             if front: brim()

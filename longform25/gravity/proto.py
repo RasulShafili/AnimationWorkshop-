@@ -257,7 +257,7 @@ PL = V(.42, .34, TAB + .02)
 def mom_plate(t): m = MOM; carry = V(2.55 - 1.35 * ss(t, 0, 1.9) - .34, .82, .98 + .01 * wob(t, 1.4)); w = ss(t, 1.75, 2.5); return carry * (1 - w) + PL * w
 def cat_state(t):
     """(pos, rot, paddle, mood, flip, squash, sit)"""
-    home = V(.82, 1.98, 1.06)
+    home = V(.42, 1.98, 1.06)
     if t < T0: return home, 0, 0.0, "calm", 1, 1 + .02 * wob(t, .6), 0.0
     if t < T1: up = ss(t, T0 + .4, 10.5); p = home * (1 - up) + V(.95, .75, 2.50) * up + V(.08 * wob(t, .17), 0, .03 * wob(t, .33)) * ss(t, T0, T0 + 1.5); return p, 180 * ss(t, T0 + .8, 9) + 8 * wob(t, .4), ss(t, T0 + .4, T0 + 1), "shock", 1, 1, 0.0
     u = t - T1; a = V(.95, .70, 2.50); h = a[2] - (TAB + .17); tf = math.sqrt(2 * h / G); p = a - V(0, 0, min(h, G / 2 * u * u)); p = p + V(-.70, -.32, 0) * clamp(u / tf); rot = 180 * (1 - ss(u, .05, .45))
@@ -301,9 +301,10 @@ def world(sc, t, hide=()):
     def splat():                                       # the milk ball lands on his cap and drips
         if t < TS: return
         u = t - TS; HC = h.joints()[4]; top = HC + V(0, 0, h.R * 1.10); k = back(t, TS, TS + .25, 2.0)
+        DR = [(dx, L, ss(u, d0, d0 + 1.6)) for dx, L, d0 in ((-.13, .03, .1), (.0, .07, .35), (.12, .02, .6))]; seg = lambda dx, L, g_: [top + V(dx * .9, -.14, -.04), top + V(dx, -.16, -.07 - L * g_)]
+        for q_ in DR: sc.line(seg(*q_), INK, .078)
         blob(sc, top + V(0, -.02, -.03), .15 * k, t, .05, sq=(1.25, .55 + .25 * math.exp(-u * 5)))
-        for j, (dx, L, d0) in enumerate(((-.13, .03, .1), (.0, .07, .35), (.12, .02, .6))):
-            g_ = ss(u, d0, d0 + 1.6); q = top + V(dx, -.16, -.06 - L * g_); sc.line([top + V(dx * .9, -.14, -.05), q], INK, .058); sc.line([top + V(dx * .9, -.14, -.05), q], "fdfdff", .042)
+        for q_ in DR: sc.line(seg(*q_), "fbfbfe", .056)
         for j in range(18):
             a_ = j * .35; v = V(math.cos(a_) * (.7 + .4 * (j % 3)), math.sin(a_) * .5 - .2, 1.2 + .5 * (j % 4)); q = top + v * u - V(0, 0, G / 2 * u * u)
             if u < .75 and q[2] > .02: blob(sc, q, .024, t, .1)

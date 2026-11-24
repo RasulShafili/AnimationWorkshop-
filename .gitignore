@@ -81,3 +81,4 @@ longform/*/vo/*.npy
 longform3d/**/out/
 *.blend1
 longform25/*/out/
+longform25/assets/*.png
