@@ -10,3 +10,7 @@ Second story-Short (skill .claude/skills/story-shorts). Owner: no church topics 
   harbor.py (set) + cast.py + build.py (groups N D W F A X) → tools/stills.sh → tools/render_all.sh → audio.py → assemble.py.
 - Set build speed: hundreds of separate bpy.ops cubes (elevated railway) took 15+ min → harbor.Boxes merges boxes into
   one mesh per material (set builds in ~4 min).
+- 2026-11-24: final QA with one frame PER SHOT (75% point) found S13 had no ship in it (bare hull) → new camera
+  (-20,24,2.6)->(-5,40,5.5), 40 frames re-rendered. A uniform 28-frame sheet had missed it: always sheet per shot.
+- Whisper on the mix drops short character lines between narrator lines; transcribe the segment alone before worrying.
+- Posted 2026-11-24 (TikTok, Instagram; YouTube hit Buffer's daily limit).

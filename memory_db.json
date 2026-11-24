@@ -41,7 +41,9 @@
     "thoughts-teaser",
     "thoughts-teaser2",
     "likes-teaser",
-    "teleport-teaser"
+    "teleport-teaser",
+    "teleport-teaser2",
+    "molasses-tank"
   ],
   "history": [
     {
@@ -811,6 +813,59 @@
         }
       ],
       "status": "published"
+    },
+    {
+      "id": "teleport-teaser2",
+      "title": "He Teleports Wherever He Thinks… Then A Mariana Trench Documentary Came On 😱",
+      "published_at": "2026-11-23 22:04:19 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b04b7bfc0a1a00006e5eeea"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b04b7cc18db0405bda991e7"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b04b7d98165ce395b9de465"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "molasses-tank",
+      "title": "The Molasses Tank Everyone Laughed At 😳",
+      "published_at": "2026-11-24 13:37:24 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0592659dcfd388092421e2"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b059271ff66be8392589839",
+          "status": "error: The daily posting limit for this channel has been reached! Please try reducing the amount of times per day in your schedule and try again later."
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0592749dcfd3880924271a"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b059367e1395a23833e2db3",
+          "status": "error: The daily posting limit for this channel has been reached! Please try reducing the amount of times per day in your schedule and try again later."
+        }
+      ],
+      "status": "partial"
     }
   ]
 }

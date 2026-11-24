@@ -24,3 +24,4 @@
 - [Thumbnail = dramatic art + 2-word text](thumbnail-ifology-rules.md) — dedicated scene, giant outlined 'TOO LOUD.' style text, neon dark bg; not a video still
 - [Readable characters](readable-characters.md) — boy/girl + who-is-who must read at a glance; name cards on first close-up; redesign cast next
 - [Ricks Clips reference](ricksclips-reference.md) — 476M-view Shorts formula: mocked expert → disaster payoff, 65 s; notes in refs_watch
+- [Səhm Köməkçisi project](sehm-komekci-project.md) — ~/sehm-komekci stock helper app; install stopped, code untested (2026-11-24)

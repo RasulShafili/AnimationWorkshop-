@@ -26,3 +26,9 @@ Buffer's YoutubePostMetadataInput has NO tags field (only title, categoryId, pri
 embeddable, license, isAiGenerated) → tags cannot be sent with the post. Write a tags.txt per video (one comma line per
 upload, < 500 chars: topic words, the science terms, "what if …", format words) in the upload folder; the owner pastes it
 in YouTube Studio → Details → Show more → Tags.
+
+## YouTube daily limit (2026-11-24)
+Buffer allows 2 YouTube posts per day on this channel; a third returns `[ERROR] youtube: The daily posting limit…`.
+`dailyPostingLimits(input:{channelIds:[…]}){isAtLimit limit sent}` can still say `isAtLimit: false, sent: 1` while the post is
+refused (probably a rolling 24 h window) → don't hammer; retry `youtube` only, once, 24 h after the older of the last two posts.
+`share_video.py` prints `[OK] posted to 3/3` even when one platform errored: trust the `[SENT]`/`[ERROR]` lines, not the count.

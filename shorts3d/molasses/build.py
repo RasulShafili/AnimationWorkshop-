@@ -284,7 +284,7 @@ if GROUP == "W":
     everyone = [HERO, MOCK, WK2, M1]; used = {id(c): set() for c in everyone}
     def P(ch, f, pose, loc, facing): put(ch, f, pose, loc, facing); used[id(ch)].add(f)
     prop_on_pipe(env["pipe"], SH["S13"]["f0"], SH["S13"]["f1"] + 2, 5)
-    cam("S13", (-8.0, 32.0, 1.8), (-9.0, 43.0, 4.5), 20, (-7.5, 31.5, 1.9), (-8.0, 42.0, 5.5), 21)     # beside the pipe, not on it
+    cam("S13", (-20.0, 24.0, 2.6), (-5.0, 40.0, 5.5), 22, (-18.5, 25.0, 2.8), (-5.0, 40.0, 6.5), 23)     # ship + pipe both in frame (was a bare hull wall)
     th = env["thermo"]; f14 = SH["S14"]["f0"]; th.scale = (1, 1, 0.25); th.keyframe_insert("scale", frame=f14 + 4); th.scale = (1, 1, 0.78); th.keyframe_insert("scale", frame=SH["S14"]["f1"] - 4)
     for k in range(3): drip_loop(f"melt{k}", (-14.0 + k * 0.5, -6.6, 3.9), (-14.0 + k * 0.5, -6.5, 0.2), f14, SH["S14"]["f1"], 0.7, k * 0.23, 0.04)
     for o in bpy.data.objects:
