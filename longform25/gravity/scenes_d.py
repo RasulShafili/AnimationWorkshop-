@@ -157,7 +157,7 @@ def c16(t):
     sc.flush(); c = sc.c
     if n == "ruler":
         A_, B_ = cam.pr((X0 + 1.2, HY, 0)), cam.pr((X0 + 1.2, HY, 15.0)); arrow(sc, A_[0], A_[1], B_[0], B_[1], 24, "ffd24a"); tf = w("c16_n1", "fifteen") if any(x[2].lower().startswith("fifteen") and LN["c16_n1"]["t0"] < x[0] < LN["c16_n1"]["t1"] for x in WORDS) else s; X, Y = cam.pr((X0 + 3.4, HY, 7.5)); tx(sc, X, Y, "15 m", 150 * back(s, .6, 1.0, 2), "ffd24a") if s > .6 else None
-    if n == "no": tx(sc, 420, 260, "UH-OH", 100 * back(s, .2, .5), "ffd24a", rot=-.08)
+    if n == "no": tx(sc, 1180, 230, "UH-OH", 100 * back(s, .2, .5), "ffd24a", rot=-.08)
     sc.vignette(.3); return sc
 SC["c16"] = c16
 def mats_(sc):

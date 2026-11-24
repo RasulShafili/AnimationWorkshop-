@@ -259,3 +259,12 @@ local engine, captions only) is also installed at ~/.claude/skills/watch. Gemini
 owner) is the only option that really "watches" motion + audio.
 Studied: IFOLOGY → refs_watch/IFOLOGY_STYLE.md (cut every ~4 s, ~180 wpm, science as staged scenes with in-world
 signboards, rules-of-the-power spine, letterboxed warm 3D-toon look).
+
+## 9. The 2.5D engine (2026-11-25, owner: "never seen such a beautiful video") — DEFAULT for new long videos
+`longform25/` (pycairo, no Blender): engine25.py (perspective polygons, IK stick cast, face on a ball → real turns, blending FACE presets),
+show25.py (word timing `wt(line, word)`, shots, stand/walk/sit/floaty/look, cast, sky/trees/houses/cars), space25.py (NASA-texture planets),
+gravity/scenes_*.py = 34 chapters as `SC["cXX"](t) -> Scene`. 7:38 at 1080p30 renders in 7 min on 10 processes.
+- Order: voice + words.json → scenes (2–4 shots per line, one picture per thing named) → `show.py stills` → `show.py render` →
+  2-fps sheets of the WHOLE video → `motion_all.py` (numeric jumps, writes smooth.json) → render → audio25.py (SFX cues read from scene code) →
+  assemble.py → owner draft → package25.py + thumb + teaser25.py.
+- Full rule list and bugs: longform25/gravity/PLAN.md and NOTES.md. Characters may never turn their backs to the camera without reason.

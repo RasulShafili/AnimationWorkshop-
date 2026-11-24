@@ -13,3 +13,7 @@ upright on its own in the foreground (5:54). Also weak before: c10 no inner-ear 
   camera; look for props between camera and subject; a caption repeats the on-screen word → drop the overlay.
 - Known left: c12 cabin heads near the frame edge; c09 fingers shot crops Maya's head; SFX mix checked by numbers only (−14.4 LUFS, −2.9 dBFS).
 - After approval: package (subtitles, description, thumbnail), new teasers; old Desktop/YouTube_upload_gravity is the rejected 3D version.
+## 2026-11-25 01:05 — owner approved the draft ("olar"), package ~/Desktop/YouTube_upload_gravity_2.5D
+- package25.py (srt split by sentence, US spelling, chapters, cast + layout reference for Gemini), thumb.py (own art), thumb_final.py (the owner's
+  Gemini picture + Montserrat words = THUMBNAIL.jpg, main). teaser25.py: vertical crop follows the story character per shot (pose probe), big captions.
+- Gemini took cast_reference + layout_reference + PROMPT.txt very well on the first try: keep that recipe (own render as layout reference).
