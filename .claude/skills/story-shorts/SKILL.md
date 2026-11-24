@@ -128,6 +128,6 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
   the camera→subject line against the canopy; L.hands_up in a close-up crossed the face → drop it or spread 0.55.
 
 ## Final QA rule (2026-11-24)
-One frame per shot for a Short, 4 frames per LINE (10/35/60/90 %) for a long video, read next to the script line: is the named thing
+One frame per shot for a Short, 4 frames per LINE (10/35/60/90 %) + the last frame of every chapter (the hold after the last word) for a long video, read next to the script line: is the named thing
 visible? Is anyone hovering, cropped, behind a trunk? Then diff the burned captions (words.json) with the script before assembling.
 Do this at preview stage, not after the full render.

@@ -273,13 +273,13 @@ CH["c18"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed],
     shots={"wide": ("fixed", (1.3, -1.5, 1.4), (-1.2, 0.5, 1.2), 20), "up": ("fixed", (0.35, -0.35, 0.8), (-1.2, 0.85, 2.3), 20)},
     lines=[("c18_n1", "wide", {}), ("c18_n2", "up", {"emo": {"HERO_PJ": "scared"}, "hold": 0.3})], zero=[(("c18_n1", 2.2), 200)])
 CH["c19"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed],
-    cast={"HERO_PJ": dict(at=(-1.35, 0.0, 2.3), face=0, emo="scared", lie=[(0, -1.35, 0.0, 2.42, -90, 180)] + [(("c19_n1", 0.8 + 0.1 * k), -1.38, 0.0, max(0.74, 2.42 - 4.9 * (0.1 * k) ** 2), -90, 180) for k in range(7)]
-                              + [(("c19_n1", 1.55), -1.38, 0.0, 0.95, -90, 180), (("c19_n1", 1.7), -1.38, 0.0, 0.74, -90, 180)]),
+    cast={"HERO_PJ": dict(at=(-1.35, 0.0, 2.3), face=0, emo="scared", lie=[(0, -1.35, 0.0, 2.42, -90, 180)] + [(("c19_n1", 0.8 + 0.1 * k), -1.38, 0.0, max(0.64, 2.42 - 4.9 * (0.1 * k) ** 2), -90, 180) for k in range(7)]
+                              + [(("c19_n1", 1.55), -1.38, 0.0, 0.85, -90, 180), (("c19_n1", 1.7), -1.38, 0.0, 0.64, -90, 180)]),
           "MOM": dict(at=(1.2, -0.9), face=-130, emo="surprised", look_at="HERO_PJ", pose="hips")},
     shots={"wide": ("fixed", (0.3, -1.75, 1.7), (-1.2, 0.5, 1.3), 20), "cu_mom": ("cu", "MOM", 1.6, -10)},
     lines=[("c19_n1", "wide", {}), ("c19_mom1", "cu_mom", {"hold": 0.4})], zero=[(-1.0, ("c19_n1", 0.7))])
 CH["c20"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed, sleeping_bag],
-    cast={"HERO_PJ": dict(at=(-1.45, 0.0, 0.7), face=0, emo="smile", lie=[(0, -1.45, 0.0, 0.66, -78, 0)])},
+    cast={"HERO_PJ": dict(at=(-1.45, 0.0, 0.7), face=0, emo="smile", lie=[(0, -1.45, 0.0, 0.62, -85, 0)])},
     shots={"wide": ("fixed", (1.2, -1.5, 1.5), (-1.3, 0.6, 0.8), 20), "cu": ("fixed", (-0.2, -0.5, 1.75), (-1.4, 0.8, 0.95), 26)},
     lines=[("c20_n1", "wide", {}), ("c20_n2", "cu", {"emo": {"HERO_PJ": "tired"}, "hold": 0.4})])
 CH["c21"] = dict(set="beach", light="sun_low", mood="day", anim=[beach_balls],
@@ -331,7 +331,7 @@ CH["c28"] = dict(**PG, anim=[swing_rig(("c28_n1", "end-0.5"))], cast={"LEO": dic
     lines=[("c28_n1", "wide", {"hold": 0.3})], zero=[(("c28_n1", "end-0.5"), 200)])
 CH["c29"] = dict(**PG, anim=[swing_rig()], cast={"LEO": dict(seat=(3.7, 4.88, 1.44), face=180, emo="scared", float=(("c29_n1", 0.4), 200, (0.0, 0.55, 0.26), 0.0)),
                             "MAYA": dict(at=(2.5, 0.7), face=150, emo="scared", look_at="LEO", pose="hands_up"), "HERO": dict(at=(1.6, 0.0), face=140, emo="scared", look_at="LEO")},
-    shots={"wide": ("fixed", (-2.6, -0.6, 1.8), (3.6, 5.2, 2.3), 20), "cu_leo": ("cu", "LEO", 1.6, 0)},
+    shots={"wide": ("fixed", (-2.6, -0.6, 1.8), (3.6, 5.2, 2.3), 20), "cu_leo": ("cu", "LEO", 2.8, 0)},
     lines=[("c29_n1", "wide", {}), ("c29_leo1", "cu_leo", {"hold": 0.3})], zero=[(-1.0, 200)])
 CH["c30"] = dict(**PG, cast={"LEO": dict(at=(3.7, 9.0, 3.4), face=180, emo="scared", float=(-1.0, 200, (0.0, 0.3, 0.12), 0.0)),
                             "HERO": dict(at=(-4.6, 2.4, 1.15), face=60, emo="determined", look_at="LEO", pose="reach2"), "MAYA": dict(at=(2.2, 1.6), face=40, emo="scared", look_at="LEO")},

@@ -51,9 +51,7 @@ COMPOSITION:
 RULES: everyone friendly and cute, never scary or bloody. NO text, letters or logos anywhere in the image. Keep the TOP-LEFT quarter calm and a bit darker for a caption.
 Then add the caption with: python3 ~/Desktop/Animations/longform3d/likes/tools/thumb_text.py in.png thumbnail.jpg "DON'T|JUMP." left yellow
 """)
-# cast reference: hero close-up from the final video
-GL = {l["id"]: l for l in G["lines"]}
-for t, n in ((GL["c32_n1"]["t1"] + 0.4, "hero"),):      # hero close-up in a gap after a line (no caption): check it, change the line id if not
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t:.2f}", "-i", f"{D}/out/gravity.mp4", "-frames:v", "1", f"{OUT}/gemini_prompt/cast_reference.jpg"], check=True)
+# cast reference: a raw chapter frame (no captions) with the hero close-up in daylight
+shutil.copy(f"{D}/out/c30/0280.jpg", f"{OUT}/gemini_prompt/cast_reference.jpg")
 shutil.copy(f"{D}/out/gravity.mp4", f"{OUT}/what_if_gravity.mp4")
 print("\n".join(chap)); print(len(srt), "subtitle lines;", round(G["total"], 1), "s")

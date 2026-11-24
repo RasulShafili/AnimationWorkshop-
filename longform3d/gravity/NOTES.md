@@ -23,3 +23,8 @@ Made while the owner was away ("men evde olmayacam uzun video duzelt"). Stick 3D
 - New cast keys: lie [(t,x,y,z,rx,ry)], acts [(t, overrides)], swing (pivot,len,amp,period,t_top), bounce. MODE frames "t1,t2".
 - TV text is centred on the screen; the teleport submarine picture is hidden. Whisper captions fixed by hand in out/words.json
   ("Maya's been half a cut." = Leo's "Maya!"); words_whisper.json is the raw file.
+- Second check of the re-rendered shots (27 lines): c19/c20 body lowered onto the mattress (lie z 0.64; c20 rx -85), c29 cu_leo
+  2.8 instead of 1.6 (he flew out of the top of the frame in the HOLD after the line). Strips by line miss the tail after the
+  last word: also look at the last second of every chapter (2 fps strip of the final mp4).
+- Package: ~/Desktop/YouTube_upload_gravity; cast_reference = out/c30/0280.jpg (a raw frame, no captions).
+- Teasers: dunk 207.35–225.4 (21.6 s), Leo "383.7-401.0,409.95-415.0" (25.9 s). Not posted (2026-11-24).
