@@ -30,5 +30,5 @@ in YouTube Studio → Details → Show more → Tags.
 ## YouTube daily limit (2026-11-24)
 Buffer allows 2 YouTube posts per day on this channel; a third returns `[ERROR] youtube: The daily posting limit…`.
 `dailyPostingLimits(input:{channelIds:[…]}){isAtLimit limit sent}` can still say `isAtLimit: false, sent: 1` while the post is
-refused (probably a rolling 24 h window) → don't hammer; retry `youtube` only, once, 24 h after the older of the last two posts.
+refused (rolling 24 h window, confirmed 2026-11-24: refused at 17:37, accepted at 17:57, 5 min after the older post turned 24 h) → don't hammer; retry `youtube` only, once, 24 h after the older of the last two posts.
 `share_video.py` prints `[OK] posted to 3/3` even when one platform errored: trust the `[SENT]`/`[ERROR]` lines, not the count.

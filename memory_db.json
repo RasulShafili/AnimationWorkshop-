@@ -848,12 +848,6 @@
           "post_id": "6b0592659dcfd388092421e2"
         },
         {
-          "service": "youtube",
-          "name": "LiminalART",
-          "post_id": "6b059271ff66be8392589839",
-          "status": "error: The daily posting limit for this channel has been reached! Please try reducing the amount of times per day in your schedule and try again later."
-        },
-        {
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b0592749dcfd3880924271a"
@@ -861,11 +855,10 @@
         {
           "service": "youtube",
           "name": "LiminalART",
-          "post_id": "6b059367e1395a23833e2db3",
-          "status": "error: The daily posting limit for this channel has been reached! Please try reducing the amount of times per day in your schedule and try again later."
+          "post_id": "6b0597b2e85a6e22d512ee35"
         }
       ],
-      "status": "partial"
+      "status": "published"
     }
   ]
 }
