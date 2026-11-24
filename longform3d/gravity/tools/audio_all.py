@@ -77,9 +77,9 @@ for x in chap:
 G_ = {l["id"]: (l["t0"], l["t1"]) for l in json.load(open(f"{D}/out/global.json"))["lines"]}
 m.thump(G_["c09_n1"][0] + 0.6, 0.3)                                        # splash into the paddling pool
 for k in range(3): m.whoosh(G_["c09_n1"][0] + 0.62 + k * 0.05, 0.5, 0.05, 1500, 8000)
-for k in range(6): m.place(G_["c17_n1"][0] + 0.6 + k * 0.05, bp(m.noise(int(0.8 * SR)), 300, 3000) * np.exp(-np.arange(int(0.8 * SR)) / SR * 2), 0.05)   # gym gasp
+for k in range(6): m.place(G_["c17_n1"][0] + 1.2 + k * 0.05, bp(m.noise(int(0.8 * SR)), 300, 3000) * np.exp(-np.arange(int(0.8 * SR)) / SR * 2), 0.05)   # gym gasp
 for k in range(4): m.place(G_["c12_n1"][0] + 1.0 + k * 0.6, np.sin(2 * np.pi * 330 * np.arange(int(0.35 * SR)) / SR) * 0.6 + np.sin(2 * np.pi * 415 * np.arange(int(0.35 * SR)) / SR) * 0.4, 0.04)   # horns
-m.thump(G_["c32_n1"][0] + 1.6, 0.35)                                       # sandbox crunch
+m.thump(G_["c17_n1"][0] + 2.8, 0.3); m.thump(G_["c32_n1"][0] + 1.85, 0.35)                                       # sandbox crunch
 # ---------------------------------------------------------------- original score: plucks + pad, mood per section
 def pluck(f, d=0.5):
     n = int(d * SR); s = np.arange(n) / SR; y = sum(a * np.sin(2 * np.pi * f * k * s) * np.exp(-s * (6 + 3 * k)) for k, a in ((1, 1), (2, .4), (3, .2)))

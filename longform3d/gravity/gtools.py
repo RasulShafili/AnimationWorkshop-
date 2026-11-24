@@ -108,8 +108,10 @@ def water_ball(c, r, t0, t1, rise=0.25, land_z=0.05, seed=0):
 
 def news(tv, text, sub="", col="ffffff"):
     """big text on the living-room TV screen (screen faces −Y at y≈2.07)"""
-    p = tv.location; t = L.text3d(text, (p.x - 0.62, p.y - 0.04, p.z + 0.05), 0.18, M(col, 0.3, emit=3.0)); t["noink"] = 1
-    if sub: s = L.text3d(sub, (p.x - 0.62, p.y - 0.04, p.z - 0.22), 0.11, M("ffd25a", 0.3, emit=3.0)); s["noink"] = 1
+    for o in bpy.data.objects:                     # the teleport set's submarine picture does not belong on the news
+        if o.name.startswith(("tv_bubble", "tv_sub", "tv_beam")): o.hide_render = True
+    p = tv.location; t = L.text3d(text, (p.x, p.y - 0.04, p.z + 0.2), 0.15, M(col, 0.3, emit=3.0)); t["noink"] = 1
+    if sub: s = L.text3d(sub, (p.x, p.y - 0.04, p.z - 0.26), min(0.11, 2.2 / len(sub)), M("ffd25a", 0.3, emit=3.0)); s["noink"] = 1
     return t
 
 # ---------------------------------------------------------------- sets

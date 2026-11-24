@@ -14,21 +14,21 @@ def cereal_setup(info):
     b = L.box((0.06, 0.2, 0.28), (-0.38, 0.3, 1.02), M("e84a3a", 0.5), 0.01, "cereal_box"); b.rotation_euler = (math.radians(-55), 0, math.radians(90))
     L.box((0.09, 0.09, 0.24), (0.15, 0.55, 0.9), M("f4f6fa", 0.4), 0.01, "milk_carton"); L.box((0.03, 0.03, 0.04), (0.15, 0.5, 1.04), M("3a8ad8", 0.4), 0, "carton_cap")
     sp = L.box((0.02, 0.16, 0.012), (-0.08, 0.15, 0.785), M("c8c8d0", 0.2), 0.004, "spoon"); info["spoon"] = sp
-def cereal_float(info, TT, FPS, t0, t1, land_bowl=True):
+def cereal_float(info, TT, FPS, t0, t1, land_bowl=True, k=1.0):
     rnd = random.Random(2)
     for k in range(26):
         p = Vector((-0.27 + rnd.uniform(-0.06, 0.06), 0.3 + rnd.uniform(-0.05, 0.05), 0.92 + rnd.uniform(-0.04, 0.08)))
         o = L.sph(0.018, p, M(rnd.choice(["f2c230", "e8a03a", "f6d470"]), 0.6), (1.3, 1, 0.6), seg=8, name="cereal")
-        G.float_obj(o, t0, t1, (rnd.uniform(-0.05, 0.05), rnd.uniform(-0.05, 0.05), rnd.uniform(0.05, 0.16)), spin=(rnd.uniform(-90, 90), 0, rnd.uniform(-90, 90)),
+        G.float_obj(o, t0, t1, (k * rnd.uniform(-0.05, 0.05), k * rnd.uniform(-0.05, 0.05), k * rnd.uniform(0.05, 0.16)), spin=(rnd.uniform(-90, 90), 0, rnd.uniform(-90, 90)),
                     land=0.79 if rnd.random() < 0.5 else 0.02)
 def c01_hook(info, TT, FPS):
     z0 = E(TT, "c01_n2", -0.2); cereal_float(info, TT, FPS, z0, z0 + 30)
 def c02_hook(info, TT, FPS):
     back = E(TT, "c02_n2", 1.3)
-    cereal_float(info, TT, FPS, -3.0, back)
-    milk = L.sph(0.07, (0.15, 0.47, 1.1), M("fffcf2", 0.3), seg=20, name="milk_ball"); G.wobble(milk, 1, int(back * FPS), 0.12, 3.0)
-    fb = G.float_obj(milk, -1.0, back, (0.0, -0.05, 0.1), land=0.78, squash=False); G.splat(milk, fb)
-    sp = info["spoon"]; sp.location = (-0.15, 0.28, 1.32); G.float_obj(sp, -1.0, back, (-0.06, 0.0, 0.02), spin=(0, 60, 40), land=0.79)
+    cereal_float(info, TT, FPS, -3.0, back, k=0.35)
+    milk = L.sph(0.09, (0.12, 0.45, 1.16), M("fffcf2", 0.3), seg=20, name="milk_ball"); G.wobble(milk, 1, int(back * FPS), 0.12, 3.0)
+    fb = G.float_obj(milk, -1.0, back, (-0.005, -0.01, 0.022), land=0.78, squash=False); G.splat(milk, fb)
+    sp = info["spoon"]; sp.location = (-0.22, 0.02, 1.22); sp.scale = (1.8, 1.4, 1.8); G.float_obj(sp, -1.0, back, (-0.02, 0.04, 0.012), spin=(0, 60, 40), land=0.79)
     cat = make_cat((0.3, 0.6, 2.42))
     cat.rotation_euler = (math.pi, 0, 0.4); G.float_obj(cat, -0.5, back, (0, 0, 0.0), land=0.02, squash=True)
     for f, r in ((int(back * FPS) + 2, math.pi), (int(back * FPS) + 14, 0.0)):
@@ -109,8 +109,10 @@ def gym_mats_hook(info, TT, FPS):
 def gym_mats_static(info): G.mats(-10.3, 0, 11, [1] * 11)
 def ceiling_bed(info): G.ceiling(0, 0, 4.2, 3.7, 2.62)
 def sleeping_bag(info):
-    L.capsule((-1.45, 0.2, 0.68), (-1.45, 1.1, 0.68), 0.26, M("3a8a5a", 0.7), name="sleeping_bag")
-    for y in (0.3, 0.65, 1.0): L.box((1.05, 0.06, 0.6), (-1.45, y, 0.6), M("2a2a30", 0.5), 0.01, "belt")
+    L.capsule((-1.45, 0.02, 0.72), (-1.45, 0.62, 0.78), 0.27, M("3a8a5a", 0.7), name="sleeping_bag")
+    for y in (0.0, 0.2, 0.4, 0.6):                # four thin straps over the bag (solid 60 cm boxes looked like walls)
+        L.box((0.5, 0.07, 0.03), (-1.45, y, 0.99 + y * 0.1), M("e8b03a", 0.5), 0.005, "belt")
+        for sx in (-1, 1): L.box((0.03, 0.07, 0.52), (-1.45 + sx * 0.265, y, 0.74), M("e8b03a", 0.5), 0.005, "belt")
     L.capsule((-0.95, 1.2, 0.5), (-0.95, 0.0, 0.5), 0.015, M("e84a3a", 0.6), name="jump_rope")
 def beach_balls(info, TT, FPS):
     z0 = E(TT, "c21_n1", 2.0); rnd = random.Random(4)
@@ -182,9 +184,9 @@ CH["c01"] = dict(set=K, light="class_day", mood="day", props=[chair_l, cereal_se
     shots={"wide": ("fixed", (0.4, -1.5, 1.6), (-0.1, 0.5, 0.95), 24), "bowl": ("fixed", (0.2, -0.25, 1.05), (-0.25, 0.3, 0.92), 34)},
     lines=[("c01_n1", "wide", {}), ("c01_n2", "bowl", {"emo": {"HERO": "surprised"}, "hold": 0.3})], zero=[(("c01_n2", -0.2), ("c01_n2", "end+2"))])
 CH["c02"] = dict(set=K, light="class_day", mood="day", props=[chair_l, cereal_setup], anim=[c02_hook],
-    cast={"HERO": dict(seat=(-0.75, 0.3, 0.47), face=90, emo="surprised", look_at=(-0.15, 0.28, 1.3), float=(-1.0, ("c02_n2", 1.3), (0, 0, 0.06), 0.0)),
+    cast={"HERO": dict(seat=(-0.75, 0.3, 0.47), face=90, emo="surprised", look_at=(-0.15, 0.28, 1.3), float=(-1.0, ("c02_n2", 1.3), (0, 0, "h0.25"), 0.0)),
           "MOM": dict(at=(1.2, 1.05), face=-150, emo="scared", look_at=(0.3, 0.6, 2.4), float=(-1.0, ("c02_n2", 1.3), (0, 0, 0.07), 0.0))},
-    shots={"cu_hero": ("cu", "HERO", 1.5, 15), "milk": ("fixed", (0.55, -0.2, 1.25), (0.15, 0.5, 1.1), 34), "cat": ("fixed", (0.9, -1.2, 1.2), (0.3, 0.6, 2.35), 26),
+    shots={"cu_hero": ("cu", "HERO", 1.5, 15), "milk": ("fixed", (0.85, -0.85, 1.45), (-0.28, 0.35, 1.18), 26), "cat": ("fixed", (0.9, -1.2, 1.2), (0.3, 0.6, 2.35), 26),
            "wide": ("fixed", (0.4, -1.5, 1.6), (-0.1, 0.5, 1.0), 22)},
     lines=[("c02_n1", "milk", {}), ("c02_mom1", "cat", {}), ("c02_n2", "wide", {"emo": {"HERO": "scared", "MOM": "surprised"}, "hold": 0.4})], zero=[(-1.0, ("c02_n2", 1.3))])
 CH["c03"] = dict(set=K, light="class_day", mood="day", props=[chair_l, mess],
@@ -216,7 +218,7 @@ CH["c08"] = dict(set=B, light="sun", mood="day", props=[second_storey, pool],
     lines=[("c08_n1", "wide", {}), ("c08_n2", "low", {"emo": {"HERO": "scared", "MAYA": "surprised"}}), ("c08_maya1", "cu_maya", {"emo": {"MAYA": "scared"}}),
            ("c08_n3", "wide", {"pose": {"MAYA": None}, "hold": 0.3})], zero=[(("c08_n1", "end-0.5"), ("c08_n3", "end-0.3"))])
 CH["c09"] = dict(set=B, light="sun", mood="day", props=[second_storey, pool], anim=[splash_hook("c09_n1", 0.6)],
-    cast={"HERO": dict(at=(-1.0, 1.0, 4.6), face=10, emo="scared", float=(-0.2, 0.0, (0, 0, 0.0), -4.25, "curb")),
+    cast={"HERO": dict(at=(-1.0, 1.0, 4.6), face=10, emo="scared", float=(-0.2, 0.0, (0, 0, 0.0), -4.25, "curb"), look_at="MAYA"),
           "MAYA": dict(at=(1.2, -0.4), face=-40, emo="surprised", look_at="HERO")},
     shots={"wide": ("fixed", (2.6, -6.5, 1.6), (-1.0, 1.0, 1.6), 20), "cu_maya": ("cu", "MAYA", 1.8, -15), "two": ("fixed", (0.3, -3.6, 1.4), (0.0, 0.5, 0.8), 24)},
     lines=[("c09_n1", "wide", {}), ("c09_maya1", "cu_maya", {"emo": {"MAYA": "laugh", "HERO": "surprised"}}),
@@ -259,24 +261,26 @@ CH["c16"] = dict(set_fn=G.gym, set="gym", light="class_day", mood="day", anim=[g
     shots={"up": ("fixed", (-6.5, -6.5, 1.2), (-10.4, 0.0, 9.0), 18), "cu_coach": ("cu", "COACH", 1.8, 10), "top": ("fixed", (-6.0, -4.0, 13.5), (-10.4, 0.0, 13.8), 24)},
     lines=[("c16_n1", "up", {}), ("c16_coach1", "cu_coach", {"pose": {"COACH": "point:MARCUS"}, "hold": 0.4})], zero=[(-1.0, 200)])
 CH["c17"] = dict(set_fn=G.gym, set="gym", light="class_day", mood="day", props=[gym_mats_static],
-    cast={"MARCUS": dict(at=(-10.4, 0.0, 13.8), face=-90, emo="scared", float=(-0.5, ("c17_n1", 0.6), (0, 0, 0.0), -13.2, "curb")),
+    cast={"MARCUS": dict(at=(-10.4, 0.0, 13.8), face=-90, emo="scared", float=(-0.5, ("c17_n1", 1.2), (0, 0, 0.0), -13.2, "curb"), bounce=1.4),
           "COACH": dict(at=(-6.0, -3.6), face=-80, emo="scared", look_at="MARCUS"), **GYMK},
-    shots={"wide": ("fixed", (-1.5, -9.0, 4.5), (-10.4, 0.0, 5.0), 20), "cu_coach": ("cu", "COACH", 1.8, 10)},
-    lines=[("c17_n1", "wide", {"emo": {"MARCUS": "surprised"}}), ("c17_n2", "cu_coach", {"emo": {"COACH": "angry", "MARCUS": "smile"}, "pose": {"COACH": "cross"}, "hold": 0.4})],
-    zero=[(-1.0, ("c17_n1", 0.6))])
+    shots={"wide": ("fixed", (-4.2, -7.0, 2.6), (-10.4, 0.0, 2.6), 22), "top": ("fixed", (-5.5, -5.5, 12.2), (-10.4, 0.0, 14.2), 24), "cu_coach": ("cu", "COACH", 1.8, 10)},
+    lines=[("c17_n1", "top", {"cuts": [(2.2, "wide")], "emo": {"MARCUS": "surprised"}}), ("c17_n2", "cu_coach", {"emo": {"COACH": "angry", "MARCUS": "smile"}, "pose": {"COACH": "cross"}, "hold": 0.4})],
+    zero=[(-1.0, ("c17_n1", 1.2))])
 BR = "bedroom_tp"
 CH["c18"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed],
-    cast={"HERO_PJ": dict(seat=(-1.45, 0.55, 0.5), face=90, emo="sleep", sitpose="curb", float=(("c18_n1", 2.2), ("c18_n2", "end"), (0, 0, "h1.1"), 0.0))},
-    shots={"wide": ("fixed", (1.3, -1.5, 1.4), (-1.2, 0.5, 1.2), 20), "up": ("fixed", (0.3, -0.6, 0.7), (-1.4, 0.6, 2.2), 20)},
+    cast={"HERO_PJ": dict(at=(-1.45, 0.0, 0.7), face=0, emo="sleep", lie=[(0, -1.45, 0.0, 0.72, -90, 0), (("c18_n1", 1.0), -1.45, 0.0, 0.72, -90, 0), (("c18_n1", 2.4), -1.4, 0.0, 0.74, -90, 70),
+                                                                (("c18_n1", "end"), -1.3, 0.0, 1.7, -90, 150), (("c18_n2", 1.0), -1.25, 0.0, 2.42, -90, 180), (200, -1.25, 0.0, 2.42, -90, 180)])},
+    shots={"wide": ("fixed", (1.3, -1.5, 1.4), (-1.2, 0.5, 1.2), 20), "up": ("fixed", (0.35, -0.35, 0.8), (-1.2, 0.85, 2.3), 20)},
     lines=[("c18_n1", "wide", {}), ("c18_n2", "up", {"emo": {"HERO_PJ": "scared"}, "hold": 0.3})], zero=[(("c18_n1", 2.2), 200)])
 CH["c19"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed],
-    cast={"HERO_PJ": dict(at=(-1.45, 0.55, 1.6), face=90, emo="scared", float=(-0.5, ("c19_n1", 0.7), (0, 0, 0.0), -1.1, "curb")),
+    cast={"HERO_PJ": dict(at=(-1.35, 0.0, 2.3), face=0, emo="scared", lie=[(0, -1.35, 0.0, 2.42, -90, 180)] + [(("c19_n1", 0.8 + 0.1 * k), -1.38, 0.0, max(0.74, 2.42 - 4.9 * (0.1 * k) ** 2), -90, 180) for k in range(7)]
+                              + [(("c19_n1", 1.55), -1.38, 0.0, 0.95, -90, 180), (("c19_n1", 1.7), -1.38, 0.0, 0.74, -90, 180)]),
           "MOM": dict(at=(1.2, -0.9), face=-130, emo="surprised", look_at="HERO_PJ", pose="hips")},
     shots={"wide": ("fixed", (0.3, -1.75, 1.7), (-1.2, 0.5, 1.3), 20), "cu_mom": ("cu", "MOM", 1.6, -10)},
     lines=[("c19_n1", "wide", {}), ("c19_mom1", "cu_mom", {"hold": 0.4})], zero=[(-1.0, ("c19_n1", 0.7))])
 CH["c20"] = dict(set=BR, light="lamp_night", mood="night", props=[ceiling_bed, sleeping_bag],
-    cast={"HERO_PJ": dict(seat=(-1.45, 0.25, 0.55), face=180, emo="smile", sitpose="curb")},
-    shots={"wide": ("fixed", (1.2, -1.5, 1.5), (-1.3, 0.6, 0.8), 20), "cu": ("fixed", (0.0, -1.0, 1.4), (-1.4, 0.4, 1.0), 26)},
+    cast={"HERO_PJ": dict(at=(-1.45, 0.0, 0.7), face=0, emo="smile", lie=[(0, -1.45, 0.0, 0.66, -78, 0)])},
+    shots={"wide": ("fixed", (1.2, -1.5, 1.5), (-1.3, 0.6, 0.8), 20), "cu": ("fixed", (-0.2, -0.5, 1.75), (-1.4, 0.8, 0.95), 26)},
     lines=[("c20_n1", "wide", {}), ("c20_n2", "cu", {"emo": {"HERO_PJ": "tired"}, "hold": 0.4})])
 CH["c21"] = dict(set="beach", light="sun_low", mood="day", anim=[beach_balls],
     cast={"HERO": dict(at=(0.5, 11.2, -0.55), face=0, emo="surprised", look_at=(0, 16, 1.5))},
@@ -302,18 +306,32 @@ CH["c26"] = dict(set=K, light="class_day", mood="day", props=[chair_l, soup_prop
     shots={"wide": ("fixed", (0.4, -1.5, 1.6), (-0.1, 0.5, 0.95), 22), "cu_hero": ("cu", "HERO", 1.5, 15)},
     lines=[("c26_n1", "wide", {}), ("c26_n2", "cu_hero", {"hold": 0.4})])
 CH["c27"] = dict(set=B, light="sun", mood="day", props=[second_storey],
-    cast={"HERO": dict(at=(-0.5, 4.5, 0.2), face=180, emo="happy", float=(("c27_n1", 1.0), ("c27_n1", "end+3"), (0.1, -0.5, 0.25), -0.2)),
-          "MAYA": dict(at=(1.0, 4.5, 0.2), face=180, emo="laugh", float=(("c27_n1", 1.0), ("c27_n1", "end+3"), (-0.1, -0.7, 0.3), -0.2))},
-    shots={"wide": ("fixed", (0.3, -5.0, 1.8), (0.2, 2.5, 1.6), 22), "cu_maya": ("cu", "MAYA", 1.6, -10)},
-    lines=[("c27_n1", "wide", {}), ("c27_maya1", "cu_maya", {}), ("c27_n2", "wide", {"emo": {"HERO": "smile", "MAYA": "smug"}, "hold": 0.4})], zero=[(("c27_n1", 1.0), ("c27_n1", "end+3"))])
+    cast={"HERO": dict(at=(-0.8, 4.3, 0.0), face=20, emo="happy", float=(("c27_n1", 1.0), ("c27_n1", "end-0.3"), ("h-0.5", "h-1.8", "h1.7"), 0.0),
+                       acts=[(("c27_n2", -0.1), dict(at=(-1.6, 4.5, 0.0), face=0, float=(("c27_n2", 3.2), ("c27_n2", 8.2), ("h-0.7", "h-1.6", "h0.9"), 0.0)))]),
+          "MAYA": dict(at=(0.8, 4.3, 0.0), face=-20, emo="laugh", float=(("c27_n1", 1.0), ("c27_n1", "end-0.3"), ("h0.6", "h-2.2", "h2.1"), 0.0),
+                       acts=[(("c27_n2", -0.1), dict(at=(0.2, 4.5, 0.0), face=0, float=(("c27_n2", 3.2), ("c27_n2", 8.2), ("h0.6", "h-4.4", "h1.0"), 0.0)))])},
+    shots={"wide": ("fixed", (0.3, -5.0, 1.8), (0.2, 2.5, 1.6), 22), "game": ("fixed", (-0.2, -3.8, 1.7), (-0.4, 3.0, 1.5), 22), "cu_maya": ("cu", "MAYA", 1.6, -10)},
+    lines=[("c27_n1", "wide", {}), ("c27_maya1", "cu_maya", {}), ("c27_n2", "game", {"emo": {"HERO": "smile", "MAYA": "smug"}, "hold": 0.4})],
+    zero=[(("c27_n1", 1.0), ("c27_n1", "end-0.3")), (("c27_n2", 3.2), ("c27_n2", 8.2))])
 PG = dict(set=B, light="sun", mood="day", props=[playground])
-CH["c28"] = dict(**PG, cast={"LEO": dict(seat=(3.7, 3.5, 0.8), face=180, emo="happy"), "MAYA": dict(at=(2.2, 1.6), face=40, emo="smile", look_at="LEO"),
-                            "HERO": dict(at=(1.0, 1.2), face=60, emo="smile", look_at="LEO")},
-    shots={"wide": ("fixed", (0.0, -5.0, 1.6), (2.4, 2.8, 1.2), 22), "cu_leo": ("cu", "LEO", 1.3, 0)},
+def swing_rig(top=None):
+    """the backyard swing (ropes + seat) turns around its branch: swings until `top`, then hangs at the top (no gravity)"""
+    def f(info, TT, FPS):
+        bpy.ops.object.empty_add(location=(3.7, 3.5, 2.6)); e = bpy.context.object; bpy.context.view_layer.update()
+        for o in list(bpy.data.objects):
+            if o.name.startswith(("swing_rope", "swing_seat")): mw = o.matrix_world.copy(); o.parent = e; o.matrix_world = mw
+        tt = E(TT, top[0], float(top[1][3:]), True) if top else 0.0
+        for fr in range(1, 400, 2):
+            sec = (fr - 1) / FPS; e.rotation_euler.x = math.radians(50) * math.cos(2 * math.pi * min(0.0, sec - tt) / 2.6); e.keyframe_insert("rotation_euler", frame=fr)
+    return f
+SW = (3.7, 3.5, 2.6)
+CH["c28"] = dict(**PG, anim=[swing_rig(("c28_n1", "end-0.5"))], cast={"LEO": dict(at=(3.7, 3.5, 0.8), swing=(SW, 1.8, 50, 2.6, ("c28_n1", "end-0.5")), sitpose="sit", seat=(3.7, 3.5, 0.8), face=180, emo="happy"),
+                            "MAYA": dict(at=(2.5, 0.7), face=150, emo="smile", look_at="LEO"), "HERO": dict(at=(1.6, 0.0), face=140, emo="smile", look_at="LEO")},
+    shots={"wide": ("fixed", (-2.6, -0.6, 1.7), (3.2, 3.6, 1.6), 22)},
     lines=[("c28_n1", "wide", {"hold": 0.3})], zero=[(("c28_n1", "end-0.5"), 200)])
-CH["c29"] = dict(**PG, cast={"LEO": dict(seat=(3.7, 3.5, 0.8), face=180, emo="scared", float=(("c29_n1", 0.4), 200, (0.0, 1.1, 0.45), 0.0)),
-                            "MAYA": dict(at=(2.2, 1.6), face=40, emo="scared", look_at="LEO", pose="hands_up"), "HERO": dict(at=(1.0, 1.2), face=60, emo="scared", look_at="LEO")},
-    shots={"wide": ("fixed", (0.0, -5.0, 1.8), (3.0, 5.0, 2.4), 20), "cu_leo": ("cu", "LEO", 1.6, 0)},
+CH["c29"] = dict(**PG, anim=[swing_rig()], cast={"LEO": dict(seat=(3.7, 4.88, 1.44), face=180, emo="scared", float=(("c29_n1", 0.4), 200, (0.0, 0.55, 0.26), 0.0)),
+                            "MAYA": dict(at=(2.5, 0.7), face=150, emo="scared", look_at="LEO", pose="hands_up"), "HERO": dict(at=(1.6, 0.0), face=140, emo="scared", look_at="LEO")},
+    shots={"wide": ("fixed", (-2.6, -0.6, 1.8), (3.6, 5.2, 2.3), 20), "cu_leo": ("cu", "LEO", 1.6, 0)},
     lines=[("c29_n1", "wide", {}), ("c29_leo1", "cu_leo", {"hold": 0.3})], zero=[(-1.0, 200)])
 CH["c30"] = dict(**PG, cast={"LEO": dict(at=(3.7, 9.0, 3.4), face=180, emo="scared", float=(-1.0, 200, (0.0, 0.3, 0.12), 0.0)),
                             "HERO": dict(at=(-4.6, 2.4, 1.15), face=60, emo="determined", look_at="LEO", pose="reach2"), "MAYA": dict(at=(2.2, 1.6), face=40, emo="scared", look_at="LEO")},

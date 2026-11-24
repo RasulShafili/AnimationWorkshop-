@@ -15,3 +15,11 @@ Made while the owner was away ("men evde olmayacam uzun video duzelt"). Stick 3D
   (c31); a plane too small/low to see (c12, now 9 m at 40 m height); coach close-up against the board wall (c13)
   and sleeping-bag close-up against the wall (c20) → fixed close shots; hands_up crossed Maya's face (c08/c09).
 - Thumbnail plan: hero floating under the gym ceiling, hoop far below, text "DON'T JUMP." (package.py writes the prompt).
+
+## Final QA round (2026-11-24): 12 chapters re-rendered
+- Per-line strips (4 frames per line) found what mid-line stills hid: objects drift out of frame over a 10 s line (c02 milk/spoon, c27 kids),
+  a speed in m/s is wrong for long lines → use "h<metres>" for every axis so the end position is fixed.
+- "curb" landings hovered 0.5 m: float_state now puts the HIPS on land_dz. FLOATP arms go sideways (they crossed the face).
+- New cast keys: lie [(t,x,y,z,rx,ry)], acts [(t, overrides)], swing (pivot,len,amp,period,t_top), bounce. MODE frames "t1,t2".
+- TV text is centred on the screen; the teleport submarine picture is hidden. Whisper captions fixed by hand in out/words.json
+  ("Maya's been half a cut." = Leo's "Maya!"); words_whisper.json is the raw file.

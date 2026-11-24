@@ -109,7 +109,7 @@ POSES = {"sit": L.sit, "hands_up": None, "cross": lambda: {"uarm.L": (35, 0, 20)
          "pick": lambda: {"thigh.L": (75, 0, 0), "thigh.R": (60, 0, 0), "shin.L": (-115, 0, 0), "shin.R": (-100, 0, 0), "spine": (38, 0, 0),
                           "uarm.L": (55, 0, 8), "uarm.R": (70, 0, -8), "farm.L": (20, 0, 0), "farm.R": (15, 0, 0)}}
 def FLOATP(t):
-    return {"uarm.L": (100 + 18 * math.sin(t * 3.1), 0, 55), "uarm.R": (100 + 18 * math.sin(t * 3.1 + 1.3), 0, -55), "farm.L": (25, 0, 0), "farm.R": (25, 0, 0),
+    return {"uarm.L": (18 + 12 * math.sin(t * 3.1), 0, 78), "uarm.R": (18 + 12 * math.sin(t * 3.1 + 1.3), 0, -78), "farm.L": (25, 0, 0), "farm.R": (25, 0, 0),
             "thigh.L": (35 + 12 * math.sin(t * 2.3), 0, 0), "thigh.R": (8, 0, 0), "shin.L": (-50, 0, 0), "shin.R": (-25, 0, 0), "spine": (-6, 0, 0)}
 def FALLP(t):
     return {"uarm.L": (155, 0, 25), "uarm.R": (155, 0, -25), "farm.L": (10, 0, 0), "farm.R": (10, 0, 0), "thigh.L": (20, 0, 0), "thigh.R": (-10, 0, 0), "shin.L": (-30, 0, 0)}
@@ -120,17 +120,24 @@ def float_state(c, sec):
     fl = c.get("float")
     if not fl: return None
     t0, t1 = tsec(fl[0]), tsec(fl[1]); land = fl[3] if len(fl) > 3 else 0.0
+    if len(fl) > 4 and fl[4] == "curb": land -= 0.755 * c["ch"]["k"]      # sitting landing: the HIPS reach land_dz (the feet-level root made them hover half a metre)
     v = Vector([float(x[1:]) / max(1e-6, t1 - t0) if isinstance(x, str) else x for x in fl[2]])   # "h5" = reach 5 m by t1 (story time stretches the 5 s)
     if sec < t0: return None
     d = min(sec, t1) - t0; off = v * d
     if sec <= t1: return off, "float"
     z1 = off.z; tl = (v.z + math.sqrt(max(0.0, v.z * v.z + 19.6 * (z1 - land)))) / 9.8; tf = min(sec - t1, tl)
     o2 = Vector((off.x + v.x * tf, off.y + v.y * tf, max(land, z1 + v.z * tf - 4.9 * tf * tf)))
+    if sec - t1 >= tl and c.get("bounce"):      # mats: decaying hops after the landing
+        u, h, d = sec - t1 - tl, c["bounce"], 0.62
+        while u > d and h > 0.05: u -= d; h *= 0.78; d *= 0.88
+        if h > 0.05: o2.z += h * math.sin(math.pi * u / d)
     return o2, ("fall" if sec - t1 < tl else "landed")
 for f in list(range(1, NF + 1, 2)) + ([NF] if NF % 2 == 0 else []):
     sec = (f - 1) / FPS; emo, pose, look, ln = state_at(sec)
     for n, c in C.items():
         ch = c["ch"]; base = L.idle(sec * 0.6, hash(n) % 7)
+        for t_, ov in c.get("acts", []):          # "acts": [(t, {at/face/float …})] — a second placement later in the chapter
+            if sec >= tsec(t_): c = dict(c, **ov)
         st = c.get("stand_from")                  # (line_id, offset, (x, y), face): sits, then stands up there
         if st and sec >= T_[st[0]][0] + st[1]: c = dict(c, at=st[2], face=st[3]); c.pop("seat", None)
         sf = c.get("sit_from")                    # (line_id, seat, face, sitpose): stands, then sits from that line on
@@ -159,6 +166,17 @@ for f in list(range(1, NF + 1, 2)) + ([NF] if NF % 2 == 0 else []):
                 if s0 <= sec <= s1: q = a_.lerp(b_, (sec - s0) / max(1e-6, s1 - s0)); break
                 if sec > s1: q = b_
             seated = False; base = {**L.idle(sec * 0.6, hash(n) % 7), **FLOATP(sec + hash(n) % 5)}; loc = tuple(q); walking = False
+        if c.get("swing"):                        # (pivot, length, amp°, period, t_top): sits on the swing, at the top at t_top, then hangs there
+            pv, ln_, amp, per, tt = c["swing"]; th = math.radians(amp) * math.cos(2 * math.pi * min(0.0, sec - tsec(tt)) / per)
+            loc = L.sit_root(ch, (pv[0], pv[1] + ln_ * math.sin(th), pv[2] - ln_ * math.cos(th)), c["face"])
+        lie = None
+        if c.get("lie"):                          # [(t, x, y, z, rx°, ry°)]: lying body (root = feet); ry rolls around the body axis
+            K_ = [(tsec(a[0]), a[1:]) for a in c["lie"]]; q = K_[0][1]
+            for (s0, a_), (s1, b_) in zip(K_, K_[1:]):
+                if s0 <= sec <= s1: u = (sec - s0) / max(1e-6, s1 - s0); q = tuple(x + (y - x) * u for x, y in zip(a_, b_)); break
+                if sec > s1: q = b_
+            loc = q[:3]; lie = (math.radians(q[3]), math.radians(q[4]), math.radians(face)); seated = False
+            base = {**L.idle(sec * 0.6, 1), "uarm.L": (10, 0, 14), "uarm.R": (10, 0, -14)} if q[2] < 1.0 and q[4] < 90 else {**L.idle(sec * 0.6, 1), **FLOATP(sec)}
         fst = float_state(c, sec)                 # zero-g: drift at constant velocity, then a real fall when gravity returns
         if fst:
             off, phase = fst
@@ -168,6 +186,7 @@ for f in list(range(1, NF + 1, 2)) + ([NF] if NF % 2 == 0 else []):
             elif c["float"][4:5] and c["float"][4] == "curb": base.update(POSES["curb"]())
             loc = (loc[0] + off.x, loc[1] + off.y, loc[2] + off.z); walking = False
         L.key_pose(ch, f, base, loc, face)
+        if lie: ch["arm"].rotation_euler = lie; ch["arm"].keyframe_insert("rotation_euler", frame=f)
         if walking: L.plant(ch, f, c.get("z", 0))
         p = pose.get(n)
         if p == "hands_up": base.update(L.hands_up(ch, f, spread=0.55, up=0.42, fwd=0.0))     # wider V: the default crossed her face in close-ups
@@ -264,7 +283,7 @@ T.pops(C, spec, tsec, FPS, NF)
 T.drift(CUTS, NF)
 bad = []
 for n, c in C.items():
-    if c.get("seat") or c.get("float"): continue
+    if c.get("seat") or c.get("float") or c.get("lie") or c.get("swing"): continue
     bad += L.qa_ground([c["ch"]], range(1, NF + 1, 6), floor=c.get("z", c.get("at", (0, 0, 0))[2] if len(c.get("at", ())) > 2 else 0))
 EV = [("zero", tsec(a), tsec(b)) for a, b in spec.get("zero", [])] + [("tp_" + k, tsec(t)) for c in spec["cast"].values() for t, k in c.get("pops", [])] + [("flicker", tsec(a), tsec(b)) for c in spec["cast"].values() for a, b in c.get("flicker", [])]
 for n, c in spec["cast"].items():          # LIKE % tag changes → tick / chime / blip in the audio
@@ -283,6 +302,11 @@ if MODE == "plan":              # frames whose look changed after the tag/close-
         nxt = CUTS[i + 1][0] if i + 1 < len(CUTS) else NF + 1; base = cam.name.split("@")[0]; sh = spec["shots"].get(base)
         if sh and sh[0] == "cu" and sh[1] in tagged: redo |= set(range(max(1, fr), nxt))
     open(f"{D}/out/{CID}_redo.txt", "w").write(" ".join(map(str, sorted(redo)))); print("REDO", CID, len(redo)); sys.exit(0)
+if MODE == "frames":            # QA: chosen times in seconds → out/<c>_qa/t*.jpg
+    sc.render.resolution_percentage = 50
+    for s_ in argv[2].split(","):
+        sc.frame_set(int(float(s_) * FPS) + 1); sc.render.filepath = f"{D}/out/{CID}_qa/t{float(s_):05.1f}.jpg"; bpy.ops.render.render(write_still=True)
+    print("RENDER_DONE"); sys.exit(0)
 if MODE == "stills":            # one frame in the middle of every line → QA sheet with the line id
     for ln in TL:
         fs = [int((ln["t0"] + ln["t1"]) / 2 * FPS) + 1] + ([int((ln["t0"] + 0.5) * FPS) + 1] if ln["opt"].get("cuts") else []) + [int((ln["t0"] + off + 0.4) * FPS) + 1 for off, _ in ln["opt"].get("cuts", [])]
