@@ -268,3 +268,13 @@ gravity/scenes_*.py = 34 chapters as `SC["cXX"](t) -> Scene`. 7:38 at 1080p30 re
   2-fps sheets of the WHOLE video → `motion_all.py` (numeric jumps, writes smooth.json) → render → audio25.py (SFX cues read from scene code) →
   assemble.py → owner draft → package25.py + thumb + teaser25.py.
 - Full rule list and bugs: longform25/gravity/PLAN.md and NOTES.md. Characters may never turn their backs to the camera without reason.
+
+### 2.5D lessons from rain_365 (2026-11-25)
+- **Word times: `tools/whisper-venv/bin/python tools/align_lines.py <dir>`** (per LINE, script spelling, lists real differences). Whisper over the whole track invents words in the pauses.
+- **Two heavy jobs never run together**; chain them in ONE shell command (`job1; job2`), never a `pgrep` waiter. Check `ps` shows a single Chatterbox.
+- **Faces:** engine `CHEAT` turns heads toward the camera up to ~75° so a profile never becomes a blank ball; caps limit looking down. Real backs (>150°) stay backs.
+- `wt(line, word)` = startswith, so "It" also matches "it pushes": use a distinctive word for cues.
+- After real voices: 1-fps sheets of the WHOLE draft; look for captions over labels, cards that pop before their word, empty frames, cropped signs. `CAPY` in timeline.py moves captions per line.
+- Lying → sitting can't be blended: hide it with a punch-in cut. "It's quiet" still needs room tone (no digital silence).
+- Speech rate check: < 2 or > 4.4 words/s → retake or atempo (.84–.94).
+- Teasers: crop follows the hero, but signs/shadows/doors need an `OV` centre override.

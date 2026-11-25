@@ -130,6 +130,7 @@ def face_at(t, K, dur=0.22):
     for t0, n in K[1:]:
         if t >= t0: cur = blendf(cur, n, back(t, t0, t0 + dur, 1.2))
     return cur
+CHEAT = [True]
 class Char:
     """Stick person. look: body, cap/hair colours, kind. pose fields are plain attributes set every frame."""
     def __init__(s, body, k=1.0, cap=None, hair=None, bun=False, dress=False, belt=None, apron=None, skin="fffaf2", style=None, stache=None, glasses=False, coat=None, tie=None, num=None, whistle=False, helmet=None, pal=None, fat=1.0, vest=None, hood=None):
@@ -190,7 +191,7 @@ class Char:
         if s.tie and seen(0): sc.path([cam.pr(p_) for p_ in (onb(-7, .96), onb(7, .96), onb(9, .40), onb(0, .28), onb(-9, .40))]); sc.fill(s.tie, sc.lw(s.hip, .007 * k))
         if s.whistle and seen(8): x, y = cam.pr(onb(10, .62)); c.new_path(); c.arc(x, y, cam.px(s.hip, .03 * k), 0, 7); sc.fill("ffd24a", 1.5); sc.path([cam.pr(onb(-30, 1.0)), (x, y), cam.pr(onb(34, 1.0))], False); c.set_source_rgb(*INK); c.set_line_width(cam.px(s.hip, .008)); c.stroke()
         if s.num and seen(0):
-            o_, a_, b_ = cam.pr(onb(0, .55)), cam.pr(onb(20, .55)), cam.pr(onb(0, .8)); c.save(); c.new_path(); m_ = s.tr * math.sin(math.radians(20)); c.transform(cairo.Matrix((a_[0] - o_[0]) / m_, (a_[1] - o_[1]) / m_, -(b_[0] - o_[0]) / (.25 * s.tl), -(b_[1] - o_[1]) / (.25 * s.tl), *o_)); c.select_font_face("Montserrat XB"); c.set_font_size(.17 * k); e_ = c.text_extents(s.num); c.move_to(-e_.width / 2 - e_.x_bearing, .06 * k); c.set_source_rgb(1, 1, 1); c.show_text(s.num); c.new_path(); c.restore()
+            o_, a_, b_ = cam.pr(onb(0, .55)), cam.pr(onb(20, .55)), cam.pr(onb(0, .8)); c.save(); c.new_path(); m_ = s.tr * math.sin(math.radians(20)); c.transform(cairo.Matrix((a_[0] - o_[0]) / m_, (a_[1] - o_[1]) / m_, -(b_[0] - o_[0]) / (.25 * s.tl), -(b_[1] - o_[1]) / (.25 * s.tl), *o_)) if abs((a_[0] - o_[0]) * (b_[1] - o_[1]) - (a_[1] - o_[1]) * (b_[0] - o_[0])) > 25 else c.scale(1e-3, 1e-3); c.select_font_face("Montserrat XB"); c.set_font_size(.17 * k); e_ = c.text_extents(s.num); c.move_to(-e_.width / 2 - e_.x_bearing, .06 * k); c.set_source_rgb(1, 1, 1); c.show_text(s.num); c.new_path(); c.restore()
         if s.vest:                                               # life vest: a tube of its own colour + two straps, slides with the yaw
             for lo in range(-180, 180, 15):
                 if dirv(s.yaw + lo + 7.5) @ (cam.p - s.hip) < -.02: continue
@@ -204,7 +205,12 @@ class Char:
         c.restore()
     def _head(s, sc, HC, up):
         cam = sc.cam; c = sc.c; R = s.R; x0, y0 = cam.pr(HC); q = cam.px(HC, R); ew, eh, pu, lid, by, bt, mw, mh, mc, teeth, blush = s.face
-        yaw = s.hyaw; fh = dirv(yaw, s.hpitch); rh = unit(np.cross(V(0, 0, 1), fh)); uh = np.cross(fh, rh); cr, sr = math.cos(math.radians(s.hroll)), math.sin(math.radians(s.hroll)); rh, uh = rh * cr + uh * sr, uh * cr - rh * sr
+        yaw = s.hyaw
+        if CHEAT[0] and not getattr(s, "nocheat", False):      # "cheat out": turn the head a little toward the camera so a face never disappears (real backs, >150°, stay backs)
+            tc = cam.p - HC; base = math.degrees(math.atan2(tc[0], -tc[1])); r_ = (yaw - base + 180) % 360 - 180; a_ = abs(r_)
+            b_ = a_ if a_ <= 60 else 60 + (a_ - 60) * .22 if a_ <= 125 else 74.3 + (a_ - 125) * (150 - 74.3) / 25 if a_ <= 150 else a_; yaw = base + math.copysign(b_, r_)
+        hp_ = s.hpitch if not (s.cap and CHEAT[0] and s.hpitch < -10) else -10 + (s.hpitch + 10) * .3   # a cap must not swallow the face
+        fh = dirv(yaw, hp_); rh = unit(np.cross(V(0, 0, 1), fh)); uh = np.cross(fh, rh); cr, sr = math.cos(math.radians(s.hroll)), math.sin(math.radians(s.hroll)); rh, uh = rh * cr + uh * sr, uh * cr - rh * sr
         toc = unit(cam.p - HC); sp = lambda lon, lat, rad=R: HC + (fh * math.cos(math.radians(lat)) * math.cos(math.radians(lon)) + rh * math.cos(math.radians(lat)) * math.sin(math.radians(lon)) + uh * math.sin(math.radians(lat))) * rad
         vis = lambda lon, lat: (sp(lon, lat) - HC) @ toc > 0
         def shell(test, rad, col, lw):                           # union of visible sphere quads = cap / hair, outlined once
@@ -270,6 +276,10 @@ class Char:
                         if (tip - HC) @ toc < -.06: continue
                         A, B, T_ = cam.pr(sp(lo - 16, la - 6, R * 1.02)), cam.pr(sp(lo + 16, la - 6, R * 1.02)), cam.pr(tip); sc.path([A, T_, B]); sc.fill(s.hair, lw)
             shell(test, R * 1.045, s.hair, lw)
+        if s.hair and s.style == "puffs" and not s.cap:        # the near puff sits in front of the hair in profile
+            for sg in (-1, 1):
+                pq = sp(sg * 100, 34, R * 1.22)
+                if (pq - HC) @ toc > R * .62: sc.ball(pq, R * .40, s.hair, .014 * s.k)
         if s.bun and (-fh @ toc) >= .15: sc.ball(HC - fh * R * .75 + uh * R * .78, R * .42, s.hair, .014 * s.k)
         if s.helmet: c.new_path(); c.arc(x0, y0, q * 1.28, 0, 7); c.set_source_rgba(.75, .9, 1, .22); c.fill_preserve(); c.set_source_rgb(*C("f2f4f8")); c.set_line_width(q * .14); c.stroke(); c.new_path(); c.arc(x0, y0, q * 1.36, 0, 7); c.set_source_rgb(*INK); c.set_line_width(lw); c.stroke(); c.arc(x0, y0, q * 1.02, -2.5, -1.9); c.set_source_rgba(1, 1, 1, .8); c.set_line_width(q * .07); c.stroke()
         if s.cap:

@@ -167,7 +167,7 @@ def gym(sc, t, tall=False):
     for k in range(5): 
         for j in (-1, 2.5): x = -6.4 + k * 3.2; P([(x, j - 1.2, zt - .02), (x + 1.3, j - 1.2, zt - .02), (x + 1.3, j - .8, zt - .02), (x, j - .8, zt - .02)], "fffef0", .012)
     for k in range(6): sc.line([(-9, -6 + k * 2, zt - .3), (9, -6 + k * 2, zt - .3)], "8a7a5a", .12)
-    sc.box((2.2, 4.42, 3.6), (5.4, .06, 1.0), "1c1f27", line=.02); wtx(sc, (2.2, 4.38, 3.6), "HOME 42   AWAY 40", .46, "ffd24a", None)
+    sc.box((2.2, 4.42, 3.6), (5.4, .06, 1.0), "1c1f27", line=.02); wtx(sc, (2.2, 4.38, 3.6), "HOME 42   AWAY 40", .40, "ffd24a", None)
 def hoop(sc, t, shake=0.0):
     p = V(HX - .75, HY + .4, 0); sc.line([p, p + V(0, 0, 3.0), V(HX - .25, HY, 3.35)], INK, .20); sc.line([p, p + V(0, 0, 3.0), V(HX - .25, HY, 3.35)], "3d4f78", .15); sc.box((HX - .28, HY, 3.45), (.06, 1.5, 1.0), "ffffff"); sc.poly([(HX - .24, HY - .28, 3.2), (HX - .24, HY + .28, 3.2), (HX - .24, HY + .28, 3.62), (HX - .24, HY - .28, 3.62)], None, .03)
     ring = [V(HX + .05 + .24 * math.cos(a), HY + .24 * math.sin(a), HZ + shake * .03 * wob(t, 6)) for a in np.linspace(0, 6.283, 26)]; sc.path([sc.cam.pr(q) for q in ring]); sc.c.set_source_rgb(*INK); sc.c.set_line_width(sc.cam.px((HX, HY, HZ), .07)); sc.c.stroke_preserve(); sc.c.set_source_rgb(*C("ff5a1e")); sc.c.set_line_width(sc.cam.px((HX, HY, HZ), .045)); sc.c.stroke()

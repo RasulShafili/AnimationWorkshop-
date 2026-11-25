@@ -6,8 +6,6 @@ small car, 18–24 in larger vehicles; mold in 24–48 h (FEMA/EPA, not re-check
 island → "one place in Hawaii"); Carnian Pluvial Episode 234–232 Ma, 1–2 Myr, dinosaurs spread during it; raindrops are bun-shaped; roots need
 oxygen; vitamin D needs UVB; flood silt is fertile. Simplification: a real atmosphere could not rain 1 cm/h everywhere; "the flood is wherever it lands".
 Files: lines.py → vo/ (Chatterbox) → vo16 → timeline.py (global.json, words.json, caps) → scenes_*.py → show.py → audio.py → assemble.py → package.
-## State 2026-11-25 16:15
-All 28 chapters staged; stills every 1.5 s read for the whole video on an ESTIMATED timeline, numeric motion scan run (fixed: boat wrap c13, hyaw flip c28, zero-scale crash).
-Voices: 35 of 84 done; Chatterbox was killed by the system for low memory. Cause = my own mistake: the "run emu voices after rain" waiter matched a wrong PID, so TWO Chatterbox
-processes ran at once (rule: one heavy job at a time). Remaining jobs: vo/jobs_rest.json (49). Not restarted without the owner's OK. emu Short: 6 of 14 voices done.
-Next: voices → prep_vo.sh → timeline.py → word diff (word_fixes.json) → motion_all.py → show.py render → audio.py → assemble.py draft → full contact sheets → package.
+## State 2026-11-25 20:45 — DONE (8:06, −14.3 LUFS), delivered to ~/Desktop/YouTube_uzun_videolar/rain_365 (video, srt, title/description/chapters, thumbnail drafts, Gemini prompt, 3 teasers). Not published.
+Rebuild: prep_vo.sh → timeline.py (per-line alignment) → build.sh → assemble.py final → package_rain.py → teaser.py.
+Voice retakes: c28_n2 (vo/old keeps the first take); atempo for lines read too fast in prep_vo.sh. Owner still has to approve the draft.

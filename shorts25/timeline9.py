@@ -15,11 +15,7 @@ else:
     SR = 44100; v = np.zeros(int(T * SR) + SR)
     for l in lines: sr, y = wavfile.read(f"{D}/vo16/{l['id']}.wav"); y = y.astype(float) / 32768; a = int(l["t0"] * SR); v[a:a + len(y)] += y
     wavfile.write(f"{O}/vo_only.wav", SR, (v / np.abs(v).max() * 30000).astype(np.int16)); subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{O}/vo_only.wav", "-ar", "16000", "-ac", "1", "-f", "f32le", f"{O}/vo16k.raw"], check=True)
-    code = "import json, numpy as np\nfrom faster_whisper import WhisperModel\na = np.fromfile('%s/vo16k.raw', np.float32)\nm = WhisperModel('small.en', device='cpu', compute_type='int8')\nsegs, _ = m.transcribe(a, word_timestamps=True, condition_on_previous_text=False)\njson.dump([[round(w.start, 3), round(w.end, 3), w.word.strip()] for s in segs for w in s.words], open('%s/words_whisper.json', 'w'))\n" % (O, O)
-    subprocess.run(["/home/rasul/Desktop/Animations/tools/whisper-venv/bin/python", "-c", code], check=True); W = json.load(open(f"{O}/words_whisper.json"))
-    if os.path.exists(f"{D}/word_fixes.json"):
-        for k, x in json.load(open(f"{D}/word_fixes.json")).items(): W[int(k)][2] = x
-        W = [x for x in W if x[2]]
+    r = subprocess.run(["/home/rasul/Desktop/Animations/tools/whisper-venv/bin/python", "/home/rasul/Desktop/Animations/tools/align_lines.py", D], capture_output=True, text=True, check=True); print(r.stdout); W = json.load(open(f"{O}/words.json"))
 json.dump(W, open(f"{O}/words.json", "w"))
 def Tm(s): h, r = divmod(max(0, s), 3600); mm, x = divmod(r, 60); return f"{int(h)}:{int(mm):02d}:{x:05.2f}"
 SMALL = {"a", "an", "the", "his", "her", "in", "of", "to", "and", "it", "on", "at", "you", "it's", "so", "but", "for", "that", "not", "is", "by", "was", "were", "one", "had", "up", "they", "he"}; items = []; i = 0

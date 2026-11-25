@@ -59,6 +59,12 @@ def c02(t):
     for k in range(70): a = k * 2.399; d0 = r * (1.03 + .14 * ((t * 1.1 + k * .37) % 1)); X, Y = x + math.cos(a) * d0, y + math.sin(a) * d0; c.move_to(X, Y); c.line_to(X + math.cos(a) * 26, Y + math.sin(a) * 26); c.set_source_rgba(.6, .85, 1, .8 * e); c.set_line_width(4); c.stroke()
     sc.vignette(.35); flash(sc, t, 0, (1, 1, 1), .5, .3); return sc
 SC["c02"] = c02
+def soccer(sc, p, a, r):
+    sc.shadow((p[0], p[1], .004), r * 1.1, .12); sc.ball(p, r, "f7f7f4", .012); X, Y = sc.cam.pr(p); q = sc.cam.px(p, r); c = sc.c; c.save(); c.new_path(); c.arc(X, Y, q * .95, 0, 7); c.clip()
+    for k in range(6):
+        b = a + k * 1.2566; x, y, rr = (X, Y, q * .34) if k == 5 else (X + math.cos(b) * q * .86, Y + math.sin(b) * q * .86, q * .32); c.new_path(); [c.line_to(x + rr * math.cos(b + j * 1.2566), y + rr * math.sin(b + j * 1.2566)) for j in range(5)]; c.close_path(); sc.fill("22262e", None)
+        if k < 5: c.move_to(X + math.cos(b) * q * .3, Y + math.sin(b) * q * .3); c.line_to(X + math.cos(b) * q * .6, Y + math.sin(b) * q * .6); c.set_source_rgb(.13, .15, .18); c.set_line_width(max(1.5, q * .05)); c.stroke()
+    c.restore()
 def c03(t):
     D = CH["c03"]["dur"]; w = wt; vests(False); n, u, s = shot(t, [(0, "bed"), (w("c03_n1", "football") - .1, "foot"), (w("c03_n1", "everybody") - .1, "stay"), (lt("c03_n2") - .1, "window"), (w("c03_n2", "falling") - .15, "tear"), (w("c03_n2", "round") - .3, "bun"), (w("c03_n2", "hamburger") - .2, "burger")], D); h = HERO
     if n in ("bed", "stay"):
@@ -70,7 +76,7 @@ def c03(t):
         for x in (-1.6, 1.6): sc.line([(x, 4, 0), (x, 4, 2.0)], INK, .13); sc.line([(x, 4, 0), (x, 4, 2.0)], "ffffff", .09)
         sc.line([(-1.6, 4, 2.0), (1.6, 4, 2.0)], "ffffff", .10); [sc.line([(-1.6 + k * .32, 4.05, 0), (-1.6 + k * .32, 4.05, 2.0)], "ffffff", .012, .7) for k in range(11)]; [sc.line([(-1.6, 4.05, k * .3), (1.6, 4.05, k * .3)], "ffffff", .012, .7) for k in range(7)]
         for k, (x, y, r) in enumerate(((-.8, .6, .8), (1.3, 1.6, .7), (.1, 2.6, .9))): pts = [V(x + math.cos(a) * r, y + math.sin(a) * r * .4, .004) for a in np.linspace(0, 6.28, 24)]; sc.poly(pts, "8fb0bc", .008)
-        ripples(sc, t, .0, ((-2, 2.4), (0, 3)), 26); co = COACH; stand(co, t, (.95, 1.1, 0), -20, 3); co.face = face_at(t, [(0, "sad")]); reach(co, 1, co.hip + V(.22, -.12, .40)); umb = co.hands[1]; bl = V(-.8, .55, .13 + .03 * wob(t, .7)); sc.at(d(co.hip), lambda: (sc.shadow((.95, 1.1, .004), .3, .12), co.draw(sc), umbrella(sc, umb, t, "c93a34", .62, 1.0))); sc.at(d(bl), lambda: (ball_(sc, bl, t * .4, .13)))
+        ripples(sc, t, .0, ((-2, 2.4), (0, 3)), 26); co = COACH; stand(co, t, (.95, 1.1, 0), -20, 3); co.face = face_at(t, [(0, "sad")]); reach(co, 1, co.hip + V(.22, -.12, .40)); umb = co.hands[1]; bl = V(-.8, .55, .13 + .03 * wob(t, .7)); sc.at(d(co.hip), lambda: (sc.shadow((.95, 1.1, .004), .3, .12), co.draw(sc), umbrella(sc, umb, t, "c93a34", .62, 1.0))); sc.at(d(bl), lambda: (soccer(sc, bl, t * .4, .13)))
         for k, (ch, x) in enumerate(((HERO, -1.4), (MAYA, -.75))): stand(ch, t, (x, 1.5, 0), 25, k); ch.face = face_at(t, [(0, "ooh"), (s * 0 + 4.2, "laugh")]); look(ch, (.95, 1.1, 1.5)); [reach(ch, i, ch.joints()[4] + V((-.26, .26)[i], -.04, .16 + .05 * wob(t, 2.4)), ss(s, .5, .9)) for i in (0, 1)]; sc.at(d(ch.hip), lambda ch=ch, x=x: (sc.shadow((x, 1.5, .004), .22, .1), ch.draw(sc)))
         sc.flush(); rain(sc, t, 150, .5); tx(sc, 960, 985, "CANCELLED", 90 * back(s, .2, .55, 2), "ffd21e") ; sc.vignette(.28); return sc
     if n == "window":
@@ -193,7 +199,7 @@ def c07(t):
         if n == "sea":
             c.move_to(120, 700); c.line_to(700, 700); c.set_source_rgba(1, 1, 1, .9); c.set_line_width(7); c.set_dash([22, 16]); c.stroke(); c.set_dash([]); arrow(sc, 560, 640, 560, sea + 10, 40, "ff5a4a"); tx(sc, 400, 610, "SEA: LOWER", 62 * back(s, .8, 1.2), "ffffff") if s > .8 else None; th = w("c07_n4", "flood") - .1; c.new_path()
             if t > th: c.move_to(1180, 440); c.curve_to(1300, 400, 1700, 470, 1930, 430); c.line_to(1930, 560); c.line_to(1180, 520); c.close_path(); c.set_source_rgba(.25, .55, .85, .8 * ss(t, th, th + .5)); c.fill(); tx(sc, 1480, 660, "FLOOD: HERE", 76 * back(t, th, th + .4, 2), "ffd21e")
-        else: [tx(sc, x, y, s_, 54 * back(t, w("c07_n2", k_) - .15, w("c07_n2", k_) + .2, 2), "ffffff") if t > w("c07_n2", k_) - .15 else None for x, y, s_, k_ in ((300, 930, "EVAPORATES", "evaporates"), (900, 90, "BLOWS OVER", "blows"), (1560, 760, "FALLS", "falls"), (1090, 800, "RUNS BACK", "runs"))]
+        else: [tx(sc, x, y, s_, 54 * back(t, w("c07_n2", k_) - .15, w("c07_n2", k_) + .2, 2), "ffffff") if t > w("c07_n2", k_) - .15 else None for x, y, s_, k_ in ((300, 930, "EVAPORATES", "evaporates"), (900, 90, "BLOWS OVER", "blows"), (1560, 760, "FALLS", "falls"), (930, 690, "RUNS BACK", "runs"))]
     else:                                                  # the conveyor belt
         vgrad(sc, "3a4a6a", "6a82a8"); sp = t * 2.0 * (1 + 2.2 * ss(s, .8, 2.2)); c.save(); c.translate(960, 600); rrect(c, -760, -150, 1520, 300, 150); sc.fill("2a2f3a", 14); rrect(c, -700, -95, 1400, 190, 95); sc.fill("8f9bb0", 8); [(c.save(), c.translate(x, 0), c.rotate(sp * 1.5), c.new_path(), c.arc(0, 0, 88, 0, 7), sc.fill("c4ccd6", 9), [(c.move_to(0, 0), c.line_to(80 * math.cos(q), 80 * math.sin(q)), c.set_source_rgb(*C("6a7688")), c.set_line_width(13), c.stroke()) for q in np.arange(0, 6.2, 1.047)], c.restore()) for x in (-605, 605)]
         for k in range(9): x = -660 + ((k * 150 + sp * 160) % 1350); kind = k % 3; c.save(); c.translate(x, -205); (drop_mark(sc, 0, 0, 52, t + k) if kind != 1 else [(c.new_path(), c.arc(dx, dy, r, 0, 7), sc.fill("e8eef4", None)) for dx, dy, r in ((-36, 6, 32), (0, -14, 42), (36, 6, 32))]); c.restore()

@@ -131,3 +131,5 @@ eq brightness pulses, white-out on the final boom, ASS captions, watermark).
 One frame per shot for a Short, 4 frames per LINE (10/35/60/90 %) + the last frame of every chapter (the hold after the last word) for a long video, read next to the script line: is the named thing
 visible? Is anyone hovering, cropped, behind a trunk? Then diff the burned captions (words.json) with the script before assembling.
 Do this at preview stage, not after the full render.
+
+- **2.5D Shorts (emu, 2026-11-25):** `shorts25/<name>/` + `shorts25/timeline9.py`; every list joke gets its own shot (the cameraman), captions at y≈1310 → keep drawn faces above 1230; motion scan needs the Short's own Char objects in NAME.
