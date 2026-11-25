@@ -3,7 +3,7 @@ import os, shutil, sys, importlib.util, json
 sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25"); sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25/gravity")
 from show25 import *
 from PIL import Image
-D = "/home/rasul/Desktop/Animations/longform25/gravity"; OUT = "/home/rasul/Desktop/YouTube_upload_gravity_2.5D"; os.makedirs(f"{OUT}/gemini_thumbnail", exist_ok=True)
+D = "/home/rasul/Desktop/Animations/longform25/gravity"; OUT = "/home/rasul/Desktop/YouTube_uzun_videolar/gravity_2.5D"; os.makedirs(f"{OUT}/gemini_thumbnail", exist_ok=True)
 sp = importlib.util.spec_from_file_location("lines", "/home/rasul/Desktop/Animations/longform3d/gravity/lines.py"); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); TEXT = {i: t for c, i, w, t in m.L}
 US = {"metres": "meters", "metre": "meter", "kilometres": "kilometers", "storey": "story", "tyres": "tires", "grey": "gray"}
 def us(s):

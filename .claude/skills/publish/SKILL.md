@@ -12,7 +12,7 @@ description: Post finished videos to YouTube/Instagram/TikTok (whatif.lab_daily)
 - If Instagram says "Buffer has lost authorization": the owner must Refresh/Reconnect the IG channel in Buffer;
   check `channels{isDisconnected}`, then repost with `instagram` only and fix the history entry.
 - **YouTube via Buffer = Shorts only** (≤3 min, vertical; Buffer appends #Shorts unless `LONGFORM=1`). Long videos:
-  owner uploads in YouTube Studio from `~/Desktop/YouTube_upload/` (see cartoon-longform skill §7).
+  owner uploads in YouTube Studio from `~/Desktop/YouTube_uzun_videolar/<name>/` (see cartoon-longform skill §7).
 - Best time for long-form: ~23:00 Baku (14:00 ET), Fri/Sat; or check Studio → Audience → "When your viewers are on
   YouTube". Shorts any time with the 3-hour spacing.
 - Status of a public video: `~/.local/bin/yt-dlp --skip-download --dump-json URL` (view_count, like_count,

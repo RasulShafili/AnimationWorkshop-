@@ -43,7 +43,8 @@
     "likes-teaser",
     "teleport-teaser",
     "teleport-teaser2",
-    "molasses-tank"
+    "molasses-tank",
+    "gravity-teaser-dunk"
   ],
   "history": [
     {
@@ -856,6 +857,24 @@
           "service": "youtube",
           "name": "LiminalART",
           "post_id": "6b0597b2e85a6e22d512ee35"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "gravity-teaser-dunk",
+      "title": "He Went Up For A Dunk… Then Gravity Turned Off 😳",
+      "published_at": "2026-11-24 21:14:12 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b05fd84bc79b3715ead1de6"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b05fd909dd8377af12021a9"
         }
       ],
       "status": "published"

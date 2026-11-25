@@ -127,7 +127,7 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
 
 ## 7. Publishing
 - **Buffer can't post long videos to YouTube** (Shorts only: ≤3 min vertical) and can't set thumbnails →
-  prepare `~/Desktop/YouTube_upload/` (mp4, thumbnail.png, title_and_description.txt, subtitles_en.srt) and walk the
+  prepare `~/Desktop/YouTube_uzun_videolar/<name>/` (mp4, thumbnail.png, title_and_description.txt, subtitles_en.srt) and walk the
   owner through YouTube Studio: subtitles (With timing), end screen (right side), schedule ~23:00 Baku
   (= 14:00 ET), no Premiere on a small channel.
 - Next day: a **vertical teaser Short** from the climax (blurred-fill 9:16 + hook top + "FULL STORY ON THE CHANNEL"),
