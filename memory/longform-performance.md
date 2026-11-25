@@ -27,3 +27,10 @@ Snapshot 2026-11-23 ~09:30 Baku (yt-dlp): likes long 50 views/24 h = 2.1/h (best
 892/24 h = 37/h (best teaser start ever, 4× any other); thoughts 32/73 h; AI 13/139 h (worst). Every teaser so far is
 26–38 s and plateaus at 600–1,100; teasers convert only ~5 % into long-video views. Teleport long uploaded (0 views at 3.7 h);
 its 2 teasers (bear 39 s, trench 34 s) are ready, not posted. Keep teasers ≤ 38 s; "He … emotional twist 😳/💔" titles win.
+
+Snapshot 2026-11-25 ~15:10 Baku: gravity (first 2.5D) 61 views/~14 h = 4.3/h (best long start so far; teleport 34, likes 64, thoughts 33, AI 13 totals).
+Topic scan the same day (131 channels, long videos; view counts by yt-dlp) — small channels with huge hits in the last month: never stopped
+raining 10 years 1.1M (9.9k subs), rain for 1 year 666k (7.5k subs) + 724k (Nowhere Safe); last kid on Earth 201k in 1 day (2.2k subs); woke up
+when parents were kids 153k in 3 days (581 subs); frozen 1,000 years 166k (581 subs); only breathe underwater 192k in 2 days + 880k; doubled in
+size 353k/679k; "see everyone's X" 975k–3M. Skip: crush/romance, body-swap-to-girl, violence. Clones of the same titles sit at 0 views, so
+packaging + own angle decide. Proposed to the owner: rain 1 year / every adult disappeared 7 days / your mom becomes your classmate.

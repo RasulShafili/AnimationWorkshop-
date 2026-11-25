@@ -29,3 +29,7 @@ channel's fan base. Pick from these, then give it our own angle (×2-every-2-sec
 `--channel URL` scans a channel directly. Takes 3–8 min (yt-dlp, no API key).
 First scan (2026-11-12): nuke a hurricane 21×, Voyager on an alien planet 7×, nails growth 7.4× (4.6M), Milky Way ×
 Andromeda 4.4×, hantavirus 4.1×, "black hole star" 3.4×, "can Earth run out of water" 3.2× (4.1M).
+
+## Long-form scan (2026-11-25)
+`python3 long_outliers.py out.json` searches 12 what-if queries, scans the top 70 channels' /videos tab and prints title-filtered outliers
+(views ÷ channel median); then check upload date + subscribers of the hits with yt-dlp: a young video on a tiny channel is the real signal.
