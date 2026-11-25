@@ -3,7 +3,7 @@ so they turn like 3D. No mesh, no render engine: ~30 ms a frame, every contact (
 World: x right, y away from the viewer, z up (metres). yaw: 0 = faces the camera (−y), 90 = faces +x, 180 = away."""
 import math, cairo
 import numpy as np
-W, H, FPS = 1920, 1080, 30
+W, H, FPS = int(__import__("os").environ.get("SHOW_W", 1920)), int(__import__("os").environ.get("SHOW_H", 1080)), 30
 V = lambda *a: np.array(a, float)
 INK = (0.07, 0.06, 0.08)
 def hexc(h): h = h.lstrip("#"); return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
@@ -132,8 +132,8 @@ def face_at(t, K, dur=0.22):
     return cur
 class Char:
     """Stick person. look: body, cap/hair colours, kind. pose fields are plain attributes set every frame."""
-    def __init__(s, body, k=1.0, cap=None, hair=None, bun=False, dress=False, belt=None, apron=None, skin="fffaf2", style=None, stache=None, glasses=False, coat=None, tie=None, num=None, whistle=False, helmet=None, pal=None, fat=1.0):
-        s.__dict__.update(body=body, k=k, cap=cap, hair=hair, bun=bun, dress=dress, belt=belt, apron=apron, skin=skin, style=style, stache=stache, glasses=glasses, coat=coat, tie=tie, num=num, whistle=whistle, helmet=helmet, pal=pal, green=0.0)
+    def __init__(s, body, k=1.0, cap=None, hair=None, bun=False, dress=False, belt=None, apron=None, skin="fffaf2", style=None, stache=None, glasses=False, coat=None, tie=None, num=None, whistle=False, helmet=None, pal=None, fat=1.0, vest=None, hood=None):
+        s.__dict__.update(body=body, k=k, cap=cap, hair=hair, bun=bun, dress=dress, belt=belt, apron=apron, skin=skin, style=style, stache=stache, glasses=glasses, coat=coat, tie=tie, num=num, whistle=whistle, helmet=helmet, pal=pal, green=0.0, vest=vest, hood=hood)
         s.R = .205 * k; s.tl = .44 * k; s.tr = .115 * k * fat; s.ua = .26 * k; s.fa = .26 * k; s.th = .235 * k; s.sh = .235 * k
         s.hip = V(0, 0, s.th + s.sh); s.yaw = 0.0; s.lean = V(0, 0); s.hyaw = 0.0; s.hpitch = 0.0; s.hroll = 0.0; s.face = FACE["neutral"]; s.talk = 0.0; s.blink = 0.0; s.look = (0, 0)
         s.hands = [None, None]; s.feet = [None, None]; s.squash = 1.0; s.hairlift = 0.0; s.elbow = [V(0, 0, -1), V(0, 0, -1)]; s.knee = None
@@ -191,6 +191,13 @@ class Char:
         if s.whistle and seen(8): x, y = cam.pr(onb(10, .62)); c.new_path(); c.arc(x, y, cam.px(s.hip, .03 * k), 0, 7); sc.fill("ffd24a", 1.5); sc.path([cam.pr(onb(-30, 1.0)), (x, y), cam.pr(onb(34, 1.0))], False); c.set_source_rgb(*INK); c.set_line_width(cam.px(s.hip, .008)); c.stroke()
         if s.num and seen(0):
             o_, a_, b_ = cam.pr(onb(0, .55)), cam.pr(onb(20, .55)), cam.pr(onb(0, .8)); c.save(); c.new_path(); m_ = s.tr * math.sin(math.radians(20)); c.transform(cairo.Matrix((a_[0] - o_[0]) / m_, (a_[1] - o_[1]) / m_, -(b_[0] - o_[0]) / (.25 * s.tl), -(b_[1] - o_[1]) / (.25 * s.tl), *o_)); c.select_font_face("Montserrat XB"); c.set_font_size(.17 * k); e_ = c.text_extents(s.num); c.move_to(-e_.width / 2 - e_.x_bearing, .06 * k); c.set_source_rgb(1, 1, 1); c.show_text(s.num); c.new_path(); c.restore()
+        if s.vest:                                               # life vest: a tube of its own colour + two straps, slides with the yaw
+            for lo in range(-180, 180, 15):
+                if dirv(s.yaw + lo + 7.5) @ (cam.p - s.hip) < -.02: continue
+                A = [onb(lo, .30, 1.16), onb(lo + 15.6, .30, 1.16), onb(lo + 15.6, .97, 1.10), onb(lo, .97, 1.10)]; sc.path([cam.pr(p_) for p_ in A]); c.set_source_rgb(*C(mul(s.vest, 1.08 - .30 * abs(lo + 7.5) / 180))); c.fill()
+            for zz in (.45, .72):
+                A = [onb(q_, zz, 1.18) for q_ in range(-170, 180, 12) if dirv(s.yaw + q_) @ (cam.p - s.hip) > -.01]; A.sort(key=lambda p_: cam.pr(p_)[0]); (sc.path([cam.pr(p_) for p_ in A], False), c.set_source_rgb(*INK), c.set_line_width(cam.px(s.hip, .022 * k)), c.stroke()) if len(A) > 1 else None
+            if seen(0): sc.path([cam.pr(onb(0, .30, 1.18)), cam.pr(onb(0, .97, 1.12))], False); c.set_source_rgb(*INK); c.set_line_width(cam.px(s.hip, .016 * k)); c.stroke()
         if s.belt:
             P = [s.hip + up * .10 * k + dirv(s.yaw + q) * s.tr * 1.08 for q in np.linspace(0, 360, 40)]; P = [p_ for p_ in P if (p_ - s.hip) @ (cam.p - s.hip) > -.004]; P.sort(key=lambda p_: cam.pr(p_)[0])
             if len(P) > 2: sc.path([cam.pr(p_) for p_ in P], False); c.set_source_rgb(*C(s.belt)); c.set_line_width(cam.px(s.hip, .035 * k)); c.stroke()

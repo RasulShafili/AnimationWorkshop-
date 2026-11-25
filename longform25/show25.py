@@ -1,21 +1,32 @@
 """Show framework on top of engine25: word timing, shots, acting helpers, cast, outdoor/indoor props."""
 import json, os, sys
 from engine25 import *
-GD = "/home/rasul/Desktop/Animations/longform3d/gravity/out"
+GD = os.environ.get("SHOW_DATA", "/home/rasul/Desktop/Animations/longform3d/gravity/out"); VO16 = os.environ.get("SHOW_VO", "/home/rasul/Desktop/Animations/longform3d/gravity/vo16")
 GLOB = json.load(open(f"{GD}/global.json")); WORDS = json.load(open(f"{GD}/words.json")); CH = {c["id"]: c for c in GLOB["chapters"]}; LN = {l["id"]: l for l in GLOB["lines"]}
 G = 9.8
+TEXT = {}
+def _loadtext():
+    import importlib.util
+    f = os.path.join(os.path.dirname(GD), "lines.py")
+    if os.path.exists(f): sp = importlib.util.spec_from_file_location("lines_" + os.path.basename(os.path.dirname(GD)), f); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); TEXT.update({i: t for c, i, w, t in m.L})
 def wt(line, word, n=0):
-    """chapter-local time of a word inside a line"""
+    """chapter-local time of a word inside a line (whisper words; if whisper wrote it differently, e.g. a number, fall back to its place in the script)"""
     l = LN[line]; off = CH[line[:3]]["off"]; hit = [a for a, b, w in WORDS if l["t0"] - .15 <= a <= l["t1"] + .1 and w.lower().strip(".,?!'\"").startswith(word.lower())]
-    if not hit: raise KeyError((line, word, [w for a, b, w in WORDS if l["t0"] - .15 <= a <= l["t1"] + .1]))
-    return hit[min(n, len(hit) - 1)] - off
+    if hit and len(hit) > n: return hit[n] - off
+    if not TEXT: _loadtext()
+    if line in TEXT:
+        tx_ = TEXT[line].lower(); pos = [m.start() for m in __import__("re").finditer(r"\b" + __import__("re").escape(word.lower()), tx_)]
+        if pos: return l["t0"] + (l["t1"] - l["t0"]) * pos[min(n, len(pos) - 1)] / len(tx_) - off
+    if hit: return hit[-1] - off
+    raise KeyError((line, word, [w for a, b, w in WORDS if l["t0"] - .15 <= a <= l["t1"] + .1]))
 def lt(line, e=0): l = LN[line]; return (l["t1"] if e else l["t0"]) - CH[line[:3]]["off"]
 _AMP = {}
 def talk(line, t):
     """mouth opening from the voice file"""
+    if line not in _AMP and not os.path.exists(f"{VO16}/{line}.wav"): return max(0, .6 * math.sin(t * 14)) if lt(line) <= t <= lt(line, 1) else 0.0
     if line not in _AMP:
         from scipy.io import wavfile
-        sr, y = wavfile.read(f"/home/rasul/Desktop/Animations/longform3d/gravity/vo16/{line}.wav"); y = np.abs(y.astype(float)); n = sr // 30; y = y[:len(y) // n * n].reshape(-1, n).mean(1); _AMP[line] = np.convolve(y / y.max(), [.25, .5, .25], "same")
+        sr, y = wavfile.read(f"{VO16}/{line}.wav"); y = np.abs(y.astype(float)); n = sr // 30; y = y[:len(y) // n * n].reshape(-1, n).mean(1); _AMP[line] = np.convolve(y / y.max(), [.25, .5, .25], "same")
     i = int((t - lt(line)) * 30); return float(min(1, _AMP[line][i] * 1.8)) if 0 <= i < len(_AMP[line]) else 0.0
 def shot(t, cuts, dur): k = [x for x in cuts if x[0] <= t + 1e-6][-1]; n = cuts.index(k); e = cuts[n + 1][0] if n + 1 < len(cuts) else dur; return k[1], (t - k[0]) / (e - k[0]), t - k[0]
 def K(u, p0, p1, l0, l1, f=1450, f1=None, roll=0.0, hh=0.0, t=0.0, e=.6):

@@ -25,6 +25,7 @@ def zg(t, p, v, spin=0.0, land=None, e=.35, start=0.0, wobble=.02, seed=0, r0=0.
     q[2] = land + z; k = round(ang / 180) * 180; return q, ang + (k - ang) * clamp((t - T1 - tf) / .25), True
 # ------------------------------------------------------------------ the set
 WALL, WAIN, FL1, FL2 = "ffe6bd", "7fbfa5", "f3d6a4", "e2b87a"
+RAINY = None                                            # fn(sc, t): paints the weather outside the windows (rain project)
 def kitchen(sc, t):
     P = sc.poly; cam = sc.cam; c = sc.c
     P([(-3, 2.4, 0), (3.1, 2.4, 0), (3.1, 2.4, 2.75), (-3, 2.4, 2.75)], WALL, 0, grad=("ffdca8", "fff0d4"))
@@ -52,6 +53,7 @@ def kitchen(sc, t):
     for k, (x0, r, col) in enumerate(((-3, 4.2, "7ccf74"), (4, 4.8, "62bd66"))): sc.ball((x0, 9 + k, -2.6), r, col, 0)
     sc.line([(1.35, 6, 0), (1.35, 6, 1.6)], "7a4a24", .16)
     for q in range(5): sc.ball((1.35 + .36 * math.sin(q * 1.3) + .02 * wob(t, .4, q), 6, 1.75 + .3 * math.cos(q * 1.9)), .42, "3fa653", .012)
+    if RAINY: RAINY(sc, t)
     c.restore(); P(win, None, .022)
     for p, q in (((.65, 2.38, 1.12), (.65, 2.38, 2.25)), ((-.15, 2.38, 1.7), (1.45, 2.38, 1.7))): sc.line([p, q], "fffaf0", .05)
     sc.box((.65, 2.34, 1.09), (1.75, .12, .06), "fffaf0")

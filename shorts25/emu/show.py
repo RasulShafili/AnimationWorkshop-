@@ -1,0 +1,4 @@
+import os, sys
+D = "/home/rasul/Desktop/Animations/shorts25/emu"; os.environ.update(SHOW_DATA=D + "/out", SHOW_VO=D + "/vo16", SHOW_W="1080", SHOW_H="1920")
+src = open("/home/rasul/Desktop/Animations/longform25/gravity/show.py").read().replace('D = "/home/rasul/Desktop/Animations/longform25/gravity"', f'D = "{D}"').replace('sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25/gravity")', f'sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25/gravity"); sys.path.insert(0, "{D}")').replace("scenes_*.py", "emu_scenes.py").replace("h = w * 9 // 16", "h = w * 16 // 9").replace("save(frame(c, t), p, 960)", "save(frame(c, t), p, 540)").replace("w * 9 // 16", "w * 16 // 9").replace("cols=4, w=480", "cols=8, w=240").replace("(960, 540)", "(540, 960)").replace("range(0, len(R), 20)", "range(0, len(R), 24)").replace("R[k:k + 20]", "R[k:k + 24]").replace("k // 20", "k // 24")
+exec(compile(src, __file__, "exec"))

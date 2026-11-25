@@ -1,0 +1,159 @@
+[Script Info]
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Montserrat XB,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,1,8,3,2,40,40,560,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.12,0:00:00.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}He showed
+Dialogue: 0,0:00:00.65,0:00:01.07,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}up with
+Dialogue: 0,0:00:01.07,0:00:01.28,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}two
+Dialogue: 0,0:00:01.28,0:00:01.70,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}machine
+Dialogue: 0,0:00:01.70,0:00:02.02,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}guns,
+Dialogue: 0,0:00:02.02,0:00:02.23,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}ten
+Dialogue: 0,0:00:02.23,0:00:02.70,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thousand
+Dialogue: 0,0:00:02.70,0:00:03.18,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}bullets,
+Dialogue: 0,0:00:03.18,0:00:03.49,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and a
+Dialogue: 0,0:00:03.49,0:00:04.07,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}cameraman.
+Dialogue: 0,0:00:04.07,0:00:04.60,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The enemy
+Dialogue: 0,0:00:04.60,0:00:05.34,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}was birds.
+Dialogue: 0,0:00:05.34,0:00:05.69,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Twenty
+Dialogue: 0,0:00:05.69,0:00:06.15,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thousand
+Dialogue: 0,0:00:06.15,0:00:06.41,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}emus
+Dialogue: 0,0:00:06.41,0:00:06.97,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}had walked
+Dialogue: 0,0:00:06.97,0:00:07.22,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}into
+Dialogue: 0,0:00:07.22,0:00:07.73,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the farms
+Dialogue: 0,0:00:07.73,0:00:08.29,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}of western
+Dialogue: 0,0:00:08.29,0:00:08.85,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Australia,
+Dialogue: 0,0:00:08.85,0:00:09.31,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and they
+Dialogue: 0,0:00:09.31,0:00:09.92,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}were eating
+Dialogue: 0,0:00:09.92,0:00:10.12,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}all
+Dialogue: 0,0:00:10.12,0:00:10.84,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the wheat.
+Dialogue: 0,0:00:10.84,0:00:11.27,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}One old
+Dialogue: 0,0:00:11.27,0:00:11.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}farmer
+Dialogue: 0,0:00:11.65,0:00:12.03,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}warned
+Dialogue: 0,0:00:12.03,0:00:12.78,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the soldiers.
+Dialogue: 0,0:00:12.78,0:00:13.32,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}You won't
+Dialogue: 0,0:00:13.32,0:00:13.59,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}even
+Dialogue: 0,0:00:13.59,0:00:13.81,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}get
+Dialogue: 0,0:00:13.81,0:00:14.44,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}close.
+Dialogue: 0,0:00:14.44,0:00:15.08,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The soldiers
+Dialogue: 0,0:00:15.08,0:00:15.38,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}burst
+Dialogue: 0,0:00:15.38,0:00:15.58,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}out
+Dialogue: 0,0:00:15.58,0:00:16.23,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}laughing.
+Dialogue: 0,0:00:16.23,0:00:16.64,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Relax!
+Dialogue: 0,0:00:16.64,0:00:17.28,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}They can't
+Dialogue: 0,0:00:17.28,0:00:17.57,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}even
+Dialogue: 0,0:00:17.57,0:00:18.02,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}fly!
+Dialogue: 0,0:00:18.02,0:00:18.26,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Day
+Dialogue: 0,0:00:18.26,0:00:18.56,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}one.
+Dialogue: 0,0:00:18.56,0:00:19.23,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}They snuck
+Dialogue: 0,0:00:19.23,0:00:19.59,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}up on
+Dialogue: 0,0:00:19.59,0:00:19.96,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}fifty
+Dialogue: 0,0:00:19.96,0:00:20.32,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}emus.
+Dialogue: 0,0:00:20.32,0:00:20.86,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The emus
+Dialogue: 0,0:00:20.86,0:00:21.23,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}split
+Dialogue: 0,0:00:21.23,0:00:21.47,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}up,
+Dialogue: 0,0:00:21.47,0:00:21.95,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and ran
+Dialogue: 0,0:00:21.95,0:00:22.50,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}in every
+Dialogue: 0,0:00:22.50,0:00:23.10,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}direction
+Dialogue: 0,0:00:23.10,0:00:23.81,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}at once.
+Dialogue: 0,0:00:23.81,0:00:24.31,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}So they
+Dialogue: 0,0:00:24.31,0:00:24.57,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}hid
+Dialogue: 0,0:00:24.57,0:00:24.88,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}by a
+Dialogue: 0,0:00:24.88,0:00:25.20,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}dam,
+Dialogue: 0,0:00:25.20,0:00:25.89,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and waited
+Dialogue: 0,0:00:25.89,0:00:26.27,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}for a
+Dialogue: 0,0:00:26.27,0:00:26.83,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thousand
+Dialogue: 0,0:00:26.83,0:00:27.15,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}emus
+Dialogue: 0,0:00:27.15,0:00:27.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}to walk
+Dialogue: 0,0:00:27.65,0:00:28.03,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}right
+Dialogue: 0,0:00:28.03,0:00:28.41,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}up to
+Dialogue: 0,0:00:28.41,0:00:28.79,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}them.
+Dialogue: 0,0:00:28.79,0:00:29.23,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}It was
+Dialogue: 0,0:00:29.23,0:00:29.80,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}perfect.
+Dialogue: 0,0:00:29.80,0:00:30.43,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}And then,
+Dialogue: 0,0:00:30.43,0:00:30.93,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the gun
+Dialogue: 0,0:00:30.93,0:00:31.60,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}jammed.
+Dialogue: 0,0:00:31.60,0:00:31.83,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Now
+Dialogue: 0,0:00:31.83,0:00:32.42,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}they tied
+Dialogue: 0,0:00:32.42,0:00:32.77,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}a gun
+Dialogue: 0,0:00:32.77,0:00:33.06,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}to a
+Dialogue: 0,0:00:33.06,0:00:33.47,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}truck,
+Dialogue: 0,0:00:33.47,0:00:34.12,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and chased
+Dialogue: 0,0:00:34.12,0:00:34.47,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}them.
+Dialogue: 0,0:00:34.47,0:00:35.06,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The truck
+Dialogue: 0,0:00:35.06,0:00:35.58,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}couldn't
+Dialogue: 0,0:00:35.58,0:00:35.94,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}catch
+Dialogue: 0,0:00:35.94,0:00:36.17,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}up.
+Dialogue: 0,0:00:36.17,0:00:36.58,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}And it
+Dialogue: 0,0:00:36.58,0:00:37.05,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}bounced
+Dialogue: 0,0:00:37.05,0:00:37.58,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}so hard,
+Dialogue: 0,0:00:37.58,0:00:37.99,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}nobody
+Dialogue: 0,0:00:37.99,0:00:38.34,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}could
+Dialogue: 0,0:00:38.34,0:00:38.63,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}fire
+Dialogue: 0,0:00:38.63,0:00:39.16,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}a single
+Dialogue: 0,0:00:39.16,0:00:39.67,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}shot.
+Dialogue: 0,0:00:39.67,0:00:40.13,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}By now,
+Dialogue: 0,0:00:40.13,0:00:40.47,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}every
+Dialogue: 0,0:00:40.47,0:00:40.82,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}group
+Dialogue: 0,0:00:40.82,0:00:41.28,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}of emus
+Dialogue: 0,0:00:41.28,0:00:41.62,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}had a
+Dialogue: 0,0:00:41.62,0:00:42.14,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}lookout.
+Dialogue: 0,0:00:42.14,0:00:42.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}One tall
+Dialogue: 0,0:00:42.65,0:00:42.94,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}bird
+Dialogue: 0,0:00:42.94,0:00:43.28,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}stood
+Dialogue: 0,0:00:43.28,0:00:43.63,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}guard
+Dialogue: 0,0:00:43.63,0:00:43.97,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}while
+Dialogue: 0,0:00:43.97,0:00:44.60,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the others
+Dialogue: 0,0:00:44.60,0:00:44.89,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}ate,
+Dialogue: 0,0:00:44.89,0:00:45.52,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and warned
+Dialogue: 0,0:00:45.52,0:00:45.81,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}them
+Dialogue: 0,0:00:45.81,0:00:46.10,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}when
+Dialogue: 0,0:00:46.10,0:00:46.61,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the army
+Dialogue: 0,0:00:46.61,0:00:47.46,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}was coming.
+Dialogue: 0,0:00:47.46,0:00:47.69,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Six
+Dialogue: 0,0:00:47.69,0:00:47.98,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}days
+Dialogue: 0,0:00:47.98,0:00:48.38,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}later,
+Dialogue: 0,0:00:48.38,0:00:48.61,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}two
+Dialogue: 0,0:00:48.61,0:00:48.95,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and a
+Dialogue: 0,0:00:48.95,0:00:49.24,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}half
+Dialogue: 0,0:00:49.24,0:00:49.76,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thousand
+Dialogue: 0,0:00:49.76,0:00:50.22,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}bullets
+Dialogue: 0,0:00:50.22,0:00:50.85,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}were gone,
+Dialogue: 0,0:00:50.85,0:00:51.31,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and the
+Dialogue: 0,0:00:51.31,0:00:51.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}farms
+Dialogue: 0,0:00:51.65,0:00:52.28,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}were still
+Dialogue: 0,0:00:52.28,0:00:52.57,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}full
+Dialogue: 0,0:00:52.57,0:00:53.50,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}of emus.
+Dialogue: 0,0:00:53.50,0:00:54.13,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The official
+Dialogue: 0,0:00:54.13,0:00:54.46,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}report
+Dialogue: 0,0:00:54.46,0:00:54.71,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}said
+Dialogue: 0,0:00:54.71,0:00:55.09,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the men
+Dialogue: 0,0:00:55.09,0:00:55.72,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}had suffered
+Dialogue: 0,0:00:55.72,0:00:55.86,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}no
+Dialogue: 0,0:00:55.86,0:00:56.44,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}casualties.
+Dialogue: 0,0:00:56.44,0:00:56.78,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}Except
+Dialogue: 0,0:00:56.78,0:00:57.26,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}for their
+Dialogue: 0,0:00:57.26,0:00:57.86,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}dignity.
+Dialogue: 0,0:00:57.86,0:00:58.25,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}In the
+Dialogue: 0,0:00:58.25,0:00:58.53,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}end,
+Dialogue: 0,0:00:58.53,0:00:59.03,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}the army
+Dialogue: 0,0:00:59.03,0:00:59.31,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}went
+Dialogue: 0,0:00:59.31,0:00:59.65,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}home,
+Dialogue: 0,0:00:59.65,0:01:00.10,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}and the
+Dialogue: 0,0:01:00.10,0:01:00.54,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}farmers
+Dialogue: 0,0:01:00.54,0:01:00.88,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}tried
+Dialogue: 0,0:01:00.88,0:01:01.44,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}something
+Dialogue: 0,0:01:01.44,0:01:02.22,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}else.
+Dialogue: 0,0:01:02.28,0:01:03.50,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}A fence.
+Dialogue: 0,0:01:03.56,0:01:04.13,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The army
+Dialogue: 0,0:01:04.13,0:01:04.64,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thought
+Dialogue: 0,0:01:04.64,0:01:05.08,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}it was
+Dialogue: 0,0:01:05.08,0:01:05.52,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}a war.
+Dialogue: 0,0:01:05.52,0:01:06.09,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}The emus
+Dialogue: 0,0:01:06.09,0:01:06.59,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}thought
+Dialogue: 0,0:01:06.59,0:01:07.04,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}it was
+Dialogue: 0,0:01:07.04,0:01:07.88,Cap,,0,0,0,,{\fscx84\fscy84\t(0,70,\fscx100\fscy100)}lunch.
