@@ -19,3 +19,5 @@ viewers leave in the first seconds when little happens; faster render. Videos ar
 flooded town, dam, wave). New project = own folder with `show.py` setting SHOW_DATA/SHOW_VO (vertical: SHOW_W/SHOW_H); scene modules need unique names (rain_a.py, not
 scenes_a.py — gravity's names collide). `wt()` falls back to script position when whisper spells a word differently. Stage everything on `timeline.py fake` while voices render.
 Before queueing a job behind another, take the PID from the process itself (a `pgrep` waiter matched the wrong PID → two Chatterbox at once → the system killed both).
+
+**2026-11-25 rain_365 delivered (8:06)** + Short "The Army That Lost To Birds": engine now cheats heads toward the camera (faces never vanish), `tools/align_lines.py` gives exact per-line word times, heavy jobs chained in one command (two parallel Chatterbox runs were OOM-killed). Awaiting owner's verdict. See [[long-form-approved-method]].
