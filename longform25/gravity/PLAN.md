@@ -17,3 +17,4 @@ upright on its own in the foreground (5:54). Also weak before: c10 no inner-ear 
 - package25.py (srt split by sentence, US spelling, chapters, cast + layout reference for Gemini), thumb.py (own art), thumb_final.py (the owner's
   Gemini picture + Montserrat words = THUMBNAIL.jpg, main). teaser25.py: vertical crop follows the story character per shot (pose probe), big captions.
 - Gemini took cast_reference + layout_reference + PROMPT.txt very well on the first try: keep that recipe (own render as layout reference).
+- 2026-11-25: frames deleted to free space (owner: "sil"); rebuild with show.py render (7 min). longform3d/gravity/out keeps only audio, timelines, words.json, global.json: the 2.5D engine READS them, never delete.
