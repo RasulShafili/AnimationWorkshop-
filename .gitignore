@@ -82,3 +82,6 @@ longform3d/**/out/
 *.blend1
 longform25/*/out/
 longform25/assets/*.png
+shorts25/*/out/
+longform25/*/out/
+**/vo/batch.log
