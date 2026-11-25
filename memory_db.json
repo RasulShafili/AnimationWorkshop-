@@ -44,7 +44,8 @@
     "teleport-teaser",
     "teleport-teaser2",
     "molasses-tank",
-    "gravity-teaser-dunk"
+    "gravity-teaser-dunk",
+    "rain-teaser-wave"
   ],
   "history": [
     {
@@ -875,6 +876,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b05fd909dd8377af12021a9"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "rain-teaser-wave",
+      "title": "The Dam Just Broke… They Have 10 Minutes 😳",
+      "published_at": "2026-11-25 19:03:30 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b07305835285a597b5b5286"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b073069f0d53020a1ed13af"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b07307035285a597b5b7b7b"
         }
       ],
       "status": "published"
