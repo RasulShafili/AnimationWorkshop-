@@ -45,7 +45,8 @@
     "teleport-teaser2",
     "molasses-tank",
     "gravity-teaser-dunk",
-    "rain-teaser-wave"
+    "rain-teaser-wave",
+    "emu-war-army"
   ],
   "history": [
     {
@@ -899,6 +900,29 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b07307035285a597b5b7b7b"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "emu-war-army",
+      "title": "The Army That Lost To Birds 😳",
+      "published_at": "2026-11-26 09:58:19 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b08024caffbad731e1a5a8e"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b080257e75fad9dc8dab585"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b08025be52242758a1ed53e"
         }
       ],
       "status": "published"
