@@ -3,12 +3,13 @@ import sys; sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25/adults
 from a_lib import *
 from adults_a import bus_int, wheel, kroom
 SC = {}
-def bike(sc, p, yaw, t, ch, rate=1.2, col="e8392e"):
-    """bicycle along yaw with ch riding it (pedals turn)"""
-    p = V(*p); f = dirv(yaw); r = V(-f[1], f[0], 0); R = .3; a0 = t * rate * 6.28; wb = [p + f * .5, p - f * .5]
+def bike(sc, p, yaw, t, ch, rate=1.2, col="e8392e", v=1.43):
+    """bicycle along yaw with ch riding it. Angles grow from +f toward +z, so a wheel rolling forward turns NEGATIVE:
+    wheels by distance (−v·t/R), cranks at rate (−) — both turn the way the bike moves"""
+    p = V(*p); f = dirv(yaw); r = V(-f[1], f[0], 0); R = .3; a0 = -t * rate * 6.28; aw = -t * v / R; wb = [p + f * .5, p - f * .5]
     for c_ in wb:
         pts = [c_ + V(0, 0, R) + f * math.cos(a) * R + V(0, 0, math.sin(a) * R) for a in np.linspace(0, 6.283, 28)]; sc.line(pts, INK, .05); sc.line(pts, "3a3f4a", .03)
-        for k in range(6): a = a0 * .6 + k * 1.047; sc.line([c_ + V(0, 0, R), c_ + V(0, 0, R) + f * math.cos(a) * R + V(0, 0, math.sin(a) * R)], "aab2bc", .008)
+        for k in range(6): a = aw + k * 1.047; sc.line([c_ + V(0, 0, R), c_ + V(0, 0, R) + f * math.cos(a) * R + V(0, 0, math.sin(a) * R)], "aab2bc", .008)
     cr = p + V(0, 0, R); seat = p - f * .15 + V(0, 0, .78); bar = p + f * .42 + V(0, 0, .92)
     for a, b in ((wb[1] + V(0, 0, R), cr), (cr, seat - V(0, 0, .05)), (seat - V(0, 0, .12), bar - V(0, 0, .1)), (cr, bar - V(0, 0, .16)), (wb[0] + V(0, 0, R), bar), (wb[1] + V(0, 0, R), seat - V(0, 0, .12))): sc.line([a, b], col, .035)
     sc.line([bar - r * .22, bar + r * .22], INK, .035); sc.box(seat, (.24, .1, .04), "2a2a2a", yaw=yaw)
@@ -22,11 +23,10 @@ def night_town(sc, t, lit, seed=0, far=1.0):
         for k in range(16):
             x = -24 + k * 3.1 + rng.uniform(-.6, .6); y = 14 + row * 5.0; h_ = rng.uniform(2.5, 5); HS.append((row, x, y, h_, [rng.uniform(0, 1) for j in range(2)]))
     for row, x, y, h_, rs in sorted(HS, key=lambda e: -sc.cam.depth(V(e[1], e[2], e[3] / 2))):
-            sc.box((x, y, h_ / 2), (2.4, 2.4, h_), mix("3a3f5a", "2a2e45", row / 5), line=.01)
-            on = lit[row] if isinstance(lit, (list, tuple)) else lit
-            for j in range(2):
-                q = V(x - .5 + j * 1.0, y - 1.22, h_ * .6); X, Y = sc.cam.pr(q); s_ = sc.cam.px(q, .22)
-                if on > rs[j]: c.rectangle(X - s_, Y - s_, 2 * s_, 2 * s_); c.set_source_rgb(1, .86, .5); c.fill(); sc.glow(X, Y, s_ * 5, "ffd27a", .25)
+            on = lit[row] if isinstance(lit, (list, tuple)) else lit; hh = 2.2 + .5 * (h_ > 3.8)
+            house(sc, (x, y), 2.4, 2.2, hh, mix("3a3f5a", "2a2e45", row / 5), mix("2a2440", "1e1a30", row / 5), floors=1, door=False, win=mix("1a1f30", "ffd27a", 1.0 if on > rs[0] else 0.0))
+            if on > rs[0]: X, Y = sc.cam.pr((x, y - 1.12, hh * .6)); sc.glow(X, Y, sc.cam.px((x, y, 1), 1.0), "ffd27a", .25)
+            if (int(x * 7) % 5) == 0: tree(sc, (x + 1.5, y - .8, 0), 2.4, .8, t, "1e2a2e")
     for k in range(3):
         on = far
         for j in range(30): X = 200 + k * 650 + (j * 37) % 500; Y = sc.cam.pr((0, 120, 0))[1] - 6 - (j * 13) % 18; c.new_path(); c.arc(X, Y, 3, 0, 7); c.set_source_rgba(1, .85, .5, on * (1 - k * .25)); c.fill()
@@ -58,10 +58,10 @@ def c07(t):
     if n in ("plant", "fuel", "safe", "off"):
         st = 1.0 - ss(t, w("c07_n4", "switch"), w("c07_n4", "switch") + 2.5) if n in ("safe", "off") else 1.0
         cam = {"plant": lambda: K(u, (-6, -14, 3.0), (-3, -13, 3.0), (0, 30, 5), (0, 30, 5.5), 1100), "fuel": lambda: K(u, (20, 8, 3.0), (19, 9, 3.0), (6, 26, 2.5), (6, 26, 2.8), 1150), "safe": lambda: K(u, (-6, -14, 3.0), (-6, -13, 3.0), (0, 30, 5), (0, 30, 5), 1100), "off": lambda: K(u, (2, 8, 2.0), (1, 8, 2.0), (-4, 34, 7), (-4, 34, 7), 1100)}[n]()
-        sc = Scene(cam); hy = sky(sc, "6a8ab0", "d8dce4", sun=None, t=t); hills(sc, hy, ("8fa89a", "7a9788")); ground(sc, hy, "7aa86a", "9ab88a"); fence2(sc, -16, 16, 22); plant(sc, t, st); pylon(sc, 14, 20); pylon(sc, 22, 16)
+        sc = Scene(cam); hy = sky(sc, "6a8ab0", "d8dce4", sun=None, t=t); hills(sc, hy, ("8fa89a", "7a9788")); ground(sc, hy, "7aa86a", "9ab88a"); plant(sc, t, st)
         if n == "fuel":
-            for k in range(8): u_ = (t * .25 + k / 8) % 1; q = V(6 + 2 * u_, 22 + 6 * u_, .8 + 3 * u_); sc.ball(q, .25, "2a2a2a", .01, hl=False)
-            sc.poly([(5.5, 21.6, .6), (6.5, 22.4, .6), (8.5, 28.4, 3.9), (7.5, 27.6, 3.9)], "5a6272", .02)
+            A_, B_ = V(5.6, 23.8, .5), V(8.0, 27.0, 4.0)
+            for k in range(10): u_ = (t * .18 + k / 10) % 1; sc.ball(A_ + (B_ - A_) * u_ + V(0, 0, .33), .16, "2a2a2a", .01, hl=False)
         sc.vignette(.3); return sc
     if n in ("empty", "screens", "maya", "button"):
         cam = {"empty": lambda: K(u, (-1.8, -2.6, 1.7), (-1.2, -2.4, 1.6), (.4, 2.2, 1.3), (.6, 2.2, 1.3), 1200), "screens": lambda: K(u, (0, -2.8, 1.5), (0, -1.6, 1.5), (0, 2.6, 1.6), (0, 2.6, 1.6), 1200), "maya": lambda: K(u, (1.6, -1.2, 1.3), (1.4, -1.0, 1.3), (-.4, .6, 1.05), (-.4, .6, 1.05), 1350), "button": lambda: K(u, (2.0, -.2, 1.6), (1.9, -.1, 1.55), (.8, 1.2, 1.0), (.8, 1.2, 1.0), 1250)}[n]()
@@ -77,12 +77,12 @@ def c07(t):
     if n in ("bikes", "road"):
         cam = {"bikes": lambda: K(u, (-1 + 2.6 * s * .55, -4.2, 1.2), (-1 + 2.6 * s * .55 + 1, -4.0, 1.2), (2.6 * s * .55, 0, .9), (2.6 * s * .55 + 1, 0, .9), 1250), "road": lambda: K(u, (-14, -8, 3.0), (-12, -8, 3.0), (0, 22, 3), (0, 22, 3), 1100)}[n]()
         sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); sc.poly([(-60, -1.4, .002), (60, -1.4, .002), (60, 1.4, .002), (-60, 1.4, .002)], "6a7282", 0)
-        if n == "road": plant(sc, t, 1.0); fence2(sc, -16, 16, 22)
+        if n == "road": plant(sc, t, 1.0)
         bx = 2.6 * s * .55 if n == "bikes" else -10 + 2.6 * s * .55
         for k, (ch, dy, col) in enumerate(((h, -.5, "e8392e"), (m, .5, "3d86e0"))): ch.face = FACE["det" if k == 0 else "smile"]; q = V(bx - .8 * k, dy, 0); sc.at(sc.cam.depth(q), lambda ch=ch, q=q, col=col, k=k: bike(sc, q, 90, t + k, ch, 1.3, col))
         sc.flush(); day(sc, s, 3) if n == "bikes" else None; sc.vignette(.28); return sc
     if n == "gate":
-        sc = Scene(K(u, (0, -6, 1.6), (0, -4.6, 1.6), (0, 22, 3.0), (0, 22, 3.2), 1150)); hy = sky(sc, "6a8ab0", "d8dce4", sun=None, t=t); ground(sc, hy, "7aa86a", "9ab88a"); plant(sc, t, 1.0); fence2(sc, -16, -1.6, 2.0); fence2(sc, 1.6, 16, 2.0)
+        sc = Scene(K(u, (0, -6, 1.6), (0, -4.6, 1.6), (0, 22, 3.0), (0, 22, 3.2), 1150)); hy = sky(sc, "6a8ab0", "d8dce4", sun=None, t=t); ground(sc, hy, "7aa86a", "9ab88a"); plant(sc, t, 1.0, fence=False); fence2(sc, -16, -1.6, 2.0); fence2(sc, 1.6, 16, 2.0)
         sc.poly([(-1.6, 2.0, .1), (-1.6, .2, .1), (-1.6, .2, 2.2), (-1.6, 2.0, 2.2)], None, .02); [sc.line([(-1.6, 2.0 - k * .3, .1), (-1.6, 2.0 - k * .3, 2.2)], "8a929c", .03) for k in range(7)]
         sc.box((2.8, 1.9, 1.6), (1.8, .06, .7), "e8392e"); wtx(sc, (2.8, 1.85, 1.65), "DANGER", .24, "ffffff", None); wtx(sc, (2.8, 1.85, 1.42), "HIGH VOLTAGE", .12, "ffffff", None)
         for k, (ch, x) in enumerate(((h, -.5), (m, .5))): kid(sc, ch, t, (x, -1.4, 0), 180 + (25 if k else -25), "ooh", k)
@@ -94,7 +94,9 @@ def c07(t):
     sc = Scene(K(u, (0, 2.0, 4.5), (.4, 2.6, 4.5), (0, 20, 1.5), (0, 20, 1.7), 1150) if n != "far" else K(u, (0, 2.0, 4.8), (0, 2.0, 5.1), (0, 60, 1.0), (0, 60, 1.3), 1250))
     hy = sky(sc, "1a2048", "5a4a78", sun=None, t=t, clouds=False); ground(sc, hy, "1c2238", "2a3050"); night_town(sc, t, lit if n != "far" else 0.0, far=1 - ss(t, w("c07_n5", "next"), w("c07_n5", "next", 1) + 1.0) if n == "far" else 1.0)
     if n == "dusk":
-        sc.box((0, 5.5, 1.75), (5, 3, 3.5), "1c2238", line=.0)
+        sc.poly([(-6, 3.5, 3.48), (6, 3.5, 3.48), (6, 8, 3.48), (-6, 8, 3.48)], "1e3a2e", 0); sc.poly([(-6, 3.5, 3.48), (6, 3.5, 3.48), (8, 1.5, 0), (-8, 1.5, 0)], "18302a", .01)
+        for k in range(9): sc.line([(-2 + .5 * k, 4.4 + .3 * (k % 3), 3.48), (-2 + .5 * k + .05, 4.4 + .3 * (k % 3), 3.66)], "2a5a3a", .02)
+        tree(sc, (-2.4, 6.5, 3.48), 2.4, .9, t, "1e3a2e")
         for k, (ch, x) in enumerate(((h, -.5), (m, .5))): stand(ch, t, (x, 5.0, 3.5), 180 + (30 if k else -30), k); ch.face = FACE["ooh"]; ch.draw(sc)
     sc.vignette(.45); return sc
 SC["c07"] = c07
@@ -106,21 +108,27 @@ def sink(sc, t, drip=0.0, cough=0.0):
 def c08(t):
     D = CH["c08"]["dur"]; w = wt; n, u, s = shot(t, [(0, "tap"), (lt("c08_n2") - .1, "tower"), (w("c08_n2", "Electric") - .1, "pump"), (w("c08_n2", "holds") - .2, "level"), (lt("c08_n3") - .1, "chain"), (lt("c08_maya1") - .1, "maya")], D); h, m, L = HERO, MAYA, LEO
     if n == "tap":
-        sc = Scene(K(u, (-1.25, 1.3, 1.45), (-1.3, 1.4, 1.4), (-1.6, 2.15, 1.05), (-1.6, 2.15, 1.05), 1400)); sink(sc, t, cough=1.0 if (t * 1.3) % 1 < .3 else 0.0); X, Y = sc.cam.pr((-1.6, 2.1, 1.3))
+        sc = Scene(K(u, (-1.25, 1.1, 1.55), (-1.3, 1.2, 1.5), (-1.6, 2.15, 1.05), (-1.6, 2.15, 1.05), 1250)); sink2(sc, t, cough=1.0 if (t * 1.3) % 1 < .3 else 0.0); X, Y = sc.cam.pr((-1.6, 2.1, 1.3))
         if (t * 1.3) % 1 < .3: tx(sc, X + 220, Y - 120, "*COUGH*", 60, "ffffff", INK, .2, -.1)
-        f_, r_ = side(h); h.yaw = 0; hand = V(-1.45, 2.2, 1.06); X2, Y2 = sc.cam.pr(hand); sc.c.new_path(); sc.c.arc(X2, Y2, sc.cam.px(hand, .045), 0, 7); sc.c.set_source_rgb(*INK); sc.c.fill(); day(sc, s, 4); sc.vignette(.3); return sc
+        day(sc, s, 4); sc.vignette(.3); return sc
     if n in ("tower", "pump", "level"):
         lv = 1 - ss(t, w("c08_n2", "holds"), D) if n == "level" else 1.0
-        cam = {"tower": lambda: K(u, (0, -8, 2.0), (0, -6.5, 2.6), (0, 10, 7), (0, 10, 8), 1100), "pump": lambda: K(u, (12, -6, 3.0), (11, -5.5, 3.0), (2, 7, 4.5), (2, 7, 4.8), 1050), "level": lambda: K(u, (0, -6, 10.5), (0, -5.6, 10.5), (0, 10, 10.6), (0, 10, 10.6), 1200)}[n]()
-        sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); wtower(sc, (0, 10, 0), t)
+        cam = {"tower": lambda: K(u, (0, -8, 2.0), (0, -6.5, 2.6), (0, 10, 7), (0, 10, 8), 1100), "pump": lambda: K(u, (8.5, -3.2, 2.0), (8.0, -2.8, 2.0), (1.2, 7, 4.2), (1.2, 7, 4.6), 1050), "level": lambda: K(u, (0, -6, 10.5), (0, -5.6, 10.5), (0, 10, 10.6), (0, 10, 10.6), 1200)}[n]()
+        sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); d = sc.cam.depth
+        for k, (x_, y_) in enumerate(((-9, 16), (-6, 20), (8, 18), (11, 14), (-12, 8), (14, 24))): sc.at(d(V(x_, y_, 2)), lambda x_=x_, y_=y_, k=k: tree(sc, (x_, y_, 0), 3.2 + .5 * (k % 3), 1.3, t + k))
+        sc.at(d(V(-4, 4, 0)), lambda: fence(sc, -9, -2, 4.2)); sc.at(d(V(5, 2, 0)), lambda: (S25.bush(sc, (5.5, 2.0, 0), .6), S25.bush(sc, (-3.5, 3.0, 0), .5)))
+        wtower2(sc, (0, 10, 0), t)
         if n == "pump":
-            sc.box((2.5, 4, 1.0), (2.2, 1.8, 2.0), "c8ccd4"); wtx(sc, (2.5, 3.08, 1.6), "PUMP", .35, "20242c", None); sc.line([(2.5, 5, 1.6), (1.0, 9, 1.0), (0, 10, 2.0), (0, 10, 9.0)], "6a8aa8", .18)
-            for k in range(5): u_ = (t * .6 + k / 5) % 1; q = V(2.5 - 1.5 * u_, 5 + 4 * u_, 1.6 - .6 * u_); sc.ball(q, .12, "7fc6e8", .01)
-            sc.line([(3.4, 4, 1.6), (6, 3, 4), (9, 3, 6)], "2a2a2a", .03); X, Y = sc.cam.pr((4.6, 3.4, 3.0)); c = sc.c; c.move_to(X + 10, Y - 60); c.line_to(X - 30, Y + 5); c.line_to(X + 2, Y + 5); c.line_to(X - 12, Y + 60); c.line_to(X + 34, Y - 10); c.line_to(X + 2, Y - 10); c.close_path(); c.set_source_rgb(*C("ffd21e")); c.fill_preserve(); c.set_source_rgb(*INK); c.set_line_width(5); c.stroke()
+            sc.at(d(V(2.5, 4, 1)), lambda: pumphouse(sc, (2.5, 4.0, 0), t))
+            pipe = [V(2.5, 5.05, .35), V(2.5, 7.6, .35), V(.25, 9.6, .35), V(.25, 9.6, 9.0)]
+            def pp():
+                sc.line(pipe, INK, .3); sc.line(pipe, "6a8aa8", .22)
+                for k in range(6): u_ = (t * .5 + k / 6) % 1; L_ = u_ * 3; q = pipe[0] + (pipe[1] - pipe[0]) * min(1, L_) if L_ < 1 else pipe[1] + (pipe[2] - pipe[1]) * min(1, L_ - 1) if L_ < 2 else pipe[2] + (pipe[3] - pipe[2]) * (L_ - 2); sc.ball(q, .09, "7fc6e8", .008)
+            sc.at(d(V(1.5, 7.5, .5)), pp)
         if n == "level":
             c = sc.c; P = [sc.cam.pr(V(x, 7.75, z)) for x, z in ((-2.2, 9.0), (2.2, 9.0), (2.2, 9.0 + 2.8 * lv), (-2.2, 9.0 + 2.8 * lv))]; sc.path(P); c.set_source_rgba(.3, .6, .9, .85); c.fill(); sc.poly([(-2.2, 7.74, 9.0), (2.2, 7.74, 9.0), (2.2, 7.74, 11.8), (-2.2, 7.74, 11.8)], None, .03)
             X, Y = sc.cam.pr((2.6, 7.7, 11.4)); label(sc, X + 180, Y, "≈ 1 DAY", 60, "ffffff", "3d6ab0"); X, Y = sc.cam.pr((0, 7.7, 9.0 + 2.8 * lv)); sc.c.move_to(X - 260, Y); sc.c.line_to(X + 260, Y); sc.c.set_source_rgb(1, 1, 1); sc.c.set_line_width(5); sc.c.stroke()
-        sc.vignette(.28); return sc
+        sc.flush(); sc.vignette(.28); return sc
     if n == "chain":
         sc = Scene(Cam((0, -3, 1), (0, 0, 1))); vgrad(sc, "1f3a5a", "2a5a8a"); c = sc.c; items = [("⚡", "POWER"), ("⚙", "PUMPS"), ("💧", "WATER")]
         for k, (ic, lab) in enumerate(items):
@@ -129,7 +137,7 @@ def c08(t):
             off = ss(t, w("c08_n3", "No") + k * .6, w("c08_n3", "No") + k * .6 + .3) if k == 0 else ss(t, w("c08_n3", "pumps") + (k - 1) * 1.3, w("c08_n3", "pumps") + (k - 1) * 1.3 + .3)
             if off > 0: c.save(); c.translate(x, y); c.scale(off, off); c.move_to(-110, -110); c.line_to(110, 110); c.move_to(110, -110); c.line_to(-110, 110); c.set_source_rgb(*C("e8392e")); c.set_line_width(28); c.stroke(); c.restore()
         sc.vignette(.3); return sc
-    sc = Scene(K(u, (.3, -2.6, 1.35), (.2, -2.3, 1.3), (0, .8, 1.0), (0, .8, 1.02), 1350)); room(sc, ("dfe8f2", "eef4fa"), ("c8ccd4", "b8bec8"), "c8d4e0", tiles=True); sc.box((0, 2.55, 1.0), (1.0, .08, 2.0), "8a5a34"); wtx(sc, (0, 2.5, 1.7), "WC", .25, "ffffff", INK)
+    sc = Scene(K(u, (.3, -2.6, 1.35), (.2, -2.3, 1.3), (0, .8, 1.0), (0, .8, 1.02), 1350)); room(sc, ("dfe8f2", "eef4fa"), ("c8ccd4", "b8bec8"), "c8d4e0", tiles=True); sc.box((0, 2.55, 1.0), (1.0, .08, 2.0), "8a5a34"); wtx(sc, (0, 2.5, 1.7), "WC", .25, "ffffff", INK); wc_props(sc)
     kid(sc, m, t, (0, 1.6, 0), 0, [(0, "angry")], 2, talkl="c08_maya1"); f_, r_ = side(m); m.hands[1] = m.hip + r_ * .35 + V(0, -.15, .55); m.hands[0] = m.hip + r_ * -.35 + V(0, .1, .3)
     for k, ch in enumerate((L, CROWD[0], CROWD[3])): kid(sc, ch, t, (-1.4 + k * .9 + (k > 0) * 1.0, .2 - .3 * k, 0), (130, 220, 230)[k], "wince", k + 3); ch.hands = [ch.hip + V(q * .1, -.1, -.05) for q in (-1, 1)]
     sc.flush(); sc.vignette(.3); return sc
@@ -166,9 +174,9 @@ def c09(t):
         else: phone2d(sc, W / 2, H * .54, 1.0, t, battery_screen(t, 1, True), 0)
         sc.vignette(.3); return sc
     if n == "leo":
-        sc = Scene(K(u, (.2, -1.8, 1.0), (.15, -1.6, .98), (0, .4, .8), (0, .4, .82), 1350)); kroom(sc, t); kid(sc, L, t, (0, .4, 0), 0, "laugh", 3, talkl="c09_leo1"); hd = L.joints()[4]
+        sc = Scene(K(u, (.2, -1.8, 1.0), (.15, -1.6, .98), (0, .4, .8), (0, .4, .82), 1350)); kroom(sc, t); kid(sc, L, t, (0, .4, 0), 0, "laugh", 3, talkl="c09_leo1"); hd = L.joints()[4]; reach(L, 1, L.hip + V(.25, -.1, .7))
         sc.flush(); sc.cyl(hd + V(0, 0, L.R * .85), .09, .12, "ffffff", r2=.1); sc.cyl(hd + V(0, 0, L.R * .85 + .12), .1, .02, "ff8fa3"); [sc.line([hd + V(sg * .11, -.08, L.R * .9), hd + V(sg * .19, -.06, L.R * .2)], "ffffff", .022) for sg in (-1, 1)]
-        reach(L, 1, L.hip + V(.25, -.1, .7)); sc.vignette(.3); return sc
+        sc.vignette(.3); return sc
     if n == "selfie":
         sc = Scene(Cam((0, -3, 1), (0, 0, 1))); vgrad(sc, "e8d8c0", "c8a888"); fl = max(0, 1 - (t - lt("c09_n5")) * 3) if t - lt("c09_n5") < .35 else 0; phone2d(sc, W / 2, H * .52, .95, t, selfie_screen(t, fl), .04 * wob(t, .4))
         tx(sc, W * .8, H * .22, "THE LAST", 54, "ffffff", INK, .2, .08); tx(sc, W * .8, H * .3, "PICTURE ON", 54, "ffffff", INK, .2, .08); tx(sc, W * .8, H * .38, "THE INTERNET", 54, "ffd21e", INK, .2, .08); sc.vignette(.25); return sc
@@ -176,22 +184,43 @@ def c09(t):
         sc = Scene(K(u, (0, -4, 1.5), (0, -2.4, 1.45), (0, 6, 1.0), (0, 6, 1.0), 1250)); room(sc, ("f4f4f0", "ffffff"), ("d8dce4", "c8ccd4"), "eef0f4", x0=-3.5, x1=3.5, y1=9, z1=3.5, tiles=True)
         for y in (5.0, 2.5, 0): shelf(sc, -2.1, y, 2.6, t, int(y)); shelf(sc, 2.1, y, 2.6, t, int(y) + 3)
         X, Y = sc.cam.pr((0, 8.9, 3.0)); label(sc, X, Y, "CANNED FOOD — LASTS YEARS", 46, "ffffff", "e8392e"); sc.vignette(.25); return sc
-    sc = Scene(K(u, (-4, -16, 2.0), (-2, -15, 2.0), (0, 0, 2.0), (0, 0, 2.2), 1150)); hy = sky(sc, t=t); ground(sc, hy, "a8acb4", "c8ccd4"); market(sc, (0, 2), t)
+    sc = Scene(K(u, (-4, -16, 2.0), (-2, -15, 2.0), (0, 0, 2.0), (0, 0, 2.2), 1150)); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "8fb880", "a8c898"); lot(sc, t); market(sc, (0, 2), t); lot(sc, t, part="near")
     for k, ch in enumerate([h, m, L] + CROWD[:5]): walk(ch, t, [(lt("c09_n3") + 2, -5 + k * .9, -12 + (k % 3)), (D + 4, -2 + k * .5, -2 + (k % 3) * .4)], k, run=True); ch.face = FACE["det"]; sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (sc.shadow((ch.hip[0], ch.hip[1], .004), .2, .09), ch.draw(sc)))
     sc.flush(); sc.vignette(.28); return sc
 SC["c09"] = c09
 # ------------------------------------------------------------------ the locked supermarket
 def chain_(sc, t, chain=1.0):
-    """Marcus locked the doors from INSIDE: chain + padlock on the inner handles (y≈1.52)"""
+    """Marcus locked the doors from INSIDE: a chain wrapped twice round the two inner handles (y≈1.52) + a padlock hanging under it.
+    links alternate face-on rings and edge-on bars; on unlock (chain → 0) it slides down and drops"""
     if chain <= 0: return
-    drop = 1 - chain; pts = [V(-.35 + .07 * k, 1.52, 1.15 - .35 * math.sin(k / 10 * math.pi) * .3 - 1.1 * drop * (k % 3 == 0)) for k in range(11)]
-    for x in (-.15, .15): sc.line([(x, 1.5, .9), (x, 1.5, 1.4)], "aab2bc", .04)
-    for a in pts: sc.ball(a, .03, "aab2bc", .006)
-    sc.box(V(0, 1.55, 1.0 - 1.0 * drop), (.14, .06, .16), "c9a030")
+    drop = 1 - chain; c = sc.c; y = 1.53
+    for x in (-.15, .15): sc.line([(x, y - .01, .85), (x, y - .01, 1.45)], INK, .05); sc.line([(x, y - .01, .85), (x, y - .01, 1.45)], "c4ccd6", .034); [sc.line([(x, y - .01, z), (x, y - .05, z)], "8a929c", .03) for z in (.88, 1.42)]
+    for lap, z0 in enumerate((1.08, 1.2)):
+        pts = [V(.21 * math.cos(a), y + .035 * math.sin(a), z0 - .9 * drop * (1 + lap * .3) + .03 * math.sin(2 * a)) for a in np.linspace(0, 6.283, 22)]
+        for k, q in enumerate(pts):
+            X, Y = sc.cam.pr(q); r = sc.cam.px(q, .026)
+            if k % 2: c.new_path(); c.save(); c.translate(X, Y); c.scale(r, r * .7); c.arc(0, 0, 1, 0, 7); c.restore(); c.set_source_rgb(*INK); c.set_line_width(max(2, r * .55)); c.stroke_preserve(); c.set_source_rgb(*C("c4ccd6")); c.set_line_width(max(1, r * .3)); c.stroke()
+            else: c.move_to(X - r, Y); c.line_to(X + r, Y); c.set_source_rgb(*INK); c.set_line_width(max(2, r * .55)); c.stroke_preserve(); c.set_source_rgb(*C("aab2bc")); c.set_line_width(max(1, r * .3)); c.stroke()
+    lk = V(0, y - .04, .96 - 1.0 * drop); X, Y = sc.cam.pr(lk + V(0, 0, .08)); r = sc.cam.px(lk, .045); c.new_path(); c.arc(X, Y, r, math.pi, 0); c.set_source_rgb(*INK); c.set_line_width(max(2, r * .45)); c.stroke_preserve(); c.set_source_rgb(*C("c4ccd6")); c.set_line_width(max(1, r * .25)); c.stroke()
+    sc.box(lk, (.12, .05, .12), "d9a830", line=.008); sc.ball(lk + V(0, -.03, -.01), .012, INK, 0, hl=False)
 def glass_(sc, a=.28):
     """a pale pane over whatever is behind the glass, so it reads as 'behind the doors'"""
     sc.poly([(-1.2, 1.47, 0), (1.2, 1.47, 0), (1.2, 1.47, 2.9), (-1.2, 1.47, 2.9)], "e4eef6", 0, a=a)
     c = sc.c; P = [sc.cam.pr(V(*q)) for q in ((-.9, 1.47, 2.6), (-.3, 1.47, 2.6), (-1.0, 1.47, .5), (-1.15, 1.47, .5))]; sc.path(P); c.set_source_rgba(1, 1, 1, a * .6); c.fill()
+def inner_wall(sc, t):
+    """the store seen from INSIDE: front wall with the door + window holes (outside shows through), floor tiles, ceiling, a shelf"""
+    c = sc.c; P = lambda x, z: sc.cam.pr(V(x, 1.5, z)); c.new_path()
+    for q in [(-9, 0), (9, 0), (9, 4.6), (-9, 4.6)]: c.line_to(*P(*q))
+    c.close_path()
+    for x0, x1, z0, z1 in [(-1.2, 1.2, 0, 2.9)] + [(k * 1.9 - .85, k * 1.9 + .85, .3, 3.1) for k in (-3, -2, -1, 1, 2, 3)]: c.move_to(*P(x0, z0)); c.line_to(*P(x1, z0)); c.line_to(*P(x1, z1)); c.line_to(*P(x0, z1)); c.close_path()
+    c.set_fill_rule(cairo.FILL_RULE_EVEN_ODD); c.set_source_rgb(*C("e6e1d6")); c.fill_preserve(); c.set_source_rgb(*INK); c.set_line_width(3); c.stroke(); c.set_fill_rule(cairo.FILL_RULE_WINDING)
+    sc.poly([(-9, 1.5, 4.6), (9, 1.5, 4.6), (9, 9, 4.6), (-9, 9, 4.6)], "f4f2ec", .01)
+    for k in range(-1, 2): sc.box((k * 4, 4.5, 4.45), (1.6, .3, .06), "fffbe8", line=.006)
+    sc.poly([(-9, 1.5, .002), (9, 1.5, .002), (9, 9, .002), (-9, 9, .002)], "dfe2e8", .006)
+    for i in range(-9, 9):
+        for j in range(8):
+            if (i + j) % 2: sc.poly([(i * .9, 1.5 + j * .9, .004), (i * .9 + .9, 1.5 + j * .9, .004), (i * .9 + .9, 2.4 + j * .9, .004), (i * .9, 2.4 + j * .9, .004)], "c8ccd6", 0)
+    shelf(sc, -2.9, 2.6, 2.4, t, 2, yaw=0.0)
 def doors(sc, t, chain=1.0):
     """glass doors of the market at y=1.47, x -1.2..1.2: frame + outer handles (the chain is inside, see chain_)"""
     sc.poly([(-1.2, 1.47, 0), (1.2, 1.47, 0), (1.2, 1.47, 2.9), (-1.2, 1.47, 2.9)], None, .03); sc.line([(0, 1.46, 0), (0, 1.46, 2.9)], INK, .03)
@@ -207,14 +236,15 @@ def c10(t):
         c.restore(); hand2d(c, W / 2 + 470, H * .75, 1.4); sc.vignette(.3); return sc
     cam = {"locked": lambda: K(u, (0, -5, 1.6), (0, -4, 1.6), (0, 2, 1.4), (0, 2, 1.4), 1200), "marcus": lambda: K(u, (.3, -.7, 1.55), (.25, -.5, 1.55), (0, 2.2, 1.35), (0, 2.2, 1.37), 1300), "walk": lambda: K(u, (3.5, -3.5, 1.4), (3.0, -3.0, 1.4), (0, 0, 1.0), (0, .4, 1.0), 1200),
            "maya": lambda: K(u, (1.15, 3.6, 1.6), (1.1, 3.5, 1.58), (-.1, .6, 1.0), (-.1, .6, 1.0), 1300), "maya2": lambda: K(u, (1.1, 3.5, 1.58), (1.0, 3.3, 1.55), (-.1, .6, 1.0), (-.1, .6, 1.0), 1400), "think": lambda: K(u, (1.3, -.3, 1.55), (1.2, -.2, 1.55), (0, 2.2, 1.4), (0, 2.2, 1.42), 1350), "unlock": lambda: K(u, (0, -3.2, 1.5), (0, -2.8, 1.5), (0, 1.5, 1.2), (0, 1.5, 1.2), 1250)}[n]()
-    sc = Scene(cam); hy = sky(sc, t=t); ground(sc, hy, "a8acb4", "c8ccd4"); d = sc.cam.depth; c = sc.c
+    sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "8fb880", "a8c898"); d = sc.cam.depth; c = sc.c
+    if n not in ("maya", "maya2"): lot(sc, t)
     inside = []
     stand(M, t, (.45 if n in ("marcus", "think", "locked") else 0, 2.2, 0), 0, 7); M.face = FACE["smug"] if n not in ("think",) else face_at(t, [(0, "neutral"), (lt("c10_n3") + 1.6, "sad")]); M.talk = talk("c10_marcus1", t); inside.append(M)
     if n in ("marcus", "think"): f_, r_ = side(M); M.hands[0] = M.hip + V(-.25, -.15, .3); M.hands[1] = M.hip + V(.25, -.15, .3)
     if n == "unlock": reach(M, 1, V(0, 1.55, 1.05 - ss(t, w("c10_n3", "unlocks"), w("c10_n3", "unlocks") + .6) * .3))
-    for k, tm in enumerate(TEAM): stand(tm, t, ((-.75, -.2, 1.0)[k] if n not in ("marcus", "think") else (-1.0, -.5, 1.25)[k], (3.0 + .2 * (k % 2)) if n not in ("marcus", "think") else 3.7, 0), 0, k + 10); tm.face = FACE["smug"]; inside.append(tm); tm.hands[k % 2] = tm.hip + V(.1 * (k - 1), -.2, .35)
+    for k, tm in enumerate(TEAM): stand(tm, t, ((-.75, -.2, 1.0)[k], 3.0 + .2 * (k % 2), 0) if n not in ("marcus", "think") else (((-1.55, 3.4, 0), (-.85, 3.2, 0), (1.4, 3.8, 0)) if n == "marcus" else ((-3.4, 4.2, 0), (-2.8, 4.6, 0), (2.9, 4.4, 0)))[k], 0, k + 10); tm.face = FACE["smug"]; inside.append(tm); tm.hands[k % 2] = tm.hip + V(.1 * (k - 1), -.2, .35)
     if n in ("maya", "maya2"):                             # inside, over Marcus's shoulder: Maya outside the glass
-        doors(sc, t, 1.0); [sc.line([(x, 1.47, 0), (x, 1.47, 2.9)], "e8e8e8", .06) for x in (-1.25, 1.25)]; sc.line([(-1.25, 1.47, 2.9), (1.25, 1.47, 2.9)], "e8e8e8", .06)
+        lot(sc, t); sc.flush(); lot(sc, t, part="near"); sc.flush(); inner_wall(sc, t); doors(sc, t, 1.0); [sc.line([(x, 1.47, 0), (x, 1.47, 2.9)], "e8e8e8", .06) for x in (-1.25, 1.25)]; sc.line([(-1.25, 1.47, 2.9), (1.25, 1.47, 2.9)], "e8e8e8", .06)
         sc.at(d(V(0, 1.47, 1.2)), lambda: glass_(sc, .2)); sc.at(d(V(0, 1.52, 1.1)), lambda: chain_(sc, t, 1.0))
         stand(m, t, (0, .6, 0), 180, 2); m.face = FACE["det"] if n == "maya" else FACE["angry"]; m.talk = talk("c10_maya1", t); m.hands[1] = m.hip + V(.22, .15, .35); sc.at(d(m.hip), lambda: (m.draw(sc), sc.box(m.hands[1] + V(0, .05, .04), (.2, .03, .26), "e05a5a")))
         for k, ch in enumerate((h, L)): kid(sc, ch, t, (-1.0 + 2.0 * k, -.2, 0), 180 + (-40 if k == 0 else 40), "neutral", k)
@@ -223,8 +253,9 @@ def c10(t):
         sc.flush(); sc.vignette(.3); return sc
     market(sc, (0, 2), t, lit=False); sc.flush()
     c.save(); sc.path(sc.cam.poly([V(-1.2, 1.46, 0), V(1.2, 1.46, 0), V(1.2, 1.46, 2.9), V(-1.2, 1.46, 2.9)])); c.clip(); vgrad(sc, "d8e4ec", "b8c8d4")
-    for ch in inside: ch.draw(sc)
+    for ch in sorted(inside, key=lambda ch: -d(ch.hip)): ch.draw(sc)
     chain_(sc, t, 1.0 - ss(t, w("c10_n3", "unlocks") + .3, w("c10_n3", "unlocks") + .9) if n == "unlock" else 1.0); glass_(sc); c.restore(); doors(sc, t)
+    lot(sc, t, part="near")
     if n in ("walk", "think", "unlock", "locked", "marcus"):
         mp = V(0, .6, 0) if n != "walk" else V(2.5 - 2.5 * ss(s, 0, 2.5), -.8 + 1.4 * ss(s, 0, 2.5), 0)
         if n == "walk": walk(m, t, [(lt("c10_n2"), 2.6, -.9), (lt("c10_n2") + 2.6, .2, .6)], 2)
@@ -247,7 +278,7 @@ def crib(sc, p, t):
 def c11(t):
     D = CH["c11"]["dur"]; w = wt; n, u, s = shot(t, [(0, "cry"), (w("c11_n1", "milk") - .1, "milk"), (w("c11_n1", "diapers") - .4, "diaper"), (w("c11_n1", "somebody") - .1, "night"), (lt("c11_n2") - .1, "marcus"), (lt("c11_marcus1") - .1, "teach"), (lt("c11_n4") - .1, "hall"), (w("c11_n4", "Feeding") - .1, "sched"), (w("c11_n4", "Nobody") - .1, "tired"), (lt("c11_n3") - .1, "bus"), (w("c11_n3", "big") - .1, "store"), (w("c11_n3", "way") - .2, "stroller")], D); h, m, L, M = HERO, MAYA, LEO, MARCUS
     if n in ("cry", "night"):
-        sc = Scene(K(u, (.6, -1.4, 1.5), (.5, -1.2, 1.45), (0, .5, .7), (0, .5, .72), 1350)); room(sc, ("ffe0e8", "fff0f4"), ("d8b090", "c8a080"), "f8d8e0") if n == "cry" else S25.bedroom(sc, t, True); crib(sc, (0, .5, 0), t); baby(sc, (0, .5, .62), 0, t, cry=1.0, s=1.2)
+        sc = Scene(K(u, (.6, -1.4, 1.5), (.5, -1.2, 1.45), (0, .5, .7), (0, .5, .72), 1350)); nursery(sc, t) if n == "cry" else bedroom2(sc, t, True); fa, ne = crib2(sc, (0, .5, 0), t); fa(); baby(sc, (.05, .5, .68), 0, t, cry=1.0, s=1.25, ax=(-1, 0, 0)); ne()
         X, Y = sc.cam.pr((0, .5, 1.0)); tx(sc, X + 200 * math.cos(t * 3), Y - 150, "WAAAH!", 70 + 8 * wob(t, 6), "ffffff", INK, .2, .1 * wob(t, 3))
         if n == "night": kid(sc, h, t, (-.9, .3, 0), 60, "sleepy", 1); h.hands[1] = V(-.55, .45, .9); sc.flush()
         sc.vignette(.35); return sc
@@ -263,17 +294,19 @@ def c11(t):
                 if t > w("c11_n4", "Feeding") + k * .8: tx(sc, W / 2 - 200, 360 + k * 140, tm, 64, "20242c", None, align=.5); tx(sc, W / 2 + 160, 360 + k * 140, who, 64, "3d6ab0", None)
         sc.vignette(.3); return sc
     if n in ("marcus", "teach"):
-        sc = Scene(K(u, (.4, -1.2, 1.5), (.35, -1.0, 1.48), (0, .8, 1.2), (0, .8, 1.22), 1350) if n == "marcus" else K(u, (2.4, -3.2, 1.8), (2.0, -2.8, 1.7), (0, .8, 1.0), (0, .8, 1.0), 1250)); room(sc, ("ffe0e8", "fff0f4"), ("d8b090", "c8a080"), "f8d8e0")
-        stand(M, t, (0, .8, 0), 0 if n == "marcus" else -20, 7); M.face = FACE["smile"]; M.talk = talk("c11_marcus1", t); bp = M.hip + V(.05, -.28, .30); M.hands = [bp + V(-.2, 0, -.05), bp + V(.2, 0, .02)]; M.hpitch = -18 if n == "marcus" else 0
-        sc.at(sc.cam.depth(M.hip), lambda: (M.draw(sc), baby(sc, bp, 90, t, "smile", 0, 1.1)))
+        sc = Scene(K(u, (.4, -1.2, 1.5), (.35, -1.0, 1.48), (0, .8, 1.2), (0, .8, 1.22), 1350) if n == "marcus" else K(u, (2.4, -3.2, 1.8), (2.0, -2.8, 1.7), (0, .8, 1.0), (0, .8, 1.0), 1250)); nursery(sc, t)
+        def hold(ch, s_=1.0):                                    # cradled across the chest: head end in the right arm, both hands under the bundle
+            f_, r_ = side(ch); bp = ch.hip + f_ * .22 * ch.k + V(0, 0, .29 * ch.k); ch.hands = [bp - r_ * .16 * s_ - V(0, 0, .07), bp + r_ * .1 * s_ - V(0, 0, .08)]; ch.elbow = [V(0, 0, -1), V(0, 0, -1)]; return bp, r_
+        stand(M, t, (0, .8, 0), 0 if n == "marcus" else -20, 7); M.face = FACE["smile"]; M.talk = talk("c11_marcus1", t); bp, ax = hold(M, 1.1); M.hpitch = -18 if n == "marcus" else 0
+        sc.at(sc.cam.depth(M.hip), lambda: (M.draw(sc), baby(sc, bp, 0, t, "smile", 0, 1.1, ax=ax)))
         if n == "teach":
             for k, ch in enumerate((h, m, CROWD[2], CROWD[5])):
-                x = -1.8 + k * 1.2; stand(ch, t, (x, -.6 - .3 * (k % 2), 0), 180 + 15 * (k - 1.5), k); ch.face = FACE["ooh"]; bq = ch.hip + V(0, -.25, .28); ch.hands = [bq + V(-.2, 0, -.05), bq + V(.2, 0, .02)]
-                sc.at(sc.cam.depth(ch.hip), lambda ch=ch, bq=bq, k=k: (ch.draw(sc), baby(sc, bq, 90 if k % 2 else -90, t, "smile", 1.0 if k == 1 and t < w("c11_marcus1", "Thank") else 0, .9)))
+                x = -1.8 + k * 1.2; stand(ch, t, (x, -.6 - .3 * (k % 2), 0), 180 + 15 * (k - 1.5), k); ch.face = FACE["ooh"]; bq, ax = hold(ch, .9)
+                sc.at(sc.cam.depth(ch.hip), lambda ch=ch, bq=bq, k=k, ax=ax: (ch.draw(sc), baby(sc, bq, 0, t, "smile", 1.0 if k == 1 and t < w("c11_marcus1", "Thank") else 0, .9, ax=ax)))
         sc.flush(); sc.vignette(.3); return sc
     if n in ("hall", "tired"):
-        sc = Scene(K(u, (0, -3.2, 1.6), (0, -2.7, 1.5), (0, 1.5, 1.2), (0, 1.5, 1.2), 1250)); room(sc, ("efe4cf", "fbf6ea"), ("b98a5a", "a87a4c"), "e8dcc0", x0=-4, x1=4, y1=3.0, z1=3.4)
-        for k in range(5): crib(sc, (-3 + k * 1.5, 2.2, 0), t); baby(sc, (-3 + k * 1.5, 2.2, .62), 0, t + k, cry=1.0 if (k + int(t)) % 4 == 0 else 0)
+        sc = Scene(K(u, (0, -3.2, 1.6), (0, -2.7, 1.5), (0, 1.5, 1.2), (0, 1.5, 1.2), 1250)); nursery(sc, t, ("efe4cf", "fbf6ea"), x0=-4, x1=4, y1=3.0)
+        for k in range(5): fa, ne = crib2(sc, (-3 + k * 1.5, 2.2, 0), t + k, mobile=False); fa(); baby(sc, (-3 + k * 1.5 + .05, 2.2, .68), 0, t + k, "sleep" if (k + int(t)) % 4 else "smile", cry=1.0 if (k + int(t)) % 4 == 0 else 0, ax=(-1, 0, 0)); ne()
         if n == "hall": walk(h, t, [(lt("c11_n4"), -3.8, .8), (lt("c11_n4") + 5, 2.5, .8)], 1); h.face = FACE["sleepy"]; h.hands[1] = h.hip + V(.2, -.1, .3); h.draw(sc); sc.cyl(h.hands[1] + V(0, 0, .02), .03, .12, "ffffff")
         if n == "tired":
             for k, ch in enumerate((h, m, M)): sit(ch, t, (-1.4 + k * 1.4, .4, .42), 0, k); ch.face = FACE["sleepy"]; ch.hpitch = -25; ch.hroll = 12 * wob(t, .2, k); sc.box((-1.4 + k * 1.4, .45, .21), (.42, .42, .42), "c9925a"); ch.draw(sc)
@@ -281,10 +314,10 @@ def c11(t):
     if n in ("bus", "store", "stroller"):
         cam = {"bus": lambda: K(u, (-6, -10, 1.8), (-4, -10, 1.8), (0, 0, 1.2), (2, 0, 1.2), 1200), "store": lambda: K(u, (0, -16, 2.4), (0, -14, 2.4), (0, 4, 3), (0, 4, 3.2), 1150), "stroller": lambda: K(u, (-1, -4, 1.0), (-1, -3.6, 1.0), (0, 60, 1.0), (0, 60, 1.0), 1250)}[n]()
         sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884")
-        if n == "bus": S25.street(sc, t, cars=False); sc.flush(); vehicle(sc, (-3 + 1.4 * s, -2.2, 0), 90, "ffc21e", kind="bus"); day(sc, s, 6)
-        if n == "store": sc.poly([(-60, -3, .002), (60, -3, .002), (60, -9, .002), (-60, -9, .002)], "6a7282", 0); market(sc, (0, 4), t, name="MEGA STORE"); X, Y = sc.cam.pr((7.5, 0, 2.5)); label(sc, X, Y, "BABY FORMULA", 50, "ffffff", "3d86e0")
+        if n == "bus": S25.street(sc, t, cars=False); sc.flush(); vehicle(sc, (-3 + 1.4 * s, -2.2, 0), 90, "ffc21e", kind="bus", roll=1.4 * s); day(sc, s, 6)
+        if n == "store": lot(sc, t, 0, 4); sc.poly([(-60, -3, .002), (60, -3, .002), (60, -9, .002), (-60, -9, .002)], "6a7282", 0); [sc.poly([(x_, -6.07, .004), (x_ + 1.2, -6.07, .004), (x_ + 1.2, -5.93, .004), (x_, -5.93, .004)], "ffe08a", 0) for x_ in range(-40, 40, 3)]; market(sc, (0, 4), t, name="MEGA STORE"); lot(sc, t, 0, 4, "near"); sc.flush(); X, Y = sc.cam.pr((7.5, 0, 2.5)); label(sc, X, Y, "BABY FORMULA", 50, "ffffff", "3d86e0")
         if n == "stroller":
-            sc.poly([(-1.2, -6, .002), (1.2, -6, .002), (.1, 200, .002), (-.1, 200, .002)], "6a7282", 0); kk = CROWD[3]; walk(kk, t, [(lt("c11_n3"), 0, -.2), (D, 0, .3 + .5 * (D - lt("c11_n3")))], 3); kk.face = FACE["sad"]; p = kk.hip * V(1, 1, 0) + V(0, .75, 0)
+            sc.poly([(-1.2, -6, .002), (1.2, -6, .002), (.1, 200, .002), (-.1, 200, .002)], "6a7282", 0); country(sc, t, 1.6, 10, 5); sc.flush(); kk = CROWD[3]; walk(kk, t, [(lt("c11_n3"), 0, -.2), (D, 0, .3 + .5 * (D - lt("c11_n3")))], 3); kk.face = FACE["sad"]; p = kk.hip * V(1, 1, 0) + V(0, .75, 0)
             for a in (-1, 1):
                 for b in (-1, 1): sc.ball(p + V(a * .2, b * .22, .1), .09, "2a2a2a", .01, hl=False)
             sc.box(p + V(0, 0, .45), (.45, .55, .35), "8fd0ff"); sc.line([p + V(-.2, -.3, .62), p + V(-.2, -.6, .95), p + V(.2, -.6, .95), p + V(.2, -.3, .62)], "3a3f4a", .03); kk.hands = [p + V(-.2, -.6, .95), p + V(.2, -.6, .95)]; kk.draw(sc)
@@ -297,17 +330,20 @@ def c12(t):
         sc = Scene(K(u, (0, -.6, 1.4), (0, -.4, 1.4), (0, 1.3, 1.5), (0, 1.3, 1.55), 1250)); bus_int(sc, t, .2, deer_=1.0); hp = V(.15, .84, .9); stand(L, t, (.3, .42, 0), 160, 3); L.face = FACE["laugh"]; press = max(0, wob(t, 4)) * .04; reach(L, 0, hp + V(0, -.05, press)); reach(L, 1, hp + V(.08, -.05, press)); sc.cyl(hp + V(0, 0, -.06), .09, .06, "e8392e"); L.draw(sc)
         X, Y = sc.cam.pr(hp); tx(sc, X + 200, Y - 200, "HONK!", 80, "ffd21e", INK, .18, -.15) if press > .02 else None; sc.vignette(.3); return sc
     if n in ("deer", "road"):
-        sc = Scene(K(u, (-1.2, -3.2, 1.2), (-1.0, -3.0, 1.2), (0, 2, 1.0), (0, 2, 1.0), 1250) if n == "deer" else K(u, (0, -8, 2.0), (0, -6, 2.0), (0, 60, 1.0), (0, 60, 1.0), 1200)); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); sc.poly([(-2, -10, .002), (2, -10, .002), (2, 200, .002), (-2, 200, .002)], "6a7282", 0)
-        grasscracks(sc, t, 1.0, ((-1.8, 1.8), (-2, 40)), 90); deer(sc, V(0, 2, 0), 90 if n == "deer" else 270, t, 1.0, head=0)
+        sc = Scene(K(u, (-1.2, -3.2, 1.2), (-1.0, -3.0, 1.2), (0, 2, 1.0), (0, 2, 1.0), 1250) if n == "deer" else K(u, (0, -8, 2.0), (0, -6, 2.0), (0, 60, 1.0), (0, 60, 1.0), 1200)); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); sc.poly([(-2, -10, .002), (2, -10, .002), (2, 200, .002), (-2, 200, .002)], "6a7282", 0); [sc.poly([(-.06, y_, .004), (.06, y_, .004), (.06, y_ + 1.5, .004), (-.06, y_, .004)], "ffe08a", 0) for y_ in range(-8, 120, 4)]
+        grasscracks(sc, t, 1.0, ((-1.8, 1.8), (-2, 40)), 90); country(sc, t); sc.at(sc.cam.depth(V(0, 2, .8)), lambda: deer(sc, V(0, 2, 0), 90 if n == "deer" else 270, t, 1.0, head=0)); sc.flush()
         sc.vignette(.28); return sc
     if n == "crash":
-        sc = Scene(K(u, (-3, -9, 2.6), (-2.2, -8, 2.4), (2.6, 0, 1.4), (2.6, 0, 1.4), 1300)); S25.street(sc, t, cars=False); sc.flush(); [sc.ball((5.55 + .1 * (k % 2), y_, .75 + .08 * math.sin(k * 1.7)), .5, ("3f8f4a", "4fa055")[k % 2], .012, hl=False) for k, y_ in enumerate(np.arange(-5.5, .5, .45))]; vehicle(sc, (2.0, -2.2, 0), 90, "ffc21e", kind="bus")
-        for k in range(14): u_ = clamp(s * .7 - k * .02); q = V(5.3 + .25 * math.sin(k * 2.3), -2.2 + 1.1 * math.cos(k * 1.7), 1.2 + 2.6 * u_ - 3.2 * u_ * u_); sc.ball(q, .07, "4fa055", .006) if 0 < u_ < 1 else None
+        sc = Scene(K(u, (-3, -9, 2.6), (-2.2, -8, 2.4), (2.6, 0, 1.4), (2.6, 0, 1.4), 1300)); S25.street(sc, t, cars=False); sc.flush(); tree(sc, (8.4, -1.0, 0), 3.4, 1.2, t); hedge2(sc, (6.85, -2.6), (.9, 6.2, 1.5), t, shake=math.exp(-3 * s)); vehicle(sc, (2.0, -2.2, 0), 90, "ffc21e", kind="bus")
+        for k in range(18): u_ = clamp(s * .55 - k * .015); q = V(6.4 + .35 * math.sin(k * 2.3) - .6 * u_, -2.2 + 1.3 * math.cos(k * 1.7), 1.4 + 2.2 * u_ - 3.0 * u_ * u_ + .1 * wob(t, 1.3, k)); leaf(sc, q, t * 3 + k, .07, ("4fa055", "3f8f4a", "6cc06a")[k % 3]) if 0 < u_ < 1 else None
         sc.vignette(.28); return sc
     if n == "box":
-        sc = Scene(K(u, (.6, -1.3, 1.0), (.5, -1.1, .95), (0, .3, .35), (0, .3, .35), 1350)); bus_int(sc, t, 0); sc.box((0, .3, .2), (.9, .6, .4), "c9925a"); [can(sc, (-.3 + .2 * k, .3, .4), "ffffff") for k in range(4)]; wtx(sc, (0, -.01, .2), "BABY FORMULA", .09, "20242c", None)
-        X, Y = sc.cam.pr((0, .3, .8)); tx(sc, X, Y - 40, "OK!", 80, "57c785", INK, .16); sc.vignette(.3); return sc
-    sc = Scene(K(u, (.5, -2.6, 1.4), (.4, -2.3, 1.35), (0, .5, 1.0), (0, .5, 1.0), 1300)); hy = sky(sc, t=t); ground(sc, hy, "c8ccd4", "d8dce4"); townhall(sc, (0, 6.0), t)
+        sc = Scene(K(u, (1.1, -1.4, 1.1), (1.0, -1.2, 1.05), (.45, .15, .35), (.45, .15, .35), 1300)); bus_int(sc, t, 0); bx_ = V(.55, .1, 0); sc.box(bx_ + V(0, 0, .2), (.8, .55, .4), "c9925a"); sc.line([bx_ + V(-.4, -.28, .4), bx_ + V(.4, -.28, .4)], "e8d0a0", .03)
+        for sg in (-1, 1): sc.poly([bx_ + V(sg * .4, -.275, .4), bx_ + V(sg * .4, .275, .4), bx_ + V(sg * .62, .275, .52), bx_ + V(sg * .62, -.275, .52)], "d8a06a", .01)
+        for k in range(4): q_ = bx_ + V(-.27 + .18 * k, .05 * (k % 2), .4); sc.cyl(q_, .075, .17, "ffffff", top=1.1); sc.cyl(q_ + V(0, 0, .05), .076, .07, "8fc8f0", top=1.0); sc.cyl(q_ + V(0, 0, .17), .07, .02, "f2c94a", top=1.2)
+        wtx(sc, bx_ + V(0, -.285, .2), "BABY FORMULA", .085, "20242c", None)
+        X, Y = sc.cam.pr((.55, .1, .9)); tx(sc, X, Y - 40, "OK!", 80, "57c785", INK, .16); sc.vignette(.3); return sc
+    sc = Scene(K(u, (.5, -2.6, 1.4), (.4, -2.3, 1.35), (0, .5, 1.0), (0, .5, 1.0), 1300)); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "c8ccd4", "d8dce4"); plaza(sc, t, 6.0); townhall(sc, (0, 6.0), t)
     for k, (ch, x, f) in enumerate(((h, -.8, "smug"), (m, 0, "smile"), (L, .7, "laugh"))): kid(sc, ch, t, (x, .4, 0), (35, 0, -35)[k] * (1 - ss(t, w("c12_n2", "Nobody") + .9, w("c12_n2", "Nobody") + 1.4)), f, k)
     wave(m, 0, t, .3); sc.flush(); X, Y = W * .5, H * .2; sc.vignette(.28); return sc
 SC["c12"] = c12

@@ -292,3 +292,34 @@ gravity/scenes_*.py = 34 chapters as `SC["cXX"](t) -> Scene`. 7:38 at 1080p30 re
 - Cameras inside a box (bus body, closet, market wall) give a one-colour frame or a giant head; check every new shot on a still. Over-the-shoulder: keep the near head at the frame edge.
 - Split screen: truck each camera so its subject sits at W/4 or 3W/4 (dx = 480·dist/f).
 - Full 1-fps read of the draft found ~20 small issues (static 5-s inserts, label under the caption, missing glyphs ✓ ⚡ ♥, crowd without shadows = floating); fix, re-render only those chapters, sample-check the final.
+
+### Owner's 25-screenshot review of adults_gone (2026-11-26 evening) — rules for every new film
+The owner found 25 errors my own QA had passed. Root causes, and the rule that prevents each:
+- **Never draw a character twice in one frame.** `kid()` queues a draw; changing `ch.hands` after `sc.flush()` and calling
+  `ch.draw()` again gave 3–4 arms. Pose (reach/hands) BEFORE the flush, never redraw. Grep new scenes for `flush(); … .draw(sc)`.
+- **Parts that touch must touch**: a mug handle is a 3-D curve from the wall (`mug`), not a 2-D arc beside it; a car door hangs
+  on its FRONT hinge at the opening, the opening shows the cabin (`car_open`); a speaker/clock stands INSIDE the stand's top;
+  nothing floats (no air freshener without a mirror).
+- **Text on a surface lies in that surface**: `wtx(..., n=normal)` in a_lib maps text into the wall/table plane (foreshortens,
+  hidden from behind); screens/posters/windows use `onplane(O, U, D, w, h, fn)`. Flat screen-space text on a tilted phone = error.
+- **One object = one shape**: a duvet is one box over the body (`quilt`), not a lump box + a quilt box ("two blankets").
+- **Wheels and pedals turn the way they move**: angle grows from +f toward +z, so rolling forward is NEGATIVE; wheels by distance
+  (`roll=dist`, `-v·t/R`). A moving bus must pass `roll`.
+- **Lying people**: no bent necks — sleepers lie along the camera axis in a sleeping bag, only the head on a pillow shows,
+  drawn after the bag (`sleeper`). Babies are long swaddled bundles with a face + fists (`baby(ax=…)`), held across the CHEST
+  (`hold()`), not balls at the waist.
+- **Animals must read as the animal**: deer = deep chest, thick thighs → thin legs with hock bend, neck growing from the
+  shoulders, long muzzle, ears, branching antlers, white tail; goats = shaggy fringe, curved horns, beard. Dogs: every dog a
+  different coat/size/collar (`dog2`, 6 coats).
+- **Depth-sort EVERYTHING that repeats**: field rows (soil far→near, plants via sc.at with the kids), houses in a row (also in
+  sets25.street), cribs (far side → baby → near side), plant parts. A long fence is queued in pieces.
+- **Windows of people inside a bus**: clip to the real window polygons, kids' heads + shoulders inside the frame.
+- **Detail budget per set (no bare boxes)**: every location gets a foreground, a middle and a background layer:
+  store = parking lot (lines, cars, carts, lamps, planters) + side shops + trees behind + shelves/posters painted in the windows;
+  power plant = hyperbolic towers, turbine hall, striped chimney, coal pile + conveyor, transformer yard, lattice pylons + wires,
+  road, trees, gatehouse; town hall = paved square, flower beds, benches, lamps, trees, shops, buildings across;
+  rooms = furniture + pictures + rug + a light; roads = trees, fence posts, a farm, a sign. Night towns = houses with roofs.
+  Ask of every frame: "is there anything in the background?" — an empty grey floor or green field is an error.
+- **QA must include the owner's eye**: after the 1-fps overlap read, read every sheet again asking (1) does each object look like
+  the real thing, (2) does anything float/detach, (3) is anything drawn twice or turning the wrong way, (4) is the background
+  empty. Do this BEFORE saying "fixed".

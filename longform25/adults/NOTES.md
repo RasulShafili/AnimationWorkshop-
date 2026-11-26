@@ -31,3 +31,16 @@ town-hall door over the columns (door on the wall, before columns); control-room
 c16 crowd rows stacked heads (back row offset); dogs floated .15 m; chain now inside the glass + pale glass pane;
 bus driver Maya faced backwards (yaw 0 → 180), wheel drawn by depth, hedge shot reframed.
 Re-rendered c01 c03 c04 c05 c07 c09 c10 c12 c13 c16 c18 c19.
+## Owner screenshots 2026-11-26 night: 25 errors ("xetalar duzelmeyib") → fix pass 2 + detail pass
+Fixed: bus wheels didn't roll (roll=distance); hedge crash = real trimmed hedge + tree + leaves, kids clipped to the bus windows;
+bed = one duvet; clock + speaker stand on the nightstand; kitchen chairs (new `kchair`, back/seat by depth) away from the table,
+table props (plate, toast, juice); mug handle attached in 3-D; phone screen painted in its plane (`onplane`); car door on its front
+hinge with the cabin showing, no floating air freshener; dusk houses + street houses far→near; sleepers in sleeping bags (no bent
+necks); power plant rebuilt (`plant`: towers, hall, chimney, coal conveyor, transformers, pylons, wires, road, trees); bikes'
+wheels/cranks turn forward; detailed sink + water tower + pump house; supermarket + parking lot + side shops + window shelves;
+chain wraps the handles with a padlock; team kids not stacked; store seen from inside has its front wall; babies = swaddled
+bundles held at the chest, crib with mattress + mobile, nursery decor; deer/goat redrawn; 6 dog coats; formula box on the floor;
+double-drawn kids (3–4 arms) fixed; tomato field depth-sorted + farm behind; fire = windows + roof ridge on fire (no cubes);
+walkie held in front with hands over it. Detail pass: town square, school, country road, mega store lot, fire street, window room,
+kid's bedroom, playground, basement, WC, night town with roofs. wtx in a_lib now prints text in the surface plane (n=normal).
+Lessons → cartoon-longform SKILL.md "Owner's 25-screenshot review".

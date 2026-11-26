@@ -3,8 +3,10 @@ import sys; sys.path.insert(0, "/home/rasul/Desktop/Animations/longform25/adults
 from a_lib import *
 from adults_a import kroom
 SC = {}
-def dogs(sc, t, pts, flip=1, s=1.0):
-    for k, p in enumerate(pts): sc.at(sc.cam.depth(p), lambda p=p, k=k: (sc.shadow((p[0], p[1], .004), .25 * s, .08 * s), S25.dog(sc, V(p[0], p[1], .2 * s * (.85 + .1 * (k % 3))), t + k * .7, False, s * (.85 + .1 * (k % 3)), 0.0, flip)))
+def dogs(sc, t, pts, flip=1, s=1.0, v0=0):
+    """each dog its own coat + size + collar (they all looked identical)"""
+    for k, p in enumerate(pts):
+        z = s * (.8 + .12 * ((k * 5 + v0) % 4)); sc.at(sc.cam.depth(p), lambda p=p, k=k, z=z: (sc.shadow((p[0], p[1], .004), .25 * z, .08 * z), dog2(sc, V(p[0], p[1], .2 * z), t + k * .7, k + v0, z, flip * (1 if (k + v0) % 5 else -1), ("e8392e", "3d86e0", "ffd24a", "57c785")[(k + v0) % 4])))
 def board_list(sc, t, title, items, times, sub=None):
     c = sc.c; vgrad(sc, "c8b89a", "a89878"); c.rectangle(160, 90, 1600, 900); c.set_source_rgb(*C("8a5a34")); c.fill(); c.rectangle(190, 120, 1540, 840); c.set_source_rgb(*C("fbfbf6")); c.fill()
     tx(sc, W / 2, 210, title, 80, "e8392e", None)
@@ -34,8 +36,8 @@ def c13(t):
         if n == "leo": kid(sc, L, t, (0, .4, 0), 0, "happy", 3); sc.flush(); hd = L.hip + V(0, -.12, .32); sc.box(hd, (.22, .02, .1), "e8392e"); wtx(sc, hd + V(0, -.02, 0), "DOG TEAM", .035, "ffffff", None); dogs(sc, t, [V(.7, .8, 0), V(-.8, 1.0, 0)], -1)
         if n == "line": walk(L, t, [(lt("c13_n3"), -6, 1), (D, 4, 1)], 3); L.face = FACE["laugh"]; sc.at(sc.cam.depth(L.hip), lambda: L.draw(sc)); dogs(sc, t, [V(L.hip[0] - .9 - .8 * k, 1.0 + .15 * (k % 2), 0) for k in range(6)], 1, .9)
         if n == "captain":
-            kid(sc, L, t, (-.7, .6, 0), 30, "laugh", 3, talkl="c13_leo1"); dp = [V(.3, .5, 0), V(1.1, .9, 0)]; dogs(sc, t, dp, -1, 1.0); sc.flush()
-            tgt = dp[0] if t < w("c13_leo1", "This", 1) else dp[1]; reach(L, 1, L.hip + unit(tgt - L.hip) * .45 + V(0, 0, .3)); L.draw(sc)
+            kid(sc, L, t, (-.7, .6, 0), 30, "laugh", 3, talkl="c13_leo1"); dp = [V(.3, .5, 0), V(1.1, .9, 0)]; dogs(sc, t, dp, -1, 1.0, v0=2)
+            tgt = dp[0] if t < w("c13_leo1", "This", 1) else dp[1]; reach(L, 1, L.hip + unit(tgt - L.hip) * .45 + V(0, 0, .3)); sc.flush()     # pose BEFORE the queued draw: one Leo, two arms
         sc.flush(); sc.vignette(.28); return sc
     sc = Scene(K(u, (-3, -9, 2.0), (-1, -8.5, 2.0), (0, 0, .6), (1, 0, .6), 1200) if n == "street" else K(u, (.8, -2.2, .7), (.7, -2.0, .68), (0, .3, .4), (0, .3, .4), 1400)); S25.street(sc, t, cars=False); sc.flush()
     if n == "street": dogs(sc, t, [V(-3 + 2.2 * k + .3 * s, -3 + 1.2 * (k % 3), 0) for k in range(6)], 1);
@@ -62,6 +64,10 @@ def c14(t):
         sc = Scene(K(u, (-6, -14, 3.0), (-4, -13, 3.0), (0, 30, 5), (0, 30, 5.5), 1100)); hy = sky(sc, "3fa0f0", "e8f4ff", t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); plant(sc, t, 0.0); grasscracks(sc, t, 1.0, ((-20, 20), (-6, 20)), 120); sc.vignette(.25); return sc
     if n == "window":
         sc = Scene(K(u, (0, -1.4, 1.4), (0, -1.0, 1.5), (0, 2.6, 1.6), (0, 2.6, 1.7), 1250)); room(sc, ("b8c8e0", "dfe8f2"), ("b98a5a", "a87a4c"), "a8bcd6", x0=-2.6, x1=2.6, y1=2.6, z1=2.8)
+        for sx in (-1, 1): sc.poly([(sx * 1.25 - .2, 2.55, 2.55), (sx * 1.25 + .2, 2.55, 2.55), (sx * 1.25 + .22, 2.55, .75), (sx * 1.25 - .22, 2.55, .75)], "e8a05a", .012)
+        sc.line([(-1.6, 2.54, 2.58), (1.6, 2.54, 2.58)], "8a5a34", .04); S25.sofa(sc, -1.6, 1.9, 1.8, "4f7fd0"); sc.cyl((1.9, 2.2, 0), .2, .38, "e07a4a", .25); [sc.ball((1.9 + .22 * math.cos(k * 1.05), 2.2, .75 + .25 * math.sin(k * 2.1)), .22, "4fb06a", .012) for k in range(6)]
+        pts = [V(math.cos(a_) * 1.4, 1.2 + math.sin(a_) * .8, .004) for a_ in np.linspace(0, 6.283, 30)]; sc.poly(pts, "e8c898", .01)
+        for k, (x_, z_) in enumerate(((-2.0, 1.9), (2.0, 1.8))): sc.box((x_, 2.58, z_), (.5, .03, .4), "8a5a34"); sc.poly([(x_ - .2, 2.56, z_ - .15), (x_ + .2, 2.56, z_ - .15), (x_ + .2, 2.56, z_ + .15), (x_ - .2, 2.56, z_ + .15)], ("ffd24a", "8fd0ff")[k], .006)
         c = sc.c; win = [V(-1.1, 2.58, .9), V(1.1, 2.58, .9), V(1.1, 2.58, 2.4), V(-1.1, 2.58, 2.4)]; pts = sc.cam.poly(win); c.save(); sc.path(pts); c.clip(); vgrad(sc, "4fb0f5", "dff2ff"); hy = sc.cam.pr(V(0, 40, 1.2))[1]; mountains(sc, ss(t, w("c14_n2", "mountains") - .5, w("c14_n2", "mountains") + 1.2), hy)
         c.set_source_rgba(.8, .75, .65, .7 * (1 - ss(t, w("c14_n2", "air"), w("c14_n2", "mountains")))); c.paint(); c.rectangle(0, hy, W, H); c.set_source_rgb(*C("8fcf86")); c.fill(); c.restore(); sc.poly([tuple(p) for p in win], None, .03); sc.line([V(0, 2.56, .9), V(0, 2.56, 2.4)], "ffffff", .05)
         stand(h, t, (.5, 1.6, 0), 200, 1); h.face = FACE["ooh"]; look(h, (0, 6, 2)); h.draw(sc); sc.vignette(.28); return sc
@@ -70,10 +76,10 @@ def c14(t):
     if n in ("seeds", "field", "tomato"):
         g = {"seeds": 0.0, "field": ss(s, 0, 2.5) * .5, "tomato": 1.0}[n]
         cam = {"seeds": lambda: K(u, (.3, -1.5, 1.2), (.25, -1.3, 1.15), (0, .4, .8), (0, .4, .8), 1350), "field": lambda: K(u, (-6, -4, 3.5), (-3, -4, 3.5), (0, 4, .5), (1, 4, .5), 1150), "tomato": lambda: K(u, (.4, -1.0, 1.1), (.35, -.85, 1.08), (0, .5, .9), (0, .5, .92), 1400)}[n]()
-        sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); tomato_field(sc, t, g if n != "seeds" else .0, 7, 2.0 if n != "tomato" else 2.4)
-        if n == "seeds": kid(sc, m, t, (0, .4, 0), 0, "happy", 2); sc.flush(); [sc.box(m.hip + V(-.15 + .15 * k, -.25, .32 + .02 * k), (.12, .02, .16), ("e8392e", "57c785", "ffd24a")[k], line=.006) for k in range(3)]; m.hands = [m.hip + V(-.18, -.25, .3), m.hip + V(.18, -.25, .3)]; wtx(sc, m.hip + V(0, -.28, .33), "SEEDS", .03, "ffffff", None)
+        sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "7cc65a", "a4d884"); farm_bg(sc, t, 2.0 + 7 * 1.1 + 1.5); tomato_field(sc, t, g if n != "seeds" else .0, 7, 2.0 if n != "tomato" else 2.4)
+        if n == "seeds": kid(sc, m, t, (0, .4, 0), 0, "happy", 2); m.hands = [m.hip + V(-.2, -.25, .28), m.hip + V(.2, -.25, .28)]; sc.flush(); [sc.box(m.hip + V(-.15 + .15 * k, -.27, .32 + .02 * k), (.12, .02, .16), ("e8392e", "57c785", "ffd24a")[k], line=.006) for k in range(3)]; wtx(sc, m.hip + V(0, -.29, .35), "SEEDS", .03, "ffffff", None)
         if n == "field": [kid(sc, ch, t, (-3 + k * 2.2, 1.4 + 1.1 * (k % 3), 0), 160 + 20 * k, "happy", k) for k, ch in enumerate((m, h, L, CROWD[3]))]
-        if n == "tomato": kid(sc, h, t, (0, .5, 0), 0, "laugh", 1); sc.flush(); tp = h.hip + V(.28, -.25, .26 + .04 * abs(wob(t, 2))); h.hands[1] = tp + V(.06, .02, -.06); h.hands[0] = tp + V(-.08, .02, -.06); sc.ball(tp, .09, "e8392e", .012); sc.line([tp + V(0, 0, .08), tp + V(.02, 0, .12)], "3f9a4a", .015); h.draw(sc); sc.ball(tp, .09, "e8392e", .012)
+        if n == "tomato": kid(sc, h, t, (0, .5, 0), 0, "laugh", 1); tp = h.hip + V(.12, -.3, .3 + .04 * abs(wob(t, 2))); h.hands[1] = tp + V(.07, .02, -.05); h.hands[0] = tp + V(-.08, .02, -.05); sc.flush(); sc.ball(tp, .09, "e8392e", .012); sc.line([tp + V(0, 0, .08), tp + V(.02, 0, .12)], "3f9a4a", .015)
         sc.flush(); sc.vignette(.28); return sc
     sc = Scene(K(u, (0, -1.4, 1.5), (0, -1.2, 1.5), (0, 1.5, 1.5), (0, 1.5, 1.5), 1300)); room(sc, ("f0e4cc", "fbf4e4"), ("b98a5a", "a87a4c"), "e8dcc0", y1=1.6); c = sc.c
     nd = int(1 + ss(s, 0, 2.5) * 59)
@@ -91,9 +97,10 @@ def c15(t):
         sc = Scene(K(u, (.5, .9, 1.1), (.55, 1.1, 1.1), (.9, 2.4, .95), (.9, 2.4, 1.0), 1350)); curtain_fire(sc, t, 0 if n == "candle" else ss(s, 0, 2.0)); day(sc, s, 31) if n == "candle" else None; sc.vignette(.4); return sc
     if n in ("house", "line", "pool", "buckets", "dawn"):
         dawn = n == "dawn"; fire = 0 if dawn else 1.0; rn = ss(t, lt("c15_n4"), D) if dawn else 0
-        cam = {"house": lambda: K(u, (-6, -12, 2.4), (-4, -11, 2.4), (0, 0, 2.0), (0, 0, 2.2), 1150), "line": lambda: K(u, (-2, -9, 6), (0, -8, 6.5), (0, -1, 0), (0, -1, 0), 1100), "pool": lambda: K(u, (-6, -6, 2.0), (-5.5, -5.5, 2.0), (-4, -1.5, .4), (-4, -1.5, .4), 1250), "buckets": lambda: K(u, (1.5, -5.5, 1.4), (2.5, -5.5, 1.4), (1.5, -1.5, .9), (2.5, -1.5, .9), 1300), "dawn": lambda: K(u, (-3, -11, 2.0), (-2, -10, 2.0), (0, 0, 1.8), (0, 0, 1.8), 1200)}[n]()
+        cam = {"house": lambda: K(u, (-6, -12, 2.4), (-4, -11, 2.4), (0, 0, 2.0), (0, 0, 2.2), 1150), "line": lambda: K(u, (-2, -9.5, 5.2), (0, -8.5, 5.6), (0, -.5, 1.2), (.5, -.5, 1.4), 1050), "pool": lambda: K(u, (-6, -6, 2.0), (-5.5, -5.5, 2.0), (-4, -1.5, .4), (-4, -1.5, .4), 1250), "buckets": lambda: K(u, (1.5, -5.5, 1.4), (2.5, -5.5, 1.4), (1.5, -1.5, .9), (2.5, -1.5, .9), 1300), "dawn": lambda: K(u, (-3, -11, 2.0), (-2, -10, 2.0), (0, 0, 1.8), (0, 0, 1.8), 1200)}[n]()
         sc = Scene(cam); hy = sky(sc, "0f1430" if not dawn else "6a7ab0", "3a2a50" if not dawn else "ffb08a", sun=None, t=t, clouds=dawn); ground(sc, hy, "1c2a2a" if not dawn else "5a8a5a", "2a3a3a" if not dawn else "8aa87a"); d = sc.cam.depth
-        burning(sc, (2, 3), 5, 4, 3.6, t, fire, rn); house(sc, (9, 3), 5, 4, 3.6, "3a3f5a" if not dawn else "b4d2e6", "2a2440" if not dawn else "46628a"); pool(sc, (-6, -1.5), 5, 2.5, t)
+        for k, (x_, y_) in enumerate(((-9, 8), (-4, 9.5), (14, 8), (17, 5))): tree(sc, (x_, y_, 0), 3.6 + .4 * (k % 2), 1.3, t + k, "2a4a3a" if not dawn else "3f8f4a")
+        house(sc, (-6, 6), 4.5, 3.5, 3.2, "343a52" if not dawn else "f2d8b8", "2a2440" if not dawn else "a8503c"); burning(sc, (2, 3), 5, 4, 3.6, t, fire, rn); house(sc, (9, 3), 5, 4, 3.6, mix("3a3f5a", "8a5a4a", .35) if not dawn else "b4d2e6", "2a2440" if not dawn else "46628a"); fence(sc, -9, -.6, .6); fence(sc, 4.6, 12, .6); pool(sc, (-6, -1.5), 5, 2.5, t)
         if not dawn:
             X, Y = sc.cam.pr((2, 3, 3)); sc.glow(X, Y, 900, "ff8a3a", .35)
             kids = [h, m, M, L] + CROWD[:10]
@@ -108,7 +115,9 @@ def c15(t):
         if not dawn: sc.c.set_source_rgba(1, .45, .1, .08); sc.c.paint()
         sc.vignette(.4 if not dawn else .28); return sc
     if n == "truck":
-        sc = Scene(K(u, (-5, -7, 1.6), (-4, -6.6, 1.6), (0, 0, 1.4), (0, 0, 1.4), 1200)); hy = sky(sc, "0f1430", "3a2a50", sun=None, t=t, clouds=False); ground(sc, hy, "2a2f3a", "3a3f4a"); sc.box((0, 3.5, 2.5), (10, 4, 5), "8a3a2a"); wtx(sc, (0, 1.45, 4.3), "FIRE STATION", .6, "ffffff", None)
+        sc = Scene(K(u, (-5, -7, 1.6), (-4, -6.6, 1.6), (0, 0, 1.4), (0, 0, 1.4), 1200)); hy = sky(sc, "0f1430", "3a2a50", sun=None, t=t, clouds=False); ground(sc, hy, "2a2f3a", "3a3f4a"); sc.box((0, 3.5, 2.5), (10, 4, 5), "8a3a2a"); sc.box((0, 1.45, 4.3), (5.2, .1, .8), "f4f0ea"); wtx(sc, (0, 1.38, 4.3), "FIRE STATION", .55, "c0392b", None)
+        for k, x_ in enumerate((-2.6, 2.6)): sc.poly([(x_ - 1.6, 1.49, 0), (x_ + 1.6, 1.49, 0), (x_ + 1.6, 1.49, 3.4), (x_ - 1.6, 1.49, 3.4)], "1a1a20", .02); sc.poly([(x_ - 1.6, 1.48, 2.6), (x_ + 1.6, 1.48, 2.6), (x_ + 1.6, 1.48, 3.4), (x_ - 1.6, 1.48, 3.4)], "c8ccd4", .012); wtx(sc, (x_, 1.46, 3.75), str(k + 1), .4, "ffffff", None)
+        for x_ in (-4.6, 0, 4.6): X, Y = sc.cam.pr((x_, 1.4, 4.0)); sc.glow(X, Y, 60, "ffe08a", .5)
         vehicle(sc, (0, 0, 0), 270, "d8302a", kind="bus", stripe="ffffff"); sc.line([(-2.5, -.6, 3.05), (2.5, -.6, 3.05)], "c4ccd6", .08); sc.line([(-2.5, .6, 3.05), (2.5, .6, 3.05)], "c4ccd6", .08); [sc.line([(x, -.6, 3.05), (x, .6, 3.05)], "c4ccd6", .05) for x in np.arange(-2.4, 2.5, .4)]
         kid(sc, CROWD[3], t, (-4.2, -3.0, 0), 50, "ooh", 3); sc.flush(); sc.vignette(.35); return sc
     if n == "pedals":
@@ -119,8 +128,11 @@ def c15(t):
         arrow(sc, W / 2 + 330, 600, W / 2 + 330, 900, 12, "ffd21e"); arrow(sc, W / 2 + 330, 900, W / 2 + 330, 600, 12, "ffd21e"); tx(sc, W / 2 + 560, 760, "TOO FAR", 64, "ffd21e", INK, .18); sc.vignette(.3); return sc
     if n == "maya":
         sc = Scene(K(u, (.3, -1.8, 1.3), (.25, -1.6, 1.3), (0, .4, 1.1), (0, .4, 1.12), 1350)); hy = sky(sc, "0f1430", "3a2a50", sun=None, t=t, clouds=False); ground(sc, hy, "1c2a2a", "2a3a3a"); X, Y = sc.cam.pr((3, 8, 2)); sc.glow(X, Y, 1100, "ff8a3a", .5)
+        tree(sc, (-5, 12, 0), 4, 1.4, t, "2a4a3a"); house(sc, (-3.5, 14), 4.5, 3.5, 3.2, "343a52", "2a2440"); burning(sc, (3, 10), 5, 4, 3.6, t, 1.0); tree(sc, (8, 11, 0), 3.8, 1.3, t + 2, "2a4a3a"); fence(sc, -6, 6, 6.0)
         kid(sc, m, t, (0, .4, 0), 0, "angry", 2, talkl="c15_maya1"); wave(m, 1, t, 1); sc.flush(); sc.c.set_source_rgba(1, .45, .1, .1); sc.c.paint(); sc.vignette(.4); return sc
-    sc = Scene(K(u, (.2, -2.2, 1.3), (.1, -2.0, 1.3), (0, .4, 1.0), (0, .4, 1.0), 1300)); hy = sky(sc, "6a7ab0", "ffb08a", sun=None, t=t); ground(sc, hy, "5a8a5a", "8aa87a"); smoke(sc, (2, 6, 2), t, 6, .9, (.5, .5, .52), 3.0, .2)
+    sc = Scene(K(u, (.2, -2.2, 1.3), (.1, -2.0, 1.3), (0, .4, 1.0), (0, .4, 1.0), 1300)); hy = sky(sc, "6a7ab0", "ffb08a", sun=None, t=t); ground(sc, hy, "5a8a5a", "8aa87a")
+    for k, (x_, y_) in enumerate(((-7, 9), (-2.5, 10.5), (9, 9.5))): tree(sc, (x_, y_, 0), 3.8, 1.3, t + k)
+    house(sc, (-5, 7), 4.5, 3.5, 3.2, "f2d8b8", "a8503c"); house(sc, (7, 6.5), 5, 4, 3.6, "b4d2e6", "46628a"); burning(sc, (1.5, 6), 5, 4, 3.6, t, 0.0, 1.0); fence(sc, -8, 9, 3.2)
     for k, ch in enumerate((h, m, L)): kid(sc, ch, t, (-.8 + .8 * k, .4, 0), (20, 0, -20)[k], ["smile", "happy", "sleepy"][k], k)
     sc.flush(); c = sc.c
     for k, ch in enumerate((h, m, L)): X, Y = sc.cam.pr(ch.joints()[4]); q = sc.cam.px(ch.joints()[4], ch.R); [ (c.new_path(), c.arc(X + q * (.5 * math.cos(j * 2.1 + k)), Y + q * (.4 + .2 * math.sin(j * 1.7)), q * .12, 0, 7), c.set_source_rgba(.2, .2, .2, .45), c.fill()) for j in range(4)]
@@ -130,7 +142,7 @@ def c16(t):
     D = CH["c16"]["dur"]; w = wt; n, u, s = shot(t, [(0, "marcus"), (lt("c16_n1") - .1, "vote"), (lt("c16_n2") - .1, "law"), (w("c16_n2", "boos") - .3, "boo"), (w("c16_n2", "But") - .1, "brush")], D); h, m, L, M = HERO, MAYA, LEO, MARCUS
     if n in ("marcus", "vote", "law", "boo"):
         cam = {"marcus": lambda: K(u, (.6, -3.6, 1.8), (.5, -3.2, 1.8), (.3, -1.0, 2.0), (.3, -1.0, 2.05), 1350), "vote": lambda: K(u, (0, -1.0, 2.8), (0, -1.2, 2.9), (0, -5.5, 1.2), (0, -5.5, 1.3), 1150), "law": lambda: K(u, (-.4, -4.2, 1.9), (-.3, -3.9, 1.9), (0, -1.4, 1.75), (0, -1.4, 1.78), 1350), "boo": lambda: K(u, (0, -1.0, 2.8), (0, -1.2, 2.8), (0, -5.5, 1.2), (0, -5.5, 1.2), 1150)}[n]()
-        sc = Scene(cam); hy = sky(sc, t=t); ground(sc, hy, "c8ccd4", "d8dce4"); townhall(sc, (0, 1.0), t); d = sc.cam.depth; top = V(0, -1.6, .9)
+        sc = Scene(cam); hy = sky(sc, t=t); hills(sc, hy); ground(sc, hy, "c8ccd4", "d8dce4"); plaza(sc, t, 1.0); townhall(sc, (0, 1.0), t); d = sc.cam.depth; top = V(0, -1.6, .9)
         stand(m, t, top, 0, 2); m.face = FACE["happy"] if n != "boo" else FACE["smug"]; sc.at(d(m.hip), lambda: m.draw(sc))
         if n == "law": wave(m, 1, t, .3)
         stand(M, t, top + V(.9, .1, 0), -20, 7); M.face = FACE["smile"]; M.talk = talk("c16_marcus1", t); reach(M, 0, m.joints()[4] + V(.25, 0, -.35)) if n == "marcus" else None; sc.at(d(M.hip), lambda: M.draw(sc))
@@ -150,11 +162,18 @@ def c16(t):
     sc.flush(); sc.vignette(.3); return sc
 SC["c16"] = c16
 # ------------------------------------------------------------------ the radio
+def walkie_held(sc, ch, wp, col="e8a020", sz=(.07, .04, .15)):
+    """walkie held in FRONT of the chest: body first, then the radio, then the two mitten hands gripping its sides
+    (drawn last, so the arms read as reaching forward, not hidden behind the body)"""
+    f_, r_ = side(ch); ch.hands = [wp - r_ * (sz[0] * .55) - V(0, 0, .02), wp + r_ * (sz[0] * .55) - V(0, 0, .04)]; ch.elbow = [V(0, 0, -1), V(0, 0, -1)]; ch.draw(sc)
+    sc.box(wp, sz, col, line=.008); sc.line([wp + r_ * sz[0] * .3 + V(0, 0, sz[2] / 2), wp + r_ * sz[0] * .3 + V(0, 0, sz[2] / 2 + .13)], INK, .012); sc.box(wp + f_ * (sz[1] / 2 + .002) + V(0, 0, sz[2] * .22), (sz[0] * .7, .004, sz[2] * .25), "2a3a2a", line=.004)
+    for q in ch.hands: sc.ball(q + f_ * .015, .042 * ch.k, INK, 0, hl=False)
 def hero_close(sc, t, ch, face, cam_off=V(.0, -1.0, .1), f=1400, talkl=None, walkie=True, seed=1, night=True):
     stand(ch, t, (0, .4, 0), 0, seed); ch.face = face if not isinstance(face, str) else FACE[face]; hd = ch.joints()[4]
     if talkl: ch.talk = talk(talkl, t)
-    wp = hd + V(.16, -.22, -.24); ch.hands[1] = wp + V(.03, 0, -.08); ch.hands[0] = wp + V(-.06, 0, -.1); ch.draw(sc)
-    if walkie: sc.box(wp, (.07, .04, .15), "e8a020", line=.008); sc.line([wp + V(.025, 0, .07), wp + V(.025, 0, .2)], INK, .012)
+    f_, r_ = side(ch); wp = hd + f_ * .2 + r_ * .1 + V(0, 0, -.3)
+    if walkie: walkie_held(sc, ch, wp)
+    else: ch.hands[1] = wp + V(.03, 0, -.08); ch.hands[0] = wp + V(-.06, 0, -.1); ch.draw(sc)
     return wp
 def c17(t):
     D = CH["c17"]["dur"]; w = wt; n, u, s = shot(t, [(0, "room"), (lt("c17_n5") - .1, "drawing"), (lt("c17_n2") - .1, "closet"), (w("c17_n2", "turn") - .1, "on"), (lt("c17_n3") - .1, "whisper"), (lt("c17_n4") - .1, "wait"), (w("c17_n4", "For") - .1, "long")], D); h = HEROPJ
@@ -164,34 +183,35 @@ def c17(t):
         sc.c.set_source_rgba(.05, .05, .2, .35); sc.c.paint(); sc.vignette(.5); return sc
     if n in ("room", "closet", "on", "wait"):
         cam = {"room": lambda: K(u, (-1.0, 1.3, 1.3), (-.95, 1.25, 1.28), (.5, .1, .9), (.3, .4, .9), 1150), "closet": lambda: K(u, (1.1, .9, 1.3), (1.0, 1.0, 1.28), (-.5, 1.4, 1.0), (-.5, 1.4, 1.0), 1250), "on": lambda: K(u, (.5, -1.0, 1.2), (.45, -.85, 1.18), (0, .4, .95), (0, .4, .96), 1350), "wait": lambda: K(u, (0, -2.8, 1.5), (0, -3.2, 1.6), (0, .6, .8), (0, .6, .8), 1250)}[n]()
-        sc = Scene(cam); S25.bedroom(sc, t, True); d = sc.cam.depth
+        sc = Scene(cam); bedroom2(sc, t, True); d = sc.cam.depth
         sc.box((-.6, 2.2, 1.0), (1.4, .7, 2.0), "6a4a3a"); sc.poly([(-1.3, 1.84, .1), (-.6, 1.84, .1), (-.6, 1.84, 1.95), (-1.3, 1.84, 1.95)], "4a3a30", .012)
         for k in range(4): sc.box((-.6 + .3 * (k - 1.5), 2.1, 1.5), (.18, .5, .8), ("e8618c", "8a5cc9", "3d86e0", "ffd24a")[k])
         if n == "room": walk(h, t, [(0, .9, -.2), (3, .25, .5)], 1); h.face = FACE["sad"]; sc.at(d(h.hip), lambda: h.draw(sc))
         if n == "closet": stand(h, t, (-.4, 1.2, 0), 160, 1); h.face = FACE["ooh"]; reach(h, 1, V(-.5, 1.85, 1.2)); sc.box((-.5, 1.85, 1.2), (.08, .05, .17), "e8a020"); sc.at(d(h.hip), lambda: h.draw(sc))
         if n == "on": wp = hero_close(sc, t, h, "ooh"); X, Y = sc.cam.pr(wp + V(0, 0, .25)); static_lines(sc, X, Y, 40, t, .7); tx(sc, X + 150, Y - 120, "kshhh...", 48, "ffffff", INK, .2, -.1)
-        if n == "wait": sit(h, t, (0, .6, .45), 0, 1); h.face = FACE["sad"]; h.hpitch = -15; sc.box((0, .6, .22), (1.6, .9, .44), "4a6ad0"); wp = h.hip + V(.1, -.2, .2); h.hands = [wp + V(-.05, 0, 0), wp + V(.06, 0, 0)]; h.draw(sc); sc.box(wp, (.07, .04, .15), "e8a020", line=.008)
+        if n == "wait": sit(h, t, (0, .6, .45), 0, 1); h.face = FACE["sad"]; h.hpitch = -15; sc.box((0, .6, .22), (1.6, .9, .44), "4a6ad0"); walkie_held(sc, h, h.hip + V(.02, -.24, .2))
         sc.flush(); sc.c.set_source_rgba(.05, .05, .2, .25); sc.c.paint(); sc.vignette(.5); return sc
     if n == "whisper":
-        sc = Scene(K(u, (.2, -.8, 1.05), (.15, -.7, 1.04), (0, .4, .98), (0, .4, .99), 1450)); S25.bedroom(sc, t, True); hero_close(sc, t, h, "sad"); sc.c.set_source_rgba(.05, .05, .2, .2); sc.c.paint(); sc.vignette(.5); return sc
+        sc = Scene(K(u, (.2, -.8, 1.05), (.15, -.7, 1.04), (0, .4, .98), (0, .4, .99), 1450)); bedroom2(sc, t, True); hero_close(sc, t, h, "sad"); sc.c.set_source_rgba(.05, .05, .2, .2); sc.c.paint(); sc.vignette(.5); return sc
     sc = Scene(Cam((0, -3, 1), (0, 0, 1))); vgrad(sc, "0c1020", "1a1f38"); walkie2d(sc, W / 2 + 60 * (1 - u), H * .62 + 60 * u, .9 + .3 * u, t, 0.0, -.08 + .05 * u); X, Y = W / 2 - 20, H * .62 - 330; static_lines(sc, X, Y, 60, t, .35); sc.vignette(.5); return sc
 SC["c17"] = c17
 def momroom(sc, t, mom_talk=None, face="sad", walkie=True):
     KIT.kitchen(sc, .3); sc.c.set_source_rgba(.04, .04, .22, .58); sc.c.paint(); mo = MOM; stand(mo, t, (0, .5, 0), 0, 5); mo.face = face_at(t, face) if isinstance(face, list) else FACE[face]
     if mom_talk: mo.talk = talk(mom_talk, t)
-    hd = mo.joints()[4]; wp = hd + V(.2, -.25, -.3); mo.hands[1] = wp + V(.03, 0, -.08); mo.hands[0] = wp + V(-.08, 0, -.1); mo.draw(sc)
-    if walkie: sc.box(wp, (.08, .05, .17), "5a6272", line=.008); sc.line([wp + V(.03, 0, .08), wp + V(.03, 0, .24)], INK, .014)
+    hd = mo.joints()[4]; f_, r_ = side(mo); wp = hd + f_ * .22 + r_ * .12 + V(0, 0, -.34)
+    if walkie: walkie_held(sc, mo, wp, "5a6272", (.08, .05, .17))
+    else: mo.draw(sc)
     X, Y = sc.cam.pr(V(-2.5, 2.0, 2.2)); sc.glow(X, Y, 400, "ffe08a", .3)
 def c18(t):
     D = CH["c18"]["dur"]; w = wt; n, u, s = shot(t, [(0, "led"), (lt("c18_n1") - .1, "heart"), (lt("c18_mom2") - .1, "split"), (w("c18_mom2", "All") - .1, "mom"), (lt("c18_n2") - .1, "what")], D); h = HEROPJ
     if n == "led":
         sc = Scene(Cam((0, -3, 1), (0, 0, 1))); vgrad(sc, "0c1020", "1a1f38"); on = 1.0 if lt("c18_mom1") - .3 < t else 0.0; walkie2d(sc, W / 2, H * .62, 1.05, t, on, -.05); X, Y = W / 2 - 20, H * .62 - 330; static_lines(sc, X, Y, 60, t, .6 * on); sc.vignette(.5); return sc
     if n in ("heart", "what"):
-        sc = Scene(K(u, (.15, -.7, 1.02), (.12, -.6, 1.0), (0, .4, .98), (0, .4, .98), 1500 if n == "heart" else 1600)); S25.bedroom(sc, t, True); hero_close(sc, t, h, "shock" if n == "heart" else "ooh"); sc.c.set_source_rgba(.05, .05, .2, .15); sc.c.paint()
+        sc = Scene(K(u, (.15, -.7, 1.02), (.12, -.6, 1.0), (0, .4, .98), (0, .4, .98), 1500 if n == "heart" else 1600)); bedroom2(sc, t, True); hero_close(sc, t, h, "shock" if n == "heart" else "ooh"); sc.c.set_source_rgba(.05, .05, .2, .15); sc.c.paint()
         if n == "heart": X, Y = sc.cam.pr((0, .3, .55)); hb = 1 + .15 * max(0, math.sin(t * 7)); tx(sc, X + 260, Y - 220, "♥", 160 * hb, "e8392e", INK, .1) if False else None
         sc.vignette(.45); return sc
     if n == "split":
-        A = Scene(K(u, (.61, -.8, 1.02), (.58, -.7, 1.0), (.46, .4, .98), (.46, .4, .98), 1250)); S25.bedroom(A, t, True); hero_close(A, t, h, "shock"); A.c.set_source_rgba(.05, .05, .2, .15); A.c.paint()
+        A = Scene(K(u, (.61, -.8, 1.02), (.58, -.7, 1.0), (.46, .4, .98), (.46, .4, .98), 1250)); bedroom2(A, t, True); hero_close(A, t, h, "shock"); A.c.set_source_rgba(.05, .05, .2, .15); A.c.paint()
         B = Scene(K(u, (-.41, -1.1, 1.5), (-.46, -1.0, 1.48), (-.61, .5, 1.35), (-.61, .5, 1.36), 1250)); momroom(B, t, "c18_mom2", "scared"); split(A, B); label(A, W * .25, H * .1, "YOUR WORLD", 40, "ffffff", "3d6ab0"); label(A, W * .75, H * .1, "HER WORLD", 40, "ffffff", "e8618c"); A.vignette(.35); return A
     sc = Scene(K(u, (.25, -1.3, 1.55), (.2, -1.1, 1.52), (0, .5, 1.38), (0, .5, 1.4), 1300)); momroom(sc, t, "c18_mom2", [(0, "scared"), (w("c18_mom2", "kids") - .1, "sad")]); sc.vignette(.4); return sc
 SC["c18"] = c18
@@ -215,7 +235,7 @@ def c19(t):
         cam = {"play": lambda: K(u, (-2, -7, 1.6), (0, -7, 1.6), (0, 0, 1.0), (1, 0, 1.0), 1200), "bus": lambda: K(u, (-6, -6, 1.4), (-5, -6, 1.4), (0, 0, 1.0), (0, 0, 1.0), 1250), "parents": lambda: K(u, (0, -11, 2.0), (0, -10, 2.0), (0, 0, 1.2), (0, 0, 1.3), 1150)}[n]()
         sc = Scene(cam); hy = sky(sc, "8a9ab8", "d8dce4", sun=None, t=t)
         if n == "play":
-            ground(sc, hy, "7aa86a", "9ab88a"); [sc.line([(x, 1, 0), (x, 1, 2.4)], "e8392e", .08) for x in (-2, 2)]; sc.line([(-2, 1, 2.4), (2, 1, 2.4)], "e8392e", .08)
+            ground(sc, hy, "7aa86a", "9ab88a"); playground(sc, t); [sc.line([(x, 1, 0), (x, 1, 2.4)], "e8392e", .08) for x in (-2, 2)]; sc.line([(-2, 1, 2.4), (2, 1, 2.4)], "e8392e", .08)
             for k, x in enumerate((-1.0, 1.0)): a = .15 * math.sin(t * .8 + k); top = V(x, 1, 2.4); seat = top + V(0, -math.sin(a) * 1.7, -math.cos(a) * 1.7); sc.line([top, seat], "8a929c", .02); sc.box(seat, (.45, .2, .05), "3d86e0")
             S25.bush(sc, (4, 3, 0), .8); label(sc, W * .5, H * .12, "HER WORLD", 44, "ffffff", "e8618c")
         if n == "bus": S25.street(sc, t, cars=False); sc.flush(); sc.box((0, 1.0, 1.0), (.1, .1, 2.0), "4a5563"); sc.box((0, .97, 2.1), (.9, .06, .45), "3d6ab0"); wtx(sc, (0, .93, 2.1), "BUS STOP", .16, "ffffff", None); stand(MAYAMOM, t, (.8, .8, 0), 0, 3); MAYAMOM.face = FACE["sad"]; look(MAYAMOM, (-8, -2, 1)); MAYAMOM.draw(sc)
@@ -224,7 +244,7 @@ def c19(t):
     if n == "veg":
         sc = Scene(K(u, (.25, -1.3, 1.55), (.22, -1.15, 1.53), (0, .5, 1.38), (0, .5, 1.4), 1300)); momroom(sc, t, "c19_mom1", [(0, "smile")]); sc.vignette(.4); return sc
     if n == "laugh":
-        sc = Scene(K(u, (.2, -2.0, 1.15), (.15, -1.8, 1.12), (.2, .5, .85), (.2, .5, .87), 1300)); S25.bedroom(sc, t, True); d = sc.cam.depth
+        sc = Scene(K(u, (.2, -2.0, 1.15), (.15, -1.8, 1.12), (.2, .5, .85), (.2, .5, .87), 1300)); bedroom2(sc, t, True); d = sc.cam.depth
         for k, (ch, x) in enumerate(((h, -.2), (m, .65))):
             stand(ch, t, (x, .5, 0), (20, -25)[k], k); ch.face = FACE["laugh"]; ch.hip = ch.hip + V(0, 0, .03 * abs(wob(t, 3, k))); sc.at(d(ch.hip), lambda ch=ch: ch.draw(sc))
         sc.flush(); c = sc.c
@@ -232,8 +252,8 @@ def c19(t):
             hd = ch.joints()[4]
             for sg in (-1, 1): X, Y = sc.cam.pr(hd + V(sg * .07, -.18, -.02 - .12 * ((t * 1.5) % 1))); c.new_path(); c.arc(X, Y, 7, 0, 7); c.set_source_rgba(.5, .8, 1, .9); c.fill()
         sc.c.set_source_rgba(.05, .05, .2, .15); sc.c.paint(); sc.vignette(.45); return sc
-    sc = Scene(K(u, (.6, -1.4, 1.2), (.5, -1.2, 1.15), (0, .6, .3), (0, .6, .3), 1300)); living(sc, t, night=True); sc.flush(); lying(L, t, (0, .65, .14), "up", 0, 3); L.hands = [L.hip + V(q * .15, .1, .05) for q in (-1, 1)]; L.face = FACE["sleep"]; L.hpitch = 55; draw_lying(sc, L)
-    dogs(sc, t * .3, [V(-.15, .7, .1), V(.2, .4, .12), V(.1, 1.0, .1)], 1, .9); sc.flush(); X, Y = sc.cam.pr(L.joints()[4] + V(.2, 0, .3)); [tx(sc, X + 50 * k, Y - 50 * k - 30 * ((t * .5 + k / 3) % 1), "Z", 40 + 12 * k, "ffffff", a=.8) for k in range(2)]
+    sc = Scene(K(u, (.6, -1.4, 1.2), (.5, -1.2, 1.15), (0, .6, .3), (0, .6, .3), 1300)); living(sc, t, night=True); sc.flush(); hc = sleeper(sc, L, t, (0, 1.05), "ffc93a", "sleep")
+    dogs(sc, t * .3, [V(-.62, .5, 0), V(.6, .3, 0), V(.55, 1.15, 0)], 1, .8, v0=1); sc.flush(); X, Y = sc.cam.pr(hc + V(.2, 0, .3)); [tx(sc, X + 50 * k, Y - 50 * k - 30 * ((t * .5 + k / 3) % 1), "Z", 40 + 12 * k, "ffffff", a=.8) for k in range(2)]
     sc.c.set_source_rgba(.05, .05, .2, .2); sc.c.paint(); sc.vignette(.45); return sc
 SC["c19"] = c19
 def c20(t):
@@ -247,7 +267,7 @@ def c20(t):
         sc = Scene(K(u, (0, -5.5, 1.0), (0, -5.0, 1.0), (0, 0, 1.6), (0, 0, 1.65), 1300)); vgrad(sc, "1f3a5a", "2a5a8a"); sc.poly([(-9, -2, 0), (9, -2, 0), (9, 9, 0), (-9, 9, 0)], "17304c", 0)
         for k, ch in enumerate((HERO, MAYA, LEO, MARCUS)): x = -2.1 + k * 1.4; kid(sc, ch, t, (x, 0, 0), 15 * (1.5 - k), ("happy", "smile", "laugh", "smug")[k], k); f_, r_ = side(ch); sg = (-1, 1)[k % 2]; reach(ch, k % 2, ch.hip + r_ * sg * .30 * ch.k + V(0, 0, .78 * ch.k) + r_ * sg * .08 * wob(t, 2.2, k) * ch.k, .5 + .5 * math.sin(t * 1.1 + k * 1.7))
         sc.flush(); tx(sc, W / 2, H * .16, "WHAT WOULD YOU", 92, "ffffff", INK, .16); tx(sc, W / 2, H * .28, "DO FIRST?", 130, "ffd21e", INK, .14, .03 * wob(t, .6)); c = sc.c; rrect(c, W / 2 - 430, H * .36, 860, 100, 30); c.set_source_rgb(1, 1, 1); c.fill(); tx(sc, W / 2, H * .36 + 52, "TELL ME IN THE COMMENTS", 48, "20242c", None); sc.vignette(.3); return sc
-    sc = Scene(K(u, (0, -2.4, 1.4), (0, -1.6, 1.3), (0, 2.0, 1.0), (0, 2.0, 1.0), 1250)); room(sc, ("3a3436", "4a4446"), ("2a2426", "2a2426"), "3a3436"); c = sc.c
+    sc = Scene(K(u, (0, -2.4, 1.4), (0, -1.6, 1.3), (0, 2.0, 1.0), (0, 2.0, 1.0), 1250)); room(sc, ("3a3436", "4a4446"), ("2a2426", "2a2426"), "3a3436"); basement_props(sc, t); c = sc.c
     dp = [V(-.5, 2.58, 0), V(.5, 2.58, 0), V(.5, 2.58, 2.0), V(-.5, 2.58, 2.0)]; sc.poly([tuple(p) for p in dp], "5a3a2a", .02); wtx(sc, (0, 2.56, 1.6), "BASEMENT", .1, "ffd21e", None)
     X0, Y0 = sc.cam.pr(V(-.5, 2.57, .02)); X1, Y1 = sc.cam.pr(V(.5, 2.57, .02)); g = .6 + .4 * math.sin(t * 9) * (n == "door"); c.rectangle(X0, Y0 - 8, X1 - X0, 10); c.set_source_rgba(1, .85, .4, g); c.fill(); sc.glow((X0 + X1) / 2, Y0, 300, "ffd27a", .4 * g)
     if n == "door": tx(sc, W * .5, H * .2, "TO BE CONTINUED...", 72, "ffffff", INK, .18, a=ss(s, 1.0, 1.6))
