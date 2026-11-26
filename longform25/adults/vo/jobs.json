@@ -1,0 +1,632 @@
+[
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c01_n1.wav",
+"text": "It's day six. You're driving a school bus.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c01_n2.wav",
+"text": "Well, you're working the pedals. Maya is steering. And Leo is in charge of the horn.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c01_leo1.wav",
+"text": "Beep beep! Move, pigeons!",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/theo.wav",
+"exag": 0.7,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c01_maya1.wav",
+"text": "Brake. Brake! Brake!",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c01_n3.wav",
+"text": "You hit a hedge at four kilometers an hour. It's the best day of your life.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c02_n1.wav",
+"text": "So, what if every adult on Earth disappeared?",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c03_n1.wav",
+"text": "Day one starts quietly. Too quietly. No alarm, no radio, no mom yelling that you're late.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c03_n2.wav",
+"text": "Her coffee is still warm. Her phone is on the table. Her car keys are in the bowl. But she's gone.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c03_n3.wav",
+"text": "Outside, a car is sitting in the middle of the street. The engine is running, and the door is wide open. It's the coach's car. The coach is nowhere.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c04_n1.wav",
+"text": "Then your phone explodes. Four hundred messages in the class group chat, and they all ask the same thing.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c04_maya1.wav",
+"text": "Is your mom there? Mine is gone. Leo is freaking out.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c04_n2.wav",
+"text": "The TV is showing the morning news. The desk is empty. The chair is still spinning.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c04_n3.wav",
+"text": "It isn't just your town. Every adult on the planet, everyone eighteen or older, vanished at the same second.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c04_n4.wav",
+"text": "That leaves about two point four billion kids. Almost a third of everyone who was alive yesterday.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_n1.wav",
+"text": "And for about six hours, it's amazing.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_n2.wav",
+"text": "No school. Ice cream for breakfast. Ice cream for lunch. Somebody drives a lawn mower down Main Street.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_n5.wav",
+"text": "Somebody pours a whole bottle of bubble bath into the town fountain. Somebody else eats an entire birthday cake from the bakery window. With a spoon. Nobody stops anybody.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_n3.wav",
+"text": "Then Marcus, who is sixteen and very tall, climbs the steps of the town hall.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_marcus1.wav",
+"text": "Okay, listen up! I'm the oldest, so I'm the president now.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/dex.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c05_n4.wav",
+"text": "Nobody voted. But nobody argues either. He has the loudest voice.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c06_n1.wav",
+"text": "Then the sun goes down, and every house on the street is very, very quiet.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c06_n2.wav",
+"text": "Maya and Leo sleep over at your place, because nobody wants to be alone tonight.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c06_leo1.wav",
+"text": "When is Mom coming back?",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/theo.wav",
+"exag": 0.7,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c06_n3.wav",
+"text": "You don't know. So you say tomorrow. It's the first time you've ever lied to make somebody feel better.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n1.wav",
+"text": "Day two. The lights are still on, and that feels like good news.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n2.wav",
+"text": "But a power plant isn't a giant battery. It's a machine that has to be fed fuel and watched every minute.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n3.wav",
+"text": "And the whole grid has to stay balanced, like a pencil standing on its tip.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n6.wav",
+"text": "On day three, you and Maya ride your bikes to the power station outside town, just to look.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n7.wav",
+"text": "The gate is open. The control room is full of screens, and every single one of them is flashing red.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_maya1.wav",
+"text": "Don't touch anything. I mean it. Not one button.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n4.wav",
+"text": "With nobody watching, the machines do the safe thing. They switch themselves off.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c07_n5.wav",
+"text": "On the evening of day three, the street lights blink. Then your whole town goes dark. Then the next town. Then the next.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c08_n1.wav",
+"text": "Day four. You turn on the tap, and it coughs at you.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c08_n2.wav",
+"text": "Your water comes from the big tower on the hill. Electric pumps keep it full, and a tower like that holds about one day of water.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c08_n3.wav",
+"text": "No power, no pumps. No pumps, no water.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c08_maya1.wav",
+"text": "Okay. Nobody flush anything. I'm serious.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_n1.wav",
+"text": "Then there's the fridge. Without power, a fridge keeps food safe for about four hours. A full freezer, about two days.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_n2.wav",
+"text": "By day five, your kitchen smells like something died. Because something did. The yogurt.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_n4.wav",
+"text": "The phones go next. No power means no charging, and no towers means no internet. By day five, the last phone in your house says one percent.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_leo1.wav",
+"text": "Quick, take a picture of me!",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/theo.wav",
+"exag": 0.7,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_n5.wav",
+"text": "So that's the last picture on the internet. Leo, with a yogurt on his head.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c09_n3.wav",
+"text": "But the supermarket is full of cans, and canned food lasts for years. The only problem is getting there first.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c10_n1.wav",
+"text": "Marcus and his football team already did. And they've locked the doors.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c10_marcus1.wav",
+"text": "The team gets the chips. Everybody else gets a turn later.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/dex.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c10_n2.wav",
+"text": "Maya walks right up to him with a notebook.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c10_maya1.wav",
+"text": "There are two hundred kids in this town, and fourteen of them are babies. Babies can't eat chips, Marcus.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c10_n3.wav",
+"text": "Marcus doesn't say anything for a long time. Then he unlocks the door.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c11_n1.wav",
+"text": "Babies are the scariest part. They need milk every three hours, clean diapers, and somebody awake all night.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c11_n2.wav",
+"text": "Turns out Marcus has a baby sister. And turns out, he's really, really good at this.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c11_marcus1.wav",
+"text": "Support the head. No, the head. Thank you.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/dex.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c11_n4.wav",
+"text": "Fourteen babies, thirty teenagers, and a schedule on the fridge of the town hall. Feeding at midnight. Feeding at three. Feeding at six. Nobody sleeps much.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c11_n3.wav",
+"text": "And that's why, on day six, you're driving a school bus. The big store on the highway has baby formula, and it's way too far to push a stroller.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c12_n1.wav",
+"text": "Leo honks at a deer. The deer doesn't move. Why would it? There hasn't been a car on this road in a week.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c12_n2.wav",
+"text": "You hit the hedge. The formula survives. Nobody tells Marcus about the hedge.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_n1.wav",
+"text": "By day ten, your town has a plan, and it's written on the whiteboard at school.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_n2.wav",
+"text": "Water team. Food team. Baby team. Fire team. And Leo is the head of the dog team.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_n3.wav",
+"text": "Because when the adults disappeared, the dogs didn't. They're hungry, they're lonely, and they really want to be on a team.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_leo1.wav",
+"text": "This one is Captain. This one is also Captain.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/theo.wav",
+"exag": 0.7,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_n4.wav",
+"text": "School is back, too. But now the eleven-year-olds teach the seven-year-olds, and Marcus teaches a class called Babies.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c13_marcus1.wav",
+"text": "Rule number one. If it smells, it's your turn.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/dex.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n1.wav",
+"text": "Day twenty. Something strange happens to the town. It gets nicer.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n2.wav",
+"text": "No cars, no factories. The air gets so clean that you can see mountains from your window. You didn't even know they were there.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n3.wav",
+"text": "This really happened in twenty twenty, when the whole world stayed home. Deer walked through towns, and wild goats took over the streets of a town in Wales.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n4.wav",
+"text": "Grass starts pushing up through the cracks in the road. Nobody mows anything. Nobody needs to.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n5.wav",
+"text": "Maya finds seed packets at the garden store and plants a whole football field of tomatoes. A tomato needs about two months to grow, so she counts the days on the wall.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c14_n6.wav",
+"text": "For the first time in your life, you're excited about a vegetable.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c15_n1.wav",
+"text": "Then on day thirty-one, somebody leaves a candle burning next to a curtain.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c15_n2.wav",
+"text": "Without adults, there are no fire trucks. Well, there are fire trucks. Nobody can reach the pedals.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c15_maya1.wav",
+"text": "Bucket line! Everybody, now! Start at the pool!",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/lila.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c15_n3.wav",
+"text": "Two hundred kids. One swimming pool. Every bucket in town.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c15_n4.wav",
+"text": "It takes forty minutes. The house is ruined. But the fire never jumps to the next one, and nobody gets hurt.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c16_marcus1.wav",
+"text": "You know what? Maya should be president.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/dex.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c16_n1.wav",
+"text": "This time, everybody votes.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c16_n2.wav",
+"text": "Maya's first law as president: everybody brushes their teeth before bed. The crowd boos. But everybody does it.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c17_n1.wav",
+"text": "That night, you can't sleep. You go through your mom's things, just to feel close to her.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c17_n5.wav",
+"text": "Leo has drawn a picture of your moms, and it's taped to the fridge. In the picture, they're both waving.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c17_n2.wav",
+"text": "In the closet, there's the old walkie-talkie she used for camping. You turn it on. Static.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c17_n3.wav",
+"text": "You whisper into it. Mom, it's me. Over.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c17_n4.wav",
+"text": "Nothing. For a long, long time.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c18_mom1.wav",
+"text": "Sweetie? Is that you?",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c18_n1.wav",
+"text": "Your heart stops.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c18_mom2.wav",
+"text": "Where are you? We've been looking everywhere. All the kids disappeared!",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c18_n2.wav",
+"text": "Wait. What?",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c19_n1.wav",
+"text": "On her side, every kid on Earth vanished at the same second. On your side, every adult. Same town. Same street. Same house. Two worlds, and one radio.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c19_n3.wav",
+"text": "In her world, the playgrounds are empty. The school bus never comes. Every parent is standing on the same street, looking at the same quiet houses.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c19_mom1.wav",
+"text": "Are you eating vegetables?",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c19_n2.wav",
+"text": "You laugh so hard you cry. Maya is crying too. Leo is asleep with three dogs on top of him.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c20_n1.wav",
+"text": "You still don't know how to get back. But now you know she's out there, and she's looking.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c20_n2.wav",
+"text": "So, what would you do first if every adult disappeared? Tell me in the comments.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/adults/vo/c20_n3.wav",
+"text": "And subscribe. Because tomorrow, Mom says she found something in the basement.",
+"ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+}
+]
