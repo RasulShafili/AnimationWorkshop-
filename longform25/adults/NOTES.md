@@ -24,3 +24,10 @@ package_adults.py → thumb.py (A "NO ADULTS!", B "MOM?!").
 thumbnail drafts A "NO ADULTS!" + B "MOM?!", Gemini prompt, teasers 1_bus 22.7 s / 2_supermarket 32.5 s / 3_radio 31.2 s). Not published.
 Retakes: c01_maya1 ("Like" before Brake), c17_n4 (extra "It's"), c19_mom1 (lost "Are") — old takes in vo/alt/*_old.wav; atempo c06_leo1 .9, c10_n2 .88, c12_n1 .93.
 Draft QA: all 41 sheets read; 20 fixes applied, chapters c04 c05 c07 c10–c12 c14–c19 re-rendered, fixes sample-checked on the final.
+## Owner feedback 2026-11-26 evening: "things on top that should be behind, the car door never goes away" → draw-order pass
+Whole final re-read at 1 fps for overlaps. Fixed: car door was on the far side but drawn over the body (now on the camera side);
+news chair over the desk/banner (news_studio `mid=` hook); night town + supermarket aisles drawn near→far (now far→near);
+town-hall door over the columns (door on the wall, before columns); control-room chairs not depth-sorted (sc.at);
+c16 crowd rows stacked heads (back row offset); dogs floated .15 m; chain now inside the glass + pale glass pane;
+bus driver Maya faced backwards (yaw 0 → 180), wheel drawn by depth, hedge shot reframed.
+Re-rendered c01 c03 c04 c05 c07 c09 c10 c12 c13 c16 c18 c19.

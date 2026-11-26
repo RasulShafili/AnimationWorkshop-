@@ -70,13 +70,14 @@ def sofa(sc, x=0, y=.9, w=2.2, col="4f7fd0", part="back"):
 def tv(sc, x, y, z, w=1.5, h=.86, fn=None):
     sc.box((x, y + .08, z - h / 2 - .32), (w * 1.05, .4, .42), "8a5a34"); sc.box((x, y + .03, z), (w + .1, .07, h + .1), "1c1f27"); 
     P4 = [(x - w / 2, y - .01, z + h / 2), (x + w / 2, y - .01, z + h / 2), (x - w / 2, y - .01, z - h / 2)]; a, b, d = [sc.cam.pr(p) for p in P4]; c = sc.c; c.save(); c.transform(cairo.Matrix((b[0] - a[0]) / 1600, (b[1] - a[1]) / 1600, (d[0] - a[0]) / 900, (d[1] - a[1]) / 900, *a)); c.rectangle(0, 0, 1600, 900); c.clip(); fn(c); c.restore()
-def news_studio(sc, t, head, sub, face="neutral", line=None, zero=False, num=None):
+def news_studio(sc, t, head, sub, face="neutral", line=None, zero=False, num=None, mid=None):
     """full-screen news: anchor at a desk, world map screen behind, moving ticker"""
     vgrad(sc, "0f2a66", "2a6ac0"); c = sc.c
     for k in range(7): x = (k * 330 + t * 60) % (W + 400) - 200; c.move_to(x, 0); c.line_to(x + 120, 0); c.line_to(x - 220, H); c.line_to(x - 340, H); c.close_path(); c.set_source_rgba(1, 1, 1, .05); c.fill()
     rrect(c, 1030, 90, 800, 560, 26); sc.fill("08142e", 12); c.save(); rrect(c, 1030, 90, 800, 560, 26); c.clip(); earth(_S2(sc), 1430, 400, 210, lon=t * 22); c.restore()
     sc.cam = Cam((0, -2.5, 1.25), (0, 0, 1.22), 1500); a = ANCHOR; sit(a, t, (-.62, .1, .62), 14, 3, None); fl = .10 * (zero > 0) * zero; a.hip = a.hip + V(0, 0, fl); a.face = FACE[face] if isinstance(face, str) else face; a.hyaw = 10 + 8 * wob(t, .23); a.hpitch = 3 * wob(t, .5); a.talk = (abs(wob(t, 2.3)) * .7 + .2 * abs(wob(t, 3.7))) if line is None or lt(line) < t < lt(line, 1) else 0
     g_ = .5 + .5 * wob(t, .45); a.hands = [V(-.88, -.20, .98 + .06 * wob(t, .7)), V(-.36 + .10 * g_, -.24, 1.02 + .14 * g_)]; a.draw(sc, lower=False)
+    if mid: mid()                                              # things behind the desk (an empty chair …)
     c.move_to(-20, 812); c.line_to(980, 812); c.line_to(1060, H); c.line_to(-20, H); c.close_path(); sc.fill("16336e", 10); c.rectangle(-20, 796, 1010, 34); sc.fill("e8edf6", 8)
     for k in range(3): q = k * .9; X = 90 + k * 210; Y = 770 - zero * (80 + 50 * k) + 10 * wob(t, .5, k) * zero; c.save(); c.translate(X, Y); c.rotate(zero * .6 * wob(t, .2, k) + .05 * k); c.rectangle(-60, -8 if zero < .1 else -42, 120, 14 if zero < .1 else 84); sc.fill("ffffff", 5); c.restore()
     rrect(c, 60, 914, 1800, 86, 14); sc.fill("e0403a", 7); tx(sc, 960, 957, head, 64, "ffffff", None); c.rectangle(0, 1004, W, 76); sc.fill("0a1430", None); s = (sub + "   •   ") * 6; c.save(); c.rectangle(0, 1004, W, 76); c.clip(); tx(sc, 40 - (t * 190) % 900, 1044, s, 40, "ffd24a", None, align=0); c.restore(); rrect(c, 60, 60, 250, 84, 14); sc.fill("e0403a", 7); tx(sc, 185, 104, "LIVE", 54, "ffffff", None)

@@ -4,7 +4,7 @@ from a_lib import *
 from adults_a import kroom
 SC = {}
 def dogs(sc, t, pts, flip=1, s=1.0):
-    for k, p in enumerate(pts): sc.at(sc.cam.depth(p), lambda p=p, k=k: (sc.shadow((p[0], p[1], .004), .25 * s, .08 * s), S25.dog(sc, V(p[0], p[1], .34 * s), t + k * .7, False, s * (.85 + .1 * (k % 3)), 0.0, flip)))
+    for k, p in enumerate(pts): sc.at(sc.cam.depth(p), lambda p=p, k=k: (sc.shadow((p[0], p[1], .004), .25 * s, .08 * s), S25.dog(sc, V(p[0], p[1], .2 * s * (.85 + .1 * (k % 3))), t + k * .7, False, s * (.85 + .1 * (k % 3)), 0.0, flip)))
 def board_list(sc, t, title, items, times, sub=None):
     c = sc.c; vgrad(sc, "c8b89a", "a89878"); c.rectangle(160, 90, 1600, 900); c.set_source_rgb(*C("8a5a34")); c.fill(); c.rectangle(190, 120, 1540, 840); c.set_source_rgb(*C("fbfbf6")); c.fill()
     tx(sc, W / 2, 210, title, 80, "e8392e", None)
@@ -135,7 +135,7 @@ def c16(t):
         if n == "law": wave(m, 1, t, .3)
         stand(M, t, top + V(.9, .1, 0), -20, 7); M.face = FACE["smile"]; M.talk = talk("c16_marcus1", t); reach(M, 0, m.joints()[4] + V(.25, 0, -.35)) if n == "marcus" else None; sc.at(d(M.hip), lambda: M.draw(sc))
         for k, ch in enumerate(CROWD[:12] + [h, L]):
-            x, y = -4 + (k % 7) * 1.3, -4.2 - (k // 7) * 1.2; stand(ch, t, (x, y, 0), 180 if n == "marcus" else 0, k); ch.face = FACE["happy" if n != "boo" else "angry"]; look(ch, m.joints()[4])
+            x, y = -4 + (k % 7) * 1.3 + (k // 7) * .65, -4.2 - (k // 7) * 1.2; stand(ch, t, (x, y, 0), 180 if n == "marcus" else 0, k); ch.face = FACE["happy" if n != "boo" else "angry"]; look(ch, m.joints()[4])
             if n == "vote" and (k * 7) % 10 < 9: f_, r_ = side(ch); ch.hands[1] = ch.hip + r_ * .2 + V(0, 0, .8 * ch.k * ss(t, lt("c16_n1") + .1 * (k % 5), lt("c16_n1") + .4 + .1 * (k % 5)))
             if n == "boo": [reach(ch, i, ch.joints()[4] + V((-.12, .12)[i], -.12, -.04)) for i in (0, 1)]
             sc.at(d(ch.hip), lambda ch=ch, x=x, y=y: (sc.shadow((x, y, .004), .22, .1, .25), ch.draw(sc)))

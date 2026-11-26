@@ -17,15 +17,16 @@ def bike(sc, p, yaw, t, ch, rate=1.2, col="e8392e"):
         base(ch, t, 3); ch.yaw = yaw; ch.hyaw = yaw; ch.hip = seat + V(0, 0, .06 * ch.k); ch.feet = pd; ch.knee = f + V(0, 0, .3); ch.hands = [bar - r * .2, bar + r * .2]; ch.lean = V(.25, 0); ch.draw(sc)
 def night_town(sc, t, lit, seed=0, far=1.0):
     """dusk town seen from the hill: lit = 0..1 per row (front → back), houses as window grids"""
-    rng = np.random.default_rng(seed); c = sc.c
-    for row in range(5):
+    rng = np.random.default_rng(seed); c = sc.c; HS = []
+    for row in range(5):                                   # same random layout as before, but every house is drawn far → near
         for k in range(16):
-            x = -24 + k * 3.1 + rng.uniform(-.6, .6); y = 14 + row * 5.0; h_ = rng.uniform(2.5, 5)
+            x = -24 + k * 3.1 + rng.uniform(-.6, .6); y = 14 + row * 5.0; h_ = rng.uniform(2.5, 5); HS.append((row, x, y, h_, [rng.uniform(0, 1) for j in range(2)]))
+    for row, x, y, h_, rs in sorted(HS, key=lambda e: -sc.cam.depth(V(e[1], e[2], e[3] / 2))):
             sc.box((x, y, h_ / 2), (2.4, 2.4, h_), mix("3a3f5a", "2a2e45", row / 5), line=.01)
             on = lit[row] if isinstance(lit, (list, tuple)) else lit
             for j in range(2):
                 q = V(x - .5 + j * 1.0, y - 1.22, h_ * .6); X, Y = sc.cam.pr(q); s_ = sc.cam.px(q, .22)
-                if on > rng.uniform(0, 1): c.rectangle(X - s_, Y - s_, 2 * s_, 2 * s_); c.set_source_rgb(1, .86, .5); c.fill(); sc.glow(X, Y, s_ * 5, "ffd27a", .25)
+                if on > rs[j]: c.rectangle(X - s_, Y - s_, 2 * s_, 2 * s_); c.set_source_rgb(1, .86, .5); c.fill(); sc.glow(X, Y, s_ * 5, "ffd27a", .25)
     for k in range(3):
         on = far
         for j in range(30): X = 200 + k * 650 + (j * 37) % 500; Y = sc.cam.pr((0, 120, 0))[1] - 6 - (j * 13) % 18; c.new_path(); c.arc(X, Y, 3, 0, 7); c.set_source_rgba(1, .85, .5, on * (1 - k * .25)); c.fill()
@@ -65,7 +66,7 @@ def c07(t):
     if n in ("empty", "screens", "maya", "button"):
         cam = {"empty": lambda: K(u, (-1.8, -2.6, 1.7), (-1.2, -2.4, 1.6), (.4, 2.2, 1.3), (.6, 2.2, 1.3), 1200), "screens": lambda: K(u, (0, -2.8, 1.5), (0, -1.6, 1.5), (0, 2.6, 1.6), (0, 2.6, 1.6), 1200), "maya": lambda: K(u, (1.6, -1.2, 1.3), (1.4, -1.0, 1.3), (-.4, .6, 1.05), (-.4, .6, 1.05), 1350), "button": lambda: K(u, (2.0, -.2, 1.6), (1.9, -.1, 1.55), (.8, 1.2, 1.0), (.8, 1.2, 1.0), 1250)}[n]()
         sc = Scene(cam); control(sc, t, 1.0 if n != "empty" else 0.4); d = sc.cam.depth
-        for k, x in enumerate((-1.6, 0, 1.6)): ochair(sc, (x, .8, 0), 180 + 15 * k)
+        for k, x in enumerate((-1.6, 0, 1.6)): sc.at(d(V(x, .8, .5)), lambda x=x, k=k: ochair(sc, (x, .8, 0), 180 + 15 * k))
         if n in ("screens", "maya", "button"):
             kid(sc, m, t, (-.4, .6, 0), 140 if n != "screens" else 180, "scared" if n == "screens" else "angry", 2, talkl="c07_maya1")
             if n in ("maya", "button"): wave(m, 1, t, .2); m.hands[0] = m.hip + V(-.2, -.25, .55)
@@ -173,21 +174,28 @@ def c09(t):
         tx(sc, W * .8, H * .22, "THE LAST", 54, "ffffff", INK, .2, .08); tx(sc, W * .8, H * .3, "PICTURE ON", 54, "ffffff", INK, .2, .08); tx(sc, W * .8, H * .38, "THE INTERNET", 54, "ffd21e", INK, .2, .08); sc.vignette(.25); return sc
     if n == "aisle":
         sc = Scene(K(u, (0, -4, 1.5), (0, -2.4, 1.45), (0, 6, 1.0), (0, 6, 1.0), 1250)); room(sc, ("f4f4f0", "ffffff"), ("d8dce4", "c8ccd4"), "eef0f4", x0=-3.5, x1=3.5, y1=9, z1=3.5, tiles=True)
-        for y in (0, 2.5, 5.0): shelf(sc, -2.1, y, 2.6, t, int(y)); shelf(sc, 2.1, y, 2.6, t, int(y) + 3)
+        for y in (5.0, 2.5, 0): shelf(sc, -2.1, y, 2.6, t, int(y)); shelf(sc, 2.1, y, 2.6, t, int(y) + 3)
         X, Y = sc.cam.pr((0, 8.9, 3.0)); label(sc, X, Y, "CANNED FOOD — LASTS YEARS", 46, "ffffff", "e8392e"); sc.vignette(.25); return sc
     sc = Scene(K(u, (-4, -16, 2.0), (-2, -15, 2.0), (0, 0, 2.0), (0, 0, 2.2), 1150)); hy = sky(sc, t=t); ground(sc, hy, "a8acb4", "c8ccd4"); market(sc, (0, 2), t)
     for k, ch in enumerate([h, m, L] + CROWD[:5]): walk(ch, t, [(lt("c09_n3") + 2, -5 + k * .9, -12 + (k % 3)), (D + 4, -2 + k * .5, -2 + (k % 3) * .4)], k, run=True); ch.face = FACE["det"]; sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (sc.shadow((ch.hip[0], ch.hip[1], .004), .2, .09), ch.draw(sc)))
     sc.flush(); sc.vignette(.28); return sc
 SC["c09"] = c09
 # ------------------------------------------------------------------ the locked supermarket
+def chain_(sc, t, chain=1.0):
+    """Marcus locked the doors from INSIDE: chain + padlock on the inner handles (y≈1.52)"""
+    if chain <= 0: return
+    drop = 1 - chain; pts = [V(-.35 + .07 * k, 1.52, 1.15 - .35 * math.sin(k / 10 * math.pi) * .3 - 1.1 * drop * (k % 3 == 0)) for k in range(11)]
+    for x in (-.15, .15): sc.line([(x, 1.5, .9), (x, 1.5, 1.4)], "aab2bc", .04)
+    for a in pts: sc.ball(a, .03, "aab2bc", .006)
+    sc.box(V(0, 1.55, 1.0 - 1.0 * drop), (.14, .06, .16), "c9a030")
+def glass_(sc, a=.28):
+    """a pale pane over whatever is behind the glass, so it reads as 'behind the doors'"""
+    sc.poly([(-1.2, 1.47, 0), (1.2, 1.47, 0), (1.2, 1.47, 2.9), (-1.2, 1.47, 2.9)], "e4eef6", 0, a=a)
+    c = sc.c; P = [sc.cam.pr(V(*q)) for q in ((-.9, 1.47, 2.6), (-.3, 1.47, 2.6), (-1.0, 1.47, .5), (-1.15, 1.47, .5))]; sc.path(P); c.set_source_rgba(1, 1, 1, a * .6); c.fill()
 def doors(sc, t, chain=1.0):
-    """glass doors of the market at y=1.47, x -1.2..1.2; chain across the handles"""
+    """glass doors of the market at y=1.47, x -1.2..1.2: frame + outer handles (the chain is inside, see chain_)"""
     sc.poly([(-1.2, 1.47, 0), (1.2, 1.47, 0), (1.2, 1.47, 2.9), (-1.2, 1.47, 2.9)], None, .03); sc.line([(0, 1.46, 0), (0, 1.46, 2.9)], INK, .03)
     for x in (-.15, .15): sc.line([(x, 1.44, .9), (x, 1.44, 1.4)], "aab2bc", .04)
-    if chain > 0:
-        drop = 1 - chain; pts = [V(-.35 + .07 * k, 1.42, 1.15 - .35 * math.sin(k / 10 * math.pi) * .3 - 1.1 * drop * (k % 3 == 0)) for k in range(11)]
-        for a in pts: sc.ball(a, .03, "aab2bc", .006)
-        sc.box(V(0, 1.4, 1.0 - 1.0 * drop), (.14, .06, .16), "c9a030")
 def c10(t):
     D = CH["c10"]["dur"]; w = wt; n, u, s = shot(t, [(0, "locked"), (lt("c10_marcus1") - .1, "marcus"), (lt("c10_n2") - .1, "walk"), (lt("c10_maya1") - .1, "maya"), (w("c10_maya1", "fourteen") - .2, "book"), (w("c10_maya1", "Babies") - .1, "maya2"), (lt("c10_n3") - .1, "think"), (w("c10_n3", "unlocks") - .2, "unlock")], D); h, m, L, M = HERO, MAYA, LEO, MARCUS
     if n == "book":
@@ -207,6 +215,7 @@ def c10(t):
     for k, tm in enumerate(TEAM): stand(tm, t, ((-.75, -.2, 1.0)[k] if n not in ("marcus", "think") else (-1.0, -.5, 1.25)[k], (3.0 + .2 * (k % 2)) if n not in ("marcus", "think") else 3.7, 0), 0, k + 10); tm.face = FACE["smug"]; inside.append(tm); tm.hands[k % 2] = tm.hip + V(.1 * (k - 1), -.2, .35)
     if n in ("maya", "maya2"):                             # inside, over Marcus's shoulder: Maya outside the glass
         doors(sc, t, 1.0); [sc.line([(x, 1.47, 0), (x, 1.47, 2.9)], "e8e8e8", .06) for x in (-1.25, 1.25)]; sc.line([(-1.25, 1.47, 2.9), (1.25, 1.47, 2.9)], "e8e8e8", .06)
+        sc.at(d(V(0, 1.47, 1.2)), lambda: glass_(sc, .2)); sc.at(d(V(0, 1.52, 1.1)), lambda: chain_(sc, t, 1.0))
         stand(m, t, (0, .6, 0), 180, 2); m.face = FACE["det"] if n == "maya" else FACE["angry"]; m.talk = talk("c10_maya1", t); m.hands[1] = m.hip + V(.22, .15, .35); sc.at(d(m.hip), lambda: (m.draw(sc), sc.box(m.hands[1] + V(0, .05, .04), (.2, .03, .26), "e05a5a")))
         for k, ch in enumerate((h, L)): kid(sc, ch, t, (-1.0 + 2.0 * k, -.2, 0), 180 + (-40 if k == 0 else 40), "neutral", k)
         for ch in inside:
@@ -215,7 +224,7 @@ def c10(t):
     market(sc, (0, 2), t, lit=False); sc.flush()
     c.save(); sc.path(sc.cam.poly([V(-1.2, 1.46, 0), V(1.2, 1.46, 0), V(1.2, 1.46, 2.9), V(-1.2, 1.46, 2.9)])); c.clip(); vgrad(sc, "d8e4ec", "b8c8d4")
     for ch in inside: ch.draw(sc)
-    c.restore(); doors(sc, t, 1.0 - ss(t, w("c10_n3", "unlocks") + .3, w("c10_n3", "unlocks") + .9) if n == "unlock" else 1.0)
+    chain_(sc, t, 1.0 - ss(t, w("c10_n3", "unlocks") + .3, w("c10_n3", "unlocks") + .9) if n == "unlock" else 1.0); glass_(sc); c.restore(); doors(sc, t)
     if n in ("walk", "think", "unlock", "locked", "marcus"):
         mp = V(0, .6, 0) if n != "walk" else V(2.5 - 2.5 * ss(s, 0, 2.5), -.8 + 1.4 * ss(s, 0, 2.5), 0)
         if n == "walk": walk(m, t, [(lt("c10_n2"), 2.6, -.9), (lt("c10_n2") + 2.6, .2, .6)], 2)

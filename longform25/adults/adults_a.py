@@ -58,11 +58,13 @@ def c01(t):
         pr = .05 * max(0, wob(t, 1.4)); hp.feet = [V(-.72, .98, .12 + pr), V(-.42, .98, .16)]; hp.knee = V(0, 0, 1); hp.hands = [hp.hip + V(-.22, -.12, -.06), hp.hip + V(.22, -.12, -.06)]; hp.lean = V(-.25, 0); hp.face = FACE["det"]; hp.hpitch = 10
         hp.draw(sc); sc.vignette(.3); return sc
     if n in ("steer", "maya", "hedge"):
-        cam = {"steer": lambda: K(u, (.75, -.6, 1.95), (.65, -.45, 1.95), (-.55, .3, 1.75), (-.55, .3, 1.78), 1250), "maya": lambda: K(u, (.45, 1.0, 1.95), (.4, 1.05, 1.95), (-.55, .2, 1.95), (-.55, .2, 1.97), 1250), "hedge": lambda: K(u, (-.4, -1.4, 1.6), (-.45, -1.2, 1.6), (-.4, 1.3, 1.5), (-.4, 1.3, 1.5), 1300, 1500)}[n]()
-        sc = Scene(cam); hd = ss(t, w("c01_maya1", "Brake", 1) - .1, lt("c01_n3")) if n == "hedge" else 0; bus_int(sc, t, 1.0, hedge_=hd); turn = 25 * wob(t, .7); stand(m, t, (-.55, .25, 1.06), 0, 2); m.face = face_at(t, [(0, "det"), (lt("c01_maya1"), "scared")]); m.talk = talk("c01_maya1", t)
+        cam = {"steer": lambda: K(u, (.75, -.6, 1.95), (.65, -.45, 1.95), (-.55, .3, 1.75), (-.55, .3, 1.78), 1250), "maya": lambda: K(u, (.45, 1.0, 2.15), (.4, 1.05, 2.15), (-.55, .2, 2.2), (-.55, .2, 2.22), 1250), "hedge": lambda: K(u, (.45, -1.5, 2.05), (.4, -1.3, 2.05), (.05, 1.3, 1.75), (.05, 1.3, 1.75), 1250, 1400)}[n]()
+        sc = Scene(cam); hd = ss(t, w("c01_maya1", "Brake", 1) - .1, lt("c01_n3")) if n == "hedge" else 0; bus_int(sc, t, 1.0, hedge_=hd); turn = 25 * wob(t, .7); stand(m, t, (-.55, .25, 1.06), 180, 2); m.face = face_at(t, [(0, "det"), (lt("c01_maya1"), "scared")]); m.talk = talk("c01_maya1", t)
         wp = V(-.55, .55, 1.35); a = math.radians(turn); reach(m, 0, wp + V(-.26 * math.cos(a), -.05, .26 * math.sin(a))); reach(m, 1, wp + V(.26 * math.cos(a), -.05, -.26 * math.sin(a))); m.lean = V(.15, 0)
-        if n == "maya": m.hyaw = 150; m.lean = V(.25, 0)
-        m.draw(sc); wheel(sc, wp, t, turn); sc.vignette(.3); return sc
+        if n == "maya": m.hyaw = 140; m.lean = V(.25, 0)
+        if sc.cam.depth(wp) > sc.cam.depth(m.hip + V(0, 0, .3)): wheel(sc, wp, t, turn); m.draw(sc)          # wheel beyond her: her body hides it
+        else: m.draw(sc); wheel(sc, wp, t, turn)
+        sc.vignette(.3); return sc
     if n in ("horn", "pigeons"):
         sc = Scene(K(u, (1.0, 1.0, 1.35), (.95, 1.02, 1.32), (.2, .45, .72), (.2, .45, .74), 1250) if n == "horn" else K(u, (0, -.6, 1.4), (0, -.4, 1.4), (0, 1.3, 1.5), (0, 1.3, 1.55), 1250))
         bus_int(sc, t, 1.0, pigeons=clamp((t - w("c01_leo1", "Move")) / 1.4) if n == "pigeons" else 0); hp = V(.15, .84, .9); stand(L, t, (.3, .42, 0), 180 + 15, 3); L.face = FACE["laugh"]; L.talk = talk("c01_leo1", t); press = max(0, wob(t, 4)) * .04; reach(L, 0, hp + V(0, -.05, press)); reach(L, 1, hp + V(.08, -.05, press)); L.hyaw = 150; L.hpitch = 10
@@ -110,9 +112,8 @@ def c03(t):
 SC["c03"] = c03
 def news_empty(sc, t, spin=1.0):
     old = EN_draw = S25.ANCHOR.draw; S25.ANCHOR.draw = lambda *a, **k: None
-    try: S25.news_studio(sc, t, "BREAKING NEWS", "", zero=0)
+    try: S25.news_studio(sc, t, "BREAKING NEWS", "", zero=0, mid=lambda: ochair(sc, (-.62, .55, 0), 180 + t * 140 * spin * math.exp(-.08 * t)))
     finally: S25.ANCHOR.draw = old
-    ochair(sc, (-.62, .55, 0), 180 + t * 140 * spin * math.exp(-.08 * t))
 def c04(t):
     D = CH["c04"]["dur"]; w = wt; n, u, s = shot(t, [(0, "chat"), (lt("c04_maya1") - .1, "maya"), (lt("c04_n2") - .1, "tv"), (w("c04_n2", "chair") - .2, "chair"), (lt("c04_n3") - .1, "earth"), (w("c04_n3", "everyone") - .1, "eighteen"), (lt("c04_n4") - .1, "count"), (w("c04_n4", "Almost") - .1, "third")], D); h, m, L = HERO, MAYA, LEO
     if n == "chat":

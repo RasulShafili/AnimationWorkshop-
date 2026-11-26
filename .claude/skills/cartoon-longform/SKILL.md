@@ -280,6 +280,12 @@ gravity/scenes_*.py = 34 chapters as `SC["cXX"](t) -> Scene`. 7:38 at 1080p30 re
 - Teasers: crop follows the hero, but signs/shadows/doors need an `OV` centre override.
 
 ### 2.5D lessons from adults_gone (2026-11-26)
+- DRAW ORDER (owner saw "things on top that should be behind"): every prop drawn straight onto the canvas ignores depth. Rules:
+  a prop that can overlap a character or another prop goes through `sc.at(depth, fn)`; loops of repeated props (shelves, houses, chairs) run far → near;
+  a door/sign that sits on a wall is drawn BEFORE the columns/props in front of it; a car's open door goes on the side facing the camera;
+  a 2D overlay (news desk, lower third) gets a `mid=` hook so 3D things behind it are drawn first; something "behind glass" gets a pale pane over it;
+  two crowd rows: offset the back row by half a gap, or high cameras stack heads; a driver faces the windshield (yaw 180) and the wheel is drawn before her when the camera is behind.
+- QA for draw order: on the 1-fps sheets look at every overlap and ask "which is nearer the camera?" — not only "is the frame empty".
 - Build a project prop file (`a_lib.py`) + 3 scene files; reuse sets25/water25/proto sets (street, klass + `S25.BOARD`, living/tv, bedroom, kitchen `KIT.kitchen(sc, .3)`).
 - While Chatterbox runs only ~1 GB RAM is free and stills slow it down: `SP=3 python3 show.py stills …`, no motion scan/render until it ends.
 - `shot()` cues: always a rare word; a cue on "The",1 jumped ahead of the later cues.

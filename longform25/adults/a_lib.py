@@ -41,9 +41,14 @@ def puff(sc, p, t, n=4, col=(.85, .87, .9), rate=1.0, rise=.6, size=.12):
     for k in range(n):
         u = (t * rate + k / n) % 1; q = V(*p) + V(-.25 * u, .05 * wob(t, .3, k), rise * u); X, Y = sc.cam.pr(q); r = sc.cam.px(q, size * (.4 + u)); sc.c.new_path(); sc.c.arc(X, Y, r, 0, 7); sc.c.set_source_rgba(*col, .55 * (1 - u)); sc.c.fill()
 def car_open(sc, p, yaw, col, t, run=True):
-    """car with the driver's door wide open (+ exhaust when the engine runs)"""
-    p = V(*p); vehicle(sc, p, yaw, col); f = dirv(yaw); r = V(-f[1], f[0], 0); hinge = p + f * .15 + r * .86
-    dv = unit(r * .55 - f * .83); A = [hinge + V(0, 0, .45), hinge + dv * .95 + V(0, 0, .45), hinge + dv * .95 + V(0, 0, 1.05), hinge + V(0, 0, 1.4)]; sc.poly(A, col, .016); sc.poly([hinge + V(0, 0, 1.02) + dv * .1, hinge + dv * .85 + V(0, 0, 1.02), hinge + dv * .85 + V(0, 0, 1.0), hinge + V(0, 0, 1.36) + dv * .1], "9fc8e0", .01)
+    """car with the driver's door wide open (+ exhaust when the engine runs); the door is on the side that faces the camera,
+    and it is drawn before the body when it is the far side (so the body hides it), after the body when it is near"""
+    p = V(*p); f = dirv(yaw); r = V(-f[1], f[0], 0); sg = 1 if (sc.cam.p - p) @ r > 0 else -1; hinge = p + f * .15 + r * sg * .86
+    dv = unit(r * sg * .55 - f * .83)
+    def door():
+        A = [hinge + V(0, 0, .45), hinge + dv * .95 + V(0, 0, .45), hinge + dv * .95 + V(0, 0, 1.05), hinge + V(0, 0, 1.4)]; sc.poly(A, mul(col, .9), .016)
+        sc.poly([hinge + V(0, 0, 1.02) + dv * .1, hinge + dv * .85 + V(0, 0, 1.02), hinge + dv * .85 + V(0, 0, 1.0), hinge + V(0, 0, 1.36) + dv * .1], "9fc8e0", .01)
+    vehicle(sc, p, yaw, col); door()
     if run: puff(sc, p - f * 2.05 - r * .5 + V(0, 0, .3), t, 5, rate=1.4)
 def mower(sc, p, yaw, t):
     p = V(*p); sc.box(p + V(0, 0, .22), (.7, .55, .25), "2fa04a", yaw=yaw); f = dirv(yaw); sc.box(p + V(0, 0, .42) - f * .1, (.38, .4, .2), "3a3f4a", yaw=yaw); r = V(-f[1], f[0], 0)
@@ -79,10 +84,10 @@ def shelf(sc, x, y, L, t, seed=0, empty=0.0, yaw=0.0):
 # ------------------------------------------------------------------ buildings
 def townhall(sc, p, t, flag=True):
     x, y = p; sc.box((x, y + 1.5, 3.0), (11, 4, 6.0), "efe4cf", line=.02); sc.poly([(x - 5.8, y - .6, 6.0), (x + 5.8, y - .6, 6.0), (x, y - .6, 8.2)], "d8c9a8", .03)
+    sc.poly([(x - .75, y - .52, .3), (x + .75, y - .52, .3), (x + .75, y - .52, 2.9), (x - .75, y - .52, 2.9)], "7a4a2a", .014)   # door: on the wall, behind the columns
     for k in range(6): cx = x - 3.75 + k * 1.5; sc.cyl((cx, y - .25, .9), .28, 5.1, "fbf6ea", top=1.0)
     for j in range(5): sc.box((x, y - .9 - j * .32, .09 + j * .18), (7.6 - j * .0, .34, .18 * (j + 1)), "d9d2c4", line=.012) if False else sc.box((x, y - 1.0 - j * .3 + 1.2, .09 + .18 * (4 - j)), (7.8, .3 + 0 * j, .18), "dcd5c6", line=.01)
     sc.box((x, y - .32, 5.55), (6.4, .1, .7), "3d6ab0"); wtx(sc, (x, y - .38, 5.55), "TOWN HALL", .48, "ffffff", None)
-    sc.box((x, y - .45, 1.6), (1.5, .08, 2.6), "7a4a2a")
     if flag: m = V(x, y + .2, 8.2); sc.line([m, m + V(0, 0, 2.2)], INK, .07); pts = [m + V(0, 0, 2.15), m + V(1.1, 0, 2.15 + .1 * wob(t, 1.3)), m + V(1.1, 0, 1.55 + .1 * wob(t, 1.3, 1)), m + V(0, 0, 1.55)]; sc.poly(pts, "3d86e0", .012)
 def market(sc, p, t, lit=True, name="SUPERMARKET"):
     x, y = p; sc.box((x, y + 2, 2.3), (14, 5, 4.6), "f2efe8", line=.02); sc.box((x, y - .56, 4.0), (14.1, .12, 1.2), "e8392e" if name == "SUPERMARKET" else "3d6ab0"); wtx(sc, (x, y - .63, 4.0), name, .8, "ffffff", None)
