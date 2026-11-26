@@ -20,3 +20,7 @@ package_adults.py → thumb.py (A "NO ADULTS!", B "MOM?!").
 - Kitchen from the gravity film floats its magnets after t≈.6 → call `KIT.kitchen(sc, .3)`.
 - Glyphs ⚡ ♥ 💬 are not in Montserrat → draw the shape or leave it out.
 - While Chatterbox runs (~3.7 GB) only 1 GB is free: stills with SP=3 processes, no motion scan / render until it ends.
+## State 2026-11-26 16:10 — DONE (8:01.7, −14.4 LUFS), delivered to ~/Desktop/YouTube_uzun_videolar/adults_gone (video, srt, title/description/19 chapters,
+thumbnail drafts A "NO ADULTS!" + B "MOM?!", Gemini prompt, teasers 1_bus 22.7 s / 2_supermarket 32.5 s / 3_radio 31.2 s). Not published.
+Retakes: c01_maya1 ("Like" before Brake), c17_n4 (extra "It's"), c19_mom1 (lost "Are") — old takes in vo/alt/*_old.wav; atempo c06_leo1 .9, c10_n2 .88, c12_n1 .93.
+Draft QA: all 41 sheets read; 20 fixes applied, chapters c04 c05 c07 c10–c12 c14–c19 re-rendered, fixes sample-checked on the final.

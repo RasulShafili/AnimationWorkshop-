@@ -278,3 +278,11 @@ gravity/scenes_*.py = 34 chapters as `SC["cXX"](t) -> Scene`. 7:38 at 1080p30 re
 - Lying → sitting can't be blended: hide it with a punch-in cut. "It's quiet" still needs room tone (no digital silence).
 - Speech rate check: < 2 or > 4.4 words/s → retake or atempo (.84–.94).
 - Teasers: crop follows the hero, but signs/shadows/doors need an `OV` centre override.
+
+### 2.5D lessons from adults_gone (2026-11-26)
+- Build a project prop file (`a_lib.py`) + 3 scene files; reuse sets25/water25/proto sets (street, klass + `S25.BOARD`, living/tv, bedroom, kitchen `KIT.kitchen(sc, .3)`).
+- While Chatterbox runs only ~1 GB RAM is free and stills slow it down: `SP=3 python3 show.py stills …`, no motion scan/render until it ends.
+- `shot()` cues: always a rare word; a cue on "The",1 jumped ahead of the later cues.
+- Cameras inside a box (bus body, closet, market wall) give a one-colour frame or a giant head; check every new shot on a still. Over-the-shoulder: keep the near head at the frame edge.
+- Split screen: truck each camera so its subject sits at W/4 or 3W/4 (dx = 480·dist/f).
+- Full 1-fps read of the draft found ~20 small issues (static 5-s inserts, label under the caption, missing glyphs ✓ ⚡ ♥, crowd without shadows = floating); fix, re-render only those chapters, sample-check the final.
