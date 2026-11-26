@@ -28,3 +28,4 @@
 - [2.5D engine](two-point-five-d-engine.md) — owner rejected real 3D (motion errors); 3D-looking sets + 2D stick cast that turns, lots of movement; longform25; motion_check before showing
 - [Desktop layout](desktop-layout.md) — Desktop sorted by category 2026-11-25; new deliverables go into YouTube_uzun_videolar/, YouTube_shorts/ etc., not the root
 - [Detail + realism QA](detail-and-realism-qa.md) — owner found 25 errors after my 'fixed': check realism, floating parts, double-drawn limbs, wheel direction, empty backgrounds
+- [Teaser hook + voice CTA](teaser-hook-and-voice-cta.md) — teasers open cold on the climax and end with a spoken 'watch the full video on our channel', no silent end

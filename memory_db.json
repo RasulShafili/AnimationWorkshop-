@@ -46,7 +46,8 @@
     "molasses-tank",
     "gravity-teaser-dunk",
     "rain-teaser-wave",
-    "emu-war-army"
+    "emu-war-army",
+    "adults-teaser-bus"
   ],
   "history": [
     {
@@ -923,6 +924,24 @@
           "service": "instagram",
           "name": "whatif.lab_daily",
           "post_id": "6b08025be52242758a1ed53e"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "adults-teaser-bus",
+      "title": "Day 6 Without Adults… We Took The School Bus 😳",
+      "published_at": "2026-11-26 18:54:36 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b087ffa3accdac92ceffcb7"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b0880069068b6e079570109"
         }
       ],
       "status": "published"

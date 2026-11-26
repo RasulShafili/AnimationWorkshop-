@@ -44,3 +44,9 @@ double-drawn kids (3–4 arms) fixed; tomato field depth-sorted + farm behind; f
 walkie held in front with hands over it. Detail pass: town square, school, country road, mega store lot, fire street, window room,
 kid's bedroom, playground, basement, WC, night town with roofs. wtx in a_lib now prints text in the surface plane (n=normal).
 Lessons → cartoon-longform SKILL.md "Owner's 25-screenshot review".
+## Teasers v2 2026-11-26 22:50 (owner: "start with something gripping; no silence at the end, a voice says full video on the channel")
+- Cold open: bus "Brake! Brake!", supermarket Marcus "The team gets the chips…", radio "Sweetie? Is that you?".
+- Spoken CTAs are in vo/cta/*_1.wav (narrator ref).
+- Results after +dB/alimiter: bus 26.6 s, supermarket 36.8 s, radio 35.0 s, about −13.6 LUFS.
+- The old teasers are in adults_gone/teasers/old_v1/.
+- bus was posted to IG and TikTok at 22:51. YouTube was held for the Buffer 24 h limit.

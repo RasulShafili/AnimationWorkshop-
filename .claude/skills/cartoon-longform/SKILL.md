@@ -132,6 +132,11 @@ banner). Part 2 script: `longform/hearing-100x-part2/SCRIPT.md`. Copy the projec
   (= 14:00 ET), no Premiere on a small channel.
 - Next day: a **vertical teaser Short** from the climax (blurred-fill 9:16 + hook top + "FULL STORY ON THE CHANNEL"),
   posted to all 3 platforms via `share_video.py`; the owner sets "Related video" to the long video in Studio.
+  **Owner rule 2026-11-26:** the teaser must grab the viewer in second 1 and must never end on a silent card.
+  - Open cold on the loudest 2–3 s of the clip (for example "Brake! Brake!" or "Sweetie? Is that you?"), then play the story from its start.
+  - End with a spoken narrator line in the video's own voice: a question, then "Watch the full video on our channel!"
+  - Make the end-card hold = the line's length + 0.5 s.
+  - Reference: `longform25/adults/teaser.py` (`segs[0]` = cold open, `cta=` file in `vo/cta/`).
 - Ask the owner for Studio → Reach (impressions, CTR) and retention screenshots after 2–3 days; adapt the next part.
 
 ## 8. Engine backlog (do these to close the gap with the reference)

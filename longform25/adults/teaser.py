@@ -6,9 +6,11 @@ import rshow as SH
 from show25 import *
 from PIL import Image, ImageFilter, ImageEnhance
 LN_ = {l["id"]: l for l in GLOB["lines"]}; A_ = lambda i, d=0: round((LN_[i]["t0"] + d) * 30) / 30; B_ = lambda i, d=0: round((LN_[i]["t1"] + d) * 30) / 30; CE = lambda c: round((CH[c]["off"] + CH[c]["dur"]) * 30) / 30
-T = {"bus": dict(segs=[(0.0, CE("c01"))], focus=["MAYA", "LEO", "HERO"], hook="DAY 6 WITHOUT ADULTS:\\NWE TOOK THE BUS"),
-     "lock": dict(segs=[(A_("c09_n3", -.3), CE("c10"))], focus=["MARCUS", "MAYA"], hook="HE LOCKED THE\\NSUPERMARKET"),
-     "radio": dict(segs=[(A_("c17_n2", -.3), CE("c18"))], focus=["HEROPJ", "MOM"], hook="I CALLED MOM\\NON THE RADIO...")}
+CTA = "/home/rasul/Desktop/Animations/longform25/adults/vo/cta/"   # spoken end line ("… Watch the full video on our channel!") — no silent end card
+T = {"bus": dict(segs=[(9.7, 13.0), (0.0, CE("c01"))], focus=["MAYA", "LEO", "HERO"], hook="DAY 6 WITHOUT ADULTS:\\NWE TOOK THE BUS", cta="bus_1"),
+     "lock": dict(segs=[(225.85, 228.8), (A_("c09_n3", -.3), CE("c10"))], focus=["MARCUS", "MAYA"], hook="HE LOCKED THE\\NSUPERMARKET", cta="lock_1"),
+     "radio": dict(segs=[(425.05, 427.85), (A_("c17_n2", -.3), CE("c18"))], focus=["HEROPJ", "MOM"], hook="I CALLED MOM\\NON THE RADIO...", cta="radio_1")}
+# segs[0] = cold open: the loudest moment of the teaser plays first (hook in second 1), then the story from its start
 def WT(l, w, d=0, n=0): return CH[l[:3]]["off"] + wt(l, w, n) + d
 OV = []   # (from, to, centre x, zoom): where a sign / door matters more than a face
 FG = 1180; FW = FG * 16 // 9; TOP = 370
@@ -31,7 +33,7 @@ def comp(a):
     fw, fh_ = int(FW * zm), int(FG * zm); fg = im.resize((fw, fh_), Image.LANCZOS); L = int(max(0, min(fw - 1080, x / 1920 * fw - 540))); bg.paste(fg.crop((L, 0, L + 1080, fh_)), (0, TOP + (FG - fh_) // 2)); bg.save(out, quality=93)
 def main(n):
     from multiprocessing import Pool
-    t = T[n]; I = [i for a, b in t["segs"] for i in range(round(a * 30), round(b * 30))]; d = f"{SH.O}/tz_{n}"; os.makedirs(d, exist_ok=True)
+    t = T[n]; I = [i for a, b in t["segs"] for i in range(round(a * 30), round(b * 30))]; d = f"{SH.O}/tz2_{n}"; os.makedirs(d, exist_ok=True)
     with Pool(10) as p: R = p.map(probe, [(i, t["focus"]) for i in I], chunksize=8)
     shots = []; prev = None
     for k, (i, x, key) in enumerate(R):
@@ -41,7 +43,8 @@ def main(n):
     for s in shots:
         v = [R[k][1] for k in s]; ok = [q for q in v if q is not None]; med = np.median(ok) if len(ok) > len(v) * .3 else 960; v = np.array([q if q is not None else med for q in v], float); w = min(21, len(v)); ker = np.hanning(2 * w + 3)[1:-1]; pad = np.pad(v, w, mode="edge"); X[s] = np.convolve(pad, ker / ker.sum(), "valid")[:len(v)] if len(v) > 3 else v
     with Pool(10) as p: p.map(comp, [(I[k], float(X[k]), f"{d}/{k:05d}.jpg") for k in range(len(I))], chunksize=8)
-    HOLD = 3.4; dur = len(I) / 30; end = dur + HOLD
+    cta = f"{CTA}{t['cta']}_t.wav"; subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{CTA}{t['cta']}.wav", "-af", "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse", "-ar", "48000", cta], check=True)
+    clen = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", cta], capture_output=True, text=True).stdout); HOLD = clen + .55; dur = len(I) / 30; end = dur + HOLD
     f = lambda s: f"{int(s // 3600)}:{int(s % 3600 // 60):02d}:{s % 60:05.2f}"
     ev = []; acc = 0
     for a, b in t["segs"]:
@@ -68,8 +71,8 @@ Style: End,Montserrat XB,56,&H0030C2F2,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """ + A)
-    fc = "".join(f"[1:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st={b - a - .08}:d=0.08[a{k}];" for k, (a, b) in enumerate(t["segs"])) + "".join(f"[a{k}]" for k in range(len(t["segs"]))) + f"concat=n={len(t['segs'])}:v=0:a=1,apad,atrim=end={end},loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo[au];"
+    fc = "".join(f"[1:a]atrim={a}:{b},asetpts=PTS-STARTPTS,afade=t=in:d=0.05,afade=t=out:st={b - a - .08}:d=0.08[a{k}];" for k, (a, b) in enumerate(t["segs"])) + "".join(f"[a{k}]" for k in range(len(t["segs"]))) + f"concat=n={len(t['segs'])}:v=0:a=1,apad,atrim=end={end}[st];[2:a]adelay={int((dur + .15) * 1000)}|{int((dur + .15) * 1000)},volume=1.15,apad,atrim=end={end}[ct];[st][ct]amix=inputs=2:duration=first,volume=2,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo[au];"
     fc += f"[0:v]tpad=stop_mode=clone:stop_duration={HOLD},ass={d}.ass,drawtext=fontfile=/home/rasul/.local/share/fonts/MontserratXB.ttf:text='@whatif.lab_daily':fontsize=34:fontcolor=white@0.8:x=(w-tw)/2:y=h-120,format=yuv420p[v]"
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "30", "-i", f"{d}/%05d.jpg", "-i", f"{SH.O}/audio.wav", "-filter_complex", fc, "-map", "[v]", "-map", "[au]", "-t", f"{end:.2f}", "-c:v", "libx264", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", f"{SH.O}/teaser_{n}.mp4"], check=True); print(n, round(end, 1), "s", len(shots), "shots")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "30", "-i", f"{d}/%05d.jpg", "-i", f"{SH.O}/audio.wav", "-i", cta, "-filter_complex", fc, "-map", "[v]", "-map", "[au]", "-t", f"{end:.2f}", "-c:v", "libx264", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", f"{SH.O}/teaser_{n}.mp4"], check=True); print(n, round(end, 1), "s", len(shots), "shots")
 if __name__ == "__main__":
     for n in sys.argv[1:] or T: main(n)
