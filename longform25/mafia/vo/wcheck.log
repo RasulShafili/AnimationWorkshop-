@@ -1,0 +1,73 @@
+BAD  c01_n1 5.5s 4.0w/s MISS:eleven,back,seat,hundred,forty | GOT: You're 11 months old and you're in the backseat of a getaway car doing 140 kilometers an hour.
+ok   c01_sal1 1.4s 2.8w/s  | GOT: Hold on, little boss.
+ok   c01_n2 8.0s 3.5w/s  | GOT: Behind you, three black cars. In front of you, a dead end. And the only person in this car who knows the way out is wearing a diaper.
+BAD  c02_n1 7.0s 3.0w/s MISS:were,thirty,four | GOT: One year earlier, you weren't a baby. You are a special agent with the FBI Organized Crime Unit, 34 years old.
+ok   c02_n2 12.6s 3.1w/s  | GOT: For six years you chased one man, Vittorio Bellanti, the biggest mafia boss on the east coast. Real agents have done this. One of them spent
+ok   c02_n3 4.6s 3.7w/s  | GOT: Then, on an icy night during a stakeout, your car slid off a bridge into the river.
+ok   c02_n4 6.6s 2.6w/s  | GOT: And you woke up, tiny, warm, wrapped in a blanket, looking up at a big blurry face.
+ok   c02_don1 1.5s 3.2w/s MISS:nico | GOT: Welcome to the family, Niko.
+ok   c02_n5 6.5s 3.2w/s  | GOT: You know that voice. You listened to it on wiretaps for six years. You've been reborn as the Mafia Boss's baby.
+ok   c03_n1 8.6s 3.3w/s MISS:twenty,thirty | GOT: Problem number one a newborn can only see clearly about 20 or 30 centimeters away Everything else is fog. Your father is a fog with a gold r
+ok   c03_n2 6.4s 4.1w/s  | GOT: Problem number two you can't hold your own head up that takes about four months right now your head is a bowling ball on a noodle
+ok   c03_n3 7.6s 2.8w/s MISS:three | GOT: Problem number 3. You can't talk. Your brain knows two languages and the entire FBI handbook. Your mouth knows one sound.
+BAD  c03_baby1 1.5s 1.3w/s MISS:waaah,waaah | GOT: Wah, wah!
+ok   c03_n4 4.1s 3.6w/s  | GOT: Every time you try to say, I am a federal agent, that's what comes out.
+ok   c03_n5 8.6s 3.1w/s MISS:four,newborns,seventeen | GOT: Problem number 4. Newborn sleep up to 17 hours a day. The best detective in the FBI keeps falling asleep in the middle of his own plan.
+ok   c04_n1 7.7s 3.4w/s  | GOT: Three months later, it's your baptism party. Every important criminal in the city comes to kiss your father's ring and drop an envelope in y
+ok   c04_n2 5.4s 4.2w/s  | GOT: You know all of them. You had their photos on your office wall, and now you finally see how the family really works.
+ok   c04_n3 13.1s 3.0w/s  | GOT: At the top is the boss, your father. Next to him, the underboss, Uncle Sal. The quiet old man with the glasses is the consigliere, the advis
+ok   c04_n4 6.6s 3.2w/s MISS:omert | GOT: and every one of them swore the same oath. Omerta, the code of silence, you never, ever talk to the police.
+ok   c04_n6 8.9s 3.4w/s  | GOT: Becoming a made man, a full member, takes years. Someone has to vouch for you and you have to prove you can be trusted. You got in by being 
+ok   c04_old1 1.9s 2.6w/s  | GOT: He has his father's eyes.
+ok   c04_n5 3.2s 3.1w/s  | GOT: He also has a federal badge number, but nobody asks.
+ok   c05_n1 12.1s 2.8w/s  | GOT: Then you notice something. Every morning, your father's men sweep his office for hidden microphones. Real mob bosses did this. They talked b
+ok   c05_n2 2.1s 2.8w/s  | GOT: but nobody ever checks the baby.
+ok   c05_n3 8.1s 3.0w/s MISS:you,trucks | GOT: They talk about everything in front of you—trucks, money, the new casino, the rival Vasto family. Who is a baby going to tell?
+ok   c05_mom1 4.2s 3.1w/s MISS:whos | GOT: Who is my little angel? You're going to be a doctor. Yes, you are.
+ok   c05_n6 4.3s 3.7w/s  | GOT: Your mom has no idea what her husband does, or what her baby used to do.
+ok   c05_don1 2.1s 3.7w/s  | GOT: Put the numbers in the usual place, Sal.
+ok   c05_n4 2.2s 3.2w/s  | GOT: The usual place is your teddy bear.
+ok   c05_n5 8.2s 3.5w/s MISS:sewn | GOT: Zone Inside It is a little black notebook, every payment, every name, every secret bank account, the most dangerous book in the city, and it
+ok   c06_n1 7.0s 3.6w/s MISS:seven | GOT: Month 7. You need to get a message to the FBI. You can't write, you can barely sit up, so you use what you've got.
+ok   c06_n2 6.8s 3.7w/s  | GOT: At the park, a woman on a bench is pretending to read a newspaper. You know that haircut. It's your old partner, Agent Dana Cole.
+ok   c06_n3 6.2s 3.5w/s MISS:forty | GOT: Your mom puts you on the grass with your alphabet blocks. Your hands are terrible at this. It takes you 40 minutes.
+ok   c06_n4 1.9s 2.1w/s  | GOT: B E A R R
+ok   c06_dana1 3.9s 2.1w/s  | GOT: Bear? Why is that baby staring at me?
+ok   c06_n5 5.3s 3.6w/s  | GOT: She looks at the blocks, she looks at the teddy bear in your stroller, and she writes something down.
+ok   c07_n1 7.1s 3.2w/s MISS:eleven | GOT: MONTH 11 Uncle Sal takes a phone call in the kitchen. The Vasto family wants your father's streets and they're tired of waiting.
+ok   c07_n2 6.6s 3.4w/s  | GOT: Your father laughs about it. You don't. You spent six years listening to these people. You know what a quiet week means.
+ok   c07_n3 8.0s 3.1w/s  | GOT: That night, the whole family drives to dinner. Two blocks from the restaurant you see the same gray van for the third time, no plates.
+ok   c07_n6 7.7s 3.5w/s  | GOT: The van pulls out behind you. Then, a second car. Then, a third. Sal sees them in the mirror and his knuckles go white on the wheel.
+ok   c07_n4 4.5s 3.1w/s  | GOT: So, you do the only thing a baby can do. You scream. Loud. Nonstop.
+ok   c07_mom1 4.0s 2.0w/s MISS:sal | GOT: Okay, okay, so I'll turn around we're going home
+ok   c07_n5 4.3s 3.3w/s  | GOT: Sal spins the car around and the three cars behind you spin around too
+ok   c08_n1 2.2s 2.8w/s  | GOT: which brings us back to here.
+ok   c08_n6 10.7s 3.3w/s  | GOT: Sal floors it through a red light, a fruit stand explodes into oranges, a bus blasts its horn. You slide sideways in your car seat, and hone
+ok   c08_n2 9.9s 3.4w/s  | GOT: Sal is a great driver, but you know these streets better. You sat in parked cars on every one of them for six years. And there's one alley t
+BAD  c08_baby1 1.6s 0.6w/s  | GOT: Left. Left.
+ok   c08_n3 5.2s 2.7w/s  | GOT: Your very first word. Sal turns so hard your pacifier flies across the car.
+ok   c08_n4 11.9s 2.9w/s  | GOT: The alley is exactly one car wide. Sal makes it with two centimeters to spare. The first black car hits the trash cans. The other two jam th
+ok   c08_sal1 1.6s 3.7w/s  | GOT: Did the baby just say left?
+ok   c08_n5 3.5s 3.4w/s  | GOT: From that night on, the whole family calls you the little boss.
+ok   c09_n1 5.2s 3.1w/s  | GOT: But the FBI is getting closer, and here's how the real government finally beat the mafia.
+ok   c09_n2 8.9s 3.5w/s  | GOT: In 1970, America passed a law called RICO. Before it, you could only arrest the man who did the crime. With RICO, you could arrest the boss 
+ok   c09_n3 10.9s 2.8w/s  | GOT: In 1986, a court in New York used it against the bosses of the city's biggest mafia families. Eight men were convicted. Most of them got a h
+ok   c09_n4 3.8s 3.4w/s  | GOT: All the FBI needs is proof, and the proof is in your crib.
+ok   c10_n1 4.5s 3.1w/s MISS:six | GOT: On your first birthday, at 6 in the morning, the front door explodes open.
+ok   c10_dana1 4.1s 2.2w/s  | GOT: FBI. Everybody down. Hands where I can see them.
+ok   c10_n7 6.2s 3.4w/s  | GOT: Your mom is in the kitchen in her bathrobe. Uncle Sal is face down on the carpet, still holding a cannoli.
+ok   c10_n2 8.3s 2.7w/s  | GOT: Agents search everything. The office. The walls. The cars. The freezer. They find nothing. Dana is about to leave with empty hands.
+ok   c10_n3 4.3s 3.5w/s  | GOT: Your father picks you up and holds you tight, and he whispers in your ear,
+ok   c10_don1 2.5s 2.4w/s  | GOT: Whatever happens, Nico, Papa loves you.
+ok   c10_n4 6.6s 3.5w/s MISS:who,sang | GOT: This is the man you hunted for six years. He's also the man who's saying to you every night when you couldn't sleep
+ok   c10_n5 5.6s 3.8w/s  | GOT: You look at the bear, you look at your father, and you throw the bear as hard as a one-year-old can.
+BAD  c10_n6 6.5s 3.9w/s MISS:feet,she,picks,up,she,feels,the,notebook | GOT: It lands right at Dana's beat.
+ok   c10_dana2 1.5s 2.7w/s  | GOT: Thank you, little guy.
+ok   c11_n1 7.1s 3.4w/s  | GOT: Your father gets a hundred years. Uncle Sal decides to talk, and that means you, your mom and Sal all go into witness protection.
+ok   c11_n2 11.3s 3.1w/s MISS:thousand | GOT: That's real, too. Since 1971, the U.S. Marshals have given new names and new lives to more than 19,000 witnesses and their families. They sa
+ok   c11_n3 8.9s 3.1w/s  | GOT: Your new name is Danny. You live in a small town with one bakery, and your mom works there. Uncle Sal coaches Little League. Nobody kisses a
+ok   c11_n4 6.0s 3.5w/s  | GOT: Once a year, a woman with a very familiar haircut comes into the bakery, buys one cannoli, and winks at you.
+ok   c12_n1 7.4s 3.1w/s  | GOT: Five years later, on your sixth birthday, a letter comes. No name, no return address. Inside, there's a drawing of a teddy bear.
+ok   c12_n2 2.7s 2.6w/s  | GOT: and four words in your father's handwriting.
+BAD  c12_don1 1.0s 4.9w/s MISS:i,know | GOT: of who you are.
+ok   c12_n3 6.0s 3.5w/s  | GOT: So would you have thrown the bear tell me in the comments and subscribe because next time your father gets out

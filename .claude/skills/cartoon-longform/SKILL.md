@@ -328,3 +328,28 @@ The owner found 25 errors my own QA had passed. Root causes, and the rule that p
 - **QA must include the owner's eye**: after the 1-fps overlap read, read every sheet again asking (1) does each object look like
   the real thing, (2) does anything float/detach, (3) is anything drawn twice or turning the wrong way, (4) is the background
   empty. Do this BEFORE saying "fixed".
+
+### 2.5D lessons from mafia_baby (2026-11-27, built unattended start to finish)
+- **Project skeleton:** copy rshow/show/timeline/audio/assemble/motion_all/teaser/prep_vo from the last project, then write a prop file (`mlib.py`) that imports the previous one (`from a_lib import *`) and 3 scene files (`maf_a/b/c.py`).
+  - show.py and rshow.py must register the new file's `Char`s in `NAME` before the main block. Otherwise teaser tracking and pose smoothing ignore them.
+- **New voices without new downloads:** make a Kokoro line per voice (`tools/kokoro/say.py am_onyx …`), measure its pitch (librosa pyin), and use it as the Chatterbox `ref`.
+  - Deep boss = am_onyx (84 Hz), big man = am_adam, old man = bm_george.
+  - Baby = a high female ref with exag .8–.85.
+- **Check every take with Whisper before building the timeline.**
+  - It caught a truncated 6.5 s take ("It lands right at Dana's beat") and "of who you are" (missing "I know").
+  - Re-record split by "|", then swap; keep the old takes in vo/alt/.
+- **Under 8:00 after real voices** (7:52): stretch `EXTRA` pauses on the action beats (crash, door, throw, chase), not the talking. That gave 8:08.
+- **`onplane()` is an affine map:** long walls in deep perspective come out skewed or missing. Draw them as real polygons plus line work.
+- **One FreeType error poisons the cairo context:** every later call fails and the whole still turns red.
+  - Guard surface text: skip it when its projected size is under 2 px or over 2500 px, or when it is behind or too close to the camera.
+- **`shot()` returns `(name, progress u, SECONDS s)`.** Anything that must last the whole shot uses `u`: counters, burning paper, u-turns, a route drawn on a map.
+- **`wt()` matches by startswith:** "You" matched "Your". Cue on a rarer word.
+- **Cameras inside a head:** the commonest error this time, seen as a frame filled by hair, a hat, a red dress or a green dumpster.
+  - For every close-up, compute the distance to every character's head and to big props on the camera line.
+  - For a POV, put the camera at the viewer's head, do not draw the viewer, and aim at the other face (`look(DON, sc.cam.p)`), not above it.
+- **Car interiors:** stylised people are taller than a real cabin, so raise the roof to 1.75 m.
+  - Queue the seats by depth.
+  - Put the baby seat in the middle of the back row, so a camera between the front seats sees it.
+  - Leave out the front-seat people when the camera sits between them.
+- **Label overlays must not sit at the bottom:** captions live there. Put scene labels at the top (y 110) and day stamps top-left.
+- **2-second contact sheets of the FINAL** (with captions) caught what the 1.5-second stills could not: labels under captions, handwriting under a caption.

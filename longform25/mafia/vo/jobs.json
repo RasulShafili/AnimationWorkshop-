@@ -1,0 +1,513 @@
+[
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c01_n1.wav",
+"text": "You're eleven months old, and you're in the back seat of a getaway car doing a hundred and forty kilometers an hour.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c01_sal1.wav",
+"text": "Hold on, little boss!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/sal.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c01_n2.wav",
+"text": "Behind you, three black cars. In front of you, a dead end. And the only person in this car who knows the way out is wearing a diaper.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_n1.wav",
+"text": "One year earlier, you weren't a baby. You were a special agent with the FBI, organized crime unit, thirty-four years old.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_n2.wav",
+"text": "For six years you chased one man. Vittorio Bellanti, the biggest mafia boss on the East Coast. Real agents have done this. One of them spent six years undercover inside a mafia family, pretending to be a jewel thief.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_n3.wav",
+"text": "Then, on an icy night during a stakeout, your car slid off a bridge into the river.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_n4.wav",
+"text": "And you woke up. Tiny. Warm. Wrapped in a blanket. Looking up at a big blurry face.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_don1.wav",
+"text": "Welcome to the family, Nico.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/don.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c02_n5.wav",
+"text": "You know that voice. You listened to it on wiretaps for six years. You've been reborn as the mafia boss's baby.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_n1.wav",
+"text": "Problem number one. A newborn can only see clearly about twenty or thirty centimeters away. Everything else is fog. Your father is a fog with a gold ring.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_n2.wav",
+"text": "Problem number two. You can't hold your own head up. That takes about four months. Right now your head is a bowling ball on a noodle.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_n3.wav",
+"text": "Problem number three. You can't talk. Your brain knows two languages and the entire FBI handbook. Your mouth knows one sound.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_baby1.wav",
+"text": "Waaah! Waaah!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/hale.wav",
+"exag": 0.85,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_n4.wav",
+"text": "Every time you try to say, I am a federal agent, that's what comes out.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c03_n5.wav",
+"text": "Problem number four. Newborns sleep up to seventeen hours a day. The best detective in the FBI keeps falling asleep in the middle of his own plan.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n1.wav",
+"text": "Three months later, it's your baptism party. Every important criminal in the city comes to kiss your father's ring and drop an envelope in your crib.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n2.wav",
+"text": "You know all of them. You had their photos on your office wall. And now you finally see how the family really works.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n3.wav",
+"text": "At the top is the boss, your father. Next to him, the underboss, Uncle Sal. The quiet old man with the glasses is the consigliere, the advisor. Below them are the captains, and every captain runs a crew of soldiers.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n4.wav",
+"text": "And every one of them swore the same oath. Omert\u00e0. The code of silence. You never, ever talk to the police.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n6.wav",
+"text": "Becoming a made man, a full member, takes years. Someone has to vouch for you, and you have to prove you can be trusted. You got in by being born.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_old1.wav",
+"text": "He has his father's eyes.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/old.wav",
+"exag": 0.5,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c04_n5.wav",
+"text": "He also has a federal badge number. But nobody asks.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n1.wav",
+"text": "Then you notice something. Every morning, your father's men sweep his office for hidden microphones. Real mob bosses did this. They talked business on long walks outside, because the FBI can't bug a sidewalk.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n2.wav",
+"text": "But nobody ever checks the baby.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n3.wav",
+"text": "They talk about everything in front of you. Trucks, money, the new casino, the rival Vasto family. Who is a baby going to tell?",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_mom1.wav",
+"text": "Who's my little angel? You're going to be a doctor, yes you are!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n6.wav",
+"text": "Your mom has no idea what her husband does. Or what her baby used to do.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_don1.wav",
+"text": "Put the numbers in the usual place, Sal.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/don.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n4.wav",
+"text": "The usual place is your teddy bear.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c05_n5.wav",
+"text": "Sewn inside it is a little black notebook. Every payment. Every name. Every secret bank account. The most dangerous book in the city, and it sleeps in your crib.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_n1.wav",
+"text": "Month seven. You need to get a message to the FBI. You can't write. You can barely sit up. So you use what you've got.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_n2.wav",
+"text": "At the park, a woman on a bench is pretending to read a newspaper. You know that haircut. It's your old partner, Agent Dana Cole.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_n3.wav",
+"text": "Your mom puts you on the grass with your alphabet blocks. Your hands are terrible at this. It takes you forty minutes.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_n4.wav",
+"text": "B. E. A. R.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_dana1.wav",
+"text": "Bear? Why is that baby staring at me?",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/zoe.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c06_n5.wav",
+"text": "She looks at the blocks. She looks at the teddy bear in your stroller. And she writes something down.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n1.wav",
+"text": "Month eleven. Uncle Sal takes a phone call in the kitchen. The Vasto family wants your father's streets, and they're tired of waiting.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n2.wav",
+"text": "Your father laughs about it. You don't. You spent six years listening to these people. You know what a quiet week means.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n3.wav",
+"text": "That night the whole family drives to dinner. Two blocks from the restaurant, you see the same gray van for the third time. No plates.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n6.wav",
+"text": "The van pulls out behind you. Then a second car. Then a third. Sal sees them in the mirror, and his knuckles go white on the wheel.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n4.wav",
+"text": "So you do the only thing a baby can do. You scream. Loud. Nonstop.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_mom1.wav",
+"text": "Okay, okay! Sal, turn around, we're going home!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c07_n5.wav",
+"text": "Sal spins the car around. And the three cars behind you spin around too.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n1.wav",
+"text": "Which brings us back to here.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n6.wav",
+"text": "Sal floors it through a red light. A fruit stand explodes into oranges. A bus blasts its horn. You slide sideways in your car seat, and honestly, it's the most fun you've had all year.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n2.wav",
+"text": "Sal is a great driver, but you know these streets better. You sat in parked cars on every one of them for six years. And there's one alley the Vasto drivers have never seen.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_baby1.wav",
+"text": "Left!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/hale.wav",
+"exag": 0.85,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n3.wav",
+"text": "Your very first word. Sal turns so hard your pacifier flies across the car.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n4.wav",
+"text": "The alley is exactly one car wide. Sal makes it with two centimeters to spare. The first black car hits the trash cans. The other two jam the entrance, and the sirens are already coming.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_sal1.wav",
+"text": "Did the baby just say left?",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/sal.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c08_n5.wav",
+"text": "From that night on, the whole family calls you the little boss.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c09_n1.wav",
+"text": "But the FBI is getting closer. And here's how the real government finally beat the mafia.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c09_n2.wav",
+"text": "In 1970, America passed a law called RICO. Before it, you could only arrest the man who did the crime. With RICO, you could arrest the boss who gave the order.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c09_n3.wav",
+"text": "In 1986, a court in New York used it against the bosses of the city's biggest mafia families. Eight men were convicted. Most of them got a hundred years in prison.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c09_n4.wav",
+"text": "All the FBI needs is proof. And the proof is in your crib.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n1.wav",
+"text": "On your first birthday, at six in the morning, the front door explodes open.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_dana1.wav",
+"text": "FBI! Everybody down! Hands where I can see them!",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/zoe.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n7.wav",
+"text": "Your mom is in the kitchen in her bathrobe. Uncle Sal is face down on the carpet, still holding a cannoli.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n2.wav",
+"text": "Agents search everything. The office. The walls. The cars. The freezer. They find nothing. Dana is about to leave with empty hands.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n3.wav",
+"text": "Your father picks you up and holds you tight. And he whispers in your ear.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_don1.wav",
+"text": "Whatever happens, Nico, Papa loves you.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/don.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n4.wav",
+"text": "This is the man you hunted for six years. He's also the man who sang to you every night when you couldn't sleep.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n5.wav",
+"text": "You look at the bear. You look at your father. And you throw the bear as hard as a one-year-old can.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_n6.wav",
+"text": "It lands right at Dana's feet. She picks it up. She feels the notebook inside. And she looks at you for a very long time.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c10_dana2.wav",
+"text": "Thank you, little guy.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/zoe.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c11_n1.wav",
+"text": "Your father gets a hundred years. Uncle Sal decides to talk, and that means you, your mom and Sal all go into witness protection.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c11_n2.wav",
+"text": "That's real too. Since 1971, the U.S. Marshals have given new names and new lives to more than nineteen thousand witnesses and their families. They say nobody who followed the rules has ever been hurt.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c11_n3.wav",
+"text": "Your new name is Danny. You live in a small town with one bakery, and your mom works there. Uncle Sal coaches little league. Nobody kisses anybody's ring.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c11_n4.wav",
+"text": "Once a year, a woman with a very familiar haircut comes into the bakery, buys one cannoli, and winks at you.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c12_n1.wav",
+"text": "Five years later, on your sixth birthday, a letter comes. No name. No return address. Inside, there's a drawing of a teddy bear.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c12_n2.wav",
+"text": "And four words, in your father's handwriting.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c12_don1.wav",
+"text": "I know who you are.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/don.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/mafia/vo/c12_n3.wav",
+"text": "So, would you have thrown the bear? Tell me in the comments. And subscribe, because next time, your father gets out.",
+"ref": "/home/rasul/Desktop/Animations/longform25/mafia/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+}
+]
