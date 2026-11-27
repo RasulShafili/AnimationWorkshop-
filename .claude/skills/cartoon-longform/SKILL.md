@@ -353,3 +353,29 @@ The owner found 25 errors my own QA had passed. Root causes, and the rule that p
   - Leave out the front-seat people when the camera sits between them.
 - **Label overlays must not sit at the bottom:** captions live there. Put scene labels at the top (y 110) and day stamps top-left.
 - **2-second contact sheets of the FINAL** (with captions) caught what the 1.5-second stills could not: labels under captions, handwriting under a caption.
+
+### Owner review of mafia_baby (2026-11-27): "the same errors again, position and placement in almost every scene"
+The 480 px stills hid every placement error. Fix: build 2×2 sheets at 960 px from the RENDERED frames, take one frame every 1.5 s, and read all of them. For each frame ask the five questions below, then do a second pass offset by 0.7 s.
+1. **Where does each person stand?** Inside a wall, a desk, a stair or another person = error. Typical cases:
+   - Sal stood inside the guest armchair.
+   - An agent stood on the stairs.
+   - Lucia was squeezed between two chairs.
+2. **What is under each sitter?** Every `sit()` needs a visible chair, bench, sofa, crib floor or car seat at that exact point.
+   - Card players sat on nothing.
+   - Defendants sat in front of their tables with their backs to the judge.
+   - Sal "slept" on a box.
+   - Lucia sat in the air beside a picnic blanket.
+3. **Does a child sit or stand?** A baby inside a playpen must use `sit(..., fz=floor)`. The default leg drop makes him stand.
+4. **Is a held object really held?** The bear lay on the floor while the line said "you look at the bear". A carried baby must be `carry()`d in EVERY shot of the scene.
+   - When editing a shared block, re-run each shot of it. One edit dropped `carry()` from five shots and left Nico on the floor.
+5. **Does each thing move like itself?**
+   - In a U-turn, the pursuers pass you and THEN turn. They do not drive into you.
+   - Debris falls to the floor and does not hang in the air.
+   - Agents enter only after the door opens.
+   - Pursuers jam the alley mouth facing INTO the alley.
+
+More rules from this review:
+- **Furniture that is not used in a shot is removed for that shot**: `mansion_office(chairs=False, desk=False)`. A person standing where a chair stands is the commonest error.
+- **Close-ups next to a person**: keep the camera at least 0.6 m from every head.
+- **Over-the-shoulder**: put the camera behind the holder's shoulder and draw both the holder and the baby. A camera between two people shows half-bodies floating.
+- **Small props sit on their surface**: a bear sits in the crib or the arms, not on the rail; a cake table needs legs; headphones cannot be drawn on a cheated face, so use a hand-to-ear pose instead.

@@ -35,16 +35,16 @@ def c05(t):
         cam = {"sweep": lambda: K(u, (2.2, -2.6, 1.9), (1.8, -2.2, 1.8), (0, 1.8, 1.1), (0, 1.8, 1.1), 1050), "baby": lambda: K(u, (.3, -2.0, 1.6), (-.4, -1.0, 1.4), (-2.2, .4, .5), (-2.2, .4, .5), 1000, 1200),
                "talk": lambda: K(u, (.5, .6, 2.4), (.3, .9, 2.3), (0, 1.9, .9), (0, 1.9, .9), 1150), "vasto": lambda: K(u, (.2, 1.4, 1.6), (.2, 1.5, 1.5), (-.25, 1.75, .85), (-.25, 1.75, .85), 1600),
                "babyeyes": lambda: K(u, (-1.6, -.4, 1.0), (-1.7, -.2, .95), (-2.2, .4, .65), (-2.2, .4, .65), 1400), "don": lambda: K(u, (1.2, .2, 1.6), (1.0, .3, 1.55), (0, 2.3, 1.2), (0, 2.3, 1.22), 1100)}[n]()
-        sc = Scene(cam); mansion_office(sc, t, False, .8, chairs=n not in ("talk", "vasto"))
+        sc = Scene(cam); mansion_office(sc, t, False, .8, chairs=n == "sweep")
         sit(DON, t, (0, 2.5, .6), 180, 1); DON.yaw = 0; DON.hyaw = 0; DON.hands = [V(-.3, 2.05, .9), V(.3, 2.05, .9)]; DON.face = FACE["smug" if n != "don" else "det"]; DON.talk = talk("c05_don1", t)
         if n == "don": DON.hands[1] = V(.45, 1.7, 1.0); sc.at(sc.cam.depth(V(.6, 1.6, 1.0)), lambda: sc.box((.5, 1.68, 1.0), (.12, .03, .17), "1c1e24", 20, .006))
         sc.at(sc.cam.depth(V(0, 2.5, .6)) - .01, lambda: (DON.draw(sc), ring(sc, DON)))
         if n == "sweep":
             for k, (ch, x) in enumerate(((MEN[1], -1.4), (MEN[4], 1.6))): stand(ch, t, (x + .3 * wob(t, .3, k), 1.0 + .4 * k, 0), 30 - 60 * k + 25 * wob(t, .4, k), k); ch.hands[1] = ch.hip + V(.2 * (1 - 2 * k), -.3, .4 + .15 * wob(t, .8, k)); ch.face = FACE["focus"]; sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (ch.draw(sc), wand(sc, ch, 1, t)))
         else:
-            for k, (ch, q, y_) in enumerate(((SAL, (-.9, 1.3), 40), (OLD, (.9, 1.3), -40))): stand(ch, t, (q[0], q[1], 0), y_, k + 2); ch.face = FACE["det"]; look(ch, (0, 1.9, 1.0)); ch.talk = .5 * max(0, wob(t, 2.2, k)) if n in ("talk", "baby") else 0; sc.at(sc.cam.depth(ch.hip), lambda ch=ch: ch.draw(sc))
+            for k, (ch, q, y_) in enumerate(((SAL, (-1.55, 1.55), 60), (OLD, (1.55, 1.55), -60))): stand(ch, t, (q[0], q[1], 0), y_, k + 2); ch.face = FACE["det"]; look(ch, (0, 1.9, 1.0)); ch.talk = .5 * max(0, wob(t, 2.2, k)) if n in ("talk", "baby") else 0; sc.at(sc.cam.depth(ch.hip), lambda ch=ch: ch.draw(sc))
             def bb():
-                sit(NICO, t, (-2.2, .4, .2), 60, 7); NICO.face = FACE["det" if n in ("babyeyes",) else "smile"]; look(NICO, (0, 1.6, 1.2)); NICO.hands = [NICO.hip + V(.1, -.1, .1), NICO.hip + V(-.05, -.15, .1)]
+                sit(NICO, t, (-2.2, .4, .12), 60, 7, fz=.06); NICO.face = FACE["det" if n in ("babyeyes",) else "smile"]; look(NICO, (0, 1.6, 1.2)); NICO.hands = [NICO.hip + V(.1, -.1, .1), NICO.hip + V(-.05, -.15, .1)]
                 playpen(sc, (-2.2, .4, 0), t, lambda: (NICO.draw(sc), bear(sc, (-2.45, .55, .06), 40, .7)))
             sc.at(sc.cam.depth(V(-2.2, .4, .3)), bb)
         if n in ("talk", "vasto"):
@@ -64,8 +64,8 @@ def c05(t):
         for ch in (DON, SAL): sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (ch.draw(sc), fedora(sc, ch) if ch is DON else None))
         sc.flush(); label(sc, W / 2, 110, "THE FBI CAN'T BUG A SIDEWALK", 54, "ffd21e"); sc.vignette(.25); return sc
     if n in ("mom", "mom2"):
-        sc = Scene(K(u, (.6, -1.4, 1.5), (.5, -1.2, 1.48), (-.4, .9, 1.25), (-.4, .9, 1.27), 1150) if n == "mom" else K(u, (1.6, -1.6, 1.7), (1.4, -1.4, 1.65), (-.2, 1.4, 1.1), (-.2, 1.4, 1.1), 1050))
-        mansion_office(sc, t, False, .8); stand(LUCIA, t, (-.4, .9, 0), 10, 2); LUCIA.face = FACE["laugh"]; LUCIA.talk = talk("c05_mom1", t); bp = carry(LUCIA, NICO, t, 1); NICO.face = FACE["neutral" if n == "mom" else "smug"]; look(NICO, (0, -2, 1.3))
+        sc = Scene(K(u, (-.2, -1.0, 1.5), (-.3, -.8, 1.48), (-1.4, .9, 1.25), (-1.4, .9, 1.27), 1150) if n == "mom" else K(u, (1.6, -1.6, 1.7), (1.4, -1.4, 1.65), (-.6, 1.4, 1.1), (-.6, 1.4, 1.1), 1050))
+        mansion_office(sc, t, False, .8, chairs=False); stand(LUCIA, t, (-1.4, .9, 0), 20, 2); LUCIA.face = FACE["laugh"]; LUCIA.talk = talk("c05_mom1", t); bp = carry(LUCIA, NICO, t, 1); NICO.face = FACE["neutral" if n == "mom" else "smug"]; look(NICO, (0, -2, 1.3))
         sc.at(sc.cam.depth(LUCIA.hip), lambda: (LUCIA.draw(sc), NICO.draw(sc)))
         if n == "mom2":
             sit(DON, t, (0, 2.5, .6), 0, 1); DON.face = FACE["smile"]; DON.hands = [V(-.2, 1.9, .95), V(.25, 1.9, .9)]; sc.at(sc.cam.depth(V(0, 2.5, .6)) - .01, lambda: (DON.draw(sc), ring(sc, DON)))
@@ -104,11 +104,12 @@ def c06(t):
                        (lt("c06_n4") - .1, "spell"), (lt("c06_dana1") - .1, "dana"), (lt("c06_n5") - .1, "look"), (w("c06_n5", "writes") - .2, "write")], D)
     def blanket_scene(sc, letters="", up=None, nico_face="det"):
         onplane(sc, (-1.4, 1.4, .004), (1.8, 0, 0), (0, -1.6, 0), 360, 320, lambda c, w_, h: (c.set_source_rgb(*C("e8392e")), c.paint(), [(c.rectangle(x_, 0, 30, h), c.set_source_rgb(1, 1, 1), c.fill()) for x_ in range(0, 360, 60)], [(c.rectangle(0, y_, w_, 30), c.set_source_rgba(1, 1, 1, .7), c.fill()) for y_ in range(0, 320, 60)]))
-        sit(NICO, t, (-.5, .5, .09), 20, 4); NICO.face = FACE[nico_face]; NICO.lean = V(.08 * wob(t, .5), .06 * wob(t, .4)); look(NICO, (2.0, 3.0, 1.2) if n in ("bench", "pov", "dana", "look") else (-.5, .2, 0))
+        sit(NICO, t, (-.5, .5, .07), 20, 4, fz=.02); NICO.face = FACE[nico_face]; NICO.lean = V(.08 * wob(t, .5), .06 * wob(t, .4)); look(NICO, (2.0, 3.0, 1.2) if n in ("bench", "pov", "dana", "look") else (-.5, .2, 0))
         sc.at(sc.cam.depth(V(-.5, .5, .2)), lambda: NICO.draw(sc))
         if letters: sc.at(sc.cam.depth(V(-.55, .15, .1)), lambda: blocks(sc, (-.55, .15, .05), letters, t, up=up, yaw=20))
-        sc.at(sc.cam.depth(V(-1.6, 1.3, .3)), lambda: (stroller(sc, (-1.6, 1.3, 0), 40), bear(sc, (-1.6, 1.3, .55), 220, .7)))
-        sit(LUCIA, t, (-1.1, 1.0, .1), 40, 2); LUCIA.feet = [V(-.7, .7, .04), V(-.6, .85, .04)]; LUCIA.face = FACE["smile"]; look(LUCIA, (-.5, .5, .3)); sc.at(sc.cam.depth(V(-1.1, 1.0, .3)), lambda: LUCIA.draw(sc))
+        sc.at(sc.cam.depth(V(-2.5, 1.5, .3)), lambda: (stroller(sc, (-2.5, 1.5, 0), 70), bear(sc, (-2.5, 1.5, .58), 250, .7)))
+        sit(LUCIA, t, (-1.5, 1.9, .45), 15, 2, fz=0); LUCIA.face = FACE["smile"]; look(LUCIA, (-.5, .5, .3))
+        sc.at(sc.cam.depth(V(-1.5, 1.9, .3)) + .05, lambda: bench(sc, (-1.5, 1.95, 0), 15)); sc.at(sc.cam.depth(V(-1.5, 1.9, .3)), lambda: LUCIA.draw(sc))
     if n in ("sit", "bench", "blocks", "timelapse", "spell", "dana", "look", "write"):
         cam = {"sit": lambda: K(u, (.8, -2.6, 1.0), (.6, -2.2, .9), (-.5, .6, .45), (-.5, .6, .45), 1100), "bench": lambda: K(u, (1.0, -1.2, 1.3), (1.2, -1.0, 1.3), (2.0, 3.0, 1.3), (2.0, 3.0, 1.35), 1100),
                "blocks": lambda: K(u, (-.1, -1.3, 1.1), (-.2, -1.1, 1.0), (-.55, .4, .2), (-.55, .4, .2), 1200), "timelapse": lambda: K(u, (1.5, -2.4, 1.7), (1.5, -2.4, 1.7), (-.3, .9, .4), (-.3, .9, .4), 1000),
@@ -153,17 +154,20 @@ def c07(t):
         sc.flush(); sc.vignette(.3); stamp(sc, "MONTH 11", clamp(s * 3)); return sc
     if n in ("laugh", "nico"):
         sc = Scene(K(u, (1.4, -1.0, 1.6), (1.2, -.8, 1.55), (0, 2.0, 1.2), (0, 2.0, 1.2), 1100) if n == "laugh" else K(u, (-1.0, -.6, 1.0), (-1.1, -.4, .95), (-2.2, .4, .65), (-2.2, .4, .65), 1400))
-        mansion_office(sc, t, True, 1.0); sit(DON, t, (0, 2.5, .6), 0, 1); DON.face = FACE["laugh"]; DON.hands = [V(-.35, 2.0, 1.0), V(.3, 1.95, .9 + .1 * abs(wob(t, 3)))]; DON.hroll = 10 * wob(t, 2.5)
-        sc.at(sc.cam.depth(V(0, 2.5, .6)) - .01, lambda: (DON.draw(sc), ring(sc, DON))); stand(SAL, t, (-.9, 1.3, 0), 40, 2); SAL.face = FACE["det"]; sc.at(sc.cam.depth(SAL.hip), lambda: SAL.draw(sc))
-        def bb(): sit(NICO, t, (-2.2, .4, .2), 60, 7); NICO.face = FACE["angry"]; look(NICO, (0, 2.3, 1.4)); playpen(sc, (-2.2, .4, 0), t, lambda: NICO.draw(sc))
+        mansion_office(sc, t, True, 1.0, chairs=False); sit(DON, t, (0, 2.5, .6), 0, 1); DON.face = FACE["laugh"]; DON.hands = [V(-.35, 2.0, 1.0), V(.3, 1.95, .9 + .1 * abs(wob(t, 3)))]; DON.hroll = 10 * wob(t, 2.5)
+        sc.at(sc.cam.depth(V(0, 2.5, .6)) - .01, lambda: (DON.draw(sc), ring(sc, DON))); stand(SAL, t, (-1.7, 1.6, 0), 50, 2); SAL.face = FACE["det"]; sc.at(sc.cam.depth(SAL.hip), lambda: SAL.draw(sc)) if n == "laugh" else None
+        def bb(): sit(NICO, t, (-2.2, .4, .12), 60, 7, fz=.06); NICO.face = FACE["angry"]; look(NICO, (0, 2.3, 1.4)); playpen(sc, (-2.2, .4, 0), t, lambda: NICO.draw(sc))
         sc.at(sc.cam.depth(V(-2.2, .4, .3)), bb); sc.flush(); sc.vignette(.35); return sc
     if n in ("drive", "follow", "uturn"):
         cx = 12 * (t - lt("c07_n3"))
         if n == "uturn":
-            u2 = ss(u, .05, .85); sc = Scene(K(u, (8, -9, 9), (7, -8, 9.5), (0, 0, 0), (0, 0, 0), 950)); city_night(sc, t, 0, 30)
-            for k, (x0, col) in enumerate(((0, MAROON), (-9, "15161a"), (-15, "15161a"), (-21, "15161a"))):
-                lag = clamp(u2 * 1.6 - k * .2); yaw = 90 + 180 * ss(lag, 0, 1); p = V(x0 + 4 * ss(lag, 0, .5) - 6 * ss(lag, .5, 1) * (k == 0), -1.4 + 2.6 * ss(lag, .2, .8), 0)
-                sc.at(sc.cam.depth(p), lambda p=p, yaw=yaw, col=col: car(sc, p, yaw, col, beams=.8)); [sc.at(sc.cam.depth(p) + .01, lambda q=p + V(-1.5 - .6 * j, -.2 + .3 * j, .1): sc.ball(q, .3, (.6, .6, .65), 0, a=.3)) for j in range(3)] if 0 < lag < 1 else None
+            sc = Scene(K(u, (8, -9, 9), (6, -8.5, 9.5), (-4, 0, 0), (-8, 0, 0), 950)); city_night(sc, t, -5, 35)
+            sp = ss(u, .05, .3); mx = 2 - 3 * sp - 26 * ss(u, .3, 1.0); my = -1.4 + 2.6 * ss(sp, .2, .9); myaw = 90 + 180 * sp
+            sc.at(sc.cam.depth(V(mx, my, 0)), lambda: car(sc, (mx, my, 0), myaw, MAROON, beams=.8))
+            if 0 < sp < 1: [sc.at(sc.cam.depth(V(mx, my, 0)) + .01, lambda q=V(mx - 1.2 + .5 * j_, my - .3 + .3 * j_, .15): sc.ball(q, .3, (.6, .6, .65), 0, a=.35)) for j_ in range(3)]
+            for k, x0 in enumerate((-8, -14, -20)):
+                passed = clamp((x0 + 1 - mx) / 3.0); kyaw = 90 + 180 * ss(passed, 0, 1); q = V(x0 - 2.5 * ss(passed, .5, 1), -1.4, 0)
+                sc.at(sc.cam.depth(q), lambda q=q, kyaw=kyaw: car(sc, q, kyaw, "15161a", beams=.8))
             sc.flush(); sc.vignette(.35); return sc
         cam = {"drive": lambda: K(u, (cx + 6, -5.5, 1.5), (cx + 5, -5.2, 1.6), (cx, -.6, 1.0), (cx + 1, -.6, 1.0), 1000), "follow": lambda: K(u, (cx - 2, -5.5, 2.2), (cx - 3, -5.5, 2.0), (cx - 10, -.5, .9), (cx - 9, -.5, .9), 1000)}[n]()
         sc = Scene(cam)
@@ -180,7 +184,7 @@ def c07(t):
     if n == "mirror":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); mirror_eyes(sc, t, .6 * wob(t, .8)); sc.vignette(.4); return sc
     if n in ("scream", "mom"):
-        cam = K(u, (0, .4, 1.15), (0, .2, 1.08), (0, -.9, .85), (0, -.9, .82), 850, hh=.02, t=t) if n == "scream" else K(u, (.3, .5, 1.3), (.25, .4, 1.28), (-.5, -.9, 1.25), (-.5, -.9, 1.25), 950)
+        cam = K(u, (0, .4, 1.15), (0, .2, 1.08), (0, -.9, .85), (0, -.9, .82), 850, hh=.02, t=t) if n == "scream" else K(u, (0, .45, 1.18), (0, .35, 1.15), (-.25, -.9, 1.05), (-.25, -.9, 1.05), 820)
         sc = Scene(cam); cabin(sc, t, 1.0, 0, shake=.5, rear=.6); in_car(sc, t, "LN", faces={"L": "scared"}, baby_face="angry", scream=1.0 if n == "scream" else .6, mom_talk="c07_mom1")
         if n == "scream": X, Y = sc.cam.pr(V(0, -.92, 1.0)); burst(sc, X, Y, 600, 18, t, (1, 1, 1), .25)
         sc.flush()
@@ -250,9 +254,9 @@ def c08(t):
             if n == "cans":
                 p = V(0, 3.0 + 3.5 * clamp((t - w("c08_n4", "first")) / .5), 0); sc.at(sc.cam.depth(p), lambda: car(sc, p, 0, "15161a", roll=p[1], beams=1, pitch=-3 * (t > hit)))
             if n == "jam":
-                for k, sg in enumerate((-1, 1)): p = V(sg * (2.6 - 1.4 * ss(s, 0, .3)), 1.5, 0); sc.at(sc.cam.depth(p), lambda p=p, sg=sg: car(sc, p, 30 * sg, "15161a", beams=1))
-        city_night(sc, t, 0, 30, gap=(-1.7, 1.7), behind=lambda: alley(sc, t, 5, 30, hit=hit if n == "cans" else None, police=ss(s, .3, .8) if n == "jam" else 0, sky=False), extra=None) if False else None
-        city_night(sc, t, 0, 30, gap=(-1.7, 1.7), behind=lambda: alley(sc, t, 5, 30, hit=hit if n in ("cans",) else None, police=ss(s, .3, .8) if n == "jam" else 0, sky=False))
+                for k, sg in enumerate((-1, 1)): p = V(sg * (2.6 - 1.5 * ss(s, 0, .3)), 3.6, 0); sc.at(sc.cam.depth(p), lambda p=p, sg=sg: car(sc, p, 180 - 30 * sg, "15161a", beams=1))
+        city_night(sc, t, 0, 30, gap=(-1.7, 1.7), near_side=True, lamps=False); sc.q = []
+        alley(sc, t, 5, 30, hit=hit if n in ("cans",) else None, police=ss(s, .3, .8) if n == "jam" else 0, sky=False)
         ex(); sc.flush()
         if n == "scrape":
             X, Y = sc.cam.pr(V(-1.6, cy + 1.0, .95)); [sc.c.move_to(X, Y) or sc.c.line_to(X + 80 * math.cos(a), Y + 80 * math.sin(a)) for a in np.linspace(-2.5, -.6, 7)]; sc.c.set_source_rgb(1, .85, .3); sc.c.set_line_width(4); sc.c.stroke(); sc.glow(X, Y, 90, "ffc040", .7)
@@ -265,6 +269,11 @@ def c08(t):
         sc.c.set_source_rgba(.02, .02, .1, .0)
         for k, ch in enumerate((MEN[0], MEN[1], SAL, DON, LUCIA, OLD, MEN[3])):
             x = -2.4 + .8 * k; stand(ch, t, (x, 3.7, 0), 0, k); ch.face = FACE["laugh" if k % 2 else "happy"]; ch.hands[1] = ch.hip + V(.15, -.2, .75 + .05 * wob(t, 1, k)); sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (ch.draw(sc), sc.cyl(ch.hands[1] + V(0, 0, -.02), .035, .12, "f0e0a0", line=.004), fedora(sc, ch) if ch is DON else None))
-        stand(NICO, t, (0, 2.3, .55), 0, 6); NICO.face = FACE["smug"]; sc.at(sc.cam.depth(V(0, 2.3, .5)), lambda: (sc.box((0, 2.3, .3), (.5, .5, .6), "8a5a32", 0, .01), NICO.draw(sc)))
+        def hc():
+            for sx in (-1, 1):
+                for sy in (-1, 1): sc.line([V(sx * .24, 2.3 + sy * .24, 0), V(sx * .16, 2.3 + sy * .16, .78)], "f4f0e8", .03)
+            sc.box((0, 2.3, .8), (.4, .4, .05), "f4f0e8", 0, .008); sc.box((0, 2.48, 1.05), (.4, .05, .5), "f4f0e8", 0, .008); sit(NICO, t, (0, 2.32, .84), 0, 6); NICO.face = FACE["smug"]; NICO.draw(sc)
+            sc.box((0, 2.08, .98), (.48, .2, .04), "ffffff", 0, .006)
+        sc.at(sc.cam.depth(V(0, 2.3, .5)), hc)
         sc.flush(); sc.c.set_source_rgba(.05, .03, .12, .35); sc.c.paint(); label(sc, W / 2, 120, "\"THE LITTLE BOSS\"", 62, "ffd21e"); sc.vignette(.35); return sc
 SC["c08"] = c08

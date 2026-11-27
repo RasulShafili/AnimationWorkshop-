@@ -25,3 +25,28 @@ park, courtroom, town (bakery), ballfield, cell; 2D inserts paper2d / doc2d / le
 - QA: 1.5-s stills of every chapter, a fix pass, 2-s sheets of the final, a second fix pass (labels to the top, letter raised, hush camera).
 - Retakes: c02_n1, c08_baby1, c10_n6, c12_don1 (old takes in vo/alt/*_old.wav).
 - atempo: c12_don1 .8, c05_don1 .9, c04_n2 .93.
+## Owner review 2026-11-27 evening: "position and placement errors in almost every scene"
+- Read every 1.5 s frame at 960 px (82 sheets), then a second pass offset by 0.7 s (81 sheets).
+- Fixed:
+  - FBI agent sitting with his back to the desk (now on an office chair facing it);
+  - card players on no chairs (kitchen chairs);
+  - Sal inside the guest armchair (2 scenes; chairs removed or Sal moved);
+  - Lucia between the armchairs;
+  - the oath room had the desk in the middle (desk=False);
+  - Lucia beside the picnic blanket in the air (on her own bench), stroller wheels;
+  - Nico standing in the playpen (now sits);
+  - courtroom (defendants on chairs behind the tables facing a seated judge on a platform);
+  - Sal "asleep" on a box (now a real sofa);
+  - agents drawn before the door opened;
+  - an agent on the stairs;
+  - plaster hanging in the air (falls);
+  - bear on the floor during "you look at the bear" (in Nico's arms);
+  - Don not carrying Nico in 5 raid shots (`carry()` lost in an edit);
+  - U-turn (pursuers spin after the getaway car passes);
+  - alley mouth jammed facing the wrong way;
+  - alley rendered behind the street (now alley walls last);
+  - DEAD END = a whole building, not a floating wall;
+  - parked cars on the curb;
+  - high chair for the toast;
+  - cake table legs;
+  - camera inside heads (envelopes, stare, thanks, hush).

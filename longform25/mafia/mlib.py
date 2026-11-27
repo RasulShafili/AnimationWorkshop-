@@ -89,9 +89,11 @@ def blocks(sc, p, letters, t, sp=.13, yaw=0.0, cols=("e8392e", "3d86e0", "57c785
         wtx(sc, q + f * (s / 2 + .002) + V(0, 0, s / 2), ch_, .075, "ffffff", INK, .14, n=tuple(f))
 def stroller(sc, p, yaw=0.0, col="2f3a4a", hood="c0304a"):
     p = V(*p); f = dirv(yaw); r = V(-f[1], f[0], 0)
-    for a in (-.32, .32):
-        for sg in (-1, 1): sc.cyl(p + f * a + r * sg * .26 + V(0, 0, .0), .1, .03, "1c1e24", line=.006)
-    sc.box(p + V(0, 0, .42), (.7, .45, .28), col, yaw, .01); sc.line([p - f * .3 + V(0, 0, .5), p - f * .55 + V(0, 0, 1.0)], "3a3f4a", .03); sc.line([p - f * .55 + r * .22 + V(0, 0, 1.0), p - f * .55 - r * .22 + V(0, 0, 1.0)], "1c1e24", .04)
+    for a in (-.3, .3):
+        for sg in (-1, 1):
+            c_ = p + f * a + r * sg * .26 + V(0, 0, .12); ring = [c_ + f * .12 * math.cos(q) + V(0, 0, .12 * math.sin(q)) for q in np.linspace(0, 6.3, 18)]
+            sc.line(ring, INK, .05); sc.line(ring, "3a3f4a", .03); sc.line([c_, c_ + V(0, 0, .2)], "8a9098", .02)
+    sc.box(p + V(0, 0, .45), (.7, .45, .26), col, yaw, .01); sc.line([p - f * .3 + V(0, 0, .5), p - f * .55 + V(0, 0, 1.0)], "3a3f4a", .03); sc.line([p - f * .55 + r * .22 + V(0, 0, 1.0), p - f * .55 - r * .22 + V(0, 0, 1.0)], "1c1e24", .04)
     pts = [p - f * .3 + r * sg * .24 + V(0, 0, .55) for sg in (-1, 1)]; sc.poly([pts[0], pts[1], pts[1] + f * .25 + V(0, 0, .3), pts[0] + f * .25 + V(0, 0, .3)], hood, .01)
 def carseat(sc, p, yaw=180.0, col="3a3f4a", part="back"):
     """rear-facing? no: forward-facing toddler seat; part back = shell behind the child, front = side wings + straps"""
@@ -186,7 +188,15 @@ def city_night(sc, t, cx=0.0, span=40, night=True, lamps=True, parked=(), y0=5.0
         B = B2
     for x, b in sorted(B, key=lambda q: -abs(q[0] + q[1]["w"] / 2 - cam.p[0])): facade(sc, x, y0, b, t, night)
     if near_side:
-        for x, b in B: P([(x, -y0, 0), (x + b["w"], -y0, 0), (x + b["w"], -y0, b["h"]), (x, -y0, b["h"])], mul(b["col"], .8), .01)
+        for x, b in B:
+            P([(x, -y0, 0), (x + b["w"], -y0, 0), (x + b["w"], -y0, b["h"]), (x, -y0, b["h"])], mul(b["col"], .85), .01)
+            nx = int(b["w"] / 1.6)
+            for j in range(int((b["h"] - 4) / 2.6)):
+                for i_ in range(nx):
+                    X = x + (i_ + .5) * b["w"] / nx; Z = 4.2 + j * 2.6; lit = ((i_ * 7 + j * 3 + int(x)) % 5) < 2
+                    P([(X - .45, -y0 + .01, Z), (X + .45, -y0 + .01, Z), (X + .45, -y0 + .01, Z + 1.5), (X - .45, -y0 + .01, Z + 1.5)], "ffd27a" if lit else "2a3044", .008)
+            P([(x + .3, -y0 + .01, .1), (x + b["w"] - .3, -y0 + .01, .1), (x + b["w"] - .3, -y0 + .01, 2.6), (x + .3, -y0 + .01, 2.6)], "ffcf7a" if night else "8fb8dc", .012)
+            P([(x + .2, -y0, 2.75), (x + b["w"] - .2, -y0, 2.75), (x + b["w"] - .2, -y0 + 1.1, 2.35), (x + .2, -y0 + 1.1, 2.35)], b["awn"], .012)
     for k in range(int(cx - span) // 9 * 9, int(cx + span), 9):
         for yy in ((4.3,) if not near_side else (4.3, -4.3)):
             q = V(k + 2.0, yy, 0)
@@ -194,7 +204,7 @@ def city_night(sc, t, cx=0.0, span=40, night=True, lamps=True, parked=(), y0=5.0
                 sc.line([q, q + V(0, 0, 4.2)], INK, .12); sc.line([q, q + V(0, 0, 4.2)], "3a3f4a", .08); sc.line([q + V(0, 0, 4.2), q + V(0, -.7 * np.sign(q[1]), 4.4)], "3a3f4a", .07); hd = q + V(0, -.75 * np.sign(q[1]), 4.3); sc.ball(hd, .16, "fff4c8", .01)
                 if night and cam.depth(hd) > .4: X, Y = cam.pr(hd); sc.glow(X, Y, cam.px(hd, 2.6), "ffd890", .45); g = q + V(0, -.75 * np.sign(q[1]), .01); X2, Y2 = cam.pr(g); sc.c.save(); sc.c.translate(X2, Y2); sc.c.scale(1, .3); sc.glow(0, 0, cam.px(g, 2.4), "ffd890", .22); sc.c.restore()
             if lamps and cam.depth(q) > .3: sc.at(cam.depth(q), lamp_)
-    for x, col in parked: q = V(x, 2.3, 0); sc.at(cam.depth(q), lambda q=q, col=col: vehicle(sc, q, 90, col, lights=False))
+    for x, col in parked: q = V(x, 1.95, 0); sc.at(cam.depth(q), lambda q=q, col=col: vehicle(sc, q, 90, col, lights=False))
 # ------------------------------------------------------------------ alley (runs along +y from the street at y = 5; walls x = ±1.7)
 def bricks(c, w, h, col="7a3428", mortar="5a2418", bw=40, bh=18):
     c.set_source_rgb(*C(col)); c.paint(); c.set_source_rgb(*C(mortar)); c.set_line_width(2)
@@ -323,7 +333,7 @@ def office_fbi(sc, t, night=True):
         sc.line([(-1.9, 1.05, .75), (-1.9, 1.05, 1.2), lp], "1c3a2a", .03); sc.box(lp, (.3, .18, .1), "2f6a4a", 0, .008)
         X, Y = sc.cam.pr(lp - V(0, 0, .1)); sc.glow(X, Y, sc.cam.px(lp, 1.4), "ffe0a0", .5)
     sc.at(sc.cam.depth(V(-1.2, .9, .7)), desk_)
-    sc.at(sc.cam.depth(V(-1.2, 0.2, .5)), lambda: ochair(sc, (-1.2, .25, 0), 0))
+    sc.at(sc.cam.depth(V(-1.2, 0.2, .5)) + .05, lambda: ochair(sc, (-1.2, .25, 0), 180))
 # ------------------------------------------------------------------ icy bridge at night (deck along x at y 0, z 6 above the river)
 def bridge(sc, t, snow=1.0):
     skyline(sc, t); P = sc.poly; c = sc.c
@@ -367,7 +377,7 @@ def portrait_fn(c, w, h):
     c.move_to(w * .48, h * .68); c.line_to(w * .52, h * .68); c.line_to(w * .53, h * .9); c.line_to(w * .47, h * .9); c.close_path(); c.set_source_rgb(*C("b3202a")); c.fill()
     face_icon(c, w * .5, h * .45, w * .2, "f0c8a0", True, True)
     c.set_source_rgb(*C("c9a040")); c.set_line_width(w * .06); c.rectangle(0, 0, w, h); c.stroke()
-def mansion_office(sc, t, night=False, lamp=1.0, chairs=True):
+def mansion_office(sc, t, night=False, lamp=1.0, chairs=True, desk=True):
     S25.room(sc, wall=("4a2e1e", "5e3a26"), floor=("6a3a24", "5a3020"), side_="533422", x0=-3.6, x1=3.6, y1=3.0, z1=3.2, base="2e1c12")
     P = sc.poly
     for k in range(-6, 7): sc.line([(k * .55, 2.99, .12), (k * .55, 2.99, 3.2)], "3a2214", .02)
@@ -387,8 +397,11 @@ def mansion_office(sc, t, night=False, lamp=1.0, chairs=True):
         lp = V(.8, 1.95, 1.15); sc.line([(.8, 1.95, .83), lp], "c9a040", .025); sc.box(lp, (.34, .14, .1), "1f5a3a", 0, .008)
         X, Y = sc.cam.pr(lp - V(0, 0, .08)); sc.glow(X, Y, sc.cam.px(lp, 1.6), "ffe8b0", .55 * lamp)
         sc.box((-.7, 1.85, .87), (.28, .2, .06), "1c1e24", 0, .006); sc.box((-.3, 1.7, .86), (.2, .28, .04), "e8dcc0", 10, .005); sc.cyl((.35, 1.75, .83), .04, .06, "ffffff", line=.004)
-    sc.at(sc.cam.depth(V(0, 1.9, .5)), desk_)
-    sc.at(sc.cam.depth(V(0, 2.55, .6)), lambda: (sc.box((0, 2.55, .5), (.7, .6, .1), "3a1a14", 0, .01), sc.box((0, 2.8, 1.0), (.75, .14, 1.1), "3a1a14", 0, .012)))
+    if desk:
+        sc.at(sc.cam.depth(V(0, 1.9, .5)), desk_)
+        sc.at(sc.cam.depth(V(0, 2.55, .6)), lambda: (sc.box((0, 2.55, .5), (.7, .6, .1), "3a1a14", 0, .01), sc.box((0, 2.8, 1.0), (.75, .14, 1.1), "3a1a14", 0, .012)))
+    else:                                                     # a side table + armchair by the wall instead of the desk
+        sc.at(sc.cam.depth(V(2.6, 2.4, .5)), lambda: (sc.box((2.6, 2.4, .35), (.9, .6, .7), "4a2a18", 0, .012), sc.cyl((2.4, 2.4, .7), .08, .25, "c9a040", line=.006)))
     for x in ((-.65, .65) if chairs else ()): sc.at(sc.cam.depth(V(x, .7, .5)), lambda x=x: (sc.box((x, .7, .35), (.62, .6, .2), "5a2a1a", 0, .01), sc.box((x, .45, .75), (.62, .12, .7), "5a2a1a", 0, .01), [sc.box((x + sg * .3, .7, .55), (.1, .6, .2), "4a2014", 0, .008) for sg in (-1, 1)]))
 # ------------------------------------------------------------------ garden party at the villa (villa facade y 9, lawn, string lights, long table along x at y 3)
 def villa(sc, y=9.0, x0=-9, x1=9, h=6.5):
@@ -475,11 +488,13 @@ def park(sc, t):
     for k in range(-6, 7): tree(sc, (k * 3.6 + 1.8, 15 + 1.5 * (k % 2), 0), 4.2, 1.6, t, "3f9a4a")
     P([(-9, 7.5, .004), (-3, 7.5, .004), (-2.4, 10, .004), (-9.6, 10, .004)], "5ab0e0", .01)
 # ------------------------------------------------------------------ courtroom (judge's bench at y 3)
-def courtroom(sc, t):
+def courtroom(sc, t, judge=None):
     S25.room(sc, wall=("8a6a48", "a07a54"), floor=("6a4a32", "5a3e2a"), side_="7a5a3e", x0=-4.5, x1=4.5, y1=3.6, z1=4.0, base="4a3222")
     P = sc.poly
     for k in range(-7, 8): sc.line([(k * .6, 3.59, .12), (k * .6, 3.59, 4.0)], "6a4a30", .02)
     onplane(sc, (-.6, 3.58, 3.6), (1.2, 0, 0), (0, 0, -1.2), 200, 200, lambda c, w, h: (c.set_source_rgb(*C("c9a040")), c.arc(w / 2, h / 2, w * .48, 0, 7), c.fill(), c.set_source_rgb(*C("8a6a20")), c.arc(w / 2, h / 2, w * .36, 0, 7), c.fill(), c.set_source_rgb(*C("c9a040")), c.select_font_face("Montserrat XB"), c.set_font_size(26), c.move_to(w * .2, h * .58), c.show_text("JUSTICE")))
+    sc.box((0, 3.2, .4), (3.4, .6, .8), "4a2e1a", 0, .01)                               # the judge's platform
+    if judge: judge()
     sc.box((0, 2.6, .7), (3.2, 1.0, 1.4), "5a3a22", 0, .014); sc.box((0, 2.6, 1.42), (3.3, 1.1, .06), "3a2414", 0, .01)
     for x, col in ((-3.2, "3a4a8a"), (3.2, "c0303a")): sc.line([(x, 3.3, 0), (x, 3.3, 2.6)], "c9a040", .03); sc.poly([(x, 3.29, 2.5), (x + .7 * np.sign(-x), 3.29, 2.45), (x + .7 * np.sign(-x), 3.29, 1.7), (x, 3.29, 1.75)], col, .01)
     sc.line([(-4.5, .9, .9), (4.5, .9, .9)], "4a2a18", .05); [sc.line([(x * .5, .9, 0), (x * .5, .9, .9)], "5a3a22", .03) for x in range(-9, 10)]
@@ -581,16 +596,22 @@ def pacifier(sc, p, s=1.0):
     p = V(*p); sc.ball(p, .03 * s, "7ad0ff", .005); sc.box(p + V(0, .02 * s, 0), (.09 * s, .015 * s, .05 * s), "3d86e0", 0, .004); sc.line([p + V(0, .03 * s, 0), p + V(0, .06 * s, .02 * s)], "ffc93a", .01 * s)
 def barrier(sc, x, y0=-3, y1=3, wall=True):
     if wall:
-        sc.poly([(x + 1, -6, 0), (x + 1, 6, 0), (x + 1, 6, 4), (x + 1, -6, 4)], "6a3a2a", .014); [sc.line([(x + .99, -6, z), (x + .99, 6, z)], "4a2418", .01) for z in np.arange(.3, 4, .3)]
-        wtx(sc, (x + .98, 0, 2.6), "DEAD END", .5, "ffd21e", INK, .12, n=(-1, 0, 0))
+        sc.poly([(x + 1, -14, 0), (x + 1, 14, 0), (x + 1, 14, 14), (x + 1, -14, 14)], "6a3a2a", .014, grad=("7a4434", "5a2e22")); [sc.line([(x + .99, -14, z), (x + .99, 14, z)], "4a2418", .01) for z in np.arange(.3, 3.2, .3)]
+        for j in range(3):
+            for k in range(-5, 6):
+                if abs(k) > 0 or j > 0: Y = k * 2.4; Z = 4.5 + j * 3; lit = (k * 3 + j) % 4 == 0; sc.poly([(x + .98, Y - .5, Z), (x + .98, Y + .5, Z), (x + .98, Y + .5, Z + 1.5), (x + .98, Y - .5, Z + 1.5)], "ffd27a" if lit else "2a3044", .008)
+        sc.poly([(x + .98, -1.6, 2.4), (x + .98, 1.6, 2.4), (x + .98, 1.6, 3.2), (x + .98, -1.6, 3.2)], "ffd21e", .01)
+        wtx(sc, (x + .97, 0, 2.8), "DEAD END", .55, "1c1e24", None, .12, n=(-1, 0, 0))
     for k in range(4):
         y = y0 + .75 + k * 1.5; sc.box((x, y, .5), (.2, 1.3, .25), "ffffff", 0, .01); [sc.box((x - .01, y - .45 + .3 * j, .5), (.21, .14, .26), "e8392e", 0, 0) for j in range(4)]
         for sg in (-1, 1): sc.line([(x, y + sg * .55, 0), (x, y + sg * .55, .62)], "3a3f4a", .04)
         sc.ball((x, y, .72), .07, "ff9a2a", .006)
 def headphones(sc, ch):
     f, r, up, N, HC = ch.joints(); R = ch.R
-    pts = [HC + r * R * 1.02 * math.cos(a) + up * R * 1.02 * math.sin(a) for a in np.linspace(0, math.pi, 16)]; sc.line(pts, "1c1e24", .03)
-    for sg in (-1, 1): sc.ball(HC + r * sg * R * 1.02, R * .3, "2a2d34", .006)
+    pts = [HC - f * R * .3 + r * R * 1.0 * math.cos(a) + up * R * 1.0 * math.sin(a) for a in np.linspace(0, math.pi, 16)]; sc.line(pts, "1c1e24", .03)
+    for sg in (-1, 1):
+        q = HC + r * sg * R * .98 - f * R * .3
+        if sc.cam.depth(q) < sc.cam.depth(HC) + R * .1 or True: sc.ball(q, R * .2, "2a2d34", .006)
 def recorder(sc, p, t):
     p = V(*p); sc.box(p, (.5, .3, .14), "4a4f5c", 0, .01)
     for sg in (-1, 1):
