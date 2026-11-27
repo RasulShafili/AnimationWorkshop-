@@ -31,12 +31,13 @@ def c09(t):
         tgt = sc.cam.pr(V(-2.6, .6, 1.4)) if n == "before" else sc.cam.pr(V(0, 4.6, 3.0)); start = (W * .1, H * .9); uu = ss(u, .1, .6); x = start[0] + (tgt[0] - start[0]) * uu; y = start[1] + (tgt[1] - start[1]) * uu
         cuffs2d(sc.c, x, y, 1.4, -.3 + .6 * uu); label(sc, W / 2, 110, "BEFORE RICO: ARREST THE SOLDIER" if n == "before" else "WITH RICO: ARREST THE BOSS", 52, "ffd21e"); return sc
     if n in ("court", "eight"):
-        sc = Scene(K(u, (0, -5.5, 2.2), (0, -4.8, 2.1), (0, 2.4, 1.4), (0, 2.4, 1.4), 1050) if n == "court" else K(u, (2.9, 1.7, 1.6), (2.7, 1.65, 1.58), (-.8, 1.0, 1.0), (-.8, 1.0, 1.0), 1000))
+        sc = Scene(K(u, (0, -5.5, 2.2), (0, -4.8, 2.1), (0, 2.4, 1.4), (0, 2.4, 1.4), 1050) if n == "court" else K(u, (3.4, 2.05, 1.55), (3.2, 2.0, 1.53), (-.6, 1.2, 1.0), (-.6, 1.2, 1.0), 950))
         courtroom(sc, t, judge=lambda: judge_(sc, t, sc.cam.p)); sc.at(sc.cam.depth(V(.9, 2.3, 1.45)) - .3, lambda: gavel(sc, (.9, 2.3, 1.45), t, lt("c09_n3") + 1.2))
         for k in range(8):
-            ch = (MEN[:8])[k]; cx = -2.6 + .75 * k; sit(ch, t, (cx, 1.0, .5), 180, k, fz=0); ch.face = FACE["sad" if k % 2 else "angry"]
+            ch = (MEN[:8])[k]; cx = (-2.45 + .7 * k) if k < 4 else (.35 + .7 * (k - 4)); ch.face = FACE["sad" if k % 2 else "angry"]
+            seated(sc, ch, t, "kitchen", (cx, 1.15, 0), 180, k, "5a3a22", "3a2414", extra=lambda ch=ch: fedora(sc, ch, "3a3a40"))
+            ch.hands = [ch.hip + V(-.12, .35, .26), ch.hip + V(.12, .35, .26)]
             if n == "eight": look(ch, sc.cam.p, .6)
-            sc.at(sc.cam.depth(V(cx, 1.0, .5)) + .03, lambda cx=cx: kchair(sc, (cx, .98, 0), 180, "5a3a22", "3a2414")); sc.at(sc.cam.depth(V(cx, 1.0, .5)), lambda ch=ch: (ch.draw(sc), fedora(sc, ch, "3a3a40")))
         sc.flush(); sc.vignette(.35)
         if n == "court": stamp(sc, "NEW YORK, 1986", clamp(s * 3))
         if n == "eight": label(sc, W / 2, 110, "8 MOB BOSSES CONVICTED", 56, "ffd21e")
@@ -53,11 +54,12 @@ def banner(sc, t):
     onplane(sc, (-1.4, 3.18, 3.2), (2.8, 0, 0), (0, 0, -.45), 700, 110, lambda c, w_, h: (c.set_source_rgb(*C("ffd24a")), c.paint(), txt2d(c, w_ / 2, 74, "HAPPY 1ST BIRTHDAY, NICO!", 44, "c0303a")))
     for k in range(5): sc.ball((-3.2 + .25 * k, 2.9, 2.6 + .2 * (k % 2) + .05 * wob(t, .4, k)), .2, ("e8392e", "3d86e0", "ffc93a", "57c785", "8f5ad0")[k], .008)
 def agents_in(sc, t, t0, n=3, aim=None):
+    """single file through the door (0.55 s apart), then each fans out to his own spot"""
     for k in range(n):
-        ch = AGENTS[k]; tt = t - t0 - .25 * k
+        ch = AGENTS[k]; d0 = t0 + .55 * k; tt = t - d0
         if tt < 0: continue
-        x = (-.5 + .5 * k) * clamp(tt); walk(ch, t, [(t0 + .25 * k, 0, 3.6), (t0 + .25 * k + 1.2, x, 1.8 - .5 * k)], k, run=True); ch.face = FACE["det"]
-        if tt > 1.1: stand(ch, t, (x, 1.8 - .5 * k, 0), (-30, 0, 30)[k], k); ch.face = FACE["det"]
+        gx, gy = ((-1.3, 1.5), (0.0, 1.0), (1.3, 1.6))[k]; ex_ = (-.38, .38, 0.0)[k]; walk(ch, t, [(d0, ex_, 3.8), (d0 + .45, ex_, 2.9), (d0 + 1.3, gx, gy)], k, run=True); ch.face = FACE["det"]
+        if tt > 1.25: stand(ch, t, (gx, gy, 0), (-25, 0, 25)[k], k); ch.face = FACE["det"]
         ch.hands[1] = ch.hip + dirv(ch.yaw) * .35 + V(0, 0, .35); sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (ch.draw(sc), fbi(sc, ch), flashlight(sc, ch, 1, t, ch.hip + dirv(ch.yaw) * 4 + V(0, 0, -.6))))
 def c10(t):
     D = CH["c10"]["dur"]
@@ -71,7 +73,7 @@ def c10(t):
         cam = {"foyer": lambda: K(u, (2.4, -4.6, 2.2), (2.0, -4.0, 2.0), (0, 2.8, 1.4), (0, 2.8, 1.4), 1000), "door": lambda: K(u, (.6, -2.8, 1.5), (.5, -2.6, 1.5), (0, 3.2, 1.3), (0, 3.2, 1.3), 1000, hh=.03, t=t),
                "dana": lambda: K(u, (.4, -.6, 1.6), (.3, -.4, 1.6), (0, 2.2, 1.5), (0, 2.2, 1.5), 1100), "nothing": lambda: K(u, (1.6, -2.4, 1.7), (1.4, -2.2, 1.65), (0, 2.6, 1.2), (0, 2.6, 1.2), 1000),
                "pickup": lambda: K(u, (1.8, -2.0, 1.6), (1.5, -1.8, 1.6), (-1.6, .6, 1.2), (-1.6, .6, 1.2), 1050), "lookbear": lambda: K(u, (-1.25, .15, 1.55), (-1.27, .2, 1.52), (-1.42, .5, 1.05), (-1.42, .5, 1.05), 900, 1100),
-               "lookdad": lambda: K(u, (-1.25, .15, 1.3), (-1.27, .2, 1.3), (-1.6, .62, 1.42), (-1.6, .62, 1.44), 950, 1100), "throw": lambda: K(u, (1.8, -3.6, 1.6), (1.8, -3.6, 1.6), (-.3, 1.2, .9), (.2, 1.6, .5), 950),
+               "lookdad": lambda: K(u, (-.95, -.25, 1.3), (-1.0, -.18, 1.3), (-1.6, .62, 1.38), (-1.6, .62, 1.4), 900, 1100), "throw": lambda: K(u, (1.8, -3.6, 1.6), (1.8, -3.6, 1.6), (-.3, 1.2, .9), (.2, 1.6, .5), 950),
                "lands": lambda: K(u, (2.0, -.7, 1.5), (1.9, -.6, 1.45), (.55, 1.4, .45), (.55, 1.4, .45), 1050), "stare": lambda: K(u, (-2.5, -.6, 1.9), (-2.4, -.5, 1.88), (.2, 1.4, 1.2), (.3, 1.45, 1.2), 1000, 1100)}[n]()
         sc = Scene(cam); foyer(sc, t, door=door if n in ("door",) else (1.0 if n != "foyer" else 0.0), dawn=True); banner(sc, t)
         if n == "foyer":
@@ -145,7 +147,7 @@ def c10(t):
         DON.face = FACE["sad"]; DON.talk = talk("c10_don1", t); look(DON, NICO.joints()[4]); NICO.face = FACE["sad"]; sc.at(1, lambda: (DON.draw(sc), NICO.draw(sc), ring(sc, DON))); sc.flush(); sc.c.set_source_rgba(.1, .12, .3, .2); sc.c.paint(); sc.vignette(.45); return sc
     if n == "memory":                                          # he sang to you every night
         sc = Scene(K(u, (1.3, -.9, 1.5), (1.1, -.7, 1.48), (0, 1.4, .9), (0, 1.4, .9), 1100)); nursery(sc, t); crib_scene(sc, t, who=lambda: baby(sc, V(-.1, 1.4, .62), 0, t, "sleep", 0, 1.0, ax=(-1, 0, 0)), mobile=True)
-        sit(DON, t, (.9, 1.2, .45), 250, 3); DON.face = FACE["smile"]; DON.talk = .4 * max(0, wob(t, 1.2)); DON.hands[0] = V(.35, 1.4, .95); sc.at(sc.cam.depth(V(.9, 1.2, .5)), lambda: (kchair(sc, (.9, 1.2, 0), 250, "6a3a22", "4a2a18"), DON.draw(sc)))
+        DON.face = FACE["smile"]; seated(sc, DON, t, "kitchen", (1.05, 1.25, 0), 260, 3, "6a3a22", "4a2a18"); DON.talk = .4 * max(0, wob(t, 1.2)); DON.hands[0] = V(.5, 1.45, .95)
         sc.flush(); sc.c.set_source_rgba(.25, .15, .05, .45); sc.c.paint(); X, Y = sc.cam.pr(V(.6, 1.2, 1.6))
         for k in range(3): tx(sc, X + 80 * k - 60, Y - 60 - 40 * ((t * .5 + k * .33) % 1), "♪" if False else "~", 70, "fff0c0", INK, .1, a=.8)
         sc.vignette(.55); return sc
@@ -176,11 +178,10 @@ def c11(t):
                        (lt("c11_n4") - .1, "dana")], D)
     if n in ("gavel", "witness"):
         sc = Scene(K(u, (0, -2.0, 1.9), (0, -1.6, 1.85), (0, 2.6, 1.5), (0, 2.6, 1.5), 1100) if n == "gavel" else K(u, (1.6, -.6, 1.7), (1.4, -.4, 1.68), (-1.9, 2.3, 1.2), (-1.9, 2.3, 1.2), 1150))
-        courtroom(sc, t, judge=lambda: judge_(sc, t, sc.cam.p)); sc.at(sc.cam.depth(V(.9, 2.3, 1.45)) - .3, lambda: gavel(sc, (.9, 2.3, 1.45), t, lt("c11_n1") + 1.0))
+        courtroom(sc, t, judge=lambda: judge_(sc, t, sc.cam.p), witness=(lambda: SAL.draw(sc)) if n == "witness" else None); sc.at(sc.cam.depth(V(.9, 2.3, 1.45)) - .3, lambda: gavel(sc, (.9, 2.3, 1.45), t, lt("c11_n1") + 1.0))
         if n == "gavel": stand(DON, t, (-1.6, 1.1, 0), 0, 3); DON.face = FACE["sad"]; DON.hands = [DON.hip + V(-.08, -.25, .05), DON.hip + V(.08, -.25, .05)]; sc.at(sc.cam.depth(DON.hip), lambda: (DON.draw(sc), cuffs3 := None))
         if n == "witness":
-            sc.at(sc.cam.depth(V(-1.9, 2.4, .6)), lambda: (sc.box((-1.9, 2.4, .55), (.9, .7, 1.1), "5a3a22", 0, .012)))
-            sit(SAL, t, (-1.9, 2.6, .5), 0, 2); SAL.face = FACE["sad"]; SAL.talk = .5 * max(0, wob(t, 2)); sc.at(sc.cam.depth(V(-1.9, 2.6, .5)) + .1, lambda: SAL.draw(sc))
+            sit(SAL, t, (-2.6, 2.75, .62), 0, 2, fz=.0); SAL.face = FACE["sad"]; SAL.talk = .5 * max(0, wob(t, 2)); SAL.hands = [V(-2.85, 2.3, 1.05), V(-2.35, 2.3, 1.05)]
         sc.flush(); sc.vignette(.35)
         if n == "gavel": bigcount(sc, W * .74, H * .3, "100", 170, "YEARS", "ffd21e", clamp(s * 3))
         if n == "witness": label(sc, W / 2, 110, "SAL TESTIFIES", 56, "ffd21e")
@@ -202,18 +203,20 @@ def c11(t):
     if n == "id":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "e8e4d8", "c8c0b0"); c = sc.c; c.save(); c.translate(W / 2, H / 2); c.scale(.9 + .15 * u, .9 + .15 * u); c.translate(-W / 2, -H / 2); idcard2d(sc, W / 2, H / 2, 760, t, "DANNY"); c.restore(); sc.vignette(.3); return sc
     if n in ("town", "bakery", "dana"):
-        cam = {"town": lambda: K(u, (-1, -9, 2.4), (1, -8.5, 2.2), (0, 4, 1.8), (0, 4, 1.8), 1000), "bakery": lambda: K(u, (-1.4, -.3, 1.5), (-1.4, .1, 1.5), (-1.4, 3.9, 1.3), (-1.4, 3.9, 1.3), 1100),
-               "dana": lambda: K(u, (-1.2, -.6, 1.6), (-1.2, -.3, 1.6), (-1.3, 3.2, 1.1), (-1.3, 3.2, 1.1), 1000)}[n]()
+        cam = {"town": lambda: K(u, (-1, -9, 2.4), (1, -8.5, 2.2), (0, 5.5, 2.0), (0, 5.5, 2.0), 1000), "bakery": lambda: K(u, (-1.4, 1.4, 1.5), (-1.4, 1.8, 1.5), (-1.4, 5.6, 1.3), (-1.4, 5.6, 1.3), 1100),
+               "dana": lambda: K(u, (1.3, 3.2, 1.55), (1.15, 3.3, 1.53), (-1.5, 5.0, 1.15), (-1.5, 5.0, 1.15), 1000)}[n]()
         sc = Scene(cam); town(sc, t)
-        stand(LUCIA, t, (-1.4, 4.2, 0), 0, 2); LUCIA.face = FACE["smile"]; sc.at(sc.cam.depth(V(-1.4, 4.2, 0)) + .01, lambda: (LUCIA.draw(sc), robe(sc, LUCIA)))
+        stand(LUCIA, t, (-1.4, 5.72, 0), 0, 2); LUCIA.face = FACE["smile"]; LUCIA.hands = [V(-1.65, 5.35, 1.02), V(-1.15, 5.35, 1.02)]
         def stall():
-            sc.box((-1.4, 3.7, .5), (2.4, .5, 1.0), "c97a5a", 0, .01); sc.box((-1.4, 3.7, 1.02), (2.4, .55, .04), "f6e6d0", 0, .006); [sc.ball((-2.3 + .25 * k, 3.7, 1.1), .07, ("e8c080", "c08a4a", "f0d8b0")[k % 3], .005) for k in range(8)]
-            sc.poly([(-2.7, 3.3, 2.2), (-.1, 3.3, 2.2), (-.1, 4.5, 2.5), (-2.7, 4.5, 2.5)], "e8392e", .01); [sc.line([(x, 3.45, 0), (x, 3.45, 2.2)], "8a6a4a", .03) for x in (-2.6, -.2)]
-        sc.at(sc.cam.depth(V(-1.4, 3.7, .5)), stall)
+            LUCIA.draw(sc); robe(sc, LUCIA)
+            sc.box((-1.4, 5.3, .5), (2.4, .5, 1.0), "c97a5a", 0, .01); sc.box((-1.4, 5.3, 1.02), (2.5, .58, .04), "f6e6d0", 0, .006); [sc.ball((-2.3 + .25 * k, 5.25, 1.1), .07, ("e8c080", "c08a4a", "f0d8b0")[k % 3], .005) for k in range(8)]
+            sc.poly([(-2.5, 5.04, .2), (-.3, 5.04, .2), (-.3, 5.04, .85), (-2.5, 5.04, .85)], "b06a4a", .006); wtx(sc, (-1.4, 5.03, .52), "CANNOLI  $1", .16, "fff6e0", None, .1)
+        sc.at(sc.cam.depth(V(-1.4, 5.3, .5)), stall)
         if n == "dana":
-            stand(DANA, t, (-2.0, 2.95, 0), 160, 3); DANA.face = FACE["smile" if u < .6 else "laugh"]; DANA.blink = 1.0 if .55 < u < .75 else 0
-            if u > .4: look(DANA, (-.7, 2.7, .9)); sc.at(sc.cam.depth(DANA.hip), lambda: (DANA.draw(sc), cannoli(sc, DANA.hip + V(.25, -.2, .3), 0)))
-            sk = .9; stand(DANNY, t, (-.7, 2.7, 0), 250, 6); DANNY.face = FACE["smile"]; sc.at(sc.cam.depth(DANNY.hip), lambda: DANNY.draw(sc))
+            stand(DANA, t, (-2.15, 4.6, 0), 165, 3); DANA.face = FACE["smile" if u < .6 else "laugh"]; DANA.blink = 1.0 if .55 < u < .75 else 0; DANA.hands[1] = DANA.hip + V(.18, .25, .3)
+            if u > .4: look(DANA, (-.6, 4.35, .9))
+            sc.at(sc.cam.depth(DANA.hip), lambda: (shadow_feet(sc, DANA), DANA.draw(sc), cannoli(sc, DANA.hands[1] + V(0, 0, .03), 0)))
+            stand(DANNY, t, (-.6, 4.35, 0), 205, 6); DANNY.face = FACE["smile"]; sc.at(sc.cam.depth(DANNY.hip), lambda: (shadow_feet(sc, DANNY), DANNY.draw(sc)))
         sc.flush(); sc.vignette(.25)
         if n == "town": stamp(sc, "SOMEWHERE SMALL. NEW NAMES.", clamp(s * 3))
         return sc
@@ -241,8 +244,8 @@ def c12(t):
         for ch in (KID6, LUCIA): sc.at(sc.cam.depth(ch.hip) + .3, lambda ch=ch: ch.draw(sc))
         sc.flush(); sc.vignette(.3); stamp(sc, "5 YEARS LATER", clamp(s * 3)); return sc
     if n == "mailbox":
-        sc = Scene(K(u, (1.6, -2.4, 1.3), (1.3, -2.0, 1.28), (0, 1.0, 1.0), (0, 1.0, 1.05), 1050)); town(sc, t); mailbox(sc, (.4, 1.0, 0), 1.0)
-        stand(KID6, t, (-.2, .9, 0), 80, 2); KID6.face = FACE["ooh"]; KID6.hands[1] = V(.15, .8, .95); sc.at(sc.cam.depth(V(-.2, .9, 0)), lambda: (KID6.draw(sc), sc.box(V(.18, .78, .95), (.25, .02, .14), "fbf7ee", 80, .006)))
+        sc = Scene(K(u, (11.7, 1.7, 1.35), (11.5, 1.9, 1.33), (10.0, 4.85, 1.0), (10.0, 4.85, 1.05), 1050)); town(sc, t)
+        stand(KID6, t, (9.75, 4.5, 0), 75, 2); KID6.face = FACE["ooh"]; KID6.hands[1] = V(10.12, 4.82, .98); sc.at(sc.cam.depth(V(9.75, 4.5, 0)) - .2, lambda: (shadow_feet(sc, KID6), KID6.draw(sc), sc.box(V(10.16, 4.82, .98), (.25, .02, .14), "fbf7ee", 75, .006)))
         sc.flush(); sc.vignette(.3); return sc
     if n in ("drawing", "words"):
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "3a3442", "1c1a22"); wd = 0 if n == "drawing" else clamp((t - lt("c12_n2") - .5) / 1.2)
@@ -257,13 +260,13 @@ def c12(t):
         KID6.hands = [KID6.hip + V(-.12, -.25, .12), KID6.hip + V(.12, -.25, .12)]; sc.at(1, lambda: (KID6.draw(sc), sc.box(KID6.hip + V(0, -.28, .12), (.26, .02, .2), "fbf7ee", 0, .006))); sc.flush()
         sc.c.set_source_rgba(.05, .05, .2, .35); sc.c.paint(); sc.vignette(.45); return sc
     if n == "gate":
-        sc = Scene(K(u, (0, -9, 1.8), (0, -7.5, 1.7), (0, 4, 2.2), (0, 4, 2.2), 1000)); skyline(sc, t); P = sc.poly
-        P([(-30, -20, 0), (30, -20, 0), (30, 30, 0), (-30, 30, 0)], "3a3e48", 0); P([(-20, 4, 0), (20, 4, 0), (20, 4, 7), (-20, 4, 7)], "5a5e68", .012)
-        for k in range(-20, 21, 2): sc.line([(k, 3.9, 7), (k, 3.9, 7.6)], "2a2d34", .04)
-        op = ss(u, .2, .9)
-        for sg in (-1, 1): x0 = sg * (1.6 + 2.6 * op); [sc.line([(x0 + sg * .2 * k_, 3.95, 0), (x0 + sg * .2 * k_, 3.95, 4.5)], "2a2d34", .05) for k_ in range(14)]
-        sc.poly([(-1.6, 4.01, 0), (1.6, 4.01, 0), (1.6, 4.01, 4.5), (-1.6, 4.01, 4.5)], "0a0c12", 0) if op < .05 else None
-        wtx(sc, (0, 3.9, 5.6), "STATE PRISON", .9, "e8e8e8", INK, .12); [sc.line([(-20, 3.95, 7.6 + .15 * (k % 2)), (20, 3.95, 7.6 + .15 * (k % 2))], "8a8f98", .02) for k in range(2)]
-        for x in (-9, 9): sc.box((x, 5, 4), (2, 2, 8), "4a4e58", 0, .012); sc.box((x, 5, 8.3), (2.6, 2.6, .6), "3a3e48", 0, .012); Xl, Yl = sc.cam.pr(V(x, 4, 8.6)); sc.glow(Xl, Yl, 160, "fff2c0", .35)
+        sc = Scene(K(u, (0, -10, 1.8), (0, -8, 1.75), (0, 4, 2.6), (0, 4, 2.6), 1000)); op = ss(u, .15, .7)
+        def walker():
+            if op < .3: return
+            q = V(0, 6.5 - 2.2 * ss(u, .45, 1.0), 0); X, Y = sc.cam.pr(q + V(0, 0, 1.0)); hh = sc.cam.px(q, 1.9); c = sc.c; c.set_source_rgb(*C("0e0f14"))
+            c.new_path(); c.arc(X, Y - hh * .62, hh * .13, 0, 7); c.fill(); c.rectangle(X - hh * .13, Y - hh * .5, hh * .26, hh * .55); c.fill()
+            stp = math.sin(t * 6) * hh * .06; c.set_line_width(hh * .07); c.move_to(X - hh * .05, Y + hh * .04); c.line_to(X - hh * .05 - stp, Y + hh * .48); c.move_to(X + hh * .05, Y + hh * .04); c.line_to(X + hh * .05 + stp, Y + hh * .48); c.stroke()
+            c.move_to(X + hh * .13, Y - hh * .4); c.line_to(X + hh * .25, Y + hh * .02); c.stroke(); c.rectangle(X + hh * .19, Y + hh * .02, hh * .16, hh * .12); c.fill()
+        prison_gate(sc, t, op, walker)
         X, Y = sc.cam.pr(V(0, 6, 1.5)); sc.glow(X, Y, 500, "fff2c0", .45 * op); sc.vignette(.5); label(sc, W / 2, 110, "NEXT TIME: HE GETS OUT", 60, "ffd21e"); return sc
 SC["c12"] = c12

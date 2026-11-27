@@ -57,7 +57,7 @@ def c05(t):
         if n == "walk": pass
         return sc
     if n == "walk":
-        cx = 1.2 * (t - w("c05_n1", "Real")); sc = Scene(K(u, (cx - 2.5, .2, 1.5), (cx - 1.8, .1, 1.5), (cx + .5, 3.7, 1.25), (cx + 1.2, 3.7, 1.25), 1000)); city_night(sc, t, cx, 30, night=False, parked=[(cx - 6, "3a5a8a"), (cx + 9, "8a3a2a")])
+        cx = 1.2 * (t - w("c05_n1", "Real")); sc = Scene(K(u, (cx - 2.5, .2, 1.5), (cx - 1.8, .1, 1.5), (cx + .5, 3.7, 1.25), (cx + 1.2, 3.7, 1.25), 1000)); city_night(sc, t, cx, 30, night=False, parked=[(-6, "3a5a8a"), (9, "8a3a2a"), (17, "c8c8c0")])
         for k, ch in enumerate((DON, SAL)): walk(ch, t, [(0, cx - 6 + k * .9, 3.9 - .5 * k), (99, cx + 120 + k * .9, 3.9 - .5 * k)], k); ch.yaw = 90; look(ch, (cx + 1, 3.6 - .5 * (1 - k), 1.6)); ch.talk = .5 * max(0, wob(t, 2, k)); ch.face = FACE["det"]
         walk(DON, t, [(w("c05_n1", "Real") - 1, cx - .5, 3.9), (w("c05_n1", "Real") + 30, cx - .5 + 36, 3.9)], 1); walk(SAL, t, [(w("c05_n1", "Real") - 1, cx + .4, 3.4), (w("c05_n1", "Real") + 30, cx + .4 + 36, 3.4)], 2)
         DON.talk = .5 * max(0, wob(t, 2)); SAL.face = FACE["det"]
@@ -104,9 +104,9 @@ def c06(t):
                        (lt("c06_n4") - .1, "spell"), (lt("c06_dana1") - .1, "dana"), (lt("c06_n5") - .1, "look"), (w("c06_n5", "writes") - .2, "write")], D)
     def blanket_scene(sc, letters="", up=None, nico_face="det"):
         onplane(sc, (-1.4, 1.4, .004), (1.8, 0, 0), (0, -1.6, 0), 360, 320, lambda c, w_, h: (c.set_source_rgb(*C("e8392e")), c.paint(), [(c.rectangle(x_, 0, 30, h), c.set_source_rgb(1, 1, 1), c.fill()) for x_ in range(0, 360, 60)], [(c.rectangle(0, y_, w_, 30), c.set_source_rgba(1, 1, 1, .7), c.fill()) for y_ in range(0, 320, 60)]))
-        sit(NICO, t, (-.5, .5, .07), 20, 4, fz=.02); NICO.face = FACE[nico_face]; NICO.lean = V(.08 * wob(t, .5), .06 * wob(t, .4)); look(NICO, (2.0, 3.0, 1.2) if n in ("bench", "pov", "dana", "look") else (-.5, .2, 0))
+        sit(NICO, t, (-.5, .5, .07), 20, 4, fz=.02); f_n, r_n = side(NICO); NICO.feet = [NICO.hip + f_n * .2 + r_n * sg * .06 + V(0, 0, -.04) for sg in (-1, 1)]; NICO.knee = V(0, 0, 1); NICO.face = FACE[nico_face]; NICO.lean = V(.08 * wob(t, .5), .06 * wob(t, .4)); look(NICO, (2.0, 3.0, 1.2) if n in ("bench", "pov", "dana", "look") else (-.5, .2, 0))
         sc.at(sc.cam.depth(V(-.5, .5, .2)), lambda: NICO.draw(sc))
-        if letters: sc.at(sc.cam.depth(V(-.55, .15, .1)), lambda: blocks(sc, (-.55, .15, .05), letters, t, up=up, yaw=20))
+        if letters: sc.at(sc.cam.depth(V(-.5, .02, .1)), lambda: blocks(sc, (-.5, .02, 0), letters, t, up=up, yaw=20))
         sc.at(sc.cam.depth(V(-2.5, 1.5, .3)), lambda: (stroller(sc, (-2.5, 1.5, 0), 70), bear(sc, (-2.5, 1.5, .58), 250, .7)))
         sit(LUCIA, t, (-1.5, 1.9, .45), 15, 2, fz=0); LUCIA.face = FACE["smile"]; look(LUCIA, (-.5, .5, .3))
         sc.at(sc.cam.depth(V(-1.5, 1.9, .3)) + .05, lambda: bench(sc, (-1.5, 1.95, 0), 15)); sc.at(sc.cam.depth(V(-1.5, 1.9, .3)), lambda: LUCIA.draw(sc))
@@ -150,7 +150,8 @@ def c07(t):
                        (w("c07_n6", "Sal") - .1, "mirror"), (lt("c07_n4") - .1, "scream"), (lt("c07_mom1") - .1, "mom"), (lt("c07_n5") - .1, "uturn")], D)
     if n == "phone":
         sc = Scene(K(u, (1.2, -1.6, 1.6), (1.0, -1.3, 1.6), (-.2, 1.6, 1.4), (-.2, 1.6, 1.42), 1150)); KIT.kitchen(sc, .3); stand(SAL, t, (-.3, 1.4, 0), 20, 2); SAL.face = FACE["det"]
-        f_, r_ = side(SAL); ph = SAL.joints()[4] + r_ * SAL.R * 1.05; SAL.hands[0] = ph - V(0, 0, .05); SAL.talk = .5 * max(0, wob(t, 2.5)); sc.at(1, lambda: (SAL.draw(sc), sc.box(ph + V(.02, -.02, -.02), (.05, .09, .17), "1c1e24", SAL.yaw, .006)))
+        f_, r_ = side(SAL); HC_ = SAL.joints()[4]; ph = HC_ + r_ * SAL.R * 1.02 + f_ * SAL.R * .15; SAL.hands[1] = ph + r_ * .03 - V(0, 0, .06); SAL.elbow[1] = V(0, 0, -1) + r_ * .5; SAL.talk = .5 * max(0, wob(t, 2.5))
+        sc.at(1, lambda: (SAL.draw(sc), sc.box(ph + r_ * .025, (.05, .09, .17), "1c1e24", SAL.yaw, .006), sc.box(ph + r_ * .052 + V(0, 0, .02), (.005, .06, .1), "4a7ab0", SAL.yaw, 0)))
         sc.flush(); sc.vignette(.3); stamp(sc, "MONTH 11", clamp(s * 3)); return sc
     if n in ("laugh", "nico"):
         sc = Scene(K(u, (1.4, -1.0, 1.6), (1.2, -.8, 1.55), (0, 2.0, 1.2), (0, 2.0, 1.2), 1100) if n == "laugh" else K(u, (-1.0, -.6, 1.0), (-1.1, -.4, .95), (-2.2, .4, .65), (-2.2, .4, .65), 1400))
@@ -161,7 +162,7 @@ def c07(t):
     if n in ("drive", "follow", "uturn"):
         cx = 12 * (t - lt("c07_n3"))
         if n == "uturn":
-            sc = Scene(K(u, (8, -9, 9), (6, -8.5, 9.5), (-4, 0, 0), (-8, 0, 0), 950)); city_night(sc, t, -5, 35)
+            sc = Scene(K(u, (8, -9, 9), (6, -8.5, 9.5), (-4, 0, 0), (-8, 0, 0), 950)); city_night(sc, t, -5, 35, parked=[])
             sp = ss(u, .05, .3); mx = 2 - 3 * sp - 26 * ss(u, .3, 1.0); my = -1.4 + 2.6 * ss(sp, .2, .9); myaw = 90 + 180 * sp
             sc.at(sc.cam.depth(V(mx, my, 0)), lambda: car(sc, (mx, my, 0), myaw, MAROON, beams=.8))
             if 0 < sp < 1: [sc.at(sc.cam.depth(V(mx, my, 0)) + .01, lambda q=V(mx - 1.2 + .5 * j_, my - .3 + .3 * j_, .15): sc.ball(q, .3, (.6, .6, .65), 0, a=.35)) for j_ in range(3)]
@@ -174,17 +175,17 @@ def c07(t):
         def ex():
             if n == "follow":
                 for k in range(3):
-                    if u > k * .3: q = V(cx - 8 - 6 * k, (-1.4, 1.2, -1.4)[k], 0); sc.at(sc.cam.depth(q), lambda q=q, k=k: (van(sc, q, 90, "8a8f98") if k == 0 else car(sc, q, 90, "15161a", beams=1)))
+                    if u > k * .3: q = V(cx - 8 - 6 * k, (-1.4, .3, -1.4)[k], 0); sc.at(sc.cam.depth(q), lambda q=q, k=k: (van(sc, q, 90, "8a8f98") if k == 0 else car(sc, q, 90, "15161a", beams=1)))
         chase(sc, t, cx, purs=(), extra=ex, beams=1); sc.vignette(.3); return sc
     if n == "van":
         sc = Scene(K(u, (-.5, -.5, 1.25), (-.5, -.45, 1.24), (-3, -.9, 1.1), (-3, -.9, 1.1), 900)); cabin(sc, t, .5, 0, rear=0); in_car(sc, t, "LN", baby_face="det")
         sc.flush(); c = sc.c; c.save(); X0, Y0 = sc.cam.pr(V(-.79, -1.2, 1.5)); X1, Y1 = sc.cam.pr(V(-.79, .4, .9)); c.rectangle(min(X0, X1), min(Y0, Y1), abs(X1 - X0), abs(Y1 - Y0)); c.clip()
-        sc2 = Scene(Cam((0, -6, 1.4), (-2, 3, 1.2), 900)); city_night(sc2, t, 0, 25); q = V(-1.5, 2.3, 0); sc2.at(sc2.cam.depth(q), lambda: van(sc2, q, 90, "8a8f98", lights=False)); sc2.flush(); c.set_source_surface(sc2.surf, 0, 0); c.paint(); c.restore()
+        sc2 = Scene(Cam((0, -6, 1.4), (-2, 3, 1.2), 900)); city_night(sc2, t, 0, 25, parked=[(-9, "3a5a8a"), (7, "7a2a2a")]); q = V(-1.5, 2.15, 0); sc2.at(sc2.cam.depth(q), lambda: van(sc2, q, 90, "8a8f98", lights=False)); sc2.flush(); c.set_source_surface(sc2.surf, 0, 0); c.paint(); c.restore()
         label(sc, W * .5, H - 140, "SAME GRAY VAN. THIRD TIME. NO PLATES.", 46, "ffd21e"); sc.vignette(.4); return sc
     if n == "mirror":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); mirror_eyes(sc, t, .6 * wob(t, .8)); sc.vignette(.4); return sc
     if n in ("scream", "mom"):
-        cam = K(u, (0, .4, 1.15), (0, .2, 1.08), (0, -.9, .85), (0, -.9, .82), 850, hh=.02, t=t) if n == "scream" else K(u, (0, .45, 1.18), (0, .35, 1.15), (-.25, -.9, 1.05), (-.25, -.9, 1.05), 820)
+        cam = K(u, (.2, -.35, 1.02), (.16, -.42, 1.0), (0, -.95, .86), (0, -.95, .84), 800, hh=.02, t=t) if n == "scream" else K(u, (.42, -.42, 1.12), (.4, -.46, 1.1), (-.45, -.95, 1.08), (-.45, -.95, 1.08), 780)
         sc = Scene(cam); cabin(sc, t, 1.0, 0, shake=.5, rear=.6); in_car(sc, t, "LN", faces={"L": "scared"}, baby_face="angry", scream=1.0 if n == "scream" else .6, mom_talk="c07_mom1")
         if n == "scream": X, Y = sc.cam.pr(V(0, -.92, 1.0)); burst(sc, X, Y, 600, 18, t, (1, 1, 1), .25)
         sc.flush()
@@ -213,26 +214,33 @@ def c08(t):
     if n in ("back", "red", "fruit", "bus"):
         cx = 26 * t
         if n == "back":
-            sc = Scene(K(u, (cx + 5.5, -4.2, .55), (cx + 4.2, -4.0, .7), (cx - 1, -1.2, .9), (cx - 2, -1.0, 1.0), 900, hh=.05, t=t)); chase(sc, t, cx); speedlines(sc, t, .6); sc.vignette(.32); label(sc, W / 2, 110, "NOW", 60, "ffd21e"); return sc
+            sc = Scene(K(u, (cx + 5.5, -3.5, .55), (cx + 4.2, -3.4, .7), (cx - 1, -1.2, .9), (cx - 2, -1.0, 1.0), 900, hh=.05, t=t)); chase(sc, t, cx); speedlines(sc, t, .6); sc.vignette(.32); label(sc, W / 2, 110, "NOW", 60, "ffd21e"); return sc
         L0 = 26 * (w("c08_n6", "fruit") - .1); fx = L0 + 14
         def ex():
-            if n in ("red",):
-                q = V(cx + 6, 3.4, 0); sc.at(sc.cam.depth(q), lambda: (sc.line([q, q + V(0, 0, 3.6)], "2a2d34", .1), sc.line([q + V(0, 0, 3.6), q + V(0, -2.5, 3.6)], "2a2d34", .08), sc.box(q + V(0, -2.4, 3.2), (.35, .3, .9), "1c1e24", 0, .01), sc.ball(q + V(0, -2.58, 3.5), .12, "ff2a2a", 0), sc.glow(*sc.cam.pr(q + V(0, -2.58, 3.5)), 60, "ff2a2a", .6)))
             if n == "fruit": q = V(fx, -3.6, 0); sc.at(sc.cam.depth(q), lambda: stand_fruit(sc, q, t, hit=w("c08_n6", "fruit") + .25))
-            if n == "bus": q = V(cx + 7.5 - 4 * u, 1.2, 0); sc.at(sc.cam.depth(q), lambda: vehicle(sc, q, -90, "ffc21e", kind="bus", roll=q[0]))
+            if n == "bus": q = V(cx + 7.5 - 4 * u, 1.0, 0); sc.at(sc.cam.depth(q), lambda: vehicle(sc, q, -90, "ffc21e", kind="bus", roll=q[0]))
         cam = {"red": lambda: K(u, (cx + 10, -6, 2.2), (cx + 8, -6, 2.0), (cx, 0, 1.2), (cx + 2, 0, 1.2), 950), "fruit": lambda: K(u, (fx + 3, -8.5, 1.6), (fx + 3.5, -8.4, 1.6), (fx, -2.5, .8), (fx + 1, -2.5, .8), 1000),
                "bus": lambda: K(u, (cx - 3, -5.8, 1.4), (cx - 2, -5.8, 1.4), (cx + 3, 0, 1.6), (cx + 4, 0, 1.6), 900, hh=.05, t=t)}[n]()
-        sc = Scene(cam); chase(sc, t, cx, lane=-1.4 if n != "fruit" else -2.2, extra=ex); speedlines(sc, t, .5); sc.vignette(.3)
+        sc = Scene(cam); chase(sc, t, cx, lane=-1.4 if n != "fruit" else -1.9, extra=ex, parked=[] if n == "bus" else None, traffic_light=26 * lt("c08_n6") + 34 if n == "red" else None); speedlines(sc, t, .5); sc.vignette(.3)
         if n == "bus": tx(sc, W * .7, H * .3, "HOOOONK!", 90, "ffd21e", INK, .14, rot=-.08)
         return sc
     if n in ("slide", "pacifier", "left", "sal"):
-        cam = {"slide": lambda: K(u, (0, .4, 1.15), (0, .3, 1.1), (0, -.9, .85), (0, -.9, .85), 850, roll=.12 * wob(t, 1.2), hh=.02, t=t), "left": lambda: K(u, (0, -.45, 1.0), (0, -.55, .98), (0, -.92, .92), (0, -.92, .92), 950, 1150, hh=.01, t=t),
-               "pacifier": lambda: K(u, (.45, -1.2, 1.45), (.4, -1.1, 1.42), (-.2, .6, 1.1), (-.2, .6, 1.1), 850, roll=-.15 * ss(s, 0, .3), hh=.02, t=t), "sal": lambda: K(u, (.2, -.6, 1.3), (.15, -.5, 1.28), (-.38, .25, 1.3), (-.38, .25, 1.32), 1000)}[n]()
+        cam = {"slide": lambda: K(u, (.3, -.4, 1.08), (.26, -.45, 1.06), (-.1, -1.0, .88), (-.1, -1.0, .88), 760, roll=.12 * wob(t, 1.2), hh=.02, t=t), "left": lambda: K(u, (.1, -.42, 1.0), (.08, -.48, .99), (0, -.95, .9), (0, -.95, .9), 820, 1000, hh=.01, t=t),
+               "pacifier": lambda: K(u, (.5, -.42, 1.05), (.48, -.46, 1.04), (-.45, -1.0, 1.0), (-.5, -.95, 1.0), 720, roll=-.12 * ss(s, 0, .3), hh=.02, t=t), "sal": lambda: K(u, (.2, -.6, 1.3), (.15, -.5, 1.28), (-.38, .25, 1.3), (-.38, .25, 1.32), 1000)}[n]()
         sc = Scene(cam); cabin(sc, t, 2.2, .3 * wob(t, .7), shake=1.5, rear=1, alley_=1.0 if n == "sal" else 0)
         if n == "slide": NICO.lean = V(0, .2 * wob(t, 1.2))
         bf = {"slide": "laugh", "left": "angry", "pacifier": "shock", "sal": "smug"}[n]
-        in_car(sc, t, "SLN" if n in ("pacifier", "sal") else "LN", faces={"S": "shock" if n == "sal" else "det"}, sal_look=-150 if n == "sal" else 0, sal_talk="c08_sal1", baby_face=bf, jolt=1.5, scream=1.0 if n == "left" else 0)
-        if n == "pacifier": pp = V(.0, -.85, 1.0) + V(-.4, 1.4, .3) * ss(s, .1, .8) + V(0, 0, .3 * math.sin(math.pi * ss(s, .1, .8))); sc.at(.1, lambda: pacifier(sc, pp, 1.5))
+        in_car(sc, t, "SLN" if n in ("sal",) else "LN", faces={"S": "shock" if n == "sal" else "det"}, sal_look=-150 if n == "sal" else 0, sal_talk="c08_sal1", baby_face=bf, jolt=1.5, scream=1.0 if n == "left" else 0)
+        if n == "pacifier":                                       # out of the mouth, across the car to the left window, bounce, drop to the floor
+            sit(NICO, t, V(0, -.92, .5), 180, 6); u_ = clamp((t - w("c08_n3", "flies") + .35) / 1.5); mo = NICO.joints()[4] + dirv(180) * NICO.R * .95 - V(0, 0, NICO.R * .3); win = V(-.74, -.55, 1.2); fl = V(-.55, -.45, .05)
+            if u_ < .5: v_ = ss(u_, 0, .5); pp = mo + (win - mo) * v_ + V(0, 0, .5 * math.sin(math.pi * v_))
+            else: v_ = (u_ - .5) / .5; pp = win + (fl - win) * v_ + V(0, 0, .2 * math.sin(math.pi * v_) * (1 - v_))
+            trail = [mo + (win - mo) * ss(u_ - k * .03, 0, .5) + V(0, 0, .5 * math.sin(math.pi * ss(u_ - k * .03, 0, .5))) for k in range(6)] if .02 < u_ < .55 else []
+            def pf():
+                for k, q in enumerate(trail[1:]): sc.ball(q, .02, "ffffff", 0, a=.35 - .06 * k)
+                pacifier(sc, pp, 1.6)
+                if .48 < u_ < .58: X, Y = sc.cam.pr(win); burst(sc, X, Y, 120, 10, t, (1, 1, 1), .4)
+            sc.at(sc.cam.depth(pp) - .05, pf)
         if n == "left": X, Y = sc.cam.pr(V(0, -.92, 1.0)); burst(sc, X, Y, 700, 20, t, (1, .9, .4), .3)
         sc.flush()
         if n == "left": tx(sc, W * .5, H * .16, "LEFT!", 150, "ffd21e", INK, .14, rot=-.05)
@@ -254,10 +262,12 @@ def c08(t):
             if n == "cans":
                 p = V(0, 3.0 + 3.5 * clamp((t - w("c08_n4", "first")) / .5), 0); sc.at(sc.cam.depth(p), lambda: car(sc, p, 0, "15161a", roll=p[1], beams=1, pitch=-3 * (t > hit)))
             if n == "jam":
-                for k, sg in enumerate((-1, 1)): p = V(sg * (2.6 - 1.5 * ss(s, 0, .3)), 3.6, 0); sc.at(sc.cam.depth(p), lambda p=p, sg=sg: car(sc, p, 180 - 30 * sg, "15161a", beams=1))
+                for k, sg in enumerate((-1, 1)): p = V(sg * (1.6 - .5 * ss(s, 0, .3)), 3.2 - .9 * k, 0); sc.at(sc.cam.depth(p), lambda p=p, sg=sg: car(sc, p, 90 + 180 * (sg > 0) + 25 * sg, "15161a", beams=1))
         city_night(sc, t, 0, 30, gap=(-1.7, 1.7), near_side=True, lamps=False); sc.q = []
+        if n == "jam": ex(); sc.flush()
         alley(sc, t, 5, 30, hit=hit if n in ("cans",) else None, police=ss(s, .3, .8) if n == "jam" else 0, sky=False)
-        ex(); sc.flush()
+        if n != "jam": ex()
+        sc.flush()
         if n == "scrape":
             X, Y = sc.cam.pr(V(-1.6, cy + 1.0, .95)); [sc.c.move_to(X, Y) or sc.c.line_to(X + 80 * math.cos(a), Y + 80 * math.sin(a)) for a in np.linspace(-2.5, -.6, 7)]; sc.c.set_source_rgb(1, .85, .3); sc.c.set_line_width(4); sc.c.stroke(); sc.glow(X, Y, 90, "ffc040", .7)
             label(sc, W / 2, 110, "2 CENTIMETERS TO SPARE", 52, "ffd21e")

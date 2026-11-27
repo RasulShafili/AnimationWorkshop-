@@ -50,3 +50,19 @@ park, courtroom, town (bakery), ballfield, cell; 2D inserts paper2d / doc2d / le
   - high chair for the toast;
   - cake table legs;
   - camera inside heads (envelopes, stare, thanks, hush).
+## Owner review #2 (2026-11-27 night) — 28 timestamps + "details extremely low"
+- New files:
+  - `carmodel.py`: sedan + van with arches, rolling wheels, flat lamps.
+  - `street.py`: fixed layout on both sides, furniture, static parked cars, dead-end block via `xend`.
+- `cabin()` v2:
+  - real 3D street through every window (`_outside` maps the interior camera into the world);
+  - shaped seats, cushions drawn first;
+  - back-seat cameras sit behind the front seats (y ≤ −0.4).
+- Pacifier flight is timed to the word "flies".
+- mlib v2 block at the end of the file:
+  - perspective `onplane`;
+  - `seated` / `table_group` / `seat_on`;
+  - FBI office + `fbi_desk`, mansion office (portrait below the ceiling);
+  - bridge (piers under the deck), solid hierarchy stairs + `shadow_feet`;
+  - courtroom v2 (pews, queued rail, witness stand);
+  - blocks (letter on the face), town v2 (bakery front y 6, houses with yards), park v2, `prison_gate`, softer walk arms.

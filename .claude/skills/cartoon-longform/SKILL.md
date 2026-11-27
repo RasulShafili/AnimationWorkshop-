@@ -379,3 +379,25 @@ More rules from this review:
 - **Close-ups next to a person**: keep the camera at least 0.6 m from every head.
 - **Over-the-shoulder**: put the camera behind the holder's shoulder and draw both the holder and the baby. A camera between two people shows half-bodies floating.
 - **Small props sit on their surface**: a bear sits in the crib or the arms, not on the rail; a cake table needs legs; headphones cannot be drawn on a cheated face, so use a hand-to-ear pose instead.
+
+### Owner review #2 of mafia_baby (2026-11-27 night): 28 timestamps, "details extremely low, many errors"
+Root causes (all in shared code, so one fix repaired many shots):
+- **Car model.** Wheels sat at the body corners and were drawn over the body. In front and rear views they stuck out sideways, the headlights were balls, and the wheels never turned.
+  - Fix: `mafia/carmodel.py`. The side silhouette has the wheel arches cut in. Wheels (including the far ones) are drawn before the body. Lamps are flat on the panels. `roll` defaults to the distance driven (`p·f`).
+  - Always test a new vehicle from 6 angles (3/4 front, side, high rear, front, rear, low close).
+- **The street was regenerated from the camera x.** Buildings, signs and lamps changed or vanished while the camera moved. Parked cars were placed relative to the moving car, so they drove along with it.
+  - Fix: `mafia/street.py` builds a fixed world layout once.
+  - Both sides of the street, sidewalk furniture (hydrants, trees, meters, bins, newspaper boxes, benches).
+  - Static parked cars.
+  - Glows clamped to ≤ 280 px.
+  - Furniture closer than 2.2 m to the camera is skipped.
+- **Draw order of sets.** Things drawn immediately, in code order, cover nearer things: park trees under the skyline, town houses over the bakery, a table over a railing. Queue every prop with `sc.at(depth)`.
+- **Chairs.** If the whole chair is drawn before the sitter, a backrest between the camera and the person ends up behind the person.
+  - Use `seated()` / `table_group()`: seat first, then the backrest before or after the person by depth.
+  - People across a table: legs, then the table, then the upper body.
+- **Camera inside things.**
+  - A back-seat camera at y −0.2 was inside the front seat back.
+  - A Sal close-up was 0.6 m from his head.
+  - Check the camera position against every solid in the set.
+- **Affine wall pictures (`onplane`).** They look skewed. Use the tiled perspective version (tile count from screen size).
+- **Logic.** The pacifier "flies across the car" means out of the mouth, to the window, then the floor, not into the driver's face. A dead end needs a building block across the street with the car braking toward it. The town's shop front must sit behind the sidewalk, with the stall and the seller in front of it.

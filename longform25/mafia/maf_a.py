@@ -21,11 +21,10 @@ def in_car(sc, t, who="SDLN", faces=None, sal_look=0.0, baby_face="laugh", jolt=
             carseat(sc, V(0, -.97, .4) + j * .5, 180, part="back"); sit(NICO, t, V(0, -.92, .5) + j * .7, 180, 6); NICO.face = FACE[baby_face]; NICO.talk = scream * (.6 + .4 * abs(wob(t, 4)))
             NICO.hroll = 8 * jolt * wob(t, 3); NICO.draw(sc); carseat(sc, V(0, -.97, .4) + j * .5, 180, part="front")
         sc.at(sc.cam.depth(V(0, -.92, .55)), bb)
-def chase(sc, t, carx, purs=(8, 14, 20), lane=-1.4, gap_lane=(1.0, -1.4, 1.0), beams=1.0, deadend=None, extra=None, parked=((-30, "2a4a6a"), (12, "4a4a4a"), (45, "6a6a2a"))):
-    """night street + Sal's car at carx + black cars purs metres behind; queues everything and flushes"""
-    city_night(sc, t, carx, 45, parked=[(carx + p, c) for p, c in parked])
-    if deadend is not None: sc.at(sc.cam.depth(V(deadend, 0, 1)), lambda: barrier(sc, deadend))
-    q = V(carx, lane, 0); sc.at(sc.cam.depth(q), lambda: car(sc, q, 90, MAROON, roll=carx, beams=beams))
+def chase(sc, t, carx, purs=(8, 14, 20), lane=-1.4, gap_lane=(.3, -1.4, .3), beams=1.0, deadend=None, extra=None, parked=None, traffic_light=None, span=50, brake=0.0):
+    """night street + Sal's car at carx + black cars purs metres behind; queues everything and flushes. Parked cars + furniture are fixed in the world"""
+    city_night(sc, t, carx, span, parked=parked, traffic_light=traffic_light, xend=deadend)
+    q = V(carx, lane, 0); sc.at(sc.cam.depth(q), lambda: car(sc, q, 90, MAROON, roll=carx, beams=beams, brake=brake))
     for k, d in enumerate(purs): p = V(carx - d, gap_lane[k % 3], 0); sc.at(sc.cam.depth(p), lambda p=p: car(sc, p, 90, "15161a", roll=p[0], beams=beams))
     if extra: extra()
     sc.flush()
@@ -39,24 +38,26 @@ def c01(t):
                        (w("c01_n2", "front") - .1, "deadend"), (w("c01_n2", "only") - .1, "diaper"), (T1 + .15, "title")], D)
     if n in ("street", "behind", "title"):
         cx = 30 * t
-        cam = {"street": lambda: K(u, (cx + 5.5, -4.2, .55), (cx + 4.2, -4.0, .7), (cx - 1, -1.2, .9), (cx - 2, -1.0, 1.0), 900, hh=.05, t=t),
-               "behind": lambda: K(u, (cx + 3, -4.8, 1.6), (cx + 2, -4.8, 1.5), (cx - 14, -.5, .9), (cx - 12, -.5, .9), 1050, hh=.05, t=t),
-               "title": lambda: K(u, (cx - 7, -6.5, 3.5), (cx - 3, -7, 3.0), (cx, 0, .8), (cx + 3, 0, .8), 1000)}[n]()
+        cam = {"street": lambda: K(u, (cx + 5.5, -3.5, .55), (cx + 4.2, -3.4, .7), (cx - 1, -1.2, .9), (cx - 2, -1.0, 1.0), 900, hh=.05, t=t),
+               "behind": lambda: K(u, (cx + 3, -3.7, 1.6), (cx + 2, -3.7, 1.5), (cx - 14, -.5, .9), (cx - 12, -.5, .9), 1050, hh=.05, t=t),
+               "title": lambda: K(u, (cx - 9, -2.2, 4.6), (cx - 5, -2.0, 4.0), (cx, 0, .8), (cx + 3, 0, .8), 1000)}[n]()
         sc = Scene(cam); chase(sc, t, cx); speedlines(sc, t, .7 if n != "title" else .3); sc.vignette(.32)
         if n == "title": sc.c.set_source_rgba(0, 0, 0, .45 * ss(s, 0, .4)); sc.c.paint()
         return sc
     if n == "deadend":
-        cx = 30 * t; sc = Scene(K(u, (cx - 9, -2.4, 2.2), (cx - 8, -2.3, 2.1), (cx + 20, -.5, 1.2), (cx + 20, -.5, 1.2), 1000, hh=.04, t=t)); chase(sc, t, cx, purs=(), deadend=cx + 16 - 6 * s); sc.vignette(.3)
+        t0 = w("c01_n2", "front") - .1; x0 = 30 * t0; tau = t - t0; T = w("c01_n2", "only") - .1 - t0; v = min(tau, T); cx = x0 + 24 * v - 24 * v * v / (2 * T) * .8; xe = x0 + 40
+        cam = Cam((x0 - 9 + 10 * v, -2.2, 1.9 + .05 * wob(t, 3)), (xe, -.2, 3.2), 1100)
+        sc = Scene(cam); chase(sc, t, cx, purs=(), deadend=xe, span=70, brake=ss(tau, .2, .5)); sc.vignette(.3)
         return sc
     if n in ("baby", "diaper"):
-        cam = {"baby": lambda: K(u, (0, .5, 1.12), (0, .35, 1.05), (0, -.9, .8), (0, -.9, .76), 800, hh=.015, t=t), "diaper": lambda: K(u, (0, .15, 1.0), (0, -.15, .92), (0, -.92, .82), (0, -.92, .8), 900, 1050)}[n]()
+        cam = {"baby": lambda: K(u, (.32, -.4, 1.08), (.3, -.45, 1.06), (-.12, -1.0, .88), (-.12, -1.0, .86), 760, hh=.015, t=t), "diaper": lambda: K(u, (.42, -.42, 1.02), (.38, -.48, 1.0), (.0, -.95, .82), (0, -.95, .8), 800, 900)}[n]()
         sc = Scene(cam); cabin(sc, t, 2.0, .15 * wob(t, .6), shake=1, rear=1); in_car(sc, t, "LN", baby_face="laugh" if n == "baby" else "det", jolt=1); sc.flush(); sc.vignette(.35); return sc
     if n == "speedo":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0)), "0a0c12"); vgrad(sc, "1c1d22", "0a0b0e"); c = sc.c; v = 60 + 80 * ss(s, 0, 1.2); j = 6 * wob(t, 9)
         c.save(); c.translate(W / 2 - 520 + j, H / 2 - 330); c.scale(1.6 + .1 * s, 1.6 + .1 * s); rrect(c, -20, -20, 690, 450, 60); c.set_source_rgb(*C("26272c")); c.fill(); gauge_fn(v)(c, 650, 410); c.restore()
         X, Y = W / 2, H / 2; sc.glow(X, Y + 80, 500, "7ad0ff", .12); sc.vignette(.45); return sc
     if n == "sal":
-        sc = Scene(K(u, (-.05, .82, 1.25), (-.08, .78, 1.24), (-.4, .1, 1.3), (-.4, .1, 1.32), 900, hh=.012, t=t)); cabin(sc, t, 2.0, .2, shake=1, rear=1)
+        sc = Scene(K(u, (.5, .72, 1.42), (.46, .7, 1.4), (-.4, .15, 1.25), (-.4, .15, 1.27), 820, hh=.012, t=t)); cabin(sc, t, 2.0, .2, shake=1, rear=1)
         in_car(sc, t, "SLN", faces={"S": "angry"}, sal_look=10, sal_talk="c01_sal1", jolt=1); sc.flush(); sc.vignette(.35); return sc
 SC["c01"] = c01
 # ------------------------------------------------------------------ c02 who you were
@@ -67,11 +68,11 @@ def c02(t):
                        (w("c02_n5", "reborn") - .1, "reveal")], D)
     if n in ("agent", "board", "wiretap"):
         cam = {"agent": lambda: K(u, (1.2, -1.6, 1.6), (.9, -1.3, 1.55), (-1.0, 1.2, 1.1), (-1.0, 1.2, 1.1), 1050), "board": lambda: K(u, (.6, -.6, 1.9), (.1, .6, 1.8), (-.3, 2.6, 1.7), (-.3, 2.6, 1.8), 1100, 1250),
-               "wiretap": lambda: K(u, (.45, .45, 1.35), (.35, .5, 1.33), (-1.25, .5, 1.15), (-1.25, .5, 1.15), 1150)}[n]()
-        sc = Scene(cam); office_fbi(sc, t); sit(AGENT, t, (-1.2, .27, .52), 180, 1); AGENT.face = FACE["det"]; AGENT.hands = [V(-1.45, .65, .8), V(-.95, .65, .8)]
-        if n == "wiretap": AGENT.face = FACE["focus"]; AGENT.hands = [V(-1.4, .7, .82), V(-1.05, .55, 1.25)]
-        sc.at(sc.cam.depth(AGENT.hip) - .02, lambda: AGENT.draw(sc))
-        if n == "wiretap": sc.at(sc.cam.depth(V(-1.6, .85, .8)) - .1, lambda: recorder(sc, (-1.6, .85, .82), t))
+               "wiretap": lambda: K(u, (.35, -1.1, 1.45), (.25, -.95, 1.42), (-1.25, .45, 1.1), (-1.25, .45, 1.1), 1100)}[n]()
+        sc = Scene(cam); office_fbi(sc, t); low, back, bk = seat_on(sc, AGENT, t, "office", (-1.2, .12, 0), 180, 1, "2f3a4a"); AGENT.face = FACE["det"]; AGENT.hands = [V(-1.42, .6, .79), V(-.98, .6, .79)]
+        if n == "wiretap": AGENT.face = FACE["focus"]; f_, r_ = side(AGENT); HC_ = AGENT.joints()[4]; AGENT.hands = [V(-1.42, .6, .79), HC_ + r_ * AGENT.R * 1.0 + V(0, 0, -.02)]; AGENT.elbow[1] = V(0, 0, -1) + r_ * .6
+        desk_ = fbi_desk(sc, t)
+        table_group(sc, (-1.2, .9, .7), lambda: (desk_(), recorder(sc, (-1.65, .75, .76), t) if n == "wiretap" else None), [(AGENT, low, back, bk, None)])
         sc.flush(); sc.c.set_source_rgba(.02, .03, .1, .25); sc.c.paint(); sc.vignette(.4)
         if n == "agent": stamp(sc, "ONE YEAR EARLIER", clamp(s * 3))
         return sc
@@ -83,11 +84,13 @@ def c02(t):
         txt2d(c, 185, 80, "ORGANIZED", 30); txt2d(c, 185, 115, "CRIME UNIT", 30); txt2d(c, 185, 160, "AGE 34", 26, "5a6070"); c.restore(); sc.vignette(.4); return sc
     if n == "undercover":
         sc = Scene(K(u, (1.9, -1.6, 2.4), (1.6, -1.4, 2.3), (0, 1.1, .7), (0, 1.1, .75), 1050)); mansion_office(sc, t, True, .8, chairs=False, desk=False)
-        sc.at(sc.cam.depth(V(0, 1.1, .5)), lambda: (sc.cyl((0, 1.1, 0), .08, .7, "3a2014", line=.006), sc.cyl((0, 1.1, .7), .75, .05, "2a6a3a", line=.008), [sc.box((-.3 + .15 * k, 1.0 + .05 * k, .76), (.08, .12, .01), "ffffff", 20 * k, .003) for k in range(5)]))
+        seats = []
         for k, (ch, a) in enumerate(((MEN[1], 20), (MEN[3], 140), (AGENT, 260))):
-            cq = V(1.05 * math.sin(math.radians(a)), 1.1 - 1.05 * math.cos(math.radians(a)), 0); yw = (a + 180) % 360; q = cq + V(0, 0, .5)
-            sit(ch, t, q, yw, k, fz=0); ch.face = FACE["smile" if ch is not AGENT else "wince"]; ch.hands = [V(0, 1.1, .8) + (q - V(0, 1.1, .5)) * .45 + V(.1 * sg, 0, 0) for sg in (-1, 1)]
-            sc.at(sc.cam.depth(cq) + .02, lambda cq=cq, yw=yw: kchair(sc, cq, yw, "5a3a22", "3a2414")); sc.at(sc.cam.depth(cq), lambda ch=ch: ch.draw(sc))
+            cq = V(1.1 * math.sin(math.radians(a)), 1.1 - 1.1 * math.cos(math.radians(a)), 0); yw = (a + 180) % 360
+            low, back, bk = seat_on(sc, ch, t, "kitchen", cq, yw, k, "5a3a22", "3a2414"); ch.face = FACE["smile" if ch is not AGENT else "wince"]
+            ch.hands = [V(0, 1.1, .79) + (cq - V(0, 1.1, 0)) * .42 + V(-dirv(yw)[1], dirv(yw)[0], 0) * .1 * sg for sg in (-1, 1)]; seats.append((ch, low, back, bk, None))
+        tbl = lambda: (sc.cyl((0, 1.1, 0), .08, .72, "3a2014", line=.006), sc.cyl((0, 1.1, .72), .75, .05, "2a6a3a", line=.008), [sc.box((-.3 + .15 * k, 1.0 + .05 * k, .776), (.08, .12, .01), "ffffff", 20 * k, .003) for k in range(5)], sc.cyl((.35, 1.25, .77), .05, .03, "c9a040", line=.004))
+        table_group(sc, (0, 1.1, .7), tbl, seats)
         sc.flush(); sc.c.set_source_rgba(.05, .02, 0, .2); sc.c.paint(); label(sc, W / 2, 110, "6 YEARS UNDERCOVER AS A JEWEL THIEF", 46, "ffd21e"); sc.vignette(.4); return sc
     if n in ("bridge", "slide"):
         cx = -12 + 9 * (t - lt("c02_n3")); sl = clamp((t - w("c02_n3", "slid")) / 1.6); yaw = 90 + 160 * ss(sl, 0, 1) ; yy = -.8 + 2.6 * ss(sl, .2, 1)
@@ -160,8 +163,12 @@ def c03(t):
         if n == "try":
             msg = "I AM A FEDERAL AGENT" if (s * 3) % 1 < .55 else "WAAAH!"; bubble(sc, W * .66, H * .28, 820, 200, lambda c, w, h: txt2d(c, w / 2, h / 2 + 24, msg, 62 if msg[0] == "I" else 96, "20242c" if msg[0] == "I" else "e8392e"), (W * .52, H * .62))
         if n == "asleep":
-            a = 1 - ss(s, .2, .7); bubble(sc, W * .66, H * .28, 700, 260, lambda c, w, h: (txt2d(c, w / 2, 80, "THE PLAN:", 46), txt2d(c, w / 2, 150, "1. ESCAPE  2. CALL FBI  3. zzz", 36, "5a6070")), (W * .52, H * .62), max(a, 0))
-            for k in range(3): tx(sc, W * .55 + k * 60, H * .55 - k * 60 - 30 * ((t * .7 + k * .3) % 1), "z", 60 + 20 * k, "ffffff", INK, .14, a=ss(s, .4, .7))
+            hx, hy = sc.cam.pr(V(-.3, 1.4, .78)); a = 1 - ss(u, .5, .72); bx, by = min(hx + 420, W - 340), max(hy - 250, 165)
+            if a > 0:
+                for k in range(3): q = k / 3 + .18; X, Y = hx + (bx - 180 - hx) * q, hy - 20 + (by + 100 - hy + 20) * q; sc.c.new_path(); sc.c.arc(X, Y, 9 + 7 * k, 0, 7); sc.c.set_source_rgba(1, 1, 1, a); sc.c.fill_preserve(); sc.c.set_source_rgba(*INK, a); sc.c.set_line_width(4); sc.c.stroke()
+                bubble(sc, bx, by, 640, 220, lambda c, w, h: (txt2d(c, w / 2, 76, "THE PLAN:", 46), txt2d(c, w / 2, 148, "1. ESCAPE  2. CALL FBI  3. zzz", 34, "5a6070")), (bx - 160, by + 110), a)
+            for k in range(3):
+                ph = (t * .5 + k / 3) % 1; tx(sc, hx + 40 + 90 * ph + 20 * math.sin(ph * 6), hy - 30 - 260 * ph, "z", 46 + 50 * ph, "ffffff", INK, .14, a=ss(u, .64, .78) * (1 - ss(ph, .75, 1)))
         return sc
     if n == "cry":
         sc = Scene(K(u, (0, .6, 1.5), (0, .7, 1.42), (-.2, 1.4, .62), (-.2, 1.4, .62), 1500, hh=.01, t=t)); nursery(sc, t); crib_scene(sc, t, who=lambda: baby(sc, V(0, 1.4, .62), 0, t, "smile", 1.0, 1.1, ax=(-1, 0, 0)), mobile=False, bear_=False)
@@ -218,7 +225,7 @@ def c04(t):
         for k, ch in enumerate(MEN[:5]): stand(ch, t, (-2.6 + k * 1.3, .6, .5), 0, k); ch.face = FACE["neutral"]
         stand(MEN[5], t, (-1.2, 1.8, 1.0), 0, 5); stand(MEN[6], t, (1.2, 1.8, 1.0), 0, 6); stand(SAL, t, (-.9, 3.0, 1.5), 0, 1); stand(OLD, t, (.9, 3.0, 1.5), 0, 2); stand(DON, t, (0, 4.6, 2.0), 0, 3)
         DON.face = FACE["smug"]; SAL.face = FACE["det"]; OLD.face = FACE["neutral"]; [setattr(ch, "face", FACE["det"]) for ch in MEN[5:7]]
-        for ch in MEN[:7] + [SAL, OLD, DON]: sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (ch.draw(sc), fedora(sc, ch) if ch is DON else None, ring(sc, ch) if ch is DON else None))
+        for ch in MEN[:7] + [SAL, OLD, DON]: sc.at(sc.cam.depth(ch.hip), lambda ch=ch: (shadow_feet(sc, ch, .35), ch.draw(sc), fedora(sc, ch) if ch is DON else None, ring(sc, ch) if ch is DON else None))
         sc.flush(); sc.vignette(.35)
         lab = {"boss": "THE BOSS", "under": "UNDERBOSS", "consig": "CONSIGLIERE (ADVISOR)", "capos": "CAPOS (CAPTAINS)", "soldiers": "SOLDIERS"}.get(n)
         if lab: label(sc, W / 2, 110, lab, 58, "ffd21e")
