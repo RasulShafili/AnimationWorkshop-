@@ -20,3 +20,5 @@ On 2026-11-26 the owner sent 25 screenshots of errors in "What If Every Adult Di
   4. Is the background empty?
 - Every set needs foreground, middle and background detail.
 - The concrete rules are in the cartoon-longform SKILL.md, section "Owner's 25-screenshot review". See also [[scale-aim-selfcheck]] and [[two-point-five-d-engine]].
+
+2026-11-27 (mafia_baby, review #2): the owner listed 28 timestamps and said "details extremely low". The causes were shared code: a crude car model, a street regenerated from the camera position, sets drawn in code order, chairs drawn before their sitters, and affine wall pictures. Fix the shared module, then QA every 1.5 s at 960 px (see SKILL.md "Owner review #2").

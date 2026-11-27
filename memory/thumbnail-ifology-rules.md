@@ -23,3 +23,7 @@ left 40 % calm for the caption.
 Upgrade trick that worked (2026-11-21): give Gemini the first good result as a composition reference + "remake it
 ultra-detailed": bigger/lower-angle hero, extreme expression, 12–15 swirling bubbles with readable icons, sound waves
 into the ears, neon rays → thumb_F_gemini_too_loud_v2.jpg (best so far). Prompts: ~/Desktop/YouTube_upload_thoughts/gemini_prompt/.
+2026-11-28 (mafia_baby): owner asked for "never-before-level click-bait". Gave 3 Gemini prompts (A "I'M FBI." secret
+badge only the viewer sees + wink; B "BOW DOWN." baby on cash throne, Don kisses ring; C "DON'T LOOK!" Don holds the
+bugged teddy, baby panics). Ask Gemini for NO circles/arrows; add them after with tools/thumb_mark.py (round-brush red
+circle + curved arrow) then thumb_text.py. Secret-only-the-viewer-sees + red circle is the clickbait core.
