@@ -30,3 +30,4 @@ shock ticks, motion lines, sweat drops, ?!), frozen-chaos action, bright lit roo
 with tools/thumb_bubble.py (and tools/thumb_mark.py for a red circle + arrow). Keep OUR cast designs, never their
 black-head style. Prompts: YouTube_uzun_videolar/mafia_baby/gemini_thumbnail/ (A KEEP TALKING..., B I CALLED THEM.,
 C KISS IT.).
+Gemini refusal "interests of third-party content providers" (2026-11-28) = prompt named "like the top What If channels"/FBI/mafia. Never reference other channels/styles or real agencies; say "my own original characters", "police", "crime family".
