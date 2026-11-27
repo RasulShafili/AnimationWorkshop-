@@ -47,7 +47,8 @@
     "gravity-teaser-dunk",
     "rain-teaser-wave",
     "emu-war-army",
-    "adults-teaser-bus"
+    "adults-teaser-bus",
+    "mafia-teaser-chase"
   ],
   "history": [
     {
@@ -947,6 +948,29 @@
           "service": "youtube",
           "name": "LiminalART",
           "post_id": "6b09489a658222306cfb5122"
+        }
+      ],
+      "status": "published"
+    },
+    {
+      "id": "mafia-teaser-chase",
+      "title": "I Was Reborn as the Mafia Boss's Baby… Then the Chase Started 😳",
+      "published_at": "2026-11-27 21:52:56 UTC",
+      "channels": [
+        {
+          "service": "tiktok",
+          "name": "whatif.lab_daily",
+          "post_id": "6b09fb4db5cd052fe293eaef"
+        },
+        {
+          "service": "youtube",
+          "name": "LiminalART",
+          "post_id": "6b09fb59c02ca0988aba46d2"
+        },
+        {
+          "service": "instagram",
+          "name": "whatif.lab_daily",
+          "post_id": "6b09fb5e277f27038a3ff146"
         }
       ],
       "status": "published"

@@ -18,3 +18,4 @@ On 2026-11-26 the owner stopped a teaser post and asked for two changes:
 - Normalize loudness to about −14 LUFS.
 
 Related: [[longform-performance]], [[reels-retention-rules]].
+2026-11-28: owner "maraqlı başlasın, maraqla bitsin". Check frame 0 (chase teaser began with a pale map for 0.13 s → cut) and the CTA section video (was an empty alley → replaced by the most dramatic action in slow-mo + freeze push-in). Never let a teaser reveal the ending before a question CTA (raid teaser shows "Thank you, little guy" then asks "dad or FBI?").
