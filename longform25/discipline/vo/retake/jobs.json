@@ -1,0 +1,44 @@
+[
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c03_n5_t0.wav",
+  "text": "Push-up number one hundred. Your room, which hasn't been clean since you were twelve, is clean in four minutes.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c03_n5_t1.wav",
+  "text": "Push-up number one hundred. Your room, which hasn't been clean since you were twelve, is clean in four minutes.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c03_n5_t2.wav",
+  "text": "Push-up number one hundred. Your room, which hasn't been clean since you were twelve, is clean in four minutes.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+  "exag": 0.55,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c10_mia2_t0.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+  "exag": 0.75,
+  "cfg": 0.4
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c10_mia2_t1.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+  "exag": 0.75,
+  "cfg": 0.4
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/retake/c10_mia2_t2.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+  "exag": 0.75,
+  "cfg": 0.4
+ }
+]

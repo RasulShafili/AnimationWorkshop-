@@ -1,0 +1,44 @@
+[
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/tv_0.wav",
+"text": "Can anyone break him?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/tv_1.wav",
+"text": "Can anyone break him?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.7,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/string_0.wav",
+"text": "So who cut the strings?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/string_1.wav",
+"text": "So who cut the strings?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.7,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/choice_0.wav",
+"text": "One hundred million dollars, or your little sister. What would you choose?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.6,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/cta/choice_1.wav",
+"text": "One hundred million dollars, or your little sister. What would you choose?|Watch the full video on our channel!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.7,
+"cfg": 0.45
+}
+]

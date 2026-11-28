@@ -401,3 +401,16 @@ Root causes (all in shared code, so one fix repaired many shots):
   - Check the camera position against every solid in the set.
 - **Affine wall pictures (`onplane`).** They look skewed. Use the tiled perspective version (tile count from screen size).
 - **Logic.** The pacifier "flies across the car" means out of the mouth, to the window, then the floor, not into the driver's face. A dead end needs a building block across the street with the car braking toward it. The town's shop front must sit behind the sidewalk, with the stall and the seller in front of it.
+
+## 2.5D QA lessons (discipline, 2026-11-28) — run these checks before rendering
+- `motion_all.py` after every timing change; real snaps found: 180° flips on pass-by (use `ss()` on yaw), sit↔stand swaps
+  (use `dlib.blendp(ch, fa, fb, a)`), pose changes at an inner cut of a shared camera.
+- Shots sharing one camera path: use `gshot(t, cuts, D, groups=(("a","b"),))` so `u` doesn't restart (camera jumps back).
+  Never group shots between which a character teleports — keep a real cut there.
+- One story for every clock/counter on screen (studio clocks, "DAY n", push-up counter hits 100 on the word "hundred").
+- Held things: arms into a close-up run past the frame edge; food goes to the mouth (head joint); props never cover faces;
+  guitars need `nv=` (body facing the player's front) or they look like spears.
+- `who()` shadows sit at feet height (stages). Full-screen phones are raised 75 px / ×0.86 so captions miss the buttons.
+- Keep the caption zone (bottom centre, y≈820–1000 at 1080p; lower in 9:16 teasers) free of labels and small characters.
+- Camera paths that move with chapter time leave the set; use time within the shot.
+- When adding `# comment` to a one-liner, check nothing follows it — it silently deleted draw calls three times.

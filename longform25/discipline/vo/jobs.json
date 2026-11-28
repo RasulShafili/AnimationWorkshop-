@@ -1,0 +1,611 @@
+[
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c01_n1.wav",
+"text": "Twelve hours. You've been locked in a room with hot pizza, a brand-new game console and six puppies, live on national TV.|And you haven't looked up from your book once.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c01_host1.wav",
+"text": "Is he even human?!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/host.wav",
+"exag": 0.8,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c01_n2.wav",
+"text": "Three months ago, you couldn't get out of bed before noon. Forty-seven projects started. Zero finished.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c01_n3.wav",
+"text": "So what happened? What if you gained unlimited discipline?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n1.wav",
+"text": "Meet you, before all this. Seventeen years old. Screen time: nine hours and forty-one minutes a day.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n2.wav",
+"text": "A guitar you played twice. A gym membership you used once. A science project due tomorrow that you haven't started, because there's always later.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n3.wav",
+"text": "Everyone has a little voice that says later. Five more minutes. Tomorrow. Next Monday. Yours was the loudest voice in the house.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_mom1.wav",
+"text": "Max! It's two in the afternoon!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n4.wav",
+"text": "Then, at three in the morning, scrolling in the dark, an app you never downloaded asks you one question.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n5.wav",
+"text": "Remove the voice that says later? You press accept. Obviously. You weren't really reading.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c02_n6.wav",
+"text": "In the morning, the voice is gone. Completely silent.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_n1.wav",
+"text": "Day one. Four fifty-nine in the morning. Your alarm is set for five. You turn it off before it rings.|No snooze, no fight, no drama. Your body just goes.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_n5.wav",
+"text": "Push-up number one hundred. Your room, which hasn't been clean since you were twelve, is clean in four minutes.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_mia2.wav",
+"text": "Mom! Max is being weird!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_n2.wav",
+"text": "Cold shower? Fine. Broccoli for breakfast? Fine. Your phone goes into a drawer, and you don't even miss it.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_mia1.wav",
+"text": "Why are you eating a tree?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_n3.wav",
+"text": "At school you do something nobody has ever seen. You finish the science project in the first break. Then you start next week's.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_jay1.wav",
+"text": "Bro. Are you sick? Blink twice if you need help.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/jay.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c03_n4.wav",
+"text": "Here's the strange part. You don't feel motivated. You don't feel anything special.|You decide to do a thing, and you do it. No gap.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c04_n1.wav",
+"text": "Day four. You walk into the gym, and you can't lift the empty bar.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c04_ty1.wav",
+"text": "Look who's here! Noodle arms! See you never, buddy.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/tyler.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c04_n2.wav",
+"text": "Tyler has said that to every new guy for three years. And he's usually right. Most people quit in the first month.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c04_n3.wav",
+"text": "But you come back the next day. And the next. Same time, every day. Rain or snow, tired or not.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c04_n4.wav",
+"text": "Scientists in London found that a new habit takes about sixty-six days to become automatic. You don't need sixty-six days. You need zero.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n1.wav",
+"text": "Day ten, you run one kilometer and almost die. Day twenty, five kilometers. Day thirty, ten.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n6.wav",
+"text": "Day forty. One thousand push-ups before breakfast. The neighbors think you're building something, because they hear counting through the wall.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n2.wav",
+"text": "You practice guitar three hours a day. Your fingertips hurt. You put tape on them and keep going.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n3.wav",
+"text": "Spanish on the bus. Chess at lunch. Coding at night. And exactly eight hours of sleep, because sleep is on the schedule too.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_mom1.wav",
+"text": "Max... did you clean the whole kitchen?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mom.wav",
+"exag": 0.6,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n4.wav",
+"text": "You cleaned the whole house. And the garage. And the neighbor's garage.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c05_n5.wav",
+"text": "Your screen time drops to eleven minutes a day. Your grades go from D's to straight A's.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n1.wav",
+"text": "Day sixty-six. The school talent show. The kid who never finished anything walks on stage with a guitar.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n5.wav",
+"text": "Five minutes before your turn, you open the guitar case. Five of the six strings are cut. Somebody really doesn't want you up there.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n6.wav",
+"text": "You don't panic. Panic is just a feeling, and feelings don't make your decisions anymore. You play the whole song on one string.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n2.wav",
+"text": "Three minutes later, the whole hall is on its feet. Someone films it. By the morning, it has two million views.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n3.wav",
+"text": "And at the gym, Tyler watches you load one hundred kilograms on the bar.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_ty1.wav",
+"text": "No way. No way!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/tyler.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c06_n4.wav",
+"text": "You lift it. Five times. Then you go back to your schedule, because there's still one set left.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n1.wav",
+"text": "Day eighty. Something about you has changed, and it's not just the muscles. People have a word for it. Aura.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n2.wav",
+"text": "When you walk down the hallway, people step aside. Teachers stand up straighter. The principal calls you sir. By accident.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n3.wav",
+"text": "Half the school starts copying you. Five a.m. alarms. Broccoli at lunch. Most of them quit by Wednesday.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n4.wav",
+"text": "The other half starts to hate you. Because when one person suddenly has no excuses, everyone else's excuses start to look very small.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_ty1.wav",
+"text": "Nobody is that perfect. He's faking it. And I'm going to prove it.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/tyler.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n5.wav",
+"text": "Rumors spread. He takes pills. He's a robot. His mom does his homework. Even Jay starts to look at you differently.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_jay1.wav",
+"text": "You don't really have time for me anymore, huh?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/jay.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c07_n6.wav",
+"text": "And Tyler finds the perfect way to expose you. On live TV.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n1.wav",
+"text": "Day one hundred. The talent show video reaches a TV station, and they make a whole show about one question: can anyone tempt Max?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n6.wav",
+"text": "The man who designed every trap in that room is Tyler.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_ty1.wav",
+"text": "Pizza! Puppies! Come on, man, just look at them! One look!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/tyler.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n2.wav",
+"text": "So they lock you in that room. The pizza gets cold. The console plays its own music.|One puppy falls asleep on your shoe. You turn the page.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_host1.wav",
+"text": "Twelve hours! He's still reading the same book! Somebody check if he's alive!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/host.wav",
+"exag": 0.8,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n3.wav",
+"text": "You finish the book. Then the next one. You read a book a day now. Three hundred and sixty-five a year.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n4.wav",
+"text": "Scientists ask to scan your brain. The part that usually argues with you about every hard thing? Quiet. Like a library at midnight.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c08_n5.wav",
+"text": "You learn to solve a Rubik's cube blindfolded. Then you learn seven languages, so you can say no to dessert in all of them.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_n1.wav",
+"text": "Day one hundred and fifty. You notice something. Almost nobody is truly disciplined, so almost nobody can keep up with you.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_n2.wav",
+"text": "You code an app at night. It's called Now. It has one button, and it deletes every excuse from your to-do list.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_n3.wav",
+"text": "Ten thousand downloads. Then one million. Then ten million. Your garage turns into an office with twelve workers, all older than you.|One of them is your mom.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_jay1.wav",
+"text": "So you're rich now?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/jay.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_n4.wav",
+"text": "Not rich. But your bank account has more zeros than your old report card.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c09_n5.wav",
+"text": "Then the biggest tech company in the world calls. They want to buy your app for one hundred million dollars.|The meeting is on Friday, at seven in the evening.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n1.wav",
+"text": "But something is wrong, and you're the last one to notice.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n2.wav",
+"text": "The voice that said later was also the voice that said rest. Stop. That's enough for today. And that voice is gone too.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n3.wav",
+"text": "Your knee starts hurting on a run. You finish twenty kilometers anyway. Then you limp for two weeks, and you train on crutches.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n4.wav",
+"text": "Jay's birthday party? Not on the schedule. Movie night? Not productive. And your little sister?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_mia1.wav",
+"text": "Max, will you play with me?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n5.wav",
+"text": "You set a timer. Fifteen minutes. When it rings, you stand up in the middle of her story and walk out.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_mia2.wav",
+"text": "Oh. Okay.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c10_n6.wav",
+"text": "You have perfect discipline. And you are slowly turning into a machine.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n1.wav",
+"text": "Friday. Six forty-five. You're standing in a suit outside a glass tower. One hundred million dollars is fifteen minutes away.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n2.wav",
+"text": "Your phone buzzes. A video from Mom. Mia, on the school stage, in a paper star costume, looking at the door. Looking for you.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n3.wav",
+"text": "You forgot. You promised her two months ago. Her first solo. At seven.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n4.wav",
+"text": "Everything in you says: follow the plan. That's what discipline is. That's who you are now.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n5.wav",
+"text": "And for the first time since the voice disappeared, you do the hardest thing a perfectly disciplined person can do. You stop.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n6.wav",
+"text": "Then you run. Not in sneakers. In dress shoes. Two kilometers. Your knee is screaming. You don't care.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_n7.wav",
+"text": "Six fifty-nine. You burst through the doors of the school hall. Mia sees you.|And she sings the best song a seven-year-old has ever sung.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c11_mia1.wav",
+"text": "You came! You really came!",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/mia.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c12_n1.wav",
+"text": "You lose the deal. The company buys another shop the next morning.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c12_n2.wav",
+"text": "And somehow, that's fine. Because now you understand. Discipline is a tool, not a boss.|It should carry you toward the people you love, not away from them.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c12_n3.wav",
+"text": "So you change the schedule. Monday: Mia, two hours, no timer. Wednesday: Jay. Sunday: absolutely nothing. You do nothing with perfect discipline.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c12_jay1.wav",
+"text": "Wait. You're actually coming to my party?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/jay.wav",
+"exag": 0.65,
+"cfg": 0.45
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c12_n4.wav",
+"text": "You show up early. Obviously.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_n1.wav",
+"text": "One year later. You run your first marathon on a healed knee, and Mia holds the sign at the finish line.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_n2.wav",
+"text": "Your app has fifty million users. Your guitar gets new strings every month. And Tyler? He asks if you'll be his gym partner.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_ty1.wav",
+"text": "Teach me, man. Please.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/tyler.wav",
+"exag": 0.75,
+"cfg": 0.4
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_n3.wav",
+"text": "Then, at three in the morning, your phone lights up. The same app. A new update. Unlimited courage. Accept?",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_n4.wav",
+"text": "Your thumb is right above the button.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+},
+{
+"out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/c13_n5.wav",
+"text": "If you had unlimited discipline, what's the first thing you would do? Tell me in the comments.|And subscribe, so you don't miss what happens when Max presses accept.",
+"ref": "/home/rasul/Desktop/Animations/longform25/discipline/vo/refs/narrator.wav",
+"exag": 0.55,
+"cfg": 0.5
+}
+]
