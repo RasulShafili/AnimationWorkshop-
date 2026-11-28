@@ -21,3 +21,5 @@ approval before production. Related: [[whatif-3d-format]], [[outliers-and-captio
 "Video must be no longer than 3 minutes for YouTube Shorts"), and Buffer can't set custom thumbnails. Long-form videos
 are uploaded by the owner in YouTube Studio; prepare ~/Desktop/YouTube_upload/ (mp4 + thumbnail.png + title/description).
 publish_reel.py now has LONGFORM=1 (no "#Shorts" in the title) for any future route that accepts long videos.
+2026-11-28 (discipline): owner wants long-form stories EXTREME — a bigger, crazier development every chapter, lots of exaggeration
+(TV temptation room with puppies, 1,000 push-ups, $100M offer), and very few errors. Cold open = the most extreme moment as a flash-forward.

@@ -1,0 +1,93 @@
+# "What If You Gained Unlimited Discipline?" — script v1 (own story, 2026-11-28; owner's topic)
+# (chapter, line id, speaker, text). HOST = TV show host. N narrator (second person "you" = MAX, 17), MIA (little sister, 7), MOM, JAY (best friend), TYLER (gym show-off)
+# Fact (checked): Lally et al. 2010, Eur. J. Soc. Psychol. (University College London): a new habit took on average 66 days to become automatic (range 18–254).
+# Topic check 2026-11-28 (research.py): discipline videos 6.6M / 5.6M / 1.6M, no "what if" version.
+L = [
+# ---- cold open (flash-forward to the TV room)
+("c01", "c01_n1", "N", "Twelve hours. You've been locked in a room with hot pizza, a brand-new game console and six puppies, live on national TV. And you haven't looked up from your book once."),
+("c01", "c01_host1", "HOST", "Is he even human?!"),
+("c01", "c01_n2", "N", "Four months ago, you couldn't get out of bed before noon. Forty-seven projects started. Zero finished."),
+("c01", "c01_n3", "N", "So what happened? What if you gained unlimited discipline?"),
+# ---- who you were
+("c02", "c02_n1", "N", "Meet you, three days ago. Seventeen years old. Screen time: nine hours and forty-one minutes a day."),
+("c02", "c02_n2", "N", "A guitar you played twice. A gym membership you used once. A science project due tomorrow that you haven't started, because there's always later."),
+("c02", "c02_n3", "N", "Everyone has a little voice that says later. Five more minutes. Tomorrow. Next Monday. Yours was the loudest voice in the house."),
+("c02", "c02_mom1", "MOM", "Max! It's two in the afternoon!"),
+("c02", "c02_n4", "N", "Then, at three in the morning, scrolling in the dark, an app you never downloaded asks you one question."),
+("c02", "c02_n5", "N", "Remove the voice that says later? You press accept. Obviously. You weren't really reading."),
+("c02", "c02_n6", "N", "In the morning, the voice is gone. Completely silent."),
+# ---- day one
+("c03", "c03_n1", "N", "Day one. Four fifty-nine in the morning. Your alarm is set for five. You turn it off before it rings. No snooze, no fight, no drama. Your body just goes."),
+("c03", "c03_n5", "N", "Push-up number one hundred. Your room, which hasn't been clean since you were twelve, is clean in four minutes."),
+("c03", "c03_mia2", "MIA", "Mom! Max is being weird!"),
+("c03", "c03_n2", "N", "Cold shower? Fine. Broccoli for breakfast? Fine. Your phone goes into a drawer, and you don't even miss it."),
+("c03", "c03_mia1", "MIA", "Why are you eating a tree?"),
+("c03", "c03_n3", "N", "At school you do something nobody has ever seen. You finish the science project in the first break. Then you start next week's."),
+("c03", "c03_jay1", "JAY", "Bro. Are you sick? Blink twice if you need help."),
+("c03", "c03_n4", "N", "Here's the strange part. You don't feel motivated. You don't feel anything special. You decide to do a thing, and you do it. No gap."),
+# ---- the gym
+("c04", "c04_n1", "N", "Day four. You walk into the gym, and you can't lift the empty bar."),
+("c04", "c04_ty1", "TYLER", "Look who's here! Noodle arms! See you never, buddy."),
+("c04", "c04_n2", "N", "Tyler has said that to every new guy for three years. And he's usually right. Most people quit in the first month."),
+("c04", "c04_n3", "N", "But you come back the next day. And the next. Same time, every day. Rain or snow, tired or not."),
+("c04", "c04_n4", "N", "Scientists in London found that a new habit takes about sixty-six days to become automatic. You don't need sixty-six days. You need zero."),
+# ---- montage
+("c05", "c05_n1", "N", "Day ten, you run one kilometer and almost die. Day twenty, five kilometers. Day thirty, ten."),
+("c05", "c05_n6", "N", "Day forty. One thousand push-ups before breakfast. The neighbors think you're building something, because they hear counting through the wall."),
+("c05", "c05_n2", "N", "You practice guitar three hours a day. Your fingertips hurt. You put tape on them and keep going."),
+("c05", "c05_n3", "N", "Spanish on the bus. Chess at lunch. Coding at night. And exactly eight hours of sleep, because sleep is on the schedule too."),
+("c05", "c05_mom1", "MOM", "Max... did you clean the whole kitchen?"),
+("c05", "c05_n4", "N", "You cleaned the whole house. And the garage. And the neighbor's garage."),
+("c05", "c05_n5", "N", "Your screen time drops to eleven minutes a day. Your grades go from D's to straight A's."),
+# ---- day 66
+("c06", "c06_n1", "N", "Day sixty-six. The school talent show. The kid who never finished anything walks on stage with a guitar."),
+("c06", "c06_n2", "N", "Three minutes later, the whole hall is on its feet. Someone films it. By the morning, it has two million views."),
+("c06", "c06_n3", "N", "And at the gym, Tyler watches you load one hundred kilograms on the bar."),
+("c06", "c06_ty1", "TYLER", "No way. No way!"),
+("c06", "c06_n4", "N", "You lift it. Five times. Then you go back to your schedule, because there's still one set left."),
+# ---- the world notices (extreme)
+("c07", "c07_n1", "N", "Day one hundred. The talent show video reaches a TV station, and they make a whole show about one question: can anyone tempt Max?"),
+("c07", "c07_n2", "N", "So they lock you in that room. The pizza gets cold. The console plays its own music. One puppy falls asleep on your shoe. You turn the page."),
+("c07", "c07_host1", "HOST", "Twelve hours! He's still reading the same book! Somebody check if he's alive!"),
+("c07", "c07_n3", "N", "You finish the book. Then the next one. You read a book a day now. Three hundred and sixty-five a year."),
+("c07", "c07_n4", "N", "Scientists ask to scan your brain. The part that usually argues with you about every hard thing? Quiet. Like a library at midnight."),
+("c07", "c07_n5", "N", "You learn to solve a Rubik's cube blindfolded. Then you learn seven languages, so you can say no to dessert in all of them."),
+# ---- business
+("c08", "c08_n1", "N", "Day one hundred and fifty. You notice something. Almost nobody is truly disciplined, so almost nobody can keep up with you."),
+("c08", "c08_n2", "N", "You code an app at night. It's called Now. It has one button, and it deletes every excuse from your to-do list."),
+("c08", "c08_n3", "N", "Ten thousand downloads. Then one million. Then ten million. Your garage turns into an office with twelve workers, all older than you. One of them is your mom."),
+("c08", "c08_jay1", "JAY", "So you're rich now?"),
+("c08", "c08_n4", "N", "Not rich. But your bank account has more zeros than your old report card."),
+("c08", "c08_n5", "N", "Then the biggest tech company in the world calls. They want to buy your app for one hundred million dollars. The meeting is on Friday, at seven in the evening."),
+# ---- the cost
+("c09", "c09_n1", "N", "But something is wrong, and you're the last one to notice."),
+("c09", "c09_n2", "N", "The voice that said later was also the voice that said rest. Stop. That's enough for today. And that voice is gone too."),
+("c09", "c09_n3", "N", "Your knee starts hurting on a run. You finish twenty kilometers anyway. Then you limp for two weeks, and you train on crutches."),
+("c09", "c09_n4", "N", "Jay's birthday party? Not on the schedule. Movie night? Not productive. And your little sister?"),
+("c09", "c09_mia1", "MIA", "Max, will you play with me?"),
+("c09", "c09_n5", "N", "You set a timer. Fifteen minutes. When it rings, you stand up in the middle of her story and walk out."),
+("c09", "c09_mia2", "MIA", "Oh. Okay."),
+("c09", "c09_n6", "N", "You have perfect discipline. And you are slowly turning into a machine."),
+# ---- the choice
+("c10", "c10_n1", "N", "Friday. Six forty-five. You're standing in a suit outside a glass tower. One hundred million dollars is fifteen minutes away."),
+("c10", "c10_n2", "N", "Your phone buzzes. A video from Mom. Mia, on the school stage, in a paper star costume, looking at the door. Looking for you."),
+("c10", "c10_n3", "N", "You forgot. You promised her two months ago. Her first solo. At seven."),
+("c10", "c10_n4", "N", "Everything in you says: follow the plan. That's what discipline is. That's who you are now."),
+("c10", "c10_n5", "N", "And for the first time since the voice disappeared, you do the hardest thing a perfectly disciplined person can do. You stop."),
+("c10", "c10_n6", "N", "Then you run. Not in sneakers. In dress shoes. Two kilometers. Your knee is screaming. You don't care."),
+("c10", "c10_n7", "N", "Six fifty-nine. You burst through the doors of the school hall. Mia sees you. And she sings the best song a seven-year-old has ever sung."),
+("c10", "c10_mia1", "MIA", "You came! You really came!"),
+# ---- after
+("c11", "c11_n1", "N", "You lose the deal. The company buys another shop the next morning."),
+("c11", "c11_n2", "N", "And somehow, that's fine. Because now you understand. Discipline is a tool, not a boss. It should carry you toward the people you love, not away from them."),
+("c11", "c11_n3", "N", "So you change the schedule. Monday: Mia, two hours, no timer. Wednesday: Jay. Sunday: absolutely nothing. You do nothing with perfect discipline."),
+("c11", "c11_jay1", "JAY", "Wait. You're actually coming to my party?"),
+("c11", "c11_n4", "N", "You show up early. Obviously."),
+# ---- one year later
+("c12", "c12_n1", "N", "One year later. You run your first marathon on a healed knee, and Mia holds the sign at the finish line."),
+("c12", "c12_n2", "N", "Your app has fifty million users. Your guitar gets new strings every month. And Tyler? He asks if you'll be his gym partner."),
+("c12", "c12_ty1", "TYLER", "Teach me, man. Please."),
+("c12", "c12_n3", "N", "Then, at three in the morning, your phone lights up. The same app. A new update. Unlimited courage. Accept?"),
+("c12", "c12_n4", "N", "Your thumb is right above the button."),
+("c12", "c12_n5", "N", "If you had unlimited discipline, what's the first thing you would do? Tell me in the comments. And subscribe, so you don't miss what happens when Max presses accept."),
+]
