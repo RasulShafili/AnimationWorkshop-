@@ -32,3 +32,6 @@ Buffer allows 2 YouTube posts per day on this channel; a third returns `[ERROR] 
 `dailyPostingLimits(input:{channelIds:[…]}){isAtLimit limit sent}` can still say `isAtLimit: false, sent: 1` while the post is
 refused (rolling 24 h window, confirmed 2026-11-24: refused at 17:37, accepted at 17:57, 5 min after the older post turned 24 h) → don't hammer; retry `youtube` only, once, 24 h after the older of the last two posts.
 `share_video.py` prints `[OK] posted to 3/3` even when one platform errored: trust the `[SENT]`/`[ERROR]` lines, not the count.
+2026-11-28: refused again with only ONE YouTube post in the previous 11 h (chase 21:52 UTC → bear 08:53 UTC refused) →
+the limit is not simply "2 per rolling 24 h"; assume at most 1 Buffer YouTube Short per ~24 h and post YouTube-only ≥24 h
+after the last accepted one. Instagram can stay "sending" > 2 min: poll the post id again before calling it failed.
