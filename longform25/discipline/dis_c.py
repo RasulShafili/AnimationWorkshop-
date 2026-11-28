@@ -49,8 +49,8 @@ def mia_room(sc, t, lamp=1.0):
     sc.box((-1.8, 1.7, .3), (.5, .5, .6), "8a5a9a", line=.008); doll(sc, (-1.8, 1.7, .6), "8fd0ff", "2a1c14")
 def city_run(sc, t, x, face="wince", knee=1.0):
     from street import street as _st
-    sky(sc, "f08a5a", "ffd0a0", sun=None, t=t); _st(sc, t, cx=x, span=50, night=False, parked=None, furniture=True)
-    walk(MAXSUIT, t, [(t - 1, x - 4.5, 3.9), (t + 1, x + 4.5, 3.9)], run=True); MAXSUIT.face = FACE[face]
+    sky(sc, "f08a5a", "ffd0a0", sun=None, t=t); _st(sc, t, cx=x, span=110, night=False, parked=None, furniture=True)   # wide span: nothing pops in at the vanishing point
+    walk(MAXSUIT, t, [(t - 1, x - 4.5, 3.9), (t + 1, x + 4.5, 3.9)], run=True, limp=.35); MAXSUIT.face = FACE[face]
     def kn():
         f, r, up, N, HC = MAXSUIT.joints(); kp = MAXSUIT.hip - V(0, 0, MAXSUIT.th) + f * .08; X, Y = sc.cam.pr(kp); sc.glow(X, Y, sc.cam.px(kp, .35), "ff2020", .6 * knee * (.6 + .4 * abs(math.sin(t * 6))))
     who(MAXSUIT, sc, lambda: (sweat(sc, MAXSUIT, t, 4), kn()))
@@ -60,7 +60,7 @@ def c09(t):
     n, u, s = shot(t, [(0, "race"), (lt("c09_n2") - .1, "code"), (w("c09_n2", "button") - .3, "app"), (lt("c09_n3") - .1, "dl"), (w("c09_n3", "garage") - .1, "garage"), (w("c09_n3", "twelve") - .1, "office"),
                        (w("c09_n3", "mom") - .3, "mom"), (lt("c09_jay1") - .1, "jay"), (lt("c09_n4") - .1, "bank"), (lt("c09_n5") - .1, "call"), (w("c09_n5", "hundred") - .2, "offer"), (w("c09_n5", "meeting") - .1, "friday")], D)
     if n == "race":
-        x0 = 3.4 * t; sc = Scene(K(u, (x0 + 5, .4, 1.4), (x0 + 5.5, .6, 1.4), (x0 - 2, 3.9, 1.0), (x0 - 2, 3.9, 1.0), 900)); park(sc, t)
+        x0 = -6.0 + 3.4 * s; sc = Scene(K(u, (x0 + 5, .4, 1.4), (x0 + 5.5, .6, 1.4), (x0 - 2, 3.9, 1.0), (x0 - 2, 3.9, 1.0), 900)); park(sc, t)
         walk(MAXRUN, t, [(t - 1, x0 - 3.4, 3.9), (t + 1, x0 + 3.4, 3.9)], run=True); MAXRUN.face = FACE["smug"]; who(MAXRUN, sc)
         for k, ch in enumerate(STU[:6]):
             xx = x0 - 6 - k * 2.2 - .4 * s * k; walk(ch, t + k, [(t + k - 1, xx - 2.2, 3.4 + .25 * (k % 3)), (t + k + 1, xx + 2.2, 3.4 + .25 * (k % 3))], run=True); ch.face = FACE["sick"]; who(ch, sc)
@@ -70,8 +70,8 @@ def c09(t):
             c.set_source_rgb(.08, .1, .14); c.paint(); c.select_font_face("Montserrat XB"); c.set_font_size(24)
             for k, ln in enumerate(("app = 'NOW'", "button = 1", "def press():", "  delete(excuses)", "  do(task)")):
                 if (t * 2.5) % 7 >= k: c.set_source_rgb(*((.5, .9, .6), (.6, .8, 1), (1, .8, .4))[k % 3]); c.move_to(24, 50 + k * 40); c.show_text(ln)
-        sc = Scene(K(u, (-.1, .1, 1.35), (-.15, .15, 1.33), (-1.7, 1.6, .95), (-1.7, 1.6, .95), 950, 1050)); bedroom2(sc, t, 0, True, lamp=1.0)
-        sc.at(sc.cam.depth(V(-1.75, 1.8, .8)) + .01, lambda: laptop(sc, (-1.75, 1.8, .81), 0, code)); seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["focus"]; MAX.hands = [V(-1.85, 1.68, .84), V(-1.6, 1.68, .84)]
+        sc = Scene(K(u, (-.1, .1, 1.35), (-.15, .15, 1.33), (-1.7, 1.6, .95), (-1.7, 1.6, .95), 950, 1050)); bedroom2(sc, t, 0, True, lamp=1.0, desk_chair=False)
+        sc.at(sc.cam.depth(V(-1.75, 1.8, .64)) + .01, lambda: laptop(sc, (-1.75, 1.8, .65), 0, code)); seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["focus"]; MAX.hands = [V(-1.85, 1.68, .68), V(-1.6, 1.68, .68)]
         sc.flush(); sc.c.set_source_rgba(0, 0, .1, .2); sc.c.paint(); sc.vignette(.35); return sc
     if n == "app":
         def scr(c, w_, h_):
@@ -105,7 +105,11 @@ def c09(t):
     if n == "bank":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); bank2d(sc, t, 1_250_000 * min(1, s / 1.2)); return sc
     if n == "call":
-        sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "2a3448", "10141c"); j = 6 * math.sin(t * 40) * (s < 1.5); phone2d(sc, W / 2 + j, H / 2 + 30, .96, t, call_screen(t)); sc.vignette(.3); return sc
+        sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "2a3448", "10141c")
+        burst = 1.0 if (s % .8) < .45 else 0.0; c = sc.c                       # ringing: short buzz bursts + rings, no sideways slide
+        for k in range(3):
+            ph = ((s * 1.25) + k / 3) % 1; c.new_path(); c.arc(W / 2, H / 2 - 45, 230 + 260 * ph, 0, 7); c.set_source_rgba(.6, .85, 1, .35 * (1 - ph)); c.set_line_width(6); c.stroke()
+        phone2d(sc, W / 2, H / 2 + 30, .96, t, call_screen(t), rot=.035 * math.sin(t * 70) * burst); sc.vignette(.3); return sc
     if n == "offer":
         sc = Scene(K(u, (0, -6, 1.6), (0, -5, 1.8), (0, 14, 9), (0, 14, 12), 900)); tower(sc, t, .2); sc.flush(); bigcount(sc, W / 2, 260, "$100,000,000", 120, "FOR YOUR APP", "57c785"); sc.vignette(.3); return sc
     if n == "friday":
@@ -119,8 +123,8 @@ def c10(t):
     n, u, s = gshot(t, [(0, "work"), (lt("c10_n2") - .1, "rest"), (lt("c10_n3") - .1, "knee"), (w("c10_n3", "limp") - .1, "crutch"), (lt("c10_n4") - .1, "party"), (w("c10_n4", "Movie") - .1, "movie"),
                        (w("c10_n4", "sister") - .3, "door"), (lt("c10_mia1") - .1, "ask"), (lt("c10_n5") - .1, "timer"), (w("c10_n5", "rings") - .1, "leave"), (lt("c10_mia2") - .1, "alone"), (lt("c10_n6") - .1, "machine")], D, (("door", "ask"),))
     if n == "work":
-        sc = Scene(K(u, (1.6, -1.2, 1.6), (1.2, -.9, 1.55), (-1.6, 1.6, 1.0), (-1.6, 1.6, 1.0), 950)); bedroom2(sc, t, 0, True, lamp=1.0); sc.at(sc.cam.depth(V(-1.75, 1.8, .8)) + .01, lambda: laptop(sc, (-1.75, 1.8, .81), 0))
-        seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["focus"]; MAX.hands = [V(-1.85, 1.68, .84), V(-1.6, 1.68, .84)]
+        sc = Scene(K(u, (1.6, -1.2, 1.6), (1.2, -.9, 1.55), (-1.6, 1.6, 1.0), (-1.6, 1.6, 1.0), 950)); bedroom2(sc, t, 0, True, lamp=1.0, desk_chair=False); sc.at(sc.cam.depth(V(-1.75, 1.8, .64)) + .01, lambda: laptop(sc, (-1.75, 1.8, .65), 0))
+        seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["focus"]; MAX.hands = [V(-1.85, 1.68, .68), V(-1.6, 1.68, .68)]
         pose(MOM2, t, (1.9, .4, 0), 290, "sad", 3, look_at=(-1.6, 1.2, 1.2)); who(MOM2, sc); sc.flush(); sc.c.set_source_rgba(0, 0, .1, .25); sc.c.paint(); sc.vignette(.35); return sc
     if n == "rest":
         sc = Scene(K(u, (1.2, -1.2, 1.9), (1.0, -1.0, 1.85), (-.7, .95, .7), (-.7, .95, .7), 950, 1000)); bed_scene(sc, t, 0, night=True, face="det", sit_up=1.0, quilt=False); sc.flush(); sc.c.set_source_rgba(0, 0, .1, .3); sc.c.paint()
@@ -130,8 +134,8 @@ def c10(t):
             if t >= t0: a = min(1, (t - t0) * 5) * (1 - ss(t, lt("c10_n2", 1) - 1.2, lt("c10_n2", 1) - .3)); say_bubble(sc, cx + 380 + 40 * k, cy - 260 + 160 * k, txt, 44, a, (cx + 100, cy), "8a909a")
         later_cloud(sc, cx + 120, cy - 120, 1.2, t, 0, 1, poof=ss(t, lt("c10_n2", 1) - 1.2, lt("c10_n2", 1) - .2)); sc.vignette(.3); return sc
     if n == "knee":
-        x0 = 3.0 * t; sc = Scene(K(u, (x0 + 3, 1.2, .9), (x0 + 3.3, 1.3, .9), (x0, 3.9, .7), (x0, 3.9, .7), 900)); park(sc, t)
-        walk(MAXRUN, t, [(t - 1, x0 - 3, 3.9), (t + 1, x0 + 3, 3.9)], run=True); MAXRUN.face = FACE["wince"]
+        x0 = -4.0 + 3.0 * s; sc = Scene(K(u, (x0 + 3, 1.2, .9), (x0 + 3.3, 1.3, .9), (x0, 3.9, .7), (x0, 3.9, .7), 900)); park(sc, t)
+        walk(MAXRUN, t, [(t - 1, x0 - 3, 3.9), (t + 1, x0 + 3, 3.9)], run=True, limp=.5); MAXRUN.face = FACE["wince"]
         def kn(): f, r, up, N, HC = MAXRUN.joints(); kp = MAXRUN.hip - V(0, 0, MAXRUN.th) + f * .08; X, Y = sc.cam.pr(kp); sc.glow(X, Y, sc.cam.px(kp, .4), "ff2020", .7 * (.6 + .4 * abs(math.sin(t * 6))))
         who(MAXRUN, sc, lambda: (sweat(sc, MAXRUN, t, 4), kn())); sc.flush(); sc.c.set_source_rgba(1, .5, .2, .12); sc.c.paint(); label(sc, W / 2, 120, "KM 20 OF 20", 56, "ff6040"); sc.vignette(.3); return sc
     if n == "crutch":
@@ -140,34 +144,35 @@ def c10(t):
     if n == "party":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "2a3448", "10141c"); phone2d(sc, W / 2, H / 2 + 30, .96, t, invite_screen(t, 3 if s > 1.0 else 2)); sc.vignette(.3); return sc
     if n == "movie":
-        sc = Scene(K(u, (0, -2.6, 1.4), (0, -2.4, 1.4), (0, 1.0, .8), (0, 1.0, .8), 950)); S25.living(sc, t, night=True)
-        sc.at(sc.cam.depth(V(0, 1.3, .6)), lambda: S25.sofa(sc, 0, .9, 2.2, part="back"))
-        for k, (ch, x) in enumerate(((MOM2, -.55), (MIA, .2))): sit(ch, t, (x, .9, .45), 0, k); ch.face = FACE["sad"]; sc.at(sc.cam.depth(ch.hip) - .02, lambda ch=ch: ch.draw(sc))
-        sc.at(sc.cam.depth(V(0, .5, .4)), lambda: S25.sofa(sc, 0, .9, 2.2, part="front")); sc.at(sc.cam.depth(V(.75, .7, .5)) - .1, lambda: S25.popcorn(sc, (.75, .75, .5), t))
-        sc.at(sc.cam.depth(V(-.6, -.2, .4)), lambda: (sc.box((.0, -.2, .3), (1.0, .5, .05), "8a5a3a", 0, .01), sc.box((.85, .9, .3), (.6, .5, .05), "f0862a", 0, .01) if False else None)); sc.flush(); label(sc, W / 2, 120, "MOVIE NIGHT: NOT PRODUCTIVE", 50); sc.vignette(.3); return sc
+        sc = Scene(K(u, (1.9, -1.9, 1.45), (1.8, -1.75, 1.42), (-.1, 1.0, .75), (-.1, 1.0, .75), 950)); S25.living(sc, t, night=True)
+        sc.at(sc.cam.depth(V(0, 1.3, .6)), lambda: sofa2(sc, 0, .9, 2.2))
+        # Mom SITS (feet on the floor), Mia beside her, popcorn on a real coffee table with legs (owner: missing parts / positions)
+        for k, (ch, x) in enumerate(((MOM2, -.5), (MIA, .25))): sit(ch, t, (x, 1.0, .33), 0, k, fz=0.0); ch.face = FACE["sad"]; sc.at(sc.cam.depth(V(0, 1.3, .6)) - .05 - .01 * k, lambda ch=ch: draw_seated(ch, sc))
+        MIA.hands = [MIA.hip + V(-.1, -.2, .12), MIA.hip + V(.1, -.2, .12)]
+        table(sc, (.75, -.05), (.9, .5), .36, "8a5a3a", "5a3a22", extra=lambda: S25.popcorn(sc, (.8, -.05, .36), t)); sc.flush(); label(sc, W / 2, 120, "MOVIE NIGHT: NOT PRODUCTIVE", 50); sc.vignette(.3); return sc
     if n in ("door", "ask"):
         sc = Scene(K(u, (1.3, -1.6, 1.3), (1.2, -1.5, 1.25), (-.2, .7, .6), (-.2, .7, .6), 950, 1000)); mia_room(sc, t)
-        sit(MIA, t, (-.4, .7, .05), 330, 3, fz=0.0); MIA.face = FACE["happy" if n == "ask" else "smile"]; MIA.talk = talk("c10_mia1", t) if n == "ask" else 0; MIA.hands[1] = MIA.hip + V(.24, -.2, .2)
+        sit(MIA, t, (-.4, .7, .05), 60, 3, fz=0.0); MIA.face = FACE["happy" if n == "ask" else "smile"]; MIA.talk = talk("c10_mia1", t) if n == "ask" else 0; MIA.hands[1] = MIA.hip + V(.24, -.2, .2)
         sc.at(sc.cam.depth(MIA.hip) - .02, lambda: (MIA.draw(sc), doll(sc, MIA.hands[1] - V(0, 0, .12), "e06aa0", "e8b830", .8)))
         sc.at(sc.cam.depth(V(.2, .5, .1)), lambda: [doll(sc, (.1 + .2 * k, .45, .0), ("8fd0ff", "57c785", "ffd24a")[k], ("2a1c14", "c98a3a", "1c1410")[k], .8) for k in range(3)])
-        if n == "ask": sit(MAX, t, (.45, .55, .05), 60, 1, fz=0.0); MAX.face = FACE["neutral"]; sc.at(sc.cam.depth(MAX.hip), lambda: MAX.draw(sc))
+        if n == "ask": sit(MAX, t, (.45, .55, .05), 250, 1, fz=0.0); MAX.face = FACE["neutral"]; sc.at(sc.cam.depth(MAX.hip), lambda: MAX.draw(sc))
         sc.flush(); sc.vignette(.3); return sc
     if n == "timer":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "3a2030", "1a1018"); dur_ = w("c10_n5", "rings") - lt("c10_n5"); phone2d(sc, W / 2, H / 2 + 30, .96, t, timer_screen(t, 900 * (1 - clamp(s / max(.5, dur_))))); sc.vignette(.3); return sc
     if n == "leave":
         sc = Scene(K(u, (1.3, -1.6, 1.3), (1.2, -1.5, 1.25), (-.2, .7, .6), (-.2, .7, .6), 950, 1000)); mia_room(sc, t)
-        sit(MIA, t, (-.4, .7, .05), 330, 3, fz=0.0); MIA.face = FACE["ooh"]; MIA.talk = .5 * abs(math.sin(t * 8)) * (s < 1.0); f_, r_ = side(MIA); MIA.hands = [MIA.hip + V(-.15, -.1, .45), MIA.hip + V(.32, -.22, .14)]
+        sit(MIA, t, (-.4, .7, .05), 60, 3, fz=0.0); MIA.face = FACE["ooh"]; MIA.talk = .5 * abs(math.sin(t * 8)) * (s < 1.0); f_, r_ = side(MIA); MIA.hands = [MIA.hip + V(-.15, -.1, .45), MIA.hip + V(.32, -.22, .14)]
         sc.at(sc.cam.depth(MIA.hip) - .02, lambda: (MIA.draw(sc), doll(sc, MIA.hands[1] - V(0, 0, .12), "e06aa0", "e8b830", .8)))
-        t0_ = w("c10_n5", "rings") + .6; blendp(MAX, lambda: sit(MAX, t, (.45, .55, .05), 60, 1, fz=0.0), lambda: walk(MAX, t, [(t0_, .6, .5), (t0_ + 2.4, 2.3, .9)]), ss(s, .35, .75)); MAX.face = FACE["neutral"]; who(MAX, sc)   # stands up smoothly
+        t0_ = w("c10_n5", "rings") + .6; blendp(MAX, lambda: sit(MAX, t, (.45, .55, .05), 250, 1, fz=0.0), lambda: walk(MAX, t, [(t0_, .6, .5), (t0_ + 2.4, 2.3, .9)]), ss(s, .35, .75)); MAX.face = FACE["neutral"]; who(MAX, sc)   # stands up smoothly
         sc.flush(); a_ = ss(s, .35, .75); X, Y = sc.cam.pr(V(.95, .2, .1) * (1 - a_) + (MAX.hands[1] if MAX.hands[1] is not None else MAX.hip) * a_); sc.c.save(); sc.c.translate(X, Y); sc.c.rotate(.2 * math.sin(t * 30) * (1 - a_)); sc.c.scale(1 - .62 * a_, 1 - .62 * a_); rrect(sc.c, -40, -70, 80, 140, 14); sc.c.set_source_rgb(.1, .1, .12); sc.c.fill(); sc.c.restore()
         tx(sc, X + 60, Y - 90, "RING!", 44, "ff4040", INK, .12) if s < .55 else None; sc.vignette(.3); return sc
     if n == "alone":
         sc = Scene(K(u, (.4, -.6, .9), (.35, -.45, .88), (-.4, .7, .5), (-.4, .7, .5), 1000, 1100)); mia_room(sc, t, .5)
-        sit(MIA, t, (-.4, .7, .05), 330, 3, fz=0.0); MIA.face = FACE["sad"]; MIA.talk = talk("c10_mia2", t); MIA.hands[1] = MIA.hip + V(.12, -.22, .2); MIA.hpitch = -15
+        sit(MIA, t, (-.4, .7, .05), 55, 3, fz=0.0); MIA.face = FACE["sad"]; MIA.talk = talk("c10_mia2", t); MIA.hands[1] = MIA.hip + V(.12, -.22, .2); MIA.hpitch = -15
         sc.at(sc.cam.depth(MIA.hip) - .02, lambda: (MIA.draw(sc), doll(sc, MIA.hands[1] - V(0, 0, .12), "e06aa0", "e8b830", .8))); sc.flush(); sc.c.set_source_rgba(.1, .1, .3, .2); sc.c.paint(); sc.vignette(.4); return sc
     if n == "machine":
-        sc = Scene(K(u, (.8, -1.3, 1.5), (.6, -1.0, 1.45), (-1.6, 1.8, 1.1), (-1.6, 1.8, 1.2), 950)); bedroom2(sc, t, 0, True, lamp=1.0); sc.at(sc.cam.depth(V(-1.75, 1.8, .8)) + .01, lambda: laptop(sc, (-1.75, 1.8, .81), 0))
-        seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["det"]; MAX.hands = [V(-1.85, 1.68, .84), V(-1.6, 1.68, .84)]; sc.flush()
+        sc = Scene(K(u, (.8, -1.3, 1.5), (.6, -1.0, 1.45), (-1.6, 1.8, 1.1), (-1.6, 1.8, 1.2), 950)); bedroom2(sc, t, 0, True, lamp=1.0, desk_chair=False); sc.at(sc.cam.depth(V(-1.75, 1.8, .64)) + .01, lambda: laptop(sc, (-1.75, 1.8, .65), 0))
+        seated(sc, MAX, t, "office", (-1.65, 1.2, 0), 180, 2); MAX.face = FACE["det"]; MAX.hands = [V(-1.85, 1.68, .68), V(-1.6, 1.68, .68)]; sc.flush()
         X, Y = sc.cam.pr((-.9, 2.18, .9)); robot_shadow(sc, X, Y - 10, 1.25, .75 * ss(s, .4, 1.6)); sc.c.set_source_rgba(.1, .2, .4, .25); sc.c.paint(); sc.vignette(.4); return sc
 SC["c10"] = c10
 # ------------------------------------------------------------------ c11  the choice
@@ -180,13 +185,13 @@ def c11(t):
                        (lt("c11_n4") - .1, "torn"), (lt("c11_n5") - .1, "stop"), (w("c11_n5", "stop") - .15, "turn"), (lt("c11_n6") - .1, "run"), (w("c11_n6", "dress") - .1, "shoes"), (w("c11_n6", "knee") - .1, "runknee"),
                        (lt("c11_n7") - .1, "clock"), (w("c11_n7", "burst") - .1, "doors"), (w("c11_n7", "sees") - .1, "sees"), (w("c11_n7", "sings") - .2, "sing"), (lt("c11_mia1") - .1, "came")], D, (("forgot", "promise"),))
     if n in ("tower", "torn", "stop", "turn"):
-        cam = {"tower": lambda: K(u, (1.7, -2.6, .9), (1.6, -2.0, 1.0), (.9, 10, 5.2), (.9, 10, 4.4), 900), "torn": lambda: K(u, (2.2, .2, 1.5), (2.0, .5, 1.5), (0, 2.2, 1.4), (0, 2.2, 1.4), 950, 1050),
-               "stop": lambda: K(u, (1.0, 4.4, 1.6), (.9, 4.2, 1.6), (0, 2.2, 1.55), (0, 2.2, 1.55), 1000, 1150), "turn": lambda: K(u, (0, 6, 1.6), (0, 5.6, 1.6), (0, 2.2, 1.3), (0, 2.2, 1.3), 900)}[n]()
+        cam = {"tower": lambda: K(u, (1.7, -2.6, .9), (1.6, -2.0, 1.0), (.9, 10, 5.2), (.9, 10, 4.4), 900), "torn": lambda: K(u, (2.2, .2, 1.5), (2.0, .5, 1.5), (0, 3.0, 1.4), (0, 3.0, 1.4), 950, 1050),
+               "stop": lambda: K(u, (1.0, 4.4, 1.6), (.9, 4.2, 1.6), (0, 3.0, 1.55), (0, 3.0, 1.55), 1000, 1150), "turn": lambda: K(u, (0, 6, 1.6), (0, 5.6, 1.6), (0, 3.0, 1.3), (0, 3.0, 1.3), 900)}[n]()
         sc = Scene(cam); tower(sc, t, 1.0); yaw = 0 if n != "turn" else 180 * ss(s, .1, .6) + 0
-        pose(MAXSUIT, t, (0, 2.2, 0), 180 if n in ("tower", "torn") else (180 - yaw), "det" if n != "stop" else "sad", 1); look(MAXSUIT, (0, 14, 3)) if n == "torn" else None; who(MAXSUIT, sc); sc.flush()
+        pose(MAXSUIT, t, (0, 3.0, 0), 180 if n in ("tower", "torn") else (180 - yaw), "det" if n != "stop" else "sad", 1); look(MAXSUIT, (0, 14, 3)) if n == "torn" else None; who(MAXSUIT, sc); sc.flush()
         if n == "tower": label(sc, W / 2, 120, "FRIDAY · 6:45 PM", 56, "ffd24a")
         if n == "torn":
-            X, Y = sc.cam.pr((0, 2.2, 2.1)); tx(sc, X - 380, Y - 120, "THE PLAN", 56, "ffd24a", INK, .12); arrow(sc, X - 205, Y - 95, X - 90, Y - 270, 30, "ffd24a")
+            X, Y = sc.cam.pr((0, 3.0, 2.1)); tx(sc, X - 380, Y - 120, "THE PLAN", 56, "ffd24a", INK, .12); arrow(sc, X - 205, Y - 95, X - 90, Y - 270, 30, "ffd24a")
         if n == "stop": sc.c.set_source_rgba(0, 0, 0, .25 * ss(s, 0, .5)); sc.c.paint()
         sc.vignette(.3); return sc
     if n == "watch":
@@ -202,13 +207,13 @@ def c11(t):
     if n == "video":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "2a3448", "10141c"); phone2d(sc, W / 2, H / 2 + 30, .98, t, video_screen(t, lambda tt: mia_stage(tt, True))); sc.vignette(.3); return sc
     if n in ("forgot", "promise"):
-        sc = Scene(K(u, (.4, .9, 1.65), (.38, 1.0, 1.65), (0, 2.2, 1.6), (0, 2.2, 1.6), 1000, 1150)); tower(sc, t, 1.0); pose(MAXSUIT, t, (0, 2.2, 0), 180, "shock" if n == "forgot" else "sad", 1); who(MAXSUIT, sc); sc.flush()
+        sc = Scene(K(u, (.4, .9, 1.65), (.38, 1.0, 1.65), (0, 3.0, 1.6), (0, 3.0, 1.6), 1000, 1150)); tower(sc, t, 1.0); pose(MAXSUIT, t, (0, 3.0, 0), 180, "shock" if n == "forgot" else "sad", 1); who(MAXSUIT, sc); sc.flush()
         if n == "promise":
             sc.c.set_source_rgba(1, .95, .85, .55); sc.c.paint(); c = sc.c; c.save(); c.translate(W * .7, H * .45); c.rotate(.05); rrect(c, -260, -200, 520, 400, 16); c.set_source_rgb(1, 1, .97); c.fill_preserve(); c.set_source_rgb(*INK); c.set_line_width(6); c.stroke()
             txt2d(c, 0, -110, "MIA'S FIRST SOLO", 40, "e06aa0"); txt2d(c, 0, -10, "FRIDAY 7:00 PM", 50, "20242c"); txt2d(c, 0, 90, "I'LL BE THERE! — MAX", 34, "3d86e0"); c.restore()
         sc.vignette(.35); return sc
     if n in ("run", "runknee"):
-        x0 = 4.2 * t; cam = K(u, (x0 + 3.2, 4.75, 1.35), (x0 + 3.4, 4.75, 1.35), (x0, 3.9, 1.1), (x0, 3.9, 1.1), 950) if n == "run" else K(u, (x0 + 1.6, 2.4, .6), (x0 + 1.7, 2.5, .6), (x0, 3.9, .5), (x0, 3.9, .5), 1000)
+        x0 = 4.2 * t; cam = K(u, (x0 + 3.2, 4.75, 1.8), (x0 + 3.4, 4.75, 1.75), (x0, 3.9, 1.0), (x0, 3.9, 1.0), 950) if n == "run" else K(u, (x0 + 1.6, 2.4, .6), (x0 + 1.7, 2.5, .6), (x0, 3.9, .5), (x0, 3.9, .5), 1000)
         sc = Scene(cam); city_run(sc, t, x0, "det" if n == "run" else "wince"); sc.flush(); label(sc, W / 2, 120, "2 KM", 56, "ffd24a") if n == "run" else None; sc.vignette(.3); return sc
     if n == "shoes":
         x0 = 4.2 * t; sc = Scene(K(u, (x0 + 1.2, 2.8, .25), (x0 + 1.3, 2.9, .25), (x0, 3.9, .1), (x0, 3.9, .1), 1000)); city_run(sc, t, x0, knee=0); sc.flush(); label(sc, W / 2, 120, "DRESS SHOES", 56); sc.vignette(.3); return sc
@@ -218,9 +223,14 @@ def c11(t):
     if n == "doors":
         sc = Scene(K(u, (0, 3.4, 2.0), (0, 3.2, 2.0), (0, -6.0, 1.3), (0, -6.0, 1.3), 900)); stagehall(sc, t, "SPRING CONCERT", spot=1.0, lights=.15); backwall(sc, -7.0, -7, 7, 6.0, "4a3a52", False)
         op = ss(s, 0, .3)
-        for sg in (-1, 1): sc.poly([(sg * .05, -6.98, 0), (sg * (.05 + 1.0 * (1 - op)), -6.98 + op * .9, 0), (sg * (.05 + 1.0 * (1 - op)), -6.98 + op * .9, 2.4), (sg * .05, -6.98, 2.4)], "8a5a34", .014)
-        if op > .3: X, Y = sc.cam.pr((0, -6.95, 1.2)); sc.glow(X, Y, 300, "fff0c0", .5 * op)
-        audience(sc, t, 4, .5, face="ooh"); walk(MAXSUIT, t, [(w("c11_n7", "burst") + .1, 0, -6.8), (w("c11_n7", "burst") + 3, 0, -4.4)], run=True); MAXSUIT.face = FACE["det"]; who(MAXSUIT, sc) if op > .4 else None
+        # doors BURST OPEN away from the hall (they used to swing toward the camera and read as closing); bright corridor behind
+        sc.poly([(-1.05, -6.985, 0), (1.05, -6.985, 0), (1.05, -6.985, 2.45), (-1.05, -6.985, 2.45)], mix("2a1c14", "fff0c8", op), .014)
+        for sg in (-1, 1):
+            a_ = op * 1.35; tip = (sg * (1.05 - 1.0 * math.cos(a_)), -6.99 - 1.0 * math.sin(a_))
+            sc.poly([(sg * 1.05, -6.99, 0), (tip[0], tip[1], 0), (tip[0], tip[1], 2.4), (sg * 1.05, -6.99, 2.4)], "8a5a34", .014)
+        if op > .2: X, Y = sc.cam.pr((0, -6.95, 1.2)); sc.glow(X, Y, 420, "fff0c0", .55 * op)
+        audience(sc, t, 4, .5, face="ooh"); walk(MAXSUIT, t, [(w("c11_n7", "burst") + .05, 0, -8.0), (w("c11_n7", "burst") + 3, 0, -4.4)], run=True); MAXSUIT.face = FACE["det"]
+        if MAXSUIT.hip[1] > -6.95: who(MAXSUIT, sc)
         sc.flush(); sc.vignette(.3); return sc
     if n in ("sees", "sing", "came"):
         cam = {"sees": lambda: K(u, (0, 4.6, 1.5), (0, 4.8, 1.48), (0, 6.2, 1.25), (0, 6.2, 1.25), 1000, 1150), "sing": lambda: K(u, (-1.4, 3.6, 1.8), (-1.0, 3.8, 1.7), (0, 6.2, 1.2), (0, 6.2, 1.2), 900, 1000),
@@ -264,7 +274,7 @@ def c12(t):
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); planner2d(sc, t, min(1, s / 3.0)); return sc
     if n == "nothing":
         sc = Scene(K(u, (0, -2.4, 1.3), (0, -2.0, 1.25), (0, 1.0, .7), (0, 1.0, .7), 950, 1050)); S25.living(sc, t)
-        sc.at(sc.cam.depth(V(0, 1.3, .6)), lambda: S25.sofa(sc, 0, .9, 2.2, part="back")); S25.lying(MAX, t, (.1, .9, .62), "up"); MAX.face = FACE["det"]; sc.at(sc.cam.depth(V(0, .9, .6)) - .05, lambda: S25.draw_lying(sc, MAX)); sc.at(sc.cam.depth(V(0, .45, .4)), lambda: S25.sofa(sc, 0, .9, 2.2, part="front")); sc.flush()
+        sc.at(sc.cam.depth(V(0, 1.3, .6)), lambda: sofa2(sc, 0, .9, 2.2)); S25.lying(MAX, t, (-.3, .92, .47), "up", pitchz=.18); MAX.face = FACE["det"]; f_, r_, up_, N_, HC_ = MAX.joints(); MAX.hands = [MAX.hip + V(-.2, -.12, .2), MAX.hip + V(-.15, .12, .2)]; sc.at(sc.cam.depth(V(0, 1.3, .6)) - .05, lambda: S25.draw_lying(sc, MAX)); sc.flush()
         label(sc, W / 2, 120, "SUNDAY: NOTHING", 56, "3d86e0"); tx(sc, W / 2, 1000, "(WITH PERFECT DISCIPLINE)", 40, "ffffff", INK, .14, a=ss(s, .8, 1.2)); sc.vignette(.3); return sc
     if n in ("jay", "early"):
         sc = Scene(K(u, (1.6, -2.4, 1.55), (1.4, -2.2, 1.55), (0, 1.2, 1.2), (0, 1.2, 1.2), 950)); party_room(sc, t)
@@ -287,7 +297,8 @@ def c13(t):
         cam = K(u, (16, -1.5, 1.6), (15.5, -1.4, 1.6), (7, 0, 1.6), (8, 0, 1.6), 900) if n == "finish" else K(u, (12.5, 1.2, 1.2), (12.4, 1.3, 1.2), (12.5, 3.3, 1.0), (12.5, 3.3, 1.0), 950, 1000)
         sc = Scene(cam); finish(sc, t, 8, clock_txt="3:58:41")
         if n == "finish": walk(MAXRUN, t, [(t - 1, x0 - 2.2, 0), (t + 1, x0 + 2.2, 0)], run=True); MAXRUN.face = FACE["laugh"]; f_, r_ = side(MAXRUN); MAXRUN.hands = [MAXRUN.hip + r_ * -.35 + V(0, 0, .9), MAXRUN.hip + r_ * .35 + V(0, 0, .9)] if x0 > 10 else MAXRUN.hands; who(MAXRUN, sc)
-        mia_star(sc, t, (12.5, 3.2, 0), 180, "laugh", look_at=(10, 0, 1.2)); f_, r_ = side(MIASTAR); MIASTAR.hands = [MIASTAR.hip + r_ * -.2 + V(0, 0, .55), MIASTAR.hip + r_ * .2 + V(0, 0, .55)]
+        sc.at(sc.cam.depth(V(12.5, 3.3, .22)) + .05, lambda: sc.box((12.5, 3.3, .3), (.55, .45, .6), "c9925a", line=.008))   # a crate: she stands on it behind the barrier
+        mia_star(sc, t, (12.5, 3.3, .6), 180, "laugh", look_at=(10, 0, 1.2)); f_, r_ = side(MIASTAR); MIASTAR.hands = [MIASTAR.hip + r_ * -.2 + V(0, 0, .55), MIASTAR.hip + r_ * .2 + V(0, 0, .55)]
         def sg():
             p = MIASTAR.hip + V(0, -.12, .85); sc.poly([p + V(-.4, 0, -.25), p + V(.4, 0, -.25), p + V(.4, 0, .25), p + V(-.4, 0, .25)], "ffffff", .01); wtx(sc, p + V(0, -.01, .06), "GO MAX!", .14, "e8392e", None); star3(sc, p + V(0, -.01, -.13), .07, "ffd24a")
         sc.at(sc.cam.depth(MIASTAR.hip + V(0, -.15, .8)) - .1, sg); sc.flush()

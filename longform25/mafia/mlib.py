@@ -960,8 +960,8 @@ def prison_gate(sc, t, op=0.0, walker=None):
     for z in (.4, 1.2, 2.0): sc.line([(-24, -1.5, z), (-2.6, -1.5, z)], "6a6e78", .012); sc.line([(2.6, -1.5, z), (24, -1.5, z)], "6a6e78", .012)
 # ------------------------------------------------------------------ walking: hands hang lower and swing less (no toy-soldier arms)
 _walk0 = walk
-def walk(ch, t, path, seed=0, stride=.34, run=False, z=0.0):
-    _walk0(ch, t, path, seed, stride, run, z); f, r = side(ch)
+def walk(ch, t, path, seed=0, stride=.34, run=False, z=0.0, limp=0.0):
+    _walk0(ch, t, path, seed, stride, run, z, limp); f, r = side(ch)
     if run: return ch
     for i, sg in enumerate((-1, 1)):
         if ch.hands[i] is None: continue

@@ -1,0 +1,107 @@
+[
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia2__girl2.wav",
+  "text": "Mom! Max is being weird!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/girl2.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia2__kid.wav",
+  "text": "Mom! Max is being weird!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/kid.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia2__zoe.wav",
+  "text": "Mom! Max is being weird!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia1__girl2.wav",
+  "text": "Why are you eating a tree?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/girl2.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia1__kid.wav",
+  "text": "Why are you eating a tree?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/kid.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c03_mia1__zoe.wav",
+  "text": "Why are you eating a tree?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia1__girl2.wav",
+  "text": "Max, will you play with me?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/girl2.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia1__kid.wav",
+  "text": "Max, will you play with me?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/kid.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia1__zoe.wav",
+  "text": "Max, will you play with me?",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__girl2.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/girl2.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__kid.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/kid.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__zoe.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c11_mia1__girl2.wav",
+  "text": "You came! You really came!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/girl2.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c11_mia1__kid.wav",
+  "text": "You came! You really came!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/thoughts/vo/refs/kid.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c11_mia1__zoe.wav",
+  "text": "You came! You really came!",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.6,
+  "cfg": 0.45
+ }
+]

@@ -30,3 +30,4 @@
 - [Detail + realism QA](detail-and-realism-qa.md) — owner found 25 errors after my 'fixed': check realism, floating parts, double-drawn limbs, wheel direction, empty backgrounds
 - [Teaser hook + voice CTA](teaser-hook-and-voice-cta.md) — teasers open cold on the climax and end with a spoken 'watch the full video on our channel', no silent end
 - [Discipline long video status](discipline-longform-status.md) — finished 2026-11-28, teasers ready, nothing posted
+- [Owner error list (discipline)](owner-error-list-discipline.md) — 8 recurring error classes I miss: furniture/legs, sitting+lying, no run cycle, popping crowds, fake exercises, empty sets, raspy kid voice, logic

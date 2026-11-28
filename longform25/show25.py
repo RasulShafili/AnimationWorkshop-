@@ -46,7 +46,7 @@ def stand(ch, t, pos, yaw, seed=0, sway=.03):
     for i, sg in enumerate((-1, 1)): ch.feet[i] = p + r * sg * .075 * ch.k
     for i, sg in enumerate((-1, 1)): ch.hands[i] = ch.hip + r * sg * (ch.tr + .10 * ch.k) + f * (.05 + .03 * wob(t, .33, seed + i)) * ch.k + V(0, 0, .0 * ch.k)
     return ch
-def walk(ch, t, path, seed=0, stride=.34, run=False, z=0.0):
+def walk(ch, t, path, seed=0, stride=.34, run=False, z=0.0, limp=0.0):
     """path [(t, x, y)]: walks with planted feet, turns into each leg"""
     P = [(a, V(x, y, 0)) for a, x, y in path]; q = P[0][1]; dist = 0.0; yaw = None; mv = 0.0
     for (a, A), (b, B) in zip(P, P[1:]):
@@ -57,12 +57,35 @@ def walk(ch, t, path, seed=0, stride=.34, run=False, z=0.0):
             if t <= b: mv = min(1, (t - a) / .25 + .001, (b - t) / .25 + .001)
             else: mv = 0.0
     if yaw is None: (a, A), (b, B) = P[0], P[1]; yaw = math.degrees(math.atan2((B - A)[0], -(B - A)[1]))
-    stand(ch, t, (q[0], q[1], z), yaw, seed); f, r = side(ch); st = stride * ch.k * (1.5 if run else 1)
+    if len(P) == 2 and abs(P[0][0] - (t - 1)) < 1e-6 and abs(P[1][0] - (t + 1)) < 1e-6:   # path centred on t (moving camera shots):
+        dist = float(q @ unit(P[1][1] - P[0][1])); mv = 1.0                               # step phase from the world position, or the legs freeze
+    stand(ch, t, (q[0], q[1], z), yaw, seed); f, r = side(ch); st = stride * ch.k * (3.0 if run else 1)
+    if run and mv > 0: run_cycle(ch, dist, st, mv, f, r, limp); return ch
     if mv > 0:
         ch.hip = ch.hip + V(0, 0, -.035 * ch.k * mv + .03 * ch.k * mv * abs(math.sin(dist / (2 * st) * 2 * math.pi))); ch.lean = V((.18 if run else .06) * mv, 0)
         for i, (al, upz) in enumerate(walk_feet(dist, st, (.16 if run else .09) * ch.k)): ch.feet[i] = ch.feet[i] + (f * al + V(0, 0, upz)) * (mv if not run else 1)
         for i, sg in enumerate((-1, 1)): sw = math.sin(dist / (2 * st) * 2 * math.pi + math.pi * i + .4); ch.hands[i] = ch.hip + r * sg * (ch.tr + .07 * ch.k) + f * (.22 * sw * mv) * ch.k + V(0, 0, (.12 * abs(sw) * mv + (.12 if run else 0)) * ch.k)
     return ch
+def run_cycle(ch, dist, st, mv, f, r, limp=0.0):
+    """real run (2026-11-28, owner: "no running animation"): flight phase, hip bounce, knee lift + heel kick,
+    forward lean, elbows bent ~90° pumping opposite to the legs; feet planted during stance. limp>0 shortens/lowers one leg."""
+    k = ch.k; ph = dist / (2 * st) * 2 * math.pi; L = ch.th + ch.sh; ground = ch.feet[0][2]; a = st * .38   # stance travel = hip travel (.38 of a 2-step cycle) → no foot slide
+    ch.hip = ch.hip + V(0, 0, (-.07 + .05 * abs(math.cos(ph)) - .03 * limp * (1 + math.cos(ph))) * k * mv)      # lowest at mid-stance, up in flight
+    ch.lean = V((.26 - .1 * limp) * mv, 0); ch.knee = f + V(0, 0, .35)
+    hip0 = V(ch.hip[0], ch.hip[1], ground)
+    for i, sg in enumerate((-1, 1)):
+        u = ((ph + math.pi * i) / (2 * math.pi)) % 1.0; amp = 1 - .45 * limp * (i == 1)
+        if u < .38:                                        # stance: foot on the ground, sliding back under the moving hip
+            v = u / .38; x = a * amp * (1 - 2 * v); zf = 0.0
+        else:                                              # swing: heel kicks up behind, then the knee drives forward
+            v = (u - .38) / .62; x = -a * amp + 2 * a * amp * (1 - math.cos(math.pi * v)) / 2 - .10 * k * math.sin(math.pi * v) * (1 - v)
+            zf = (.30 - .12 * limp * (i == 1)) * k * math.sin(math.pi * v) ** .8
+        foot = hip0 + r * sg * .07 * k + f * x * mv + V(0, 0, zf * mv)
+        ch.feet[i] = ch.feet[i] * (1 - mv) + foot * mv
+        sw = math.sin(ph + math.pi * i + math.pi)          # arm opposite to its leg
+        sh_ = ch.hip + V(0, 0, ch.tl * .82) + r * sg * (ch.tr + .04 * k)
+        hand = sh_ + f * (.20 * sw + .08) * k + V(0, 0, (-.21 + .09 * max(0, sw)) * k) + r * sg * .02 * k
+        ch.hands[i] = ch.hands[i] * (1 - mv) + hand * mv; ch.elbow[i] = -f * 1.2 + V(0, 0, -.2)
 def sit(ch, t, seat, yaw, seed=0, fz=None):
     """seat = centre of the seat top; feet reach the floor (fz) or dangle and swing"""
     base(ch, t, seed); ch.yaw = yaw; ch.hyaw = yaw; f, r = side(ch); ch.hip = V(*seat) + V(0, 0, .05 * ch.k)

@@ -14,9 +14,9 @@ def held_book(sc, ch, col="3d86e0", title="BOOK", tilt=35):
         wtx(sc, p + f * .03 + V(0, 0, .04), title, .05, "ffffff", INK, .1, n=tuple(f))
     return d
 def max_chair(sc, t, face="focus", book=True, eyes_down=True, aura_a=0.0, pup_shoe=True):
-    sit(MAX, t, (0, 1.22, .5), 0, 1); MAX.face = FACE[face]; MAX.hpitch = -22 if eyes_down else 0; bk = held_book(sc, MAX, "3d86e0", "HABITS") if book else None
+    sit(MAX, t, (0, 1.32, .36), 0, 1, fz=0.0); MAX.face = FACE[face]; MAX.hpitch = -22 if eyes_down else 0; bk = held_book(sc, MAX, "3d86e0", "HABITS") if book else None
     sc.at(sc.cam.depth(V(0, 1.65, .9)), lambda: armchair(sc, (0, 1.2, 0), 0, part="back"))
-    sc.at(sc.cam.depth(V(0, 1.2, .45)) + .25, lambda: armchair(sc, (0, 1.2, 0), 0, part="seat"))
+    sc.at(sc.cam.depth(V(0, 1.2, .3)) + .25, lambda: armchair(sc, (0, 1.2, 0), 0, part="seat"))
     def dr():
         aura(sc, MAX, t, aura_a); MAX.draw(sc)
         if bk: bk()
@@ -42,18 +42,15 @@ def backwall(sc, y=-3.2, x0=-3.6, x1=3.6, z1=2.9, col="f5d29a", board=True):
     sc.poly([(x0, y, 0), (x1, y, 0), (x1, y, z1), (x0, y, z1)], col, .012)
     if board: sc.poly([(x0 + 1, y + .01, 1.1), (x0 + 3, y + .01, 1.1), (x0 + 3, y + .01, 2.1), (x0 + 1, y + .01, 2.1)], "c8955a", .012); [sc.poly([(x0 + 1.2 + k * .45, y + .02, 1.3 + .3 * (k % 2)), (x0 + 1.5 + k * .45, y + .02, 1.3 + .3 * (k % 2)), (x0 + 1.5 + k * .45, y + .02, 1.7 + .3 * (k % 2)), (x0 + 1.2 + k * .45, y + .02, 1.7 + .3 * (k % 2))], ("ffffff", "ffd24a", "8fd0ff", "ffb0c0")[k % 4], .006) for k in range(4)]
     sc.poly([(x1 - 1.6, y + .01, 0), (x1 - .6, y + .01, 0), (x1 - .6, y + .01, 2.1), (x1 - 1.6, y + .01, 2.1)], "8a5a34", .012)
-def bed_scene(sc, t, mess=1.0, night=False, dawn=0.0, face="sleepy", lie=True, lamp=0.0, phone_glow=0.0, quilt=True, sit_up=0.0, dust=1.0):
-    bedroom2(sc, t, mess, night, dawn, lamp, dust); sc.at(5.2, lambda: bedframe(sc))
+def bed_scene(sc, t, mess=1.0, night=False, dawn=0.0, face="sleepy", lie=True, lamp=0.0, phone_glow=0.0, quilt=True, sit_up=0.0, dust=1.0, clock_hm=None):
+    bedroom2(sc, t, mess, night, dawn, lamp, dust, clock_hm=clock_hm); sc.at(5.2, lambda: bedframe(sc))
     if lie and sit_up <= 0:
-        S25.lying(MAX, t, (-.55, .95, .62), "up"); MAX.face = FACE[face]
-        if phone_glow:
-            MAX.hands = [V(-1.05, .85, .95), V(-1.0, 1.05, .95)]
-        def d():
-            S25.draw_lying(sc, MAX)
-            if quilt: bedframe(sc, "quilt")
+        def ph():
             if phone_glow:
-                sc.box((-1.05, .95, 1.0), (.09, .17, .012), "1c1e24", 90, .005); X, Y = sc.cam.pr((-1.05, .95, .98)); sc.glow(X, Y, sc.cam.px((-1.05, .95, 1.0), 1.0), "9fd8ff", .45 * phone_glow)
-        sc.at(5.0, d)
+                c_ = V(-.92, .95, .86); sc.poly([c_ + V(-.05, -.08, .03), c_ + V(-.05, .08, .03), c_ + V(.05, .08, -.03), c_ + V(.05, -.08, -.03)], "1c1e24", .006)
+                sc.poly([c_ + V(-.045, -.07, .033), c_ + V(-.045, .07, .033), c_ + V(.045, .07, -.027), c_ + V(.045, -.07, -.027)], "bfe6ff", 0); X, Y = sc.cam.pr(c_); sc.glow(X, Y, sc.cam.px(c_, .9), "9fd8ff", .45 * phone_glow)
+        lie_in_bed(sc, MAX, t, face, quilt=quilt, hand_out=bool(phone_glow), extra=ph)
+        if phone_glow: MAX.hands = [V(-.92, .87, .85), V(-.92, 1.03, .85)]; MAX.elbow = [V(.6, -1, -.6), V(.6, 1, -.6)]
     elif sit_up > 0:
         sit(MAX, t, (-.35, .95, .5), 90, 2); MAX.feet = [V(.45, .85, .56), V(.45, 1.05, .56)]; MAX.face = FACE[face]; sc.at(5.0, lambda: (MAX.draw(sc), bedframe(sc, "quilt") if quilt else None))
 def projects(sc, t):
@@ -116,17 +113,26 @@ def c02(t):
         label(sc, W / 2, 120, "AGE 17", 56); return sc
     if n == "stime":
         sc = Scene(Cam((0, -2, 2), (0, 0, 0))); vgrad(sc, "3a3060", "1a1430"); phone2d(sc, W / 2, H / 2 + 30, .95 + .03 * u, t, screentime_screen(t)); sc.vignette(.3); return sc
-    if n == "guitar":
-        sc = Scene(K(u, (1.5, .9, 1.0), (1.45, 1.0, 1.0), (2.15, 1.8, .7), (2.15, 1.8, .75), 950, 1050)); bed_scene(sc, t, 1.0); sc.flush(); sc.vignette(.3)
-        label(sc, W / 2, 120, "PLAYED: 2 TIMES", 56); return sc
-    if n == "card":
-        sc = Scene(K(u, (-1.4, .9, 1.25), (-1.45, 1.0, 1.25), (-1.65, 1.8, .8), (-1.65, 1.8, .8), 1000, 1100)); bed_scene(sc, t, 1.0)
-        def cd(): sc.box((-1.45, 1.75, .815), (.2, .13, .005), "e8392e", 15, .004); wtx(sc, (-1.45, 1.75, .82), "GYM", .05, "ffffff", None, n=(0, 0, 1), U=(math.cos(.26), math.sin(.26), 0)); [sc.box((-1.4 + .02 * k, 1.85, .83 + .006 * k), (.1, .07, .006), "c8c0b0", 0, .002) for k in range(3)]
-        sc.at(.5, cd); sc.flush(); sc.vignette(.3); label(sc, W / 2, 120, "USED: ONCE", 56); return sc
-    if n == "project":
-        sc = Scene(K(u, (-1.0, 1.0, 1.35), (-1.1, 1.05, 1.32), (-1.75, 1.85, 1.0), (-1.75, 1.85, 1.0), 950, 1050)); bed_scene(sc, t, 1.0)
-        def pb(): sc.poly([(-2.15, 1.7, .81), (-1.45, 1.7, .81), (-1.45, 1.92, 1.35), (-2.15, 1.92, 1.35)], "fffaf0", .01); wtx(sc, (-1.8, 1.78, 1.18), "VOLCANO", .07, "c0302a", None, n=(0, -.92, .4)); wtx(sc, (-1.8, 1.75, 1.05), "DUE TOMORROW", .045, "20242c", None, n=(0, -.92, .4))
-        sc.at(.4, pb); sc.flush(); sc.vignette(.3); return sc
+    if n == "guitar":       # rebuilt 2026-11-28: clear medium shot of the dusty guitar in its corner (was a confusing wall close-up)
+        sc = Scene(K(u, (.75, .15, 1.4), (.85, .3, 1.36), (2.1, 1.85, .7), (2.1, 1.85, .74), 1050, 1150)); bed_scene(sc, t, 1.0)
+        def web(): c0 = V(2.55, 2.15, 1.35); [sc.line([c0, c0 + V(-.3 * math.cos(a), -.25 * math.sin(a), -.35 * math.sin(a + .5))], "ffffff", .004, a=.6) for a in np.linspace(.2, 1.4, 5)]
+        sc.at(.3, web); sc.flush()
+        for k in range(14): X, Y = sc.cam.pr((1.8 + .5 * ((k * .37) % 1), 1.7 + .3 * ((k * .61) % 1), .5 + .9 * ((k * .53 + t * .05) % 1))); sc.glow(X, Y, 5, "fff4d0", .55)
+        sc.vignette(.3); label(sc, W / 2, 120, "PLAYED: 2 TIMES", 56); return sc
+    if n in ("card", "project"):   # rebuilt: camera beside the desk (not through the headboard); real things ON the desk top (.645)
+        cam = K(u, (-.35, 1.85, 1.3), (-.4, 1.9, 1.28), (-1.6, 1.9, .66), (-1.6, 1.92, .68), 1050, 1150) if n == "card" else K(u, (-.3, 1.75, 1.4), (-.35, 1.8, 1.38), (-1.4, 2.0, .85), (-1.4, 2.02, .87), 1000, 1080)
+        sc = Scene(cam); bed_scene(sc, t, 1.0, lie=False)
+        def desk_things():
+            top = .648
+            sc.cyl((-2.0, 2.0, top), .05, .12, "3d86e0", line=.005); [sc.line([(-2.0 + .015 * k, 2.0, top + .1), (-1.98 + .03 * k, 1.99, top + .2)], ("e8392e", "ffd24a", "20242c")[k], .012) for k in range(3)]
+            [sc.box((-1.25 + .01 * k, 1.95, top + .004 + .006 * k), (.24, .17, .005), "f4f2ec", 8 * k, .002) for k in range(3)]
+            sc.box((-1.38, 1.72, top + .003), (.2, .13, .005), "e8392e", 15, .004); wtx(sc, (-1.38, 1.72, top + .007), "GYM", .05, "ffffff", None, n=(0, 0, 1), U=(math.cos(.26), math.sin(.26), 0))
+            if n == "project":
+                volcano_model(sc, (-1.2, 1.92, top), built=.55, s=.9)
+                wall_note(sc, (-1.25, 2.18, 1.12), .36, .26, [("VOLCANO", .06, "c0302a"), ("DUE TOMORROW!", .035, "20242c")])
+        sc.at(.5, desk_things); sc.flush(); sc.vignette(.3)
+        if n == "card": label(sc, W / 2, 120, "USED: ONCE", 56)
+        return sc
     if n in ("voice", "loud"):
         sc = Scene(K(u, (1.2, -1.2, 1.9), (1.0, -1.0, 1.85), (-.7, .95, .7), (-.7, .95, .7), 950, 1000)); bed_scene(sc, t, 1.0, face="sleepy"); sc.flush(); sc.vignette(.25)
         cx, cy = sc.cam.pr((-.9, .95, 1.35)); s_ = 1.0 if n == "voice" else 1.0 + .6 * ss(s, 0, .6); later_cloud(sc, cx + 150, cy - 170, s_ * 1.6, t, talk(lt("c02_n3") and "c02_n3", t) * 0 + .4 * abs(math.sin(t * 6)))
@@ -138,8 +144,8 @@ def c02(t):
             sh = 10 * math.sin(t * 40) * ss(s, 0, .3); sc.c.translate(sh, 0); say_bubble(sc, W / 2 + 200, 220, "LATER!!!", 110, 1, (cx + 200, cy - 200))
         return sc
     if n == "mom":
-        sc = Scene(K(u, (2.1, -1.9, 1.6), (2.0, -1.8, 1.6), (0, .9, 1.0), (0, .9, 1.0), 900, 950)); bed_scene(sc, t, 1.0, face="sleepy")
-        pose(MOM2, t, (1.5, .5, 0), 270, "angry", 3, look_at=(-1.0, .95, .7), talkl="c02_mom1"); MOM2.hands[0] = MOM2.hip + V(.1, .4, .45); who(MOM2, sc); sc.flush(); sc.vignette(.3)
+        sc = Scene(K(u, (2.1, -1.9, 1.6), (2.0, -1.8, 1.6), (0, .9, 1.0), (0, .9, 1.0), 900, 950)); bed_scene(sc, t, 1.0, face="sleepy", clock_hm=(2, 0))
+        pose(MOM2, t, (1.25, .15, 0), 290, "angry", 3, look_at=(-1.0, .95, .7), talkl="c02_mom1"); MOM2.hands[0] = MOM2.hip + V(.1, .4, .45); who(MOM2, sc); sc.flush(); sc.vignette(.3)
         label(sc, W / 2, 120, "2:00 PM", 56, "ffd24a"); return sc
     if n == "night":
         sc = Scene(K(u, (.6, -.6, 1.7), (.4, -.3, 1.6), (-.9, .95, .8), (-1.0, .95, .85), 950, 1100)); bed_scene(sc, t, 1.0, night=True, phone_glow=1.0, face="sleepy"); sc.flush()
@@ -160,11 +166,11 @@ def kitchen_t(sc, t, mia_talk=None, mia_face="shock", max_face="neutral", brocco
     import proto; proto.kitchen(sc, t)
     lm, bm, km = seat_on(sc, MAX, t, "kitchen", (-.3, 1.62, 0), 0, 1); MAX.face = FACE[max_face]
     li, bi, ki = seat_on(sc, MIA, t, "kitchen", (1.05, .95, 0), 270, 2); MIA.face = FACE[mia_face]; MIA.talk = talk(mia_talk, t) if mia_talk else 0; look(MIA, (-.3, 1.62, 1.1))
-    hd_ = V(*MAX.joints()[4]); fk = V(-.3, 1.2, .8) * (1 - fork) + (hd_ + V(0, -MAX.R * 1.1, -MAX.R * .45)) * fork; MAX.hands = [V(-.5, 1.25, .8), fk]
+    hd_ = V(*MAX.joints()[4]); fk = V(-.3, 1.2, TABLE_H + .04) * (1 - fork) + (hd_ + V(0, -MAX.R * 1.1, -MAX.R * .45)) * fork; MAX.hands = [V(-.5, 1.25, TABLE_H + .03), fk]
     def tbl():
-        sc.box((0, 1.0, .74), (1.6, .9, .05), "c9925a", 0, .01); [sc.box((sx, 1.0 + sy, .36), (.05, .05, .72), "8a5a3a", 0, .004) for sx in (-.7, .7) for sy in (-.38, .38)]
-        if broccoli: plate_food(sc, (-.3, 1.15, .77))
-        sc.cyl((.4, .8, .77), .05, .14, "f4f4f4", line=.004); sc.cyl((.75, .95, .77), .1, .03, "fafafa", line=.004)
+        table(sc, (0, 1.0), (1.6, .9), TABLE_H, "c9925a", "8a5a3a", queue=False)
+        if broccoli: plate_food(sc, (-.3, 1.15, TABLE_H + .005))
+        sc.cyl((.4, .8, TABLE_H + .005), .05, .14, "f4f4f4", line=.004); sc.cyl((.75, .95, TABLE_H + .005), .1, .03, "fafafa", line=.004)
     table_group(sc, (0, 1.0, .74), tbl, [(MAX, lm, bm, km, lambda: sc.ball(fk + V(0, 0, .05), .03, "3f8f3a", .004) if fork > 0 else None), (MIA, li, bi, ki, None)])
 def c03(t):
     D = CH["c03"]["dur"]
@@ -173,10 +179,10 @@ def c03(t):
                        (lt("c03_n3") - .1, "class"), (lt("c03_jay1") - .1, "jay"), (lt("c03_n4") - .1, "dd")], D)
     if n in ("alarm", "hand"):
         cam = K(u, (1.0, .75, .82), (1.02, .78, .82), (1.25, 1.15, .66), (1.25, 1.15, .66), 1300, 1400) if n == "alarm" else K(u, (.45, .2, 1.15), (.5, .25, 1.12), (1.25, 1.1, .66), (1.25, 1.1, .66), 1100, 1150)
-        sc = Scene(cam); bed_scene(sc, t, 1.0, night=True)
+        sc = Scene(cam); bed_scene(sc, t, 1.0, night=True, clock_hm=(4, 59))
         sc.at(.3, lambda: alarm3(sc, (1.25, 1.1, .6), "4:59"))
         if n == "hand":
-            hp = V(1.25, 1.02, .78) + V(0, 0, .25 * (1 - ss(s, 0, .3))); sc.at(.2, lambda: (sc.ball(hp, .06, "fbe3cc", .006), sc.line([hp, hp + V(-1.3, -.45, .4)], ORANGE, .045)))
+            hp = V(1.25, 1.02, .78) + V(0, 0, .25 * (1 - ss(s, 0, .3))); sc.at(.2, lambda: (sc.ball(hp, .06, "fbe3cc", .006), sc.line([hp, hp + V(-1.3, -.45, .4)], ORANGE, .028)))
         sc.flush(); sc.c.set_source_rgba(0, 0, .1, .3); sc.c.paint(); sc.vignette(.35); label(sc, W / 2, 120, "ALARM: 5:00", 50, "ffd24a"); return sc
     if n == "up":
         sc = Scene(K(u, (1.4, -1.3, 1.5), (1.3, -1.2, 1.5), (-.4, .95, .9), (-.4, .95, .9), 950)); bed_scene(sc, t, 1.0, night=False, dawn=.6, face="det", sit_up=1.0); sc.flush(); sc.vignette(.3); return sc
@@ -186,10 +192,10 @@ def c03(t):
         bigcount(sc, W / 2, 200, str(min(100, 92 + int(8 * clamp(s / max(.3, w("c03_n5", "hundred") - (t - s)))))), 130, "PUSH-UPS"); return sc
     if n == "clean":
         m = 1 - ss(s, .2, 2.6); sc = Scene(K(u, (0, -2.6, 1.7), (0, -2.5, 1.7), (0, 1.3, .8), (0, 1.3, .8), 950)); bed_scene(sc, t, m, lie=False, dawn=.6)
-        px = -1.5 + 3.0 * (.5 + .5 * math.sin(s * 5)); py = .2 + .5 * math.sin(s * 3.3); pose(MAX, t, (px, py, 0), math.degrees(math.atan2(7.5 * math.cos(s * 5), -1.65 * math.cos(s * 3.3))), "det"); MAX.lean = V(.25, 0); who(MAX, sc)   # faces the direction of travel (no 180° flips)
+        px = -1.5 + 3.0 * (.5 + .5 * math.sin(s * 5)); py = -.15 + .3 * math.sin(s * 3.3); pose(MAX, t, (px, py, 0), 90 * math.tanh(7.5 * math.cos(s * 5) / 6), "det"); f_, r_ = side(MAX); import show25 as _S5r; _S5r.run_cycle(MAX, 4.2 * s, .34 * MAX.k * 3.0, 1.0, f_, r_); who(MAX, sc)   # faces the direction of travel (no 180° flips)
         sc.flush(); sc.vignette(.3); bigcount(sc, W - 260, 160, f"0:{min(4, int(s * 1.6)):02d}", 90, "MINUTES"); return sc
     if n == "mia":
-        sc = Scene(K(u, (-1.7, -1.7, 1.4), (-1.6, -1.6, 1.4), (.8, .5, .55), (.8, .5, .55), 900, 950)); bed_scene(sc, t, 0, lie=False, dawn=.6)
+        sc = Scene(K(u, (.5, -2.5, 1.05), (.45, -2.3, 1.05), (.7, .45, .5), (.7, .45, .55), 900, 950)); bed_scene(sc, t, 0, lie=False, dawn=.6)
         pose(MIA, t, (1.9, .6, 0), 290, "shock", 2, look_at=(0, .3, .4), talkl="c03_mia2"); MIA.hands = [MIA.hip + V(.1, -.15, .45), MIA.hip + V(-.1, .1, .5)]; who(MIA, sc)
         pushup(MAX, t, (0, .3), rate=1.8); MAX.face = FACE["det"]; sc.at(sc.cam.depth(MAX.hip), lambda: S25.draw_lying(sc, MAX)); sc.flush(); sc.vignette(.3); return sc
     if n == "shower":
@@ -204,17 +210,19 @@ def c03(t):
         sc = Scene(K(u, (.75, .2, 1.5), (.78, .25, 1.48), (1.25, .95, .4), (1.25, .95, .4), 1050, 1100)); bed_scene(sc, t, 0, lie=False, dawn=.6)
         o = .28 * ss(s, 0, .3) * (1 - ss(s, 1.2, 1.6)); zph = .75 - .3 * ss(s, .35, .8)
         def dr():
-            y0 = .9 - o; sc.box((1.25, y0, .36), (.46, .36, .14), "b8824a", 0, .008); sc.poly([(1.04, y0 - .16, .432), (1.46, y0 - .16, .432), (1.46, y0 + .16, .432), (1.04, y0 + .16, .432)], "6a4a2a", 0)
-            if s < 1.3: sc.box((1.25, y0 - .02, zph), (.085, .17, .012), "1c1e24", 0, .005); (sc.line([V(1.25, y0 + .05, zph + .07), V(1.25, y0 + .05, zph + .07) + V(-1.3, -.9, .9)], ORANGE, .07), sc.ball((1.25, y0 + .05, zph + .07), .055, "fbe3cc", .005)) if s < .9 else None
+            drawer_open(sc, 1.25, .9, .46, .36, .3, .16, o)
+            y0 = .9 - o + .18; zph_ = max(.32, zph)
+            if s < 1.3: sc.box((1.25, y0 - .02, zph_), (.085, .17, .012), "1c1e24", 0, .005); (sc.line([V(1.25, y0 + .05, zph_ + .07), V(1.25, y0 + .05, zph_ + .07) + V(-1.3, -.9, .9)], ORANGE, .05), sc.ball((1.25, y0 + .05, zph_ + .07), .055, "fbe3cc", .005)) if s < .9 else None
+            if s >= 1.3: drawer_open(sc, 1.25, .9, .46, .36, .3, .16, o)
         sc.at(.2, dr); sc.flush(); sc.vignette(.3); return sc
     if n in ("class", "jay"):
         cam = {"class": lambda: K(u, (2.2, 2.5, 1.8), (1.9, 2.45, 1.75), (0, -.2, .9), (0, -.2, .9), 900), "jay": lambda: K(u, (-1.3, 2.35, 1.45), (-1.25, 2.3, 1.45), (.35, .7, 1.1), (.35, .7, 1.1), 950, 1000)}[n]()
-        sc = Scene(cam); S25.klass(sc, t, "SCIENCE"); backwall(sc, -3.2)
+        sc = Scene(cam); S25.klass(sc, t, "SCIENCE"); backwall(sc, -3.2); class_details(sc, t)
         for k, (ch, x, y) in enumerate(((STU[0], -2.0, .6), (STU[1], -1.0, -.9), (STU[2], 1.6, .6), (STU[3], -2.0, -.9), (STU[5], 1.0, -.9))):
-            seated(sc, ch, t, "kitchen", (x, y, 0), 180, k, col="3d6ab0", leg="2a3a5a"); ch.face = FACE["shock"]; look(ch, (0, .6, 1.0)); sc.at(sc.cam.depth(V(x, y + .45, .7)), lambda x=x, y=y: S25.desk(sc, x, y + .45, t))
-        seated(sc, MAX, t, "kitchen", (0, .6, 0), 180, 9, col="3d6ab0", leg="2a3a5a"); MAX.face = FACE["focus"]; MAX.hands = [V(-.15, .95, .66), V(.15, .95, .66)]
+            seated(sc, ch, t, "kitchen", (x, y, 0), 180, k, col="3d6ab0", leg="2a3a5a"); ch.face = FACE["shock"]; look(ch, (0, .6, 1.0)); ch.hands = [V(x - .14, y + .33, .63), V(x + .14, y + .33, .63)]; sc.at(sc.cam.depth(V(x, y + .45, .7)), lambda x=x, y=y: S25.desk(sc, x, y + .45, t, pencil=False))
+        seated(sc, MAX, t, "kitchen", (0, .6, 0), 180, 9, col="3d6ab0", leg="2a3a5a"); MAX.face = FACE["focus"]; MAX.hands = [V(-.15, .95, .63), V(.15, .95, .63)]
         def proj():
-            S25.desk(sc, 0, 1.05, t); sc.cyl((0, 1.1, .61), .2, .22, "8a5a3a", r2=.05, line=.008); sc.cyl((0, 1.1, .82), .05, .03, "e8392e", line=.004); [sc.ball((0, 1.1, .88 + .06 * k), .035, "e8392e", 0, a=.7) for k in range(3)]
+            S25.desk(sc, 0, 1.05, t, pencil=False); sc.cyl((0, 1.1, .61), .2, .22, "8a5a3a", r2=.05, line=.008); sc.cyl((0, 1.1, .82), .05, .03, "e8392e", line=.004); [sc.ball((0, 1.1, .88 + .06 * k), .035, "e8392e", 0, a=.7) for k in range(3)]
         sc.at(sc.cam.depth(V(0, 1.05, .7)), proj)
         if n == "jay": pose(JAY, t, (.85, .75, 0), 270, "ooh", 4, look_at=(0, .6, 1.1), talkl="c03_jay1"); JAY.hands[1] = V(.45, 1.0, .64); who(JAY, sc)
         sc.flush(); sc.vignette(.3)
@@ -229,12 +237,21 @@ SC["c03"] = c03
 def gym_people(sc, t, laugh=0.0, skip=()):
     for k, (ch, x, y, yaw) in enumerate(((STU[6], -3.6, 3.6, 20), (STU[9], 3.2, 3.2, 330), (STU[12], -2.4, 2.6, 0), (STU[14], 2.6, 1.0, 300))):
         if k in skip: continue
+        if k == 2:      # resting on the bench between sets, dumbbell in hand (he used to stand inside the bench)
+            sit(ch, t, V(-2.2, 2.55, .38), 90, k + 3, fz=0.0); ch.face = FACE["laugh" if laugh else "neutral"]; f_, r_ = side(ch); ch.hands[1] = ch.hip + f_ * .25 + r_ * .18 + V(0, 0, .15 + .12 * abs(math.sin(t * 2)))
+            look(ch, (0, 2.9, 1.0)) if laugh else None; who(ch, sc, lambda ch=ch: (sc.line([ch.hands[1] - V(0, .07, 0), ch.hands[1] + V(0, .07, 0)], "8a909a", .025), [disc(sc, ch.hands[1] + V(0, sg * .07, 0), (0, 1, 0), .045, .03, "20242c") for sg in (-1, 1)])); continue
         pose(ch, t, (x, y, 0), yaw, "laugh" if laugh else "neutral", k + 3); look(ch, (0, 2.9, 1.0)) if laugh else None; who(ch, sc)
 def bar_lift(sc, t, ch, lift=0.0, strain=1.0, kg=False, plates=0, x=0.0, y=2.85):
     """standing lifter at the rack; lift 0 = bar on the shoulders, 1 = pressed overhead"""
-    pose(ch, t, (x, y, 0), 0, "wince" if strain > .5 else "det", 1); f_, r_ = side(ch); z = 1.42 * ch.k / 1.14 + .55 * lift + .02 * strain * wob(t, 9)
-    ch.hands = [V(x - .35, y - .02, z), V(x + .35, y - .02, z)]; ch.elbow = [V(0, 0, -1), V(0, 0, -1)]
-    sc.at(sc.cam.depth(V(x, y, z)) - .05, lambda: (ch.draw(sc), barbell(sc, (x, y - .02, z), 0, plates, kg=kg)))
+    # rebuilt 2026-11-28 (owner: "he throws the bar and catches it"): real overhead press with the cast's real reach —
+    # bar racked on the front of the shoulders, small knee dip, drive, arms locked overhead; the bar never leaves the hands
+    pose(ch, t, (x, y, 0), 0, "wince" if strain > .5 else "det", 1); f_, r_ = side(ch)
+    dip = .05 * ch.k * (1 - min(1.0, lift * 4)) if lift > 0 else 0.0; ch.hip = ch.hip - V(0, 0, dip); ch.knee = f_ + V(0, 0, .2)
+    fr, rr, up, N, HC = ch.joints(); reach = (ch.ua + ch.fa) * .97
+    rack = N + f_ * .17 * ch.k + V(0, 0, .03 * ch.k); top = N + V(0, 0, reach) + f_ * .02 * ch.k; e = lift * lift * (3 - 2 * lift)
+    c_ = rack * (1 - e) + top * e + V(0, 0, .008 * strain * wob(t, 9)); grip = .3 * ch.k
+    ch.hands = [c_ - r_ * grip, c_ + r_ * grip]; ch.elbow = [f_ * .8 - r_ * .5 + V(0, 0, -1), f_ * .8 + r_ * .5 + V(0, 0, -1)]
+    sc.at(sc.cam.depth(c_) - .05, lambda: (ch.draw(sc), barbell(sc, tuple(c_), 0, plates, kg=kg)))
     if strain > .5: sc.at(0.01, lambda: sweat(sc, ch, t))
 def c04(t):
     D = CH["c04"]["dur"]
@@ -265,9 +282,15 @@ def c04(t):
         sc = Scene(K(u, (-2.6, .2, 1.45), (-2.2, .4, 1.45), (.6, 4.4, 1.6), (1.0, 4.4, 1.6), 900)); from street import street as _st
         nightv = n == "night"; sky(sc, "8a96a6" if n in ("rain", "snow") else ("4fb0f5" if not nightv else "10183f"), "c8d0d8" if n in ("rain", "snow") else ("ffe9c8" if not nightv else "2a3a6a"), sun=None, t=t)
         _st(sc, t, cx=0, span=40, night=nightv, parked=[], furniture=True)
-        def sign(): sc.poly([(-2, 4.95, 3.0), (2, 4.95, 3.0), (2, 4.95, 3.8), (-2, 4.95, 3.8)], "e8392e", .014); wtx(sc, (0, 4.93, 3.4), "IRON GYM", .45, "ffffff", None)
+        def sign():      # the gym's own glass door under its sign; Max walks to it and goes in (he used to stand at a random shop window)
+            sc.poly([(-2, 4.95, 3.0), (2, 4.95, 3.0), (2, 4.95, 3.8), (-2, 4.95, 3.8)], "e8392e", .014); wtx(sc, (0, 4.93, 3.4), "IRON GYM", .45, "ffffff", None)
+            sc.poly([(-.55, 4.94, 0), (.55, 4.94, 0), (.55, 4.94, 2.3), (-.55, 4.94, 2.3)], "2a2f3a", .014); sc.poly([(-.47, 4.93, .05), (.47, 4.93, .05), (.47, 4.93, 2.2), (-.47, 4.93, 2.2)], "9fc4dc", .01)
+            sc.line([(0, 4.925, .05), (0, 4.925, 2.2)], "2a2f3a", .025); [sc.line([(sx * .1, 4.92, .95), (sx * .1, 4.92, 1.25)], "c8ccd4", .03) for sx in (-1, 1)]
+            wtx(sc, (0, 4.92, 1.6), "OPEN 5AM", .1, "20242c", None)
         sc.at(sc.cam.depth(V(0, 5, 3)), sign)
-        walk(MAX, t, [(0, -1.8, 3.9), (3.0, 1.2, 3.9)]); MAX.face = FACE["det"]; who(MAX, sc); sc.flush()
+        t0_ = t - s; walk(MAX, t, [(t0_, 2.4, 3.8), (t0_ + 2.0, 0, 3.8), (t0_ + 2.5, 0, 4.85)]); MAX.face = FACE["det"]
+        if MAX.hip[1] < 4.75: who(MAX, sc)
+        sc.flush()
         if n == "rain":
             for k in range(160): x = (k * 97) % W; y = (k * 53 + t * 1400) % H; sc.c.move_to(x, y); sc.c.line_to(x - 8, y + 30); sc.c.set_source_rgba(.8, .9, 1, .5); sc.c.set_line_width(2); sc.c.stroke()
         if n == "snow": snowfall(sc, t)

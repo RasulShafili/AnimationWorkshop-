@@ -1,0 +1,30 @@
+[
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__zoe0.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.45,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__zoe1.wav",
+  "text": "Oh. Okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.35,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__zoe2.wav",
+  "text": "Oh... okay.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.45,
+  "cfg": 0.5
+ },
+ {
+  "out": "/home/rasul/Desktop/Animations/longform25/discipline/vo/mia2/c10_mia2__zoe3.wav",
+  "text": "Oh. Okay then.",
+  "ref": "/home/rasul/Desktop/Animations/longform3d/likes/vo/refs/zoe.wav",
+  "exag": 0.4,
+  "cfg": 0.5
+ }
+]

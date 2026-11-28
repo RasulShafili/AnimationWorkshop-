@@ -42,3 +42,23 @@ Motion check (motion_all) + 728 frames (every 1.5 s, plus 0.7 s offset) at 640 p
 - Captions cover the bottom centre: keep small characters/labels out of that zone (tower shot reframed, NO GAP moved up, 6:59 PM to a corner).
 - Camera paths that move with t (run shots) must stay inside the set: use time within the shot, not chapter time.
 - When appending a "# comment" after an edit, never leave code after it on the same line (it swallowed `who(MAX)`, `audience(...)`, thumb).
+
+## Owner's error list (2026-11-28, ~50 items after my "checked" draft) — root causes and fixes
+- Running: paths written relative to t ((t-1, x-v) → (t+1, x+v)) froze the step phase → characters SLID. show25.walk now takes the phase
+  from the world position for such paths, and run=True uses a real run cycle (show25.run_cycle: flight, knee lift, heel kick, lean,
+  bent pumping arms, limp=). Moving-camera x must use time-in-shot (x0 = a + v*s), never chapter t (camera left the park/path).
+- Furniture: tables drew the top first and legs after (legs over the top) → dlib.table()/bench() (legs far→near, then top, depth-queued).
+  Far-side sitters were painted over the table → table_group: body (no arms) → table → arms only (draw_arms_only).
+- Scale: this cast has 0.54–0.58 m legs. Chairs/sofa/armchair were 0.46–0.53 m high → feet dangled / sitters read as standing.
+  Cast-sized furniture: chairs .36, TABLE_H .60, armchair .36, sofa2 .34, gym bench .38; dlib.sit puts feet on the floor with bent knees.
+  Long dresses hide seated thighs → draw_seated() (short skirt while sitting); 3/4 camera shows sitting better than straight-on.
+- Lying: lie_in_bed (head on pillow, soft quilt_soft hull that drapes, arms under the quilt), lying_r for head-first MRI,
+  sofa lying with the head on the armrest.
+- Exercises: pushup = straight plank heels→shoulders, hands under shoulders, elbows out; bar_lift = real reach (rack → dip → lockout),
+  bar always in the hands.
+- Popping: hall_walk culled students near the camera → never cull; place extras off the camera path (by the lockers), step with feet.
+  Audiences: 40 unique CROWD chars, one fixed seat chart (seat_person) for every view; finish barriers depth-queued.
+- Set-order bugs: TV-studio glass drawn behind the room; drawer was a solid box; MRI bore only on the far face; tower stood BEHIND the
+  street's building row (street(gap=, y0=)); city street popped in at the vanishing point (span 50 → 110); stage curtains can't hide.
+- Voices: never pitch the Chatterbox REF (asetrate) — generate with a clean child ref and raise pitch after with ffmpeg rubberband
+  (formant=shifted, pitchq=quality); one ref for all of a character's lines; check HNR ≥ 6 dB.

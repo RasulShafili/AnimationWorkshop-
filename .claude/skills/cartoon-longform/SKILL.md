@@ -414,3 +414,14 @@ Root causes (all in shared code, so one fix repaired many shots):
 - Keep the caption zone (bottom centre, y≈820–1000 at 1080p; lower in 9:16 teasers) free of labels and small characters.
 - Camera paths that move with chapter time leave the set; use time within the shot.
 - When adding `# comment` to a one-liner, check nothing follows it — it silently deleted draw calls three times.
+
+## Owner's 50-error list (discipline, 2026-11-28) — check these BEFORE saying "done"
+1. Furniture geometry: legs under the top (use `table()`), sitters behind tables drawn body → table → arms.
+2. Furniture sized to the cast (legs ~0.55 m): seat ≈ .34–.36, table ≈ .60. Feet on the floor, knees bent; 3/4 camera for seated shots.
+3. Lying in bed/sofa/MRI: head on the pillow/armrest, soft quilt, head-first into a scanner whose bore shows on the near face.
+4. Running = real run cycle; never write moving paths relative to t without the world-phase fix; camera x from time-in-shot.
+5. Exercises must be physically right (plank push-up, bar never leaves the hands).
+6. No popping: never cull extras, fixed seat charts, no duplicate people in one frame, street span wide enough.
+7. Sets in depth order: glass, barriers, curtains, building rows (gap= for plazas); no props floating (bars on stands, benches with legs).
+8. Child voice: clean child ref + rubberband pitch after; one ref per character.
+QA = motion strips (8 frames at 0.1–0.4 s) at 960 px for every action beat + the full sheets; I missed all of these with stills alone.
